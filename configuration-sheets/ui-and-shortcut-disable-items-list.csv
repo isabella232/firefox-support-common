@@ -1,0 +1,273 @@
+,"無効化に際しては、特に断りがない限りアドオン「UI Text Overrider」および「globalChrome.css」を導入して、MCDおよびglobalChrome.cssにて設定を反映するものとする。
+
+MCDによる設定:
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）"", ""（セレクタ）"");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.disabled"", ""true"");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.hidden"", ""true"");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.readonly"", ""true"");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.command"", """");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.oncommand"", """");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.delayed"", （遅延初期化）);
+
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  （セレクタ） {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,,,,,,,,,,,
+,,,,,,,,,,,,,
+設定項目番号,無効化対象,識別子,Firefox 38,,,,Firefox 31,,,,Firefox 24,,
+,,,ショートカット,セレクタ,遅延初期化,"oncommandを
+空にする",ショートカット,セレクタ,遅延初期化,"oncommandを
+空にする",ショートカット,セレクタ,遅延初期化
+1,閉じたタブを開き直す,undoCloseTab,Ctrl-Shift-T,"#key_undoCloseTab,
+#History\:UndoCloseTab,
+#historyUndoMenu,
+#context_undoCloseTab,
+#PanelUI-recentlyClosedTabs-separator,
+#PanelUI-recentlyClosedTabs",false,yes,変更無し,"#key_undoCloseTab,
+#History\:UndoCloseTab,
+#historyUndoMenu,
+#context_undoCloseTab,
+#PanelUI-recentlyClosedTabs-separator,
+#PanelUI-recentlyClosedTabs",変更無し,yes,Ctrl-Shift-T,"#key_undoCloseTab,
+#History\:UndoCloseTab,
+#historyUndoMenu,
+#context_undoCloseTab",false
+2,閉じたウィンドウを開き直す,undoCloseWindow,Ctrl-Shift-W,"#key_undoCloseWindow,
+#History\:UndoCloseWindow,
+#historyUndoWindowMenu,
+#PanelUI-recentlyClosedWindows-separator,
+#PanelUI-recentlyClosedWindows",false,yes,変更無し,"#key_undoCloseWindow,
+#History\:UndoCloseWindow,
+#historyUndoWindowMenu,
+#PanelUI-recentlyClosedWindows-separator,
+#PanelUI-recentlyClosedWindows",変更無し,yes,Ctrl-Shift-W,"#History\:UndoCloseWindow,
+#historyUndoWindowMenu",false
+3,ファイル＞新しいプライベートウィンドウを開く,undoCloseWindow,Ctrl-Shift-P,"#menu_newPrivateWindow,
+#privatebrowsing-button,
+#wrapper-privatebrowsing-button,
+#key_privatebrowsing,
+#Tools\:PrivateBrowsing,
+#context-openlinkprivate",false,yes,変更無し,"#menu_newPrivateWindow,
+#privatebrowsing-button,
+#wrapper-privatebrowsing-button,
+#key_privatebrowsing,
+#Tools\:PrivateBrowsing,
+#context-openlinkprivate",変更無し,yes,Ctrl-Shift-P,"#appmenu_newPrivateWindow, #menu_newPrivateWindow",false
+4,ファイル＞ページのURLをメールで送信（ページのURLをメールで送信ボタン）,browser_sendLink,-,"#Browser\:SendLink,
+#appmenu_sendLink,
+#menu_sendLink,
+#context-sendpage,
+#email-link-button,
+#wrapper-email-link-button",false,yes,-,"#Browser\:SendLink,
+#appmenu_sendLink,
+#menu_sendLink,
+#context-sendpage,
+#email-link-button,
+#wrapper-email-link-button",変更無し,yes,-,"#Browser\:SendLink,
+#appmenu_sendLink,
+#menu_sendLink,
+#context-sendpage",false
+5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
+6,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
+#Tools\:PrivateBrowsing",false
+7,ツール＞ダウンロード,openDownloads,Ctrl-J,"#key_openDownloads,
+#Tools\:Downloads,
+#menu_openDownloads,
+#downloads-button,
+#wrapper-downloads-button",false,yes,変更無し,"#key_openDownloads,
+#Tools\:Downloads,
+#menu_openDownloads,
+#downloads-button,
+#wrapper-downloads-button",変更無し,yes,Ctrl-J,"#key_openDownloads,
+#Tools\:Downloads,
+#appmenu_downloads,
+#menu_openDownloads",
+8,ツール＞ページの調査,inspectPage,Firefox 31で廃止されたためカスタマイズ不可能,,,,-,廃止,廃止,yes,-,"#key_inspectPage,
+#Tasks\:InspectPage",
+9,ツール＞アプリ,openApps,-,"#menu_openApps,
+#web-apps-button,
+#wrapper-web-apps-button",false,yes,,,,,,,
+10,ツール＞Web開発（開発ツールボタン）,webDeveloper,-,"#webDeveloperMenu,
+#developer-button,
+#wrapper-developer-button",false,yes,-,"#webDeveloperMenu,
+#developer-button,
+#wrapper-developer-button",変更無し,yes,-,"#appmenu_webDeveloper,
+#appmenu_webDeveloper + menuseparator,
+#devToolsSeparator,
+#webDeveloperMenu",false
+11,ツール＞Web開発＞開発ツールを表示,devToolbox,"Ctrl-Shift-I,
+F12","#key_devToolboxMenuItem,
+#key_devToolboxMenuItemF12,
+#Tools\:DevToolbox",false,yes,"Ctrl-Shift-I,
+F12","#key_devToolboxMenuItem,
+#key_devToolboxMenuItemF12,
+#Tools\:DevToolbox",false,yes,-,-,-
+12,ツール＞Web開発＞インスペクタ,inspector,Ctrl-Shift-C,"#key_inspector,
+#Tools\:inspector,
+#devtoolsMenuBroadcaster_inspector,
+#Tasks\:Inspector",true,yes,Ctrl-Shift-C,"#key_inspector,
+#Tools\:inspector,
+#devtoolsMenuBroadcaster_inspector,
+#Tasks\:Inspector",変更無し,yes,Ctrl-Shift-I,"#key_inspector,
+#Tools\:inspector,
+#Tasks\:Inspector",true
+13,ツール＞Web開発＞Webコンソール,webconsole,Ctrl-Shift-K,"#key_webconsole,
+#Tools\:webconsole,
+#devtoolsMenuBroadcaster_webconsole",true,yes,変更無し,"#key_webconsole,
+#Tools\:webconsole,
+#devtoolsMenuBroadcaster_webconsole",変更無し,yes,Ctrl-Shift-K,#key_webconsole,true
+14,ツール＞Web開発＞デバッガ,jsdebugger,Ctrl-Shift-S,"#key_jsdebugger,
+#Tools\:jsdebugger,
+#devtoolsMenuBroadcaster_jsdebugger",true,yes,Ctrl-Shift-S,"#key_jsdebugger,
+#Tools\:jsdebugger,
+#devtoolsMenuBroadcaster_jsdebugger",true,yes,-,-,-
+15,ツール＞Web開発＞スタイルエディタ,styleeditor,Shift+F7,"#key_styleeditor,
+#Tools\:styleeditor,
+#devtoolsMenuBroadcaster_styleeditor",true,yes,変更無し,"#key_styleeditor,
+#Tools\:styleeditor,
+#devtoolsMenuBroadcaster_styleeditor",変更無し,yes,Shift+F7,"#key_styleeditor,
+#Tools\:styleeditor",true
+16,ツール＞Web開発＞パフォーマンス（旧称：プロファイラ）,jsprofiler,Shift＋F5,"#key_jsprofiler,
+#Tools\:jsprofiler,
+#devtoolsMenuBroadcaster_jsprofiler",true,yes,Shift＋F5,"#key_jsprofiler,
+#Tools\:jsprofiler,
+#devtoolsMenuBroadcaster_jsprofiler",true,yes,-,-,-
+17,ツール＞Web開発＞ネットワーク,netmonitor,Ctrl-Shift-Q,"#key_netmonitor,
+#Tools\:netmonitor,
+#devtoolsMenuBroadcaster_netmonitor",true,yes,Ctrl-Shift-Q,"#key_netmonitor,
+#Tools\:netmonitor,
+#devtoolsMenuBroadcaster_netmonitor",true,yes,-,-,-
+18,ツール＞Web開発＞開発ツールバー,devToolbar,Shift+F2,"#menu_devToolbar,
+#devtoolsMenuBroadcaster_DevToolbar,
+#key_devToolbar",true,yes,Shift+F2,"#menu_devToolbar,
+#devtoolsMenuBroadcaster_DevToolbar,
+#key_devToolbar",true,yes,-,-,-
+19,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止されたためカスタマイズ不可能,"#menu_devAppMgr,
+#devtoolsMenuBroadcaster_devAppMgr",true,yes,-,"#menu_devAppMgr,
+#devtoolsMenuBroadcaster_devAppMgr",true,yes,-,-,-
+20,ツール＞Web開発＞WebIDE,webide,Shift+F8,"#menu_webide,
+#devtoolsMenuBroadcaster_webide,
+#key_webide",true,yes,-,"#menu_browserToolbox,
+#devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
+21,ツール＞Web開発＞ブラウザツールボックス,browserToolbox,-,"#menu_browserToolbox,
+#devtoolsMenuBroadcaster_browserToolbox",true,yes,-,"#menu_browserToolbox,
+#devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
+22,ツール＞Web開発＞ブラウザコンソール,browserConsole,Ctrl-Shift-J,"#menu_browserConsole,
+#devtoolsMenuBroadcaster_browserConsole,
+#key_browserConsole",true,yes,変更無し,"#menu_browserConsole,
+#devtoolsMenuBroadcaster_browserConsole,
+#key_browserConsole",true,yes,Ctrl-Shift-J,#key_browserConsole,false
+23,ツール＞Web開発＞レスポンシブデザインビュー,resposiveUI,Ctrl-Shift-M,"#menu_responsiveUI,
+#devtoolsMenuBroadcaster_responsiveUI,
+#key_responsiveUI",true,yes,Ctrl-Shift-M,"#menu_responsiveUI,
+#devtoolsMenuBroadcaster_responsiveUI,
+#key_responsiveUI",true,yes,-,-,-
+24,ツール＞Web開発＞スポイト,eyedropper,-,"#menu_eyedropper,
+#devtoolsMenuBroadcaster_eyedropper",true,yes,-,"#menu_eyedropper,
+#devtoolsMenuBroadcaster_eyedropper",true,yes,-,-,-
+25,ツール＞Web開発＞スクラッチパッド,scratchpad,Shift+F4,"#key_scratchpad,
+#Tools\:Scratchpad",false,yes,変更無し,変更無し,変更無し,yes,Shift+F4,"#key_scratchpad,
+#Tools\:Scratchpad",false
+26,ツール＞Web開発＞ページのソース,viewSource,Ctrl+U,"#key_viewSource,
+#View\:PageSource,
+#devtoolsMenuBroadcaster_PageSource,
+#context-viewsource,
+#context-sep-viewsource,
+#context-viewpartialsource-selection,
+#context-viewpartialsource-mathml",true,yes,変更無し,"#key_viewSource,
+#View\:PageSource,
+#devtoolsMenuBroadcaster_PageSource,
+#context-viewsource,
+#context-sep-viewsource,
+#context-viewpartialsource-selection,
+#context-viewpartialsource-mathml",true,yes,Ctrl+U,"#key_viewSource,
+#View\:\:PageSource",false
+27,ツール＞Web開発＞エラーコンソール,errorConsole,-,"#javascriptConsole,
+#devtoolsMenuBroadcaster_ErrorConsole,
+#Tools\:ErrorConsole",true,yes,-,"#javascriptConsole,
+#devtoolsMenuBroadcaster_ErrorConsole,
+#Tools\:ErrorConsole",true,yes,Ctrl-Shift-J,"#key_errorConsole,
+#menu_ToolsPopup [id^='javaconsole']""",false
+28,ツール＞Web開発＞接続,devtools_connect,-,"#menu_devtools_connect,
+#devtoolsMenuBroadcaster_connect",true,yes,-,"#menu_devtools_connect,
+#devtoolsMenuBroadcaster_connect",true,yes,-,-,-
+29,ツール＞Web開発＞その他のツールを入手,getMoreDevtools,-,"#getMoreDevtools,
+#devtoolsMenuBroadcaster_GetMoreTools",true,yes,-,"#getMoreDevtools,
+#devtoolsMenuBroadcaster_GetMoreTools",true,yes,-,-,-
+30,ヘルプ＞ヘルプ,openHelp,-,"#menu_openHelp,
+.subviewbutton[oncommand^='openHelp']",true,no,-,"#menu_openHelp,
+.subviewbutton[oncommand^='openHelp']",true,no,-,"#appmenu_openHelp,
+#menu_openHelp",false
+31,ヘルプ＞Firefoxツアー,tour,-,"#menu_openTour,
+.subviewbutton[oncommand^='openTourPage']",true,no,-,"#menu_openTour,
+.subviewbutton[oncommand^='openTourPage']",true,no,-,-,-
+32,ヘルプ＞キーボードショートカット,keyboardShortcuts,-,"#menu_keyboardShortcuts,
+.subviewbutton[oncommand^='keyboardShortcuts']",true,no,,,,,,,
+33,ヘルプ＞Firefoxヘルスレポート,healthReport,-,"#healthReport,
+.subviewbutton[oncommand^='openHealthReport']",true,no,-,"#healthReport,
+.subviewbutton[oncommand^='openHealthReport']",true,no,-,"#appmenu_healthReport,
+#healthReport",false
+34,アプリケーションメニュー＞ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
+35,ヘルプ＞トラブルシューティング情報,troubleshootingInfo,-,"#troubleShooting,
+.subviewbutton[oncommand^='openTroubleShootingPage']",true,no,-,"#troubleShooting,
+.subviewbutton[oncommand^='openTroubleShootingPage']",true,no,-,"#appmenu_troubleshootingInfo,
+#troubleShooting",false
+36,ヘルプ＞フィードバックを送信,feedbackPage,-,"#feedbackPage,
+.subviewbutton[oncommand^='openFeedbackPage']",true,no,-,"#feedbackPage,
+.subviewbutton[oncommand^='openFeedbackPage']",true,no,-,"#appmenu_feedbackPage,
+#appmenu_feedbackPage + menuseparator,
+#feedbackPage",false
+37,ヘルプ＞アドオンを無効にして再起動,helpSafeMode,-,"#helpSafeMode,
+.subviewbutton[oncommand^='safeModeRestart']",true,no,-,"#helpSafeMode,
+.subviewbutton[oncommand^='safeModeRestart']",true,no,-,#helpSafeMode,false
+38,ヘルプ＞偽装サイトを報告,reportPhishingtoolmenu,-,"#menu_HelpPopup_reportPhishingtoolmenu,
+.subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",true,no,-,"#menu_HelpPopup_reportPhishingtoolmenu,
+.subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",true,no,-,#menu_HelpPopup_reportPhishingtoolmenu,false
+39,ヘルプ＞誤警告を報告,reportPhishingErrortoolmenu,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
+.subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
+.subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,-,#menu_HelpPopup_reportPhishingErrortoolmenu,false
+40,ヘルプ＞Firefoxについて のセパレータ,aboutSeparator,-,#aboutSeparator,false,yes,-,変更無し,変更無し,yes,-,#aboutSeparator,false
+41,編集＞テキストの記述方向を切り替える,textfieldDirection,-,"#textfieldDirection-separator,
+#textfieldDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#textfieldDirection-separator,
+#textfieldDirection-swap",false
+42,表示＞ページの記述方向を切り替える,documentDirection,-,"#documentDirection-separator,
+#documentDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#documentDirection-separator,
+#documentDirection-swap",false
+43,履歴＞（メニュー内のセパレータ）,historySeparator,-,#startHistorySeparator,false,yes,-,#startHistorySeparator,変更無し,yes,-,"#startHistorySeparator,
+#endHistorySeparator",false
+44,ブックマーク＞（メニュー内の各項目）,bookmarksSeparator,-,"#organizeBookmarksSeparator,
+#bookmarksToolbarSeparator,
+#bookmarksToolbarFolderMenu,
+#panelMenu_viewBookmarksToolbar + toolbarseparator,
+#panelMenu_bookmarksToolbar",false,yes,-,"#organizeBookmarksSeparator,
+#bookmarksToolbarSeparator,
+#bookmarksToolbarFolderMenu,
+#panelMenu_viewBookmarksToolbar + toolbarseparator,
+#panelMenu_bookmarksToolbar",変更無し,yes,-,"#organizeBookmarksSeparator,
+#bookmarksToolbarSeparator,
+#bookmarksToolbarFolderMenu,
+#browserToolsSeparator",false
+45,コンテンツ領域のコンテキストメニュー＞リンクを保存する...,context-marklink,-,#context-marklinkMenu,false,yes,-,#context-marklinkMenu,変更無し,yes,-,#context-marklink,false
+46,コンテンツ領域のコンテキストメニュー＞このリンクを共有,context-sharelink,-,#context-sharelink,false,yes,-,変更無し,変更無し,yes,-,#context-sharelink,false
+47,コンテンツ領域のコンテキストメニュー＞画像のURLをメールで送信,context-sendimage,-,#context-sendimage,false,yes,-,変更無し,変更無し,yes,-,#context-sendimage,false
+48,コンテンツ領域のコンテキストメニュー＞この画像を共有,context-shareimage,-,#context-shareimage,false,yes,-,変更無し,変更無し,yes,-,#context-shareimage,false
+49,コンテンツ領域のコンテキストメニュー＞動画のURLをメールで送信,context-sendvideo,-,#context-sendvideo,false,yes,-,変更無し,変更無し,yes,-,#context-sendvideo,false
+50,コンテンツ領域のコンテキストメニュー＞この動画を共有,context-sharevideo,-,#context-sharevideo,false,yes,-,変更無し,変更無し,yes,-,#context-sharevideo,false
+51,コンテンツ領域のコンテキストメニュー＞オーディオのURLをメールで送信,context-sendaudio,-,#context-sendaudio,false,yes,-,変更無し,変更無し,yes,-,#context-sendaudio,false
+52,コンテンツ領域のコンテキストメニュー＞このページを共有,context-sharepage,,#context-sharepage,false,yes,,変更無し,変更無し,yes,-,#context-sharepage,false
+53,コンテンツ領域のコンテキストメニュー＞ページを保存する...,context-markpageMenu,-,#context-markpageMenu,false,yes,-,#context-markpageMenu,false,yes,-,-,-
+54,コンテンツ領域のコンテキストメニュー＞選択範囲を共有,context-shareselect,-,#context-shareselect,false,yes,-,変更無し,変更無し,yes,-,#context-shareselect,false
+55,コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定,context-setDesktopBackground,-,#context-setDesktopBackground,false,yes,-,変更無し,変更無し,yes,-,#context-setDesktopBackground,false
+56,コンテンツ領域のコンテキストメニュー＞画像をブロック,context-blockimage,Firefox 31で廃止されたためカスタマイズ不可能,,,,-,廃止,廃止,-,-,#context-blockimage,false
+57,コンテンツ領域のコンテキストメニュー＞要素を調査,context-inspect,-,#context-inspect,false,yes,-,変更無し,変更無し,yes,-,#context-inspect,false
+58,ポップアップブロック＞このサイトによるポップアップを許可する,blockedPopupAllowSite,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false
+59,ポップアップブロック＞ポップアップブロック設定を変更,blockedPopupEditSettings,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false
+60,ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）,permissions,-,「UI項目非表示化設定項目一覧」での設定に移動,-,-,-,「UI項目非表示化設定項目一覧」での設定に移動,-,-,-,":root#PermissionsDialog:not([title*='Cookie']) #url,
+:root#PermissionsDialog:not([title*='Cookie']) #btnBlock,
+:root#PermissionsDialog:not([title*='Cookie']) #btnSession,
+:root#PermissionsDialog:not([title*='Cookie']) #btnAllow,
+:root#PermissionsDialog:not([title*='Cookie']) #removePermission,
+:root#PermissionsDialog:not([title*='Cookie']) #removeAllPermissions",true
+61,キャレットブラウズモード,caretbrowse,-,「カスタマイズ項目一覧」での設定を参照,,,,,,,,,
