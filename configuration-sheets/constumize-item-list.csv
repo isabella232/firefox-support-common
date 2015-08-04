@@ -609,7 +609,7 @@ lockPref(""browser.sessionstore.resume_from_crash"", false);
 lockPref(""browser.sessionstore.resume_session_once"", false);
 lockPref(""browser.sessionstore.privacy_level"", 2);
 lockPref(""browser.sessionstore.privacy_level_deferred"", 2);
-lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\:RestoreLastSession”);
+lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\:RestoreLastSession"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.disabled"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.oncommand"", """");
 
@@ -647,7 +647,7 @@ lockPref(""browser.sessionstore.resume_from_crash"", false);
 lockPref(""browser.sessionstore.resume_session_once"", false);
 lockPref(""browser.sessionstore.privacy_level"", 2);
 lockPref(""browser.sessionstore.privacy_level_deferred"", 2);
-lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\:RestoreLastSession”);
+lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\:RestoreLastSession"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.disabled"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.oncommand"", """");
 
@@ -822,7 +822,7 @@ lockPref(""identity.fxaccounts.remote.signup.uri"","""");
 lockPref(""identity.fxaccounts.settings.uri"","""");",-
 57,1,プライバシー,ゲームパッドAPIの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",true);","lockPref(""dom.gamepad.enabled"",true);",-
 57,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",false);","lockPref(""dom.gamepad.enabled"",false);",-
-58,1,プライバシー,Firefox Helloの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(“loop.enabled"",true);","lockPref(“loop.enabled"",true);",-
+58,1,プライバシー,Firefox Helloの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""loop.enabled"",true);","lockPref(""loop.enabled"",true);",-
 58,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -947,9 +947,9 @@ globalChrome.css:
 
 MCD:
 lockPref(""browser.places.smartBookmarksVersion"", -1);
-lockPref(“browser.places.importBookmarksHTML”, false);
-lockPref(“browser.bookmarks.autoExportHTML”, false);
-lockPref(“browser.bookmarks.restore_default_bookmarks”, false);",変更無し,"MCD:
+lockPref(""browser.places.importBookmarksHTML"", false);
+lockPref(""browser.bookmarks.autoExportHTML"", false);
+lockPref(""browser.bookmarks.restore_default_bookmarks"", false);",変更無し,"MCD:
 lockPref(""browser.places.smartBookmarksVersion"", -1); // prevent to build default queries
 
 bookmarks.html:
