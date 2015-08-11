@@ -1204,6 +1204,8 @@ lockPref(""dom.successive_dialog_time_limit"", 3);",,
 92,2,,,,禁止する,Frefox-setup.iniで設定を反映する,MaintenanceService=false,,
 93,1,その他,pdf.jsの利用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);",,
 93,2,,,,禁止する,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", true);",,
+94,1,その他,履歴・ブックマーク用データベースの自動最適化,-,1週間に1回、最低限の最適化のみ行う（既定）,-,-,,
+94,2,,,,1週間に1回、VACUUMも含めて行う（,アドオン「Places Auto Vacuum On Idle」を導入する。,-,,
 94,1,セキュリティ,Adobe Flashプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
