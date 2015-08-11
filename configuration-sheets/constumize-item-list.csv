@@ -1204,3 +1204,54 @@ lockPref(""dom.successive_dialog_time_limit"", 3);",,
 92,2,,,,禁止する,Frefox-setup.iniで設定を反映する,MaintenanceService=false,,
 93,1,その他,pdf.jsの利用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);",,
 93,2,,,,禁止する,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", true);",,
+94,1,セキュリティ,Adobe Flashプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
+94,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+94,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
+95,1,セキュリティ,Adobe Acrobatプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
+95,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+95,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
+96,1,セキュリティ,Shockwaveプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
+96,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+96,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
+97,1,セキュリティ,Silverlightプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
+97,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+97,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
+98,1,セキュリティ,Windows Media Playerプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. np-mswmp.dllを導入する
+1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
+lockPref(""plugins.load_appdir_plugins"", true);",,
+98,2,,,,常に有効化する,"1. np-mswmp.dllを導入する
+1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
+lockPref(""plugins.load_appdir_plugins"", true);",,
+98,3,,,,クリックされたら有効にする,"1. np-mswmp.dllを導入する
+1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
+lockPref(""plugins.load_appdir_plugins"", true);",,
