@@ -1265,11 +1265,11 @@ Shortcuts=desktop-shortcut
 
 [profile]
 Name=NameOfProfile
-RootPath=X:/Path/To/Profiles
+RootPath=X:/Path/To/RootDir
 
 [desktop-shortcut]
 Name=""Mozilla Firefox""
 Path=%AppDir%/firefox.exe
-Options=-profile X:\Path\To\Profiles\NameOfProfile
+Options=-profile X:\Path\To\RootDir\Profiles\NameOfProfile
 TargetUser=all
 TargetLocation=C:/Users/Public/Desktop/",,
