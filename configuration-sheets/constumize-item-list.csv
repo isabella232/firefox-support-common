@@ -2,30 +2,30 @@
 1,1,インストール,インストーラの表示名,-,Fx Meta Installer（既定）,fx-meta-installerビルド時に決定,-,,
 1,2,,,,任意の名前,fx-meta-installerビルド時に決定,"!define PRODUCT_FULL_NAME  ""（名前）""",,
 2,1,インストール,インストーラのファイル名,-,FxMetaInstaller,fx-meta-installerビルド時に決定,-,,
-2,2,v,,,任意の名前,fx-meta-installerビルド時に決定,"!define PRODUCT_NAME  ""（名前）""",,
+2,2,,,,任意の名前,fx-meta-installerビルド時に決定,"!define PRODUCT_NAME  ""（名前）""",,
 3,1,インストール,インストーラのウィザード,-,表示し、操作確認を求める,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""NORMAL""",,
 3,2,,,,表示し、操作確認を求めない（既定）,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""PASSIVE""",,
-3,3,v,,,一切表示しない,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""QUIET""",,
+3,3,,,,一切表示しない,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""QUIET""",,
 4,1,インストール,インストール完了後のメッセージ,-,表示しない（既定）,-,-,,
-4,2,v,,,表示する,fainstall.iniを編集する,"[fainstall]
+4,2,,,,表示する,fainstall.iniを編集する,"[fainstall]
 FinishTitle=Fx Meta Installer
 FinishMessage=インストールが完了しました",,
 5,1,インストール,インストール完了後の再起動要求,-,表示しない（既定）,-,-,,
-5,2,v,,,表示する,fainstall.iniを編集する,"[fainstall]
+5,2,,,,表示する,fainstall.iniを編集する,"[fainstall]
 ConfirmRestartTitle=Fx Meta Installer
 ConfirmRestartMessage=今すぐコンピュータを再起動しますか？",,
 6,1,インストール,インストーラのウィザードの表示言語,-,日本語（既定）,fx-meta-installerビルド時に決定,"!define PRODUCT_LANGUAGE ""Japanese""",,
-6,2,v,,,英語,fx-meta-installerビルド時に決定,"!define PRODUCT_LANGUAGE ""English""",,
+6,2,,,,英語,fx-meta-installerビルド時に決定,"!define PRODUCT_LANGUAGE ""English""",,
 7,1,インストール,Firefox/Thunderbirdの同梱,-,同梱しない（既定）,-,-,,
-7,2,v,,,指定バージョンを同梱する,resources以下にインストーラを同梱,-,,
+7,2,,,,指定バージョンを同梱する,resources以下にインストーラを同梱,-,,
 8,1,インストール,Firefox/Thunderbirdのインストール先,-,既定のインストール先（既定）,-,-,,
-8,2,v,,,任意のインストール先,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
+8,2,,,,任意のインストール先,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 InstallDirectoryName=
 InstallDirectoryPath=",,
 9,1,特定用途専用アプリケーションとしての利用,デスクトップのショートカット,-,Mozilla Firefox（既定）,-,-,,
 9,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 StartMenuShortcuts=false",,
-9,3,v,,,任意の内容で作成,"1. Firefox-setup.ini/Thunderbird-setup.iniを編集する
+9,3,,,,任意の内容で作成,"1. Firefox-setup.ini/Thunderbird-setup.iniを編集する
 2. fainstall.iniを編集する","Firefox-setup.ini/Thunderbird-setup.ini:
 [Install]
 DesktopShortcut=false
@@ -58,7 +58,7 @@ TargetLocation=",,
 11,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 QuickLaunchShortcut=false",,
 12,1,特定用途専用アプリケーションとしての利用,メインウィンドウのタイトル,-,Mozilla Firefox（既定）,-,-,,
-12,2,v,,,任意の内容,"1. アドオン「UI Text Overrider」を導入する
+12,2,,,,任意の内容,"1. アドオン「UI Text Overrider」を導入する
 2. MCDで設定を反映する","var title = ""タイトル"";
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window"", "":root#main-window"");
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title"", title);
@@ -68,7 +68,7 @@ lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_n
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_privatebrowsing"", title + ""（プライベートブラウジング）"");
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_privatebrowsing"", title + ""（プライベートブラウジング）"");",,
 13,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,Mozilla Firefoxアイコン（既定）,-,-,,
-13,2,v,,,任意のアイコン,アイコンをresources/main-window.icoの位置に置く,-,,
+13,2,,,,任意のアイコン,アイコンをresources/main-window.icoの位置に置く,-,,
 14,1,管理者による設定,管理者による設定の制御,-,ローカルのファイルで設定する,"1. default/autoconfig.jsに設定を反映する
 2. autoconfig.cfgに設定を反映する","autoconfig.js:
 pref(""general.config.obscure_value"", 0);
