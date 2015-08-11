@@ -1255,3 +1255,19 @@ lockPref(""plugins.load_appdir_plugins"", true);",,
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
+99,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,
+99,2,,,,任意の位置,fainstall.iniを編集する,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
+
+[fainstall]
+Shortcuts=desktop-shortcut
+
+[profile]
+Name=NameOfProfile
+RootPath=X:/Path/To/Profiles
+
+[desktop-shortcut]
+Name=""Mozilla Firefox""
+Path=%AppDir%/firefox.exe
+Options=-profile X:\Path\To\Profiles\NameOfProfile
+TargetUser=all
+TargetLocation=C:/Users/Public/Desktop/",,
