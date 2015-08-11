@@ -1077,10 +1077,13 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-75,1,ファイルのダウンロード,ファイルの既定のダウンロード先,-,指定する,MCDで設定を反映する,"defaultPref(""browser.open.lastDir"", ""（ディレクトリのパス）"");
+75,1,ファイルのダウンロード,ファイルの既定のダウンロード先,-,指定する：任意,MCDで設定を反映する,"defaultPref(""browser.open.lastDir"", ""（ディレクトリのパス）"");
 defaultPref(""browser.download.lastDir"", ""（ディレクトリのパス）"");",変更無し,"defaultPref(""browser.open.lastDir"", ""（ディレクトリのパス）"");
 defaultPref(""browser.download.lastDir"", ""（ディレクトリのパス）"");"
-75,2,,,,指定しない（既定）,-,-,,
+75,2,,,,指定する：デスクトップ,MCDで設定を反映する,"pref(""browser.open.lastDir"", """");
+pref(""browser.download.lastDir"", """");
+pref(""browser.download.folderList"", 0);",,
+75,3,,,,指定しない（既定）,-,-,,
 76,1,ファイルのダウンロード,ファイルのダウンロード先ディレクトリの制御,-,全体で共通のディレクトリにダウンロードする,MCDで設定を反映する,"lockPref(""browser.download.lastDir.savePerSite"", true);",変更無し,"lockPref(""browser.download.lastDir.savePerSite"", true);"
 76,2,,,,サイトごとにダウンロード先ディレクトリを保持する（既定）,MCDで設定を反映する,"lockPref(""browser.download.lastDir.savePerSite"", false);",変更無し,"lockPref(""browser.download.lastDir.savePerSite"", false);"
 77,1,タブ,複数のタブを閉じる際の警告の可否,-,警告する（既定）,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnClose"", true);","lockPref(""browser.tabs.warnOnClose"", true);","defaultPref(""browser.tabs.warnOnClose"", true);"
