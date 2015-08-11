@@ -1243,18 +1243,18 @@ lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState""
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
 99,1,セキュリティ,Windows Media Playerプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. np-mswmp.dllを導入する
-1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+2. アドオン「Force Addon Status」を導入する
+3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 99,2,,,,常に有効化する,"1. np-mswmp.dllを導入する
-1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+2. アドオン「Force Addon Status」を導入する
+3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 99,3,,,,クリックされたら有効にする,"1. np-mswmp.dllを導入する
-1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+2. アドオン「Force Addon Status」を導入する
+3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 100,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,
