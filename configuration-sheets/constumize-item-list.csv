@@ -219,13 +219,16 @@ globalChrome.css:
 }"
 23,1,セキュリティ,Javaプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",変更無し,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.status"", false);
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.pattern"", ""^Java "");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.status"", false);"
-23,2,,,,常に有効化する,-,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
-23,3,,,,クリックされたら有効にする（既定）,-,-,,
+23,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+23,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
 24,1,セキュリティ,プラグインのインストールの可否,-,許可する（既定）,-,-,,
 24,2,,,,一切禁止する,MCDで設定を反映する,"/*
 プラグインのインストール機能自体が廃止されたため、設定自体が不要となっている。
