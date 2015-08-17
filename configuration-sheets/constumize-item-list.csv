@@ -114,9 +114,9 @@ autoconfig.jsc:
 16,1,管理者によるアドオン導入,Firefoxバージョンアップ時のアドオン更新確認の可否,-,確認する（既定）,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", false);",変更無し,"lockPref(""extensions.shownSelectionUI"", false);"
 16,2,,,,確認しない,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", true);",変更無し,"lockPref(""extensions.shownSelectionUI"", true);"
 17,1,セキュリティ,独自のルート証明書をあらかじめ導入しておく,-,導入する,"1. アドオン「Cert Importer」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.certimporter.importAsCACert.*"", false);
-lockPref(""extensions.certimporter.importAsCACert.（ファイル名）"", true);",変更無し,"lockPref(""extensions.certimporter.importAsCACert.*"", false);
-lockPref(""extensions.certimporter.importAsCACert.（ファイル名）"", true);"
+2. MCDで設定を反映する","lockPref(""extensions.certimporter.importAs.*"", 0);
+lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);",変更無し,"lockPref(""extensions.certimporter.importAs.*"", 0);
+lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);"
 17,2,,,,導入しない（既定）,-,-,,
 18,1,セキュリティ,独自のルート証明書の自動再登録の可否,-,自動的に再登録する,"1. アドオン「Cert Importer」を導入する
 2. MCDで設定を反映する","clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
