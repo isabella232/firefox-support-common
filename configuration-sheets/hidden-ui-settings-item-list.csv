@@ -108,3 +108,21 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }",,
+7,オプション内の「タブグループ」グループにおける「新しいウィンドウではなく新しいタブで開く」,"1. アドオン「globalChrome.css」を導入する
+2. globalChrome.cssで設定を反映する","@-moz-document
+  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+    /* タブグループ */
+    #linkTargeting {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
+8,コンテンツ領域のコンテキストメニューおける「デスクトップの背景に設定」,"1. アドオン「globalChrome.css」を導入する
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #context-setDesktopBackground {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
