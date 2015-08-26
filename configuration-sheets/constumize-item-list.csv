@@ -703,7 +703,7 @@ lockPref(""network.cookie.lifetimePolicy"", 0);",変更無し,"lockPref(""dom.st
 46,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""geo=1"");",,
 46,3,,,,禁止する,MCDで設定を反映する,"lockPref(""geo.enabled"", false);",変更無し,"lockPref(""geo.enabled"", false);"
-47,1,プライバシー,位置情報に基づく検索の可否,-,許可する（既定）,-,-,,
+47,1,プライバシー,検索結果のローカライズ用地域コードの位置情報に基づく推定の可否,-,許可する（既定）,-,-,,
 47,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.search.geoip.url"", """");",,
 48,1,プライバシー,DNSの先読みの可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""network.dns.disablePrefetch"", false);",変更無し,"lockPref(""network.dns.disablePrefetch"", false);"
 48,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.dns.disablePrefetch"", true);",変更無し,"lockPref(""network.dns.disablePrefetch"", true);"
