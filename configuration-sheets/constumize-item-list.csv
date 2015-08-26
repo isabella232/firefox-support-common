@@ -1110,8 +1110,10 @@ true時の挙動がなくなりfalse時の挙動強制となったため実質�
 80,2,,,,タブが1つだけの時は隠す,-,Firefox 31時点で機能が廃止されたためカスタマイズ不可能,廃止,"defaultPref(""browser.tabs.autoHide"", true);"
 81,1,タブ,新しいタブの内容,-,about:newtab（既定）,-,-,,
 81,2,,,,何も表示しない,MCDで設定を反映する,"lockPref(""browser.newtab.url"", ""about:blank"");
-lockPref(""browser.newtabpage.directory.ping"", """");
-lockPref(""browser.newtabpage.directory.source"", """");",,
+lockPref(""browser.newtabpage.enabled"",false);
+lockPref(""browser.newtabpage.enhanced"",false);
+lockPref(""browser.newtabpage.directory.ping"","""");
+lockPref(""browser.newtabpage.directory.source"","""");",,
 82,1,UA文字列の制御,Microsoft .NET Frameworkへの対応,-,対応する,MCDで設定を反映する,"clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
 82,2,,,,対応しない（既定）,-,-,,
 83,1,ネットワーク接続,プロキシの利用,-,利用しない,MCDで設定を反映する,"ockPref(""network.proxy.type"", 0);",変更無し,"lockPref(""network.proxy.type"", 0);"
