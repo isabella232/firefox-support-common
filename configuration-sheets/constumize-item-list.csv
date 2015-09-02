@@ -343,11 +343,9 @@ lockPref(""media.gmp-provider.enabled"",false);
 // ツールバーカスタマイズの方法を説明するページへの誘導の無効化
 lockPref(""browser.customizemode.tip0.learnMoreUrl"", """");
 // 新規タブを開いた時のページにおけるタイル情報の取得、統計情報収集用通信の無効化
-lockPref(""browser.newtabpage.enabled"",false);
-lockPref(""browser.newtabpage.enhanced"",false);
+lockPref(""browser.newtab.url"",""about:blank"");
 lockPref(""browser.newtabpage.directory.ping"","""");
-lockPref(""browser.newtabpage.directory.source"","""");
-",,
+lockPref(""browser.newtabpage.directory.source"","""");",,
 33,1,セキュリティ,フルスクリーン表示の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", true);",,
 33,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,
