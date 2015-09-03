@@ -119,7 +119,7 @@ lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);",変更
 lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);"
 17,2,,,,導入しない（既定）,-,-,,
 18,1,セキュリティ,独自のルート証明書の自動再登録の可否,-,自動的に再登録する,"1. アドオン「Cert Importer」を導入する
-2. MCDで設定を反映する","clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
+2. MCDで設定を反映する","lockPref(""extensions.certimporter.allowRegisterAgain"", true);",変更無し,"lockPref(""extensions.certimporter.allowRegisterAgain"", true);"
 18,2,,,,自動的に再登録しない（既定）,"1. アドオン「Cert Importer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.certimporter.allowRegisterAgain"", false);",変更無し,"lockPref(""extensions.certimporter.allowRegisterAgain"", false);"
 19,1,セキュリティ,アドオンのインストールの可否,○,確認の上で許可する（既定）,-,,,
