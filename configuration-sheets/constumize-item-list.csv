@@ -340,6 +340,7 @@ lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
 lockPref(""media.gmp-eme-adobe"",false);
 lockPref(""media.gmp-eme-adobe.autoupdate"",false);
 lockPref(""media.gmp-provider.enabled"",false);
+lockPref(""media.gmp-provider.enabled"",""media.gmp-manager.url"");
 // ツールバーカスタマイズの方法を説明するページへの誘導の無効化
 lockPref(""browser.customizemode.tip0.learnMoreUrl"", """");
 // 新規タブを開いた時のページにおけるタイル情報の取得、統計情報収集用通信の無効化
