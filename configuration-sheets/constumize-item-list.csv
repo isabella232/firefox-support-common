@@ -146,7 +146,12 @@ globalChrome.css:
     *|button.addon-control.enable,
     *|button.addon-control.disable,
     *|button.addon-control.remove,
-    *|button.addon-control.state
+    *|button.addon-control.state,
+    *|menuitem[id="menuitem_enableItem"],
+    *|menuitem[id="menuitem_disableItem"],
+    *|menuitem[id="menuitem_installItem"],
+    *|menuitem[id="menuitem_uninstallItem"],
+    *|menuitem[id="menuitem_debugItem"]
     {
       visibility: collapse !important;
       -moz-user-focus: none !important;
