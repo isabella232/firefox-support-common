@@ -127,36 +127,11 @@ lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);"
 2. MCDで設定を反映する",-,,
 19,3,,,,禁止する,"1. アドオン「Disable Add-ons」を導入する
 2. アドオン「Permission Auto Registerer」を導入する
-3. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""install=1"");",変更無し,"lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
+3. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.update.mozilla.org"", ""install=0"");
-lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");"
-19,4,,,,禁止するが、設定の変更は許可する,"1. MCDで設定を反映する
-2. アドオン「globalChrome.css」を導入する
-3. globalChrome.cssで設定を反映する","MCD:
-lockPref(""extensions.update.enabled"", false);
-lockPref(""xpinstall.enabled"", false);
-lockPref(""extensions.showMismatchUI"", false);
-
-globalChrome.css:
-@-moz-document
-  url-prefix(""about:addons""),
-  url-prefix(""chrome://mozapps/content/extensions/extensions.xul"")
-  {
-    *|button.addon-control.debug,
-    *|button.addon-control.enable,
-    *|button.addon-control.disable,
-    *|button.addon-control.remove,
-    *|button.addon-control.state,
-    *|menuitem[id="menuitem_enableItem"],
-    *|menuitem[id="menuitem_disableItem"],
-    *|menuitem[id="menuitem_installItem"],
-    *|menuitem[id="menuitem_uninstallItem"],
-    *|menuitem[id="menuitem_debugItem"]
-    {
-      visibility: collapse !important;
-      -moz-user-focus: none !important;
-    }
-}",,
+lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");",,
+19,4,,,,禁止するが、設定の変更は許可する,"1. アドオン「Disable Add-ons」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.disableaddons@clear-code.com.disable.manager"", false);",,
 20,1,セキュリティ,広告などのポップアップの表示の可否,○,確認の上で許可する（既定）,2. アドオン「globalChrome.css」を導入する,"// アドオンのインストールを全てのサイトで禁止
 lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.update.mozilla.org"", ""install=0"");
