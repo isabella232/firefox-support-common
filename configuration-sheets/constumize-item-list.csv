@@ -948,9 +948,9 @@ globalChrome.css:
 
 MCD:
 lockPref(""browser.places.smartBookmarksVersion"", -1);
-lockPref(""browser.places.importBookmarksHTML"", false);
+defaultPref(""browser.places.importBookmarksHTML"", true);
 lockPref(""browser.bookmarks.autoExportHTML"", false);
-lockPref(""browser.bookmarks.restore_default_bookmarks"", false);",変更無し,"MCD:
+defaultPref(""browser.bookmarks.restore_default_bookmarks"", false);",変更無し,"MCD:
 lockPref(""browser.places.smartBookmarksVersion"", -1); // prevent to build default queries
 
 bookmarks.html:
