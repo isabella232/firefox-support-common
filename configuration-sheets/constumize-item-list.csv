@@ -323,7 +323,7 @@ lockPref(""experiments.manifest.uri"", """");
 lockPref(""media.eme.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
-lockPref(""media.gmp-eme-adobe"",false);
+lockPref(""media.gmp-eme-adobe.enabled"",false);
 lockPref(""media.gmp-eme-adobe.autoupdate"",false);
 lockPref(""media.gmp-provider.enabled"",false);
 lockPref(""media.gmp-manager.url"",""about:blank"");
