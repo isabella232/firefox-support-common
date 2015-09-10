@@ -23,6 +23,7 @@ lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.delayed"", 
 1,閉じたタブを開き直す,undoCloseTab,Ctrl-Shift-T,"#key_undoCloseTab,
 #History\:UndoCloseTab,
 #historyUndoMenu,
+#toolbar-context-undoCloseTab,
 #context_undoCloseTab,
 #PanelUI-recentlyClosedTabs-separator,
 #PanelUI-recentlyClosedTabs",false,yes,変更無し,"#key_undoCloseTab,
@@ -211,8 +212,8 @@ F12","#key_devToolboxMenuItem,
 #healthReport",false
 34,アプリケーションメニュー＞ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
 35,ヘルプ＞トラブルシューティング情報,troubleshootingInfo,-,"#troubleShooting,
-.subviewbutton[oncommand^='openTroubleShootingPage']",true,no,-,"#troubleShooting,
-.subviewbutton[oncommand^='openTroubleShootingPage']",true,no,-,"#appmenu_troubleshootingInfo,
+.subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#troubleShooting,
+.subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#appmenu_troubleshootingInfo,
 #troubleShooting",false
 36,ヘルプ＞フィードバックを送信,feedbackPage,-,"#feedbackPage,
 .subviewbutton[oncommand^='openFeedbackPage']",true,no,-,"#feedbackPage,
