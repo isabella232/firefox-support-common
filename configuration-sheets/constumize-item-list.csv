@@ -254,8 +254,8 @@ pref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");
 pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
 pref(""extensions.autopermission.policy.trusted.localfilelinks"",     1);",,
 30,2,,,,禁止する（既定）,-,-,,
-31,1,セキュリティ,ローカルファイルからの他ディレクトリの参照の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", false);",,
-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", true);",,
+31,1,セキュリティ,ローカルファイルからの他ディレクトリの参照の可否,-,許可する,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", false);",,
+31,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", true);",,
 32,1,セキュリティ,その他、バックグラウンドで行われる外部への通信の可否,-,許可する（既定）,-,-,,
 32,2,,,,禁止する,MCDで設定を反映する,"// プラグインのブロック時などの詳細説明のURL
 lockPref(""app.support.baseURL"", """");
