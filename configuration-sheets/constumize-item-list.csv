@@ -1383,5 +1383,13 @@ Plugin-7,3,,,,クリックされたら有効にする,"1. npatgpcp.dllを導入�
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
+Plugin-8,1,プラグイン,Gecko Media Pluginの利用の可否,-,許可する（規定）,-,-,,
+Plugin-8,2,,,,禁止する,MCDで設定を反映する,"lockPref(""media.eme.enabled"",false);
+lockPref(""media.gmp-gmpopenh264.enabled"",false);
+lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
+lockPref(""media.gmp-eme-adobe.enabled"",false);
+lockPref(""media.gmp-eme-adobe.autoupdate"",false);
+lockPref(""media.gmp-provider.enabled"",false);
+lockPref(""media.gmp-manager.url"",""about:blank"");",,
 External-1,1,外部アプリケーションとの連携,ファイルをダウンロードして直接外部アプリケーションで開く時の挙動,-,ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,
 External-1,2,,,,ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExitd"", false);",,
