@@ -160,7 +160,6 @@ Security-5,1,セキュリティ,攻撃サイトに対する警告の可否,-,警
 Security-5,2,,,,警告しない,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
-lockPref(""browser.safebrowsing.enabled"", false);
 lockPref(""browser.safebrowsing.malware.enabled"", false);
 lockPref(""browser.safebrowsing.gethashURL"", """");
 lockPref(""browser.safebrowsing.keyURL"", """");
@@ -619,7 +618,6 @@ lockPref(""browser.sessionstore.max_windows_undo"", 0);
 lockPref(""browser.sessionstore.max_resumed_crashes"", -1);
 lockPref(""browser.sessionstore.max_serialize_back"", 0);
 lockPref(""browser.sessionstore.max_serialize_forward"", 0);
-lockPref(""browser.sessionstore.restore_on_demand"", false);
 lockPref(""browser.sessionstore.resume_from_crash"", false);
 lockPref(""browser.sessionstore.resume_session_once"", false);
 lockPref(""browser.sessionstore.privacy_level"", 2);
@@ -657,7 +655,6 @@ lockPref(""browser.sessionstore.max_windows_undo"", 0);
 lockPref(""browser.sessionstore.max_resumed_crashes"", 0);
 lockPref(""browser.sessionstore.max_serialize_back"", 0);
 lockPref(""browser.sessionstore.max_serialize_forward"", 0);
-lockPref(""browser.sessionstore.restore_on_demand"", false);
 lockPref(""browser.sessionstore.resume_from_crash"", false);
 lockPref(""browser.sessionstore.resume_session_once"", false);
 lockPref(""browser.sessionstore.privacy_level"", 2);
