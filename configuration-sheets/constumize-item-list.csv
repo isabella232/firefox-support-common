@@ -342,6 +342,12 @@ Security-16,1,セキュリティ,フルスクリーン表示の可否,○,確認
 Security-16,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,
 Security-16,3,,,,禁止する,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", false);",,
+Security-17,1,セキュリティ,about:homeからマーケットプレイスへの遷移の可否,-,許可する（規定）,-,-,,
+Security-17,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.apps.URL"", """");",,
+Security-18,1,セキュリティ,ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否,-,許可する（規定）,-,-,,
+Security-18,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.getMoreURL"", """");",,
+Security-19,1,セキュリティ,ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否,-,許可する（規定）,-,-,,
+Security-19,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.recommendedThemes"", """");",,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する
 2. MCDで設定を反映する
@@ -898,6 +904,8 @@ Privacy-29,2,,,,1週間に1回、VACUUMも含めて行う（,アドオン「Plac
 Privacy-30,1,プライバシー,ディスクキャッシュの最大サイズ制限,-,制限しない（既定）,MCDで設定を反映する,"lockPref(""browser.cache.disk.smart_size.enabled"", true);",,
 Privacy-30,2,,,,制限する,MCDで設定を反映する,"lockPref(""browser.cache.disk.smart_size.enabled"", false);
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,
+Privacy-31,1,プライバシー,Firefoxのユーザー評価の送信の可否,-,許可する（規定）,-,-,-,
+Privacy-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");",
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,
