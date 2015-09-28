@@ -180,7 +180,8 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #addonsPhishingGroup {
+  #addonsPhishingGroup,
+  #blockAttackSites {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
@@ -205,7 +206,8 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #addonsPhishingGroup {
+  #addonsPhishingGroup,
+  #blockWebForgeries {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
