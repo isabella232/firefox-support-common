@@ -463,7 +463,7 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #passwordsGroup {
-    Visibility: collapse !important;
+    visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
 }
@@ -503,7 +503,7 @@ globalChrome.css:
 /* パスワード保存の設定UIを隠す */
 @-moz-document url-prefix(""chrome://browser/content/preferences/preferences.xul"") {
   #passwordsGroup {
-    Visibility: collapse !important;
+    visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
 }
