@@ -611,6 +611,9 @@ globalChrome.css:
 40,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.prefetch-next"", false);",変更無し,"lockPref(""network.prefetch-next"", false);"
 41,1,プライバシー,履歴の保存件数の制限,-,制限しない（既定）,-,-,,
 41,2,,,,制限する,MCDで設定を反映する,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",変更無し,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);"
+103,1,プライバシー,日数ベースでの履歴の自動削除,-,日数ベースで履歴を自動削除する,"1. アドオン「expire-history-by-days」もしくは「flexible-expire-history-by-days」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
+lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度);",,
 42,1,プライバシー,セッション情報の保存の可否,-,許可する（既定）,-,-,廃止,"lockPref(""browser.sessionstore.enabled"", true);"
 42,2,,,,禁止する,MCDで設定を反映する,"Firefox 3.5の時点で廃止。
 以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
