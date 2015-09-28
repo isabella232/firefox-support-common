@@ -220,20 +220,8 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-Security-7,1,セキュリティ,Javaプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.status"", false);
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.pattern"", ""^Java "");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.status"", false);"
-Security-7,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
-Security-7,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Security-8,1,セキュリティ,プラグインのインストールの可否,-,許可する（既定）,-,-,,
-Security-8,2,,,,一切禁止する,MCDで設定を反映する,"/*
+Security-7,1,セキュリティ,プラグインのインストールの可否,-,許可する（既定）,-,-,,
+Security-7,2,,,,一切禁止する,MCDで設定を反映する,"/*
 プラグインのインストール機能自体が廃止されたため、設定自体が不要となっている。
 https://wiki.mozilla.org/PFS
 https://bugzilla.mozilla.org/show_bug.cgi?id=836415
@@ -244,37 +232,37 @@ lockPref(""pfs.datasource.url"", """");
 lockPref(""plugins.update.url"", """");
 lockPref(""plugins.hide_infobar_for_missing_plugin"", true);",変更無し,"lockPref(""plugins.hide_infobar_for_missing_plugin"", true);
 lockPref(""plugins.hide_infobar_for_outdated_plugin"", true);"
-Security-9,1,セキュリティ,about:***の利用の可否,-,許可する（既定）,-,-,,
-Security-9,2,,,,禁止する,"1. アドオン「Disable About Something」を導入する
+Security-8,1,セキュリティ,about:***の利用の可否,-,許可する（既定）,-,-,,
+Security-8,2,,,,禁止する,"1. アドオン「Disable About Something」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.disable-about-something@clear-code.com.about.（サフィックス）"",  false);",変更無し,"lockPref(""extensions.disable-about-something@clear-code.com.about.（サフィックス）"",  false);"
-Security-10,1,セキュリティ,about:configの利用の可否,-,許可する（既定）,-,-,,
-Security-10,2,,,,禁止する,アドオン「Disable about:config」を導入する,-,変更無し,-
-Security-11,1,セキュリティ,エラーコンソールの利用の可否,-,許可する,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", true);",変更無し,"lockPref(""devtools.errorconsole.enabled"", true);"
-Security-11,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", false);",変更無し,"lockPref(""devtools.errorconsole.enabled"", false);"
-Security-12,1,セキュリティ,SNS連携機能の利用の可否,-,許可する（既定）,-,-,,
-Security-12,2,,,,禁止する,MCDで設定を反映する,"lockPref(""social.enabled"", false);
+Security-9,1,セキュリティ,about:configの利用の可否,-,許可する（既定）,-,-,,
+Security-9,2,,,,禁止する,アドオン「Disable about:config」を導入する,-,変更無し,-
+Security-10,1,セキュリティ,エラーコンソールの利用の可否,-,許可する,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", true);",変更無し,"lockPref(""devtools.errorconsole.enabled"", true);"
+Security-10,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", false);",変更無し,"lockPref(""devtools.errorconsole.enabled"", false);"
+Security-11,1,セキュリティ,SNS連携機能の利用の可否,-,許可する（既定）,-,-,,
+Security-11,2,,,,禁止する,MCDで設定を反映する,"lockPref(""social.enabled"", false);
 lockPref(""social.directories"", """");
 lockPref(""social.whitelist"", """");
 lockPref(""social.shareDirectory"", """");",,
-Security-13,1,セキュリティ,JavaScriptの実行の可否,○,許可する（既定）,MCDで設定を反映する,"lockPref(""javascript.enabled"", true);",,
-Security-13,2,,,,特定サイトのみ許可する,"1. アドオン「Permission Auto Registerer」を導入する
+Security-12,1,セキュリティ,JavaScriptの実行の可否,○,許可する（既定）,MCDで設定を反映する,"lockPref(""javascript.enabled"", true);",,
+Security-12,2,,,,特定サイトのみ許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","pref(""capability.policy.trusted.sites"", ""(sites)"");
 pref(""capability.policy.trusted.javascript.enabled"", ""allAccess"");
 または
 pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
 pref(""extensions.autopermission.policy.trusted.javascript"",     1);",,
-Security-13,3,,,,禁止する,MCDで設定を反映する,"lockPref(""javascript.enabled"", false);",,
-Security-14,1,セキュリティ,ローカルファイルの読み込みの可否,○,特定サイトのみ許可する,"1. アドオン「Permission Auto Registerer」を導入する
+Security-12,3,,,,禁止する,MCDで設定を反映する,"lockPref(""javascript.enabled"", false);",,
+Security-13,1,セキュリティ,ローカルファイルの読み込みの可否,○,特定サイトのみ許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","pref(""capability.policy.trusted.sites"", ""(sites)"");
 pref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");
 または
 pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
 pref(""extensions.autopermission.policy.trusted.localfilelinks"",     1);",,
-Security-14,2,,,,禁止する（既定）,-,-,,
-Security-15,1,セキュリティ,ローカルファイルからの他ディレクトリの参照の可否,-,許可する,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", false);",,
-Security-15,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", true);",,
-Security-16,1,セキュリティ,その他、バックグラウンドで行われる外部への通信の可否,-,許可する（既定）,-,-,,
-Security-16,2,,,,禁止する,MCDで設定を反映する,"// プラグインのブロック時などの詳細説明のURL
+Security-13,2,,,,禁止する（既定）,-,-,,
+Security-14,1,セキュリティ,ローカルファイルからの他ディレクトリの参照の可否,-,許可する,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", false);",,
+Security-14,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""security.fileuri.strict_origin_policy"", true);",,
+Security-15,1,セキュリティ,その他、バックグラウンドで行われる外部への通信の可否,-,許可する（既定）,-,-,,
+Security-15,2,,,,禁止する,MCDで設定を反映する,"// プラグインのブロック時などの詳細説明のURL
 lockPref(""app.support.baseURL"", """");
 // Webサイトの互換性情報のURL
 lockPref(""breakpad.reportURL"", """");
@@ -350,10 +338,10 @@ lockPref(""browser.customizemode.tip0.learnMoreUrl"", """");
 lockPref(""browser.newtab.url"",""about:blank"");
 lockPref(""browser.newtabpage.directory.ping"","""");
 lockPref(""browser.newtabpage.directory.source"","""");",,
-Security-17,1,セキュリティ,フルスクリーン表示の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", true);",,
-Security-17,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
+Security-16,1,セキュリティ,フルスクリーン表示の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", true);",,
+Security-16,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,
-Security-17,3,,,,禁止する,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", false);",,
+Security-16,3,,,,禁止する,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", false);",,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する
 2. MCDで設定を反映する
@@ -1309,68 +1297,80 @@ Script-2,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン�
 Script-2,3,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.push.enabled"", false);",,
 Script-3,1,Webアプリの動作,ゲームパッドAPIの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",true);","lockPref(""dom.gamepad.enabled"",true);",-
 Script-3,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",false);","lockPref(""dom.gamepad.enabled"",false);",-
-Plugin-1,1,プラグイン,Adobe Flashプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
-lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
+Plugin-1,1,セキュリティ,Javaプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.status"", false);
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.pattern"", ""^Java "");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.status"", false);"
 Plugin-1,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-1,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-2,1,プラグイン,Adobe Acrobatプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+Plugin-2,1,プラグイン,Adobe Flashプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-2,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-2,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-3,1,プラグイン,Shockwaveプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+Plugin-3,1,プラグイン,Adobe Acrobatプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-3,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-3,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-4,1,プラグイン,Silverlightプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+Plugin-4,1,プラグイン,Shockwaveプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-4,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-4,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
+Plugin-5,1,プラグイン,Silverlightプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
+Plugin-5,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+Plugin-5,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-5,1,プラグイン,Windows Media Playerプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. np-mswmp.dllを導入する
+Plugin-6,1,プラグイン,Windows Media Playerプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. np-mswmp.dllを導入する
 2. アドオン「Force Addon Status」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-Plugin-5,2,,,,常に有効化する,"1. np-mswmp.dllを導入する
+Plugin-6,2,,,,常に有効化する,"1. np-mswmp.dllを導入する
 2. アドオン「Force Addon Status」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-Plugin-5,3,,,,クリックされたら有効にする,"1. np-mswmp.dllを導入する
+Plugin-6,3,,,,クリックされたら有効にする,"1. np-mswmp.dllを導入する
 2. アドオン「Force Addon Status」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-Plugin-6,1,プラグイン,Sisco WebExプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. npatgpc.dllを導入する
+Plugin-7,1,プラグイン,Sisco WebExプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. npatgpc.dllを導入する
 2. アドオン「Force Addon Status」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-Plugin-6,2,,,,常に有効化する,"1. npatgpcp.dllを導入する
+Plugin-7,2,,,,常に有効化する,"1. npatgpcp.dllを導入する
 2. アドオン「Force Addon Status」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-Plugin-6,3,,,,クリックされたら有効にする,"1. npatgpcp.dllを導入する
+Plugin-7,3,,,,クリックされたら有効にする,"1. npatgpcp.dllを導入する
 2. アドオン「Force Addon Status」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
