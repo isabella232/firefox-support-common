@@ -1280,3 +1280,18 @@ lockPref(""plugins.load_appdir_plugins"", true);",,
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
+101,1,プラグイン,Sisco WebExプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. npatgpc.dllを導入する
+2. アドオン「Force Addon Status」を導入する
+3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
+lockPref(""plugins.load_appdir_plugins"", true);",,
+101,2,,,,常に有効化する,"1. npatgpcp.dllを導入する
+2. アドオン「Force Addon Status」を導入する
+3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
+lockPref(""plugins.load_appdir_plugins"", true);",,
+101,3,,,,クリックされたら有効にする,"1. npatgpcp.dllを導入する
+2. アドオン「Force Addon Status」を導入する
+3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
+lockPref(""plugins.load_appdir_plugins"", true);",,
