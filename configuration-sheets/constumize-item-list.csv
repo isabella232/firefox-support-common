@@ -907,8 +907,11 @@ lockPref(""lightweightThemes.recommendedThemes"", """");
 lockPref(""devtools.webide.adaptersAddonURL"", """");
 // プッシュ通知受信用のエンドポイントURL。
 lockPref(""services.push.serverURL"", """");",,
-Privacy-30,1,その他,履歴・ブックマーク用データベースの自動最適化,-,1週間に1回、最低限の最適化のみ行う（既定）,-,-,,
+Privacy-30,1,プライバシー,履歴・ブックマーク用データベースの自動最適化,-,1週間に1回、最低限の最適化のみ行う（既定）,-,-,,
 Privacy-30,2,,,,1週間に1回、VACUUMも含めて行う（,アドオン「Places Auto Vacuum On Idle」を導入する。,-,,
+Privacy-31,1,プライバシー,ディスクキャッシュの最大サイズ制限,-,制限しない（既定）,MCDで設定を反映する,"lockPref(""browser.cache.disk.smart_size.enabled"", true);",,
+Privacy-31,2,,,,制限する,MCDで設定を反映する,"lockPref(""browser.cache.disk.smart_size.enabled"", false);
+lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,
@@ -1121,6 +1124,83 @@ lockPref(""browser.newtabpage.enabled"",false);
 lockPref(""browser.newtabpage.enhanced"",false);
 lockPref(""browser.newtabpage.directory.ping"","""");
 lockPref(""browser.newtabpage.directory.source"","""");",,
+Tab-6,1,タブ,新規ウィンドウではなく新規タブで開く,-,許可する（既定）,-,,,
+Tab-6,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.link.open_newwindow"", 2);
+lockPref(""browser.link.open_newwindow.restriction"", 0);",,
+Tab-7,1,タブ,既定の新しいタブで表示する内容,-,ユーザの設定を優先（既定）,-,-,,
+Tab-7,2,タブ,,,白紙で固定,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.newtabpage.enabled”, false);
+lockPref(""browser.newtabpage.enhanced"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""about:newtab""),
+  url-prefix(""chrome://browser/content/newtab/newTab.xul"")
+  {
+  *|*#newtab-customize-panel,
+  *|*[id=""newtab-customize-panel""],
+  *|*#newtab-customize-button,
+  *|*[id=""newtab-customize-button""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
+Tab-7,3,,,,クラシックで固定,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.newtabpage.enabled”, true);
+lockPref(""browser.newtabpage.enhanced"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""about:newtab""),
+  url-prefix(""chrome://browser/content/newtab/newTab.xul"")
+  {
+  *|*#newtab-customize-panel,
+  *|*[id=""newtab-customize-panel""],
+  *|*#newtab-customize-button,
+  *|*[id=""newtab-customize-button""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
+Tab-7,4,,,,拡張で固定,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.newtabpage.enabled”, true);
+lockPref(""browser.newtabpage.enhanced"", true);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""about:newtab""),
+  url-prefix(""chrome://browser/content/newtab/newTab.xul"")
+  {
+  *|*#newtab-customize-panel,
+  *|*[id=""newtab-customize-panel""],
+  *|*#newtab-customize-button,
+  *|*[id=""newtab-customize-button""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
+Tab-7,5,,,,拡張のみ禁止,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.newtabpage.enhanced"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""about:newtab""),
+  url-prefix(""chrome://browser/content/newtab/newTab.xul"")
+  {
+  *|*#newtab-customize-enhanced,
+  *|*[id=""newtab-customize-enhanced""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
 Network-1,1,UA文字列の制御,Microsoft .NET Frameworkへの対応,-,対応する,MCDで設定を反映する,"clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
 Network-1,2,,,,対応しない（既定）,-,-,,
 Network-2,1,ネットワーク接続,プロキシの利用,-,利用しない,MCDで設定を反映する,"ockPref(""network.proxy.type"", 0);",変更無し,"lockPref(""network.proxy.type"", 0);"
@@ -1192,6 +1272,8 @@ Network-2,4,,,,WPADでネットワークのプロキシ設定を自動検出す�
 Network-2,5,,,,システムの設定を利用する（既定）,MCDで設定を反映する,"lockPref(""network.proxy.type"", 5);",変更無し,"lockPref(""network.proxy.type"", 5);"
 Network-3,1,ネットワーク接続,SSL3.0の利用の可否,-,許可する,MCDで設定を反映する,"defaultPref(""security.tls.version.min"", 0);",,
 Network-3,2,,,,禁止する（既定）,MCDで設定を反映する,"defaultPref(""security.tls.version.min"", 1);",,
+Network-4,1,認証,NTLM認証によるシングルサインオンの許可,-,日数ベースで履歴を自動削除する,"1. アドオン「expire-history-by-days」もしくは「flexible-expire-history-by-days」を導入する
+2. MCDで設定を反映する","lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);",変更無し,"lockPref(""app.update.enabled"", true);
@@ -1293,3 +1375,5 @@ Plugin-6,3,,,,クリックされたら有効にする,"1. npatgpcp.dllを導入�
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
+External-1,1,外部アプリケーションとの連携,ファイルをダウンロードして直接外部アプリケーションで開く時の挙動,-,ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,
+External-1,2,,,,ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExitd"", false);",,
