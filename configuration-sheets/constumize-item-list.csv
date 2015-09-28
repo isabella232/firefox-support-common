@@ -69,6 +69,23 @@ lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_privatebr
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_privatebrowsing"", title + ""（プライベートブラウジング）"");",,
 13,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,Mozilla Firefoxアイコン（既定）,-,-,,
 13,2,,,,任意のアイコン,アイコンをresources/main-window.icoの位置に置く,-,,
+100,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,
+100,2,,,,任意の位置,fainstall.iniを編集する,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
+
+[fainstall]
+Shortcuts=desktop-shortcut
+
+[profile]
+TargetUser=all
+Name=NameOfProfile
+RootPath=X:/Path/To/RootDir
+
+[desktop-shortcut]
+Name=""Mozilla Firefox""
+Path=%AppDir%/firefox.exe
+Options=-profile X:\Path\To\RootDir\Profiles\NameOfProfile
+TargetUser=all
+TargetLocation=C:/Users/Public/Desktop/",,
 14,1,管理者による設定,管理者による設定の制御,-,ローカルのファイルで設定する,"1. default/autoconfig.jsに設定を反映する
 2. autoconfig.cfgに設定を反映する","autoconfig.js:
 pref(""general.config.obscure_value"", 0);
@@ -1260,19 +1277,3 @@ lockPref(""plugins.load_appdir_plugins"", true);",,
 3. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-100,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,
-100,2,,,,任意の位置,fainstall.iniを編集する,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
-
-[fainstall]
-Shortcuts=desktop-shortcut
-
-[profile]
-Name=NameOfProfile
-RootPath=X:/Path/To/RootDir
-
-[desktop-shortcut]
-Name=""Mozilla Firefox""
-Path=%AppDir%/firefox.exe
-Options=-profile X:\Path\To\RootDir\Profiles\NameOfProfile
-TargetUser=all
-TargetLocation=C:/Users/Public/Desktop/",,
