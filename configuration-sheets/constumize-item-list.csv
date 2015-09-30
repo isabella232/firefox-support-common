@@ -22,6 +22,9 @@ Install-8,1,インストール,Firefox/Thunderbirdのインストール先,-,既
 Install-8,2,,,,任意のインストール先,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 InstallDirectoryName=
 InstallDirectoryPath=",,
+Install-9,1,インストール,メタインストーラの表示バージョン,-,指定しない（規定）,-,-,,
+Install-9,2,,,,指定する,fainstall.iniを編集する,"[Install]
+DisplayVersion=バージョン番号",,
 Application-1,1,特定用途専用アプリケーションとしての利用,デスクトップのショートカット,-,Mozilla Firefox（既定）,-,-,,
 Application-1,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 StartMenuShortcuts=false",,
