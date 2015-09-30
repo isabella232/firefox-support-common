@@ -973,7 +973,7 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-Startup-4,1,起動時の挙動の制御,バージョンアップ語の初回起動時における、バージョンアップ完了案内のタブの表示の可否,-,許可する（既定）,-,-,変更無し,-
+Startup-4,1,起動時の挙動の制御,バージョンアップ後の初回起動時における、バージョンアップ完了案内のタブの表示の可否,-,許可する（既定）,-,-,変更無し,-
 Startup-4,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.startup.homepage_override.mstone"", ""ignore"");",変更無し,"lockPref(""browser.startup.homepage_override.mstone"", ""ignore"");"
 Startup-5,1,起動時の挙動の制御,初期状態のブックマーク,-,書記項目を使う（既定）,-,-,,
 Startup-5,2,,,,空にする,"1. 空のbookmarks.htmlをdefault/profile/に設置する
