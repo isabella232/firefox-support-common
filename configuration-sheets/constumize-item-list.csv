@@ -927,7 +927,7 @@ Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザ�
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,
 Startup-2,1,起動時の挙動の制御,起動時のホームページの指定,-,ユーザが指定（既定）,-,-,,
-Startup-2,2,,,,管理者が指定,distribution.iniに設定を反映する,"[Global]
+Startup-2,2,,,,管理者が指定し、変更を許可,distribution.iniに設定を反映する,"[Global]
 id=（導入先ID）
 version=（バージョン）
 about=Mozilla Firefox
@@ -948,6 +948,21 @@ about=Mozilla Firefox
 
 [LocalizablePreferences]
 browser.startup.homepage=""（URL）"""
+Startup-2,3,,,,管理者が指定し、変更を禁止,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(“browser.startup.homepage”, “(URL)”);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  .homepage-buttons {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,
 Startup-3,1,起動時の挙動の制御,既定のブラウザでなかった場合の、起動時における既定のブラウザにするかどうかの確認の可否,-,確認する（既定）,MCDで設定を反映する,"lockPref(""browser.shell.checkDefaultBrowser"", true);",変更無し,"lockPref(""browser.shell.checkDefaultBrowser"", true);"
 Startup-3,2,,,,確認しない,MCDで設定を反映する,"MCD:
 lockPref(""browser.shell.checkDefaultBrowser"", false);
