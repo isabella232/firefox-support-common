@@ -1078,7 +1078,9 @@ lockPref(""browser.download.manager.addToRecentDocs"", false);
 globalChrome.css:
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #downloads-button,
-  #wrapper-downloads-button {
+  #wrapper-downloads-button,
+  #downloads-animation-container,
+  #downloads-notification-anchor {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
