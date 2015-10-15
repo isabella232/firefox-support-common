@@ -89,6 +89,11 @@ Path=%AppDir%/firefox.exe
 Options=-profile X:\Path\To\RootDir\Profiles\NameOfProfile
 TargetUser=all
 TargetLocation=C:/Users/Public/Desktop/",,
+Application-7,1,ブランディング,ノーブランド化,-,しない（オフィシャル版を使用）,,,,
+Application-7,2,,,,表示上の名称のみ変更する,"1. 所定の手順に則り、言語リソースとブランディング関連リソースを修正する
+2. ビルドする",長いブランド名、短いブランド名を指定,,
+Application-7,3,,,,内部名も含めて変更する,"1. 所定の手順に則り、言語リソース、ブランディング関連リソース、動作上の内部名を定義している箇所を修正する
+2. ビルドする",長いブランド名、短いブランド名を指定,,
 Admin-1,1,管理者による設定,管理者による設定の制御,-,ローカルのファイルで設定する,"1. default/autoconfig.jsに設定を反映する
 2. autoconfig.cfgに設定を反映する","autoconfig.js:
 pref(""general.config.obscure_value"", 0);
