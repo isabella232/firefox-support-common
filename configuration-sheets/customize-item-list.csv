@@ -25,7 +25,7 @@ InstallDirectoryPath=",,
 Install-9,1,インストール,メタインストーラの表示バージョン,-,指定しない（規定）,-,-,,
 Install-9,2,,,,指定する,fainstall.iniを編集する,"[Install]
 DisplayVersion=バージョン番号",,
-Application-1,1,特定用途専用アプリケーションとしての利用,デスクトップのショートカット,-,Mozilla Firefox（既定）,-,-,,
+Application-1,1,特定用途専用アプリケーションとしての利用,デスクトップのショートカット,-,既定の内容で作成（既定）,-,-,,
 Application-1,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 StartMenuShortcuts=false",,
 Application-1,3,,,,任意の内容で作成,"1. Firefox-setup.ini/Thunderbird-setup.iniを編集する
@@ -45,7 +45,7 @@ IconPath=C:/path/to/icon.ico
 Options=https://example.com/
 TargetUser=all
 TargetLocation=C:/Users/Public/Desctop/",,
-Application-2,1,特定用途専用アプリケーションとしての利用,スタートメニューのショートカット,-,Mozilla Firefox（既定）,-,-,,
+Application-2,1,特定用途専用アプリケーションとしての利用,スタートメニューのショートカット,-,既定の内容で作成（既定）,-,-,,
 Application-2,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 StartMenuShortcuts=false",,
 Application-2,3,,,,任意の内容で作成,"1.Firefox-setup.ini/Thunderbird-setup.iniを編集する
@@ -57,10 +57,10 @@ IconPath=C:/path/to/icon.ico
 Options=https://example.com/
 TargetUser=all
 TargetLocation=",,
-Application-3,1,特定用途専用アプリケーションとしての利用,クイック起動のショートカット,-,Mozilla Firefox（既定）,-,-,,
+Application-3,1,特定用途専用アプリケーションとしての利用,クイック起動のショートカット,-,既定の内容で作成（既定）,-,-,,
 Application-3,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 QuickLaunchShortcut=false",,
-Application-4,1,特定用途専用アプリケーションとしての利用,メインウィンドウのタイトル,-,Mozilla Firefox（既定）,-,-,,
+Application-4,1,特定用途専用アプリケーションとしての利用,メインウィンドウのタイトル,-,既定の名前（既定）,-,-,,
 Application-4,2,,,,任意の内容,"1. アドオン「UI Text Overrider」を導入する
 2. MCDで設定を反映する","var title = ""タイトル"";
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window"", "":root#main-window"");
@@ -70,7 +70,7 @@ lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_normal"",
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_normal"", title);
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_privatebrowsing"", title + ""（プライベートブラウジング）"");
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_privatebrowsing"", title + ""（プライベートブラウジング）"");",,
-Appliaction-5,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,Mozilla Firefoxアイコン（既定）,-,-,,
+Appliaction-5,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,既定のアイコン（既定）,-,-,,
 Appliaction-5,2,,,,任意のアイコン,アイコンをresources/main-window.icoの位置に置く,-,,
 Application-6,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,
 Application-6,2,,,,任意の位置,fainstall.iniを編集する,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
