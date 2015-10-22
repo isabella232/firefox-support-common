@@ -1161,7 +1161,7 @@ Tab-6,1,タブ,新規ウィンドウではなく新規タブで開く,-,許可�
 Tab-6,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.link.open_newwindow"", 2);
 lockPref(""browser.link.open_newwindow.restriction"", 0);",,
 Tab-7,1,タブ,既定の新しいタブで表示する内容,-,ユーザの設定を優先（既定）,-,-,,
-Tab-7,2,タブ,,,白紙で固定,"1. MCDで設定を反映する
+Tab-7,2,,,,白紙で固定,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.newtabpage.enabled”, false);

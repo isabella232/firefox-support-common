@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>cross directory</title>
+<script type="application/javascript"><!--
+function loadFile(aURI) {
+  var result;
+  try {
+    var request = new XMLHttpRequest();
+    request.open('GET', aURI, false);
+    request.send(null);
+    result = request.status;
+  }
+  catch(error) {
+    result = error;
+  }
+  var container = document.createElement('pre');
+  document.documentElement.appendChild(container);
+  container.textContent = aURI + ': ' + result;
+}
+loadFile('./cross-directory.html');
+loadFile('../configuration-sheets/constumize-item-list.csv');
+--></script>
