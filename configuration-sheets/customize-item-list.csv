@@ -246,7 +246,7 @@ Security-9,2,,,,禁止する,アドオン「Disable about:config」を導入す�
 Security-10,1,セキュリティ,エラーコンソールの利用の可否,-,許可する,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", true);",変更無し,"lockPref(""devtools.errorconsole.enabled"", true);"
 Security-10,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", false);",変更無し,"lockPref(""devtools.errorconsole.enabled"", false);"
 Security-11,1,セキュリティ,SNS連携機能の利用の可否,-,許可する（既定）,-,-,,
-Security-11,2,,,,禁止する,MCDで設定を反映する,"lockPref(""social.enabled"", false);
+Security-11,2,,,,禁止する,MCDで設定を反映する,"lockPref(""social.activeProviders"", """");
 lockPref(""social.directories"", """");
 lockPref(""social.whitelist"", """");
 lockPref(""social.shareDirectory"", """");",,
