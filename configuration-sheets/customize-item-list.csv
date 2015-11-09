@@ -309,8 +309,6 @@ lockPref(""browser.dictionaries.download.url"", """");
 lockPref(""browser.geolocation.warning.infoURL"", """");
 // 位置情報をWi-Fiアクセスポイントから取得するためのURL
 lockPref(""geo.wifi.uri"", """");
-// SSLの有無が混在しているページでの警告文のURL
-lockPref(""browser.mixedcontent.warning.infoURL"", """");
 // 検索プロバイダ（検索エンジン）の取得元URL
 lockPref(""browser.search.searchEnginesURL"", """");
 // 検索で使用する地域情報の取得元URL
