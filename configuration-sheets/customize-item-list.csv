@@ -742,10 +742,6 @@ Privacy-18,1,プライバシー,利用状況の統計の保存および送信の
 Privacy-18,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
-if (typeof getPref(""toolkit.telemetry.prompted"") == ""boolean"")
-  clearPref(""toolkit.telemetry.prompted"");
-lockPref(""toolkit.telemetry.prompted"", 2);
-lockPref(""toolkit.telemetry.rejected"", true);
 lockPref(""toolkit.telemetry.enabled"", false);
 lockPref(""toolkit.telemetry.infoURL"", """");
 lockPref(""toolkit.telemetry.server"", """");
