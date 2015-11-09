@@ -170,8 +170,6 @@ Security-5,2,,,,警告しない,"1. MCDで設定を反映する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.safebrowsing.malware.enabled"", false);
 lockPref(""browser.safebrowsing.gethashURL"", """");
-lockPref(""browser.safebrowsing.keyURL"", """");
-lockPref(""browser.safebrowsing.malware"", """");
 lockPref(""browser.safebrowsing.malware.reportURL"", """");
 lockPref(""browser.safebrowsing.reportErrorURL"", """");
 lockPref(""browser.safebrowsing.reportGenericURL"", """");
@@ -180,7 +178,6 @@ lockPref(""browser.safebrowsing.reportMalwareURL"", """");
 lockPref(""browser.safebrowsing.reportPhishURL"", """");
 lockPref(""browser.safebrowsing.reportURL"", """");
 lockPref(""browser.safebrowsing.updateURL"", """");
-lockPref(""browser.safebrowsing.warning.infoURL"", """");
 lockPref(""browser.safebrowsing.appRepURL"", """");
 
 globalChrome.css:
