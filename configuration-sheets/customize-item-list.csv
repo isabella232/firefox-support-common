@@ -150,12 +150,12 @@ Security-2,2,,,,自動的に再登録しない（既定）,"1. アドオン「Ce
 Security-3,1,セキュリティ,アドオンのインストールの可否,○,確認の上で許可する（既定）,-,,,
 Security-3,2,,,,特定サイトのみ許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する",-,,
-Security-3,3,,,,禁止する,"1. アドオン「Disable Add-ons」を導入する
+Security-3,3,,,,禁止する,"1. アドオン「Disable Addons」を導入する
 2. アドオン「Permission Auto Registerer」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.update.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");",,
-Security-3,4,,,,禁止するが、設定の変更は許可する,"1. アドオン「Disable Add-ons」を導入する
+Security-3,4,,,,禁止するが、設定の変更は許可する,"1. アドオン「Disable Addons」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.disableaddons@clear-code.com.disable.manager"", false);",,
 Security-4,1,セキュリティ,広告などのポップアップの表示の可否,○,確認の上で許可する（既定）,-,,,
 Security-4,2,,,,特定サイトのみ確認無しで許可する,"1. アドオン「Permission Auto Registerer」を導入する
@@ -609,9 +609,9 @@ Privacy-7,1,プライバシー,リンク先の先読みの可否,-,許可する�
 Privacy-7,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.prefetch-next"", false);",変更無し,"lockPref(""network.prefetch-next"", false);"
 Privacy-8,1,プライバシー,履歴の保存件数の制限,-,制限しない（既定）,-,-,,
 Privacy-8,2,,,,制限する,MCDで設定を反映する,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",変更無し,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);"
-Privacy-9,1,プライバシー,日数ベースでの履歴の自動削除,-,日数ベースで履歴を自動削除する,"1. アドオン「expire-history-by-days」もしくは「flexible-expire-history-by-days」を導入する
+Privacy-9,1,プライバシー,日数ベースでの履歴の自動削除,-,日数ベースで履歴を自動削除する,"1. アドオン「Expire history by days」もしくは「Flexible Expire History by Days」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
-lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度);",,
+lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,
 Privacy-10,1,プライバシー,セッション情報の保存の可否,-,許可する（既定）,-,-,廃止,"lockPref(""browser.sessionstore.enabled"", true);"
 Privacy-10,2,,,,禁止する,MCDで設定を反映する,"Firefox 3.5の時点で廃止。
 以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
@@ -1296,15 +1296,14 @@ Network-2,4,,,,WPADでネットワークのプロキシ設定を自動検出す�
 Network-2,5,,,,システムの設定を利用する（既定）,MCDで設定を反映する,"lockPref(""network.proxy.type"", 5);",変更無し,"lockPref(""network.proxy.type"", 5);"
 Network-3,1,ネットワーク接続,SSL3.0の利用の可否,-,許可する,MCDで設定を反映する,"defaultPref(""security.tls.version.min"", 0);",,
 Network-3,2,,,,禁止する（既定）,MCDで設定を反映する,"defaultPref(""security.tls.version.min"", 1);",,
-Network-4,1,認証,NTLM認証によるシングルサインオンの許可,-,日数ベースで履歴を自動削除する,"1. アドオン「expire-history-by-days」もしくは「flexible-expire-history-by-days」を導入する
-2. MCDで設定を反映する","lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,
+Network-4,1,認証,NTLM認証によるシングルサインオンの許可,-,許可する,MCDで設定を反映する,"lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);",変更無し,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);"
 Update-1,2,,,,セキュリティアップデートのみ許可する,アドオン「Only Minor Update」を導入する,-,,
-Update-1,3,,,,禁止する,"1. アドオン「Disable Auto Update」を導入する
+Update-1,3,,,,禁止する,"1. アドオン「Disable Auto-update」を導入する
 2. MCDで設定を反映する","lockPref(""app.update.enabled"", false);
 lockPref(""app.update.auto"", false);
 lockPref(""app.update.mode"", 0);
