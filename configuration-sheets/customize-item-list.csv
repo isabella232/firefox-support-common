@@ -919,6 +919,8 @@ Privacy-30,2,,,,制限する,MCDで設定を反映する,"lockPref(""browser.cac
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,
 Privacy-31,1,プライバシー,Firefoxのユーザー評価の送信の可否,-,許可する（規定）,-,-,-,
 Privacy-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");",
+Privacy-32,1,プライバシー,リンクのhoverによるリンク先の先読みの可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 6);",,
+Privacy-32,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 0);",,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,
@@ -1297,6 +1299,12 @@ Network-2,5,,,,システムの設定を利用する（既定）,MCDで設定を�
 Network-3,1,ネットワーク接続,SSL3.0の利用の可否,-,許可する,MCDで設定を反映する,"defaultPref(""security.tls.version.min"", 0);",,
 Network-3,2,,,,禁止する（既定）,MCDで設定を反映する,"defaultPref(""security.tls.version.min"", 1);",,
 Network-4,1,認証,NTLM認証によるシングルサインオンの許可,-,許可する,MCDで設定を反映する,"lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,
+Network-5,1,ネットワーク接続,HTTPの同時接続数,-,パフォーマンスを優先（既定）,MCDで設定を反映する,"lockPref(“network.http.max-persistent-connections-per-server”, 6);
+lockPref(“network.http.max-persistent-connections-per-proxy”, 32);
+lockPref(“network.http.max-connections”, 256);",,
+Network-5,2,,,,トラフィックを抑える事を優先,MCDで設定を反映する,"lockPref(“network.http.max-persistent-connections-per-server”, 4);
+lockPref(“network.http.max-persistent-connections-per-proxy”, xx);
+lockPref(“network.http.max-connections”, xxx);",,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);",変更無し,"lockPref(""app.update.enabled"", true);
