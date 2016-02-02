@@ -1729,3 +1729,7 @@ lockPref(""media.gmp-provider.enabled"",false);
 lockPref(""media.gmp-manager.url"",""about:blank"");",,
 External-1,1,外部アプリケーションとの連携,ファイルをダウンロードして直接外部アプリケーションで開く時の挙動,-,ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);","lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,
 External-1,2,,,,ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExitd"", false);","lockPref(""browser.helperApps.deleteTempFileOnExitd"", false);",,
+Stability-1,1,動作の安定性,ハードウェアアクセラレーションを有効化するかどうか,-,有効化する（安定性より描画性能を優先する）,MCDで設定を反映する,"lockPref(""gfx.direct2d.disabled"", false);
+lockPref(""layers.acceleration.disabled"", false);",,,
+Stability-1,2,,,,無効化する（描画性能より安定性を優先する）,MCDで設定を反映する,"lockPref(""gfx.direct2d.disabled"", true);
+lockPref(""layers.acceleration.disabled"", true);",,,
