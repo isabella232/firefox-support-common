@@ -43,7 +43,8 @@ Name=ショートカット名
 Path=%AppDir%/firefox.exe
 IconPath=C:/path/to/icon.ico
 Options=https://example.com/
-TargetUse","Firefox-setup.ini/Thunderbird-setup.ini:
+TargetUser=all
+TargetLocation=C:/Users/Public/Desktop/","Firefox-setup.ini/Thunderbird-setup.ini:
 [Install]
 DesktopShortcut=false
 
@@ -56,7 +57,8 @@ Name=ショートカット名
 Path=%AppDir%/firefox.exe
 IconPath=C:/path/to/icon.ico
 Options=https://example.com/
-TargetUse",,
+TargetUser=all
+TargetLocation=C:/Users/Public/Desktop/",,
 Application-2,1,特定用途専用アプリケーションとしての利用,スタートメニューのショートカット,-,既定の内容で作成（既定）,-,-,-,,
 Application-2,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 StartMenuShortcuts=false","[Install]
@@ -75,7 +77,8 @@ Name=ショートカット名
 Path=%AppDir%/firefox.exe
 IconPath=C:/path/to/icon.ico
 Options=https://example.com/
-Target","Firefox-setup.ini/Thunderbird-setup.ini:
+TargetUser=all
+TargetLocation=C:/ProgramData/Microsoft/Windows/Start Menu/Programs","Firefox-setup.ini/Thunderbird-setup.ini:
 [Install]
 StartMenuShortcuts=false
 
@@ -160,7 +163,10 @@ pref(""general.config.vendor"", ""autoconfig"");
 
 autoconfig.cfg:
 // the first line is always ignored by Firefox itself
-pref(""autoadmin.global_config_ur","autoconfig.js:
+pref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
+
+autoconfig.jsc:
+…","autoconfig.js:
 pref(""general.config.obscure_value"", 0);
 pref(""general.config.filename"", ""autoconfig.cfg"");
 pref(""general.config.vendor"", ""autoconfig"");
@@ -186,6 +192,8 @@ Admin-2,1,管理者によるアドオン導入,初回起動時のアドオン導
 Admin-2,2,,,,警告しない,MCDで設定を反映する,"lockPref(""extensions.autoDisableScopes"", 11);","lockPref(""extensions.autoDisableScopes"", 11);",変更無し,"lockPref(""extensions.autoDisableScopes"", 11);"
 Admin-3,1,管理者によるアドオン導入,Firefoxバージョンアップ時のアドオン更新確認の可否,-,確認する（既定）,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", false);","lockPref(""extensions.shownSelectionUI"", false);",変更無し,"lockPref(""extensions.shownSelectionUI"", false);"
 Admin-3,2,,,,確認しない,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", true);","lockPref(""extensions.shownSelectionUI"", true);",変更無し,"lockPref(""extensions.shownSelectionUI"", true);"
+Admin-4,1,管理者によるアドオン導入,Mozillaにより署名されていないアドオンのインストールパッケージの使用の可否,-,許可する,MCDで設定を反映する,"lockPref(""xpinstall.signatures.required"", false);",,,
+Admin-4,2,,,,禁止する（規定）,MCDで設定を反映する,"lockPref(""xpinstall.signatures.required"", true);",,,
 Security-1,1,セキュリティ,独自のルート証明書をあらかじめ導入しておく,-,導入する,"1. アドオン「Cert Importer」を導入する
 2. アドオン「Auto Confirm」を導入する
 3. MCDで設定を反映する","// Cert Importer
@@ -234,9 +242,27 @@ Security-5,2,,,,警告しない,"1. MCDで設定を反映する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.safebrowsing.malware.enabled"", false);
 lockPref(""browser.safebrowsing.gethashURL"", """");
-lockPref(""browser.safebrowsing.keyURL"", """");
-lockPref(""browser.safebrowsing.malware"", """");
-lockPref(""browser.safebrowsing.malware.reportURL"", """"","MCD:
+lockPref(""browser.safebrowsing.malware.reportURL"", """");
+lockPref(""browser.safebrowsing.reportErrorURL"", """");
+lockPref(""browser.safebrowsing.reportGenericURL"", """");
+lockPref(""browser.safebrowsing.reportMalwareErrorURL"", """");
+lockPref(""browser.safebrowsing.reportMalwareURL"", """");
+lockPref(""browser.safebrowsing.reportPhishURL"", """");
+lockPref(""browser.safebrowsing.reportURL"", """");
+lockPref(""browser.safebrowsing.updateURL"", """");
+lockPref(""browser.safebrowsing.appRepURL"", """");
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #addonsPhishingGroup,
+  #blockAttackSites {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.safebrowsing.malware.enabled"", false);
 lockPref(""browser.safebrowsing.gethashURL"", """");
 lockPref(""browser.safebrowsing.malware.reportURL"", """");
@@ -279,7 +305,13 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefix(""ab","MCD:
+  url-prefix(""about:preferences"") {
+  #addonsPhishingGroup,
+  #blockWebForgeries {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.safebrowsing.enabled"", false);
 
 globalChrome.css:
@@ -428,6 +460,22 @@ Security-18,1,セキュリティ,ツールバーカスタマイズにおける�
 Security-18,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.getMoreURL"", """");","lockPref(""lightweightThemes.getMoreURL"", """");",,
 Security-19,1,セキュリティ,ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否,-,許可する（規定）,-,-,-,,
 Security-19,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.recommendedThemes"", """");","lockPref(""lightweightThemes.recommendedThemes"", """");",,
+Security-20,1,セキュリティ,パーミッション設定変更の可否,-,変更を許可する（既定）,-,,,,
+Security-20,2,,,,変更を禁止する,"1. アドオン「globalChrome.css」を導入する
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #identity-popup-permissions-content,
+  #identity-popup-securityView-body button {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix(""chrome://browser/content/pageinfo/pageInfo.xul"") {
+  #permTab,
+  #permPanel {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,-,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する
 2. MCDで設定を反映する
@@ -439,7 +487,12 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefi","MCD:
+  url-prefix(""about:preferences"") {
+  #privateBrowsingAutoStart {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.privatebrowsing.autostart"", false);
 
 globalChrome.css:
@@ -474,7 +527,12 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefix(""about:p","MCD:
+  url-prefix(""about:preferences"") {
+  #rememberForms {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.formfill.enable"", false);
 
 globalChrome.css:
@@ -529,7 +587,13 @@ lockPref(""browser.urlbar.maxRichResults"", -1);
 globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
-  url-prefix(""chrome://browser/content/pref","MCD:
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #locationBarGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.urlbar.autocomplete.enabled"", false);
 lockPref(""browser.urlbar.maxRichResults"", -1);
 
@@ -564,7 +628,49 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-","MCD:
+  url-prefix(""about:preferences"") {
+  #passwordsGroup {
+    Visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+/* パスワードマネージャのUIを隠す */
+@-moz-document url-prefix(""chrome://passwordmgr/content/passwordManager.xul"") {
+:root > * { display: none !important; }
+  #signonsTree,
+  #removeSignon,
+  #removeAllSignons,
+  #togglePasswords {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
+@-moz-document url-prefix(""chrome://passwordmgr/content/passwordManagerExceptions.xul"") {
+:root > * { display: none !important; }
+  #rejectsTree,
+  #removeReject,
+  #removeAllRejects {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
+/* マスターパスワード関連の設定UIを隠す */
+@-moz-document url-prefix(""chrome://mozapps/content/preferences/changemp.xul"") {
+  :root > * { display: none !important; }
+  #pw1,
+  #pw2,
+  #pwmeter {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
+/* Hide context menu item */
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #fill-login {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}","MCD:
 lockPref(""signon.rememberSignons"", false);
 
 globalChrome.css:
@@ -690,7 +796,16 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefix(""abo","MCD:
+  url-prefix(""about:preferences"") {
+  #offlineNotify,
+  #offlineNotifyExceptions,
+  #offlineAppsListLabel,
+  #offlineAppsList,
+  #offlineAppsListRemove {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.offline-apps.notify"", false);
 
 globalChrome.css:
@@ -728,12 +843,44 @@ Privacy-9,1,プライバシー,日数ベースでの履歴の自動削除,-,日�
 2. MCDで設定を反映する",,"lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
 lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,
 Privacy-10,1,プライバシー,セッション情報の保存の可否,-,許可する（既定）,-,-,-,廃止,"lockPref(""browser.sessionstore.enabled"", true);"
-Privacy-10,2,,,,禁止する,MCDで設定を反映する,"MCD:
+Privacy-10,2,,,,禁止する,MCDで設定を反映する,"Firefox 3.5の時点で廃止。
+以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
+後は、復元操作への導線を消すくらいしかできない。
+
+MCD:
 lockPref(""browser.sessionstore.max_tabs_undo"", 0);
 lockPref(""browser.sessionstore.max_windows_undo"", 0);
 lockPref(""browser.sessionstore.max_resumed_crashes"", -1);
 lockPref(""browser.sessionstore.max_serialize_back"", 0);
-lockPref(""browser.sessionstore.","Firefox 3.5の時点で廃止。
+lockPref(""browser.sessionstore.max_serialize_forward"", 0);
+lockPref(""browser.sessionstore.resume_from_crash"", false);
+lockPref(""browser.sessionstore.resume_session_once"", false);
+lockPref(""browser.sessionstore.privacy_level"", 2);
+lockPref(""browser.sessionstore.privacy_level_deferred"", 2);
+lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\:RestoreLastSession"");
+lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.disabled"", ""true"");
+lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.oncommand"", """");
+
+globalChrome.css:
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #historyRestoreLastSession,
+  #appMenuRestoreLastSession {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document
+  url-prefix(""about:home""),
+  url-prefix(""chrome://browser/content/abouthome/aboutHome.xhtml"") {
+  *|*#restorePreviousSessionSeparator,
+  *|*#restorePreviousSession,
+  *|*[id=""restorePreviousSessionSeparator""],
+  *|*[id=""restorePreviousSession""]
+  {
+    display: none !important;
+    visibility: collapse !important;
+  }
+}","Firefox 3.5の時点で廃止。
 以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
 後は、復元操作への導線を消すくらいしかできない。
 
@@ -839,7 +986,16 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #suggestionsInSearchFieldsCheckbox {
-    visib","MCD:
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix(""chrome://browser/content/search/engineManager.xul"") {
+  #enableSuggest {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.search.suggest.enabled"", false);
 
 globalChrome.css:
@@ -870,12 +1026,26 @@ Privacy-18,1,プライバシー,利用状況の統計の保存および送信の
 Privacy-18,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
-if (typeof getPref(""toolkit.telemetry.prompted"") == ""boolean"")
-  clearPref(""toolkit.telemetry.prompted"");
-lockPref(""toolkit.telemetry.prompted"", 2);
-lockPref(""toolkit.telemetry.rejected"", true);
 lockPref(""toolkit.telemetry.enabled"", false);
-lockPref(","MCD:
+lockPref(""toolkit.telemetry.infoURL"", """");
+lockPref(""toolkit.telemetry.server"", """");
+lockPref(""datareporting.healthreport.service.enabled"", false);
+lockPref(""datareporting.healthreport.about.reportUrl"", """");
+lockPref(""datareporting.healthreport.documentServerURI"", """");
+lockPref(""datareporting.healthreport.infoURL"", """");
+lockPref(""datareporting.healthreport.uploadEnabled"", false);
+lockPref(""datareporting.policy.dataSubmissionEnabled"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #dataChoicesTab,
+  #dataChoicesPanel {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""toolkit.telemetry.enabled"", false);
 lockPref(""toolkit.telemetry.infoURL"", """");
 lockPref(""toolkit.telemetry.server"", """");
@@ -928,7 +1098,12 @@ lockPref(""privacy.donottrackheader.value"", 1);
 globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefix(""about:preferences"") {","MCD:
+  url-prefix(""about:preferences"") {
+  #trackingGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""privacy.donottrackheader.enabled"", false);
 lockPref(""privacy.donottrackheader.value"", 1);
 
@@ -957,13 +1132,15 @@ AppEnableCrashReport=false",変更無し,"[fainstall]
 AppEnableCrashReport=false"
 Privacy-22,1,プライバシー,Firefox Syncの利用の可否,-,許可する（既定）,-,-,-,,
 Privacy-22,2,,,,禁止する,アドオン「Disable Sync」を導入する,-,-,変更無し,-
-Privacy-23,1,プライバシー,ソーシャルAPIの利用の可否,-,許可する（既定）,"1. MCDで設定を反映する
+Privacy-23,1,プライバシー,ソーシャルAPIの利用の可否,-,許可する（既定）,-,-,-,"lockPref(""social.remote-install.enabled"", true);
+lockPref(""social.toast-notifications.enabled"", true);",-
+Privacy-23,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
-3. globalChrome.cssで設定を反映する",-,"MCD:
+3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""social.directories"", """");
-lockPref(""social.remote-install.enabled"", true);
+lockPref(""social.remote-install.enabled"", false);
 lockPref(""social.share.activationPanelEnabled"", false);
-lockPref(""social.toast-notifications.enabled"", true);
+lockPref(""social.toast-notifications.enabled"", false);
 lockPref(""social.whitelist"", """");
 
 globalChrome.css:
@@ -973,9 +1150,7 @@ globalChrome.css:
     display: none !important;
     -moz-user-focus: ignore !important;
   }
-}","lockPref(""social.remote-install.enabled"", true);
-lockPref(""social.toast-notifications.enabled"", true);",-
-Privacy-23,2,,,,禁止する,MCDで設定を反映する,"MCD:
+}","MCD:
 lockPref(""social.directories"", """");
 lockPref(""social.remote-install.enabled"", false);
 lockPref(""social.share.activationPanelEnabled"", false);
@@ -983,15 +1158,22 @@ lockPref(""social.toast-notifications.enabled"", false);
 lockPref(""social.whitelist"", """");
 
 globalChrome.css:
-","lockPref(""social.remote-install.enabled"", false);
-lockPref(""social.toast-notifications.enabled"", false);","lockPref(""social.remote-install.enabled"", false);
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #social-share-button,
+  #wrapper-social-share-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","lockPref(""social.remote-install.enabled"", false);
 lockPref(""social.toast-notifications.enabled"", false);",-
 Privacy-24,1,プライバシー,Firefoxアカウントの利用の可否,-,許可する（既定）,-,-,-,,-
 Privacy-24,2,,,,禁止する,MCDで設定を反映する,"lockPref(""identity.fxaccounts.auth.uri"", """");
 lockPref(""identity.fxaccounts.remote.force_auth.uri"","""");
 lockPref(""identity.fxaccounts.remote.signin.uri"","""");
 lockPref(""identity.fxaccounts.remote.signup.uri"","""");
-lockPref(""identity.fxaccounts.settings.uri""","lockPref(""identity.fxaccounts.auth.uri"", """");
+lockPref(""identity.fxaccounts.settings.uri"","""");
+lockPref(""identity.fxaccounts.remote.oauth.uri"","""");
+lockPref(""identity.fxaccounts.remote.profile.uri"","""");","lockPref(""identity.fxaccounts.auth.uri"", """");
 lockPref(""identity.fxaccounts.remote.force_auth.uri"","""");
 lockPref(""identity.fxaccounts.remote.signin.uri"","""");
 lockPref(""identity.fxaccounts.remote.signup.uri"","""");
@@ -1012,7 +1194,18 @@ lockPref(""loop.feedback.baseUrl"", """");
 lockPref(""loop.gettingStarted.url"", """");
 lockPref(""loop.learnMoreUrl"", """");
 lockPref(""loop.legal.ToS_url"", """");
-lockPref(""loop.legal.privacy_url"", """")","MCD:
+lockPref(""loop.legal.privacy_url"", """");
+lockPref(""loop.oauth.google.scope"", """");
+lockPref(""loop.support_url"", """");
+
+globalChrome.css:
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #loop-button,
+  #wrapper-loop-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""loop.enabled"",false);
 lockPref(""loop.server"", """");
 lockPref(""loop.feedback.baseUrl"", """");
@@ -1056,7 +1249,20 @@ lockPref(""readinglist.scheduler.enabled"", false);
 lockPref(""readinglist.server"", """");
 lockPref(""browser.reader.detectedFirstArticle"", true);
 
-gl","MCD:
+globalChrome.css:
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #menu_pocket,
+  #menu_pocketSeparator,
+  #BMB_pocket,
+  #BMB_pocketSeparator,
+  #panelMenu_pocket,
+  #panelMenu_pocketSeparator,
+  #pocket-button,
+  #wrapper-pocket-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.readinglist.enabled"", false);
 lockPref(""browser.readinglist.sidebarEverOpened"", false);
 lockPref(""readinglist.scheduler.enabled"", false);
@@ -1095,6 +1301,18 @@ Privacy-31,1,プライバシー,Firefoxのユーザー評価の送信の可否,-
 Privacy-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");",
 Privacy-32,1,プライバシー,リンクのhoverによるリンク先の先読みの可否,-,許可する（既定）,MCDで設定を反映する,,"defaultPref(""network.http.speculative-parallel-limit"", 6);",,
 Privacy-32,2,,,,禁止する,MCDで設定を反映する,,"lockPref(""network.http.speculative-parallel-limit"", 0);",,
+Privacy-33,1,プライバシー,Webサービスによる行動履歴の収集（トラッキング）の遮断の可否,-,ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（既定）,-,-,,,
+Privacy-33,2,,,,ブロックリストを取得して、トラッキングを常に遮断する,MCDで設定を反映する,"lockPref(""privacy.trackingprotection.enabled"", true);
+lockPref(""privacy.trackingprotection.pbmode.enabled"", true);",,,
+Privacy-33,3,,,,ブロックリストを取得せず、トラッキングを遮断しない,MCDで設定を反映する,"lockPref(""privacy.trackingprotection.enabled"", false);
+lockPref(""privacy.trackingprotection.pbmode.enabled"", false);
+lockPref(""privacy.trackingprotection.introURL"", """");
+lockPref(""browser.safebrowsing.provider.google.gethashURL"", """");
+lockPref(""browser.safebrowsing.provider.google.lists"", """");
+lockPref(""browser.safebrowsing.provider.google.updateURL"", """");
+lockPref(""browser.safebrowsing.provider.mozilla.gethashURL"", """");
+lockPref(""browser.safebrowsing.provider.mozilla.lists"", """");
+lockPref(""browser.safebrowsing.provider.mozilla.updateURL"", """");",,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,,"[XRE]
 EnableProfileMigrator=0",,
@@ -1151,7 +1369,16 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #defaultBrowserBox {
-    visibility: collap","MCD:
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix(""chrome://browser/content/preferences/preferences.xul"") {
+  #systemDefaultsGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.shell.checkDefaultBrowser"", false);
 
 globalChrome.css:
@@ -1242,7 +1469,26 @@ Websearch-1,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入す
     -moz-user-focus: ignore !important;
   }
 }
-@-moz-document url-prefix(""chro","@-moz-document
+@-moz-document url-prefix(""chrome://browser/content/search/engineManager.xul"") {
+  #addEngines {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #PopupSearchAutoComplete [anonid=""add-engines""] {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+  .searchbar-search-button[addengines=""true""] {
+    list-style-image: url(""chrome://browser/skin/search-indicator.png"") !important;
+  }
+  @media (min-resolution: 1.1dppx) {
+    .searchbar-search-button[addengines=""true""] {
+      list-style-image: url(""chrome://browser/skin/search-indicator-badge-add@2x.png"") !important;
+    }
+  }
+}","@-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #addEngines {
@@ -1262,14 +1508,24 @@ Websearch-1,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入す
   }
 }"
 Websearch-2,1,Web検索バーの挙動,初期状態で利用する検索エンジン,-,すべて使用する（既定）,-,-,-,,
-Websearch-2,2,,,,限定する,fainstall.iniを編集する,"// Firefox 38以前とは異なり、単に非表示になるだけであることに注意
+Websearch-2,2,,,,限定する,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する
+（Firefox 38以前では、fainstall.iniを編集する）","// Firefox 38以前とは異なり、単に非表示になるだけであることに注意
 MCD:
 lockPref(""browser.search.hiddenOneOffs"", ""（非表示にするエンジンの名前のカンマ区切りのリスト）"");
 
 globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefix(""about:pre","[fainstall]
+  url-prefix(""about:preferences"") {
+  #defaultEngine :-moz-any(
+    menuitem[label=""非表示にするエンジンの名前""]
+  ) {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","[fainstall]
 FxEnabledSearchPlugins=（ファイル名のスペース区切りのリスト）",変更無し,"[fainstall]
 FxEnabledSearchPlugins=（ファイル名のスペース区切りのリスト）"
 Location-1,1,ロケーションバーの挙動,ロケーションバーにおけるURLの「http://」の省略表示の可否,-,省略する（既定）,MCDで設定を反映する,"lockPref(""browser.urlbar.trimURLs"", true);","lockPref(""browser.urlbar.trimURLs"", true);",変更無し,"lockPref(""browser.urlbar.trimURLs"", true);"
@@ -1288,7 +1544,24 @@ lockPref(""browser.download.animateNotifications"", false);
 lockPref(""browser.download.useDownloadDir"", false);
 lockPref(""browser.download.manager.addToRecentDocs"", false);
 
-globalChrome.css:","Firefox 31時点で機能が廃止されたためカスタマイズ不可能。
+globalChrome.css:
+@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #downloads-button,
+  #wrapper-downloads-button,
+  #downloads-animation-container,
+  #downloads-notification-anchor {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix(""about:home""), url-prefix(""chrome://browser/content/abouthome/aboutHome.xhtml"") {
+  *|*#downloads,
+  *|*[id=""downloads""]
+  {
+    display: none !important;
+    visibility: collapse !important;
+  }
+}","Firefox 31時点で機能が廃止されたためカスタマイズ不可能。
 ダウンロードボタンを非表示にする設定は以下の通り。
 
 MCD:
@@ -1392,7 +1665,14 @@ globalChrome.css:
   url-prefix(""about:newtab""),
   url-prefix(""chrome://browser/content/newtab/newTab.xul"")
   {
-  *|*#newtab-customize-panel","MCD:
+  *|*#newtab-customize-panel,
+  *|*[id=""newtab-customize-panel""],
+  *|*#newtab-customize-button,
+  *|*[id=""newtab-customize-button""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.newtabpage.enabled”, false);
 lockPref(""browser.newtabpage.enhanced"", false);
 
@@ -1421,7 +1701,14 @@ globalChrome.css:
   url-prefix(""about:newtab""),
   url-prefix(""chrome://browser/content/newtab/newTab.xul"")
   {
-  *|*#newtab-customize-panel,","MCD:
+  *|*#newtab-customize-panel,
+  *|*[id=""newtab-customize-panel""],
+  *|*#newtab-customize-button,
+  *|*[id=""newtab-customize-button""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.newtabpage.enabled”, true);
 lockPref(""browser.newtabpage.enhanced"", false);
 
@@ -1451,7 +1738,13 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/newtab/newTab.xul"")
   {
   *|*#newtab-customize-panel,
-","MCD:
+  *|*[id=""newtab-customize-panel""],
+  *|*#newtab-customize-button,
+  *|*[id=""newtab-customize-button""] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.newtabpage.enabled”, true);
 lockPref(""browser.newtabpage.enhanced"", true);
 
@@ -1481,7 +1774,10 @@ globalChrome.css:
   {
   *|*#newtab-customize-enhanced,
   *|*[id=""newtab-customize-enhanced""] {
-  ","MCD:
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(""browser.newtabpage.enhanced"", false);
 
 globalChrome.css:
@@ -1508,7 +1804,31 @@ clearPref(""network.proxy.http_port"");
 clearPref(""network.proxy.share_proxy_settings"");
 clearPref(""network.proxy.ssl"");
 clearPref(""network.proxy.ssl_port"");
-clearPref(""network.proxy.f","MCD:
+clearPref(""network.proxy.ftp"");
+clearPref(""network.proxy.ftp_port"");
+clearPref(""network.proxy.gopher"");
+clearPref(""network.proxy.gopher_port"");
+clearPref(""network.proxy.socks"");
+clearPref(""network.proxy.socks_port"");
+clearPref(""network.proxy.no_proxies_on"");
+lockPref(""network.proxy.autoconfig_url"", ""（ファイルのURL）"");
+
+globalChrome.css:
+/* 接続関係の設定UIを隠す */
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #connectionGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+/* プロキシ設定のUIを隠す */
+@-moz-document url-prefix(""chrome://browser/content/preferences/connection.xul"") {
+:  root > * {
+    display: none !important;
+  }
+}","MCD:
 lockPref(""network.proxy.type"", 2);
 clearPref(""network.proxy.http"");
 clearPref(""network.proxy.http_port"");
@@ -1584,6 +1904,10 @@ lockPref(“network.http.max-connections”, 6);
 // Proxy未使用時・使用時それぞれの、Keep-Aliveでの最大同時維持接続数
 lockPref(“network.http.max-persistent-connections-per-server”, 2);
 lockPref(“network.http.max-persistent-connections-per-proxy”, 2);",,
+Network-6,1,ネットワーク接続,SPDYプロトコルの使用の可否,-,許可する（規定）,MCDで設定を反映する,"lockPref(""network.http.spdy.enabled"", true);",,,
+Network-6,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.http.spdy.enabled"", false);",,,
+Network-7,1,ネットワーク接続,TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の使用の可否,-,禁止する（規定）,-,-,,,
+Network-7,2,,,,特定のホストでのみ許可する,MCDで設定を反映する,"lockPref(""security.tls.insecure_fallback_hosts"", ""（ホスト名のカンマ区切りのリスト）"");",,,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);","lockPref(""app.update.enabled"", true);
@@ -1624,6 +1948,15 @@ Ui-1,1,プログラム,Firefox組み込みのPDFビューアの使用可否,-,�
 Ui-1,2,,,,禁止する,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", true);","lockPref(""pdfjs.disabled"", true);",変更無し,"lockPref(""pdfjs.disabled"", true);"
 Ui-2,1,キーボード操作,F7キーによるキャレットブラウズモードの開始の可否,-,許可する（既定）,MCDで設定を反映する,,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", true);",,
 Ui-2,2,,,,禁止する,MCDで設定を反映する,,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", false);",,
+Ui-3,1,UI,タブごとの音声インジケータの利用の許可,-,許可する（既定）,-,-,,,
+Ui-3,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入する
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  .tab-icon-sound,
+  .tab-icon-overlay {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,,
 Script-1,1,Webアプリの動作,スクリプトによる頻繁なalertの可否,-,許可する,MCDで設定を反映する,,"lockPref(""dom.successive_dialog_time_limit"", 0);",,
 Script-1,2,,,,禁止する（既定）,MCDで設定を反映する,,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
 lockPref(""dom.successive_dialog_time_limit"", 3);",,
@@ -1720,7 +2053,8 @@ lockPref(""media.gmp-gmpopenh264.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
 lockPref(""media.gmp-eme-adobe.enabled"",false);
 lockPref(""media.gmp-eme-adobe.autoupdate"",false);
-lockPref(""media.gmp-","lockPref(""media.eme.enabled"",false);
+lockPref(""media.gmp-provider.enabled"",false);
+lockPref(""media.gmp-manager.url"",""about:blank"");","lockPref(""media.eme.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
 lockPref(""media.gmp-eme-adobe.enabled"",false);
