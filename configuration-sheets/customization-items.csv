@@ -1347,7 +1347,19 @@ about=Mozilla Firefox
 browser.startup.homepage=""（URL）"""
 Startup-2,3,,,,管理者が指定し、変更を禁止,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
-3. globalChrome.cssで設定を反映する",,"MCD:
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(“browser.startup.homepage”, “(URL)”);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  .homepage-buttons {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}","MCD:
 lockPref(“browser.startup.homepage”, “(URL)”);
 
 globalChrome.css:

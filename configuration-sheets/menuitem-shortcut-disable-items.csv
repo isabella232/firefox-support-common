@@ -73,7 +73,8 @@ lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.delayed"", 
 5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
 6,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
 #Tools\:PrivateBrowsing",false
-7,ツール＞ダウンロード,openDownloads,Ctrl-J,"#key_openDownloads,
+7,"ツール＞ダウンロード
+（旧バージョンでは「ダウンロードマネージャ」）",openDownloads,Ctrl-J,"#key_openDownloads,
 #Tools\:Downloads,
 #menu_openDownloads,
 #downloads-button,
@@ -130,7 +131,8 @@ F12","#key_devToolboxMenuItem,
 #Tools\:styleeditor,
 #devtoolsMenuBroadcaster_styleeditor",変更無し,yes,Shift+F7,"#key_styleeditor,
 #Tools\:styleeditor",true
-16,ツール＞Web開発＞パフォーマンス（旧称：プロファイラ）,jsprofiler,Shift＋F5,"#key_jsprofiler,
+16,"ツール＞Web開発＞パフォーマンス
+（旧バージョンでは「プロファイラ」）",jsprofiler,Shift＋F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
 #devtoolsMenuBroadcaster_jsprofiler",true,yes,Shift＋F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
@@ -210,7 +212,7 @@ F12","#key_devToolboxMenuItem,
 .subviewbutton[oncommand^='openHealthReport']",true,no,-,"#healthReport,
 .subviewbutton[oncommand^='openHealthReport']",true,no,-,"#appmenu_healthReport,
 #healthReport",false
-34,アプリケーションメニュー＞ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
+34,ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
 35,ヘルプ＞トラブルシューティング情報,troubleshootingInfo,-,"#troubleShooting,
 .subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#troubleShooting,
 .subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#appmenu_troubleshootingInfo,
@@ -230,7 +232,7 @@ F12","#key_devToolboxMenuItem,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,-,#menu_HelpPopup_reportPhishingErrortoolmenu,false
 40,ヘルプ＞Firefoxについて のセパレータ,aboutSeparator,-,#aboutSeparator,false,yes,-,変更無し,変更無し,yes,-,#aboutSeparator,false
-41,編集＞テキストの記述方向を切り替える,textfieldDirection,-,"#textfieldDirection-separator,
+41,編集＞テキストの記述方向を切り替える,textfieldDirection,Ctrl-Shift-X,"#textfieldDirection-separator,
 #textfieldDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false
 42,表示＞ページの記述方向を切り替える,documentDirection,-,"#documentDirection-separator,
@@ -238,7 +240,7 @@ F12","#key_devToolboxMenuItem,
 #documentDirection-swap",false
 43,履歴＞（メニュー内のセパレータ）,historySeparator,-,#startHistorySeparator,false,yes,-,#startHistorySeparator,変更無し,yes,-,"#startHistorySeparator,
 #endHistorySeparator",false
-44,ブックマーク＞（メニュー内の各項目）,bookmarksSeparator,-,"#organizeBookmarksSeparator,
+44,ブックマーク＞ブックマークツールバー（およびそれに付随する各項目）,bookmarksToolbarFolder,-,"#organizeBookmarksSeparator,
 #bookmarksToolbarSeparator,
 #bookmarksToolbarFolderMenu,
 #panelMenu_viewBookmarksToolbar + toolbarseparator,
