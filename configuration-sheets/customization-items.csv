@@ -872,7 +872,7 @@ lockPref(""browser.sessionstore.resume_from_crash"", false);
 lockPref(""browser.sessionstore.resume_session_once"", false);
 lockPref(""browser.sessionstore.privacy_level"", 2);
 lockPref(""browser.sessionstore.privacy_level_deferred"", 2);
-lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\:RestoreLastSession"");
+lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\\:RestoreLastSession"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.disabled"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.oncommand"", """");
 
@@ -895,7 +895,7 @@ globalChrome.css:
     display: none !important;
     visibility: collapse !important;
   }
-}",,"Firefox 3.5の時点で廃止。
+}",○,"Firefox 3.5の時点で廃止。
 以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
 後は、復元操作への導線を消すくらいしかできない。
 
