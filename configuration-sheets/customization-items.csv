@@ -351,7 +351,7 @@ Security-9,1,セキュリティ,about:configの利用の可否,-,許可する（
 Security-9,2,,,,禁止する,アドオン「Disable about:config」を導入する,-,,-,変更無し,-
 Security-10,1,セキュリティ,エラーコンソールの利用の可否,-,許可する,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", true);",,"lockPref(""devtools.errorconsole.enabled"", true);",変更無し,"lockPref(""devtools.errorconsole.enabled"", true);"
 Security-10,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", false);",,"lockPref(""devtools.errorconsole.enabled"", false);",変更無し,"lockPref(""devtools.errorconsole.enabled"", false);"
-Security-11,1,セキュリティ,SNS連携機能の利用の可否,-,許可する（既定）,-,,?,-,,
+Security-11,1,セキュリティ,SNS連携機能の利用の可否,-,許可する（既定）,-,-,,-,,
 Security-11,2,,,,禁止する,MCDで設定を反映する,"MCD:
 lockPref(""social.activeProviders"", """");
 lockPref(""social.directories"", """");
@@ -474,7 +474,7 @@ Security-18,1,セキュリティ,ツールバーカスタマイズにおける�
 Security-18,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.getMoreURL"", """");",,"lockPref(""lightweightThemes.getMoreURL"", """");",,
 Security-19,1,セキュリティ,ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否,-,許可する（規定）,-,-,,-,,
 Security-19,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.recommendedThemes"", """");",,"lockPref(""lightweightThemes.recommendedThemes"", """");",,
-Security-20,1,セキュリティ,パーミッション設定変更の可否,-,変更を許可する（既定）,-,,?,,,
+Security-20,1,セキュリティ,パーミッション設定変更の可否,-,変更を許可する（既定）,-,-,新規,,,
 Security-20,2,,,,変更を禁止する,"1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #identity-popup-permissions-content,
@@ -854,7 +854,8 @@ Privacy-7,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.pref
 Privacy-8,1,プライバシー,履歴の保存件数の制限,-,制限しない（既定）,-,-,,-,,
 Privacy-8,2,,,,制限する,MCDで設定を反映する,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",変更無し,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);"
 Privacy-9,1,プライバシー,日数ベースでの履歴の自動削除,-,日数ベースで履歴を自動削除する,"1. アドオン「Expire history by days」もしくは「Flexible Expire History by Days」を導入する
-2. MCDで設定を反映する",,?,"lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
+2. MCDで設定を反映する","lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
+lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,"lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
 lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,
 Privacy-10,1,プライバシー,セッション情報の保存の可否,-,許可する（既定）,-,-,,-,廃止,"lockPref(""browser.sessionstore.enabled"", true);"
 Privacy-10,2,,,,禁止する,MCDで設定を反映する,"Firefox 3.5の時点で廃止。
@@ -1805,7 +1806,7 @@ globalChrome.css:
 }",,
 Network-1,1,UA文字列の制御,Microsoft .NET Frameworkへの対応,-,対応する,MCDで設定を反映する,"clearPref(""general.useragent.extra.microsoftdotnet"");",,"clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
 Network-1,2,,,,対応しない（既定）,-,-,,-,,
-Network-2,1,ネットワーク接続,プロキシの利用,-,利用しない,MCDで設定を反映する,"lockPref(""network.proxy.type"", 0);",○,"ockPref(""network.proxy.type"", 0);",変更無し,"lockPref(""network.proxy.type"", 0);"
+Network-2,1,ネットワーク接続,プロキシの利用,-,利用しない,MCDで設定を反映する,"lockPref(""network.proxy.type"", 0);",,"lockPref(""network.proxy.type"", 0);",変更無し,"lockPref(""network.proxy.type"", 0);"
 Network-2,2,,,,固定のプロキシを利用する,MCDで設定を反映する,"lockPref(""network.proxy.type"", 1);",,"lockPref(""network.proxy.type"", 1);",変更無し,"lockPref(""network.proxy.type"", 1);"
 Network-2,3,,,,プロキシ自動設定スクリプトを利用する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
