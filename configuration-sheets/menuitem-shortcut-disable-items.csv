@@ -4,13 +4,16 @@ MCDによる設定:
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）"", ""（セレクタ）"");
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.disabled"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.hidden"", ""true"");
+lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.always-hidden"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.readonly"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.command"", """");
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.oncommand"", """");
 lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.delayed"", （遅延初期化）);
 
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
-  （セレクタ） {
+  （セレクタ）,
+  /* MenuShortcut-common */
+  *[always-hidden=""true""] {
     display: none !important;
     -moz-user-focus: ignore !important;
   }
