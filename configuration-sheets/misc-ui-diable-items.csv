@@ -97,7 +97,7 @@ Hide-4,ポップアップブロック、アドオンのインストール警告�
     -moz-user-focus: ignore !important;
   }
 }"
-Hide-5（廃止）,サイト別設定マネージャにおける、Cookie以外の権限に関する設定項目,"1. アドオン「globalChrome.css」を導入する
+Hide-5,サイト別設定マネージャにおける、Cookie以外の権限に関する設定項目,"1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する",Firefox 45では機能が削除されたため不要,"@-moz-document
   url-prefix(""about:permissions""),
   url-prefix(""chrome://browser/content/preferences/aboutPermissions.xul"") {
