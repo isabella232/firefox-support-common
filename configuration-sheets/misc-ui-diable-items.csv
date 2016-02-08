@@ -1,4 +1,4 @@
-設定項目番号,非表示にする対象,設定方法,設定内容（Firefox 45）,設定内容（Firefox 38）,設定内容（Firefox 31）,設定内容（Firefox 24）
+設定項目番号,非表示にする対象,設定方法,設定内容（Firefox 45）,Firefox 38→45での変更,設定内容（Firefox 38）,設定内容（Firefox 31）,設定内容（Firefox 24）
 Hide-1,設定画面の「セキュリティ」パネル,"Firefox 38以降：
 1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する
@@ -12,7 +12,7 @@ Firefox 31以前：
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}","@-moz-document
+}",,"@-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #category-security {
@@ -20,7 +20,7 @@ Firefox 31以前：
     -moz-user-focus: ignore !important;
   }
 }",変更無し,"lockPref(""extensions.hideoptionpane@clear-code.com.browser.paneSecurity.enabled"", false);"
-Hide-2,設定画面の「Sync」パネル,アドオン「Disable Sync」を導入する,-,-,変更無し,-
+Hide-2,設定画面の「Sync」パネル,アドオン「Disable Sync」を導入する,-,,-,変更無し,-
 Hide-3,設定画面の「ヘルプ」ボタン,"Firefox 38以降：
 1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する
@@ -36,7 +36,7 @@ Firefox 31以前：
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}","@-moz-document
+}",,"@-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #help-button {
@@ -66,7 +66,7 @@ Hide-4,ポップアップブロック、アドオンのインストール警告�
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}","@-moz-document url-prefix(""chrome://browser/content/preferences/permissions.xul"") {
+}",○,"@-moz-document url-prefix(""chrome://browser/content/preferences/permissions.xul"") {
   :root#PermissionsDialog:not([title*='Cookie']) #url,
   :root#PermissionsDialog:not([title*='Cookie']) #btnBlock,
   :root#PermissionsDialog:not([title*='Cookie']) #btnSession,
@@ -98,7 +98,7 @@ Hide-4,ポップアップブロック、アドオンのインストール警告�
   }
 }"
 Hide-5,サイト別設定マネージャにおける、Cookie以外の権限に関する設定項目,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",Firefox 45では機能が削除されたため不要,"@-moz-document
+2. globalChrome.cssで設定を反映する",Firefox 45では機能が削除されたため不要,○,"@-moz-document
   url-prefix(""about:permissions""),
   url-prefix(""chrome://browser/content/preferences/aboutPermissions.xul"") {
   #password-pref-item,
@@ -126,7 +126,7 @@ Hide-5,サイト別設定マネージャにおける、Cookie以外の権限に�
   }
 }",-
 Hide-6,新しいタブを開くボタン,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+2. globalChrome.cssで設定を反映する",,?,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #new-tab-button,
   .tabs-newtab-button {
     visibility: collapse !important;
@@ -134,7 +134,7 @@ Hide-6,新しいタブを開くボタン,"1. アドオン「globalChrome.css」�
   }
 }",,
 Hide-7,設定画面内の「タブグループ」グループにおける「新しいウィンドウではなく新しいタブで開く」,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",,"@-moz-document
+2. globalChrome.cssで設定を反映する",,?,"@-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
@@ -145,7 +145,7 @@ Hide-7,設定画面内の「タブグループ」グループにおける「新�
   }
 }",,
 Hide-8,コンテンツ領域のコンテキストメニューおける「デスクトップの背景に設定」,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+2. globalChrome.cssで設定を反映する",,?,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #context-setDesktopBackground {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
@@ -159,7 +159,7 @@ Hide-9,設定画面の「ダウンロード」グループ,"1. アドオン「gl
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}"," @-moz-document
+}",," @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #downloadsGroup {
