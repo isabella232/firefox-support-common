@@ -176,9 +176,9 @@ MenuShortcut-15,ツール＞Web開発＞スタイルエディタ,styleeditor,Shi
 #devtoolsMenuBroadcaster_styleeditor",変更無し,yes,Shift+F7,"#key_styleeditor,
 #Tools\:styleeditor",true
 MenuShortcut-16,"ツール＞Web開発＞パフォーマンス
-（旧バージョンでは「プロファイラ」）",jsprofiler,Shift-F5,"#key_jsprofiler,
-#Tools\:jsprofiler,
-#devtoolsMenuBroadcaster_jsprofiler",true,yes,,Shift-F5,"#key_jsprofiler,
+（旧バージョンでは「プロファイラ」）",jsprofiler,Shift-F5,"#key_performance,
+#Tools\:performance,
+#devtoolsMenuBroadcaster_performance",true,yes,○,Shift-F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
 #devtoolsMenuBroadcaster_jsprofiler",true,yes,Shift＋F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
