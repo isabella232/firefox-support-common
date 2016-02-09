@@ -468,8 +468,8 @@ Security-16,1,セキュリティ,フルスクリーン表示の可否,○,確認
 Security-16,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する",,?,"lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,
 Security-16,3,,,,禁止する,MCDで設定を反映する,,?,"lockPref(""full-screen-api.enabled"", false);",,
-Security-17,1,セキュリティ,about:homeからマーケットプレイスへの遷移の可否,-,許可する（規定）,-,-,,-,,
-Security-17,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.apps.URL"", """");",,"lockPref(""browser.apps.URL"", """");",,
+Security-17,1,セキュリティ,about:homeからマーケットプレイスへの遷移の可否,-,許可する（規定）,-,Firefox 45で廃止,○,-,,
+Security-17,2,,,,禁止する,MCDで設定を反映する,Firefox 45で廃止,○,"lockPref(""browser.apps.URL"", """");",,
 Security-18,1,セキュリティ,ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否,-,許可する（規定）,-,-,,-,,
 Security-18,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.getMoreURL"", """");",,"lockPref(""lightweightThemes.getMoreURL"", """");",,
 Security-19,1,セキュリティ,ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否,-,許可する（規定）,-,-,,-,,
