@@ -222,7 +222,8 @@ Security-3,3,,,,禁止する,"1. アドオン「Disable Addons」を導入する
 2. アドオン「Permission Auto Registerer」を導入する
 3. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.update.mozilla.org"", ""install=0"");
-lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");",,"lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
+lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");
+lockPref(""extensions.autopermission.sites.marketplace.firefox.com"", ""install=0"");",○,"lockPref(""extensions.autopermission.sites.addons.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.update.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");",,
 Security-3,4,,,,禁止するが、設定の変更は許可する,"1. アドオン「Disable Addons」を導入する
