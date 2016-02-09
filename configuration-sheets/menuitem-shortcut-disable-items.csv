@@ -95,7 +95,7 @@ MenuShortcut-4,ファイル＞ページのURLをメールで送信（ページ�
 #menu_sendLink,
 #context-sendpage",false
 MenuShortcut-5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOfflineMenuitem,false,yes,,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
-MenuShortcut-6（廃止）,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止されたためカスタマイズ不可能,,,,,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
+MenuShortcut-6（廃止）,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
 #Tools\:PrivateBrowsing",false
 MenuShortcut-7,"ツール＞ダウンロード
 （旧バージョンでは「ダウンロードマネージャ」）",openDownloads,Ctrl-J,"#key_openDownloads,
@@ -114,7 +114,7 @@ MenuShortcut-7,"ツール＞ダウンロード
 #Tools\:Downloads,
 #appmenu_downloads,
 #menu_openDownloads",
-MenuShortcut-8（廃止）,ツール＞ページの調査,inspectPage,Firefox 31で廃止されたためカスタマイズ不可能,,,,,Firefox 31で廃止されたためカスタマイズ不可能,,,,-,廃止,廃止,yes,-,"#key_inspectPage,
+MenuShortcut-8（廃止）,ツール＞ページの調査,inspectPage,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,-,廃止,廃止,yes,-,"#key_inspectPage,
 #Tasks\:InspectPage",
 MenuShortcut-9（廃止）,ツール＞アプリ,openApps,Firefox 45で廃止,,,,○,-,"#menu_openApps,
 #web-apps-button,
@@ -195,8 +195,8 @@ MenuShortcut-18,ツール＞Web開発＞開発ツールバー,devToolbar,Shift-F
 #key_devToolbar",true,yes,Shift+F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
 #key_devToolbar",true,yes,-,-,-
-MenuShortcut-19（廃止）,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止されたためカスタマイズ不可能,"#menu_devAppMgr,
-#devtoolsMenuBroadcaster_devAppMgr",true,yes,,Firefox 38で廃止されたためカスタマイズ不可能,"#menu_devAppMgr,
+MenuShortcut-19（廃止）,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止,"#menu_devAppMgr,
+#devtoolsMenuBroadcaster_devAppMgr",true,yes,,Firefox 38で廃止,"#menu_devAppMgr,
 #devtoolsMenuBroadcaster_devAppMgr",true,yes,-,"#menu_devAppMgr,
 #devtoolsMenuBroadcaster_devAppMgr",true,yes,-,-,-
 MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#menu_webide,
@@ -285,7 +285,7 @@ MenuShortcut-33,ヘルプ＞Firefoxヘルスレポート,healthReport,-,"#health
 .subviewbutton[oncommand^='openHealthReport']",true,no,-,"#healthReport,
 .subviewbutton[oncommand^='openHealthReport']",true,no,-,"#appmenu_healthReport,
 #healthReport",false
-MenuShortcut-34（廃止）,ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止されたためカスタマイズ不可能,,,,,Firefox 31で廃止されたためカスタマイズ不可能,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
+MenuShortcut-34（廃止）,ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
 MenuShortcut-35,ヘルプ＞トラブルシューティング情報,troubleshootingInfo,-,"#troubleShooting,
 .subviewbutton[oncommand^='openTroubleshootingPage']",true,no,,-,"#troubleShooting,
 .subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#troubleShooting,
@@ -356,7 +356,7 @@ MenuShortcut-52,コンテンツ領域のコンテキストメニュー＞この�
 MenuShortcut-53,コンテンツ領域のコンテキストメニュー＞ページを保存する...,context-markpageMenu,-,#context-markpageMenu,false,yes,,-,#context-markpageMenu,false,yes,-,#context-markpageMenu,false,yes,-,-,-
 MenuShortcut-54,コンテンツ領域のコンテキストメニュー＞選択範囲を共有,context-shareselect,-,#context-shareselect,false,yes,,-,#context-shareselect,false,yes,-,変更無し,変更無し,yes,-,#context-shareselect,false
 MenuShortcut-55,コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定,context-setDesktopBackground,-,#context-setDesktopBackground,false,yes,,-,#context-setDesktopBackground,false,yes,-,変更無し,変更無し,yes,-,#context-setDesktopBackground,false
-MenuShortcut-56（廃止）,コンテンツ領域のコンテキストメニュー＞画像をブロック,context-blockimage,Firefox 31で廃止されたためカスタマイズ不可能,,,,,Firefox 31で廃止されたためカスタマイズ不可能,,,,-,廃止,廃止,-,-,#context-blockimage,false
+MenuShortcut-56（廃止）,コンテンツ領域のコンテキストメニュー＞画像をブロック,context-blockimage,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,-,廃止,廃止,-,-,#context-blockimage,false
 MenuShortcut-57,コンテンツ領域のコンテキストメニュー＞要素を調査,context-inspect,-,#context-inspect,false,yes,,-,#context-inspect,false,yes,-,変更無し,変更無し,yes,-,#context-inspect,false
 MenuShortcut-58,ポップアップブロック＞このサイトによるポップアップを許可する,blockedPopupAllowSite,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false
 MenuShortcut-59,ポップアップブロック＞ポップアップブロック設定を変更,blockedPopupEditSettings,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false
