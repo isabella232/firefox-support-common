@@ -132,3 +132,22 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Websearch-2-2 */
+@-moz-document
+  url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+  url-prefix("about:preferences") {
+  #defaultEngine :-moz-any(
+    menuitem[label="Bing"],
+    menuitem[label="Amazon.co.jp"],
+    menuitem[label="楽天市場"],
+    menuitem[label="ヤフオク!"],
+    menuitem[label="教えて！goo"],
+    menuitem[label="Twitter"],
+    menuitem[label="Wikipedia (ja)"],
+    menuitem[label="DuckDuckGo"]
+  ) {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}
