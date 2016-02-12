@@ -6,3 +6,19 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Security-20-2 */
+@-moz-document url-prefix("chrome://browser/content/browser.xul") {
+  #identity-popup-permissions-content,
+  #identity-popup-securityView-body button {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix("chrome://browser/content/pageinfo/pageInfo.xul") {
+  #permTab,
+  #permPanel {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
