@@ -151,3 +151,15 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Tab-7-5 */
+@-moz-document
+  url-prefix("about:newtab"),
+  url-prefix("chrome://browser/content/newtab/newTab.xul")
+  {
+  *|*#newtab-customize-enhanced,
+  *|*[id="newtab-customize-enhanced"] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}
