@@ -101,3 +101,18 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Privacy-27-2 */
+@-moz-document url-prefix("chrome://browser/content/browser.xul") {
+  #menu_pocket,
+  #menu_pocketSeparator,
+  #BMB_pocket,
+  #BMB_pocketSeparator,
+  #panelMenu_pocket,
+  #panelMenu_pocketSeparator,
+  #pocket-button,
+  #wrapper-pocket-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}
