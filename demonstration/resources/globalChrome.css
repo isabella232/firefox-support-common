@@ -163,3 +163,15 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+@-moz-document url-prefix("chrome://browser/content/browser.xul") {
+  /* MenuShortcut-10 */
+  #webDeveloperMenu,
+  #developer-button,
+  #wrapper-developer-button,
+  /* MenuShortcut-common */
+  *[always-hidden="true"] {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}
