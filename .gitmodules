@@ -19,3 +19,6 @@
 [submodule "demonstration/disablesync"]
 	path = demonstration/disablesync
 	url = https://github.com/clear-code/disablesync.git
+[submodule "demonstration/disableupdate"]
+	path = demonstration/disableupdate
+	url = https://github.com/clear-code/disableupdate.git
