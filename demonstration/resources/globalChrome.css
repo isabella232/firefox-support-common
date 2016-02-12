@@ -256,6 +256,34 @@
   /* MenuShortcut-37 */
   #helpSafeMode,
   .subviewbutton[oncommand^='safeModeRestart'],
+  /* MenuShortcut-45 */
+  #context-marklinkMenu,
+  /* MenuShortcut-46 */
+  #context-sharelink,
+  /* MenuShortcut-47 */
+  #context-sendimage,
+  /* MenuShortcut-48 */
+  #context-shareimage,
+  /* MenuShortcut-49 */
+  #context-sendvideo,
+  /* MenuShortcut-50 */
+  #context-sharevideo,
+  /* MenuShortcut-51 */
+  #context-sendaudio,
+  /* MenuShortcut-52 */
+  #context-sharepage,
+  /* MenuShortcut-53 */
+  #context-markpageMenu,
+  /* MenuShortcut-54 */
+  #context-shareselect,
+  /* MenuShortcut-55 */
+  #context-setDesktopBackground,
+  /* MenuShortcut-57 */
+  #context-inspect,
+  /* MenuShortcut-58 */
+  #blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],
+  /* MenuShortcut-59 */
+  #blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],
 
   /* MenuShortcut-common */
   *[always-hidden="true"] {
