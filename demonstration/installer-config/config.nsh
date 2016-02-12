@@ -2,7 +2,7 @@
 
 ;====================== CUSTOMIZABLE SECTION =======================
 
-!define PRODUCT_FULL_NAME   "FxDemoInstaller"
+!define PRODUCT_FULL_NAME   "Fx Demo Installer"
 !define PRODUCT_NAME        "FxDemoInstaller"
 !define PRODUCT_VERSION     "1.0.0.0"
 !define PRODUCT_YEAR        "2016"

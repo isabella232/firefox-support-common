@@ -1,7 +1,7 @@
 all: installer
 
 installer: fainstall/make.sh
-	./fx-meta-installer/scripts/make_installer.sh "FxDemoInstaller" "addon1" "addon2"
+	./fx-meta-installer/scripts/make_installer.sh "FxDemoInstaller" "disableaddons" "autopermission"
 
 fainstall/make.sh:
 	git submodule update --init

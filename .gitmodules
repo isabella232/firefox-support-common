@@ -4,3 +4,9 @@
 [submodule "demonstration/fx-meta-installer"]
 	path = demonstration/fx-meta-installer
 	url = https://github.com/clear-code/fx-meta-installer.git
+[submodule "demonstration/disableaddons"]
+	path = demonstration/disableaddons
+	url = https://github.com/clear-code/disableaddons.git
+[submodule "demonstration/autopermission"]
+	path = demonstration/autopermission
+	url = https://github.com/clear-code/autopermission.git
