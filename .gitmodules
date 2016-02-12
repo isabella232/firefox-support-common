@@ -16,3 +16,6 @@
 [submodule "demonstration/globalchromecss"]
 	path = demonstration/globalchromecss
 	url = https://github.com/clear-code/globalchromecss.git
+[submodule "demonstration/disablesync"]
+	path = demonstration/disablesync
+	url = https://github.com/clear-code/disablesync.git
