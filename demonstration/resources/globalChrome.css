@@ -22,3 +22,52 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Privacy-5-2 */
+/* パスワード保存の設定UIを隠す */
+@-moz-document
+  url-prefix("chrome://browser/content/preferences/preferences.xul"),
+  url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+  url-prefix("about:preferences") {
+  #passwordsGroup {
+    Visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+/* パスワードマネージャのUIを隠す */
+@-moz-document url-prefix("chrome://passwordmgr/content/passwordManager.xul") {
+  :root > * { display: none !important; }
+  #signonsTree,
+  #removeSignon,
+  #removeAllSignons,
+  #togglePasswords {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
+@-moz-document url-prefix("chrome://passwordmgr/content/passwordManagerExceptions.xul") {
+  :root > * { display: none !important; }
+  #rejectsTree,
+  #removeReject,
+  #removeAllRejects {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
+/* マスターパスワード関連の設定UIを隠す */
+@-moz-document url-prefix("chrome://mozapps/content/preferences/changemp.xul") {
+  :root > * { display: none !important; }
+  #pw1,
+  #pw2,
+  #pwmeter {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
+/* Hide context menu item */
+@-moz-document url-prefix("chrome://browser/content/browser.xul") {
+  #fill-login {
+    display: none !important;
+    -moz-user-focus: disabled !important;
+  }
+}
