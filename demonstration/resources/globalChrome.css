@@ -116,3 +116,19 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Startup-3-2 */
+@-moz-document
+  url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+  url-prefix("about:preferences") {
+  #defaultBrowserBox {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
+@-moz-document url-prefix("chrome://browser/content/preferences/preferences.xul") {
+  #systemDefaultsGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
