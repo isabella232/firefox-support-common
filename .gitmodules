@@ -10,3 +10,6 @@
 [submodule "demonstration/autopermission"]
 	path = demonstration/autopermission
 	url = https://github.com/clear-code/autopermission.git
+[submodule "demonstration/disableaboutconfig"]
+	path = demonstration/disableaboutconfig
+	url = https://github.com/clear-code/disableaboutconfig.git
