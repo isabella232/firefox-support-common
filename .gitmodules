@@ -1,3 +1,6 @@
 [submodule "testcases/unsigned-addon/makexpi"]
 	path = testcases/unsigned-addon/makexpi
 	url = https://github.com/piroor/makexpi.git
+[submodule "demonstration/fx-meta-installer"]
+	path = demonstration/fx-meta-installer
+	url = https://github.com/clear-code/fx-meta-installer.git
