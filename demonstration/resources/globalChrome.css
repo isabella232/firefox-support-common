@@ -241,6 +241,21 @@
   /* MenuShortcut-29 */
   #getMoreDevtools,
   #devtoolsMenuBroadcaster_GetMoreTools,
+  /* MenuShortcut-31 */
+  #menu_openTour,
+  .subviewbutton[oncommand^='openTourPage'],
+  /* MenuShortcut-33 */
+  #healthReport,
+  .subviewbutton[oncommand^='openHealthReport'],
+  /* MenuShortcut-35 */
+  #troubleShooting,
+  .subviewbutton[oncommand^='openTroubleshootingPage'],
+  /* MenuShortcut-36 */
+  #feedbackPage,
+  .subviewbutton[oncommand^='openFeedbackPage'],
+  /* MenuShortcut-37 */
+  #helpSafeMode,
+  .subviewbutton[oncommand^='safeModeRestart'],
 
   /* MenuShortcut-common */
   *[always-hidden="true"] {
