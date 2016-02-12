@@ -1,0 +1,8 @@
+/* Security-11-2 */
+@-moz-document url-prefix("chrome://browser/content/browser.xul") {
+  #social-share-button,
+  #wrapper-social-share-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}

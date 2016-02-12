@@ -13,3 +13,6 @@
 [submodule "demonstration/disableaboutconfig"]
 	path = demonstration/disableaboutconfig
 	url = https://github.com/clear-code/disableaboutconfig.git
+[submodule "demonstration/globalchromecss"]
+	path = demonstration/globalchromecss
+	url = https://github.com/clear-code/globalchromecss.git
