@@ -22,3 +22,6 @@
 [submodule "demonstration/disableupdate"]
 	path = demonstration/disableupdate
 	url = https://github.com/clear-code/disableupdate.git
+[submodule "demonstration/ui-text-overrider"]
+	path = demonstration/ui-text-overrider
+	url = https://github.com/clear-code/ui-text-overrider.git
