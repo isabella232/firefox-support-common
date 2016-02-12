@@ -169,6 +169,79 @@
   #webDeveloperMenu,
   #developer-button,
   #wrapper-developer-button,
+  /* MenuShortcut-11 */
+  #key_devToolboxMenuItem,
+  #key_devToolboxMenuItemF12,
+  #Tools\:DevToolbox,
+  /* MenuShortcut-12 */
+  #key_inspector,
+  #Tools\:inspector,
+  #devtoolsMenuBroadcaster_inspector,
+  #Tasks\:Inspector,
+  /* MenuShortcut-13 */
+  #key_webconsole,
+  #Tools\:webconsole,
+  #devtoolsMenuBroadcaster_webconsole,
+  /* MenuShortcut-14 */
+  #key_jsdebugger,
+  #Tools\:jsdebugger,
+  #devtoolsMenuBroadcaster_jsdebugger,
+  /* MenuShortcut-15 */
+  #key_styleeditor,
+  #Tools\:styleeditor,
+  #devtoolsMenuBroadcaster_styleeditor,
+  /* MenuShortcut-16 */
+  #key_performance,
+  #Tools\:performance,
+  #devtoolsMenuBroadcaster_performance,
+  /* MenuShortcut-17 */
+  #key_netmonitor,
+  #Tools\:netmonitor,
+  #devtoolsMenuBroadcaster_netmonitor,
+  /* MenuShortcut-18 */
+  #menu_devToolbar,
+  #devtoolsMenuBroadcaster_DevToolbar,
+  #key_devToolbar,
+  /* MenuShortcut-20 */
+  #menu_webide,
+  #devtoolsMenuBroadcaster_webide,
+  #key_webide,
+  /* MenuShortcut-21 */
+  #menu_browserToolbox,
+  #devtoolsMenuBroadcaster_browserToolbox,
+  /* MenuShortcut-22 */
+  #menu_browserConsole,
+  #devtoolsMenuBroadcaster_browserConsole,
+  #key_browserConsole,
+  /* MenuShortcut-23 */
+  #menu_responsiveUI,
+  #devtoolsMenuBroadcaster_responsiveUI,
+  #key_responsiveUI,
+  /* MenuShortcut-24 */
+  #menu_eyedropper,
+  #devtoolsMenuBroadcaster_eyedropper,
+  /* MenuShortcut-25 */
+  #key_scratchpad,
+  #Tools\:Scratchpad,
+  /* MenuShortcut-26 */
+  #key_viewSource,
+  #View\:PageSource,
+  #devtoolsMenuBroadcaster_PageSource,
+  #context-viewsource,
+  #context-sep-viewsource,
+  #context-viewpartialsource-selection,
+  #context-viewpartialsource-mathml,
+  /* MenuShortcut-27 */
+  #javascriptConsole,
+  #devtoolsMenuBroadcaster_ErrorConsole,
+  #Tools\:ErrorConsole,
+  /* MenuShortcut-28 */
+  #menu_devtools_connect,
+  #devtoolsMenuBroadcaster_connect,
+  /* MenuShortcut-29 */
+  #getMoreDevtools,
+  #devtoolsMenuBroadcaster_GetMoreTools,
+
   /* MenuShortcut-common */
   *[always-hidden="true"] {
     display: none !important;
