@@ -301,3 +301,16 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Hide-4 */
+@-moz-document url-prefix("chrome://browser/content/preferences/permissions.xul") {
+  :root#PermissionsDialog:not([title*='Cookie']) #url,
+  :root#PermissionsDialog:not([title*='Cookie']) #btnBlock,
+  :root#PermissionsDialog:not([title*='Cookie']) #btnSession,
+  :root#PermissionsDialog:not([title*='Cookie']) #btnAllow,
+  :root#PermissionsDialog:not([title*='Cookie']) #removePermission,
+  :root#PermissionsDialog:not([title*='Cookie']) #removeAllPermissions {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}
