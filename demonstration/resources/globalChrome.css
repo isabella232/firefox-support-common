@@ -92,3 +92,12 @@
     -moz-user-focus: ignore !important;
   }
 }
+
+/* Privacy-25-2 */
+@-moz-document url-prefix("chrome://browser/content/browser.xul") {
+  #loop-button,
+  #wrapper-loop-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
+}
