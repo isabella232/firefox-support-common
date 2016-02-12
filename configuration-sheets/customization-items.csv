@@ -1,29 +1,36 @@
 設定項目番号,選択肢番号,カテゴリー,カスタマイズ項目（目的）,サイト別設定の可否,選択肢,設定方法,設定内容（Firefox 45）,Firefox 38→45での変更,設定内容（Firefox 38）,設定内容（Firefox 31）,設定内容（Firefox 24）
-Install-1,1,インストール,インストーラの表示名,-,Fx Meta Installer（既定）,fx-meta-installerビルド時に決定,,?,-,,
-Install-1,2,,,,任意の名前,fx-meta-installerビルド時に決定,,?,"!define PRODUCT_FULL_NAME  ""（名前）""",,
-Install-2,1,インストール,インストーラのファイル名,-,FxMetaInstaller,fx-meta-installerビルド時に決定,,?,-,,
-Install-2,2,,,,任意の名前,fx-meta-installerビルド時に決定,,?,"!define PRODUCT_NAME  ""（名前）""",,
+Install-1,1,インストール,インストーラの表示名,-,Fx Meta Installer（既定）,fx-meta-installerビルド時に決定,-,,-,,
+Install-1,2,,,,任意の名前,fx-meta-installerビルド時に決定,"!define PRODUCT_FULL_NAME  ""（名前）""",,"!define PRODUCT_FULL_NAME  ""（名前）""",,
+Install-2,1,インストール,インストーラのファイル名,-,FxMetaInstaller,fx-meta-installerビルド時に決定,-,,-,,
+Install-2,2,,,,任意の名前,fx-meta-installerビルド時に決定,"!define PRODUCT_NAME  ""（名前）""",,"!define PRODUCT_NAME  ""（名前）""",,
 Install-3,1,インストール,インストーラのウィザード,-,表示し、操作確認を求める,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""NORMAL""",,"!define PRODUCT_INSTALL_MODE ""NORMAL""",,
 Install-3,2,,,,表示し、操作確認を求めない（既定）,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""PASSIVE""",,"!define PRODUCT_INSTALL_MODE ""PASSIVE""",,
 Install-3,3,,,,一切表示しない,fx-meta-installerビルド時に決定,"!define PRODUCT_INSTALL_MODE ""QUIET""",,"!define PRODUCT_INSTALL_MODE ""QUIET""",,
-Install-4,1,インストール,インストール完了後のメッセージ,-,表示しない（既定）,-,,?,-,,
-Install-4,2,,,,表示する,fainstall.iniを編集する,,?,"[fainstall]
+Install-4,1,インストール,インストール完了後のメッセージ,-,表示しない（既定）,-,-,,-,,
+Install-4,2,,,,表示する,fainstall.iniを編集する,"[fainstall]
+FinishTitle=Fx Meta Installer
+FinishMessage=インストールが完了しました",,"[fainstall]
 FinishTitle=Fx Meta Installer
 FinishMessage=インストールが完了しました",,
-Install-5,1,インストール,インストール完了後の再起動要求,-,表示しない（既定）,-,,?,-,,
-Install-5,2,,,,表示する,fainstall.iniを編集する,,?,"[fainstall]
+Install-5,1,インストール,インストール完了後の再起動要求,-,表示しない（既定）,-,-,,-,,
+Install-5,2,,,,表示する,fainstall.iniを編集する,"[fainstall]
+ConfirmRestartTitle=Fx Meta Installer
+ConfirmRestartMessage=今すぐコンピュータを再起動しますか？",,"[fainstall]
 ConfirmRestartTitle=Fx Meta Installer
 ConfirmRestartMessage=今すぐコンピュータを再起動しますか？",,
-Install-6,1,インストール,インストーラのウィザードの表示言語,-,日本語（既定）,fx-meta-installerビルド時に決定,,?,"!define PRODUCT_LANGUAGE ""Japanese""",,
-Install-6,2,,,,英語,fx-meta-installerビルド時に決定,,?,"!define PRODUCT_LANGUAGE ""English""",,
+Install-6,1,インストール,インストーラのウィザードの表示言語,-,日本語（既定）,fx-meta-installerビルド時に決定,"!define PRODUCT_LANGUAGE ""Japanese""",,"!define PRODUCT_LANGUAGE ""Japanese""",,
+Install-6,2,,,,英語,fx-meta-installerビルド時に決定,"!define PRODUCT_LANGUAGE ""English""",,"!define PRODUCT_LANGUAGE ""English""",,
 Install-7,1,インストール,Firefox/Thunderbirdの同梱,-,同梱しない（既定）,-,-,,-,,
 Install-7,2,,,,指定バージョンを同梱する,resources以下にインストーラを同梱,-,,-,,
-Install-8,1,インストール,Firefox/Thunderbirdのインストール先,-,既定のインストール先（既定）,-,,?,-,,
-Install-8,2,,,,任意のインストール先,Firefox-setup.ini/Thunderbird-setup.iniを編集する,,?,"[Install]
+Install-8,1,インストール,Firefox/Thunderbirdのインストール先,-,既定のインストール先（既定）,-,-,,-,,
+Install-8,2,,,,任意のインストール先,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
+InstallDirectoryName=
+InstallDirectoryPath=",,"[Install]
 InstallDirectoryName=
 InstallDirectoryPath=",,
-Install-9,1,インストール,メタインストーラの表示バージョン,-,指定しない（規定）,-,,?,-,,
-Install-9,2,,,,指定する,fainstall.iniを編集する,,?,"[Install]
+Install-9,1,インストール,メタインストーラの表示バージョン,-,指定しない（規定）,-,-,,-,,
+Install-9,2,,,,指定する,fainstall.iniを編集する,"[Install]
+DisplayVersion=バージョン番号",,"[Install]
 DisplayVersion=バージョン番号",,
 Application-1,1,特定用途専用アプリケーションとしての利用,デスクトップのショートカット,-,既定の内容で作成（既定）,-,-,,-,,
 Application-1,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
@@ -70,7 +77,7 @@ StartMenuShortcuts=false
 
 fainstall.ini:
 [fainstall]
-Shortcuts=startmenu-name
+Shortcuts=startmenu-shortcut
 
 [startmenu-shortcut]
 Name=ショートカット名
@@ -84,7 +91,7 @@ StartMenuShortcuts=false
 
 fainstall.ini:
 [fainstall]
-Shortcuts=startmenu-name
+Shortcuts=startmenu-shortcut
 
 [startmenu-shortcut]
 Name=ショートカット名
@@ -109,8 +116,23 @@ lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_privatebr
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_privatebrowsing"", title + ""（プライベートブラウジング）"");",,
 Appliaction-5,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,既定のアイコン（既定）,-,,?,-,,
 Appliaction-5,2,,,,任意のアイコン,アイコンをresources/main-window.icoの位置に置く,,?,-,,
-Application-6,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,,?,-,,
-Application-6,2,,,,任意の位置,fainstall.iniを編集する,,?,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
+Application-6,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,-,,
+Application-6,2,,,,任意の位置,fainstall.iniを編集する,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
+
+[fainstall]
+Shortcuts=desktop-shortcut
+
+[profile]
+TargetUser=all
+Name=NameOfProfile
+RootPath=X:/Path/To/RootDir
+
+[desktop-shortcut]
+Name=""Mozilla Firefox""
+Path=%AppDir%/firefox.exe
+Options=-profile X:\Path\To\RootDir\Profiles\NameOfProfile
+TargetUser=all
+TargetLocation=C:/Users/Public/Desktop/",,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
 
 [fainstall]
 Shortcuts=desktop-shortcut
@@ -228,7 +250,7 @@ lockPref(""extensions.autopermission.sites.update.mozilla.org"", ""install=0"");
 lockPref(""extensions.autopermission.sites.getpersonas.com"", ""install=0"");",,
 Security-3,4,,,,禁止するが、設定の変更は許可する,"1. アドオン「Disable Addons」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.disableaddons@clear-code.com.disable.manager"", false);",,"lockPref(""extensions.disableaddons@clear-code.com.disable.manager"", false);",,
-Security-4,1,セキュリティ,広告などのポップアップの表示の可否,○,確認の上で許可する（既定）,-,-,新規,,,
+Security-4,1,セキュリティ,広告などのポップアップの表示の可否,○,確認の上で許可する（既定）,-,-,,-,,
 Security-4,2,,,,特定サイトのみ確認無しで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""popup=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""popup=1"");",,
 Security-4,3,,,,すべて確認無しで許可する,MCDで設定を反映する,"lockPref(""dom.disable_open_during_load"", false);",,"lockPref(""dom.disable_open_during_load"", false);",変更無し,"lockPref(""dom.disable_open_during_load"", false);"
@@ -353,7 +375,9 @@ Security-9,2,,,,禁止する,アドオン「Disable about:config」を導入す�
 Security-10,1,セキュリティ,エラーコンソールの利用の可否,-,許可する,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", true);",,"lockPref(""devtools.errorconsole.enabled"", true);",変更無し,"lockPref(""devtools.errorconsole.enabled"", true);"
 Security-10,2,,,,禁止する（既定）,MCDで設定を反映する,"lockPref(""devtools.errorconsole.enabled"", false);",,"lockPref(""devtools.errorconsole.enabled"", false);",変更無し,"lockPref(""devtools.errorconsole.enabled"", false);"
 Security-11,1,セキュリティ,SNS連携機能の利用の可否,-,許可する（既定）,-,-,,-,,
-Security-11,2,,,,禁止する,MCDで設定を反映する,"MCD:
+Security-11,2,,,,禁止する,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""social.activeProviders"", """");
 lockPref(""social.directories"", """");
 lockPref(""social.remote-install.enabled"", false);
@@ -651,7 +675,7 @@ globalChrome.css:
 }
 /* パスワードマネージャのUIを隠す */
 @-moz-document url-prefix(""chrome://passwordmgr/content/passwordManager.xul"") {
-:root > * { display: none !important; }
+  :root > * { display: none !important; }
   #signonsTree,
   #removeSignon,
   #removeAllSignons,
@@ -661,7 +685,7 @@ globalChrome.css:
   }
 }
 @-moz-document url-prefix(""chrome://passwordmgr/content/passwordManagerExceptions.xul"") {
-:root > * { display: none !important; }
+  :root > * { display: none !important; }
   #rejectsTree,
   #removeReject,
   #removeAllRejects {
@@ -1315,8 +1339,9 @@ lockPref(""browser.safebrowsing.provider.google.updateURL"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.gethashURL"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.lists"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.updateURL"", """");",新規,,,
-Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,,?,-,,
-Startup-1,2,,,,表示しない,override.iniに設定を反映する,,?,"[XRE]
+Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
+Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
+EnableProfileMigrator=0",,"[XRE]
 EnableProfileMigrator=0",,
 Startup-2,1,起動時の挙動の制御,起動時のホームページの指定,-,ユーザが指定（既定）,-,-,,-,,
 Startup-2,2,,,,管理者が指定し、変更を許可,distribution.iniに設定を反映する,"[Global]
@@ -1375,7 +1400,9 @@ globalChrome.css:
   }
 }",,
 Startup-3,1,起動時の挙動の制御,既定のブラウザでなかった場合の、起動時における既定のブラウザにするかどうかの確認の可否,-,確認する（既定）,MCDで設定を反映する,"lockPref(""browser.shell.checkDefaultBrowser"", true);",,"lockPref(""browser.shell.checkDefaultBrowser"", true);",変更無し,"lockPref(""browser.shell.checkDefaultBrowser"", true);"
-Startup-3,2,,,,確認しない,MCDで設定を反映する,"MCD:
+Startup-3,2,,,,確認しない,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.shell.checkDefaultBrowser"", false);
 
 globalChrome.css:
@@ -1955,8 +1982,8 @@ lockPref(""extensions.update.background.url"", """");
 lockPref(""extensions.update.url"", """");",変更無し,"lockPref(""extensions.update.enabled"", false);"
 Update-3,1,自動更新,検索エンジンの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""browser.search.update"", true);",,"lockPref(""browser.search.update"", true);",変更無し,"lockPref(""browser.search.update"", true);"
 Update-3,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.search.update"", false);",,"lockPref(""browser.search.update"", false);",変更無し,"lockPref(""browser.search.update"", false);"
-Update-4,1,その他,「Mozilla Maintenance Service」のインストールの可否,-,許可する（既定）,Frefox-setup.iniで設定を反映する,,?,-,,
-Update-4,2,,,,禁止する,Frefox-setup.iniで設定を反映する,,?,MaintenanceService=false,,
+Update-4,1,その他,「Mozilla Maintenance Service」のインストールの可否,-,許可する（既定）,Frefox-setup.iniで設定を反映する,-,,-,,
+Update-4,2,,,,禁止する,Frefox-setup.iniで設定を反映する,MaintenanceService=false,,MaintenanceService=false,,
 Update-5,1,自動更新,軽量テーマの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,,?,"lockPref(""lightweightThemes.update.enabled"", true);",,
 Update-5,2,,,,禁止する,MCDで設定を反映する,,?,"lockPref(""lightweightThemes.update.enabled"", false);",,
 Ui-1,1,プログラム,Firefox組み込みのPDFビューアの使用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);",,"lockPref(""pdfjs.disabled"", false);",変更無し,"lockPref(""pdfjs.disabled"", false);"
@@ -2049,7 +2076,7 @@ lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState""
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-7,1,プラグイン,Cisco WebExプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. npatgpc.dllを導入する
 2. アドオン「Force Addon Status」を導入する
-3. MCDで設定を反映する",,?,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+3. MCDで設定を反映する",,,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-7,2,,,,常に有効化する,"1. npatgpcp.dllを導入する

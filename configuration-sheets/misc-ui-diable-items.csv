@@ -55,8 +55,7 @@ globalChrome.css:
   }
 }"
 Hide-4,ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する","/*要検証*/
-@-moz-document url-prefix(""chrome://browser/content/preferences/permissions.xul"") {
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/preferences/permissions.xul"") {
   :root#PermissionsDialog:not([title*='Cookie']) #url,
   :root#PermissionsDialog:not([title*='Cookie']) #btnBlock,
   :root#PermissionsDialog:not([title*='Cookie']) #btnSession,
@@ -66,7 +65,7 @@ Hide-4,ポップアップブロック、アドオンのインストール警告�
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",○,"@-moz-document url-prefix(""chrome://browser/content/preferences/permissions.xul"") {
+}",,"@-moz-document url-prefix(""chrome://browser/content/preferences/permissions.xul"") {
   :root#PermissionsDialog:not([title*='Cookie']) #url,
   :root#PermissionsDialog:not([title*='Cookie']) #btnBlock,
   :root#PermissionsDialog:not([title*='Cookie']) #btnSession,
@@ -145,7 +144,7 @@ Hide-7,設定画面内の「タブグループ」グループにおける「新�
   }
 }",,
 Hide-8,コンテンツ領域のコンテキストメニューおける「デスクトップの背景に設定」,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",,?,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+2. globalChrome.cssで設定を反映する",MenuShortcut-55に統合,○,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #context-setDesktopBackground {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;

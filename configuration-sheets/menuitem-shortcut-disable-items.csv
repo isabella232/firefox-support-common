@@ -1,15 +1,32 @@
 ,"無効化に際しては、特に断りがない限りアドオン「UI Text Overrider」および「globalChrome.css」を導入して、MCDおよびglobalChrome.cssにて設定を反映するものとする。
 
 MCDによる設定:
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）"", ""（セレクタ）"");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.disabled"", ""true"");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.hidden"", ""true"");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.always-hidden"", ""true"");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.readonly"", ""true"");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.command"", """");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.oncommand"", """");
-lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.delayed"", （遅延初期化）);
+// disable shortcuts and UI
+var killedItems = [];
+var killedItemsWithDelay = [];
+var hiddenItemsWithDelay = [];
 
+// ここに書く
+// CSSセレクタID内の:をエスケープしている\（バックスラッシュ）は\\にすること
+// killedItems.push(""..."");
+
+function setKillItemRule(aIdentifier, aSelector, aDelayed, aDisableCommand) {
+  lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier, aSelector);
+  lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".disabled"", ""true"");
+  lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".hidden"", ""true"");
+  lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".readonly"", ""true"");
+  if (aDisableCommand) {
+    lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".command"", """");
+    lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".oncommand"", """");
+  }
+  lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".always-hidden"", ""true"");
+  lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier + "".delayed"", aDelayed == true);
+}
+setKillItemRule(""killedItems"",          killedItems.join("",""),          false, true);
+setKillItemRule(""killedItemsWithDelay"", killedItemsWithDelay.join("",""), true,  true);
+setKillItemRule(""hiddenItemsWithDelay"", hiddenItemsWithDelay.join("",""), true,  false);
+
+globalChrome.cssによる設定:
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   （セレクタ）,
   /* MenuShortcut-common */
@@ -17,10 +34,10 @@ lockPref(""extensions.uitextoverrider@clear-code.com.（識別子）.delayed"", 
     display: none !important;
     -moz-user-focus: ignore !important;
   }
-}",,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,
-設定項目番号,無効化対象,識別子,Firefox 45,,,,,Firefox 38,,,,Firefox 31,,,,Firefox 24,,
-,,,ショートカット,セレクタ,遅延初期化,"oncommandを
+}",,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+設定項目番号,無効化対象,識別子,Firefox 45,,,,,,Firefox 38,,,,Firefox 31,,,,Firefox 24,,
+,,,ショートカット,セレクタ,分類,遅延初期化,"oncommandを
 空にする",Firefox 45,ショートカット,セレクタ,遅延初期化,"oncommandを
 空にする",ショートカット,セレクタ,遅延初期化,"oncommandを
 空にする",ショートカット,セレクタ,遅延初期化
@@ -30,7 +47,7 @@ MenuShortcut-1,閉じたタブを開き直す,undoCloseTab,Ctrl-Shift-T,"#key_un
 #toolbar-context-undoCloseTab,
 #context_undoCloseTab,
 #PanelUI-recentlyClosedTabs-separator,
-#PanelUI-recentlyClosedTabs",false,yes,,Ctrl-Shift-T,"#key_undoCloseTab,
+#PanelUI-recentlyClosedTabs",killedItems,false,yes,,Ctrl-Shift-T,"#key_undoCloseTab,
 #History\:UndoCloseTab,
 #historyUndoMenu,
 #toolbar-context-undoCloseTab,
@@ -49,7 +66,7 @@ MenuShortcut-2,閉じたウィンドウを開き直す,undoCloseWindow,Ctrl-Shif
 #History\:UndoCloseWindow,
 #historyUndoWindowMenu,
 #PanelUI-recentlyClosedWindows-separator,
-#PanelUI-recentlyClosedWindows",false,yes,,Ctrl-Shift-N,"#key_undoCloseWindow,
+#PanelUI-recentlyClosedWindows",killedItems,false,yes,,Ctrl-Shift-N,"#key_undoCloseWindow,
 #History\:UndoCloseWindow,
 #historyUndoWindowMenu,
 #PanelUI-recentlyClosedWindows-separator,
@@ -64,7 +81,7 @@ MenuShortcut-3,ファイル＞新しいプライベートウィンドウを開�
 #wrapper-privatebrowsing-button,
 #key_privatebrowsing,
 #Tools\:PrivateBrowsing,
-#context-openlinkprivate",false,yes,,Ctrl-Shift-P,"#menu_newPrivateWindow,
+#context-openlinkprivate",killedItems,false,yes,,Ctrl-Shift-P,"#menu_newPrivateWindow,
 #privatebrowsing-button,
 #wrapper-privatebrowsing-button,
 #key_privatebrowsing,
@@ -80,7 +97,7 @@ MenuShortcut-4,ファイル＞ページのURLをメールで送信（ページ�
 #menu_sendLink,
 #context-sendpage,
 #email-link-button,
-#wrapper-email-link-button",false,yes,,-,"#Browser\:SendLink,
+#wrapper-email-link-button",killedItems,false,yes,,-,"#Browser\:SendLink,
 #appmenu_sendLink,
 #menu_sendLink,
 #context-sendpage,
@@ -94,15 +111,11 @@ MenuShortcut-4,ファイル＞ページのURLをメールで送信（ページ�
 #appmenu_sendLink,
 #menu_sendLink,
 #context-sendpage",false
-MenuShortcut-5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOfflineMenuitem,false,yes,,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
-MenuShortcut-6（廃止）,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
+MenuShortcut-5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOfflineMenuitem,killedItems,false,yes,,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
+MenuShortcut-6（廃止）,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
 #Tools\:PrivateBrowsing",false
 MenuShortcut-7,"ツール＞ダウンロード
-（旧バージョンでは「ダウンロードマネージャ」）",openDownloads,Ctrl-J,"#key_openDownloads,
-#Tools\:Downloads,
-#menu_openDownloads,
-#downloads-button,
-#wrapper-downloads-button",false,yes,,Ctrl-J,"#key_openDownloads,
+（旧バージョンでは「ダウンロードマネージャ」）",openDownloads,Ctrl-J, ,killedItems,false,yes,○,Ctrl-J,"#key_openDownloads,
 #Tools\:Downloads,
 #menu_openDownloads,
 #downloads-button,
@@ -114,14 +127,14 @@ MenuShortcut-7,"ツール＞ダウンロード
 #Tools\:Downloads,
 #appmenu_downloads,
 #menu_openDownloads",
-MenuShortcut-8（廃止）,ツール＞ページの調査,inspectPage,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,-,廃止,廃止,yes,-,"#key_inspectPage,
+MenuShortcut-8（廃止）,ツール＞ページの調査,inspectPage,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,-,廃止,廃止,yes,-,"#key_inspectPage,
 #Tasks\:InspectPage",
-MenuShortcut-9（廃止）,ツール＞アプリ,openApps,Firefox 45で廃止,,,,○,-,"#menu_openApps,
+MenuShortcut-9（廃止）,ツール＞アプリ,openApps,Firefox 45で廃止,,,,,○,-,"#menu_openApps,
 #web-apps-button,
 #wrapper-web-apps-button",false,yes,,,,,,,
 MenuShortcut-10,ツール＞Web開発（開発ツールボタン）,webDeveloper,-,"#webDeveloperMenu,
 #developer-button,
-#wrapper-developer-button",false,yes,,-,"#webDeveloperMenu,
+#wrapper-developer-button",killedItems,false,yes,,-,"#webDeveloperMenu,
 #developer-button,
 #wrapper-developer-button",false,yes,-,"#webDeveloperMenu,
 #developer-button,
@@ -132,7 +145,7 @@ MenuShortcut-10,ツール＞Web開発（開発ツールボタン）,webDeveloper
 MenuShortcut-11,ツール＞Web開発＞開発ツールを表示,devToolbox,"Ctrl-Shift-I,
 F12","#key_devToolboxMenuItem,
 #key_devToolboxMenuItemF12,
-#Tools\:DevToolbox",false,yes,,"Ctrl-Shift-I,
+#Tools\:DevToolbox",killedItems,false,yes,,"Ctrl-Shift-I,
 F12","#key_devToolboxMenuItem,
 #key_devToolboxMenuItemF12,
 #Tools\:DevToolbox",false,yes,"Ctrl-Shift-I,
@@ -142,7 +155,7 @@ F12","#key_devToolboxMenuItem,
 MenuShortcut-12,ツール＞Web開発＞インスペクタ,inspector,Ctrl-Shift-C,"#key_inspector,
 #Tools\:inspector,
 #devtoolsMenuBroadcaster_inspector,
-#Tasks\:Inspector",true,yes,,Ctrl-Shift-C,"#key_inspector,
+#Tasks\:Inspector",killedItemsWithDelay,true,yes,,Ctrl-Shift-C,"#key_inspector,
 #Tools\:inspector,
 #devtoolsMenuBroadcaster_inspector,
 #Tasks\:Inspector",true,yes,Ctrl-Shift-C,"#key_inspector,
@@ -153,21 +166,21 @@ MenuShortcut-12,ツール＞Web開発＞インスペクタ,inspector,Ctrl-Shift-
 #Tasks\:Inspector",true
 MenuShortcut-13,ツール＞Web開発＞Webコンソール,webconsole,Ctrl-Shift-K,"#key_webconsole,
 #Tools\:webconsole,
-#devtoolsMenuBroadcaster_webconsole",true,yes,,Ctrl-Shift-K,"#key_webconsole,
+#devtoolsMenuBroadcaster_webconsole",killedItemsWithDelay,true,yes,,Ctrl-Shift-K,"#key_webconsole,
 #Tools\:webconsole,
 #devtoolsMenuBroadcaster_webconsole",true,yes,変更無し,"#key_webconsole,
 #Tools\:webconsole,
 #devtoolsMenuBroadcaster_webconsole",変更無し,yes,Ctrl-Shift-K,#key_webconsole,true
 MenuShortcut-14,ツール＞Web開発＞デバッガ,jsdebugger,Ctrl-Shift-S,"#key_jsdebugger,
 #Tools\:jsdebugger,
-#devtoolsMenuBroadcaster_jsdebugger",true,yes,,Ctrl-Shift-S,"#key_jsdebugger,
+#devtoolsMenuBroadcaster_jsdebugger",killedItemsWithDelay,true,yes,,Ctrl-Shift-S,"#key_jsdebugger,
 #Tools\:jsdebugger,
 #devtoolsMenuBroadcaster_jsdebugger",true,yes,Ctrl-Shift-S,"#key_jsdebugger,
 #Tools\:jsdebugger,
 #devtoolsMenuBroadcaster_jsdebugger",true,yes,-,-,-
 MenuShortcut-15,ツール＞Web開発＞スタイルエディタ,styleeditor,Shift-F7,"#key_styleeditor,
 #Tools\:styleeditor,
-#devtoolsMenuBroadcaster_styleeditor",true,yes,,Shift-F7,"#key_styleeditor,
+#devtoolsMenuBroadcaster_styleeditor",killedItemsWithDelay,true,yes,,Shift-F7,"#key_styleeditor,
 #Tools\:styleeditor,
 #devtoolsMenuBroadcaster_styleeditor",true,yes,変更無し,"#key_styleeditor,
 #Tools\:styleeditor,
@@ -176,59 +189,59 @@ MenuShortcut-15,ツール＞Web開発＞スタイルエディタ,styleeditor,Shi
 MenuShortcut-16,"ツール＞Web開発＞パフォーマンス
 （旧バージョンでは「プロファイラ」）",jsprofiler,Shift-F5,"#key_performance,
 #Tools\:performance,
-#devtoolsMenuBroadcaster_performance",true,yes,○,Shift-F5,"#key_jsprofiler,
+#devtoolsMenuBroadcaster_performance",killedItemsWithDelay,true,yes,○,Shift-F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
 #devtoolsMenuBroadcaster_jsprofiler",true,yes,Shift＋F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
 #devtoolsMenuBroadcaster_jsprofiler",true,yes,-,-,-
 MenuShortcut-17,ツール＞Web開発＞ネットワーク,netmonitor,Ctrl-Shift-Q,"#key_netmonitor,
 #Tools\:netmonitor,
-#devtoolsMenuBroadcaster_netmonitor",true,yes,,Ctrl-Shift-Q,"#key_netmonitor,
+#devtoolsMenuBroadcaster_netmonitor",killedItemsWithDelay,true,yes,,Ctrl-Shift-Q,"#key_netmonitor,
 #Tools\:netmonitor,
 #devtoolsMenuBroadcaster_netmonitor",true,yes,Ctrl-Shift-Q,"#key_netmonitor,
 #Tools\:netmonitor,
 #devtoolsMenuBroadcaster_netmonitor",true,yes,-,-,-
 MenuShortcut-18,ツール＞Web開発＞開発ツールバー,devToolbar,Shift-F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
-#key_devToolbar",true,yes,,Shift-F2,"#menu_devToolbar,
+#key_devToolbar",killedItemsWithDelay,true,yes,,Shift-F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
 #key_devToolbar",true,yes,Shift+F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
 #key_devToolbar",true,yes,-,-,-
 MenuShortcut-19（廃止）,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止,"#menu_devAppMgr,
-#devtoolsMenuBroadcaster_devAppMgr",true,yes,,Firefox 38で廃止,"#menu_devAppMgr,
+#devtoolsMenuBroadcaster_devAppMgr",,true,yes,,Firefox 38で廃止,"#menu_devAppMgr,
 #devtoolsMenuBroadcaster_devAppMgr",true,yes,-,"#menu_devAppMgr,
 #devtoolsMenuBroadcaster_devAppMgr",true,yes,-,-,-
 MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#menu_webide,
 #devtoolsMenuBroadcaster_webide,
-#key_webide",true,yes,,Shift-F8,"#menu_webide,
+#key_webide",killedItemsWithDelay,true,yes,,Shift-F8,"#menu_webide,
 #devtoolsMenuBroadcaster_webide,
 #key_webide",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
 MenuShortcut-21,ツール＞Web開発＞ブラウザツールボックス,browserToolbox,-,"#menu_browserToolbox,
-#devtoolsMenuBroadcaster_browserToolbox",true,yes,,-,"#menu_browserToolbox,
+#devtoolsMenuBroadcaster_browserToolbox",killedItemsWithDelay,true,yes,,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
 MenuShortcut-22,ツール＞Web開発＞ブラウザコンソール,browserConsole,Ctrl-Shift-J,"#menu_browserConsole,
 #devtoolsMenuBroadcaster_browserConsole,
-#key_browserConsole",true,yes,,Ctrl-Shift-J,"#menu_browserConsole,
+#key_browserConsole",killedItemsWithDelay,true,yes,,Ctrl-Shift-J,"#menu_browserConsole,
 #devtoolsMenuBroadcaster_browserConsole,
 #key_browserConsole",true,yes,変更無し,"#menu_browserConsole,
 #devtoolsMenuBroadcaster_browserConsole,
 #key_browserConsole",true,yes,Ctrl-Shift-J,#key_browserConsole,false
 MenuShortcut-23,ツール＞Web開発＞レスポンシブデザインビュー,resposiveUI,Ctrl-Shift-M,"#menu_responsiveUI,
 #devtoolsMenuBroadcaster_responsiveUI,
-#key_responsiveUI",true,yes,,Ctrl-Shift-M,"#menu_responsiveUI,
+#key_responsiveUI",killedItemsWithDelay,true,yes,,Ctrl-Shift-M,"#menu_responsiveUI,
 #devtoolsMenuBroadcaster_responsiveUI,
 #key_responsiveUI",true,yes,Ctrl-Shift-M,"#menu_responsiveUI,
 #devtoolsMenuBroadcaster_responsiveUI,
 #key_responsiveUI",true,yes,-,-,-
 MenuShortcut-24,ツール＞Web開発＞スポイト,eyedropper,-,"#menu_eyedropper,
-#devtoolsMenuBroadcaster_eyedropper",true,yes,,-,"#menu_eyedropper,
+#devtoolsMenuBroadcaster_eyedropper",killedItemsWithDelay,true,yes,,-,"#menu_eyedropper,
 #devtoolsMenuBroadcaster_eyedropper",true,yes,-,"#menu_eyedropper,
 #devtoolsMenuBroadcaster_eyedropper",true,yes,-,-,-
 MenuShortcut-25,ツール＞Web開発＞スクラッチパッド,scratchpad,Shift-F4,"#key_scratchpad,
-#Tools\:Scratchpad",false,yes,,Shift-F4,"#key_scratchpad,
+#Tools\:Scratchpad",killedItems,false,yes,,Shift-F4,"#key_scratchpad,
 #Tools\:Scratchpad",false,yes,変更無し,変更無し,変更無し,yes,Shift+F4,"#key_scratchpad,
 #Tools\:Scratchpad",false
 MenuShortcut-26,ツール＞Web開発＞ページのソース,viewSource,Ctrl-U,"#key_viewSource,
@@ -237,7 +250,7 @@ MenuShortcut-26,ツール＞Web開発＞ページのソース,viewSource,Ctrl-U,
 #context-viewsource,
 #context-sep-viewsource,
 #context-viewpartialsource-selection,
-#context-viewpartialsource-mathml",true,yes,,Ctrl-U,"#key_viewSource,
+#context-viewpartialsource-mathml",killedItemsWithDelay,true,yes,,Ctrl-U,"#key_viewSource,
 #View\:PageSource,
 #devtoolsMenuBroadcaster_PageSource,
 #context-viewsource,
@@ -253,73 +266,73 @@ MenuShortcut-26,ツール＞Web開発＞ページのソース,viewSource,Ctrl-U,
 #View\:\:PageSource",false
 MenuShortcut-27,ツール＞Web開発＞エラーコンソール,errorConsole,-,"#javascriptConsole,
 #devtoolsMenuBroadcaster_ErrorConsole,
-#Tools\:ErrorConsole",true,yes,,-,"#javascriptConsole,
+#Tools\:ErrorConsole",killedItemsWithDelay,true,yes,,-,"#javascriptConsole,
 #devtoolsMenuBroadcaster_ErrorConsole,
 #Tools\:ErrorConsole",true,yes,-,"#javascriptConsole,
 #devtoolsMenuBroadcaster_ErrorConsole,
 #Tools\:ErrorConsole",true,yes,Ctrl-Shift-J,"#key_errorConsole,
 #menu_ToolsPopup [id^='javaconsole']""",false
 MenuShortcut-28,ツール＞Web開発＞接続,devtools_connect,-,"#menu_devtools_connect,
-#devtoolsMenuBroadcaster_connect",true,yes,,-,"#menu_devtools_connect,
+#devtoolsMenuBroadcaster_connect",killedItemsWithDelay,true,yes,,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",true,yes,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",true,yes,-,-,-
 MenuShortcut-29,ツール＞Web開発＞その他のツールを入手,getMoreDevtools,-,"#getMoreDevtools,
-#devtoolsMenuBroadcaster_GetMoreTools",true,yes,,-,"#getMoreDevtools,
+#devtoolsMenuBroadcaster_GetMoreTools",killedItemsWithDelay,true,yes,,-,"#getMoreDevtools,
 #devtoolsMenuBroadcaster_GetMoreTools",true,yes,-,"#getMoreDevtools,
 #devtoolsMenuBroadcaster_GetMoreTools",true,yes,-,-,-
 MenuShortcut-30,"ヘルプ＞Firefoxヘルプ
 （旧バージョンでは「ヘルプ」）",openHelp,-,"#menu_openHelp,
-.subviewbutton[oncommand^='openHelp']",true,no,,-,"#menu_openHelp,
+.subviewbutton[oncommand^='openHelp']",hiddenItemsWithDelay,true,no,,-,"#menu_openHelp,
 .subviewbutton[oncommand^='openHelp']",true,no,-,"#menu_openHelp,
 .subviewbutton[oncommand^='openHelp']",true,no,-,"#appmenu_openHelp,
 #menu_openHelp",false
 MenuShortcut-31,ヘルプ＞Firefoxツアー,tour,-,"#menu_openTour,
-.subviewbutton[oncommand^='openTourPage']",true,no,,-,"#menu_openTour,
+.subviewbutton[oncommand^='openTourPage']",hiddenItemsWithDelay,true,no,,-,"#menu_openTour,
 .subviewbutton[oncommand^='openTourPage']",true,no,-,"#menu_openTour,
 .subviewbutton[oncommand^='openTourPage']",true,no,-,-,-
 MenuShortcut-32,ヘルプ＞キーボードショートカット,keyboardShortcuts,-,"#menu_keyboardShortcuts,
-.subviewbutton[oncommand^='keyboardShortcuts']",true,no,,-,"#menu_keyboardShortcuts,
+.subviewbutton[oncommand^='keyboardShortcuts']",hiddenItemsWithDelay,true,no,,-,"#menu_keyboardShortcuts,
 .subviewbutton[oncommand^='keyboardShortcuts']",true,no,,,,,,,
 MenuShortcut-33,ヘルプ＞Firefoxヘルスレポート,healthReport,-,"#healthReport,
-.subviewbutton[oncommand^='openHealthReport']",true,no,,-,"#healthReport,
+.subviewbutton[oncommand^='openHealthReport']",hiddenItemsWithDelay,true,no,,-,"#healthReport,
 .subviewbutton[oncommand^='openHealthReport']",true,no,-,"#healthReport,
 .subviewbutton[oncommand^='openHealthReport']",true,no,-,"#appmenu_healthReport,
 #healthReport",false
-MenuShortcut-34（廃止）,ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
+MenuShortcut-34（廃止）,ヘルプ＞使いこなそう,gettingStarted,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,-,#appmenu_gettingStarted,false
 MenuShortcut-35,ヘルプ＞トラブルシューティング情報,troubleshootingInfo,-,"#troubleShooting,
-.subviewbutton[oncommand^='openTroubleshootingPage']",true,no,,-,"#troubleShooting,
+.subviewbutton[oncommand^='openTroubleshootingPage']",hiddenItemsWithDelay,true,no,,-,"#troubleShooting,
 .subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#troubleShooting,
 .subviewbutton[oncommand^='openTroubleshootingPage']",true,no,-,"#appmenu_troubleshootingInfo,
 #troubleShooting",false
 MenuShortcut-36,ヘルプ＞フィードバックを送信,feedbackPage,-,"#feedbackPage,
-.subviewbutton[oncommand^='openFeedbackPage']",true,no,,-,"#feedbackPage,
+.subviewbutton[oncommand^='openFeedbackPage']",hiddenItemsWithDelay,true,no,,-,"#feedbackPage,
 .subviewbutton[oncommand^='openFeedbackPage']",true,no,-,"#feedbackPage,
 .subviewbutton[oncommand^='openFeedbackPage']",true,no,-,"#appmenu_feedbackPage,
 #appmenu_feedbackPage + menuseparator,
 #feedbackPage",false
 MenuShortcut-37,ヘルプ＞アドオンを無効にして再起動,helpSafeMode,-,"#helpSafeMode,
-.subviewbutton[oncommand^='safeModeRestart']",true,no,,-,"#helpSafeMode,
+.subviewbutton[oncommand^='safeModeRestart']",hiddenItemsWithDelay,true,no,,-,"#helpSafeMode,
 .subviewbutton[oncommand^='safeModeRestart']",true,no,-,"#helpSafeMode,
 .subviewbutton[oncommand^='safeModeRestart']",true,no,-,#helpSafeMode,false
 MenuShortcut-38,ヘルプ＞偽装サイトを報告,reportPhishingtoolmenu,-,"#menu_HelpPopup_reportPhishingtoolmenu,
-.subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",true,no,,-,"#menu_HelpPopup_reportPhishingtoolmenu,
+.subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",hiddenItemsWithDelay,true,no,,-,"#menu_HelpPopup_reportPhishingtoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",true,no,-,"#menu_HelpPopup_reportPhishingtoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",true,no,-,#menu_HelpPopup_reportPhishingtoolmenu,false
 MenuShortcut-39,ヘルプ＞誤警告を報告,reportPhishingErrortoolmenu,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
-.subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
+.subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",hiddenItemsWithDelay,true,no,,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,-,"#menu_HelpPopup_reportPhishingErrortoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Error']",true,no,-,#menu_HelpPopup_reportPhishingErrortoolmenu,false
-MenuShortcut-40,ヘルプ＞Firefoxについて のセパレータ,aboutSeparator,-,#aboutSeparator,false,yes,,-,#aboutSeparator,false,yes,-,変更無し,変更無し,yes,-,#aboutSeparator,false
+MenuShortcut-40,ヘルプ＞Firefoxについて のセパレータ,aboutSeparator,-,#aboutSeparator,killedItems,false,yes,,-,#aboutSeparator,false,yes,-,変更無し,変更無し,yes,-,#aboutSeparator,false
 MenuShortcut-41,編集＞テキストの記述方向を切り替える,textfieldDirection,Ctrl-Shift-X,"#textfieldDirection-separator,
 #textfieldDirection-swap,
-#key_switchTextDirection",false,yes,○,-,"#textfieldDirection-separator,
+#key_switchTextDirection",killedItems,false,yes,○,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false
 MenuShortcut-42,表示＞ページの記述方向を切り替える,documentDirection,-,"#documentDirection-separator,
-#documentDirection-swap",false,yes,,-,"#documentDirection-separator,
+#documentDirection-swap",killedItems,false,yes,,-,"#documentDirection-separator,
 #documentDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#documentDirection-separator,
 #documentDirection-swap",false
-MenuShortcut-43,履歴＞（メニュー内のセパレータ）,historySeparator,-,#startHistorySeparator,false,yes,,-,#startHistorySeparator,false,yes,-,#startHistorySeparator,変更無し,yes,-,"#startHistorySeparator,
+MenuShortcut-43,履歴＞（メニュー内のセパレータ）,historySeparator,-,#startHistorySeparator,killedItems,false,yes,,-,#startHistorySeparator,false,yes,-,#startHistorySeparator,変更無し,yes,-,"#startHistorySeparator,
 #endHistorySeparator",false
 MenuShortcut-44,"ブックマーク＞ブックマークツールバー
 （およびそれに付随する各項目）",bookmarksToolbarFolder,-,"#organizeBookmarksSeparator,
@@ -328,7 +341,7 @@ MenuShortcut-44,"ブックマーク＞ブックマークツールバー
 #panelMenu_viewBookmarksToolbar + toolbarseparator,
 #panelMenu_bookmarksToolbar,
 #BMB_subscribeToPageMenupopup + menuseparator,
-#BMB_bookmarksToolbar",false,yes,○,-,"#organizeBookmarksSeparator,
+#BMB_bookmarksToolbar",killedItems,false,yes,○,-,"#organizeBookmarksSeparator,
 #bookmarksToolbarSeparator,
 #bookmarksToolbarFolderMenu,
 #panelMenu_viewBookmarksToolbar + toolbarseparator,
@@ -340,25 +353,25 @@ MenuShortcut-44,"ブックマーク＞ブックマークツールバー
 #bookmarksToolbarSeparator,
 #bookmarksToolbarFolderMenu,
 #browserToolsSeparator",false
-MenuShortcut-45,コンテンツ領域のコンテキストメニュー＞リンクを保存する...,context-marklink,-,#context-marklinkMenu,false,yes,,-,#context-marklinkMenu,false,yes,-,#context-marklinkMenu,変更無し,yes,-,#context-marklink,false
-MenuShortcut-46,コンテンツ領域のコンテキストメニュー＞このリンクを共有,context-sharelink,-,#context-sharelink,false,yes,,-,#context-sharelink,false,yes,-,変更無し,変更無し,yes,-,#context-sharelink,false
-MenuShortcut-47,コンテンツ領域のコンテキストメニュー＞画像のURLをメールで送信,context-sendimage,-,#context-sendimage,false,yes,,-,#context-sendimage,false,yes,-,変更無し,変更無し,yes,-,#context-sendimage,false
-MenuShortcut-48,コンテンツ領域のコンテキストメニュー＞この画像を共有,context-shareimage,-,#context-shareimage,false,yes,,-,#context-shareimage,false,yes,-,変更無し,変更無し,yes,-,#context-shareimage,false
-MenuShortcut-49,コンテンツ領域のコンテキストメニュー＞動画のURLをメールで送信,context-sendvideo,-,#context-sendvideo,false,yes,,-,#context-sendvideo,false,yes,-,変更無し,変更無し,yes,-,#context-sendvideo,false
-MenuShortcut-50,コンテンツ領域のコンテキストメニュー＞この動画を共有,context-sharevideo,-,#context-sharevideo,false,yes,,-,#context-sharevideo,false,yes,-,変更無し,変更無し,yes,-,#context-sharevideo,false
-MenuShortcut-51,コンテンツ領域のコンテキストメニュー＞オーディオのURLをメールで送信,context-sendaudio,-,#context-sendaudio,false,yes,,-,#context-sendaudio,false,yes,-,変更無し,変更無し,yes,-,#context-sendaudio,false
-MenuShortcut-52,コンテンツ領域のコンテキストメニュー＞このページを共有,context-sharepage,,#context-sharepage,false,yes,,,#context-sharepage,false,yes,,変更無し,変更無し,yes,-,#context-sharepage,false
-MenuShortcut-53,コンテンツ領域のコンテキストメニュー＞ページを保存する...,context-markpageMenu,-,#context-markpageMenu,false,yes,,-,#context-markpageMenu,false,yes,-,#context-markpageMenu,false,yes,-,-,-
-MenuShortcut-54,コンテンツ領域のコンテキストメニュー＞選択範囲を共有,context-shareselect,-,#context-shareselect,false,yes,,-,#context-shareselect,false,yes,-,変更無し,変更無し,yes,-,#context-shareselect,false
-MenuShortcut-55,コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定,context-setDesktopBackground,-,#context-setDesktopBackground,false,yes,,-,#context-setDesktopBackground,false,yes,-,変更無し,変更無し,yes,-,#context-setDesktopBackground,false
-MenuShortcut-56（廃止）,コンテンツ領域のコンテキストメニュー＞画像をブロック,context-blockimage,Firefox 31で廃止,,,,,Firefox 31で廃止,,,,-,廃止,廃止,-,-,#context-blockimage,false
-MenuShortcut-57,コンテンツ領域のコンテキストメニュー＞要素を調査,context-inspect,-,#context-inspect,false,yes,,-,#context-inspect,false,yes,-,変更無し,変更無し,yes,-,#context-inspect,false
-MenuShortcut-58,ポップアップブロック＞このサイトによるポップアップを許可する,blockedPopupAllowSite,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false
-MenuShortcut-59,ポップアップブロック＞ポップアップブロック設定を変更,blockedPopupEditSettings,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false
-MenuShortcut-60（廃止）,ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）,permissions,-,Hide-4に移動,-,-,,-,Hide-4に移動,-,-,-,Hide-4に移動,-,-,-,":root#PermissionsDialog:not([title*='Cookie']) #url,
+MenuShortcut-45,コンテンツ領域のコンテキストメニュー＞リンクを保存する...,context-marklink,-,#context-marklinkMenu,killedItems,false,yes,,-,#context-marklinkMenu,false,yes,-,#context-marklinkMenu,変更無し,yes,-,#context-marklink,false
+MenuShortcut-46,コンテンツ領域のコンテキストメニュー＞このリンクを共有,context-sharelink,-,#context-sharelink,killedItems,false,yes,,-,#context-sharelink,false,yes,-,変更無し,変更無し,yes,-,#context-sharelink,false
+MenuShortcut-47,コンテンツ領域のコンテキストメニュー＞画像のURLをメールで送信,context-sendimage,-,#context-sendimage,killedItems,false,yes,,-,#context-sendimage,false,yes,-,変更無し,変更無し,yes,-,#context-sendimage,false
+MenuShortcut-48,コンテンツ領域のコンテキストメニュー＞この画像を共有,context-shareimage,-,#context-shareimage,killedItems,false,yes,,-,#context-shareimage,false,yes,-,変更無し,変更無し,yes,-,#context-shareimage,false
+MenuShortcut-49,コンテンツ領域のコンテキストメニュー＞動画のURLをメールで送信,context-sendvideo,-,#context-sendvideo,killedItems,false,yes,,-,#context-sendvideo,false,yes,-,変更無し,変更無し,yes,-,#context-sendvideo,false
+MenuShortcut-50,コンテンツ領域のコンテキストメニュー＞この動画を共有,context-sharevideo,-,#context-sharevideo,killedItems,false,yes,,-,#context-sharevideo,false,yes,-,変更無し,変更無し,yes,-,#context-sharevideo,false
+MenuShortcut-51,コンテンツ領域のコンテキストメニュー＞オーディオのURLをメールで送信,context-sendaudio,-,#context-sendaudio,killedItems,false,yes,,-,#context-sendaudio,false,yes,-,変更無し,変更無し,yes,-,#context-sendaudio,false
+MenuShortcut-52,コンテンツ領域のコンテキストメニュー＞このページを共有,context-sharepage,,#context-sharepage,killedItems,false,yes,,,#context-sharepage,false,yes,,変更無し,変更無し,yes,-,#context-sharepage,false
+MenuShortcut-53,コンテンツ領域のコンテキストメニュー＞ページを保存する...,context-markpageMenu,-,#context-markpageMenu,killedItems,false,yes,,-,#context-markpageMenu,false,yes,-,#context-markpageMenu,false,yes,-,-,-
+MenuShortcut-54,コンテンツ領域のコンテキストメニュー＞選択範囲を共有,context-shareselect,-,#context-shareselect,killedItems,false,yes,,-,#context-shareselect,false,yes,-,変更無し,変更無し,yes,-,#context-shareselect,false
+MenuShortcut-55,コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定,context-setDesktopBackground,-,#context-setDesktopBackground,killedItems,false,yes,,-,#context-setDesktopBackground,false,yes,-,変更無し,変更無し,yes,-,#context-setDesktopBackground,false
+MenuShortcut-56（廃止）,コンテンツ領域のコンテキストメニュー＞画像をブロック,context-blockimage,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,-,廃止,廃止,-,-,#context-blockimage,false
+MenuShortcut-57,コンテンツ領域のコンテキストメニュー＞要素を調査,context-inspect,-,#context-inspect,killedItems,false,yes,,-,#context-inspect,false,yes,-,変更無し,変更無し,yes,-,#context-inspect,false
+MenuShortcut-58,ポップアップブロック＞このサイトによるポップアップを許可する,blockedPopupAllowSite,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],killedItems,false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false
+MenuShortcut-59,ポップアップブロック＞ポップアップブロック設定を変更,blockedPopupEditSettings,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],killedItems,false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false
+MenuShortcut-60（廃止）,ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）,permissions,-,Hide-4に移動,,-,-,,-,Hide-4に移動,-,-,-,Hide-4に移動,-,-,-,":root#PermissionsDialog:not([title*='Cookie']) #url,
 :root#PermissionsDialog:not([title*='Cookie']) #btnBlock,
 :root#PermissionsDialog:not([title*='Cookie']) #btnSession,
 :root#PermissionsDialog:not([title*='Cookie']) #btnAllow,
 :root#PermissionsDialog:not([title*='Cookie']) #removePermission,
 :root#PermissionsDialog:not([title*='Cookie']) #removeAllPermissions",true
-MenuShortcut-61（廃止）,キャレットブラウズモード,caretbrowse,-,Ui-2を参照,,,,-,Ui-2を参照,,,,,,,,,
+MenuShortcut-61（廃止）,キャレットブラウズモード,caretbrowse,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,,,,,
