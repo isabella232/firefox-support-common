@@ -53,7 +53,53 @@ Windows 98以降（Windows 7にて動作検証済み）
 
 ## 変更点リスト
 
-TODO
+TODO: 各項目の概要を記載する
+
+* Install-1-2
+* Install-2-2
+* Install-4-2
+* Install-8-2
+* Install-9-2
+* Install-9-2
+* Application-1-3
+* Application-2-3
+* Application-3-2
+* Application-6-2
+* Admin-2-2
+* Admin-3-2
+* Admin-4-1
+* Security-3-3
+* Security-9-2
+* Security-11-2
+* Security-20-2
+* Privacy-5-2
+* Privacy-14-3
+* Privacy-18-2
+* Privacy-20-4
+* Privacy-22-2
+* Privacy-24-2
+* Privacy-25-2
+* Privacy-27-2
+* Privacy-31-2
+* Startup-1-2
+* Startup-2-2
+* Startup-3-2
+* Startup-4-2
+* Startup-7-2
+* Startup-8-2
+* Websearch-2-2
+* Tab-7-5
+* Update-1-3
+* Update-2-2
+* Update-3-2
+* MenuShortcut-10
+* MenuShortcut from 10 to 29 for developer tools
+* MenuShortcut from 31 to 37 for help
+* MenuShortcut from 45 to 59 for sharing
+* Hide-1
+* Hide-4
+* Application-1-3
+* Application-2-3
 
 ## 通常版との比較手順
 
