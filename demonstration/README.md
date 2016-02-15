@@ -29,7 +29,7 @@ Windows 7
 * 「C:\Program Files (x86)\Mozilla Firefox Demo」以下にカスタマイズ済みのFirefoxがインストールされる。
 * デスクトップに「Mozilla Firefox Demo」というショートカットが作成される。
 * スタートメニューに「Mozilla Firefox Demo」が追加される。
-* 「C:\Users\（ログイン中のユーザ）\AppData\Roaming\FirefoxDemo」にプロファイルフォルダが作成される。（初回起動時に作成）
+* 「C:\Users\（ログイン中のユーザー）\AppData\Roaming\FirefoxDemo」にプロファイルフォルダが作成される。（初回起動時に作成）
 
 ## アンインストール手順
 
@@ -39,7 +39,7 @@ Windows 7
 以上の手順により、メタインストーラでインストールされたファイルはすべて削除されます。
 ただしユーザーデータなどが残りますので、それらも含めて完全に削除する場合は続けて以下の手順を実施します。
 
-3. 「C:\Users\（ログイン中のユーザ）\AppData\Roaming\FirefoxDemo」のプロファイルフォルダを削除する。
+3. 「C:\Users\（ログイン中のユーザー）\AppData\Roaming\FirefoxDemo」のプロファイルフォルダを削除する。
 4. 「C:\Program Files (x86)\ClearCode Inc」フォルダが残っている場合、手動で削除する。
 5. 「C:\Program Files (x86)\Mozilla Firefox Demo」フォルダが残っている場合、手動で削除する。
 
