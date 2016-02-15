@@ -4,16 +4,17 @@
 
 ## 動作環境
 
-Windows 98以降（Windows 7にて動作検証済み）
+Windows 7
 
 ## インストール手順
 
 ### 1. メタインストーラ作成キット一式の展開
 
-TODO: Makefileでzipも作成するように
-
 1. FxDemoInstaller-source.zipをダブルクリックし、任意の場所に展開する。
-2. TODO: Firefoxのインストーラの配置手順から記述する。（リポジトリの情報）
+2. resourcesフォルダ内にFirefoxのインストーラが含まれていない場合は、以下からフルインストーラの32bit版をダウンロードしてresourcesフォルダに配置する。
+  * リリース版のダウンロードページ: https://www.mozilla.org/ja/firefox/all/
+  * ベータ版のダウンロードページ: https://www.mozilla.org/ja/firefox/beta/all/
+  * ESR版のダウンロードページ: https://www.mozilla.jp/business/downloads/
 
 ### 2. メタインストーラ実行ファイルの生成
 
