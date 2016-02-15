@@ -8,99 +8,79 @@ Windows 98以降（Windows 7にて動作検証済み）
 
 ## インストール手順
 
-### 事前準備
+### 1. メタインストーラ作成キット一式の展開
 
-#### 1. インストーラの展開
+TODO: Makefileでzipも作成するように
 
 1. FxDemoInstaller-source.zipをダブルクリックし、任意の場所に展開する。
 2. TODO: Firefoxのインストーラの配置手順から記述する。（リポジトリの情報）
 
-#### 2. インストーラの生成
+### 2. メタインストーラ実行ファイルの生成
 
 1. 1.1で展開されたFxDemoInstaller-sourceフォルダ内のFxDemoInstaller.batを実行する。
 
-### インストール
-
-#### インストーラの実行
+### 3. メタインストーラの実行
 
 1. 2.1で生成されたFxDemoInstaller-45.0.exeをダブルクリックする。
 2. 「インストールが完了しました」というダイアログが表示されたら、OKをクリックする。
 
-#### インストールの確認
+以上の手順により、以下の結果になります。
 
-* TODO: インストール先、プロファイル保存先の情報を追加する
-* デスクトップに「Mozilla Firefox Demo」というショートカットが作成されていること。
-* スタートメニューに「Mozilla Firefox Demo」が追加されていること。
+* 「C:\Program Files (x86)\ClearCode Inc」以下にアンインストーラがインストールされる。
+* 「C:\Program Files (x86)\Mozilla Firefox Demo」以下にカスタマイズ済みのFirefoxがインストールされる。
+* デスクトップに「Mozilla Firefox Demo」というショートカットが作成される。
+* スタートメニューに「Mozilla Firefox Demo」が追加される。
+* 「C:\Users\（ログイン中のユーザ）\AppData\Roaming\FirefoxDemo」にプロファイルフォルダが作成される。（初回起動時に作成）
 
 ## アンインストール手順
 
-### アンインストールの実行
-
 1. コントロールパネルより、「プログラムのアンインストール」または「プログラムと機能」を選択する。
 2. 「Fx Demo Installer」を選択し、アンインストールを実行する。
-3. 「C:\Program Files (x86)\ClearCode Inc」フォルダが残っている場合、手動で削除する
-4. 「C:\Program Files (x86)\Mozilla Firefox Demo」フォルダが残っている場合、手動で削除する
-5. TODO: プロファイルの削除
 
-### アンインストールの確認
+以上の手順により、メタインストーラでインストールされたファイルはすべて削除されます。
+ただしユーザーデータなどが残りますので、それらも含めて完全に削除する場合は続けて以下の手順を実施します。
 
-* 「プログラムと機能」のインストール済みプログラム一覧に以下が含まれていないこと。
-  * Fx Meta Installer
-  * Mozilla Firefox Demo
-* デスクトップに「Mozilla Firefox Demo」というショートカットが存在しないこと。
-* スタートメニューに「Mozilla Firefox Demo」という項目が存在しないこと。
-* TODO: プロファイルの削除
+3. 「C:\Users\（ログイン中のユーザ）\AppData\Roaming\FirefoxDemo」のプロファイルフォルダを削除する
+4. 「C:\Program Files (x86)\ClearCode Inc」フォルダが残っている場合、手動で削除する
+5. 「C:\Program Files (x86)\Mozilla Firefox Demo」フォルダが残っている場合、手動で削除する
+
+以上の手順により、メタインストーラ実行前の状態に戻ります。
 
 ## 変更点リスト
 
-TODO: 各項目の概要を記載する
+このメタインストーラでは、以下のカスタマイズを反映しています。
 
-* Install-1-2
-* Install-2-2
-* Install-4-2
-* Install-8-2
-* Install-9-2
-* Install-9-2
-* Application-1-3
-* Application-2-3
-* Application-3-2
-* Application-6-2
-* Admin-2-2
-* Admin-3-2
-* Admin-4-1
-* Security-3-3
-* Security-9-2
-* Security-11-2
-* Security-20-2
-* Privacy-5-2
-* Privacy-14-3
-* Privacy-18-2
-* Privacy-20-4
-* Privacy-22-2
-* Privacy-24-2
-* Privacy-25-2
-* Privacy-27-2
-* Privacy-31-2
-* Startup-1-2
-* Startup-2-2
-* Startup-3-2
-* Startup-4-2
-* Startup-7-2
-* Startup-8-2
-* Websearch-2-2
-* Tab-7-5
-* Update-1-3
-* Update-2-2
-* Update-3-2
-* MenuShortcut-10
-* MenuShortcut from 10 to 29 for developer tools
-* MenuShortcut from 31 to 37 for help
-* MenuShortcut from 45 to 59 for sharing
-* Hide-1
-* Hide-4
-* Application-1-3
-* Application-2-3
-
-## 通常版との比較手順
-
-TODO
+* メタインストーラを実行したことがわかりやすいように、メタインストーラの実行時には、進行状況と完了のメッセージを表示します。
+* 通常版Firefoxとの比較が容易なように、インストール先を変えています。
+  * インストール先は「C:\Program Files (x86)\Mozilla Firefox Demo」です。
+  * デスクトップとスタートメニューのショートカット名は「Mozilla Firefox Demo」になっています。
+  * 通常版Firefoxと並行して起動できるように設定しています。
+* 管理者が検証済みの環境の利用を強制するために、Firefox、アドオン、検索エンジンの自動更新を禁止しています。
+  * 古いバージョンのFirefoxのインストーラを含めた状態で「Firefoxについて」を表示することで自動更新が無効化されていることを確認できます。
+* 組織内での利用に合わせて初期状態を変更しています。
+  * 初回起動時の設定移行ウィザードの表示を無効化しています。
+  * 起動時のホームページを変更しています。
+  * 既定のブラウザにするかどうかの確認を無効化しています。
+  * UIの変更点を解説するツアーの表示を無効化しています。
+* 情報漏えいや意図しない環境になることによるトラブルを防ぐために、ユーザーによるカスタマイズを制限しています。
+  * ユーザーによるアドオンのインストールおよびアドオンマネージャの利用を禁止しています。
+  * about:config（詳細設定画面）の利用を禁止しています。
+  * Webサイトの権限設定（クッキーの保存、位置情報の利用、プラグインの実行など）の変更を禁止しています。
+  * 設定画面の「セキュリティ」ペインを無効化しています。
+* 情報漏えいや意図しない動作結果になることによるトラブルを防ぐために、機能を制限しています。
+  * SNS連携機能（共有ボタン）の利用を禁止しています。
+  * パスワードの保存を禁止しています。
+  * 位置情報の利用を禁止しています。
+  * 統計情報の送信を禁止しています。
+  * 「DO Not Track」ヘッダの送信を禁止しています。
+  * Firefox Syncの利用を禁止しています。
+  * Firefox Hello（通話機能）の利用を禁止しています。
+  * Pocket（リーディングリスト機能）の利用を禁止しています。
+  * Firefoxのユーザー評価の送信を禁止しています。
+  * 60日以上Firefoxを使用しなかった場合のユーザー設定のリセットを無効化しています。
+  * GoogleとYahoo!以外の検索エンジンを無効化しています。
+  * 新規タブにおけるおすすめコンテンツの表示を無効化しています。
+  * コンテキストメニューにおけるSNS連携関連の機能を無効化しています。
+* 組織内のユーザーが利用する必要のない機能を無効化しています。
+  * Web開発ツールの利用（キーボードショートカットを含む）を禁止しています。
+  * ヘルプメニューの不要な項目を無効化しています。
