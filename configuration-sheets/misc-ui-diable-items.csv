@@ -125,7 +125,13 @@ Hide-5,サイト別設定マネージャにおける、Cookie以外の権限に�
   }
 }",-
 Hide-6,新しいタブを開くボタン,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",,?,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #new-tab-button,
+  .tabs-newtab-button {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #new-tab-button,
   .tabs-newtab-button {
     visibility: collapse !important;
@@ -133,7 +139,16 @@ Hide-6,新しいタブを開くボタン,"1. アドオン「globalChrome.css」�
   }
 }",,
 Hide-7,設定画面内の「タブグループ」グループにおける「新しいウィンドウではなく新しいタブで開く」,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",,?,"@-moz-document
+2. globalChrome.cssで設定を反映する","@-moz-document
+  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+    /* タブグループ */
+    #linkTargeting {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",,"@-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
