@@ -115,7 +115,11 @@ MenuShortcut-5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOffli
 MenuShortcut-6（廃止）,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
 #Tools\:PrivateBrowsing",false
 MenuShortcut-7,"ツール＞ダウンロード
-（旧バージョンでは「ダウンロードマネージャ」）",openDownloads,Ctrl-J, ,killedItems,false,yes,○,Ctrl-J,"#key_openDownloads,
+（旧バージョンでは「ダウンロードマネージャ」）",openDownloads,Ctrl-J,"#key_openDownloads,
+#Tools\:Downloads,
+#menu_openDownloads,
+#downloads-button,
+#wrapper-downloads-button",killedItems,false,yes,,Ctrl-J,"#key_openDownloads,
 #Tools\:Downloads,
 #menu_openDownloads,
 #downloads-button,
@@ -218,8 +222,8 @@ MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#menu_webide,
 #devtoolsMenuBroadcaster_webide,
 #key_webide",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
-MenuShortcut-21,ツール＞Web開発＞ブラウザツールボックス,browserToolbox,-,"#menu_browserToolbox,
-#devtoolsMenuBroadcaster_browserToolbox",killedItemsWithDelay,true,yes,,-,"#menu_browserToolbox,
+MenuShortcut-21,ツール＞Web開発＞ブラウザツールボックス,browserToolbox,Ctrl-Shift-Alt-I,"#menu_browserToolbox,
+#devtoolsMenuBroadcaster_browserToolbox",killedItemsWithDelay,true,yes,○,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
 MenuShortcut-22,ツール＞Web開発＞ブラウザコンソール,browserConsole,Ctrl-Shift-J,"#menu_browserConsole,
