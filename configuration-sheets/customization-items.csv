@@ -504,7 +504,7 @@ lockPref(""media.gmp-manager.url"",""about:blank"");
 lockPref(""browser.customizemode.tip0.learnMoreUrl"", """");
 // 新規タブを開いた時のページにおけるタイル情報の取得、統計情報収集用通信の無効化
 lockPref(""browser.newtabpage.directory.ping"","""");
-lockPref(""browser.newtabpage.directory.source"","""");
+lockPref(""browser.newtabpage.directory.source"",""about:blank"");
 // 接続の状態（接続が制限されているかどうかなど）を判定するためのアクセス先
 lockPref(""captivedetect.canonicalURL"","""");
 // 地域ごとのデフォルトの検索サービス切り替え
@@ -1930,7 +1930,7 @@ Tab-5,2,,,,何も表示しない,"1. アドオン「newtab.url」（ https://add
 lockPref(""browser.newtabpage.enabled"",false);
 lockPref(""browser.newtabpage.enhanced"",false);
 lockPref(""browser.newtabpage.directory.ping"","""");
-lockPref(""browser.newtabpage.directory.source"","""");",○,"lockPref(""browser.newtab.url"", ""about:blank"");
+lockPref(""browser.newtabpage.directory.source"",""about:blank"");",○,"lockPref(""browser.newtab.url"", ""about:blank"");
 lockPref(""browser.newtabpage.enabled"",false);
 lockPref(""browser.newtabpage.enhanced"",false);
 lockPref(""browser.newtabpage.directory.ping"","""");
