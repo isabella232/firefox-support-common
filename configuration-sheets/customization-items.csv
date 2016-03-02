@@ -1363,7 +1363,7 @@ lockPref(""identity.fxaccounts.remote.signup.uri"","""");
 lockPref(""identity.fxaccounts.settings.uri"","""");
 lockPref(""identity.fxaccounts.remote.oauth.uri"","""");
 lockPref(""identity.fxaccounts.remote.profile.uri"","""");
-lockPref(""identity.fxaccounts.remote.webchannel.uri"","""");",○,"lockPref(""identity.fxaccounts.auth.uri"", """");
+lockPref(""identity.fxaccounts.remote.webchannel.uri"",""about:blank"");",○,"lockPref(""identity.fxaccounts.auth.uri"", """");
 lockPref(""identity.fxaccounts.remote.force_auth.uri"","""");
 lockPref(""identity.fxaccounts.remote.signin.uri"","""");
 lockPref(""identity.fxaccounts.remote.signup.uri"","""");
@@ -1505,7 +1505,7 @@ lockPref(""security.ssl.errorReporting.url"", """");
 // Firefoxアカウント（Privacy-24）
 lockPref(""identity.fxaccounts.auth.uri"", """");
 lockPref(""identity.fxaccounts.remote.force_auth.uri"","""");
-lockPref(""identity.fxaccounts.remote.webchannel.uri"","""");
+lockPref(""identity.fxaccounts.remote.webchannel.uri"",""about:blank"");
 lockPref(""identity.fxaccounts.remote.signin.uri"","""");
 lockPref(""identity.fxaccounts.remote.signup.uri"","""");
 lockPref(""identity.fxaccounts.settings.uri"","""");
