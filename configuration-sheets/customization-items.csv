@@ -1392,7 +1392,7 @@ lockPref(""loop.linkChecker.url"", """");
 lockPref(""loop.oauth.google.scope"", """");
 lockPref(""loop.support_url"", """");
 lockPref(""loop.CSP"", """");
-lockPRef(""loop.linkClicker.url"", """")
+lockPref(""loop.linkClicker.url"", """")
 
 globalChrome.css:
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
@@ -1927,7 +1927,7 @@ Tab-4（廃止）,2,,,,タブが1つだけの時は隠す,-,Firefox 31時点で�
 Tab-5,1,タブ,新しいタブの内容,-,about:newtab（既定）,-,-,,-,,
 Tab-5,2,,,,何も表示しない,"1. アドオン「newtab.url」（ https://addons.mozilla.org/ja/firefox/addon/newtaburl-1/ ）を導入する。
 2. MCDで設定を反映する","lockPref(""extensions.@newtaburl.dURL"", ""about:blank"");
-LockPref(""browser.newtabpage.enabled"",false);
+lockPref(""browser.newtabpage.enabled"",false);
 lockPref(""browser.newtabpage.enhanced"",false);
 lockPref(""browser.newtabpage.directory.ping"","""");
 lockPref(""browser.newtabpage.directory.source"","""");",○,"lockPref(""browser.newtab.url"", ""about:blank"");
