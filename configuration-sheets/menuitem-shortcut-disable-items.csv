@@ -223,7 +223,8 @@ MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#menu_webide,
 #key_webide",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
 MenuShortcut-21,ツール＞Web開発＞ブラウザツールボックス,browserToolbox,Ctrl-Shift-Alt-I,"#menu_browserToolbox,
-#devtoolsMenuBroadcaster_browserToolbox",killedItemsWithDelay,true,yes,○,-,"#menu_browserToolbox,
+#devtoolsMenuBroadcaster_BrowserToolbox,
+#key_browserToolbox",killedItemsWithDelay,true,yes,○,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
 MenuShortcut-22,ツール＞Web開発＞ブラウザコンソール,browserConsole,Ctrl-Shift-J,"#menu_browserConsole,
