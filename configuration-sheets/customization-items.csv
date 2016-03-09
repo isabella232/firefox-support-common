@@ -1829,7 +1829,7 @@ globalChrome.css:
   #downloads-button,
   #wrapper-downloads-button,
   #downloads-animation-container,
-  #downloads-notification-anchor,
+  #downloads-animation-container *,
   #downloadsPanel {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
