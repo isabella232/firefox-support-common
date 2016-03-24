@@ -219,8 +219,10 @@ autoconfig.jsc:
 Admin-1,3,,,,設定しない（既定）,-,-,,-,変更無し,-
 Admin-2,1,管理者によるアドオン導入,初回起動時のアドオン導入警告の可否,-,警告する（既定）,MCDで設定を反映する,"lockPref(""extensions.autoDisableScopes"", 15);",,"lockPref(""extensions.autoDisableScopes"", 15);",変更無し,"lockPref(""extensions.autoDisableScopes"", 15);"
 Admin-2,2,,,,警告しない,MCDで設定を反映する,"lockPref(""extensions.autoDisableScopes"", 11);",,"lockPref(""extensions.autoDisableScopes"", 11);",変更無し,"lockPref(""extensions.autoDisableScopes"", 11);"
-Admin-3,1,管理者によるアドオン導入,Firefoxバージョンアップ時のアドオン更新確認の可否,-,確認する（既定）,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", false);",,"lockPref(""extensions.shownSelectionUI"", false);",変更無し,"lockPref(""extensions.shownSelectionUI"", false);"
-Admin-3,2,,,,確認しない,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", true);",,"lockPref(""extensions.shownSelectionUI"", true);",変更無し,"lockPref(""extensions.shownSelectionUI"", true);"
+Admin-3,1,管理者によるアドオン導入,Firefoxバージョンアップ時のアドオン更新確認の可否,-,確認する（既定）,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", false);
+lockPref(""extensions.showMismatchUI"", true);",○,"lockPref(""extensions.shownSelectionUI"", false);",変更無し,"lockPref(""extensions.shownSelectionUI"", false);"
+Admin-3,2,,,,確認しない,MCDで設定を反映する,"lockPref(""extensions.shownSelectionUI"", true);
+lockPref(""extensions.showMismatchUI"", false);",○,"lockPref(""extensions.shownSelectionUI"", true);",変更無し,"lockPref(""extensions.shownSelectionUI"", true);"
 Admin-4,1,管理者によるアドオン導入,Mozillaにより署名されていないアドオンのインストールパッケージの使用の可否,-,許可する,MCDで設定を反映する,"lockPref(""xpinstall.signatures.required"", false);",新規,,,
 Admin-4,2,,,,禁止する（規定）,MCDで設定を反映する,"lockPref(""xpinstall.signatures.required"", true);",新規,,,
 Security-1,1,セキュリティ,独自のルート証明書をあらかじめ導入しておく,-,導入する,"1. アドオン「Cert Importer」を導入する
