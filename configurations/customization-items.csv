@@ -1397,7 +1397,8 @@ lockPref(""loop.linkClicker.url"", """")
 globalChrome.css:
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #loop-button,
-  #wrapper-loop-button {
+  #wrapper-loop-button,
+  #menu_openLoop {
     display: none !important;
     -moz-user-focus: ignore !important;
   }
