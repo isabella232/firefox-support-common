@@ -2262,7 +2262,20 @@ lockPref(""dom.successive_dialog_time_limit"", 3);",,
 Script-2,1,Webアプリの動作,プッシュ通知の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""dom.push.enabled"", true);",,"lockPref(""dom.push.enabled"", true);",,
 Script-2,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""push=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""push=1"");",,
-Script-2,3,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.push.enabled"", false);",,"lockPref(""dom.push.enabled"", false);",,
+Script-2,3,,,,禁止する,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""dom.push.enabled"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #notificationsGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",○,"lockPref(""dom.push.enabled"", false);",,
 Script-3,1,Webアプリの動作,ゲームパッドAPIの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",true);",,"lockPref(""dom.gamepad.enabled"",true);","lockPref(""dom.gamepad.enabled"",true);",-
 Script-3,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",false);",,"lockPref(""dom.gamepad.enabled"",false);","lockPref(""dom.gamepad.enabled"",false);",-
 Plugin-1,1,セキュリティ,Javaプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
