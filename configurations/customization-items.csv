@@ -1795,8 +1795,7 @@ Websearch-1,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入す
 Websearch-2,1,Web検索バーの挙動,初期状態で利用する検索エンジン,-,すべて使用する（既定）,-,-,,-,,
 Websearch-2,2,,,,限定する,"1. アドオン「Disable Search Engines」を導入する
 2. MCDで設定を反映する
-（Firefox 38以前では、fainstall.iniを編集する）","MCD:
-lockPref(""extensions.disablesearchengines@clear-code.com.disabled"", ""（無効化するエンジンの名前のカンマ区切りのリスト）"");
+（Firefox 38以前では、fainstall.iniを編集する）","lockPref(""extensions.disablesearchengines@clear-code.com.disabled"", ""（無効化するエンジンの名前のカンマ区切りのリスト）"");
 または
 lockPref(""extensions.disablesearchengines@clear-code.com.enabled"", ""（有効化するエンジンの名前のカンマ区切りのリスト）"");",○,"[fainstall]
 FxEnabledSearchPlugins=（ファイル名のスペース区切りのリスト）",変更無し,"[fainstall]
