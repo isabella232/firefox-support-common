@@ -1920,10 +1920,22 @@ Download-3,1,ファイルのダウンロード,ファイルのダウンロード
 Download-3,2,,,,サイトごとにダウンロード先ディレクトリを保持する（既定）,MCDで設定を反映する,"lockPref(""browser.download.lastDir.savePerSite"", true);",,"lockPref(""browser.download.lastDir.savePerSite"", true);",変更無し,"lockPref(""browser.download.lastDir.savePerSite"", true);"
 Tab-1,1,タブ,複数のタブを閉じる際の警告の可否,-,警告する（既定）,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnClose"", true);",,"lockPref(""browser.tabs.warnOnClose"", true);","lockPref(""browser.tabs.warnOnClose"", true);","defaultPref(""browser.tabs.warnOnClose"", true);"
 Tab-1,2,,,,警告しない,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnClose"", false);",,"lockPref(""browser.tabs.warnOnClose"", false);","lockPref(""browser.tabs.warnOnClose"", false);","defaultPref(""browser.tabs.warnOnClose"", false);"
+Tab-1,3,,,,警告しないが、任意で警告を表示する状態に戻せる,MCDで設定を反映する,"if (!getPref(""browser.tabs.warnOnClose.initialized"")) {
+  pref(""browser.tabs.warnOnClose"", false);
+  pref(""browser.tabs.warnOnClose.initialized"", true);
+}",,,,
 Tab-2,1,タブ,「他のタブをすべて閉じる」の警告の可否,-,警告する（既定）,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnCloseOtherTabs"", true);",,"lockPref(""browser.tabs.warnOnCloseOtherTabs"", true);","lockPref(""browser.tabs.warnOnCloseOtherTabs"", true);",-
 Tab-2,2,,,,警告しない,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnCloseOtherTabs"", false);",,"lockPref(""browser.tabs.warnOnCloseOtherTabs"", false);","lockPref(""browser.tabs.warnOnCloseOtherTabs"", false);",-
+Tab-2,3,,,,警告しないが、任意で警告を表示する状態に戻せる,MCDで設定を反映する,"if (!getPref(""browser.tabs.warnOnCloseOtherTabs.initialized"")) {
+  pref(""browser.tabs.warnOnCloseOtherTabs"", false);
+  pref(""browser.tabs.warnOnCloseOtherTabs.initialized"", true);
+}",,,,
 Tab-3,1,タブ,複数のタブを一度に開く際の警告の可否,-,警告する（既定）,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnOpen"", true);",,"lockPref(""browser.tabs.warnOnOpen"", true);","lockPref(""browser.tabs.warnOnOpen"", true);","defaultPref(""browser.tabs.warnOnOpen"", true);"
 Tab-3,2,,,,警告しない,MCDで設定を反映する,"lockPref(""browser.tabs.warnOnOpen"", false);",,"lockPref(""browser.tabs.warnOnOpen"", false);","lockPref(""browser.tabs.warnOnOpen"", false);","defaultPref(""browser.tabs.warnOnOpen"", false);"
+Tab-3,3,,,,警告しないが、任意で警告を表示する状態に戻せる,MCDで設定を反映する,"if (!getPref(""browser.tabs.warnOnOpen.initialized"")) {
+  pref(""browser.tabs.warnOnOpen"", false);
+  pref(""browser.tabs.warnOnOpen.initialized"", true);
+}",,,,
 Tab-4（廃止）,1,タブ,タブバーの表示の可否,-,常に表示する,-,-,,-,"廃止（Firefox 31）
 true時の挙動がなくなりfalse時の挙動強制となったため実質的には変更無し。","defaultPref(""browser.tabs.autoHide"", false);"
 Tab-4（廃止）,2,,,,タブが1つだけの時は隠す,-,Firefox 31時点で機能が廃止されたためカスタマイズ不可能,,Firefox 31時点で機能が廃止されたためカスタマイズ不可能,廃止,"defaultPref(""browser.tabs.autoHide"", true);"
