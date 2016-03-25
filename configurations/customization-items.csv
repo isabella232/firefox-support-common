@@ -1742,12 +1742,14 @@ Startup-9,1,起動時の挙動の制御,マルチプロセスモードのフィ�
 Startup-9,2,,,,表示しない,MCDで設定を反映する,"lockPref(""browser.requestE10sFeedback"", false);
 lockPref(""app.feedback.baseURL"", """");",,"lockPref(""browser.requestE10sFeedback"", false);
 lockPref(""app.feedback.baseURL"", """");",,
-Websearch-1,1,Web検索バーの挙動,検索エンジンの追加の可否,-,許可する（既定）,-,-,,-,,
+Websearch-1,1,Web検索バーの挙動,検索エンジンの追加・削除の可否,-,許可する（既定）,-,-,,-,,
 Websearch-1,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する","@-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #addEngines {
+  #addEngines,
+  #removeEngineButton,
+  #restoreDefaultSearchEngines {
     display: none !important;
     -moz-user-focus: ignore !important;
   }
@@ -1791,24 +1793,12 @@ Websearch-1,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入す
   }
 }"
 Websearch-2,1,Web検索バーの挙動,初期状態で利用する検索エンジン,-,すべて使用する（既定）,-,-,,-,,
-Websearch-2,2,,,,限定する,"1. MCDで設定を反映する
-2. アドオン「globalChrome.css」を導入する
-3. globalChrome.cssで設定を反映する
-（Firefox 38以前では、fainstall.iniを編集する）","// Firefox 38以前とは異なり、単に非表示になるだけであることに注意
-MCD:
-lockPref(""browser.search.hiddenOneOffs"", ""（非表示にするエンジンの名前のカンマ区切りのリスト）"");
-
-globalChrome.css:
-@-moz-document
-  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
-  url-prefix(""about:preferences"") {
-  #defaultEngine :-moz-any(
-    menuitem[label=""非表示にするエンジンの名前""]
-  ) {
-    display: none !important;
-    -moz-user-focus: ignore !important;
-  }
-}",○,"[fainstall]
+Websearch-2,2,,,,限定する,"1. アドオン「Disable Search Engines」を導入する
+2. MCDで設定を反映する
+（Firefox 38以前では、fainstall.iniを編集する）","MCD:
+lockPref(""extensions.disablesearchengines@clear-code.com.disabled"", ""（無効化するエンジンの名前のカンマ区切りのリスト）"");
+または
+lockPref(""extensions.disablesearchengines@clear-code.com.enabled"", ""（有効化するエンジンの名前のカンマ区切りのリスト）"");",○,"[fainstall]
 FxEnabledSearchPlugins=（ファイル名のスペース区切りのリスト）",変更無し,"[fainstall]
 FxEnabledSearchPlugins=（ファイル名のスペース区切りのリスト）"
 Location-1,1,ロケーションバーの挙動,ロケーションバーにおけるURLの「http://」の省略表示の可否,-,省略する（既定）,MCDで設定を反映する,"lockPref(""browser.urlbar.trimURLs"", true);",,"lockPref(""browser.urlbar.trimURLs"", true);",変更無し,"lockPref(""browser.urlbar.trimURLs"", true);"
