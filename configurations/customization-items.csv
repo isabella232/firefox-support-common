@@ -2085,7 +2085,10 @@ globalChrome.css:
 Network-1,1,UA文字列の制御,Microsoft .NET Frameworkへの対応,-,対応する,MCDで設定を反映する,"clearPref(""general.useragent.extra.microsoftdotnet"");",,"clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
 Network-1,2,,,,対応しない（既定）,-,-,,-,,
 Network-2,1,ネットワーク接続,プロキシの利用,-,利用しない,MCDで設定を反映する,"lockPref(""network.proxy.type"", 0);",,"lockPref(""network.proxy.type"", 0);",変更無し,"lockPref(""network.proxy.type"", 0);"
-Network-2,2,,,,固定のプロキシを利用する,MCDで設定を反映する,"lockPref(""network.proxy.type"", 1);",,"lockPref(""network.proxy.type"", 1);",変更無し,"lockPref(""network.proxy.type"", 1);"
+Network-2,2,,,,固定のプロキシを利用する,MCDで設定を反映する,"lockPref(""network.proxy.type"", 1);
+lockPref(""network.proxy.http"", ""（ホスト名）"");
+lockPref(""network.proxy.http_port"", （ポート番号）);
+lockPref(""network.proxy.share_proxy_settings"", true);",○,"lockPref(""network.proxy.type"", 1);",変更無し,"lockPref(""network.proxy.type"", 1);"
 Network-2,3,,,,プロキシ自動設定スクリプトを利用する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -2256,6 +2259,11 @@ Ui-3,2,,,,禁止する,"1. アドオン「globalChrome.css」を導入する
     -moz-user-focus: ignore !important;
   }
 }",新規,,,
+Ui-4,1,UI,同一プロキシへの同時アクセスによる認証ダイアログの多重表示の抑止,-,抑止する,"1. アドオン「No Duplicated Authentication」を導入する
+2. MCDで設定を反映する","lockPref(""extensions.no-duplicated-authentication@clear-code.com.proxy"", true);
+lockPref(""extensions.no-duplicated-authentication@clear-code.com.password"", false);
+lockPref(""extensions.no-duplicated-authentication@clear-code.com.withoutRealm"", false);
+lockPref(""extensions.no-duplicated-authentication@clear-code.com.withRealm"", false);",新規,,,
 Script-1,1,Webアプリの動作,スクリプトによる頻繁なalertの可否,-,許可する,MCDで設定を反映する,"lockPref(""dom.successive_dialog_time_limit"", 0);",,"lockPref(""dom.successive_dialog_time_limit"", 0);",,
 Script-1,2,,,,禁止する（既定）,MCDで設定を反映する,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
 lockPref(""dom.successive_dialog_time_limit"", 3);",,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
