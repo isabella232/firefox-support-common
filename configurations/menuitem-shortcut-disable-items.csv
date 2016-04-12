@@ -38,7 +38,7 @@ globalChrome.cssによる設定:
 ,,,,,,,,,,,,,,,,,,,
 設定項目番号,無効化対象,識別子,Firefox 45,,,,,,Firefox 38,,,,Firefox 31,,,,Firefox 24,,
 ,,,ショートカット,セレクタ,分類,遅延初期化,"oncommandを
-空にする",Firefox 45,ショートカット,セレクタ,遅延初期化,"oncommandを
+空にする",Firefox 38からの変更,ショートカット,セレクタ,遅延初期化,"oncommandを
 空にする",ショートカット,セレクタ,遅延初期化,"oncommandを
 空にする",ショートカット,セレクタ,遅延初期化
 MenuShortcut-1,閉じたタブを開き直す,undoCloseTab,Ctrl-Shift-T,"#key_undoCloseTab,
@@ -381,3 +381,5 @@ MenuShortcut-60（廃止）,ポップアップブロック、アドオンのイ�
 :root#PermissionsDialog:not([title*='Cookie']) #removePermission,
 :root#PermissionsDialog:not([title*='Cookie']) #removeAllPermissions",true
 MenuShortcut-61（廃止）,キャレットブラウズモード,caretbrowse,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,,,,,
+MenuShortcut-62,ファイル＞新しいタブ,,-,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,○,,,,,,,,,,,
+MenuShortcut-63,コンテンツ領域のコンテキストメニュー＞新しいタブで開く,,-,#context-openlinkintab,killedItems,,,○,,,,,,,,,,,
