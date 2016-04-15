@@ -381,5 +381,5 @@ MenuShortcut-60（廃止）,ポップアップブロック、アドオンのイ�
 :root#PermissionsDialog:not([title*='Cookie']) #removePermission,
 :root#PermissionsDialog:not([title*='Cookie']) #removeAllPermissions",true
 MenuShortcut-61（廃止）,キャレットブラウズモード,caretbrowse,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,,,,,
-MenuShortcut-62,ファイル＞新しいタブ,,-,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,○,,,,,,,,,,,
+MenuShortcut-62,ファイル＞新しいタブ,,Ctrl-T,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,○,,,,,,,,,,,
 MenuShortcut-63,コンテンツ領域のコンテキストメニュー＞新しいタブで開く,,-,#context-openlinkintab,killedItems,,,○,,,,,,,,,,,
