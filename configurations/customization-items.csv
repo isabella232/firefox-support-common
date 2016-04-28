@@ -675,7 +675,7 @@ Security-20,2,,,,変更を禁止する,"1. アドオン「globalChrome.css」を
   }
 }",新規,,,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,-,,
-Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する
+Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45威光では不要）
 2. MCDで設定を反映する
 3. アドオン「globalChrome.css」を導入する
 4. globalChrome.cssで設定を反映する","MCD:
@@ -712,7 +712,7 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-Privacy-1,3,,,,一切保存しない,"1. アドオン「History Prefs Modifier」を導入する
+Privacy-1,3,,,,一切保存しない,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45威光では不要）
 2. MCDで設定を反映する","lockPref(""browser.privatebrowsing.autostart"", true);",,"lockPref(""browser.privatebrowsing.autostart"", true);",変更無し,"lockPref(""browser.privatebrowsing.autostart"", true);"
 Privacy-2,1,プライバシー,"フォームの入力履歴の保存の可否
 （Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）",-,保存する（既定）,MCDで設定を反映する,"lockPref(""browser.formfill.enable"", true);",,"lockPref(""browser.formfill.enable"", true);",変更無し,"lockPref(""browser.formfill.enable"", true);"
@@ -1581,8 +1581,9 @@ lockPref(""browser.safebrowsing.provider.mozilla.updateURL"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.reportURL"", """");
 lockPref(""browser.safebrowsing.reportMalwareMistakeURL"", """");
 lockPref(""browser.safebrowsing.reportPhishMistakeURL"", """");",新規,,,
-Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,"lockPref(""browser.safebrowsing.provider.google.updateURL"", """");",○,-,,
-Startup-1,2,,,,表示しない,override.iniに設定を反映する,"lockPref(""browser.safebrowsing.provider.mozilla.gethashURL"", """");",○,"[XRE]
+Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
+Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
+EnableProfileMigrator=0",,"[XRE]
 EnableProfileMigrator=0",,
 Startup-2,1,起動時の挙動の制御,起動時のホームページの指定,-,ユーザが指定（既定）,-,-,,-,,
 Startup-2,2,,,,管理者が指定し、変更を許可,distribution.iniに設定を反映する,"[Global]
