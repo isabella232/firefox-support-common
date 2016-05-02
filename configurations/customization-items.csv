@@ -721,6 +721,8 @@ Privacy-2,2,,,,保存しない,"1. MCDで設定を反映する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.formfill.enable"", false);
 
+※MCDの設定によって設定画面のチェックボックスは無効になるが、フォーム要素自体を非表示にする場合は以下の設定を行う。
+
 globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
@@ -730,7 +732,7 @@ globalChrome.css:
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.formfill.enable"", false);
 
 globalChrome.css:
@@ -781,6 +783,11 @@ Privacy-4,2,,,,表示しない,"1. MCDで設定を反映する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.urlbar.autocomplete.enabled"", false);
 lockPref(""browser.urlbar.maxRichResults"", -1);
+lockPref(""browser.urlbar.suggest.history"", false);
+lockPref(""browser.urlbar.suggest.bookmark"", false);
+lockPref(""browser.urlbar.suggest.openpage"", false);
+
+※MCDの設定によって設定画面のチェックボックスは無効になるが、フォーム要素自体を非表示にする場合は以下の設定を行う。
 
 globalChrome.css:
 @-moz-document
@@ -791,7 +798,7 @@ globalChrome.css:
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.urlbar.autocomplete.enabled"", false);
 lockPref(""browser.urlbar.maxRichResults"", -1);
 
