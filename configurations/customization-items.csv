@@ -1066,6 +1066,9 @@ lockPref(""browser.sessionstore.privacy_level_deferred"", 2);
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\\:RestoreLastSession"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.disabled"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.oncommand"", """");
+// 3にすると前回セッションの復元となるので、それ以外を選択する。
+// 0: 空白ページ、1: ホームページ
+lockPref(""browser.startup.page"", 0);
 
 globalChrome.css:
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
