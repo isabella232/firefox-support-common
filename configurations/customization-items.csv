@@ -1084,7 +1084,6 @@ globalChrome.css:
   *|*[id=""restorePreviousSession""]
   {
     display: none !important;
-    visibility: collapse !important;
   }
 }",○,"Firefox 3.5の時点で廃止。
 以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
