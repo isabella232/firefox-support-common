@@ -111,7 +111,8 @@ MenuShortcut-4,ファイル＞ページのURLをメールで送信（ページ�
 #appmenu_sendLink,
 #menu_sendLink,
 #context-sendpage",false
-MenuShortcut-5,ファイル＞オフライン作業,goOfflineMenuitem,-,#goOfflineMenuitem,killedItems,false,yes,,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
+MenuShortcut-5,ファイル＞オフライン作業,goOfflineMenuitem,-,"#goOfflineMenuitem,
+[oncommand=""BrowserOffline.toggleOfflineStatus();""]",killedItems,false,yes,○,-,#goOfflineMenuitem,false,yes,,変更無し,変更無し,yes,-,#goOfflineMenuitem,false
 MenuShortcut-6（廃止）,ツール＞プライベートブラウジングの開始,privatebrowsing,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,存在しない,廃止,廃止,-,Ctrl-Shit-P,"#key_privatebrowsing,
 #Tools\:PrivateBrowsing",false
 MenuShortcut-7,"ツール＞ダウンロード
