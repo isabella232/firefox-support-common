@@ -1197,7 +1197,8 @@ globalChrome.css:
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #suggestionsInSearchFieldsCheckbox,
-  #urlBarSuggestion {
+  #urlBarSuggestion,
+  #locationBarGroup label.text-link {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
