@@ -2406,13 +2406,26 @@ lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-8,1,プラグイン,Gecko Media Pluginの利用の可否,-,許可する（規定）,-,-,,-,,
-Plugin-8,2,,,,禁止する,MCDで設定を反映する,"lockPref(""media.eme.enabled"",false);
+Plugin-8,2,,,,禁止する,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""media.eme.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
 lockPref(""media.gmp-eme-adobe.enabled"",false);
 lockPref(""media.gmp-eme-adobe.autoupdate"",false);
 lockPref(""media.gmp-provider.enabled"",false);
-lockPref(""media.gmp-manager.url"",""about:blank"");",,"lockPref(""media.eme.enabled"",false);
+lockPref(""media.gmp-manager.url"",""about:blank"");
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #drmGroup {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",○,"lockPref(""media.eme.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.enabled"",false);
 lockPref(""media.gmp-gmpopenh264.autoupdate"",false);
 lockPref(""media.gmp-eme-adobe.enabled"",false);
