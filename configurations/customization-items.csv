@@ -1196,7 +1196,8 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #suggestionsInSearchFieldsCheckbox {
+  #suggestionsInSearchFieldsCheckbox,
+  #urlBarSuggestion {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
@@ -1206,7 +1207,7 @@ globalChrome.css:
     display: none !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.search.suggest.enabled"", false);
 
 globalChrome.css:
