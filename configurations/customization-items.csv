@@ -674,6 +674,11 @@ Security-20,2,,,,変更を禁止する,"1. アドオン「globalChrome.css」を
     -moz-user-focus: ignore !important;
   }
 }",新規,,,
+Security-21,1,セキュリティ,危険なアドオンのブロックの可否,-,ブロックする（既定）,-,-,新規,,,
+Security-21,2,,,,ブロックしない,MCDで設定を反映する,"lockPref(""extensions.blocklist.enabled"", false);
+lockPref(""extensions.blocklist.detailsURL"", """");
+lockPref(""extensions.blocklist.itemURL"", """");
+lockPref(""extensions.blocklist.url"", """");",新規,,,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,-,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
 2. MCDで設定を反映する
@@ -1592,6 +1597,8 @@ lockPref(""browser.safebrowsing.provider.mozilla.updateURL"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.reportURL"", """");
 lockPref(""browser.safebrowsing.reportMalwareMistakeURL"", """");
 lockPref(""browser.safebrowsing.reportPhishMistakeURL"", """");",新規,,,
+Privacy-34,1,プライバシー,フォームへのユーザー入力値のセッション情報への保存の可否,-,許可する（既定）,,"lockPref(""browser.sessionstore.privacy_level"", 0);",,,,
+Privacy-34,2,,,,一切禁止する,,"lockPref(""browser.sessionstore.privacy_level"", 2);",,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,"[XRE]
