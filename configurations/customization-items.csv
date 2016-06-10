@@ -1584,7 +1584,10 @@ Privacy-32,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.htt
 Privacy-33,1,プライバシー,Webサービスによる行動履歴の収集（トラッキング）の遮断の可否,-,ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（既定）,-,-,新規,,,
 Privacy-33,2,,,,ブロックリストを取得して、トラッキングを常に遮断する,MCDで設定を反映する,"lockPref(""privacy.trackingprotection.enabled"", true);
 lockPref(""privacy.trackingprotection.pbmode.enabled"", true);",新規,,,
-Privacy-33,3,,,,ブロックリストを取得せず、トラッキングを遮断しない,MCDで設定を反映する,"lockPref(""privacy.trackingprotection.enabled"", false);
+Privacy-33,3,,,,ブロックリストを取得せず、トラッキングを遮断しない,"1. MCDで設定を反映する
+2.アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""privacy.trackingprotection.enabled"", false);
 lockPref(""privacy.trackingprotection.pbmode.enabled"", false);
 lockPref(""privacy.trackingprotection.introURL"", """");
 lockPref(""browser.safebrowsing.provider.google.gethashURL"", """");
@@ -1596,7 +1599,18 @@ lockPref(""browser.safebrowsing.provider.mozilla.lists"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.updateURL"", """");
 lockPref(""browser.safebrowsing.provider.mozilla.reportURL"", """");
 lockPref(""browser.safebrowsing.reportMalwareMistakeURL"", """");
-lockPref(""browser.safebrowsing.reportPhishMistakeURL"", """");",新規,,,
+lockPref(""browser.safebrowsing.reportPhishMistakeURL"", """");
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #trackingprotectionpbmbox {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",新規,,,
 Privacy-34,1,プライバシー,フォームへのユーザー入力値のセッション情報への保存の可否,-,許可する（既定）,,"lockPref(""browser.sessionstore.privacy_level"", 0);",,,,
 Privacy-34,2,,,,一切禁止する,,"lockPref(""browser.sessionstore.privacy_level"", 2);",,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
