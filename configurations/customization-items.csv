@@ -1190,7 +1190,8 @@ Privacy-14,3,,,,禁止する,MCDで設定を反映する,"lockPref(""geo.enabled
 Privacy-15,1,プライバシー,検索結果のローカライズ用地域コードの位置情報に基づく推定の可否,-,許可する（既定）,-,-,,-,,
 Privacy-15,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.search.geoip.url"", """");",,"lockPref(""browser.search.geoip.url"", """");",,
 Privacy-16,1,プライバシー,DNSの先読みの可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""network.dns.disablePrefetch"", false);",,"lockPref(""network.dns.disablePrefetch"", false);",変更無し,"lockPref(""network.dns.disablePrefetch"", false);"
-Privacy-16,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.dns.disablePrefetch"", true);",,"lockPref(""network.dns.disablePrefetch"", true);",変更無し,"lockPref(""network.dns.disablePrefetch"", true);"
+Privacy-16,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.dns.disablePrefetch"", true);
+lockPref(""network.dns.disablePrefetchFromHTTPS"", true);",○,"lockPref(""network.dns.disablePrefetch"", true);",変更無し,"lockPref(""network.dns.disablePrefetch"", true);"
 Privacy-17,1,プライバシー,検索エンジンの候補表示（Suggest）の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""browser.search.suggest.enabled"", true);",,"lockPref(""browser.search.suggest.enabled"", true);",変更無し,"lockPref(""browser.search.suggest.enabled"", true);"
 Privacy-17,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
@@ -1613,6 +1614,8 @@ globalChrome.css:
 }",新規,,,
 Privacy-34,1,プライバシー,フォームへのユーザー入力値のセッション情報への保存の可否,-,許可する（既定）,,"lockPref(""browser.sessionstore.privacy_level"", 0);",,,,
 Privacy-34,2,,,,一切禁止する,,"lockPref(""browser.sessionstore.privacy_level"", 2);",,,,
+Privacy-35,1,プライバシー,リンク先の投機的先読みの可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 6);",新規,,,
+Privacy-35,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 0);",新規,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,"[XRE]
