@@ -5,9 +5,13 @@
 var result;
 try {
   var request = indexedDB.open("testFiles", 1);
-  result = request.toString();
+  result = "OK";
 } catch(e) {
-  result = e.toString();
+  if (e.name === "InvalidStateError") {
+    result = "NG";
+  } else {
+    result = "想定外のエラー: " + e;
+  }
 }
 document.write(result);
 --></script>
