@@ -650,7 +650,7 @@ lockPref(""browser.newtabpage.directory.ping"","""");
 lockPref(""browser.newtabpage.directory.source"","""");",,
 Security-16,1,セキュリティ,フルスクリーン表示の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", true);",,"lockPref(""full-screen-api.enabled"", true);",,
 Security-16,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,
+2. MCDで設定を反映する",Firefox 45で廃止（Firefox 41までは許可するかどうかのポップアップだったが、Firefox 42からは通知のみのポップアップに変更された）,○,"lockPref(""extensions.autopermission.sites.(site)"", ""fullscreen=1"");",,
 Security-16,3,,,,禁止する,MCDで設定を反映する,"lockPref(""full-screen-api.enabled"", false);",,"lockPref(""full-screen-api.enabled"", false);",,
 Security-17,1,セキュリティ,about:homeからマーケットプレイスへの遷移の可否,-,許可する（規定）,-,Firefox 45で廃止,○,-,,
 Security-17,2,,,,禁止する,MCDで設定を反映する,Firefox 45で廃止,○,"lockPref(""browser.apps.URL"", """");",,
