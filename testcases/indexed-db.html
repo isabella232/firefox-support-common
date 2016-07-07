@@ -2,6 +2,12 @@
 <meta charset="UTF-8">
 <title>IndexedDB test</title>
 <script type="application/javascript"><!--
-var request = indexedDB.open("testFiles", 1);
-console.log(request);
+var result;
+try {
+  var request = indexedDB.open("testFiles", 1);
+  result = request.toString();
+} catch(e) {
+  result = e.toString();
+}
+document.write(result);
 --></script>
