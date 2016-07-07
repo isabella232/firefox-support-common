@@ -5,10 +5,10 @@
 var result;
 try {
   var request = indexedDB.open("testFiles", 1);
-  result = "OK";
+  result = "enabled";
 } catch(e) {
   if (e.name === "InvalidStateError") {
-    result = "NG";
+    result = "disabled";
   } else {
     result = "想定外のエラー: " + e;
   }
