@@ -2300,6 +2300,7 @@ Ui-4,1,UI,同一プロキシへの同時アクセスによる認証ダイアロ�
 lockPref(""extensions.no-duplicated-authentication@clear-code.com.password"", false);
 lockPref(""extensions.no-duplicated-authentication@clear-code.com.withoutRealm"", false);
 lockPref(""extensions.no-duplicated-authentication@clear-code.com.withRealm"", false);",新規,,,
+Ui-4,2,,,,抑止しない,-,-,新規,,,
 Script-1,1,Webアプリの動作,スクリプトによる頻繁なalertの可否,-,許可する,MCDで設定を反映する,"lockPref(""dom.successive_dialog_time_limit"", 0);",,"lockPref(""dom.successive_dialog_time_limit"", 0);",,
 Script-1,2,,,,禁止する（既定）,MCDで設定を反映する,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
 lockPref(""dom.successive_dialog_time_limit"", 3);",,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
