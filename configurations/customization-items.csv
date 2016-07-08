@@ -1614,8 +1614,6 @@ globalChrome.css:
 }",新規,,,
 Privacy-34,1,プライバシー,フォームへのユーザー入力値のセッション情報への保存の可否,-,許可する（既定）,,"lockPref(""browser.sessionstore.privacy_level"", 0);",,,,
 Privacy-34,2,,,,一切禁止する,,"lockPref(""browser.sessionstore.privacy_level"", 2);",,,,
-Privacy-35,1,プライバシー,リンク先の投機的先読みの可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 6);",新規,,,
-Privacy-35,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 0);",新規,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,"[XRE]
