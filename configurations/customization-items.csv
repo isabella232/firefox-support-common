@@ -2277,7 +2277,12 @@ lockPref(""extensions.update.url"", """");",変更無し,"lockPref(""extensions.
 Update-3,1,自動更新,検索エンジンの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""browser.search.update"", true);",,"lockPref(""browser.search.update"", true);",変更無し,"lockPref(""browser.search.update"", true);"
 Update-3,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.search.update"", false);",,"lockPref(""browser.search.update"", false);",変更無し,"lockPref(""browser.search.update"", false);"
 Update-4,1,その他,「Mozilla Maintenance Service」のインストールの可否,-,許可する（既定）,Frefox-setup.iniで設定を反映する,-,,-,,
-Update-4,2,,,,禁止する,Frefox-setup.iniで設定を反映する,MaintenanceService=false,,MaintenanceService=false,,
+Update-4,2,,,,禁止する,"1. Frefox-setup.iniで設定を反映する
+2. MCDで設定を反映する","Firefox-setup.ini:
+MaintenanceService=false
+
+MCD:
+lockPref(""app.update.service.enabled"", false);",○,MaintenanceService=false,,
 Update-5,1,自動更新,軽量テーマの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""lightweightThemes.update.enabled"", true);",,"lockPref(""lightweightThemes.update.enabled"", true);",,
 Update-5,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.update.enabled"", false);",,"lockPref(""lightweightThemes.update.enabled"", false);",,
 Ui-1,1,プログラム,Firefox組み込みのPDFビューアの使用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);",,"lockPref(""pdfjs.disabled"", false);",変更無し,"lockPref(""pdfjs.disabled"", false);"
