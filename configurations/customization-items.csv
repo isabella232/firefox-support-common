@@ -234,9 +234,18 @@ lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);
 // Auto Confirm
 function autoConfirmImport(aCertName) {
   var base = ""extensions.auto-confirm@myokoym.net.general.auto-import-"" + aCertName.replace(/\./g, '_');
-  lockPref(base + "".url"", ""chrome://pippki/content/downloadcert.xul"");
-  lockPref(base + "".text"", unescape(encodeURIComponent(""\"""" + aCertName + ""\"" が行う認証のうち、信頼するものを選択してください。"")));
-  lockPref(base + "".actions"", unescape(encodeURIComponent(""[\""check;この認証局による Web サイトの識別を信頼する\"",\""check;この認証局によるメールユーザの識別を信頼する\"",\""check;この認証局によるソフトウェア製作者の識別を信頼する\"",\""accept\""]"")));
+
+  // 日本語環境用の設定
+  var baseJa = base + ""-ja"";
+  lockPref(baseJa + "".url"", ""chrome://pippki/content/downloadcert.xul"");
+  lockPref(baseJa + "".text"", ""\"""" + aCertName + ""\"" が行う認証のうち、信頼するものを選択してください。"");
+  lockPref(baseJa + "".actions"", ""[\""check;この認証局による Web サイトの識別を信頼する\"",\""check;この認証局によるメールユーザの識別を信頼する\"",\""check;この認証局によるソフトウェア製作者の識別を信頼する\"",\""accept\""]"");
+
+  // 英語環境用の設定
+  var baseEn = base + ""-en"";
+  lockPref(baseEn + "".url"", ""chrome://pippki/content/downloadcert.xul"");
+  lockPref(baseEn + "".text"", ""Do you want to trust \"""" + aCertName + ""\"" for the following purposes?"");
+  lockPref(baseEn + "".actions"", ""[\""check;Trust this CA to identify websites.\"",\""check;Trust this CA to identify email users.\"",\""check;Trust this CA to identify software developers.\"",\""accept\""]"");
 }
 autoConfirmImport(""(証明書の名前)"");",○,"lockPref(""extensions.certimporter.importAs.*"", 0);
 lockPref(""extensions.certimporter.importAs.（ファイル名）"", 1);",変更無し,"lockPref(""extensions.certimporter.importAs.*"", 0);
