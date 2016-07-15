@@ -1,0 +1,17 @@
+require "rake/clean"
+
+#MD_FILES = FileList["*.md"]
+MD_FILES = FileList["verification_manual.md"]
+PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
+
+task :default => :pdf
+
+task :pdf => PDF_FILES
+
+rule ".pdf" => ".md" do |t|
+  sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
+     "--table-of-contents", "--toc-depth=3",
+     "-V", "documentclass=ltjsarticle",
+     "-V", "classoption=titlepage",
+     "--latex-engine=lualatex", t.source
+end
