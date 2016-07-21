@@ -10,6 +10,7 @@ class Markdown
     format_space!
     format_list!
     remove_garbage!
+    remove_needless_linefeed!
   end
 
   def format_header!
@@ -29,6 +30,10 @@ class Markdown
 
   def remove_garbage!
     @text.gsub!(/^(#.*) +{.*}$/, "\\1")
+  end
+
+  def remove_needless_linefeed!
+    @text.gsub!(/UI\n\s+Text/, "UI Text")
   end
 
   def to_s

@@ -893,8 +893,7 @@
 
     1. globalChrome.css 
 
-    2. UI
-        Text Overrider 
+    2. UI Text Overrider 
 
 ### 4.6.3 検証
 
@@ -921,8 +920,7 @@
 
     1. globalChrome.css 
 
-    2. UI
-        Text Overrider 
+    2. UI Text Overrider 
 
 ## 4.7 SNS連携機能とソーシャルAPIの利用制限
 
@@ -1046,8 +1044,7 @@
 
     1. globalChrome.css 
 
-    2. UI
-        Text Overrider 
+    2. UI Text Overrider 
 
 ### 4.10.3 検証
 
@@ -1082,8 +1079,7 @@
 
     1. globalChrome.css 
 
-    2. UI
-        Text Overrider 
+    2. UI Text Overrider 
 
 ## 4.11 外部リソースへのアクセスの制限
 
@@ -1105,8 +1101,7 @@
 
     1. globalChrome.css 
 
-    2. UI
-        Text Overrider 
+    2. UI Text Overrider 
 
 ### 4.11.3 検証
 
@@ -1149,8 +1144,7 @@
 
     1. globalChrome.css 
 
-    2. UI
-        Text Overrider 
+    2. UI Text Overrider 
 
 ## 4.12 パーミッション設定の制限
 
@@ -1248,8 +1242,7 @@
 
     2. globalChrome.css 
 
-    3. UI
-        Text Overrider 
+    3. UI Text Overrider 
 
 ### 5.1.3 検証
 
@@ -1484,8 +1477,7 @@
 
     2. globalChrome.css 
 
-    3. UI
-        Text Overrider 
+    3. UI Text Overrider 
 
 ## 5.2 履歴の保存日数の制御
 
@@ -1789,8 +1781,7 @@
 
     2. globalChrome.css 
 
-    3. UI
-        Text Overrider 
+    3. UI Text Overrider 
 
 ### 5.7.3 検証
 
@@ -1845,8 +1836,7 @@
 
     2. globalChrome.css 
 
-    3. UI
-        Text Overrider 
+    3. UI Text Overrider 
 
 ## 5.8 ディスクキャッシュのサイズ制限
 
