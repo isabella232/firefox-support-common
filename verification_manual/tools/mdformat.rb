@@ -34,6 +34,7 @@ class Markdown
 
   def remove_needless_linefeed!
     @text.gsub!(/UI\n\s+Text/, "UI Text")
+    @text.gsub!(/Disable\n\s+about:config/, "Disable about:config")
   end
 
   def to_s

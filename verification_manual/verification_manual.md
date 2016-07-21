@@ -358,8 +358,7 @@
 
 3. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
     2. globalChrone.css 
 
@@ -476,8 +475,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
     2. globalChrone.css 
 
@@ -1237,8 +1235,7 @@
 
 2. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
     2. globalChrome.css 
 
@@ -1472,8 +1469,7 @@
 
 2. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
     2. globalChrome.css 
 
@@ -1498,8 +1494,7 @@
     1. Disable
         Addons 
 
-    2. Disable
-        about:config 
+    2. Disable about:config 
 
 3. 十分な日数分の履歴項目を以下の手順で用意する。 
 
@@ -1588,8 +1583,7 @@
 
     1. Disable Addons 
 
-    2. Disable
-        about:config 
+    2. Disable about:config 
 
 ## 5.3 位置情報の利用制限
 
@@ -1776,8 +1770,7 @@
 
 2. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
     2. globalChrome.css 
 
@@ -1831,8 +1824,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
     2. globalChrome.css 
 
@@ -2042,8 +2034,7 @@
 
 3. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ### 6.4.3 検証
 
@@ -2128,8 +2119,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ## 6.5 内蔵PDFビューアの使用
 
@@ -2324,8 +2314,7 @@
 
 2. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ### 6.8.3 検証
 
@@ -2357,8 +2346,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ## 6.9 ハードウェアアクセラレーションの使用
 
@@ -2470,8 +2458,7 @@
 
 2. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ### 7.2.3 検証
 
@@ -2504,8 +2491,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 # 8 自動更新のカスタマイズ
 
@@ -2527,8 +2513,7 @@
 
 2. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ### 8.1.3 検証
 
@@ -2560,8 +2545,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
  
 
@@ -3136,8 +3120,7 @@
 
 2. 以下のアドオンを無効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ### 10.4.3 検証
 
@@ -3178,8 +3161,7 @@
 
 1. 以下のアドオンを有効化する。 
 
-    1. Disable
-        about:config 
+    1. Disable about:config 
 
 ## 10.5 履歴とブックマーク
 
