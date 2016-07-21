@@ -1215,11 +1215,9 @@
 
         2. 以下の3つのコマンド列を実行する。 
 
-            1. set
-                NSPR\_LOG\_MODULES=nsHttp:5 
+            1. set NSPR\_LOG\_MODULES=nsHttp:5 
 
-            2. set
-                NSPR\_LOG\_FILE=(ユーザのホームのフルパス)\\http.log 
+            2. set NSPR\_LOG\_FILE=(ユーザのホームのフルパス)\\http.log 
 
             3. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
                 のリンク先と同じコマンド列を実行する。 

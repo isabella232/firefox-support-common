@@ -41,6 +41,7 @@ class Markdown
     @text.gsub!(/Mozilla\n\s+Firefox/, "Mozilla Firefox")
     @text.gsub!(/Mozilla\n\s+ Maintenance Service/, "Mozilla Maintenance Service")
     @text.gsub!(/Program\n\s+Files/, "Program Files")
+    @text.gsub!(/set\n\s+NSPR/, "set NSPR")
     @text.gsub!(/Program\n?\s+Data/, "ProgramData")
   end
 
