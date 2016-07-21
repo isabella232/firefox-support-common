@@ -18,7 +18,7 @@
 - メタインストーラの表示バージョンは45.0とする。 
 - Firefoxのインストール先はC:\\Program Files (x86)\\Mozilla Firefoxとする。 
 - デスクトップのショートカットはC:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk に作成するものとする。 
-- スタートメニューのショートカットはC:\\Program Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkに作成するものとする。 
+- スタートメニューのショートカットはC:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkに作成するものとする。 
 
 ### 2.1.1 確認する項目
 
@@ -79,10 +79,10 @@
             1. C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe (Install-8-\*) 
             2. C:\\Program Files (x86)\\Mozilla Firefox\\autoconfig.cfg (Admin-1-\*) 
             3. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk (Application-1-1/3) 
-            4. C:\\Program Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk (Application-2-1/3) 
+            4. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk (Application-2-1/3) 
         2. 以下のファイル、フォルダが存在しない。
             1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk (Application-1-2) 
-            2. C:\\Program Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk (Application-2-2) 
+            2. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk (Application-2-2) 
         3. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが表示されている。(Application-3-1)\
             またはショートカットが表示されていない。(Application-3-2) 
         4. コントロールパネル→プログラムと機能で、以下の通りとなっている。 
@@ -127,7 +127,7 @@
 
         2. 「リンク先」末尾に「-profile %AppData%\\Mozilla\\Firefox\\Profiles\\Special」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3) 
 
-3. C:\\Program Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkのプロパティを開く。 
+3. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkのプロパティを開く。 
 
     - 確認項目 
 
@@ -529,11 +529,9 @@
 
 3. Firefoxを終了する。 
 
-4. C:\\Program
-    Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxを起動する。   
+4. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxを起動する。   
 
-5. その状態のまま、C:\\Program
-    Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxの多重起動を試みる。   
+5. その状態のまま、C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxの多重起動を試みる。   
 
     - 確認項目
           
