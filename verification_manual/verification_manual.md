@@ -137,8 +137,7 @@
 
 4. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「%AppData%\\Mozilla\\Firefox\\Profiles\\Special」と入力してEnterを押す。 
 
-5. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+5. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
 
     - 確認項目 
 
@@ -163,22 +162,18 @@
 1. コントロールパネル→プログラムと機能
     で以下がインストールされているならばアンインストールする。  
 
-    1. Fx
-        Meta Installer 
+    1. Fx Meta Installer 
 
     2. 旧バージョンのメタインストーラ 
 
-    3. Mozilla
-        Firefox  
+    3. Mozilla Firefox  
 
-    4. Mozilla
-        Maintenance Service  
+    4. Mozilla Maintenance Service  
 
 2. 以下のファイル、フォルダを削除する。
      
 
-    1. C:\\Program
-        Files (x86)\\Mozilla Firefox 
+    1. C:\\Program Files (x86)\\Mozilla Firefox 
 
     2. 旧バージョンのメタインストーラによってインストールされたFirefox 
 
@@ -198,8 +193,7 @@
 
 1. 旧バージョンのメタインストーラを実行する。 
 
-2. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+2. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
 
 3. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。 
 
@@ -242,14 +236,11 @@
 
             2. （旧バージョンのFirefoxのインストール先）\\autoconfig.cfg 
 
-            3. C:\\Program
-                Files (x86)\\Mozilla Firefox\\firefox.exe(Install-1-2)(Install-2-2) 
+            3. C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe(Install-1-2)(Install-2-2) 
 
-            4. C:\\Program
-                Files (x86)\\Mozilla Firefox\\autoconfig.cfg(Install-1-2)(Install-2-2) 
+            4. C:\\Program Files (x86)\\Mozilla Firefox\\autoconfig.cfg(Install-1-2)(Install-2-2) 
 
-8. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+8. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
 
 9. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。 
 
@@ -290,14 +281,11 @@
 
             2. （旧バージョンのFirefoxのインストール先）\\autoconfig.cfg 
 
-            3. C:\\Program
-                Files (x86)\\Mozilla Firefox\\firefox.exe(Install-1-2)(Install-2-2) 
+            3. C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe(Install-1-2)(Install-2-2) 
 
-            4. C:\\Program
-                Files (x86)\\Mozilla Firefox\\autoconfig.cfg(Install-1-2)(Install-2-2) 
+            4. C:\\Program Files (x86)\\Mozilla Firefox\\autoconfig.cfg(Install-1-2)(Install-2-2) 
 
-14. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+14. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
 
 15. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。 
 
@@ -364,8 +352,7 @@
 
 ### 3.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 
     - 確認項目
          
@@ -495,11 +482,9 @@
 
 ### 3.2.3 検証
 
-1. 用意したインストールパッケージをC:\\Program
-    Files (x86)\\Mozilla Firefox\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiの位置に置く。 
+1. 用意したインストールパッケージをC:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiの位置に置く。 
 
-2. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
+2. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 
 3. Admin-2-2が選択されている場合、アドオンを有効化しFirefoxを再起動する。 
 
@@ -511,8 +496,7 @@
 
 ### 3.2.4 後始末
 
-1. C:\\Program
-    Files (x86)\\Mozilla Firefox\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiを削除する。 
+1. C:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiを削除する。 
 
 ## 3.3 起動方法の制御
 
@@ -530,12 +514,10 @@
 
 ### 3.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 
-2. その状態のまま、C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+2. その状態のまま、C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
       
 
@@ -548,12 +530,10 @@
 3. Firefoxを終了する。 
 
 4. C:\\Program
-    Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla
-    Firefox.lnkをダブルクリックしてFirefoxを起動する。   
+    Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxを起動する。   
 
 5. その状態のまま、C:\\Program
-    Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla
-    Firefox.lnkをダブルクリックしてFirefoxの多重起動を試みる。   
+    Data\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxの多重起動を試みる。   
 
     - 確認項目
           
@@ -579,8 +559,7 @@
 
 ### 3.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
       
 
@@ -590,8 +569,7 @@
     - 確認項目
           
 
-        1. 項目のタイトルが「Mozilla
-            Firefox」で終わっている。
+        1. 項目のタイトルが「Mozilla Firefox」で終わっている。
             （※確認できないときはスキップ）(Application-4-\*) 
 
         2. タスクバー上に指定のアイコンが表示されている。(Application-5-\*) 
@@ -602,8 +580,7 @@
     - 確認項目
           
 
-        1. 項目のタイトルが「Mozilla
-            Firefox」で終わっている。 (Application-4-\*) 
+        1. 項目のタイトルが「Mozilla Firefox」で終わっている。 (Application-4-\*) 
 
  
 
@@ -625,8 +602,7 @@
 
 ### 4.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。 
@@ -670,8 +646,7 @@
 
 ### 4.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -754,8 +729,7 @@
 
 ### 4.3.3 検証：
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -832,8 +806,7 @@
 
 ### 4.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -895,8 +868,7 @@
 
 ### 4.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -934,8 +906,7 @@
 
 ### 4.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -968,8 +939,7 @@
 
 ### 4.8.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1001,8 +971,7 @@
 
 ### 4.9.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1046,8 +1015,7 @@
 
 ### 4.10.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1103,8 +1071,7 @@
 
 ### 4.11.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1158,8 +1125,7 @@
 
 ### 4.12.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1243,8 +1209,7 @@
 
 ### 5.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。\
     Privacy-35-\*の検証を行う場合は、ショートカットから起動する代わりに以下の手順で起動する。 
 
@@ -1258,8 +1223,7 @@
             2. set
                 NSPR\_LOG\_FILE=(ユーザのホームのフルパス)\\http.log 
 
-            3. C:\\Users\\Public\\Desktop\\Mozilla
-                Firefox.lnk
+            3. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
                 のリンク先と同じコマンド列を実行する。 
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -1515,8 +1479,7 @@
 
 ### 5.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1549,8 +1512,7 @@
 
 8. Firefoxを終了する。 
 
-9. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+9. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1599,8 +1561,7 @@
 
 ### 5.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1628,8 +1589,7 @@
 
 ### 5.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1696,8 +1656,7 @@
 
 ### 5.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1735,8 +1694,7 @@
 
 ### 5.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1778,8 +1736,7 @@
 
 ### 5.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. Firefoxのロケーションバーに「about:config」と入力し、ページを開く。 
@@ -1790,8 +1747,7 @@
 
 5. Firefoxを終了する。 
 
-6. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+6. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 7. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
@@ -1846,8 +1802,7 @@
 
 ### 5.8.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1882,8 +1837,7 @@
 
 ### 6.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1925,8 +1879,7 @@
 
 ### 6.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1959,8 +1912,7 @@
 
 ### 6.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2038,8 +1990,7 @@
 
 ### 6.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2139,8 +2090,7 @@
 
 ### 6.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2176,8 +2126,7 @@
 
 ### 6.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2276,8 +2225,7 @@
 
 ### 6.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ホームページまたは外部の埋め込みリソースを2つ以上埋め込んだWebページ（例：http://www.clear-code.com/blog/）を訪問し、ファイルがキャッシュされた状態にする。 
@@ -2318,8 +2266,7 @@
 
 ### 6.8.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ロケーションバーに「https://labs.othersight.jp/webpushtest/」と入力し、ページを開く。 
@@ -2366,8 +2313,7 @@
 
 ### 6.9.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -2407,8 +2353,7 @@
 
 ### 7.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -2462,8 +2407,7 @@
 
 ### 7.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
@@ -2517,8 +2461,7 @@
 
 ### 8.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2604,8 +2547,7 @@
 
 ### 9.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. アドオンマネージャを開き、「プラグイン」を選択する。 
@@ -2682,8 +2624,7 @@
 
 ### 9.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 外部アプリケーションで開く必要があるファイルへのリンクをクリックする。 
@@ -2726,8 +2667,7 @@
 
 ### 10.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開く。 
@@ -2868,8 +2808,7 @@
 
 ### 10.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
     - 確認項目 
@@ -3045,8 +2984,7 @@
 
 ### 10.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「ヘルプ」メニューを開く。 
@@ -3124,8 +3062,7 @@
 
 ### 10.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -3133,8 +3070,7 @@
 
 3. Firefoxを終了する。 
 
-4. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnk
+4. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。  
 
 5. 「https://addons.mozilla.org/」など、テキスト入力欄があるWebページを開く。 
@@ -3179,8 +3115,7 @@
 
 ### 10.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「履歴」メニューを開く。 
@@ -3264,8 +3199,7 @@
 
 ### 10.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「https://addons.mozilla.org」を開き、何もない所で右クリックする。 
@@ -3344,8 +3278,7 @@
 
 ### 10.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. テストケースの「popupblock.html」を開く。 
@@ -3400,8 +3333,7 @@
 
 ### 11.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 
@@ -3462,8 +3394,7 @@
 
 ### 11.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -3534,8 +3465,7 @@
 
 ### 11.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla
-    Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
     - 確認項目

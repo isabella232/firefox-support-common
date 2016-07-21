@@ -36,6 +36,11 @@ class Markdown
   def remove_needless_linefeed!
     @text.gsub!(/UI\n\s+Text/, "UI Text")
     @text.gsub!(/Disable\n\s+about:config/, "Disable about:config")
+    @text.gsub!(/Disable\n\s+addons/, "Disable addons")
+    @text.gsub!(/Fx\n\s+Meta Installer/, "Fx Meta Installer")
+    @text.gsub!(/Mozilla\n\s+Firefox/, "Mozilla Firefox")
+    @text.gsub!(/Mozilla\n\s+ Maintenance Service/, "Mozilla Maintenance Service")
+    @text.gsub!(/Program\n\s+Files/, "Program Files")
   end
 
   def to_s
