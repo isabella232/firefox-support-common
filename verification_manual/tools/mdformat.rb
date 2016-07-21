@@ -8,6 +8,7 @@ class Markdown
   def format!
     format_headers!
     format_spaces!
+    format_lists!
     remove_garbages!
   end
 
@@ -20,6 +21,10 @@ class Markdown
     @text.gsub!(/^(\d+\.\d+)([^ \d]+)$/, "\\1 \\2")
     @text.gsub!(/^(#+)(\d+)$/, "\\1 \\2")
     @text.gsub!(/^(#+ \d+(?:\.\d+)*)[[:space:]]*([^ \.\d])/, "\\1 \\2")
+  end
+
+  def format_lists!
+    @text.gsub!(/^(\d+\.)([^ ])/, "\\1 \\2")
   end
 
   def remove_garbages!
