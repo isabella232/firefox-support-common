@@ -30,6 +30,7 @@ class Markdown
 
   def remove_garbage!
     @text.gsub!(/^(#.*) +{.*}$/, "\\1")
+    @text.gsub!(/^1.  - /, "    - ")
   end
 
   def remove_needless_linefeed!
