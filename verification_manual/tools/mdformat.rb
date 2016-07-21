@@ -6,28 +6,28 @@ class Markdown
   end
 
   def format!
-    format_headers!
-    format_spaces!
-    format_lists!
-    remove_garbages!
+    format_header!
+    format_space!
+    format_list!
+    remove_garbage!
   end
 
-  def format_headers!
+  def format_header!
     @text.gsub!(/^(\d+\.\d+[^\n]*)\n-{10,}\n/, "## \\1\n")
     @text.gsub!(/^(\d+[^\n]*)\n={10,}\n/, "# \\1\n")
   end
 
-  def format_spaces!
+  def format_space!
     @text.gsub!(/^(\d+\.\d+)([^ \d]+)$/, "\\1 \\2")
     @text.gsub!(/^(#+)(\d+)$/, "\\1 \\2")
     @text.gsub!(/^(#+ \d+(?:\.\d+)*)[[:space:]]*([^ \.\d])/, "\\1 \\2")
   end
 
-  def format_lists!
+  def format_list!
     @text.gsub!(/^(\d+\.)([^ ])/, "\\1 \\2")
   end
 
-  def remove_garbages!
+  def remove_garbage!
     @text.gsub!(/^(#.*) +{.*}$/, "\\1")
   end
 
