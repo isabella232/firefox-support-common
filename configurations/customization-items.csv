@@ -1623,6 +1623,12 @@ globalChrome.css:
 }",新規,,,
 Privacy-34,1,プライバシー,フォームへのユーザー入力値のセッション情報への保存の可否,-,許可する（既定）,,"lockPref(""browser.sessionstore.privacy_level"", 0);",,,,
 Privacy-34,2,,,,一切禁止する,,"lockPref(""browser.sessionstore.privacy_level"", 2);",,,,
+Privacy-35,1,プライバシー,トラッキングの遮断に使用するブロックリストの指定,-,簡易ブロックを初期設定とし、変更を許可（既定）,MCDで設定を反映する,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");",,,,
+Privacy-35,2,,,,広範ブロックを初期設定とし、変更を許可,MCDで設定を反映する,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");",,,,
+Privacy-35,3,,,,簡易ブロックで固定,MCDで設定を反映する,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");
+lockPref(“pref.privacy.disable_button.change_blocklist”, true);",,,,
+Privacy-35,4,,,,広範ブロックで固定,MCDで設定を反映する,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");
+lockPref(“pref.privacy.disable_button.change_blocklist”, true);",,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,"[XRE]
