@@ -11,6 +11,7 @@ class Markdown
     format_list!
     remove_garbage!
     remove_needless_linefeed!
+    remove_extra_linefeeds!
   end
 
   def format_header!
@@ -32,6 +33,10 @@ class Markdown
     @text.gsub!(/^(#.*) +{.*}$/, "\\1")
     @text.gsub!(/^1.  - /, "    - ")
     @text.gsub!(/^\d+\. *(\d+\.) */, "\\1 ")
+  end
+
+  def remove_extra_linefeeds!
+    @text.gsub!(/\n\n+/, "\n\n")
   end
 
   def remove_needless_linefeed!
