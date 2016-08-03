@@ -1317,7 +1317,7 @@
 
 15. ブラウザコンソール下部の入力欄で以下のコードを実行する。 
 
-        Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false); 
+    - Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false); 
 
 16. ブラウザウィンドウで「http://www.clear-code.com/blog/2016/5/10.html」を開く。 
 
