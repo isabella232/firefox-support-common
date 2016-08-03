@@ -2160,29 +2160,17 @@
 
     4. /etc/apache2/conf-enabled/forward\_proxy.confの位置に以下の内容でファイルを作成する。 
 
-  ---------------------------------------
-  ProxyRequests On
+            ProxyRequests On
+            ProxyVia On
 
-  ProxyVia On
+            <Proxy *>
+              AuthType Basic
+              AuthName "Password Required"
+              AuthUserFile /etc/apache2/.htpasswd
+              Require user clearcode
+            </Proxy>
 
-   
-
-  \
-
-    AuthType Basic
-
-    AuthName "Password Required"
-
-    AuthUserFile /etc/apache2/.htpasswd
-
-    Require user clearcode
-
-  \
-  ---------------------------------------
-
-1.    
-
-    2.  5.以下のコマンド列を実行し、Apacheを再起動する。 
+    5. 以下のコマンド列を実行し、Apacheを再起動する。 
 
         1. sudo
             service apache2 restart 
@@ -2190,17 +2178,10 @@
 4. Network-2-2の設定を使用し、認証が必要なHTTP
     Proxyを使用するよう設定する。上記の例に従い用意したProxyの場合、設定は以下のようになる。 
 
-  ---------------------------------------------------------
-  lockPref("network.proxy.type", 1);
-
-  lockPref("network.proxy.http", "10.0.2.2");
-
-  lockPref("network.proxy.http\_port", 80);
-
-  lockPref("network.proxy.share\_proxy\_settings", true);
-  ---------------------------------------------------------
-
-1.   
+        lockPref("network.proxy.type", 1);
+        lockPref("network.proxy.http", "10.0.2.2");
+        lockPref("network.proxy.http\_port", 80);
+        lockPref("network.proxy.share\_proxy\_settings", true);
 
 ### 6.7.3 検証
 
