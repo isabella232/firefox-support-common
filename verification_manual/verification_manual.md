@@ -427,7 +427,7 @@
 
         1. ブックマークツールバー上に既定の項目が作成されていない。(Startup-5-2) 
 
-12. ロケーションバーに「https://www.mozilla.org/ja/firefox/44.0/tour/」と入力し、ページを開く。(Startup-8-\*) 
+12. ロケーションバーに「 https://www.mozilla.org/ja/firefox/44.0/tour/ 」と入力し、ページを開く。(Startup-8-\*) 
 
     - 確認方法 
 
@@ -693,13 +693,13 @@
             のリンクを左クリックし、空白のページが読み込まれる。
              (Security-3-3) 
 
-5. 「https://addons.mozilla.org」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。 
+5. 「 https://addons.mozilla.org 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。 
 
     - 確認項目 
 
         1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3) 
 
-6. 「https://marketplace.firefox.com」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。 
+6. 「 https://marketplace.firefox.com 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。 
 
     - 確認項目 
 
@@ -761,7 +761,7 @@
 
 ### 4.4.3 検証
 
-1. Firefoxのロケーションバーに「http://itisatrap.org/firefox/its-a-trap.html」と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに「 http://itisatrap.org/firefox/its-a-trap.html 」と入力し、Enterを押下する。
      
 
     - 確認項目 
@@ -769,7 +769,7 @@
         1. 偽装サイトとしてブロックされる。(Security-6-1)\
             または、ブロックされない。(Security-6-2) 
 
-1. Firefoxのロケーションバーに「https://itisatrap.org/firefox/its-an-attack.html」と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに「 https://itisatrap.org/firefox/its-an-attack.html 」と入力し、Enterを押下する。
      
 
     - 確認項目 
@@ -777,7 +777,7 @@
         1. 攻撃サイトとしてブロックされる。(Security-5-1)\
             または、ブロックされない。(Security-5-2) 
 
-1. Firefoxのロケーションバーに「http://itisatrap.org/firefox/unwanted.html」と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに「 http://itisatrap.org/firefox/unwanted.html 」と入力し、Enterを押下する。
      
 
     - 確認項目 
@@ -915,7 +915,7 @@
         1. 「このページを共有」ボタンが存在する。(Security-11-1)\
             または、存在しない。(Security-11-2) 
 
-3. ロケーションバーに「https://activations.cdn.mozilla.net/ja/」と入力し、Enterを押してページを開く。 
+3. ロケーションバーに「 https://activations.cdn.mozilla.net/ja/ 」と入力し、Enterを押してページを開く。 
 
 4. いずれかのサービスの「今すぐ追加」ボタンをクリックする。 
 
@@ -1127,7 +1127,7 @@
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ロケーションバーに「https://addons.mozilla.org/」と入力し、ページを開く。 
+2. ロケーションバーに「 https://addons.mozilla.org/ 」と入力し、ページを開く。 
 
 3. ページの読み込みが完了したら、ロケーションバー上の鍵アイコンの箇所をクリックする。 
 
@@ -1319,11 +1319,11 @@
 
     - Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false); 
 
-16. ブラウザウィンドウで「http://www.clear-code.com/blog/2016/5/10.html」を開く。 
+16. ブラウザウィンドウで「 http://www.clear-code.com/blog/2016/5/10.html 」を開く。 
 
     - 確認項目 
 
-        1. 「GET http://www.clear-code.com/blog/2016/5/18.html」というログがコンソールに出力される。(Privacy-7-1)\
+        1. 「GET http://www.clear-code.com/blog/2016/5/18.html 」というログがコンソールに出力される。(Privacy-7-1)\
             または、出力されない。(Privacy-7-2) 
 
 17. ブラウザウィンドウでテストケースの「prefetching.html」を開く。 
@@ -1550,7 +1550,7 @@
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ロケーションバーに「https://developer.mozilla.org/ja/docs/WebAPI/Using\_geolocation」と入力し、ページを開く。 
+2. ロケーションバーに「 https://developer.mozilla.org/ja/docs/WebAPI/Using\_geolocation 」と入力し、ページを開く。 
 
 3. 「Geolocationのライブサンプル」欄の「Show
     my location」ボタンをクリックする。 
@@ -1822,7 +1822,7 @@
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ロケーションバーに「https://addons.mozilla.org/」と入力し、ページを開く。 
+2. ロケーションバーに「 https://addons.mozilla.org/ 」と入力し、ページを開く。 
 
 3. Web検索バーのアイコンをクリックする。 
 
@@ -1862,7 +1862,7 @@
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ロケーションバーに「http://www.clear-code.com/」のように「http://」で始まるURLを入力し、ページを開く。 
+2. ロケーションバーに「 http://www.clear-code.com/ 」のように「 http:// 」で始まるURLを入力し、ページを開く。 
 
     - 確認項目 
 
@@ -1918,7 +1918,7 @@
         1. ダウンロードの進行状況を示すポップアップが表示される。(Download-1-1)\
             または、表示されない。(Download-1-2) 
 
-6. ロケーションバーに「http://www.mozilla.org/」と入力し、ページを開く。 
+6. ロケーションバーに「 http://www.mozilla.org/ 」と入力し、ページを開く。 
 
 7. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。 
 
@@ -2109,7 +2109,7 @@
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ロケーションバーに「https://www.youtube.com」と入力し、ページを開く。 
+2. ロケーションバーに「 https://www.youtube.com 」と入力し、ページを開く。 
 
 3. いずれか1つの動画を開く。
      
@@ -2134,7 +2134,7 @@
 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
-2. 外部の埋め込みリソースを2つ以上埋め込んだWebページ（例：http://www.clear-code.com/blog/）をホームページに設定する。ホームページを変更できない場合はスキップする。 
+2. 外部の埋め込みリソースを2つ以上埋め込んだWebページ（例： http://www.clear-code.com/blog/ ）をホームページに設定する。ホームページを変更できない場合はスキップする。 
 
 3. ユーザー名とパスワードによる認証が必要なHTTP
     Proxyを用意する。既存のProxyが無い場合は、以下に示す設定例に従い用意する。 
@@ -2188,7 +2188,7 @@
 1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ホームページまたは外部の埋め込みリソースを2つ以上埋め込んだWebページ（例：http://www.clear-code.com/blog/）を訪問し、ファイルがキャッシュされた状態にする。 
+2. ホームページまたは外部の埋め込みリソースを2つ以上埋め込んだWebページ（例： http://www.clear-code.com/blog/ ）を訪問し、ファイルがキャッシュされた状態にする。 
 
 3. Firefoxを終了し、もう一度起動する。 
 
@@ -2229,7 +2229,7 @@
 1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. ロケーションバーに「https://labs.othersight.jp/webpushtest/」と入力し、ページを開く。 
+2. ロケーションバーに「 https://labs.othersight.jp/webpushtest/ 」と入力し、ページを開く。 
 
     - 確認項目 
 
@@ -2480,21 +2480,21 @@
 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
-2. 「https://java.com/ja/download/」からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*) 
+2. 「 https://java.com/ja/download/ 」からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*) 
 
-3. 「https://get.adobe.com/jp/flashplayer/」からAdobe Flash
+3. 「 https://get.adobe.com/jp/flashplayer/ 」からAdobe Flash
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-2-\*) 
 
-4. 「https://get.adobe.com/jp/reader/」からAdobe Acrobat Reader
+4. 「 https://get.adobe.com/jp/reader/ 」からAdobe Acrobat Reader
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*) 
 
-5. 「https://get.adobe.com/jp/shockwave/」からAdobe Shockwave
+5. 「 https://get.adobe.com/jp/shockwave/ 」からAdobe Shockwave
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*) 
 
-6. 「SilverlightDownloadUrlhttp://www.microsoft.com/silverlight/resources/install.aspx」からSilverlight
+6. 「[SilverlightDownloadUrl](http://www.microsoft.com/silverlight/resources/install.aspx)」からSilverlight
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*) 
 
-7. 「http://www.interoperabilitybridges.com/Windows-Media-Player-Firefox-Plugin-Download」からWindows
+7. 「 http://www.interoperabilitybridges.com/Windows-Media-Player-Firefox-Plugin-Download 」からWindows
     Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*) 
 
 8. Cisco
@@ -3013,7 +3013,7 @@
 4. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。  
 
-5. 「https://addons.mozilla.org/」など、テキスト入力欄があるWebページを開く。 
+5. 「 https://addons.mozilla.org/ 」など、テキスト入力欄があるWebページを開く。 
 
 6. テキスト入力欄をクリックしてフォーカスした状態にする。 
 
@@ -3132,7 +3132,7 @@
 1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
-2. 「https://addons.mozilla.org」を開き、何もない所で右クリックする。 
+2. 「 https://addons.mozilla.org 」を開き、何もない所で右クリックする。 
 
     - 確認項目 
 
@@ -3168,7 +3168,7 @@
 
         3. 「デスクトップの背景に設定」が存在しない。(MenuShortcut-55) 
 
-6. 「http://www.w3schools.com/html/html5\_video.asp」を開き、ページ内に埋め込まれた動画の上で右クリックする。 
+6. 「 http://www.w3schools.com/html/html5\_video.asp 」を開き、ページ内に埋め込まれた動画の上で右クリックする。 
 
     - 確認項目 
 
@@ -3176,7 +3176,7 @@
 
         2. 「この動画を共有」が存在しない。(MenuShortcut-50) 
 
-2. 「http://www.w3schools.com/html/tryit.asp?filename=tryhtml5\_audio\_all」を開き、ページ内に埋め込まれたオーディオコントロールの上で右クリックする。 
+2. 「 http://www.w3schools.com/html/tryit.asp?filename=tryhtml5\_audio\_all 」を開き、ページ内に埋め込まれたオーディオコントロールの上で右クリックする。 
 
     - 確認項目 
 
