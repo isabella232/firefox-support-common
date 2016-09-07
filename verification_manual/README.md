@@ -6,10 +6,15 @@
 * Pandoc
 * Ruby
 * Rake
+* [Mustache](https://mustache.github.io/)
 
-## Install
+## Install tools (Debian GNU/Linux)
 
     sudo apt-get install -y texlive-full pandoc ruby rake
+
+## Install gems
+
+    bundle install
 
 ## Generate PDF
 
