@@ -1,8 +1,12 @@
 require "rake/clean"
+require "tempfile"
 
 #MD_FILES = FileList["*.md"]
 MD_FILES = FileList["verification_manual.md"]
 PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
+VARIABLES = {
+  firefox_version: "45.0 ESR",
+}
 
 task :default => :pdf
 
@@ -10,9 +14,14 @@ desc "Generate PDF"
 task :pdf => PDF_FILES
 
 rule ".pdf" => ".md" do |t|
+  require "mustache"
+  Tempfile.open("firefox-verification_manual") do |file|
+    file.puts(Mustache.render(File.read(t.source), VARIABLES))
+    file.flush
   sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
      "--table-of-contents", "--toc-depth=3",
      "-V", "documentclass=ltjsarticle",
      "-V", "classoption=titlepage",
-     "--latex-engine=lualatex", t.source
+     "--latex-engine=lualatex", file.path
+  end
 end

@@ -4,7 +4,7 @@
 
 # 1 はじめに
 
-対象のFirefoxのバージョンは45.0 ESRとする。
+対象のFirefoxのバージョンは{{firefox_version}}とする。
 
 検証環境はWindows 7とする。
 
