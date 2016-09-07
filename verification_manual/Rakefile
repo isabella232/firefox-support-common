@@ -15,7 +15,7 @@ task :default => :pdf
 desc "Generate PDF"
 task :pdf => PDF_FILES
 
-rule ".pdf" => ".md" do |t|
+rule ".pdf" => [".md", "Rakefile"] do |t|
   require "mustache"
   Tempfile.open("firefox-verification_manual") do |file|
     file.puts(Mustache.render(File.read(t.source), VARIABLES))
