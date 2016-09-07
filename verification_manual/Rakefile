@@ -8,6 +8,8 @@ VARIABLES = {
   firefox_version: "45.0 ESR",
 }
 
+CLOBBER.include(PDF_FILES)
+
 task :default => :pdf
 
 desc "Generate PDF"
