@@ -6,6 +6,7 @@ PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
 
 task :default => :pdf
 
+desc "Generate PDF"
 task :pdf => PDF_FILES
 
 rule ".pdf" => ".md" do |t|
