@@ -6,19 +6,19 @@
 
 対象のFirefoxのバージョンは{{firefox_version}}とする。
 
-検証環境はWindows 7とする。
+検証環境は{{windows_version}}とする。
 
-参照する設定資料はcustomization-items.odsとする。
+参照する設定資料は{{configuration_sheet_name}}とする。
 
 # 2 新規インストールに関するカスタマイズ
 
 ## 2.1 メタインストーラを使用した、新規インストールの手順
 
-- メタインストーラの名称はFx Meta Installer、ファイル名はFxMetaInstallerとする。 
-- メタインストーラの表示バージョンは45.0とする。 
-- Firefoxのインストール先はC:\\Program Files (x86)\\Mozilla Firefoxとする。 
-- デスクトップのショートカットはC:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk に作成するものとする。 
-- スタートメニューのショートカットはC:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkに作成するものとする。 
+- メタインストーラの名称は{{meta_installer_name}}、ファイル名は{{meta_installer_file_name}}とする。 
+- メタインストーラの表示バージョンは{{meta_installer_version}}とする。 
+- Firefoxのインストール先は{{install_path}}とする。 
+- デスクトップのショートカットは{{desktop_shortcut_path}} に作成するものとする。 
+- スタートメニューのショートカットは{{start_menu_shortcut_path}}に作成するものとする。 
 
 ### 2.1.1 確認する項目
 
@@ -40,11 +40,11 @@
 ### 2.1.2 準備
 
 1. コントロールパネル→プログラムと機能で以下がインストールされているならばアンインストールする。  
-    1. Fx Meta Installer 
+    1. {{meta_installer_name}} 
     2. Mozilla Firefox  
     3. Mozilla Maintenance Service  
 2. 以下のファイル、フォルダを削除する。
-    1. C:\\Program Files (x86)\\Mozilla Firefox 
+    1. {{install_path}} 
     2. C:\\Program Files (x86)\\ClearCode Inc  
     3. Firefoxのユーザープロファイル（%AppData%\\Mozilla） 
     4. Firefoxのテンポラリファイルおよびキャッシュファイル（%LocalAppData%\\Mozilla） 
@@ -53,49 +53,49 @@
 
 1. メタインストーラ作成キット一式を用意する。
     - 確認項目 
-        1. メタインストーラ作成キット一式の格納フォルダ名が「FxMetaInstaller-source」である。(Install-2-\*) 
+        1. メタインストーラ作成キット一式の格納フォルダ名が「{{meta_installer_file_name}}-source」である。(Install-2-\*) 
 2. 不要なファイルを削除する。
-    - FxMetaInstaller\*.exe
+    - {{meta_installer_file_name}}\*.exe
 3. fainstall.iniを開き、検証環境に合わせて内容を修正する。 
     - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の「（ドライブレター）:/」の指定をすべて「C:/（ドライブレター）/」に置換する。\
       以下、ファイルの作成先はすべて置換後のパスで読み替える。 
-4. FxMetaInstaller.batを実行する。
+4. {{meta_installer_file_name}}.batを実行する。
     - 確認項目
-        1. FxMetaInstaller.exeが作成される。(Install-9-1)\
-           または、FxMetaInstaller-45.0.exeが作成される。(Install-9-2) 
-5. 作成されたFxMetaInstaller\*.exeを実行する。
+        1. {{meta_installer_file_name}}.exeが作成される。(Install-9-1)\
+           または、{{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2) 
+5. 作成された{{meta_installer_file_name}}\*.exeを実行する。
     - 確認項目
         1. メタインストーラの圧縮ファイルを展開する様子を示すダイアログが表示される。 
         2. メタインストーラのウィザードが表示される。(Install-3-2)(Install-6-\*)\
             または、ウィザードが表示されない。(Install-3-3) 
-        3. インストール完了後に「Mozilla Firefox」のタイトルで「インストールが完了しました」のメッセージが表示される。(Install-4-2)\
+        3. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。(Install-4-2)\
             または、メッセージが表示されない。(Install-4-1)
-        4. インストール完了後に「Mozilla Firefox」のタイトルで「今すぐコンピュータを再起動しますか？」のメッセージが表示される。(Install-5-2)\
+        4. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2)\
             または、メッセージが表示されない。(Install-5-1)
 
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
         1. 以下のファイル、フォルダが存在する。
-            1. C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe (Install-8-\*) 
-            2. C:\\Program Files (x86)\\Mozilla Firefox\\autoconfig.cfg (Admin-1-\*) 
-            3. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk (Application-1-1/3) 
-            4. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk (Application-2-1/3) 
+            1. {{install_path}}\\firefox.exe (Install-8-\*) 
+            2. {{install_path}}\\{{mcd_local_file}} (Admin-1-\*) 
+            3. {{desktop_shortcut_path}} (Application-1-1/3) 
+            4. {{start_menu_shortcut_path}} (Application-2-1/3) 
         2. 以下のファイル、フォルダが存在しない。
-            1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk (Application-1-2) 
-            2. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk (Application-2-2) 
+            1. {{desktop_shortcut_path}} (Application-1-2) 
+            2. {{start_menu_shortcut_path}} (Application-2-2) 
         3. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが表示されている。(Application-3-1)\
             またはショートカットが表示されていない。(Application-3-2) 
         4. コントロールパネル→プログラムと機能で、以下の通りとなっている。 
-            1. 「Mozilla Firefox 45.0 ESR」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*) 
-            2. 「Fx Meta Installer」がインストールされている。(Install-1-\*) 
-            3. 「Fx Meta Installer」のバージョンが「45.0」と表示されている。(Install-9-2) 
+            1. 「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*) 
+            2. 「{{meta_installer_name}}」がインストールされている。(Install-1-\*) 
+            3. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2) 
             4. 「Mozilla Maintenance Service」がインストールされている。(Update-4-1)\
                 または、インストールされていない。(Update-4-2) 
 
 ## 2.2 専用ユーザープロファイルの作成と使用
 
-- 専用ユーザープロファイルの作成先は%AppData%\\Mozilla\\Firefox\\Profilesとする。 
-- 専用ユーザープロファイルの名前はSpecialとする。 
+- 専用ユーザープロファイルの作成先は{{special_profile_path}}とする。 
+- 専用ユーザープロファイルの名前は{{special_profile_name}}とする。 
 
 ### 2.2.1 確認する項目
 
@@ -111,33 +111,33 @@
 
 ### 2.2.3 検証
 
-1. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「%AppData%\\Mozilla\\Firefox\\Profiles」と入力してEnterを押す。 
+1. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}」と入力してEnterを押す。 
 
     - 確認項目
          
-        1. 「Special」フォルダが存在する。(Application-6-2) 
+        1. 「{{special_profile_name}}」フォルダが存在する。(Application-6-2) 
 
         2. フォルダの内容は空である。(Application-6-2) 
 
-2. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkのプロパティを開く。 
+2. {{desktop_shortcut_path}}のプロパティを開く。 
 
     - 確認項目 
 
         1. 作業フォルダが「"（Firefoxの実行ファイルがあるフォルダパス）"」である。(Application-1-3) 
 
-        2. 「リンク先」末尾に「-profile %AppData%\\Mozilla\\Firefox\\Profiles\\Special」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3) 
+        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3) 
 
-3. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkのプロパティを開く。 
+3. {{start_menu_shortcut_path}}のプロパティを開く。 
 
     - 確認項目 
 
         1. 作業フォルダが「"（Firefoxの実行ファイルがあるフォルダパス）"」である。(Application-2-3) 
 
-        2. 「リンク先」末尾に「-profile %AppData%\\Mozilla\\Firefox\\Profiles\\Special」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3) 
+        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3) 
 
-4. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「%AppData%\\Mozilla\\Firefox\\Profiles\\Special」と入力してEnterを押す。 
+4. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}\\{{special_profile_name}}」と入力してEnterを押す。 
 
-5. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+5. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。 
 
     - 確認項目 
 
@@ -162,7 +162,7 @@
 1. コントロールパネル→プログラムと機能
     で以下がインストールされているならばアンインストールする。  
 
-    1. Fx Meta Installer 
+    1. {{meta_installer_name}} 
 
     2. 旧バージョンのメタインストーラ 
 
@@ -173,7 +173,7 @@
 2. 以下のファイル、フォルダを削除する。
      
 
-    1. C:\\Program Files (x86)\\Mozilla Firefox 
+    1. {{install_path}} 
 
     2. 旧バージョンのメタインストーラによってインストールされたFirefox 
 
@@ -193,7 +193,7 @@
 
 1. 旧バージョンのメタインストーラを実行する。 
 
-2. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+2. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。 
 
 3. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。 
 
@@ -234,19 +234,19 @@
 
             1. （旧バージョンのFirefoxのインストール先）\\firefox.exe 
 
-            2. （旧バージョンのFirefoxのインストール先）\\autoconfig.cfg 
+            2. （旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}} 
 
-            3. C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe(Install-1-2)(Install-2-2) 
+            3. {{install_path}}\\firefox.exe(Install-1-2)(Install-2-2) 
 
-            4. C:\\Program Files (x86)\\Mozilla Firefox\\autoconfig.cfg(Install-1-2)(Install-2-2) 
+            4. {{install_path}}\\{{mcd_local_file}}(Install-1-2)(Install-2-2) 
 
-8. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+8. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。 
 
 9. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。 
 
     - 確認項目 
 
-        1. Firefoxのバージョンが45.0 ESRであると表示される。(Install-1-2)(Install-2-2) 
+        1. Firefoxのバージョンが{{firefox_version}}であると表示される。(Install-1-2)(Install-2-2) 
 
 10. 旧バージョンで設定した設定が維持されている。(Application-1-3)(Application-2-3)(Application-6-1)または、設定が初期状態になっている。
     (Application-1-3)(Application-2-3)(Application-6-2) 
@@ -279,13 +279,13 @@
 
             1. （旧バージョンのFirefoxのインストール先）\\firefox.exe 
 
-            2. （旧バージョンのFirefoxのインストール先）\\autoconfig.cfg 
+            2. （旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}} 
 
-            3. C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe(Install-1-2)(Install-2-2) 
+            3. {{install_path}}\\firefox.exe(Install-1-2)(Install-2-2) 
 
-            4. C:\\Program Files (x86)\\Mozilla Firefox\\autoconfig.cfg(Install-1-2)(Install-2-2) 
+            4. {{install_path}}\\{{mcd_local_file}}(Install-1-2)(Install-2-2) 
 
-14. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkをダブルクリックし、Firefoxを起動する。 
+14. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。 
 
 15. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。 
 
@@ -342,7 +342,7 @@
 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
-2. Firefoxのユーザープロファイル（%AppData%\\Mozilla\\Firefox\\Profiles）を削除する。 
+2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。 
 
 3. 以下のアドオンを無効化する。 
 
@@ -352,7 +352,7 @@
 
 ### 3.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 
     - 確認項目
          
@@ -365,7 +365,7 @@
             または、尋ねられない。(Startup-3-2) 
 
         3. Firefox既定のホーム画面が表示される。(Startup-2-1)\
-            または、http://?????が表示される。
+            または、{{home_page}}が表示される。
             (Startup-2-2/3) 
 
 2. ホームページが既定のホームページ（about:home）でない場合、ロケーションバーに「about:home」と入力し、ホームページを開く。(Startup-6-\*)  
@@ -482,9 +482,9 @@
 
 ### 3.2.3 検証
 
-1. 用意したインストールパッケージをC:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiの位置に置く。 
+1. 用意したインストールパッケージを{{install_path}}\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiの位置に置く。 
 
-2. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
+2. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 
 3. Admin-2-2が選択されている場合、アドオンを有効化しFirefoxを再起動する。 
 
@@ -496,7 +496,7 @@
 
 ### 3.2.4 後始末
 
-1. C:\\Program Files (x86)\\Mozilla Firefox\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiを削除する。 
+1. {{install_path}}\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiを削除する。 
 
 ## 3.3 起動方法の制御
 
@@ -514,10 +514,10 @@
 
 ### 3.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 
-2. その状態のまま、C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+2. その状態のまま、{{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
       
 
@@ -529,9 +529,9 @@
 
 3. Firefoxを終了する。 
 
-4. C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxを起動する。   
+4. {{start_menu_shortcut_path}}をダブルクリックしてFirefoxを起動する。   
 
-5. その状態のまま、C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnkをダブルクリックしてFirefoxの多重起動を試みる。   
+5. その状態のまま、{{start_menu_shortcut_path}}をダブルクリックしてFirefoxの多重起動を試みる。   
 
     - 確認項目
           
@@ -541,7 +541,7 @@
 
 ## 3.4 ウィンドウ名の制御
 
-- メインウィンドウのタイトルはMozilla Firefoxとする。 
+- メインウィンドウのタイトルは{{window_title}}とする。 
 
 ### 3.4.1 確認する項目
 
@@ -557,7 +557,7 @@
 
 ### 3.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
       
 
@@ -567,7 +567,7 @@
     - 確認項目
           
 
-        1. 項目のタイトルが「Mozilla Firefox」で終わっている。
+        1. 項目のタイトルが「{{window_title}}」で終わっている。
             （※確認できないときはスキップ）(Application-4-\*) 
 
         2. タスクバー上に指定のアイコンが表示されている。(Application-5-\*) 
@@ -578,7 +578,7 @@
     - 確認項目
           
 
-        1. 項目のタイトルが「Mozilla Firefox」で終わっている。 (Application-4-\*) 
+        1. 項目のタイトルが「{{window_title}}」で終わっている。 (Application-4-\*) 
 
  
 
@@ -600,7 +600,7 @@
 
 ### 4.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。 
@@ -644,7 +644,7 @@
 
 ### 4.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -727,7 +727,7 @@
 
 ### 4.3.3 検証：
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -800,11 +800,11 @@
     - カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
 2. Disable
-    About Somethingを用いてabout:robotsの使用を禁止しておく。 
+    About Somethingを用いて{{disabled_about_pages}}の使用を禁止しておく。 
 
 ### 4.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -827,23 +827,23 @@
         5. 「about:config」
             のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2) 
 
-3. 以下の各方法でabout:robotsへのアクセスを試みる。(Security-8-2) 
+3. 以下の各方法で{{disabled_about_pages}}へのアクセスを試みる。(Security-8-2) 
 
     1. 確認項目
          
 
-        1. ロケーションバーに「about:robots」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
+        1. ロケーションバーに「{{disabled_about_pages}}」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
             (Security-8-2) 
 
-        2. ロケーションバーに「about:robots」と入力し、Enterして、何も起こらない（ページが読み込まれない）。
+        2. ロケーションバーに「{{disabled_about_pages}}」と入力し、Enterして、何も起こらない（ページが読み込まれない）。
              (Security-8-2) 
 
         3. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。 
 
-        4. 「about:robots」
+        4. 「{{disabled_about_pages}}」
             のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-8-2) 
 
-        5. 「about:robots」
+        5. 「{{disabled_about_pages}}」
             のリンクを左クリックし、空白のページが読み込まれる。 (Security-8-2) 
 
 ## 4.6 エラーコンソールの利用制限
@@ -866,7 +866,7 @@
 
 ### 4.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -904,7 +904,7 @@
 
 ### 4.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -937,7 +937,7 @@
 
 ### 4.8.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -969,7 +969,7 @@
 
 ### 4.9.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1003,7 +1003,7 @@
 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
-2. Firefoxのユーザープロファイル（%AppData%\\Mozilla\\Firefox\\Profiles）を削除する。 
+2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。 
 
 3. 以下のアドオンを無効化する。 
 
@@ -1013,7 +1013,7 @@
 
 ### 4.10.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1069,7 +1069,7 @@
 
 ### 4.11.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1123,7 +1123,7 @@
 
 ### 4.12.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1207,7 +1207,7 @@
 
 ### 5.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。\
     Privacy-35-\*の検証を行う場合は、ショートカットから起動する代わりに以下の手順で起動する。 
 
@@ -1219,7 +1219,7 @@
 
             2. set NSPR\_LOG\_FILE=(ユーザのホームのフルパス)\\http.log 
 
-            3. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+            3. {{desktop_shortcut_path}}
                 のリンク先と同じコマンド列を実行する。 
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -1283,7 +1283,7 @@
 
     - 確認項目 
 
-        1. 「places.history.expiration.max\_pages」の値が「??????」である。(Privacy-8-2) 
+        1. 「places.history.expiration.max\_pages」の値が「{{history_expiration_max_pages}}」である。(Privacy-8-2) 
 
         2. 「dom.storage.enabled」の値が「true」である。(Privacy-12-1)\
             または、「false」である。(Privacy-12-2) 
@@ -1464,7 +1464,7 @@
 
 ### 5.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1479,7 +1479,7 @@
         1. 拡張機能の一覧に「Flexible
             Expire History by Days」が表示されており、有効になっている。(Privacy-9-1) 
 
-4. Flexible Expire History by Daysの設定画面を開く。 
+4. {{expire_history_by_days_version}}の設定画面を開く。 
 
     1. 確認項目 
 
@@ -1497,7 +1497,7 @@
 
 8. Firefoxを終了する。 
 
-9. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+9. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1546,7 +1546,7 @@
 
 ### 5.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1574,7 +1574,7 @@
 
 ### 5.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1637,7 +1637,7 @@
 
 ### 5.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1675,7 +1675,7 @@
 
 ### 5.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1717,7 +1717,7 @@
 
 ### 5.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. Firefoxのロケーションバーに「about:config」と入力し、ページを開く。 
@@ -1728,7 +1728,7 @@
 
 5. Firefoxを終了する。 
 
-6. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+6. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 7. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
@@ -1769,7 +1769,7 @@
 
 ## 5.8 ディスクキャッシュのサイズ制限
 
-- 制限する最大サイズは???MBとする。 
+- 制限する最大サイズは{{max_cache_size}}MBとする。 
 
 ### 5.8.1 確認する項目
 
@@ -1783,7 +1783,7 @@
 
 ### 5.8.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1798,7 +1798,7 @@
 
         1. 「キャッシュサイズを制限する」にチェックが入っていて、選択不可になっている。(Privacy-30-2) 
 
-        2. 「ページキャッシュとして???MBまで使用する」と表示されている。(Privacy-30-2) 
+        2. 「ページキャッシュとして{{max_cache_size}}MBまで使用する」と表示されている。(Privacy-30-2) 
 
 # 6 Webブラウズ機能に関するカスタマイズ
 
@@ -1818,7 +1818,7 @@
 
 ### 6.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1858,7 +1858,7 @@
 
 ### 6.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1885,13 +1885,13 @@
 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
-2. Firefoxのユーザープロファイル（%AppData%\\Mozilla\\Firefox\\Profiles）を削除する。 
+2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。 
 
-3. 既定のダウンロード先「C:\\?????」を用意しておく。用意できない場合は、Download-2−1の参照先を「C:\\」などの実在するパスに変更し、以下の説明も読み替える。 
+3. 既定のダウンロード先「{{download_dir}}」を用意しておく。用意できない場合は、Download-2−1の参照先を「C:\\」などの実在するパスに変更し、以下の説明も読み替える。 
 
 ### 6.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -1908,7 +1908,7 @@
 
     - 確認項目 
 
-        1. ダウンロード先としてC:\\?????が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2)\
+        1. ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2)\
             または、ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) 
 
 5. 「subfolder」という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。 
@@ -1924,8 +1924,8 @@
 
     - 確認項目 
 
-        1. ダウンロード先としてC:\\?????内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1)\
-            または、C:\\?????が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2) 
+        1. ダウンロード先として{{download_dir}}内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1)\
+            または、{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2) 
 
 8. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
      
@@ -1938,8 +1938,8 @@
 
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*) 
 
-        2. ダウンロード先としてC:\\?????内の「subfolder」が表示されている。(Download-3-1)\
-            または、C:\\?????が表示されている。(Download-3-2) 
+        2. ダウンロード先として{{download_dir}}内の「subfolder」が表示されている。(Download-3-1)\
+            または、{{download_dir}}が表示されている。(Download-3-2) 
 
 ## 6.4 タブの操作に関する機能の制御
 
@@ -1969,7 +1969,7 @@
 
 ### 6.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2069,7 +2069,7 @@
 
 ### 6.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2105,7 +2105,7 @@
 
 ### 6.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2140,7 +2140,7 @@
     Proxyを用意する。既存のProxyが無い場合は、以下に示す設定例に従い用意する。 
 
     1. 検証器が到達可能なネットワーク上に、Ubuntu
-        14.04LTSがセットアップされたホストを用意する。仮に、IPアドレスは10.0.2.2であるとする。 
+        14.04LTSがセットアップされたホストを用意する。仮に、IPアドレスは{{proxy_host}}であるとする。 
 
     2. 以下のコマンド列を順に実行し、Apacheをインストールする。 
 
@@ -2153,10 +2153,10 @@
         3. sudo
             a2enmod proxy\_connect 
 
-    3. 以下のコマンド列を実行し、認証用のユーザー名（ここでは仮に「clearcode」とする）とパスワードを設定する。 
+    3. 以下のコマンド列を実行し、認証用のユーザー名（ここでは仮に「{{proxy_auth_user}}」とする）とパスワードを設定する。 
 
         1. sudo
-            htpasswd -c /etc/apache2/.htpasswd clearcode 
+            htpasswd -c /etc/apache2/.htpasswd {{proxy_auth_user}} 
 
     4. /etc/apache2/conf-enabled/forward\_proxy.confの位置に以下の内容でファイルを作成する。 
 
@@ -2167,7 +2167,7 @@
               AuthType Basic
               AuthName "Password Required"
               AuthUserFile /etc/apache2/.htpasswd
-              Require user clearcode
+              Require user {{proxy_auth_user}}
             </Proxy>
 
     5. 以下のコマンド列を実行し、Apacheを再起動する。 
@@ -2179,13 +2179,13 @@
     Proxyを使用するよう設定する。上記の例に従い用意したProxyの場合、設定は以下のようになる。 
 
         lockPref("network.proxy.type", 1);
-        lockPref("network.proxy.http", "10.0.2.2");
+        lockPref("network.proxy.http", "{{proxy_host}}");
         lockPref("network.proxy.http\_port", 80);
         lockPref("network.proxy.share\_proxy\_settings", true);
 
 ### 6.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ホームページまたは外部の埋め込みリソースを2つ以上埋め込んだWebページ（例： http://www.clear-code.com/blog/ ）を訪問し、ファイルがキャッシュされた状態にする。 
@@ -2226,7 +2226,7 @@
 
 ### 6.8.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ロケーションバーに「 https://labs.othersight.jp/webpushtest/ 」と入力し、ページを開く。 
@@ -2273,7 +2273,7 @@
 
 ### 6.9.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -2313,7 +2313,7 @@
 
 ### 7.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -2333,7 +2333,7 @@
 
         2. 各プロキシが指定通りに設定されている。(Network-2-2) 
 
-        3. 「自動プロキシ設定スクリプトURL」の欄に「http://??????/proxy.pac」と入力されている。(Network-2-3) 
+        3. 「自動プロキシ設定スクリプトURL」の欄に「{{home_page}}?/proxy.pac」と入力されている。(Network-2-3) 
 
 ### 7.1.4 後始末
 
@@ -2367,7 +2367,7 @@
 
 ### 7.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
@@ -2376,7 +2376,7 @@
 
         1. 「general.useragent.extra.microsoftdotnet」が項目として存在しない、もしくは、値が未定義である。(Network-1-1) 
 
-        2. 「network.automatic-ntlm-auth.trusted-uris」の値が「????,????,????」である。(Network-4-1) 
+        2. 「network.automatic-ntlm-auth.trusted-uris」の値が「{{ntlm_single_signon_hosts}}」である。(Network-4-1) 
 
         3. 「network.http.max-connections」の値が6である。(Network-5-2) 
 
@@ -2389,7 +2389,7 @@
 
         7. 「security.tls.insecure\_fallback\_hosts」の値が未設定または空文字である。(Network-7-1) 
 
-            または、「????,????,????」である。(Network-7-2) 
+            または、「{{ntlm_single_signon_hosts}}」である。(Network-7-2) 
 
 ### 7.2.4 後始末
 
@@ -2421,7 +2421,7 @@
 
 ### 8.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -2480,21 +2480,21 @@
 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 
-2. 「 https://java.com/ja/download/ 」からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*) 
+2. 「 {{java_download_url}} 」からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*) 
 
-3. 「 https://get.adobe.com/jp/flashplayer/ 」からAdobe Flash
+3. 「 {{flash_download_url}} 」からAdobe Flash
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-2-\*) 
 
-4. 「 https://get.adobe.com/jp/reader/ 」からAdobe Acrobat Reader
+4. 「 {{acrobat__download_url}} 」からAdobe Acrobat Reader
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*) 
 
-5. 「 https://get.adobe.com/jp/shockwave/ 」からAdobe Shockwave
+5. 「 {{shockwave__download_url}} 」からAdobe Shockwave
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*) 
 
-6. 「[SilverlightDownloadUrl](http://www.microsoft.com/silverlight/resources/install.aspx)」からSilverlight
+6. 「[SilverlightDownloadUrl]({{silverlight_download_url}})」からSilverlight
     プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*) 
 
-7. 「 http://www.interoperabilitybridges.com/Windows-Media-Player-Firefox-Plugin-Download 」からWindows
+7. 「 {{wmp__download_url}} 」からWindows
     Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*) 
 
 8. Cisco
@@ -2507,7 +2507,7 @@
 
 ### 9.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. アドオンマネージャを開き、「プラグイン」を選択する。 
@@ -2584,7 +2584,7 @@
 
 ### 9.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 外部アプリケーションで開く必要があるファイルへのリンクをクリックする。 
@@ -2627,7 +2627,7 @@
 
 ### 10.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開く。 
@@ -2764,7 +2764,7 @@
 
 ### 10.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
     - 確認項目 
@@ -2930,7 +2930,7 @@
 
 ### 10.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「ヘルプ」メニューを開く。 
@@ -3002,7 +3002,7 @@
 
 ### 10.4.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+1. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
@@ -3010,7 +3010,7 @@
 
 3. Firefoxを終了する。 
 
-4. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk
+4. {{desktop_shortcut_path}}
     がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。  
 
 5. 「 https://addons.mozilla.org/ 」など、テキスト入力欄があるWebページを開く。 
@@ -3055,7 +3055,7 @@
 
 ### 10.5.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「履歴」メニューを開く。 
@@ -3129,7 +3129,7 @@
 
 ### 10.6.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. 「 https://addons.mozilla.org 」を開き、何もない所で右クリックする。 
@@ -3202,7 +3202,7 @@
 
 ### 10.7.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. テストケースの「popupblock.html」を開く。 
@@ -3251,7 +3251,7 @@
 
 ### 11.1.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
     - 確認項目
@@ -3300,15 +3300,15 @@
 
 3. 以下のカスタマイズを無効化する。 
 
-    1. Security-4-3（ポップアップブロックを有効化する）：autoconfig.cfg/autoconfig.jscから項目を削除 
+    1. Security-4-3（ポップアップブロックを有効化する）：{{mcd_local_file}}/autoconfig.jscから項目を削除 
 
-    2. Privacy-6-3（オフラインキャッシュの設定UIを有効化する）：globalChrome.cssとautoconfig.cfg/autoconfig.jscから項目を削除 
+    2. Privacy-6-3（オフラインキャッシュの設定UIを有効化する）：globalChrome.cssと{{mcd_local_file}}/autoconfig.jscから項目を削除 
 
     3. Hide-1（「セキュリティ」ペインを有効化する）：globalChrome.cssから項目を削除 
 
 ### 11.2.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -3375,7 +3375,7 @@
 
 ### 11.3.3 検証
 
-1. C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnkがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
      
 
     - 確認項目
