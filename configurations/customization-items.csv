@@ -2481,6 +2481,18 @@ lockPref(""media.gmp-eme-adobe.enabled"",false);
 lockPref(""media.gmp-eme-adobe.autoupdate"",false);
 lockPref(""media.gmp-provider.enabled"",false);
 lockPref(""media.gmp-manager.url"",""about:blank"");",,
+Plugin-9,1,セキュリティ,IcedTea Webプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する",,?,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.status"", false);
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.pattern"", ""^Java "");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.status"", false);"
+Plugin-9,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する",,?,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
+Plugin-9,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
+2. MCDで設定を反映する",,?,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
+lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
 External-1,1,外部アプリケーションとの連携,ファイルをダウンロードして直接外部アプリケーションで開く時の挙動,-,ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,
 External-1,2,,,,ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", false);",,"lockPref(""browser.helperApps.deleteTempFileOnExit"", false);",,
 Stability-1,1,動作の安定性,ハードウェアアクセラレーションを有効化するかどうか,-,有効化する（安定性より描画性能を優先する）,MCDで設定を反映する,"lockPref(""gfx.direct2d.disabled"", false);
