@@ -2272,6 +2272,8 @@ lockPref(""network.http.proxy.pipelining"", true)",新規,,,
 Network-9,2,,,,禁止する（既定）,-,-,新規,,,
 Network-10,1,ネットワーク接続,onionドメインの名前解決,-,許可する（規定）,-,-,新規,,,
 Network-10,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.dns.blockDotOnion"", true);",新規,,,
+Network-11,1,UA文字列の制御,UA文字列の変更,-,変更しない（既定）,-,-,新規,,,
+Network-11,2,,,,任意の値を設定する,MCDで設定を反映する,"lockPref(""general.useragent.override"", ""（任意の内容）"");",新規,,,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);",,"lockPref(""app.update.enabled"", true);
