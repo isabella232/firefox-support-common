@@ -2264,9 +2264,12 @@ Network-6,1,ネットワーク接続,SPDYプロトコルの使用の可否,-,許
 Network-6,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.http.spdy.enabled"", false);",新規,,,
 Network-7,1,ネットワーク接続,TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の使用の可否,-,禁止する（規定）,-,-,新規,,,
 Network-7,2,,,,特定のホストでのみ許可する,MCDで設定を反映する,"lockPref(""security.tls.insecure_fallback_hosts"", ""（ホスト名のカンマ区切りのリスト）"");",新規,,,
-Network-8,1,ネットワーク接続,IPv6の使用,-,許可する（規定）,-,-,,,,
+Network-8,1,ネットワーク接続,IPv6の使用,-,許可する（規定）,-,-,新規,,,
 Network-8,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.dns.disableIPv6"", true);
-lockPref(""network.dns.disablePrefetch"", true);",,,,
+lockPref(""network.dns.disablePrefetch"", true);",新規,,,
+Network-9,1,ネットワーク接続,HTTP Pipeliningの使用,-,許可する,MCDで設定を反映する,"lockPref(""network.http.pipelining"", true); 
+lockPref(""network.http.proxy.pipelining"", true)",新規,,,
+Network-9,2,,,,禁止する（既定）,-,-,新規,,,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);",,"lockPref(""app.update.enabled"", true);
