@@ -1534,16 +1534,10 @@ globalChrome.css:
   }
 }",,
 Privacy-28,1,プライバシー,その他、プライバシー情報に関わる一切の機能の利用の可否,-,許可する（既定）,MCDで設定を反映する,-,,-,,
-Privacy-28,2,,,,禁止する,MCDで設定を反映する,"// トラッキングプロテクション機能の通信を無効化する
-lockPref(""browser.trackingprotection.gethashURL"", """");
-lockPref(""browser.trackingprotection.updateURL"", """");
-lockPref(""privacy.trackingprotection.introURL"", """");
-// about:homeの「Marketplace」ボタンからの遷移先URL
+Privacy-28,2,,,,禁止する,MCDで設定を反映する,"// about:homeの「Marketplace」ボタンからの遷移先URL
 lockPref(""browser.apps.URL"", """");
 // Firefox Developer Editionへの誘導用URL
 lockPref(""devtools.devedition.promo.url"", """");
-// ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移先URL。
-lockPref(""lightweightThemes.getMoreURL"", """");
 // ツールバーカスタマイズにおける、テーマの「おすすめ」の取得用URL。
 lockPref(""lightweightThemes.recommendedThemes"", """");
 // WebIDEの追加コンポーネント「Tools Adapters Add-on」の取得用URL。
@@ -1551,18 +1545,24 @@ lockPref(""devtools.webide.adaptersAddonURL"", """");
 // プッシュ通知受信用のエンドポイントURL。
 lockPref(""services.push.serverURL"", """");
 
+// ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否 (Security-18)
+lockPref(""lightweightThemes.getMoreURL"", """");
+
 // 統計情報の送信先（Privacy-18）
 lockPref(""toolkit.telemetry.infoURL"", """");
 lockPref(""toolkit.telemetry.server"", """");
+
 // ヘルスレポートの送信先（Privacy-18）
 lockPref(""datareporting.healthreport.about.reportUrl"", """");
 lockPref(""datareporting.healthreport.about.reportUrlUnified"", """");
 lockPref(""datareporting.healthreport.documentServerURI"", """");
 lockPref(""datareporting.healthreport.infoURL"", """");
+
 // エラーレポートの送信先（Privacy-19）
 lockPref(""security.ssl.errorReporting.automatic"", false);
 lockPref(""security.ssl.errorReporting.enabled"", false);
 lockPref(""security.ssl.errorReporting.url"", """");
+
 // Firefoxアカウント（Privacy-24）
 lockPref(""identity.fxaccounts.auth.uri"", """");
 lockPref(""identity.fxaccounts.remote.force_auth.uri"","""");
@@ -1572,6 +1572,7 @@ lockPref(""identity.fxaccounts.remote.signup.uri"","""");
 lockPref(""identity.fxaccounts.settings.uri"","""");
 lockPref(""identity.fxaccounts.remote.oauth.uri"","""");
 lockPref(""identity.fxaccounts.remote.profile.uri"","""");
+
 // Firefox Hello（Privacy-25）
 lockPref(""loop.server"", """");
 lockPref(""loop.facebook.shareUrl"", """");
@@ -1587,7 +1588,10 @@ lockPref(""loop.oauth.google.scope"", """");
 lockPref(""loop.support_url"", """");
 lockPref(""loop.CSP"", """");
 lockPref(""loop.linkClicker.url"", """")
+
 // トラッキング防止（Privacy-33）
+lockPref(""browser.trackingprotection.gethashURL"", """");
+lockPref(""browser.trackingprotection.updateURL"", """");
 lockPref(""privacy.trackingprotection.introURL"", """");
 lockPref(""browser.safebrowsing.provider.google.gethashURL"", """");
 lockPref(""browser.safebrowsing.provider.google.lists"", """");
@@ -1631,6 +1635,8 @@ Privacy-33,3,,,,ブロックリストを取得せず、トラッキングを遮�
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""privacy.trackingprotection.enabled"", false);
 lockPref(""privacy.trackingprotection.pbmode.enabled"", false);
+lockPref(""browser.trackingprotection.gethashURL"", """");
+lockPref(""browser.trackingprotection.updateURL"", """");
 lockPref(""privacy.trackingprotection.introURL"", """");
 lockPref(""browser.safebrowsing.provider.google.gethashURL"", """");
 lockPref(""browser.safebrowsing.provider.google.lists"", """");
@@ -2587,19 +2593,19 @@ lockPref(""extensions.ieview.ieargs"", """"); ",新規,,,
 Addon-IEView-3,1,アドオン：IE View,広告を使用,-,使用する（既定）,-,-,新規,,,
 Addon-IEView-3,2,,,,使用しない,"1. IE Viewをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.ieview.useWizeShoppy"", false);",新規,,,
-Addon-FireIE-1,1,アドオン：FireIE,動作モード,-,IE7標準モード（既定）,"1. FireIEをインストールする
+Addon-FireIE-1,1,アドオン：FireIE,動作モード,-,IE7互換モード（既定）,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",新規,,,
-Addon-FireIE-1,2,,,,IE8標準モード,"1. FireIEをインストールする
+Addon-FireIE-1,2,,,,IE8互換モード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie8mode"");",新規,,,
-Addon-FireIE-1,3,,,,IE8強制標準モード,"1. FireIEをインストールする
+Addon-FireIE-1,3,,,,IE8標準準拠モード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie8forced"");",新規,,,
-Addon-FireIE-1,4,,,,IE9標準モード,"1. FireIEをインストールする
+Addon-FireIE-1,4,,,,IE9互換モード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie9mode"");",新規,,,
-Addon-FireIE-1,5,,,,IE9強制標準モード,"1. FireIEをインストールする
+Addon-FireIE-1,5,,,,IE9標準準拠モード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie9forced"");",新規,,,
-Addon-FireIE-1,6,,,,IE10標準モード,"1. FireIEをインストールする
+Addon-FireIE-1,6,,,,IE10互換モード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie10mode"");",新規,,,
-Addon-FireIE-1,7,,,,IE10強制標準モード,"1. FireIEをインストールする
+Addon-FireIE-1,7,,,,IE10標準準拠モード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie10forced"");",新規,,,
 Addon-FireIE-1,8,,,,IE11 Edgeモード,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie11edge"");",新規,,,
