@@ -401,6 +401,7 @@ Security-11,1,セキュリティ,SNS連携機能の利用の可否,-,許可す�
 Security-11,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""social.enabled"", false);
 lockPref(""social.activeProviders"", """");
 lockPref(""social.directories"", """");
 lockPref(""social.remote-install.enabled"", false);
@@ -588,7 +589,10 @@ lockPref(""app.feedback.baseURL"", """");
 // ソーシャルAPI（Security-11）
 lockPref(""social.shareDirectory"", """");
 lockPref(""social.directories"", """");
-lockPref(""social.whitelist"", """");",○,"// プラグインのブロック時などの詳細説明のURL
+lockPref(""social.whitelist"", """");
+
+// SSL の有無が混在しているページでの警告文
+lockPref(""browser.mixedcontent.warning.infoURL"", """");",○,"// プラグインのブロック時などの詳細説明のURL
 lockPref(""app.support.baseURL"", """");
 // Webサイトの互換性情報のURL
 lockPref(""breakpad.reportURL"", """");
@@ -693,6 +697,17 @@ Security-21,2,,,,ブロックしない,MCDで設定を反映する,"lockPref(""e
 lockPref(""extensions.blocklist.detailsURL"", """");
 lockPref(""extensions.blocklist.itemURL"", """");
 lockPref(""extensions.blocklist.url"", """");",新規,,,
+Security-22,1,セキュリティ,Webアプリケーションのインストールの可否,-,marketplace.firefox.comからのインストールのみ許可（既定）,-,-,新規,,,
+Security-22,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.mozApps.signed_apps_installable_from"", """"); ",新規,,,
+Security-23,1,セキュリティ,プラグインのサンドボックス内実行,-,Flashプラグインのみサンドボックス内で実行（既定）,-,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
+defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",新規,,,
+Security-23,2,,,,すべてサンドボックス内で実行,MCDで設定を反映する,"// 1: 管理者権限のないユーザのレベル
+// 2: より厳格なレベル（機能的に問題が起こりうる）
+// 3: 最も厳格なレベル
+lockPref(""dom.ipc.plugins.sandbox-level.default"", 1);
+lockPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",新規,,,
+Security-24,1,セキュリティ,Flashプラグインの保護モード,-,使用する（既定）,-,-,新規,,,
+Security-24,2,,,,使用しない,MCDで設定を反映する,"lockPref(""dom.ipc.plugins.flash.disable-protected-mode"", true); ",新規,,,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,-,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
 2. MCDで設定を反映する
@@ -733,6 +748,14 @@ globalChrome.css:
 }"
 Privacy-1,3,,,,一切保存しない,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
 2. MCDで設定を反映する","lockPref(""browser.privatebrowsing.autostart"", true);",,"lockPref(""browser.privatebrowsing.autostart"", true);",変更無し,"lockPref(""browser.privatebrowsing.autostart"", true);"
+Privacy-1,4,,,,終了時に消去する,MCDで設定を反映する,"lockPref(""privacy.sanitize.sanitizeOnShutdown"", true);
+lockPref(""privacy.clearOnShutdown.cache"", true);
+lockPref(""privacy.clearOnShutdown.cookies"", true);
+lockPref(""privacy.clearOnShutdown.downloads"", true);
+lockPref(""privacy.clearOnShutdown.formdata"", true);
+lockPref(""privacy.clearOnShutdown.history"", true);
+lockPref(""privacy.clearOnShutdown.sessions"", true);
+lockPref(""privacy.clearOnShutdown.siteSettings"", true);",新規,,,
 Privacy-2,1,プライバシー,"フォームの入力履歴の保存の可否
 （Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）",-,保存する（既定）,MCDで設定を反映する,"lockPref(""browser.formfill.enable"", true);",,"lockPref(""browser.formfill.enable"", true);",変更無し,"lockPref(""browser.formfill.enable"", true);"
 Privacy-2,2,,,,保存しない,"1. MCDで設定を反映する
@@ -846,6 +869,7 @@ Privacy-5,2,,,,保存せず、マスターパスワードも使用しない,"1. 
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""signon.rememberSignons"", false);
+lockPref(""signon.autofillForms"", false);
 
 globalChrome.css:
 /* パスワード保存の設定UIを隠す */
@@ -1413,6 +1437,7 @@ Privacy-25,2,,,,禁止する,"1. MCDで設定を反映する
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""loop.enabled"",false);
 lockPref(""loop.server"", """");
+lockPref(""loop.facebook.fallbackUrl"", """");
 lockPref(""loop.facebook.shareUrl"", """");
 lockPref(""loop.feedback.baseUrl"", """");
 lockPref(""loop.feedback.formURL"", """");
@@ -1478,6 +1503,10 @@ lockPref(""browser.readinglist.sidebarEverOpened"", false);
 lockPref(""readinglist.scheduler.enabled"", false);
 lockPref(""readinglist.server"", """");
 lockPref(""browser.reader.detectedFirstArticle"", true);
+lockPref(""browser.pocket.enabled"", false);
+lockPref(""browser.pocket.api"", """");
+lockPref(""browser.pocket.site"", """");
+lockPref(""browser.pocket.useLocaleList"", false);
 
 globalChrome.css:
 @-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
@@ -1636,6 +1665,10 @@ Privacy-35,4,,,,広範ブロックで固定,MCDで設定を反映する,"lockPre
 lockPref(“pref.privacy.disable_button.change_blocklist”, true);",新規,,,
 Privacy-36,1,プライバシー,TLS/SSLで保護された通信のコンテンツのディスク上へのキャッシュ,-,許可する（既定）,-,-,新規,,,
 Privacy-36,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.cache.disk_cache_ssl"", false)",新規,,,
+Privacy-37,1,プライバシー,ネットワーク経由での先読み機能の全般的な制御,-,先読みを許可する（既定）,-,-,新規,,,
+Privacy-37,2,,,,先読みを禁止する,MCDで設定を反映する,"lockPref(""network.predictor.enabled"", false);",新規,,,
+Privacy-38,1,プライバシー,Webビーコンの送信,-,許可する（既定）,-,-,新規,,,
+Privacy-38,2,,,,禁止する,MCDで設定を反映する,"lockPref(""beacon.enabled"", false); ",新規,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,"[XRE]
@@ -2138,6 +2171,10 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }",,
+Tab-8,1,タブ,新しいタブを初めて開いた時の案内の表示,-,表示する（既定）,-,-,新規,,,
+Tab-8,2,,,,表示しない,MCDで設定を反映する,"lockPref(""browser.newtabpage.introShown"", false)",新規,,,
+Tab-9,1,タブ,新しいタブを開く操作の高速化,-,事前読み込みで高速化する（既定）,-,-,新規,,,
+Tab-9,2,,,,何もしない,MCDで設定を反映する,"lockPref(""browser.newtab.preload"", false);",新規,,,
 Network-1,1,UA文字列の制御,Microsoft .NET Frameworkへの対応,-,対応する,MCDで設定を反映する,"clearPref(""general.useragent.extra.microsoftdotnet"");",,"clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
 Network-1,2,,,,対応しない（既定）,-,-,,-,,
 Network-2,1,ネットワーク接続,プロキシの利用,-,利用しない,MCDで設定を反映する,"lockPref(""network.proxy.type"", 0);",,"lockPref(""network.proxy.type"", 0);",変更無し,"lockPref(""network.proxy.type"", 0);"
@@ -2243,7 +2280,9 @@ Network-2,4,,,,WPADでネットワークのプロキシ設定を自動検出す�
 Network-2,5,,,,システムの設定を利用する（既定）,MCDで設定を反映する,"lockPref(""network.proxy.type"", 5);",,"lockPref(""network.proxy.type"", 5);",変更無し,"lockPref(""network.proxy.type"", 5);"
 Network-3,1,ネットワーク接続,SSL3.0の利用の可否,-,許可する,MCDで設定を反映する,Firefox 39時点で廃止,○,"defaultPref(""security.tls.version.min"", 0);",,
 Network-3,2,,,,禁止する（既定）,MCDで設定を反映する,Firefox 39時点で廃止,○,"defaultPref(""security.tls.version.min"", 1);",,
-Network-4,1,認証,NTLM認証によるシングルサインオンの許可,-,許可する,MCDで設定を反映する,"lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,"lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,
+Network-4,1,認証,NTLM認証によるシングルサインオンの許可,-,許可する,MCDで設定を反映する,"lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名のカンマ区切りのリスト"");
+lockPref(""network.negotiate-auth.delegation-uris"", ""ドメイン名のカンマ区切りのリスト"");
+lockPref(""network.negotiate-auth.trusted-uris"", ""ドメイン名のカンマ区切りのリスト"");",○,"lockPref(""network.automatic-ntlm-auth.trusted-uris"", ""ドメイン名"");",,
 Network-5,1,ネットワーク接続,HTTPの同時接続数,-,パフォーマンスを優先（既定）,MCDで設定を反映する,"// 最大同時接続数
 defaultPref(“network.http.max-connections”, 256);
 // Proxy未使用時・使用時それぞれの、Keep-Aliveでの最大同時維持接続数
@@ -2319,7 +2358,8 @@ MCD:
 lockPref(""app.update.service.enabled"", false);",○,MaintenanceService=false,,
 Update-5,1,自動更新,軽量テーマの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""lightweightThemes.update.enabled"", true);",,"lockPref(""lightweightThemes.update.enabled"", true);",,
 Update-5,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.update.enabled"", false);",,"lockPref(""lightweightThemes.update.enabled"", false);",,
-Ui-1,1,プログラム,Firefox組み込みのPDFビューアの使用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);",,"lockPref(""pdfjs.disabled"", false);",変更無し,"lockPref(""pdfjs.disabled"", false);"
+Ui-1,1,プログラム,Firefox組み込みのPDFビューアの使用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);
+lockPref(""plugin.disable_full_page_plugin_for_types"", ""（application/prdを含まない値）"");",○,"lockPref(""pdfjs.disabled"", false);",変更無し,"lockPref(""pdfjs.disabled"", false);"
 Ui-1,2,,,,禁止する,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", true);",,"lockPref(""pdfjs.disabled"", true);",変更無し,"lockPref(""pdfjs.disabled"", true);"
 Ui-2,1,キーボード操作,F7キーによるキャレットブラウズモードの開始の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", true);",,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", true);",,
 Ui-2,2,,,,禁止する,MCDで設定を反映する,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", false);",,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", false);",,
@@ -2338,6 +2378,10 @@ lockPref(""extensions.no-duplicated-authentication@clear-code.com.password"", fa
 lockPref(""extensions.no-duplicated-authentication@clear-code.com.withoutRealm"", false);
 lockPref(""extensions.no-duplicated-authentication@clear-code.com.withRealm"", false);",新規,,,
 Ui-4,2,,,,抑止しない,-,-,新規,,,
+Ui-5,1,UI,リーダービュー機能の使用,-,使用する（既定）,-,-,新規,,,
+Ui-5,2,,,,使用しない,MCDで設定を反映する,"lockPref(""reader.parse-on-load.enabled"", false)",新規,,,
+Ui-6,1,UI,スペルチェック機能の使用,-,使用する（既定）,-,-,,,,
+Ui-6,2,,,,使用しない,MCDで設定を反映する,"lockPref(""layout.spellcheckDefault"", 0);",,,,
 Script-1,1,Webアプリの動作,スクリプトによる頻繁なalertの可否,-,許可する,MCDで設定を反映する,"lockPref(""dom.successive_dialog_time_limit"", 0);",,"lockPref(""dom.successive_dialog_time_limit"", 0);",,
 Script-1,2,,,,禁止する（既定）,MCDで設定を反映する,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
 lockPref(""dom.successive_dialog_time_limit"", 3);",,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
@@ -2351,6 +2395,7 @@ Script-2,3,,,,禁止する（ESR版・既定 ※MCDの設定のみ既定。globa
 3. globalChrome.cssで設定を反映する","MCD:
 lockPref(""dom.push.enabled"", false);
 lockPref(""dom.serviceWorkers.enabled"", false);
+lockPref(""dom.push.serverURL"", """");
 
 globalChrome.css:
 @-moz-document
@@ -2363,6 +2408,11 @@ globalChrome.css:
 }",○,"lockPref(""dom.push.enabled"", false);",,
 Script-3,1,Webアプリの動作,ゲームパッドAPIの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",true);",,"lockPref(""dom.gamepad.enabled"",true);","lockPref(""dom.gamepad.enabled"",true);",-
 Script-3,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.gamepad.enabled"",false);",,"lockPref(""dom.gamepad.enabled"",false);","lockPref(""dom.gamepad.enabled"",false);",-
+Script-4,1,Webアプリの動作,DOMイベントによるクリップボード操作のオーバーライド,-,許可する（既定）,-,"defaultPref(""dom.event.clipboardevents.enabled"", true);",新規,,,
+Script-4,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.event.clipboardevents.enabled"", false);",新規,,,
+Script-5,1,Webアプリの動作,DOMイベントによるコンテキストメニュー操作のオーバーライド,-,許可する（既定）,-,-,新規,,,
+Script-5,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.event.contextmenu.enabled"", false);
+lockPref(""nglayout.events.dispatchLeftClickOnly"", true);",新規,,,
 Plugin-1,1,セキュリティ,Javaプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
@@ -2510,6 +2560,9 @@ Plugin-9,3,,,,クリックされたら有効にする（既定）,"1. アドオ�
 2. MCDで設定を反映する","lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
+Plugin-10,1,プラグイン,すべてのプラグインの初期状態,-,常に無効化する,MCDで設定を反映する,"lockPref(""plugin.default.state"", 0);",新規,,,
+Plugin-10,2,,,,常に有効化する,MCDで設定を反映する,"lockPref(""plugin.default.state"", 2);",新規,,,
+Plugin-10,3,,,,クリックされたら有効にする（既定）,-,-,新規,,,
 External-1,1,外部アプリケーションとの連携,ファイルをダウンロードして直接外部アプリケーションで開く時の挙動,-,ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,"lockPref(""browser.helperApps.deleteTempFileOnExit"", true);",,
 External-1,2,,,,ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない,MCDで設定を反映する,"lockPref(""browser.helperApps.deleteTempFileOnExit"", false);",,"lockPref(""browser.helperApps.deleteTempFileOnExit"", false);",,
 Stability-1,1,動作の安定性,ハードウェアアクセラレーションを有効化するかどうか,-,有効化する（安定性より描画性能を優先する）,MCDで設定を反映する,"lockPref(""gfx.direct2d.disabled"", false);
@@ -2522,3 +2575,53 @@ lockPref(""font.name-list.sans-serif.ja"", ""（フォントの英語名のカ�
 lockPref(""font.name-list.monospace.ja"", ""（フォントの英語名のカンマ区切りのリスト）"");",新規,,,
 Performance-1,1,パフォーマンス,メモリキャッシュのサイズ,-,自動的に決める（既定）,-,-,新規,,,
 Performance-1,2,,,,明示する,MCDで設定を反映する,"lockPref(""browser.cache.memory.capacity"", （整数値、単位：キロバイト）); ",新規,,,
+Performance-2,1,パフォーマンス,コンテンツの再描画間隔,-,120ミリ秒間隔で再描画（既定）,-,"// defaultPref(""content.notify.interval"", 120000);",新規,,,
+Performance-2,2,,,,再描画間隔を明示する,MCDで設定を反映する,"lockPref(""content.notify.interval"", （整数値、単位：マイクロ秒）);",新規,,,
+Addon-IEView-1,1,アドオン：IE View,IEの起動,-,自動では起動しない（既定）,IE Viewをインストールする,-,新規,,,
+Addon-IEView-1,2,,,,特定サイトでIEを自動起動,"1. IE Viewをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");",新規,,,
+Addon-IEView-1,3,,,,特定サイトをIEを自動起動し、Firefox側のタブを閉じる,"1. IE Viewをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");
+lockPref(""extensions.ieview.closeReloadPage"", true);",新規,,,
+Addon-IEView-2,1,アドオン：IE View,起動するIEの設定,-,パスと起動オプションを指定する,"1. IE Viewをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.ieview.ieapp"", ""C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe"");
+lockPref(""extensions.ieview.ieargs"", """"); ",新規,,,
+Addon-IEView-3,1,アドオン：IE View,広告を使用,-,使用する（既定）,-,-,新規,,,
+Addon-IEView-3,2,,,,使用しない,"1. IE Viewをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.ieview.useWizeShoppy"", false);",新規,,,
+Addon-FireIE-1,1,アドオン：FireIE,動作モード,-,IE7標準モード（既定）,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",新規,,,
+Addon-FireIE-1,2,,,,IE8標準モード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie8mode"");",新規,,,
+Addon-FireIE-1,3,,,,IE8強制標準モード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie8forced"");",新規,,,
+Addon-FireIE-1,4,,,,IE9標準モード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie9mode"");",新規,,,
+Addon-FireIE-1,5,,,,IE9強制標準モード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie9forced"");",新規,,,
+Addon-FireIE-1,6,,,,IE10標準モード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie10mode"");",新規,,,
+Addon-FireIE-1,7,,,,IE10強制標準モード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie10forced"");",新規,,,
+Addon-FireIE-1,8,,,,IE11 Edgeモード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie11edge"");",新規,,,
+Addon-FireIE-1,9,,,,IE11 強制Edgeモード,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie11forcededge"");",新規,,,
+Addon-FireIE-2,1,アドオン：FireIE,モード表示,-,表示する（既定）,FireIEをインストールする,-,新規,,,
+Addon-FireIE-2,2,,,,表示しない,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.showUrlBarLabel"", false);
+lockPref(""extensions.fireie.hideUrlBarButton"", true);",新規,,,
+Addon-FireIE-3,1,アドオン：FireIE,定義ファイルの自動更新,-,自動更新する（既定）,FireIEをインストールする,-,新規,,,
+Addon-FireIE-3,2,,,,自動更新しない,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.subscriptions_autoupdate"", false);
+lockPref(""extensions.fireie.subscriptions_defaultAdded"", false);",新規,,,
+Addon-FireIE-4,1,アドオン：FireIE,ルールに当てはまらないサイトの取り扱い,-,何もしない（既定）,FireIEをインストールする,-,新規,,,
+Addon-FireIE-4,2,,,,Firefoxで開く,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.autoSwitchOnRuleMiss"", ""fx""); ",新規,,,
+Addon-FireIE-4,2,,,,IEで開く,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.autoSwitchOnRuleMiss"", ""ie""); ",新規,,,
+Addon-FireIE-5,1,アドオン：FireIE,その他のバックグラウンドでの通信,-,許可する（既定）,FireIEをインストールする,-,新規,,,
+Addon-FireIE-5,2,,,,禁止する,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
+lockPref(""extensions.fireie.subscriptions_listurl"", """");
+lockPref(""extensions.fireie.documentation_link"", """");",新規,,,
