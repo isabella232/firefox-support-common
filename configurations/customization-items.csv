@@ -491,8 +491,6 @@ lockPref(""browser.search.searchEnginesURL"", """");
 lockPref(""browser.search.geoip.url"","""");
 // Firefoxのユーザー評価
 lockPref(""browser.selfsupport.url"", """");
-// Webアプリケーションのインストールを許可するドメイン
-lockPref(""dom.mozApps.signed_apps_installable_from"", """");
 // 初回起動時のみのスタートページ
 lockPref(""startup.homepage_welcome_url"", """");
 lockPref(""startup.homepage_welcome_url.additional"", """");
