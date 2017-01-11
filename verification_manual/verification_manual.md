@@ -334,8 +334,6 @@
 
 - Startup-8-\* 
 
-- Startup-9-2 
-
 ### 3.1.2 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。 
@@ -403,8 +401,6 @@
 
         4. 「browser.disableResetPrompt」の値が「false」である。(Startup-7-1)\
             または、「true」である。(Startup-7-2) 
-
-        5. 「browser.requestE10sFeedback」の値が「false」である。(Startup-9-2) 
 
 8. 詳細設定において、「extensions.lastAppVersion」を「1.0」に変更する。 
 
@@ -846,42 +842,6 @@
         5. 「{{disabled_about_pages}}」
             のリンクを左クリックし、空白のページが読み込まれる。 (Security-8-2) 
 
-## 4.6 エラーコンソールの利用制限
-
-### 4.6.1 確認する項目
-
-- Security-10-2 
-
-### 4.6.2 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。 
-
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
-
-2. 以下のアドオンを無効化する。 
-
-    1. globalChrome.css 
-
-    2. UI Text Overrider 
-
-### 4.6.3 検証
-
-1. {{desktop_shortcut_path}}
-    がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-     
-
-2. パネルメニュー内の「開発ツール」を開く。 
-
-    - 確認項目 
-
-        1. 「エラーコンソール」が存在しない。(Security-10-2) 
-
-3. メニューバーの「ツール」から「Web開発」を開く。 
-
-    - 確認項目 
-
-        1. 「エラーコンソール」が存在しない。(Security-10-2) 
-
 ### 4.6.4 後始末：
 
 1. 以下のアドオンを有効化する。 
@@ -927,7 +887,7 @@
 
 ### 4.8.1 確認する項目
 
-- Security-12-2/3 
+- Security-12-3 
 
 ### 4.8.2 準備
 
@@ -945,15 +905,7 @@
 
     - 確認項目 
 
-        1. 何も起こらない。ポップアップブロックの通知も表示されない。(Security-12-2/3) 
-
-3. JavaScriptの実行を許可するドメインのページを開く。(Security-12-2) 
-
-    - 確認項目 
-
-        1. ページ内のスクリプトが動作している（ポップアップブロックの通知が表示される）。(Security-12-2) 
-
- 
+        1. 何も起こらない。ポップアップブロックの通知も表示されない。(Security-12-3) 
 
 ## 4.9 ローカルファイルの読み込みの制限
 
@@ -1049,11 +1001,11 @@
 
 ### 4.11.1 確認する項目
 
+- Security-15-2 
+
 - Security-18-2 
 
 - Security-19-2 
-
-- Privacy-28-2 
 
 ### 4.11.2 準備
 
@@ -1077,9 +1029,9 @@
 
     - 確認項目 
 
-        1. 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。(Security-18-2)(Privacy-28-2) 
+        1. 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。(Security-15-2)(Security-18-2) 
 
-        2. 「テーマ」内の「おすすめ」に何も項目が表示されない。(Security-19-2)(Privacy-28-2) 
+        2. 「テーマ」内の「おすすめ」に何も項目が表示されない。(Security-15-2) (Security-19-2)
 
 3. パネルメニューの「開発ツール」→「WebIDE」でWebIDEを開く。 
 
@@ -1087,19 +1039,19 @@
 
     - 確認項目 
 
-        1. ツールアダプタアドオンが準備中になっている。(Privacy-28-2) 
+        1. ツールアダプタアドオンが準備中になっている。(Security-15-2) 
 
 5. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
 
     - 確認項目 
 
-        1. 「browser.trackingprotection.gethashURL」の値が空文字である。(Privacy-28-2) 
+        1. 「browser.trackingprotection.gethashURL」の値が空文字である。(Security-15-2) 
 
-        2. 「browser.trackingprotection.updateURL」の値が空文字である。(Privacy-28-2) 
+        2. 「browser.trackingprotection.updateURL」の値が空文字である。(Security-15-2) 
 
-        3. 「privacy.trackingprotection.introURL」の値が空文字である。(Privacy-28-2) 
+        3. 「privacy.trackingprotection.introURL」の値が空文字である。(Security-15-2) 
 
-        4. 「services.push.serverURL」の値が空文字である。(Privacy-28-2) 
+        4. 「services.push.serverURL」の値が空文字である。(Security-15-2) 
 
 ### 4.11.4 後始末
 
@@ -1661,8 +1613,6 @@
 
 ### 5.6.1 確認する項目
 
-- Privacy-25-2 
-
 - Privacy-26-2 
 
 - Privacy-27-2 
@@ -1683,17 +1633,9 @@
 
     - 確認項目 
 
-        1. 「Hello」が存在しない。(Privacy-25-2) 
+        1. 「忘れる」が存在しない。(Privacy-26-2) 
 
-        2. 「忘れる」が存在しない。(Privacy-26-2) 
-
-        3. 「Pocket」が存在しない。(Privacy-27-2) 
-
-3. メニューバーの「ツール」メニューを開く。 
-
-    - 確認項目 
-
-        1. 「通話を開始」が存在しない。(Privacy-25-2) 
+        2. 「Pocket」が存在しない。(Privacy-27-2) 
 
 ## 5.7 アイドル状態での履歴・ブックマーク用データベースの自動最適化
 
@@ -2750,8 +2692,6 @@
 
 - MenuShortcut-26 
 
-- MenuShortcut-27 
-
 - MenuShortcut-28 
 
 - MenuShortcut-29 
@@ -2843,11 +2783,9 @@
 
         15. 「ページのソース」が存在しない。(MenuShortcut-26) 
 
-        16. 「エラーコンソール」が存在しない。(MenuShortcut-27) 
+        16. 「接続...」が存在しない。(MenuShortcut-28) 
 
-        17. 「接続」が存在しない。(MenuShortcut-28) 
-
-        18. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
+        17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
 
 3. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックする。
       
@@ -2884,11 +2822,9 @@
 
         15. 「ページのソース」が存在しない。(MenuShortcut-26) 
 
-        16. 「エラーコンソール」が存在しない。(MenuShortcut-27) 
+        16. 「接続...」が存在しない。(MenuShortcut-28) 
 
-        17. 「接続」が存在しない。(MenuShortcut-28) 
-
-        18. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
+        17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
 
 4. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
 
@@ -3095,8 +3031,6 @@
 
 ### 10.6.1 確認する項目
 
-- MenuShortcut-45 
-
 - MenuShortcut-46 
 
 - MenuShortcut-47 
@@ -3110,8 +3044,6 @@
 - MenuShortcut-51 
 
 - MenuShortcut-52 
-
-- MenuShortcut-53 
 
 - MenuShortcut-54 
 
@@ -3138,9 +3070,7 @@
 
         1. 「このページを共有」が存在しない。(MenuShortcut-52) 
 
-        2. 「ページを保存する」が存在しない。(MenuShortcut-53) 
-
-        3. 「要素を調査」が存在しない。(MenuShortcut-57) 
+        2. 「要素を調査」が存在しない。(MenuShortcut-57) 
 
 3. ページ内の文字列を選択して右クリックする。 
 
@@ -3152,11 +3082,9 @@
 
     - 確認項目 
 
-        1. 「リンクを保存する」が存在しない。(MenuShortcut-45) 
+        1. 「このリンクを共有」が存在しない。(MenuShortcut-46) 
 
-        2. 「このリンクを共有」が存在しない。(MenuShortcut-46) 
-
-        3. 「新しいタブで開く」が存在しない。(MenuShortcut-63) 
+        2. 「新しいタブで開く」が存在しない。(MenuShortcut-63) 
 
 5. ページ内に埋め込まれた画像の上で右クリックする。 
 
