@@ -213,9 +213,7 @@ MenuShortcut-18,ツール＞Web開発＞開発ツールバー,devToolbar,Shift-F
 #key_devToolbar",true,yes,Shift+F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
 #key_devToolbar",true,yes,-,-,-
-MenuShortcut-19（廃止）,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止,"#menu_devAppMgr,
-#devtoolsMenuBroadcaster_devAppMgr",,true,yes,,Firefox 38で廃止,"#menu_devAppMgr,
-#devtoolsMenuBroadcaster_devAppMgr",true,yes,-,"#menu_devAppMgr,
+MenuShortcut-19（廃止）,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止,,,true,yes,,Firefox 38で廃止,,true,yes,-,"#menu_devAppMgr,
 #devtoolsMenuBroadcaster_devAppMgr",true,yes,-,-,-
 MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#menu_webide,
 #devtoolsMenuBroadcaster_webide,
@@ -278,7 +276,7 @@ MenuShortcut-27,ツール＞Web開発＞エラーコンソール,errorConsole,-,
 #devtoolsMenuBroadcaster_ErrorConsole,
 #Tools\:ErrorConsole",true,yes,Ctrl-Shift-J,"#key_errorConsole,
 #menu_ToolsPopup [id^='javaconsole']""",false
-MenuShortcut-28,ツール＞Web開発＞接続,devtools_connect,-,"#menu_devtools_connect,
+MenuShortcut-28,ツール＞Web開発＞接続...,devtools_connect,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",killedItemsWithDelay,true,yes,,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",true,yes,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",true,yes,-,-,-
