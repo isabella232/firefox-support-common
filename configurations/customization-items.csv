@@ -366,7 +366,7 @@ Security-2,2,,,,自動的に再登録しない（既定）,"1. アドオン「Ce
 2. MCDで設定を反映する","lockPref(""extensions.certimporter.allowRegisterAgain"", false);",,"lockPref(""extensions.certimporter.allowRegisterAgain"", false);",,"lockPref(""extensions.certimporter.allowRegisterAgain"", false);",変更無し,"lockPref(""extensions.certimporter.allowRegisterAgain"", false);"
 Security-3,1,セキュリティ,アドオンのインストールの可否,○,確認の上で許可する（既定）,-,-,,-,,-,,
 Security-3,2,,,,特定サイトのみ常に許可する,"1. アドオン「Permission Auto Registerer」を導入する
-2. MCDで設定を反映する",-,,-,,-,,
+2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.example.com"", ""install=1"");",,"lockPref(""extensions.autopermission.sites.example.com"", ""install=1"");",○,-,,
 Security-3,5,,,,特定サイトのみ初期状態で許可する,"1. 「default.permissions」を作成する
 2. MCDで設定を反映する","default.permissions:
 host<\t>install<\t>1<\t>http://example.com
@@ -652,16 +652,11 @@ pref(""capability.policy.trusted.javascript.enabled"", ""allAccess"");
 pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
 pref(""extensions.autopermission.policy.trusted.javascript"",     1);",,
 Security-12,3,,,,禁止する,MCDで設定を反映する,"lockPref(""javascript.enabled"", false);",,"lockPref(""javascript.enabled"", false);",,"lockPref(""javascript.enabled"", false);",,
-Security-13,1,セキュリティ,ローカルファイルの読み込みの可否,○,特定サイトのみ許可する,"1. アドオン「Permission Auto Registerer」を導入する
-2. MCDで設定を反映する","pref(""capability.policy.trusted.sites"", ""(sites)"");
-pref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");
-または
-pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
-pref(""extensions.autopermission.policy.trusted.localfilelinks"",     1);",,"pref(""capability.policy.trusted.sites"", ""(sites)"");
-pref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");
-または
-pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
-pref(""extensions.autopermission.policy.trusted.localfilelinks"",     1);",,"pref(""capability.policy.trusted.sites"", ""(sites)"");
+Security-13,1,セキュリティ,ローカルファイルの読み込みの可否,○,特定サイトのみ許可する,MCDで設定を反映する,"lockPref(""capability.policy.policynames"", ""trusted"");
+lockPref(""capability.policy.trusted.sites"", ""http://example.com http://example.net"");
+lockPref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");",,"lockPref(""capability.policy.policynames"", ""trusted"");
+lockPref(""capability.policy.trusted.sites"", ""http://example.com http://example.net"");
+lockPref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");",○,"pref(""capability.policy.trusted.sites"", ""(sites)"");
 pref(""capability.policy.trusted.checkloaduri.enabled"", ""allAccess"");
 または
 pref(""extensions.autopermission.policy.trusted.sites"", ""(sites)"");
@@ -674,7 +669,6 @@ Security-15,2,,,,禁止する,MCDで設定を反映する,"* Firefox自体自体
 * アドオンの自動更新のURL（Update-2）
 * アドオンのインストール (Security-3-3/4)
 * セーフブラウジング（Security-5）
-* マルチプロセスモードのフィードバックを促すメッセージ（Security-9）
 * ソーシャルAPI（Security-11）
 * ツールバーカスタマイズにおける、「その他のテーマを入手」 (Security-18)
 * ツールバーカスタマイズにおける、テーマの「おすすめ」 (Security-19)
@@ -685,7 +679,6 @@ Security-15,2,,,,禁止する,MCDで設定を反映する,"* Firefox自体自体
 * セキュリティエラーレポートの送信の可否 (Privacy-19)
 * Firefox Syncの利用の可否 (Privacy-22)
 * Firefoxアカウント (Privacy-24)
-* Firefox Hello (Privacy-25)
 * Firefoxのユーザー評価の送信の可否 (Privacy-31)
 * トラッキング防止 (Privacy-33)
 * UIツアー（Startup-8）
@@ -758,7 +751,7 @@ lockPref(""xpinstall.signatures.devInfoURL"", """");",○,"* Firefox自体自体
 * アドオンのインストール (Security-3-3/4)
 * セーフブラウジング（Security-5）
 * プラグイン（Security-7）
-* マルチプロセスモードのフィードバックを促すメッセージ（Security-9）
+* マルチプロセスモードのフィードバックを促すメッセージ（Security-10）
 * ソーシャルAPI（Security-11）
 * ツールバーカスタマイズにおける、「その他のテーマを入手」 (Security-18)
 * ツールバーカスタマイズにおける、テーマの「おすすめ」 (Security-19)
@@ -2455,7 +2448,7 @@ lockPref(""browser.rights.override"", true);
 lockPref(""browser.EULA.override"", true);"
 Startup-7,1,起動時の挙動の制御,60日以上Firefoxを使用しなかった場合の、次の起動時における設定のリセットの提案の可否,-,リセットを提案する（既定）,MCDで設定を反映する,"lockPref(""browser.disableResetPrompt"", false);",,"lockPref(""browser.disableResetPrompt"", false);",,"lockPref(""browser.disableResetPrompt"", false);","lockPref(""browser.disableResetPrompt"", false);",-
 Startup-7,2,,,,リセットを提案しない,MCDで設定を反映する,"lockPref(""browser.disableResetPrompt"", true);",,"lockPref(""browser.disableResetPrompt"", true);",,"lockPref(""browser.disableResetPrompt"", true);","lockPref(""browser.disableResetPrompt"", true);",-
-Startup-8,1,起動時の挙動の制御,UIの変更点を解説するツアーの表示の可否,-,ツアーを表示する（既定）,MCDで設定を反映する,"lockPref(""browser.uitour.enabled"", true);",,"lockPref(""browser.uitour.enabled"", true);",,"lockPref(""browser.uitour.enabled"", true);","lockPref(""browser.uitour.enabled"", true);",-
+Startup-8,1,起動時の挙動の制御,UIの変更点を解説するツアーの表示の可否,-,ツアーを表示する（既定）,MCDで設定を反映する,-,,-,○,"lockPref(""browser.uitour.enabled"", true);","lockPref(""browser.uitour.enabled"", true);",-
 Startup-8,2,,,,ツアーを表示しない,MCDで設定を反映する,"lockPref(""browser.uitour.enabled"", false);
 lockPref(""browser.uitour.pinnedTabUrl"", """");
 lockPref(""browser.uitour.readerViewTrigger"", ""$^"");
