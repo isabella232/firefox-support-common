@@ -3468,7 +3468,7 @@ lockPref(""font.name-list.sans-serif.ja"", ""（フォントの英語名のカ�
 lockPref(""font.name-list.monospace.ja"", ""（フォントの英語名のカンマ区切りのリスト）"");",,"lockPref(""font.name-list.serif.ja"", ""（フォントの英語名のカンマ区切りのリスト）"");
 lockPref(""font.name-list.sans-serif.ja"", ""（フォントの英語名のカンマ区切りのリスト）"");
 lockPref(""font.name-list.monospace.ja"", ""（フォントの英語名のカンマ区切りのリスト）"");",新規,,,
-Appearance-2,1,表示,ツールバー上の項目の初期背餮,-,制御しない（既定）,-,-,新規,,,,,
+Appearance-2,1,表示,ツールバー上の項目の初期設定,-,制御しない（既定）,-,-,,-,新規,,,
 Appearance-2,2,,,,制御する,MCDで設定を反映する,"lockPref(""browser.uiCustomization.state"", JSON.stringify({
   ""placements"": {
     ""PanelUI-contents"": [
@@ -3531,7 +3531,7 @@ Appearance-2,2,,,,制御する,MCDで設定を反映する,"lockPref(""browser.u
   ],
   ""currentVersion"": 5,
   ""newElementCount"": 16
-}));",,,,
+}));",新規,,,
 Performance-1,1,パフォーマンス,メモリキャッシュのサイズ,-,自動的に決める（既定）,-,-,,-,新規,,,
 Performance-1,2,,,,明示する,MCDで設定を反映する,"lockPref(""browser.cache.memory.capacity"", （整数値、単位：キロバイト）); ",,"lockPref(""browser.cache.memory.capacity"", （整数値、単位：キロバイト）); ",新規,,,
 Performance-2,1,パフォーマンス,コンテンツの再描画間隔,-,120ミリ秒間隔で再描画（既定）,-,"// defaultPref(""content.notify.interval"", 120000);",,"// defaultPref(""content.notify.interval"", 120000);",新規,,,
@@ -3583,6 +3583,13 @@ Addon-FireIE-4,2,,,,Firefoxで開く,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.autoSwitchOnRuleMiss"", ""fx""); ",,"lockPref(""extensions.fireie.autoSwitchOnRuleMiss"", ""fx""); ",新規,,,
 Addon-FireIE-4,2,,,,IEで開く,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.autoSwitchOnRuleMiss"", ""ie""); ",,"lockPref(""extensions.fireie.autoSwitchOnRuleMiss"", ""ie""); ",新規,,,
+Addon-FireIE-5,1,アドオン：FireIE,その他のバックグラウンドでの通信,-,許可する（既定）,FireIEをインストールする,-,,-,新規,,,
+Addon-FireIE-5,2,,,,禁止する,"1. FireIEをインストールする
+2. MCDで設定を反映する","lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
+lockPref(""extensions.fireie.subscriptions_listurl"", """");
+lockPref(""extensions.fireie.documentation_link"", """");",,"lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
+lockPref(""extensions.fireie.subscriptions_listurl"", """");
+lockPref(""extensions.fireie.documentation_link"", """");",新規,,,
 Addon-FireIE-5,1,アドオン：FireIE,その他のバックグラウンドでの通信,-,許可する（既定）,FireIEをインストールする,-,,-,新規,,,
 Addon-FireIE-5,2,,,,禁止する,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
