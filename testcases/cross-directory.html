@@ -17,6 +17,7 @@ function loadFile(aURI) {
   document.documentElement.appendChild(container);
   container.textContent = aURI + ': ' + result;
 }
+loadFile('file:///c:/file.txt');
 loadFile('./cross-directory.html');
 loadFile('../configuration-sheets/constumize-item-list.csv');
 --></script>
