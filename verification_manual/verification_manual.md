@@ -298,7 +298,7 @@
     - 確認項目 
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが表示される。（Update-7-1）
            もしくは、表示されない。（Upate-7-2）
-20. Firefoxを終了し、プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、「 https://www.mozilla.org/ja/firefox/44.0/tour/ 」と入力し、ページを開く。(Startup-8-\*) 
+20. Firefoxを終了し、プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、「 https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/ 」と入力し、ページを開く。(Startup-8-\*) 
     - 確認方法 
         1. UIツアーが開始される。(Startup-8-1)\
            または、開始されない。(Startup-8-2) 
