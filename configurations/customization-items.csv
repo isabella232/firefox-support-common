@@ -3280,107 +3280,366 @@ Script-4,1,Webアプリの動作,DOMイベントによるクリップボード�
 Script-4,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.event.clipboardevents.enabled"", false);",,"lockPref(""dom.event.clipboardevents.enabled"", false);",新規,,,
 Script-5,1,Webアプリの動作,DOMイベントによるコンテキストメニュー操作のオーバーライド,-,許可する（既定）,-,-,,-,新規,,,
 Script-5,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.event.contextmenu.enabled"", false);",,"lockPref(""dom.event.contextmenu.enabled"", false);",新規,,,
-Plugin-1,1,セキュリティ,Javaプラグインの有効・無効の制御,-,常に無効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.java"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
+Plugin-1,1,セキュリティ,Javaプラグインの有効・無効の制御,○,常に無効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.java"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:java<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:java<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:java=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.status"", false);
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.pattern"", ""^Java "");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.status"", false);"
 Plugin-1,2,,,,常に有効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.java"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
+（サイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.java"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:java<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:java<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:java=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-1,3,,,,クリックされたら有効にする（既定）,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.java"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
+（サイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.java"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:java<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:java<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:java=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-2,1,プラグイン,Adobe Flashプラグインの有効・無効の制御,-,常に無効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.flash"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+Plugin-2,1,プラグイン,Adobe Flashプラグインの有効・無効の制御,○,常に無効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.flash"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:flash<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:flash<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:flash=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-2,2,,,,常に有効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.flash"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.flash"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:flash<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:flash<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:flash=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-2,3,,,,クリックされたら有効にする（既定）,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.flash"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.flash"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:flash<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:flash<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:flash=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-3,1,プラグイン,Adobe Acrobatプラグインの有効・無効の制御,-,常に無効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.nppdf"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+Plugin-3,1,プラグイン,Adobe Acrobatプラグインの有効・無効の制御,○,常に無効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.nppdf"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:nppdf<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:nppdf<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:nppdf=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-3,2,,,,常に有効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.nppdf"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.nppdf"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:nppdf<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:nppdf<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:nppdf=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-3,3,,,,クリックされたら有効にする（既定）,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.nppdf"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.nppdf"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:nppdf<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:nppdf<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:nppdf=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-4,1,プラグイン,Shockwaveプラグインの有効・無効の制御,-,常に無効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np32dsw"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+Plugin-4,1,プラグイン,Shockwaveプラグインの有効・無効の制御,○,常に無効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np32dsw"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:np32dsw<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:np32dsw<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np32dsw=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-4,2,,,,常に有効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np32dsw"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np32dsw"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:np32dsw<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:np32dsw<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np32dsw=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-4,3,,,,クリックされたら有効にする（既定）,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np32dsw"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np32dsw"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:np32dsw<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:np32dsw<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np32dsw=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-5,1,プラグイン,Silverlightプラグインの有効・無効の制御,-,常に無効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npctrl"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+Plugin-5,1,プラグイン,Silverlightプラグインの有効・無効の制御,○,常に無効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npctrl"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:npctrl<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:npctrl<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npctrl=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,
 Plugin-5,2,,,,常に有効化する,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npctrl"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npctrl"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:npctrl<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:npctrl<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npctrl=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
 Plugin-5,3,,,,クリックされたら有効にする（既定）,"MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npctrl"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npctrl"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:npctrl<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:npctrl<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npctrl=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
-Plugin-6,1,プラグイン,Windows Media Playerプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. np-mswmp.dllを導入する
+Plugin-6,1,プラグイン,Windows Media Playerプラグインの有効・無効の制御,○,常に無効化する（既定）,"1. np-mswmp.dllを導入する
 2. MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np-mswmp"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np-mswmp"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:np-mswmp<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:np-mswmp<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np-mswmp=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-6,2,,,,常に有効化する,"1. np-mswmp.dllを導入する
 2. MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np-mswmp"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np-mswmp"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:np-mswmp<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:np-mswmp<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np-mswmp=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-6,3,,,,クリックされたら有効にする,"1. np-mswmp.dllを導入する
 2. MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np-mswmp"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.np-mswmp"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:np-mswmp<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:np-mswmp<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np-mswmp=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,
-Plugin-7,1,プラグイン,Cisco WebExプラグインの有効・無効の制御,-,常に無効化する（既定）,"1. npatgpc.dllを導入する
+Plugin-7,1,プラグイン,Cisco WebExプラグインの有効・無効の制御,○,常に無効化する（既定）,"1. npatgpc.dllを導入する
 2. MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npatgpc"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npatgpc"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:npatgpc<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:npatgpc<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npatgpc=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-7,2,,,,常に有効化する,"1. npatgpc.dllを導入する
 2. MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npatgpc"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npatgpc"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:npatgpc<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:npatgpc<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npatgpc=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-7,3,,,,クリックされたら有効にする,"1. npatgpc.dllを導入する
 2. MCDで設定を反映する
-（Firefox 45以前向けの設定ガイドに従う場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npatgpc"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.npatgpc"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:npatgpc<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:npatgpc<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npatgpc=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
@@ -3429,19 +3688,56 @@ lockPref(""media.gmp-eme-adobe.enabled"",false);
 lockPref(""media.gmp-eme-adobe.autoupdate"",false);
 lockPref(""media.gmp-provider.enabled"",false);
 lockPref(""media.gmp-manager.url"",""about:blank"");",,
-Plugin-9,1,セキュリティ,IcedTeaプラグインの有効・無効の制御,-,常に無効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""plugin.state.libnpjp2"", 0);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
+Plugin-9,1,セキュリティ,IcedTeaプラグインの有効・無効の制御,-,常に無効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.libnpjp2"", 0);
+// 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:libnpjp2<\t>2<\t>http://example.com
+# または
+origin<\t>plugin:libnpjp2<\t>2<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:libnpjp2=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 0);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java\\(TM\\)"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.status"", false);
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.pattern"", ""^Java "");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.1.status"", false);"
-Plugin-9,2,,,,常に有効化する,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""plugin.state.libnpjp2"", 2);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
+Plugin-9,2,,,,常に有効化する,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.libnpjp2"", 2);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:libnpjp2<\t>1<\t>http://example.com
+# または
+origin<\t>plugin:libnpjp2<\t>1<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:libnpjp2=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);",,
-Plugin-9,3,,,,クリックされたら有効にする（既定）,"1. アドオン「Force Addon Status」を導入する
-2. MCDで設定を反映する","lockPref(""plugin.state.libnpjp2"", 1);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
+Plugin-9,3,,,,クリックされたら有効にする（既定）,"MCDで設定を反映する
+（恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","lockPref(""plugin.state.libnpjp2"", 1);
+
+サイト別の初期状態のみを設定する場合:
+default.permissions:
+host<\t>plugin:libnpjp2<\t>3<\t>http://example.com
+# または
+origin<\t>plugin:libnpjp2<\t>3<\t>http://example.com
+MCD:
+lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+
+サイト別の値を恒久的に設定する場合:
+lockPref(""extensions.autopermission.sites.example.com"", ""plugin:libnpjp2=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);",,
 Plugin-10,1,プラグイン,すべてのプラグインの初期状態,-,常に無効化する,MCDで設定を反映する,"lockPref(""plugin.default.state"", 0);",,"lockPref(""plugin.default.state"", 0);",新規,,,
