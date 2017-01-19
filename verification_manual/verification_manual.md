@@ -234,7 +234,7 @@
 2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。 
 3. 以下のアドオンを無効化する。 
     1. Disable about:config 
-    2. globalChrone.css 
+    2. globalChrome.css 
 4. 他に導入対象のアドオンがない場合、「Disable Sync」を管理者権限でインストールするよう配置しておく。
    （ファイル「disablesync@clear-code.com.xpi」を「browser\extensions\」の位置に置く。）
 5. システムの規定のブラウザを別のブラウザに設定する。
@@ -283,7 +283,7 @@
         1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックが外れていて、無効化されている。
             (Startup-3-2) 
 15. Firefoxを終了し、以下のアドオンを有効化する。 
-    - globalChrone.css 
+    - globalChrome.css 
 16. Firefoxを起動し、パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 17. オプション画面の「一般」を開く。 
     - 確認項目 
@@ -307,7 +307,7 @@
 
 1. 以下のアドオンを有効化する。 
     1. Disable about:config 
-    2. globalChrone.css 
+    2. globalChrome.css 
 
 ## 3.2 アドオンの署名確認の無効化
 
