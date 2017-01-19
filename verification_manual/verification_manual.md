@@ -134,7 +134,7 @@
 - Install-1-2 
 - Install-2-2 
 - Application-1-3 
-- Appliaction-2-3 
+- Application-2-3 
 - Application-6-\* 
 
 ### 2.3.2 準備
