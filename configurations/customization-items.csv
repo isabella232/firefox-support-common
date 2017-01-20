@@ -433,13 +433,13 @@ host<\t>popup<\t>1<\t>http://example.com
 origin<\t>popup<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
 host<\t>popup<\t>1<\t>http://example.com
 # または
 origin<\t>popup<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",新規,,,
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
 Security-4,3,,,,すべて確認無しで許可する,MCDで設定を反映する,"lockPref(""dom.disable_open_during_load"", false);",,"lockPref(""dom.disable_open_during_load"", false);",,"lockPref(""dom.disable_open_during_load"", false);",変更無し,"lockPref(""dom.disable_open_during_load"", false);"
 Security-4,4,,,,禁止する,-,"MCDで
 lockPref(""dom.disable_open_during_load"", true);
@@ -909,8 +909,7 @@ Security-19,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweigh
 Security-20,1,セキュリティ,パーミッション設定変更の可否,-,変更を許可する（既定）,-,-,,-,新規,,,
 Security-20,2,,,,変更を禁止する,"1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
-  #identity-popup-permissions-content,
-  #identity-popup-securityView-body button {
+  #identity-popup-permissions-content {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
@@ -921,7 +920,7 @@ Security-20,2,,,,変更を禁止する,"1. アドオン「globalChrome.css」を
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+}",○,"@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
   #identity-popup-permissions-content,
   #identity-popup-securityView-body button {
     visibility: collapse !important;
@@ -1017,6 +1016,7 @@ Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier�
 3. アドオン「globalChrome.css」を導入する
 4. globalChrome.cssで設定を反映する","MCD:
 lockPref(""browser.privatebrowsing.autostart"", false);
+lockPref(""privacy.sanitize.sanitizeOnShutdown"", false);
 
 globalChrome.css:
 @-moz-document
@@ -1029,6 +1029,7 @@ globalChrome.css:
   }
 }",,"MCD:
 lockPref(""browser.privatebrowsing.autostart"", false);
+lockPref(""privacy.sanitize.sanitizeOnShutdown"", false);
 
 globalChrome.css:
 @-moz-document
@@ -1039,7 +1040,7 @@ globalChrome.css:
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.privatebrowsing.autostart"", false);
 
 globalChrome.css:
@@ -1061,8 +1062,10 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-Privacy-1,3,,,,一切保存しない,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
-2. MCDで設定を反映する","lockPref(""browser.privatebrowsing.autostart"", true);",,"lockPref(""browser.privatebrowsing.autostart"", true);",,"lockPref(""browser.privatebrowsing.autostart"", true);",変更無し,"lockPref(""browser.privatebrowsing.autostart"", true);"
+Privacy-1,3,,,,一切保存しない,"MCDで設定を反映する
+(Firefox 38以前ではアドオン「History Prefs Modifier」も導入する)","lockPref(""browser.privatebrowsing.autostart"", true);
+lockPref(""privacy.sanitize.sanitizeOnShutdown"", true);",,"lockPref(""browser.privatebrowsing.autostart"", true);
+lockPref(""privacy.sanitize.sanitizeOnShutdown"", true);",○,"lockPref(""browser.privatebrowsing.autostart"", true);",変更無し,"lockPref(""browser.privatebrowsing.autostart"", true);"
 Privacy-1,4,,,,終了時に消去する,MCDで設定を反映する,"lockPref(""privacy.sanitize.sanitizeOnShutdown"", true);
 lockPref(""privacy.clearOnShutdown.cache"", true);
 lockPref(""privacy.clearOnShutdown.cookies"", true);
@@ -1079,7 +1082,7 @@ lockPref(""privacy.clearOnShutdown.history"", true);
 lockPref(""privacy.clearOnShutdown.sessions"", true);
 lockPref(""privacy.clearOnShutdown.siteSettings"", true);",新規,,,
 Privacy-2,1,プライバシー,"フォームの入力履歴の保存の可否
-（Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）",-,保存する（既定）,MCDで設定を反映する,"lockPref(""browser.formfill.enable"", true);",,"lockPref(""browser.formfill.enable"", true);",,"lockPref(""browser.formfill.enable"", true);",変更無し,"lockPref(""browser.formfill.enable"", true);"
+（Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）",-,保存する（既定）,-,-,,-,○,"lockPref(""browser.formfill.enable"", true);",変更無し,"lockPref(""browser.formfill.enable"", true);"
 Privacy-2,2,,,,保存しない,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -1089,14 +1092,13 @@ lockPref(""browser.formfill.enable"", false);
 
 globalChrome.css:
 @-moz-document
-  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #rememberForms {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.formfill.enable"", false);
 
 ※MCDの設定によって設定画面のチェックボックスは無効になるが、フォーム要素自体を非表示にする場合は以下の設定を行う。
@@ -1158,7 +1160,7 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-Privacy-4,1,プライバシー,ロケーションバーの入力履歴の表示の可否,-,表示する（既定）,MCDで設定を反映する,"lockPref(""browser.urlbar.autocomplete.enabled"", true);",,"lockPref(""browser.urlbar.autocomplete.enabled"", true);",,"lockPref(""browser.urlbar.autocomplete.enabled"", true);",変更無し,"lockPref(""browser.urlbar.autocomplete.enabled"", true);"
+Privacy-4,1,プライバシー,ロケーションバーの入力履歴の表示の可否,-,表示する（既定）,-,-,,-,○,"lockPref(""browser.urlbar.autocomplete.enabled"", true);",変更無し,"lockPref(""browser.urlbar.autocomplete.enabled"", true);"
 Privacy-4,2,,,,表示しない,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -1172,14 +1174,13 @@ lockPref(""browser.urlbar.suggest.openpage"", false);
 
 globalChrome.css:
 @-moz-document
-  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #locationBarGroup {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.urlbar.autocomplete.enabled"", false);
 lockPref(""browser.urlbar.maxRichResults"", -1);
 lockPref(""browser.urlbar.suggest.history"", false);
@@ -1221,7 +1222,7 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }"
-Privacy-5,1,プライバシー,パスワードの保存の可否,○,確認の上で保存する（既定）,MCDで設定を反映する,"lockPref(""signon.rememberSignons"", true);",,"lockPref(""signon.rememberSignons"", true);",,"lockPref(""signon.rememberSignons"", true);",変更無し,"lockPref(""signon.rememberSignons"", true);"
+Privacy-5,1,プライバシー,パスワードの保存の可否,○,確認の上で保存する（既定）,-,-,,-,○,"lockPref(""signon.rememberSignons"", true);",変更無し,"lockPref(""signon.rememberSignons"", true);"
 Privacy-5,2,,,,保存せず、マスターパスワードも使用しない,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -1231,7 +1232,6 @@ lockPref(""signon.autofillForms"", false);
 globalChrome.css:
 /* パスワード保存の設定UIを隠す */
 @-moz-document
-  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #passwordsGroup {
@@ -1275,7 +1275,7 @@ globalChrome.css:
     display: none !important;
     -moz-user-focus: disabled !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""signon.rememberSignons"", false);
 lockPref(""signon.autofillForms"", false);
 
@@ -1440,7 +1440,7 @@ globalChrome.css:
     -moz-user-focus: disabled !important;
   }
 }"
-Privacy-6,1,プライバシー,Webアプリのオフラインキャッシュの利用の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""browser.offline-apps.notify"", true);",,"lockPref(""browser.offline-apps.notify"", true);",,"lockPref(""browser.offline-apps.notify"", true);",変更無し,"lockPref(""browser.offline-apps.notify"", true);"
+Privacy-6,1,プライバシー,Webアプリのオフラインキャッシュの利用の可否,○,確認の上で許可する（既定）,-,-,,-,○,"lockPref(""browser.offline-apps.notify"", true);",変更無し,"lockPref(""browser.offline-apps.notify"", true);"
 Privacy-6,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""offline-app=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""offline-app=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""offline-app=1"");",,
 Privacy-6,4,,,,特定サイトのみ初期状態で確認無しで許可する,"1. 「default.permissions」を作成する
@@ -1450,13 +1450,13 @@ host<\t>offline-app<\t>1<\t>http://example.com
 origin<\t>offline-app<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
 host<\t>offline-app<\t>1<\t>http://example.com
 # または
 origin<\t>offline-app<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",新規,,,
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
 Privacy-6,3,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -1523,8 +1523,8 @@ globalChrome.css:
 }"
 Privacy-7,1,プライバシー,リンク先の先読みの可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""network.prefetch-next"", true);",,"lockPref(""network.prefetch-next"", true);",,"lockPref(""network.prefetch-next"", true);",変更無し,"lockPref(""network.prefetch-next"", true);"
 Privacy-7,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.prefetch-next"", false);",,"lockPref(""network.prefetch-next"", false);",,"lockPref(""network.prefetch-next"", false);",変更無し,"lockPref(""network.prefetch-next"", false);"
-Privacy-8,1,プライバシー,履歴の保存件数の制限,-,制限しない（既定）,-,-,,-,,-,,
-Privacy-8,2,,,,制限する,MCDで設定を反映する,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",変更無し,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);"
+Privacy-8,1,プライバシー,履歴の最低保証保持件数（lazyな最大保持件数）,-,指定しない（既定）,-,-,,-,,-,,
+Privacy-8,2,,,,指定する,MCDで設定を反映する,"lockPref(""places.history.expiration.max_pages"", （最低限保持することを保証したい履歴の件数）);",○,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);",変更無し,"lockPref(""places.history.expiration.max_pages"", （保持する件数）);"
 Privacy-9,1,プライバシー,日数ベースでの履歴の自動削除,-,日数ベースで履歴を自動削除する,"1. アドオン「Expire history by days」もしくは「Flexible Expire History by Days」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
 lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,"lockPref(""extensions.bonardonet.expire-history-by-days.days"", 日数);
@@ -1532,7 +1532,7 @@ lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); //
 lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,
 Privacy-10,1,プライバシー,セッション情報の保存の可否,-,許可する（既定）,-,-,,-,,-,廃止,"lockPref(""browser.sessionstore.enabled"", true);"
 Privacy-10,2,,,,禁止する,MCDで設定を反映する,"Firefox 3.5の時点で廃止。
-以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
+以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。また、閉じたウィンドウを開き直すためのデータもセッション中1つは必ず保持される。
 後は、復元操作への導線を消すくらいしかできない。
 
 MCD:
@@ -1570,7 +1570,7 @@ globalChrome.css:
   {
     display: none !important;
   }
-}",,"Firefox 3.5の時点で廃止。
+}",○,"Firefox 3.5の時点で廃止。
 以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
 後は、復元操作への導線を消すくらいしかできない。
 
@@ -1695,13 +1695,13 @@ host<\t>cookie<\t>1<\t>http://example.com
 origin<\t>cookie<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
 host<\t>cookie<\t>1<\t>http://example.com
 # または
 origin<\t>cookie<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",新規,,,
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
 Privacy-11,3,,,,セッション中のみ許可する,MCDで設定を反映する,"lockPref(""network.cookie.cookieBehavior"", 0);
 lockPref(""network.cookie.lifetimePolicy"", 2);",,"lockPref(""network.cookie.cookieBehavior"", 0);
 lockPref(""network.cookie.lifetimePolicy"", 2);",,"lockPref(""network.cookie.cookieBehavior"", 0);
@@ -1710,27 +1710,27 @@ Privacy-11,4,,,,禁止する,MCDで設定を反映する,"lockPref(""network.coo
 lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.cookieBehavior"", 2);
 lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.cookieBehavior"", 2);
 lockPref(""network.cookie.lifetimePolicy"", 0);",変更無し,"lockPref(""dom.storage.enabled"", false);"
-Privacy-12,1,プライバシー,DOMストレージの利用の可否,○（Cookieとの一括制御）,許可する（既定）,MCDで設定を反映する,"lockPref(""dom.storage.enabled"", true);",,"lockPref(""dom.storage.enabled"", true);",,"lockPref(""dom.storage.enabled"", true);",変更無し,"lockPref(""dom.storage.enabled"", true);"
+Privacy-12,1,プライバシー,DOMストレージの利用の可否,○（Cookieとの一括制御）,許可する（既定）,-,-,,-,○,"lockPref(""dom.storage.enabled"", true);",変更無し,"lockPref(""dom.storage.enabled"", true);"
 Privacy-12,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.storage.enabled"", false);",,"lockPref(""dom.storage.enabled"", false);",,"lockPref(""dom.storage.enabled"", false);",変更無し,"lockPref(""dom.storage.enabled"", false);"
 Privacy-13,1,プライバシー,Indexed DBの利用の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""dom.indexedDB.enabled"", true);",,"lockPref(""dom.indexedDB.enabled"", true);",,"lockPref(""dom.indexedDB.enabled"", true);",変更無し,"lockPref(""dom.storage.enabled"", true);"
 Privacy-13,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");",,
-Privacy-13,5,,,,特定サイトのみ初期状態で確認なしで許可する,"1. 「default.permissions」を作成する
+Privacy-13,4,,,,特定サイトのみ初期状態で確認なしで許可する,"1. 「default.permissions」を作成する
 2. MCDで設定を反映する","default.permissions:
 host<\t>indexedDB<\t>1<\t>http://example.com
 # または
 origin<\t>indexedDB<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
 host<\t>indexedDB<\t>1<\t>http://example.com
 # または
 origin<\t>indexedDB<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",新規,,,
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
 Privacy-13,3,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.indexedDB.enabled"", false);",,"lockPref(""dom.indexedDB.enabled"", false);",,"lockPref(""dom.indexedDB.enabled"", false);",変更無し,"lockPref(""dom.storage.enabled"", false);"
-Privacy-14,1,プライバシー,位置情報の利用の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""geo.enabled"", true);",,"lockPref(""geo.enabled"", true);",,"lockPref(""geo.enabled"", true);",変更無し,"lockPref(""geo.enabled"", true);"
+Privacy-14,1,プライバシー,位置情報の利用の可否,○,確認の上で許可する（既定）,-,-,,-,○,"lockPref(""geo.enabled"", true);",変更無し,"lockPref(""geo.enabled"", true);"
 Privacy-14,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
 2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""geo=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""geo=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""geo=1"");",,
 Privacy-14,4,,,,特定サイトのみ初期状態で確認なしで許可する,"1. 「default.permissions」を作成する
@@ -1740,13 +1740,13 @@ host<\t>geo<\t>1<\t>http://example.com
 origin<\t>geo<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
 host<\t>geo<\t>1<\t>http://example.com
 # または
 origin<\t>geo<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",新規,,,
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
 Privacy-14,3,,,,禁止する,MCDで設定を反映する,"lockPref(""geo.enabled"", false);",,"lockPref(""geo.enabled"", false);",,"lockPref(""geo.enabled"", false);",変更無し,"lockPref(""geo.enabled"", false);"
 Privacy-15,1,プライバシー,検索結果のローカライズ用地域コードの位置情報に基づく推定の可否,-,許可する（既定）,-,-,,-,,-,,
 Privacy-15,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.search.geoip.url"", """");",,"lockPref(""browser.search.geoip.url"", """");",,"lockPref(""browser.search.geoip.url"", """");",,
@@ -1827,6 +1827,7 @@ Privacy-18,1,プライバシー,利用状況の統計の保存および送信の
 Privacy-18,2,,,,禁止する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.crashReports.unsubmittedCheck.autoSubmit"", false);
 lockPref(""toolkit.telemetry.enabled"", false);
 lockPref(""toolkit.telemetry.infoURL"", """");
 lockPref(""toolkit.telemetry.server"", """");
@@ -1847,7 +1848,7 @@ globalChrome.css:
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""toolkit.telemetry.enabled"", false);
 lockPref(""toolkit.telemetry.infoURL"", """");
 lockPref(""toolkit.telemetry.server"", """");
@@ -1913,24 +1914,36 @@ lockPref(""security.ssl.errorReporting.enabled"", false);
 lockPref(""security.ssl.errorReporting.url"", """");",,"lockPref(""security.ssl.errorReporting.automatic"", false);
 lockPref(""security.ssl.errorReporting.enabled"", false);
 lockPref(""security.ssl.errorReporting.url"", """");",,
-Privacy-20,1,プライバシー,「Do Not Track」ヘッダの送出の可否,-,許可で送出する,MCDで設定を反映する,"pref(""privacy.donottrackheader.enabled"", false);",,"pref(""privacy.donottrackheader.enabled"", false);",,"pref(""privacy.donottrackheader.enabled"", false);",変更無し,"pref(""privacy.donottrackheader.enabled"", false);"
-Privacy-20,2,,,,禁止で送出する,MCDで設定を反映する,"pref(""privacy.donottrackheader.enabled"", true);",,"pref(""privacy.donottrackheader.enabled"", true);",,"pref(""privacy.donottrackheader.enabled"", true);",変更無し,"pref(""privacy.donottrackheader.enabled"", true);"
-Privacy-20,3,,,,一切送出しない（既定）,-,-,,-,,-,,
-Privacy-20,4,,,,一切送出しないことを強制,"1. MCDで設定を反映する
+Privacy-20,1（廃止）,プライバシー,「Do Not Track」ヘッダの送出の可否,-,許可で送出する,MCDで設定を反映する,Bug 1042135により廃止,○,"pref(""privacy.donottrackheader.enabled"", false);",,"pref(""privacy.donottrackheader.enabled"", false);",変更無し,"pref(""privacy.donottrackheader.enabled"", false);"
+Privacy-20,2,,,,禁止で送出する,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
-lockPref(""privacy.donottrackheader.enabled"", false);
-lockPref(""privacy.donottrackheader.value"", 1);
+lockPref(""privacy.donottrackheader.enabled"", true);
 
 globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #trackingGroup {
+  #trackingprotectionpbmbox + vbox {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"pref(""privacy.donottrackheader.enabled"", true);",,"pref(""privacy.donottrackheader.enabled"", true);",変更無し,"pref(""privacy.donottrackheader.enabled"", true);"
+Privacy-20,3,,,,一切送出しない（既定）,-,-,,-,,-,,
+Privacy-20,4,,,,一切送出しないことを強制,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""privacy.donottrackheader.enabled"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #trackingprotectionpbmbox + vbox {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",○,"MCD:
 lockPref(""privacy.donottrackheader.enabled"", false);
 lockPref(""privacy.donottrackheader.value"", 1);
 
@@ -1965,8 +1978,25 @@ globalChrome.css:
   }
 }"
 Privacy-21,1,プライバシー,クラッシュレポートの送信の可否,-,許可する（既定）,-,-,,-,,-,,
-Privacy-21,2,,,,禁止する,fainstall.iniを編集する,"[fainstall]
-AppEnableCrashReport=false",,"[fainstall]
+Privacy-21,2,,,,禁止する,"1. fainstall.iniを編集する
+2. MCDで設定を反映する
+3. アドオン「globalChrome.css」を導入する
+4. globalChrome.cssで設定を反映する","fainstall.ini:
+[fainstall]
+AppEnableCrashReport=false
+
+MCD:
+lockPref(""browser.crashReports.unsubmittedCheck.autoSubmit"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #dataChoicesPanel > groupbox:nth-of-type(2) {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",○,"[fainstall]
 AppEnableCrashReport=false",,"[fainstall]
 AppEnableCrashReport=false",変更無し,"[fainstall]
 AppEnableCrashReport=false"
@@ -2185,12 +2215,26 @@ lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,"lockPref(""brow
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,"lockPref(""browser.cache.disk.smart_size.enabled"", false);
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,
 Privacy-31,1,プライバシー,Firefoxのユーザー評価の送信の可否,-,許可する（規定）,-,-,,-,,-,-,
-Privacy-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.selfsupport.url"", """");",,"lockPref(""browser.selfsupport.url"", """");",,"lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");",
+Privacy-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.selfsupport.enabled"", false);
+lockPref(""browser.selfsupport.url"", """");",○,"lockPref(""browser.selfsupport.url"", """");",,"lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");",
 Privacy-32,1,プライバシー,リンクのhoverによるリンク先の先読みの可否,-,許可する（既定）,MCDで設定を反映する,"defaultPref(""network.http.speculative-parallel-limit"", 6);",,"defaultPref(""network.http.speculative-parallel-limit"", 6);",,"defaultPref(""network.http.speculative-parallel-limit"", 6);",,
 Privacy-32,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.http.speculative-parallel-limit"", 0);",,"lockPref(""network.http.speculative-parallel-limit"", 0);",,"lockPref(""network.http.speculative-parallel-limit"", 0);",,
 Privacy-33,1,プライバシー,Webサービスによる行動履歴の収集（トラッキング）の遮断の可否,-,ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（既定）,-,-,,-,新規,,,
-Privacy-33,2,,,,ブロックリストを取得して、トラッキングを常に遮断する,MCDで設定を反映する,"lockPref(""privacy.trackingprotection.enabled"", true);
-lockPref(""privacy.trackingprotection.pbmode.enabled"", true);",,"lockPref(""privacy.trackingprotection.enabled"", true);
+Privacy-33,2,,,,ブロックリストを取得して、トラッキングを常に遮断する,"1. MCDで設定を反映する
+2.アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""privacy.trackingprotection.enabled"", true);
+lockPref(""privacy.trackingprotection.pbmode.enabled"", true);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #trackingprotectionpbmbox {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",○,"lockPref(""privacy.trackingprotection.enabled"", true);
 lockPref(""privacy.trackingprotection.pbmode.enabled"", true);",新規,,,
 Privacy-33,3,,,,ブロックリストを取得せず、トラッキングを遮断しない,"1. MCDで設定を反映する
 2.アドオン「globalChrome.css」を導入する
@@ -2205,7 +2249,6 @@ lockPref(""privacy.trackingprotection.introURL"", """");
 
 globalChrome.css:
 @-moz-document
-  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #trackingprotectionpbmbox {
@@ -3238,13 +3281,13 @@ host<\t>push<\t>1<\t>http://example.com
 origin<\t>push<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
 host<\t>push<\t>1<\t>http://example.com
 # または
 origin<\t>push<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""""permissions.manager.defaultsUrl"""", """"file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"""");""",新規,,,
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
 Script-2,3,,,,禁止する（ESR版・既定 ※MCDの設定のみ既定。globalChrome.cssの設定は別途必要。）,"1. MCDで設定を反映する
 2. アドオン「globalChrome.css」を導入する
 3. globalChrome.cssで設定を反映する","MCD:
@@ -3291,7 +3334,7 @@ host<\t>plugin:java<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:java<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:java=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
@@ -3310,7 +3353,7 @@ host<\t>plugin:java<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:java<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:java=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
@@ -3326,7 +3369,7 @@ host<\t>plugin:java<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:java<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:java=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Java(\\(TM\\)| )"");
@@ -3343,7 +3386,7 @@ host<\t>plugin:flash<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:flash<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:flash=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
@@ -3359,7 +3402,7 @@ host<\t>plugin:flash<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:flash<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:flash=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
@@ -3375,7 +3418,7 @@ host<\t>plugin:flash<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:flash<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:flash=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave Flash"");
@@ -3392,7 +3435,7 @@ host<\t>plugin:nppdf<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:nppdf<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:nppdf=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
@@ -3408,7 +3451,7 @@ host<\t>plugin:nppdf<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:nppdf<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:nppdf=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
@@ -3424,7 +3467,7 @@ host<\t>plugin:nppdf<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:nppdf<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:nppdf=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Adobe Acrobat"");
@@ -3441,7 +3484,7 @@ host<\t>plugin:np32dsw<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:np32dsw<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np32dsw=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
@@ -3457,7 +3500,7 @@ host<\t>plugin:np32dsw<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:np32dsw<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np32dsw=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
@@ -3473,7 +3516,7 @@ host<\t>plugin:np32dsw<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:np32dsw<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np32dsw=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Shockwave for Director"");
@@ -3490,7 +3533,7 @@ host<\t>plugin:npctrl<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:npctrl<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npctrl=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
@@ -3506,7 +3549,7 @@ host<\t>plugin:npctrl<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:npctrl<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npctrl=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
@@ -3522,7 +3565,7 @@ host<\t>plugin:npctrl<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:npctrl<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npctrl=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^Silverlight Plug-In"");
@@ -3540,7 +3583,7 @@ host<\t>plugin:np-mswmp<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:np-mswmp<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np-mswmp=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
@@ -3559,7 +3602,7 @@ host<\t>plugin:np-mswmp<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:np-mswmp<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np-mswmp=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
@@ -3578,7 +3621,7 @@ host<\t>plugin:np-mswmp<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:np-mswmp<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:np-mswmp=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
@@ -3598,7 +3641,7 @@ host<\t>plugin:npatgpc<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:npatgpc<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npatgpc=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
@@ -3617,7 +3660,7 @@ host<\t>plugin:npatgpc<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:npatgpc<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npatgpc=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
@@ -3636,7 +3679,7 @@ host<\t>plugin:npatgpc<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:npatgpc<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:npatgpc=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""ActiveTouch"");
@@ -3699,7 +3742,7 @@ host<\t>plugin:libnpjp2<\t>2<\t>http://example.com
 # または
 origin<\t>plugin:libnpjp2<\t>2<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:libnpjp2=2"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
@@ -3718,7 +3761,7 @@ host<\t>plugin:libnpjp2<\t>1<\t>http://example.com
 # または
 origin<\t>plugin:libnpjp2<\t>1<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:libnpjp2=1"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
@@ -3734,7 +3777,7 @@ host<\t>plugin:libnpjp2<\t>3<\t>http://example.com
 # または
 origin<\t>plugin:libnpjp2<\t>3<\t>http://example.com
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file://C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
 
 サイト別の値を恒久的に設定する場合:
 lockPref(""extensions.autopermission.sites.example.com"", ""plugin:libnpjp2=3"");",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""^IcedTea-Web Plugin"");
