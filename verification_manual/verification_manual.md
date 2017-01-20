@@ -716,13 +716,7 @@
 3. パネルメニューの「開発ツール」→「WebIDE」でWebIDEを開く。 
 4. メニューの「プロジェクト」→「追加のコンポーネントを管理」を開く。 
     - 確認項目 
-        1. ツールアダプタアドオンが準備中になっている。(Security-15-2) 
-5. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
-    - 確認項目 
-        1. 「browser.trackingprotection.gethashURL」の値が空文字である。(Security-15-2) 
-        2. 「browser.trackingprotection.updateURL」の値が空文字である。(Security-15-2) 
-        3. 「privacy.trackingprotection.introURL」の値が空文字である。(Security-15-2) 
-        4. 「services.push.serverURL」の値が空文字である。(Security-15-2) 
+        1. 無反応である、もしくはツールアダプタアドオンが準備中になっている。(Security-15-2) 
 
 ### 4.11.4 後始末
 
@@ -748,7 +742,7 @@
 3. ページの読み込みが完了したら、ロケーションバー上の鍵アイコンの箇所をクリックする。 
     - 確認項目 
         1. パネル上に「サイト別設定」が表示されない。(Security-20-2) 
-        2. パネル右の「\>」をクリックした先の画面で「詳細を表示」ボタンが表示されない。(Security-20-2) 
+        2. Firefox 45以前では、パネル右の「\>」をクリックした先の画面で「詳細を表示」ボタンが表示されない。(Security-20-2) 
 4. ページ上のコンテキストメニューから「ページの情報を表示」を選択する。 
     - 確認項目 
         1. 「サイト別設定」タブが表示されない。(Security-20-2) 
@@ -759,12 +753,12 @@
 
 ### 5.1.1 確認する項目
 
-- Privacy-1-2/3 
+- Privacy-1-1/2/3/4
 - Privacy-2-2 
-- Privacy-3-\* 
+- Privacy-3-2
 - Privacy-4-2 
 - Privacy-5-2 
-- Privacy-6-3 
+- Privacy-6-2/3/4 
 - Privacy-7-\* 
 - Privacy-8-2 
 - Privacy-10-2 
@@ -774,11 +768,11 @@
 - Privacy-17-\* 
 - Privacy-18-2 
 - Privacy-19-2 
-- Privacy-20-3/4 
+- Privacy-20-\*
 - Privacy-21-2 
 - Privacy-31-2 
+- Privacy-32-\* 
 - Privacy-33-2/3 
-- Privacy-35-\* 
 
 ### 5.1.2 準備
 
@@ -787,31 +781,35 @@
 2. 以下のアドオンを無効化する。 
     1. Disable about:config 
     2. globalChrome.css 
-    3. UI Text Overrider 
+    3. UI Text Overrider
+3. Privacy-32-\*の検証を行う場合は、MCD設定ファイルに以下の設定を追加しておく。
+    - `lockPref("logging.nsHttp", 5);`
+    - `lockPref("logging.config.sync", true);`
+    - `lockPref("logging.config.add_timestamp", true);`
+    - `lockPref("logging.config.LOG_FILE","C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log");`
 
 ### 5.1.3 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。\
-    Privacy-35-\*の検証を行う場合は、ショートカットから起動する代わりに以下の手順で起動する。 
-    -   1. cmd.exeを起動し、コマンドプロンプトを開く。 
-        2. 以下の3つのコマンド列を実行する。 
-            1. set NSPR\_LOG\_MODULES=nsHttp:5 
-            2. set NSPR\_LOG\_FILE=(ユーザのホームのフルパス)\\http.log 
-            3. {{desktop_shortcut_path}}             のリンク先と同じコマンド列を実行する。 
+1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「プライバシー」を開く。
     - 確認項目
-        1. 「トラッキング」で「サイトにトラッキングしないよう要求する（トラッキングの拒否をサイトに通知する）」のチェックが外れている。 (Privacy-20-3/4) 
+        1. 「Do Not Trackの設定を管理」リンクをクリックして開かれたダイアログ内で、「Do Not Trackを常に有効にする」のチェックが入っている。 (Privacy-20-1/2) 
+           または、チェックが外れている。 (Privacy-20-3/4) 
         2. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。(Privacy-1-2)\
             または、「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。(Privacy-1-3) 
+        3. 「履歴」で「Firefoxの終了時に履歴を消去する」のチェックが外れていて選択不可になっている。(Privacy-1-2/3) 
+           または、チェックが入っていて選択不可になっている。(Privacy-1-4) 
+        3. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入って選択不可になっている。(Privacy-1-4) 
 4. オプション画面の「詳細」→「ネットワーク」を開く。 
     - 確認項目 
         1. 「Webサイトがオフライン作業用のデータの保存を求めてきたときに知らせる」のチェックが外れていて選択不可になっている。(Privacy-6-3) 
+        2. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-2/4) 
 5. オプション画面の「詳細」の「データの選択」を開く。 
     - 確認項目 
         1. 「Firefoxヘルスレポートを有効にする」のチェックが外れている。(Privacy-18-2) 
         2. 「追加データを共有する（パフォーマンス情報など）」のチェックが外れている。(Privacy-18-2) 
-        3. 「クラッシュレポートの送信を有効にする」のチェックが外れている。(Privacy-21-2) 
+        2. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。(Privacy-21-2) 
 6. テストケースの「password.html」を開く。 
 7. ユーザID、パスワードを入力して送信する。 
     - 確認項目 
@@ -820,17 +818,18 @@
         3. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。(Privacy-2-2) 
 8. ファイルに名前を付けて保存し、Firefoxを再起動する。(Privacy-3-2) 
     - 確認項目 
-        1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在する。(Privacy-3-1)\
-            または、存在しない。(Privacy-3-2) 
+        1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在しない。(Privacy-3-2) 
 9. ロケーションバーに「password」と入力する。(Privacy-4-2) 
     - 確認項目 
         1. ロケーションバーのオートコンプリートの項目が表示されない。(Privacy-4-2) 
+9. テストケースの「storage.html」を開く。 
+    - 確認項目 
+        1. 「window.localStorage = [object Storage]」と出力される。(Privacy-12-1) 
+           または、「window.localStorage = null」と表示される。(Privacy-12-2) 
 10. ロケーションバーに「about:config」と入力し、詳細設定一覧を開く。 
 11. 各設定値を確認する。 
     - 確認項目 
         1. 「places.history.expiration.max\_pages」の値が「{{history_expiration_max_pages}}」である。(Privacy-8-2) 
-        2. 「dom.storage.enabled」の値が「true」である。(Privacy-12-1)\
-            または、「false」である。(Privacy-12-2) 
         3. 「browser.search.geoip.url」の値が空文字である。(Privacy-15-2) 
         4. 「security.ssl.errorReporting.automatic」の値が「false」である。(Privacy-19-2) 
         5. 「security.ssl.errorReporting.enabled」の値が「false」である。(Privacy-19-2) 
@@ -840,11 +839,13 @@
             または、「false」である。(Privacy-33-3) 
         9. 「privacy.trackingprotection.pbmode.enabled」の値が「true」である。(Privacy-33-2)\
             または、「false」である。(Privacy-33-3) 
-12. .以下の設定を行う。既存の値がない場合は新規に作成する。 
+12. 以下の設定を行う。既存の値がない場合は新規に作成する。 
     - 「network.dns.notifyResolution」（真偽型）を「true」に設定する。 
     - 「devtools.chrome.enabled」（真偽型）を「true」に設定する。 
-13. .パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
-    - Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false); 
+13. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
+14. 以下のコードをコンソール内で実行する。
+    - Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false);
+15. コンソール上の「ネットワーク」が選択された状態にする。すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する。
 16. ブラウザウィンドウで「 http://www.clear-code.com/blog/2016/5/10.html 」を開く。 
     - 確認項目 
         1. 「GET http://www.clear-code.com/blog/2016/5/18.html 」というログがコンソールに出力される。(Privacy-7-1)\
@@ -854,15 +855,16 @@
         1. 「dns-resolution-request: dns-prefetch.example.com」というログがブラウザコンソールに出力される。(Privacy-16-1)\
             または、出力されない。(Privacy-16-2) 
 18. ブラウザコンソールを閉じる。 
-19. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開く。 
-20. 開かれたタブを閉じる。 
-21. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開く。 
-22. 開かれたタブをドラッグしてウィンドウ外にドロップし、ウィンドウとして開く。 
-23. 開かれたウィンドウを閉じる。 
+19. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開いてから、タブを閉じる。 
+21. 新しいブラウザウィンドウを開いてロケーションバーに「about:」と入力し、ページの読み込みが完了したらウィンドウを閉じる。 これを2回繰り返す。
 24. 「履歴」メニューを開く。 
     - 確認項目 
         1. 「最近閉じたタブ」が表示されない。(Privacy-10-2) 
-        2. 「最近閉じたウィンドウ」が表示されない。(Privacy-10-2) 
+        2. 「最近閉じたウィンドウ」にウィンドウの項目が1つだけ表示される。(Privacy-10-2) 
+24. Firefoxを再起動する。
+24. 「履歴」メニューを開く。 
+    - 確認項目 
+        1. 「最近閉じたウィンドウ」が表示されない。(Privacy-10-2) 
 25. ツールバー上の検索窓にフォーカスし「a」と入力する。 
     - 確認項目 
         1. 「a」の補完候補が表示される。(Privacy-17-1)\
@@ -893,8 +895,8 @@
 33. Firefoxを終了する。 
 34. (ユーザのホームのフルパス)\\http.log の位置に出力されているログファイルを開く。 
     - 確認項目 
-        1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の登場回数のうち、後者の方が顕著に多い。（Privacy-35-1）\
-            または、両者の登場回数が等しい。（Privacy-35-2） 
+        1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の登場回数のうち、前者の方が多い。（Privacy-32-1）\
+            または、両者の登場回数が等しい。（Privacy-32-2） 
 
 ### 5.1.4 後始末
 
@@ -905,6 +907,7 @@
     1. Disable about:config 
     2. globalChrome.css 
     3. UI Text Overrider 
+3. ログ収集用にMCD用設定ファイルに追加した設定を削除する。
 
 ## 5.2 履歴の保存日数の制御
 
@@ -922,13 +925,10 @@
     1. Disable Addons 
     2. Disable about:config 
 3. 十分な日数分の履歴項目を以下の手順で用意する。 
-    1. Windowsが仮想環境である場合、ホストマシンとの日付・時刻の同期を停止する。（例えば、VirtualBoxであればタスクマネージャを開いて「サービス」→「サービス」で「VirtualBox Guest Addition」を停止する。） 
-    2. Windowsのタスクバーの時計を右クリックし、「日付と時刻の調整」を選択する。 
-    3. 「日付と時刻」ダイアログが開かれるので、「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを外す。（※要：管理者権限） 
-    4. 「日付と時刻」タブで「日付と時刻の変更」ボタンをクリックする。（※要：管理者権限） 
-    5. 「日付と時刻の設定」ダイアログが開かれるので、カレンダー上で日付を5＋2日以上前の日付に変更し、「OK」をクリックしてダイアログを閉じる。 
-    6. Firefox上で何らかのWebページを開き、リンクを辿ってページを遷移する。 
-    7. 2から4の操作を、設定する日付を1日ずつ進めながら繰り返す。 
+    1. 無効にする。例えばWindowsであれば、タスクバーの時計を右クリックして「日付と時刻の調整」を選択し、「日付と時刻」ダイアログの「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを外す。（※要：管理者権限） 
+    2. システムの日付を5＋2日以上前の日付に変更する。
+    3. Firefox上で何らかのWebページを開き、リンクを辿ってページを遷移する。 
+    4. この操作を、日付を1日ずつ進めながら繰り返す。 
 
 ### 5.2.3 検証
 
@@ -957,10 +957,8 @@
 
 ### 5.2.4 後始末
 
-1. Windowsが仮想環境である場合、ホストマシンとの日付・時刻の同期を再開する。（例えば、VirtualBoxであればタスクマネージャを開いて「サービス」→「サービス」で「VirtualBox Guest Addition」を開始する。） 
-2. Windowsのタスクバーの時計を右クリックし、「日付と時刻の調整」を選択する。 
-3. 「日付と時刻」ダイアログが開かれるので、「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを入れる。（※要：管理者権限） 
-4. 以下のアドオンを有効化する。 
+1. システムの日付と時刻について、インターネット経由での調整を有効に戻す。
+2. 以下のアドオンを有効化する。 
     1. Disable Addons 
     2. Disable about:config 
 
@@ -968,12 +966,14 @@
 
 ### 5.3.1 確認する項目
 
-- Privacy-14-3 
+- Privacy-14-\*
 
 ### 5.3.2 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 以下のアドオンを無効化する。 
+    1. Disable about:config 
 
 ### 5.3.3 検証
 
@@ -981,7 +981,21 @@
 2. ロケーションバーに「 https://developer.mozilla.org/ja/docs/WebAPI/Using\_geolocation 」と入力し、ページを開く。 
 3. 「Geolocationのライブサンプル」欄の「Show my location」ボタンをクリックする。 
     - 確認項目 
-        1. 何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3) 
+        1. 「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/2/4) 
+           または、何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3)
+4. 確認無しでの位置情報の取得を許可するサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
+    - 確認項目 
+        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Privacy-14-2/4)
+5. 「位置情報の送信」で、「ブロック」を選択してFirefoxを再起動する。
+6. 確認無しでの位置情報の取得を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
+    - 確認項目 
+        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Privacy-14-2)
+           または、「ブロック」が選択されている。(Privacy-14-4)
+
+### 5.2.4 後始末
+
+1. 以下のアドオンを有効化する。 
+    1. Disable about:config 
 
 ## 5.4 Firefox Syncの利用制限
 
