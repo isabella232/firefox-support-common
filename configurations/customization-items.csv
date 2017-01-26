@@ -3731,10 +3731,3 @@ lockPref(""extensions.fireie.subscriptions_listurl"", """");
 lockPref(""extensions.fireie.documentation_link"", """");",,"lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
 lockPref(""extensions.fireie.subscriptions_listurl"", """");
 lockPref(""extensions.fireie.documentation_link"", """");",新規,,,
-Addon-FireIE-5,1,アドオン：FireIE,その他のバックグラウンドでの通信,-,許可する（既定）,FireIEをインストールする,-,,-,新規,,,
-Addon-FireIE-5,2,,,,禁止する,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
-lockPref(""extensions.fireie.subscriptions_listurl"", """");
-lockPref(""extensions.fireie.documentation_link"", """");",,"lockPref(""extensions.fireie.subscriptions_fallbackurl"", """");
-lockPref(""extensions.fireie.subscriptions_listurl"", """");
-lockPref(""extensions.fireie.documentation_link"", """");",新規,,,
