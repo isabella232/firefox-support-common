@@ -766,6 +766,38 @@
         1. 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されている。（Security-16-1)
            または、表示されていない。（Security-16-3）
 
+## 4.14 アドオンとプラグインのブロックリストの使用の可否
+
+### 4.14.1 確認する項目
+
+- Security-21-\*
+
+### 4.14.2 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。 
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 以下のアドオンを無効化する。 
+    1. globalChrome.css 
+    2. UI Text Overrider 
+    3. Disable Add-ons
+3. Silverlightのバージョン一覧 https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm から、セキュリティ上の脆弱性があるバージョンである「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」をダウンロードし、インストールしておく。
+
+### 4.14.3 検証
+
+1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+2. アドオンマネージャを開き、「プラグイン」ペインを選択する。
+    - 確認項目 
+        1. Silverlightの項目に対し、安全でないバージョンである旨の警告が表示されている。（Security-21-1)
+           または、表示されていない。（Security-21-2）
+
+### 4.14.4 後始末
+
+1. 以下のアドオンを有効化する。 
+    1. globalChrome.css 
+    2. UI Text Overrider 
+    3. Disable Add-ons
+2. 検証のためにインストールしたSliverlightプラグインをアンインストールする。
+
 # 5 プライバシー情報に関わるカスタマイズ
 
 ## 5.1 プライバシー情報の利用制限
