@@ -1025,11 +1025,11 @@
     - 確認項目
         1. ロケーションバーに「about:accounts」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
             (Privacy-22-2) 
-        2. ロケーションバーに「about:accounts」と入力し、Enterして、何も起こらない（ページが読み込まれない）。
+        2. ロケーションバーに「about:accounts」と入力し、Enterして、何も起こらない（ページが読み込まれない）か、タブが閉じられる。
             (Privacy-22-2) 
         3. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。 
         4. 「about:accounts」のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Privacy-22-2) 
-        5. 「about:accounts」のリンクを左クリックし、空白のページが読み込まれる。(Privacy-22-2) 
+        5. 「about:accounts」のリンクを左クリックし、空白のページが読み込まれるか、タブが閉じられる。(Privacy-22-2) 
 
 ## 5.5 Firefox Accountsの利用制限
 
@@ -1050,7 +1050,7 @@
 2. ロケーションバーに「about:accounts」と入力し、ページを開く。 
 3. 「始める」をクリックする。 
     - 確認項目
-        1. 画面が空白になり、アカウント登録の画面に遷移しない。
+        1. 「Bad configuration」というエラーメッセージが表示され、アカウント登録の画面に遷移しない。
             (Privacy-24-2) 
 
 ### 5.5.4 後始末
@@ -1124,12 +1124,13 @@
 
 ### 5.8.1 確認する項目
 
-- Privacy-30-2 
+- Privacy-30-\*
 
 ### 5.8.2 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 設定値が1MB未満の場合、値が1MB以上になるよう調整する。
 
 ### 5.8.3 検証
 
@@ -1137,7 +1138,8 @@
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「詳細」→「ネットワーク」を開く。
     1. 確認項目
-        1. 「キャッシュサイズを制限する」にチェックが入っていて、選択不可になっている。(Privacy-30-2) 
+        1. 「キャッシュサイズを変更する」にチェックが入っておらず、選択不可になっている。(Privacy-30-1) 
+           または、チェックが入っていて、選択不可になっている。(Privacy-30-2) 
         2. 「ページキャッシュとして{{max_cache_size}}MBまで使用する」と表示されている。(Privacy-30-2) 
 
 # 6 Webブラウズ機能に関するカスタマイズ
@@ -1211,7 +1213,7 @@
     - 確認項目 
         1. 「ダウンロード」が存在する。(Download-1-1)\
             または、存在しない。(Download-1-2) 
-3. ロケーションバーに「[http://www.clear-code.com/](http://www.clear-code.com/)」と入力し、ページを開く。 
+3. ロケーションバーに「 http://www.clear-code.com/ 」と入力し、ページを開く。 
 4. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。 
     - 確認項目 
         1. ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2)\
@@ -1272,17 +1274,15 @@
             または、確認されない。(Tab-3-2/3) 
 10. タブバー上の「+」ボタンをクリックして新しいタブを開く。またはパネルメニューを開き、パネルメニュー内の「新しいウィンドウ」をクリックする。 
     - 確認項目 
-        1. 右上に歯車アイコンのある空白ページが表示される。(Tab-5-1)(Tab-7-2)\
-            または、右上に歯車アイコンのない空白ページが表示される。(Tab-5-2)\
-            または、タイルが表示される。(Tab-7-1/3/4/5) 
-        2. タイルの中に未訪問のページが含まれる。(Tab-7-4)\
-            または、既訪問のページのみが表示される。(Tab-7-3/5) 
+        1. 右上に歯車アイコンのある空白ページが表示される。(Tab-5-1)
+           または、右上に歯車アイコンのない空白ページが表示される。(Tab-5-2)(Tab-7-2)
+           または、タイルが表示される。(Tab-7-1/3/4/5) 
+        2. タイルの中に未訪問のページが含まれる。(Tab-7-4)
+           または、既訪問のページのみが表示される。(Tab-7-3/5) 
 11. 新しいタブ内の歯車ボタンをクリックする。 
     - 確認項目 
-        1. 「よく見るサイトを表示」が表示されない。(Tab-7-2)\
-            または、「空白ページを表示」が表示されない。(Tab-7-3/4) 
-        2. 「おすすめサイトも表示」が表示される。(Tab-7-1/4)\
-            または、表示されない。(Tab-7-2/3/5) 
+        1. 「おすすめサイトも表示」が表示される。(Tab-7-1)
+           または、表示されない。(Tab-7-5) 
 12. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 13. オプション画面の「一般」を開く。
     - 確認項目
@@ -1317,8 +1317,8 @@
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「プログラム」を開く。
     - 確認項目 
-        1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」）の取り扱い方法が「Firefoxでプレビュー表示」となっている。(Ui-1-1)\
-            または、選択肢に「Firefoxでプレビュー表示」が存在しない。(Ui-1-2) 
+        1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」、「PDFファイル」となっている場合もあるため注意）の取り扱い方法が「Firefoxでプレビュー表示」となっている。(Ui-1-1)
+           または、選択肢に「Firefoxでプレビュー表示」が存在しない。(Ui-1-2) 
 
 ### 6.5.4 後始末
 
@@ -1390,8 +1390,8 @@
 ### 6.7.3 検証
 
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. ホームページまたは外部の埋め込みリソースを2つ以上埋め込んだWebページ（例： http://www.clear-code.com/blog/ ）を訪問し、ファイルがキャッシュされた状態にする。 
-3. Firefoxを終了し、もう一度起動する。 
+2. Firefox起動時に前回終了時のタブを復元するよう設定し、faviconを持つWebページのタブを2つ以上開く。 
+3. Firefoxを再起動する。
     - 検証項目 
         1. HTTP Proxyの認証プロンプトが表示される。(Ui-4-1) 
         2. 1つの認証プロンプトで認証した後2つ目以降の認証プロンプトの入力を求められない。(Ui-4-1) 
@@ -1429,6 +1429,13 @@
             または、「false」である。(Script-2-3) 
         3. 「dom.gamepad.enabled」の値が「true」である。(Script-3-1)\
             または、「false」である。(Script-3-2) 
+4. 確認なしでpush通知を許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。 
+        1. 「サイト別設定」タブで「通知を受信する」において「許可」にチェックが入っている。(Script-2-2/4) 
+5. 「通知を受信する」で、「ブロック」を選択してFirefoxを再起動する。
+6. 確認なしでpush通知を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
+    - 確認項目 
+        1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Script-2-2)
+           または、「ブロック」が選択されている。(Script-2-4)
 
 ### 6.8.4 後始末
 
@@ -1490,7 +1497,7 @@
             または、「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4)\
             または、「システムのプロキシ設定を利用する」が選択されている。(Network-2-5) 
         2. 各プロキシが指定通りに設定されている。(Network-2-2) 
-        3. 「自動プロキシ設定スクリプトURL」の欄に「{{home_page}}?/proxy.pac」と入力されている。(Network-2-3) 
+        3. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。(Network-2-3) 
 
 ### 7.1.4 後始末
 
@@ -1594,9 +1601,68 @@
 5. 「 {{shockwave__download_url}} 」からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*) 
 6. 「[SilverlightDownloadUrl]({{silverlight_download_url}})」からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*) 
 7. 「 {{wmp__download_url}} 」からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*) 
+//
 8. Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*) 
 9. 以下のアドオンを無効化する。 
     1. Disable Addons 
+10. 各プラグインの制御が可能であるかどうか自体の検証のため、各設定ファイルに以下の内容を追記する。
+    - {{mcd_local_file}}:
+      
+      ~~~
+lockPref("plugin.load_flash_only", false);
+
+lockPref("plugin.state.java", 2);
+lockPref("plugin.state.npdeployjava", 2);
+lockPref("plugin.state.flash", 2);
+lockPref("plugin.state.nppdf", 2);
+lockPref("plugin.state.np32dsw", 2);
+lockPref("plugin.state.npctrl", 2);
+lockPref("plugin.state.np-mswmp", 2);
+lockPref("plugin.state.npatgpc", 2);
+
+lockPref("extensions.autopermission.sites.example.com", [
+  "plugin:java=3",
+  "plugin-vulnerable:java=3",
+  "plugin:npdeployjava=3",
+  "plugin-vulnerable:npdeployjava=3",
+  "plugin:flash=3",
+  "plugin-vulnerable:flash=3",
+  "plugin:nppdf=3",
+  "plugin-vulnerable:nppdf=3",
+  "plugin:np32dsw=3",
+  "plugin-vulnerable:np32dsw=3",
+  "plugin:npctrl=3",
+  "plugin-vulnerable:npctrl=3",
+  "plugin:np-mswmp=3",
+  "plugin-vulnerable:np-mswmp=3",
+  "plugin:npatgpc=3",
+  "plugin-vulnerable:npatgpc=3"
+].join(','));
+clearPref("extensions.autopermission.sites.example.com.lastValue");
+      ~~~
+      
+    - default.permissions:
+      
+      ~~~
+host	plugin:java	3	http://example.net
+host	plugin-vulnerable:java	3	http://example.net
+host	plugin:npdeployjava	3	http://example.net
+host	plugin-vulnerable:npdeployjava	3	http://example.net
+host	plugin:flash	3	http://example.net
+host	plugin-vulnerable:flash	3	http://example.net
+host	plugin:nppdf	3	http://example.net
+host	plugin-vulnerable:nppdf	3	http://example.net
+host	plugin:np32dsw	3	http://example.net
+host	plugin-vulnerable:np32dsw	3	http://example.net
+host	plugin:npctrl	3	http://example.net
+host	plugin-vulnerable:npctrl	3	http://example.net
+host	plugin:np-mswmp	3	http://example.net
+host	plugin-vulnerable:np-mswmp	3	http://example.net
+host	plugin:npatgpc	3	http://example.net
+host	plugin-vulnerable:npatgpc	3	http://example.net
+      ~~~
+      
+
 
 ### 9.1.3 検証
 
@@ -1633,17 +1699,22 @@
     - 確認項目 
         1. 「コンテンツ」配下に「DRMコンテンツ」グループがある。(Plugin-8-1)\
             または、無い。(Plugin-8-2) 
+4. 各プラグインのサイト別制御が可能であるかどうか自体の検証のため、「 http://example.com 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。 
+        1. 各プラグインの設定が「毎回確認する」になっている。
+4. 各プラグインのサイト別制御が可能であるかどうか自体の検証のため、「 http://example.net 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。 
+        1. 各プラグインの設定が「毎回確認する」になっている。
 
 ### 9.1.4 後始末
 
 1. 以下のアドオンを有効化する。 
     1. Disable Addons
+2. 各プラグインの制御が可能であるかどうか自体の検証のために追加した設定を削除する。
 
 ## 9.2 ファイルをダウンロードして外部アプリケーションで開く際の挙動の制御
 
 ### 9.2.1 確認する項目
 
-- External-1-2 
+- External-1-\* 
 
 ### 9.2.2 準備
 
@@ -1658,10 +1729,15 @@
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. 外部アプリケーションで開く必要があるファイルへのリンクをクリックする。 
 3. 「次のファイルを開こうとしています」のダイアログが表示されたら、起動する外部アプリケーションを選択して「OK」をクリックする。 
-4. 外部アプリケーションを終了し、テンポラリフォルダの内容を確認する。 
+4. テンポラリフォルダの内容を確認する。 
     - 確認項目 
-        1. ダウンロードしたファイルがテンポラリフォルダに保存されている。(External-1-2) 
-        2. テンポラリファイルのプロパティにおいて、「読み取り専用」にチェックが入っていない。(External-1-2) 
+        1. ダウンロードしたファイルがテンポラリフォルダに保存されている。(External-1-1/2) 
+        2. テンポラリファイルのプロパティにおいて、「読み取り専用」にチェックが入っている。(External-1-1) 
+           または、チェックが入っていない。(External-1-2) 
+4. 外部アプリケーションを終了しFirefoxも終了して、テンポラリフォルダの内容を確認する。 
+    - 確認項目 
+        1. ダウンロードしたファイルがテンポラリフォルダから消えている。(External-1-1) 
+           または、テンポラリフォルダに残っている。(External-1-2) 
 
 # 10 キーボードショートカット、メニュー項目のカスタマイズ
 
@@ -1674,6 +1750,7 @@
 - MenuShortcut-3 
 - MenuShortcut-4 
 - MenuShortcut-5 
+- MenuShortcut-10 
 - MenuShortcut-62 
 
 ### 10.1.2 準備
@@ -1704,6 +1781,9 @@
     - 確認項目 
         1. 「最近閉じたタブ」が存在しない。(MenuShortcut-1) 
         2. 「最近閉じたウィンドウ」が存在しない。(MenuShortcut-2) 
+8. 「ツール」メニューを開く。 
+    - 確認項目 
+        1. 「ウェブ開発」が存在しない。(MenuShortcut-10) 
 9. タブの上で右クリックする。 
     - 確認項目 
         1. 「閉じたタブを開き直す」が存在しない。(MenuShortcut-1) 
@@ -1723,13 +1803,13 @@
 14. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
     - 確認項目 
         1. 「ページのURLをメールで送信」が存在しない。(MenuShortcut-4) 
+        2. 「開発ツール」が存在しない。(MenuShortcut-10) 
 
 ## 10.2 ツール
 
 ### 10.2.1 確認する項目
 
 - MenuShortcut-7 
-- MenuShortcut-10 
 - MenuShortcut-11 
 - MenuShortcut-12 
 - MenuShortcut-13 
@@ -1747,6 +1827,7 @@
 - MenuShortcut-26 
 - MenuShortcut-28 
 - MenuShortcut-29 
+- MenuShortcut-64
 
 ### 10.2.2 準備
 
@@ -1776,8 +1857,7 @@
 2. 「ツール」メニューを開く。 
     - 確認項目 
         1. 「ダウンロード」が存在しない。(MenuShortcut-7) 
-        2. 「Web開発」が存在しない。(MenuShortcut-10) 
-2. 「ツール」メニュー内の「Web開発」を開く。 
+2. 「ツール」メニュー内の「ウェブ開発」を開く。 
     - 確認項目 
         1. 「開発ツールを表示」が存在しない。(MenuShortcut-11) 
         2. 「インスペクタ」が存在しない。(MenuShortcut-12) 
@@ -1796,6 +1876,7 @@
         15. 「ページのソース」が存在しない。(MenuShortcut-26) 
         16. 「接続...」が存在しない。(MenuShortcut-28) 
         17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
+        18. 「Service Workers」が存在しない（MenuShortcut-64）
 3. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックする。
     - 確認項目 
         1. 「開発ツールを表示」が存在しない。(MenuShortcut-11) 
@@ -1815,10 +1896,10 @@
         15. 「ページのソース」が存在しない。(MenuShortcut-26) 
         16. 「接続...」が存在しない。(MenuShortcut-28) 
         17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
+        18. 「Service Workers」が存在しない（MenuShortcut-64）
 4. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
     - 確認項目 
         1. 「ダウンロード」が存在しない。(MenuShortcut-7) 
-        2. 「開発ツール」が存在しない。(MenuShortcut-10) 
 
 ## 10.3 ヘルプ
 
@@ -1852,7 +1933,7 @@
         5. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35) 
         6. 「フィードバックを送信」が存在しない。(MenuShortcut-36) 
         7. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37) 
-        8. 「偽装サイトを報告」が存在しない。(MenuShortcut-38) 
+        8. 「詐欺サイトを報告」が存在しない。(MenuShortcut-38) 
         9. 「誤警告を報告」が存在しない。(MenuShortcut-39) 
         10. 「Firefoxについて」の前にセパレータが存在しない。(MenuShortcut-40) 
 3. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
@@ -1864,7 +1945,7 @@
         5. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35) 
         6. 「フィードバックを送信」が存在しない。(MenuShortcut-36) 
         7. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37) 
-        8. 「偽装サイトを報告」が存在しない。(MenuShortcut-38) 
+        8. 「詐欺サイトを報告」が存在しない。(MenuShortcut-38) 
         9. 「誤警告を報告」が存在しない。(MenuShortcut-39) 
         10. 「Firefoxについて」の前にセパレータが存在しない。(MenuShortcut-40) 
 
@@ -1892,6 +1973,12 @@
 6. テキスト入力欄をクリックしてフォーカスした状態にする。 
     - 確認項目 
         1. 「Ctrl-Shift-X」を押して、テキスト入力欄の書字方向が切り替わらない(MenuShortcut-41) 
+6. テキスト入力欄の中で右クリックしてコンテキストメニューを開く。 
+    - 確認項目 
+        1. 「テキストの記述方向を切り替える」が存在しない。(MenuShortcut-41) 
+6. ページ内の何もない所で右クリックしてコンテキストメニューを開く。 
+    - 確認項目 
+        1. 「ページの記述方向を切り替える」が存在しない。(MenuShortcut-42) 
 7. 「編集」メニューを開く。 
     - 確認項目 
         1. 「テキストの記述方向を切り替える」が存在しない。(MenuShortcut-41) 
@@ -2092,27 +2179,5 @@
     1. Security-4-3 
     2. Privacy-6-3 
     3. Hide-1 
-
-## 11.3 Webブラウズ用UIの非表示化
-
-### 11.3.1 確認する項目
-
-- Hide-6 
-- Hide-8 
-
-### 11.3.2 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。 
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
-
-### 11.3.3 検証
-
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-    - 確認項目
-        1. タブバー上に「+」が表示されていない。(Hide-6) 
-2. ロケーションバーに「about:」と入力し、ページを開く。 
-3. 画像の上で右クリックしてコンテキストメニューを開く。 
-    - 確認項目 
-        1. 「デスクトップの背景に設定」が表示されない。（Hide-8） 
 
 
