@@ -8,7 +8,9 @@ var hiddenItemsWithDelay = [];
 
 // ここに書く
 // CSSセレクタID内の:をエスケープしている\（バックスラッシュ）は\\にすること
-// killedItems.push(""..."");
+// killedItems.push(`
+// ...
+// `.toString());
 
 function setKillItemRule(aIdentifier, aSelector, aDelayed, aDisableCommand) {
   lockPref(""extensions.uitextoverrider@clear-code.com."" + aIdentifier, aSelector);
@@ -162,7 +164,7 @@ MenuShortcut-8（廃止）,ツール＞ページの調査,inspectPage,Firefox 31
 MenuShortcut-9（廃止）,ツール＞アプリ,openApps,Firefox 45で廃止,,,,,,Firefox 45で廃止,,,,,○,-,"#menu_openApps,
 #web-apps-button,
 #wrapper-web-apps-button",false,yes,,,,,,,
-MenuShortcut-10,ツール＞Web開発（開発ツールボタン）,webDeveloper,-,"#webDeveloperMenu,
+MenuShortcut-10,ツール＞ウェブ開発（開発ツールボタン）,webDeveloper,-,"#webDeveloperMenu,
 #developer-button,
 #wrapper-developer-button",killedItems,false,yes,,-,"#webDeveloperMenu,
 #developer-button,
@@ -174,11 +176,11 @@ MenuShortcut-10,ツール＞Web開発（開発ツールボタン）,webDeveloper
 #appmenu_webDeveloper + menuseparator,
 #devToolsSeparator,
 #webDeveloperMenu",false
-MenuShortcut-11,ツール＞Web開発＞開発ツールを表示,devToolbox,"Ctrl-Shift-I,
+MenuShortcut-11,ツール＞ウェブ開発＞開発ツールを表示,devToolbox,"Ctrl-Shift-I,
 F12","#menu_devToolbox,
 #key_devToolboxMenuItem,
 #key_devToolboxMenuItemF12,
-[key='key_devToolboxMenuItem']",killedItems,false,yes,○,"Ctrl-Shift-I,
+[key='key_devToolboxMenuItem']",killedItemsWithDelay,false,yes,○,"Ctrl-Shift-I,
 F12","#key_devToolboxMenuItem,
 #key_devToolboxMenuItemF12,
 #Tools\:DevToolbox",killedItems,false,yes,,"Ctrl-Shift-I,
@@ -188,7 +190,7 @@ F12","#key_devToolboxMenuItem,
 F12","#key_devToolboxMenuItem,
 #key_devToolboxMenuItemF12,
 #Tools\:DevToolbox",false,yes,-,-,-
-MenuShortcut-12,ツール＞Web開発＞インスペクタ,inspector,Ctrl-Shift-C,"#key_inspector,
+MenuShortcut-12,ツール＞ウェブ開発＞インスペクタ,inspector,Ctrl-Shift-C,"#key_inspector,
 #menu_inspector,
 [key='key_inspector']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-C,"#key_inspector,
 #Tools\:inspector,
@@ -202,7 +204,7 @@ MenuShortcut-12,ツール＞Web開発＞インスペクタ,inspector,Ctrl-Shift-
 #Tasks\:Inspector",変更無し,yes,Ctrl-Shift-I,"#key_inspector,
 #Tools\:inspector,
 #Tasks\:Inspector",true
-MenuShortcut-13,ツール＞Web開発＞Webコンソール,webconsole,Ctrl-Shift-K,"#key_webconsole,
+MenuShortcut-13,ツール＞ウェブ開発＞Webコンソール,webconsole,Ctrl-Shift-K,"#key_webconsole,
 #menu_webconsole,
 [key='key_webconsole']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-K,"#key_webconsole,
 #Tools\:webconsole,
@@ -211,7 +213,7 @@ MenuShortcut-13,ツール＞Web開発＞Webコンソール,webconsole,Ctrl-Shift
 #devtoolsMenuBroadcaster_webconsole",true,yes,変更無し,"#key_webconsole,
 #Tools\:webconsole,
 #devtoolsMenuBroadcaster_webconsole",変更無し,yes,Ctrl-Shift-K,#key_webconsole,true
-MenuShortcut-14,ツール＞Web開発＞デバッガ,jsdebugger,Ctrl-Shift-S,"#key_jsdebugger,
+MenuShortcut-14,ツール＞ウェブ開発＞デバッガ,jsdebugger,Ctrl-Shift-S,"#key_jsdebugger,
 #menu_jsdebugger,
 [key='key_jsdebugger']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-S,"#key_jsdebugger,
 #Tools\:jsdebugger,
@@ -220,7 +222,7 @@ MenuShortcut-14,ツール＞Web開発＞デバッガ,jsdebugger,Ctrl-Shift-S,"#k
 #devtoolsMenuBroadcaster_jsdebugger",true,yes,Ctrl-Shift-S,"#key_jsdebugger,
 #Tools\:jsdebugger,
 #devtoolsMenuBroadcaster_jsdebugger",true,yes,-,-,-
-MenuShortcut-15,ツール＞Web開発＞スタイルエディタ,styleeditor,Shift-F7,"#key_styleeditor,
+MenuShortcut-15,ツール＞ウェブ開発＞スタイルエディタ,styleeditor,Shift-F7,"#key_styleeditor,
 #menu_styleeditor,
 [key='key_styleeditor']",killedItemsWithDelay,true,yes,○,Shift-F7,"#key_styleeditor,
 #Tools\:styleeditor,
@@ -230,7 +232,7 @@ MenuShortcut-15,ツール＞Web開発＞スタイルエディタ,styleeditor,Shi
 #Tools\:styleeditor,
 #devtoolsMenuBroadcaster_styleeditor",変更無し,yes,Shift+F7,"#key_styleeditor,
 #Tools\:styleeditor",true
-MenuShortcut-16,"ツール＞Web開発＞パフォーマンス
+MenuShortcut-16,"ツール＞ウェブ開発＞パフォーマンス
 （旧バージョンでは「プロファイラ」）",jsprofiler,Shift-F5,"#key_performance,
 #menu_performance,
 [key='key_performance']",killedItemsWithDelay,true,yes,○,Shift-F5,"#key_performance,
@@ -240,7 +242,7 @@ MenuShortcut-16,"ツール＞Web開発＞パフォーマンス
 #devtoolsMenuBroadcaster_jsprofiler",true,yes,Shift＋F5,"#key_jsprofiler,
 #Tools\:jsprofiler,
 #devtoolsMenuBroadcaster_jsprofiler",true,yes,-,-,-
-MenuShortcut-17,ツール＞Web開発＞ネットワーク,netmonitor,Ctrl-Shift-Q,"#key_netmonitor,
+MenuShortcut-17,ツール＞ウェブ開発＞ネットワーク,netmonitor,Ctrl-Shift-Q,"#key_netmonitor,
 #menu_netmonitor,
 [key='key_netmonitor']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-Q,"#key_netmonitor,
 #Tools\:netmonitor,
@@ -249,7 +251,7 @@ MenuShortcut-17,ツール＞Web開発＞ネットワーク,netmonitor,Ctrl-Shift
 #devtoolsMenuBroadcaster_netmonitor",true,yes,Ctrl-Shift-Q,"#key_netmonitor,
 #Tools\:netmonitor,
 #devtoolsMenuBroadcaster_netmonitor",true,yes,-,-,-
-MenuShortcut-18,ツール＞Web開発＞開発ツールバー,devToolbar,Shift-F2,"#key_devToolbar,
+MenuShortcut-18,ツール＞ウェブ開発＞開発ツールバー,devToolbar,Shift-F2,"#key_devToolbar,
 #menu_devToolbar,
 [key='key_devToolbar']",killedItemsWithDelay,true,yes,○,Shift-F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
@@ -258,9 +260,9 @@ MenuShortcut-18,ツール＞Web開発＞開発ツールバー,devToolbar,Shift-F
 #key_devToolbar",true,yes,Shift+F2,"#menu_devToolbar,
 #devtoolsMenuBroadcaster_DevToolbar,
 #key_devToolbar",true,yes,-,-,-
-MenuShortcut-19（廃止）,ツール＞Web開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止,,,true,yes,,Firefox 38で廃止,,,true,yes,,Firefox 38で廃止,,true,yes,-,"#menu_devAppMgr,
+MenuShortcut-19（廃止）,ツール＞ウェブ開発＞アプリマネージャ,devAppMgr,Firefox 38で廃止,,,true,yes,,Firefox 38で廃止,,,true,yes,,Firefox 38で廃止,,true,yes,-,"#menu_devAppMgr,
 #devtoolsMenuBroadcaster_devAppMgr",true,yes,-,-,-
-MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#key_webide,
+MenuShortcut-20,ツール＞ウェブ開発＞WebIDE,webide,Shift-F8,"#key_webide,
 #menu_webide,
 [key='key_webide']",killedItemsWithDelay,true,yes,○,Shift-F8,"#menu_webide,
 #devtoolsMenuBroadcaster_webide,
@@ -268,14 +270,14 @@ MenuShortcut-20,ツール＞Web開発＞WebIDE,webide,Shift-F8,"#key_webide,
 #devtoolsMenuBroadcaster_webide,
 #key_webide",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
-MenuShortcut-21,ツール＞Web開発＞ブラウザツールボックス,browserToolbox,Ctrl-Shift-Alt-I,"#key_browserToolbox,
+MenuShortcut-21,ツール＞ウェブ開発＞ブラウザツールボックス,browserToolbox,Ctrl-Shift-Alt-I,"#key_browserToolbox,
 #menu_browserToolbox,
 [key='key_browserToolbox']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-Alt-I,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_BrowserToolbox,
 #key_browserToolbox",killedItemsWithDelay,true,yes,○,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,"#menu_browserToolbox,
 #devtoolsMenuBroadcaster_browserToolbox",true,yes,-,-,-
-MenuShortcut-22,ツール＞Web開発＞ブラウザコンソール,browserConsole,Ctrl-Shift-J,"#key_browserConsole,
+MenuShortcut-22,ツール＞ウェブ開発＞ブラウザコンソール,browserConsole,Ctrl-Shift-J,"#key_browserConsole,
 #menu_browserConsole,
 [key='key_browserConsole']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-J,"#menu_browserConsole,
 #devtoolsMenuBroadcaster_BrowserConsole,
@@ -284,7 +286,7 @@ MenuShortcut-22,ツール＞Web開発＞ブラウザコンソール,browserConso
 #key_browserConsole",true,yes,変更無し,"#menu_browserConsole,
 #devtoolsMenuBroadcaster_browserConsole,
 #key_browserConsole",true,yes,Ctrl-Shift-J,#key_browserConsole,false
-MenuShortcut-23,ツール＞Web開発＞レスポンシブデザインビュー,resposiveUI,Ctrl-Shift-M,"#key_responsiveUI,
+MenuShortcut-23,ツール＞ウェブ開発＞レスポンシブデザインビュー,resposiveUI,Ctrl-Shift-M,"#key_responsiveUI,
 #menu_responsiveUI,
 [key='key_responsiveUI']",killedItemsWithDelay,true,yes,○,Ctrl-Shift-M,"#menu_responsiveUI,
 #devtoolsMenuBroadcaster_ResponsiveUI,
@@ -293,19 +295,19 @@ MenuShortcut-23,ツール＞Web開発＞レスポンシブデザインビュー,
 #key_responsiveUI",true,yes,Ctrl-Shift-M,"#menu_responsiveUI,
 #devtoolsMenuBroadcaster_responsiveUI,
 #key_responsiveUI",true,yes,-,-,-
-MenuShortcut-24,ツール＞Web開発＞スポイト,eyedropper,-,"#menu_eyedropper,
+MenuShortcut-24,ツール＞ウェブ開発＞スポイト,eyedropper,-,"#menu_eyedropper,
 .subviewbutton[label='スポイト'],
 .subviewbutton[label='Eyedropper']",killedItemsWithDelay,true,yes,○,-,"#menu_eyedropper,
 #devtoolsMenuBroadcaster_Eyedropper",killedItemsWithDelay,true,yes,○,-,"#menu_eyedropper,
 #devtoolsMenuBroadcaster_eyedropper",true,yes,-,"#menu_eyedropper,
 #devtoolsMenuBroadcaster_eyedropper",true,yes,-,-,-
-MenuShortcut-25,ツール＞Web開発＞スクラッチパッド,scratchpad,Shift-F4,"#key_scratchpad,
+MenuShortcut-25,ツール＞ウェブ開発＞スクラッチパッド,scratchpad,Shift-F4,"#key_scratchpad,
 #menu_scratchpad,
-[key='key_scratchpad']",killedItems,false,yes,○,Shift-F4,"#key_Scratchpad,
+[key='key_scratchpad']",killedItemsWithDelay,false,yes,○,Shift-F4,"#key_Scratchpad,
 #Tools\:Scratchpad",killedItems,false,yes,○,Shift-F4,"#key_scratchpad,
 #Tools\:Scratchpad",false,yes,変更無し,変更無し,変更無し,yes,Shift+F4,"#key_scratchpad,
 #Tools\:Scratchpad",false
-MenuShortcut-26,ツール＞Web開発＞ページのソース,viewSource,Ctrl-U,"#key_viewSource,
+MenuShortcut-26,ツール＞ウェブ開発＞ページのソース,viewSource,Ctrl-U,"#key_viewSource,
 [key='key_viewSource'],
 #View\:PageSource,
 #devtoolsMenuBroadcaster_PageSource,
@@ -332,7 +334,7 @@ MenuShortcut-26,ツール＞Web開発＞ページのソース,viewSource,Ctrl-U,
 #context-viewpartialsource-selection,
 #context-viewpartialsource-mathml",true,yes,Ctrl+U,"#key_viewSource,
 #View\:\:PageSource",false
-MenuShortcut-27（廃止）,ツール＞Web開発＞エラーコンソール,errorConsole,Firefox 48で廃止,,,true,yes,○,-,"#javascriptConsole,
+MenuShortcut-27（廃止）,ツール＞ウェブ開発＞エラーコンソール,errorConsole,Firefox 48で廃止,,,true,yes,○,-,"#javascriptConsole,
 #devtoolsMenuBroadcaster_ErrorConsole,
 #Tools\:ErrorConsole",killedItemsWithDelay,true,yes,,-,"#javascriptConsole,
 #devtoolsMenuBroadcaster_ErrorConsole,
@@ -340,13 +342,13 @@ MenuShortcut-27（廃止）,ツール＞Web開発＞エラーコンソール,err
 #devtoolsMenuBroadcaster_ErrorConsole,
 #Tools\:ErrorConsole",true,yes,Ctrl-Shift-J,"#key_errorConsole,
 #menu_ToolsPopup [id^='javaconsole']""",false
-MenuShortcut-28,ツール＞Web開発＞接続...,devtools_connect,-,"#menu_devtools_connect,
+MenuShortcut-28,ツール＞ウェブ開発＞接続...,devtools_connect,-,"#menu_devtools_connect,
 .subviewbutton[label='接続...'],
 .subviewbutton[label='Connect…']",killedItemsWithDelay,true,yes,○,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",killedItemsWithDelay,true,yes,,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",true,yes,-,"#menu_devtools_connect,
 #devtoolsMenuBroadcaster_connect",true,yes,-,-,-
-MenuShortcut-29,ツール＞Web開発＞その他のツールを入手,getMoreDevtools,-,"#getMoreDevtools,
+MenuShortcut-29,ツール＞ウェブ開発＞その他のツールを入手,getMoreDevtools,-,"#getMoreDevtools,
 .subviewbutton[label='その他のツールを入手'],
 .subviewbutton[label='Get More Tools']",killedItemsWithDelay,true,yes,○,-,"#getMoreDevtools,
 #devtoolsMenuBroadcaster_GetMoreTools",killedItemsWithDelay,true,yes,,-,"#getMoreDevtools,
@@ -395,7 +397,7 @@ MenuShortcut-37,ヘルプ＞アドオンを無効にして再起動,helpSafeMode
 .subviewbutton[oncommand^='safeModeRestart']",hiddenItemsWithDelay,true,no,,-,"#helpSafeMode,
 .subviewbutton[oncommand^='safeModeRestart']",true,no,-,"#helpSafeMode,
 .subviewbutton[oncommand^='safeModeRestart']",true,no,-,#helpSafeMode,false
-MenuShortcut-38,ヘルプ＞偽装サイトを報告,reportPhishingtoolmenu,-,"#menu_HelpPopup_reportPhishingtoolmenu,
+MenuShortcut-38,ヘルプ＞詐欺サイトを報告,reportPhishingtoolmenu,-,"#menu_HelpPopup_reportPhishingtoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",hiddenItemsWithDelay,true,no,,-,"#menu_HelpPopup_reportPhishingtoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",hiddenItemsWithDelay,true,no,,-,"#menu_HelpPopup_reportPhishingtoolmenu,
 .subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']",true,no,-,"#menu_HelpPopup_reportPhishingtoolmenu,
@@ -408,13 +410,15 @@ MenuShortcut-39,ヘルプ＞誤警告を報告,reportPhishingErrortoolmenu,-,"#m
 MenuShortcut-40,ヘルプ＞Firefoxについて のセパレータ,aboutSeparator,-,#aboutSeparator,killedItems,false,yes,,-,#aboutSeparator,killedItems,false,yes,,-,#aboutSeparator,false,yes,-,変更無し,変更無し,yes,-,#aboutSeparator,false
 MenuShortcut-41,編集＞テキストの記述方向を切り替える,textfieldDirection,Ctrl-Shift-X,"#textfieldDirection-separator,
 #textfieldDirection-swap,
-#key_switchTextDirection",killedItems,false,yes,,Ctrl-Shift-X,"#textfieldDirection-separator,
+#key_switchTextDirection,
+#context-bidi-text-direction-toggle",killedItems,false,yes,○,Ctrl-Shift-X,"#textfieldDirection-separator,
 #textfieldDirection-swap,
 #key_switchTextDirection",killedItems,false,yes,○,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false
 MenuShortcut-42,表示＞ページの記述方向を切り替える,documentDirection,-,"#documentDirection-separator,
-#documentDirection-swap",killedItems,false,yes,,-,"#documentDirection-separator,
+#documentDirection-swap,
+#context-bidi-page-direction-toggle",killedItems,false,yes,○,-,"#documentDirection-separator,
 #documentDirection-swap",killedItems,false,yes,,-,"#documentDirection-separator,
 #documentDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#documentDirection-separator,
 #documentDirection-swap",false
@@ -468,3 +472,5 @@ MenuShortcut-60（廃止）,ポップアップブロック、アドオンのイ�
 MenuShortcut-61（廃止）,キャレットブラウズモード,caretbrowse,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,,,,,
 MenuShortcut-62,ファイル＞新しいタブ,,Ctrl-T,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,,Ctrl-T,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,○,,,,,,,,,,,
 MenuShortcut-63,コンテンツ領域のコンテキストメニュー＞新しいタブで開く,,-,#context-openlinkintab,killedItems,,,,-,#context-openlinkintab,killedItems,,,○,,,,,,,,,,,
+MenuShortcut-64,ツール＞ウェブ開発＞Service Workers,devtools_connect,-,"#menu_devtools_serviceworkers,
+.subviewbutton[label='Service Workers']",killedItemsWithDelay,,,○,,,,,,,,,,,,,,,,,
