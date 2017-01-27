@@ -1255,7 +1255,6 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 2. 以下のアドオンを無効化する。 
-    1. Disable about:config 
     2. globalChrome.css 
     3. UI Text Overrider 
 
@@ -1280,7 +1279,6 @@
 ### 5.9.4 後始末
 
 1. 以下のアドオンを有効化する。 
-    1. Disable about:config 
     2. globalChrome.css 
     3. UI Text Overrider 
 
