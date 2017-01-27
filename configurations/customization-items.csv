@@ -967,31 +967,53 @@ Security-24,1,セキュリティ,Flashプラグインの保護モード,-,使用
 Security-24,2,,,,使用しない,MCDで設定を反映する,"lockPref(""dom.ipc.plugins.flash.disable-protected-mode"", true); ",,"lockPref(""dom.ipc.plugins.flash.disable-protected-mode"", true); ",新規,,,
 Security-25,1,セキュリティ,プロトコルごとの外部Webアプリケーションへの連携,-,使用する（既定）,-,-,,-,新規,,,
 Security-25,2,,,,使用しない,MCDで設定を反映する,"// Webフィード用のサービス
+lockPref(""browser.contentHandlers.types.0.name"", """");
 lockPref(""browser.contentHandlers.types.0.uri"", """");
+lockPref(""browser.contentHandlers.types.1.name"", """");
 lockPref(""browser.contentHandlers.types.1.uri"", """");
+pref(""browser.contentHandlers.types.2.name"", """");
 pref(""browser.contentHandlers.types.2.uri"", """");
+pref(""browser.contentHandlers.types.3.name"", """");
 pref(""browser.contentHandlers.types.3.uri"", """");
+pref(""browser.contentHandlers.types.4.name"", """");
 pref(""browser.contentHandlers.types.4.uri"", """");
+pref(""browser.contentHandlers.types.5.name"", """");
 pref(""browser.contentHandlers.types.5.uri"", """");
 // IRC
+lockPref(""gecko.handlerService.schemes.irc.0.name"", """");
 lockPref(""gecko.handlerService.schemes.irc.0.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.irc.1.name"", """");
 pref(""gecko.handlerService.schemes.irc.1.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.irc.2.name"", """");
 pref(""gecko.handlerService.schemes.irc.2.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.irc.3.name"", """");
 pref(""gecko.handlerService.schemes.irc.3.uriTemplate"", """");
+lockPref(""gecko.handlerService.schemes.ircs.0.name"", """");
 lockPref(""gecko.handlerService.schemes.ircs.0.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.ircs.1.name"", """");
 pref(""gecko.handlerService.schemes.ircs.1.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.ircs.2.name"", """");
 pref(""gecko.handlerService.schemes.ircs.2.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.ircs.3.name"", """");
 pref(""gecko.handlerService.schemes.ircs.3.uriTemplate"", """");
 // メール
+lockPref(""gecko.handlerService.schemes.mailto.0.name"", """");
 lockPref(""gecko.handlerService.schemes.mailto.0.uriTemplate"", """");
+lockPref(""gecko.handlerService.schemes.mailto.1.name"", """");
 lockPref(""gecko.handlerService.schemes.mailto.1.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.mailto.2.name"", """");
 pref(""gecko.handlerService.schemes.mailto.2.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.mailto.3.name"", """");
 pref(""gecko.handlerService.schemes.mailto.3.uriTemplate"", """");
 // カレンダー
+lockPref(""gecko.handlerService.schemes.webcal.0.name"", """");
 lockPref(""gecko.handlerService.schemes.webcal.0.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.webcal.1.name"", """");
 pref(""gecko.handlerService.schemes.webcal.1.uriTemplate"", """");
+pref(""gecko.handlerService.schemes.webcal.2.name"", """");
 pref(""gecko.handlerService.schemes.webcal.2.uriTemplate"", """");
-pref(""gecko.handlerService.schemes.webcal.3.uriTemplate"", """");",,"// Webフィード用のサービス
+pref(""gecko.handlerService.schemes.webcal.3.name"", """");
+pref(""gecko.handlerService.schemes.webcal.3.uriTemplate"", """");",○,"// Webフィード用のサービス
 lockPref(""browser.contentHandlers.types.0.uri"", """");
 lockPref(""browser.contentHandlers.types.1.uri"", """");
 pref(""browser.contentHandlers.types.2.uri"", """");
