@@ -1719,7 +1719,9 @@ lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.coo
 lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.cookieBehavior"", 0);
 lockPref(""network.cookie.lifetimePolicy"", 0);",変更無し,"lockPref(""dom.storage.enabled"", true);"
 Privacy-11,2,,,,特定サイトのみ永続的に許可する,"1. アドオン「Permission Auto Registerer」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""cookie=1"");
+2. MCDで設定を反映する","lockPref(""network.cookie.cookieBehavior"", 2);
+lockPref(""network.cookie.lifetimePolicy"", 0);
+lockPref(""extensions.autopermission.sites.(site)"", ""cookie=1"");
 clearPref(""extensions.autopermission.sites.(site).lastValue"");",○,"lockPref(""extensions.autopermission.sites.(site)"", ""cookie=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""cookie=1"");",,
 Privacy-11,5,,,,特定サイトのみ初期状態で永続的に許可する,"1. 「default.permissions」を作成する
 2. MCDで設定を反映する","default.permissions:
@@ -1728,7 +1730,9 @@ host<\t>cookie<\t>1<\t>http://example.com
 origin<\t>cookie<\t>1<\t>http://example.com
 
 MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
+lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");
+lockPref(""network.cookie.cookieBehavior"", 2);
+lockPref(""network.cookie.lifetimePolicy"", 0);",○,"default.permissions:
 host<\t>cookie<\t>1<\t>http://example.com
 # または
 origin<\t>cookie<\t>1<\t>http://example.com
