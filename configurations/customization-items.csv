@@ -1562,8 +1562,9 @@ lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); //
 lockPref(""extensions.bonardonet.expire-history-by-days.frequency"", 頻度); // Flexible Expire History by Daysのみ設定可能",,
 Privacy-10,1,プライバシー,セッション情報の保存の可否,-,許可する（既定）,-,-,,-,,-,廃止,"lockPref(""browser.sessionstore.enabled"", true);"
 Privacy-10,2,,,,禁止する,MCDで設定を反映する,"Firefox 3.5の時点で廃止。
-以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。また、閉じたウィンドウを開き直すためのデータもセッション中1つは必ず保持される。
-一部はPrivacy-1-2と重複する。
+以下の設定により可能な限り保存するセッション情報を最小化することはできるが、タブで現在開いているページの情報だけはセッション情報にどうしても保存されてしまう。
+また、閉じたウィンドウを開き直すためのデータもセッション中1つは必ず保持される。
+設定の一部はPrivacy-1-2と重複する。
 
 MCD:
 lockPref(""privacy.sanitize.sanitizeOnShutdown"", true); // Privacy-1-2
@@ -1575,8 +1576,8 @@ lockPref(""browser.sessionstore.max_serialize_back"", 0);
 lockPref(""browser.sessionstore.max_serialize_forward"", 0);
 lockPref(""browser.sessionstore.resume_from_crash"", false);
 lockPref(""browser.sessionstore.resume_session_once"", false);
-lockPref(""browser.sessionstore.privacy_level"", 2);
-lockPref(""browser.sessionstore.privacy_level_deferred"", 2);
+lockPref(""browser.sessionstore.privacy_level"", 2); // Privacy-34-2
+lockPref(""browser.sessionstore.privacy_level_deferred"", 2); // Privacy-34-2
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession"", ""#Browser\\:RestoreLastSession"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.disabled"", ""true"");
 lockPref(""extensions.uitextoverrider@clear-code.com.restoreLastSession.oncommand"", """");
@@ -2309,7 +2310,11 @@ globalChrome.css:
   }
 }",新規,,,
 Privacy-34,1,プライバシー,フォームへのユーザー入力値のセッション情報への保存の可否,-,許可する（既定）,,"lockPref(""browser.sessionstore.privacy_level"", 0);",,"lockPref(""browser.sessionstore.privacy_level"", 0);",新規,,,
-Privacy-34,2,,,,一切禁止する,,"lockPref(""browser.sessionstore.privacy_level"", 2);",,"lockPref(""browser.sessionstore.privacy_level"", 2);",新規,,,
+Privacy-34,2,,,,一切禁止する,,"// Privacy-10-2に包含される
+lockPref(""browser.sessionstore.privacy_level"", 2);
+lockPref(""browser.sessionstore.privacy_level_deferred"", 2);",,"// Privacy-10-2に包含される
+lockPref(""browser.sessionstore.privacy_level"", 2);
+lockPref(""browser.sessionstore.privacy_level_deferred"", 2);",新規,,,
 Privacy-35,1,プライバシー,トラッキングの遮断に使用するブロックリストの指定,-,簡易ブロックを初期設定とし、変更を許可（既定）,MCDで設定を反映する,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");",,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");",新規,,,
 Privacy-35,2,,,,広範ブロックを初期設定とし、変更を許可,MCDで設定を反映する,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");",,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");",新規,,,
 Privacy-35,3,,,,簡易ブロックで固定,MCDで設定を反映する,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");
