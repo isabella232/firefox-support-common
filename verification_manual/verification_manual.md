@@ -862,6 +862,7 @@
 - Privacy-8-2 
 - Privacy-10-2 
 - Privacy-12-\* 
+- Privacy-13-\* 
 - Privacy-15-2 
 - Privacy-16-\* 
 - Privacy-17-\* 
@@ -925,6 +926,10 @@
     - 確認項目 
         1. 「window.localStorage = [object Storage]」と出力される。(Privacy-12-1) 
            または、「window.localStorage = null」と表示される。(Privacy-12-2) 
+9. テストケースの「indexed-db.html」を開く。 
+    - 確認項目 
+        1. 「enabled」と出力される。(Privacy-13-1) 
+           または、「disabled」と表示される。(Privacy-13-2) 
 10. ロケーションバーに「about:config」と入力し、詳細設定一覧を開く。 
 11. 各設定値を確認する。 
     - 確認項目 
