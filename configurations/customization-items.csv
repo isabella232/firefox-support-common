@@ -1714,7 +1714,7 @@ globalChrome.css:
     visibility: collapse !important;
   }
 }","lockPref(""browser.sessionstore.enabled"", false);"
-Privacy-11,1,プライバシー,Cookieの保存の可否,○,永続的に許可する（既定）,MCDで設定を反映する,"lockPref(""network.cookie.cookieBehavior"", 0);
+Privacy-11,1,プライバシー,Cookie、IndexedDB、Web Storage、およびService Worker用Cacheの保存の可否,○,永続的に許可する（既定）,MCDで設定を反映する,"lockPref(""network.cookie.cookieBehavior"", 0);
 lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.cookieBehavior"", 0);
 lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.cookieBehavior"", 0);
 lockPref(""network.cookie.lifetimePolicy"", 0);",変更無し,"lockPref(""dom.storage.enabled"", true);"
@@ -1749,24 +1749,11 @@ lockPref(""network.cookie.lifetimePolicy"", 0);",,"lockPref(""network.cookie.coo
 lockPref(""network.cookie.lifetimePolicy"", 0);",変更無し,"lockPref(""dom.storage.enabled"", false);"
 Privacy-12,1,プライバシー,DOMストレージの利用の可否,○（Cookieとの一括制御）,許可する（既定）,-,-,,-,○,"lockPref(""dom.storage.enabled"", true);",変更無し,"lockPref(""dom.storage.enabled"", true);"
 Privacy-12,2,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.storage.enabled"", false);",,"lockPref(""dom.storage.enabled"", false);",,"lockPref(""dom.storage.enabled"", false);",変更無し,"lockPref(""dom.storage.enabled"", false);"
-Privacy-13,1,プライバシー,Indexed DBの利用の可否,○,確認の上で許可する（既定）,MCDで設定を反映する,"lockPref(""dom.indexedDB.enabled"", true);",,"lockPref(""dom.indexedDB.enabled"", true);",,"lockPref(""dom.indexedDB.enabled"", true);",変更無し,"lockPref(""dom.storage.enabled"", true);"
-Privacy-13,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
-2. MCDで設定を反映する","lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");
-clearPref(""extensions.autopermission.sites.(site).lastValue"");",○,"lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");",,"lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");",,
-Privacy-13,4,,,,特定サイトのみ初期状態で確認なしで許可する,"1. 「default.permissions」を作成する
-2. MCDで設定を反映する","default.permissions:
-host<\t>indexedDB<\t>1<\t>http://example.com
-# または
-origin<\t>indexedDB<\t>1<\t>http://example.com
-
-MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",,"default.permissions:
-host<\t>indexedDB<\t>1<\t>http://example.com
-# または
-origin<\t>indexedDB<\t>1<\t>http://example.com
-
-MCD:
-lockPref(""permissions.manager.defaultsUrl"", ""file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions"");",新規,,,
+Privacy-13,1,プライバシー,Indexed DBの利用の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""dom.indexedDB.enabled"", true);",,"lockPref(""dom.indexedDB.enabled"", true);",,"lockPref(""dom.indexedDB.enabled"", true);",変更無し,"lockPref(""dom.storage.enabled"", true);"
+Privacy-13,2（廃止）,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
+2. MCDで設定を反映する",Firefox 43以降ではCookieの保存ポリシーに連動,,Firefox 43以降ではCookieの保存ポリシーに連動,○,"lockPref(""extensions.autopermission.sites.(site)"", ""indexedDB=1"");",,
+Privacy-13,4（廃止）,,,,特定サイトのみ初期状態で確認なしで許可する,"1. 「default.permissions」を作成する
+2. MCDで設定を反映する",Firefox 43以降ではCookieの保存ポリシーに連動,,Firefox 43以降ではCookieの保存ポリシーに連動,新規,,,
 Privacy-13,3,,,,禁止する,MCDで設定を反映する,"lockPref(""dom.indexedDB.enabled"", false);",,"lockPref(""dom.indexedDB.enabled"", false);",,"lockPref(""dom.indexedDB.enabled"", false);",変更無し,"lockPref(""dom.storage.enabled"", false);"
 Privacy-14,1,プライバシー,位置情報の利用の可否,○,確認の上で許可する（既定）,-,-,,-,○,"lockPref(""geo.enabled"", true);",変更無し,"lockPref(""geo.enabled"", true);"
 Privacy-14,2,,,,特定サイトのみ確認なしで許可する,"1. アドオン「Permission Auto Registerer」を導入する
