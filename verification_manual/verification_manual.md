@@ -1249,7 +1249,7 @@
            または、チェックが入っていて、選択不可になっている。(Privacy-30-2) 
         2. 「ページキャッシュとして{{max_cache_size}}MBまで使用する」と表示されている。(Privacy-30-2) 
 
-## 5.9 Cookieの保存ポリシー
+## 5.9 Cookie、IndexedDB、Web Storage、およびService Worker用Cacheの保存ポリシー
 
 ### 5.9.1 確認する項目
 
