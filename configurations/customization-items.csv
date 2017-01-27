@@ -2318,11 +2318,11 @@ lockPref(""browser.sessionstore.privacy_level_deferred"", 2);",新規,,,
 Privacy-35,1,プライバシー,トラッキングの遮断に使用するブロックリストの指定,-,簡易ブロックを初期設定とし、変更を許可（既定）,MCDで設定を反映する,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");",,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");",新規,,,
 Privacy-35,2,,,,広範ブロックを初期設定とし、変更を許可,MCDで設定を反映する,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");",,"defaultPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");",新規,,,
 Privacy-35,3,,,,簡易ブロックで固定,MCDで設定を反映する,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");
-lockPref(“pref.privacy.disable_button.change_blocklist”, true);",,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");
-lockPref(“pref.privacy.disable_button.change_blocklist”, true);",新規,,,
+lockPref(""pref.privacy.disable_button.change_blocklist"", true);",,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozstd-track-digest256"");
+lockPref(""pref.privacy.disable_button.change_blocklist"", true);",新規,,,
 Privacy-35,4,,,,広範ブロックで固定,MCDで設定を反映する,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");
-lockPref(“pref.privacy.disable_button.change_blocklist”, true);",,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");
-lockPref(“pref.privacy.disable_button.change_blocklist”, true);",新規,,,
+lockPref(""pref.privacy.disable_button.change_blocklist"", true);",,"lockPref(""urlclassifier.trackingTable"", ""test-track-simple,mozfull-track-digest256"");
+lockPref(""pref.privacy.disable_button.change_blocklist"", true);",新規,,,
 Privacy-36,1,プライバシー,TLS/SSLで保護された通信のコンテンツのディスク上へのキャッシュ,-,許可する（既定）,-,-,,-,新規,,,
 Privacy-36,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.cache.disk_cache_ssl"", false)",,"lockPref(""browser.cache.disk_cache_ssl"", false)",新規,,,
 Privacy-37,1,プライバシー,ネットワーク経由での先読み機能の全般的な制御,-,先読みを許可する（既定）,-,-,,-,新規,,,
