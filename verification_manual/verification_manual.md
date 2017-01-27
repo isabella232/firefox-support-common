@@ -1633,6 +1633,7 @@
 
 ### 9.1.1 確認する項目
 
+- Security-24-\*
 - Plugin-1-\* 
 - Plugin-2-\* 
 - Plugin-3-\* 
@@ -1746,6 +1747,10 @@ host	plugin-vulnerable:npatgpc	3	http://example.net
         9. 「Primetime Content Decryption
             Module」が表示される。(Plugin-8-1)\
             または、表示されない。(Plugin-8-2) 
+3. Flashプラグインの「設定」ボタンをクリックする。
+    - 確認項目 
+        1. 「Adobe Flashの保護モードを有効化」にチェックが入っている。（Security-24-1）
+           または、チェックが入っていない。（Security-24-2）
 3. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - 確認項目 
         1. 「コンテンツ」配下に「DRMコンテンツ」グループがある。(Plugin-8-1)\
