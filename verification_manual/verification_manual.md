@@ -991,6 +991,9 @@
         2. 「プライベートウィンドウでサイトによるトラッキングをブロックする」が表示されていない。(Privacy-33-3) 
         3. 「検索エンジンの検索候補の設定を変更」が表示されていない。(Privacy-17-2) 
 33. Firefoxを終了する。 
+34. Firefoxのユーザープロファイルフォルダを開く。
+    - 確認項目 
+        1. sessionstore.jsが存在しない。（Privacy-10-2）
 34. (ユーザのホームのフルパス)\\http.log の位置に出力されているログファイルを開く。 
     - 確認項目 
         1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の登場回数のうち、前者の方が多い。（Privacy-32-1）\
