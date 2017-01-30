@@ -3014,8 +3014,8 @@ globalChrome.css:
     -moz-user-focus: ignore !important;
   }
 }",,
-Tab-8,1,タブ,新しいタブを初めて開いた時の案内の表示,-,表示する（既定）,-,-,,-,新規,,,
-Tab-8,2,,,,表示しない,MCDで設定を反映する,"lockPref(""browser.newtabpage.introShown"", false)",,"lockPref(""browser.newtabpage.introShown"", false)",新規,,,
+Tab-8（廃止）,1,タブ,新しいタブを初めて開いた時の案内の表示,-,表示する（既定）,-,Bug 1229636によりFirefox 46で廃止,○,-,新規,,,
+Tab-8（廃止）,2,,,,表示しない,MCDで設定を反映する,Bug 1229636によりFirefox 46で廃止,○,"lockPref(""browser.newtabpage.introShown"", false)",新規,,,
 Tab-9,1,タブ,新しいタブを開く操作の高速化,-,事前読み込みで高速化する（既定）,-,-,,-,新規,,,
 Tab-9,2,,,,何もしない,MCDで設定を反映する,"lockPref(""browser.newtab.preload"", false);",,"lockPref(""browser.newtab.preload"", false);",新規,,,
 Network-1,1,UA文字列の制御,Microsoft .NET Frameworkへの対応,-,対応する,MCDで設定を反映する,"clearPref(""general.useragent.extra.microsoftdotnet"");",,"clearPref(""general.useragent.extra.microsoftdotnet"");",,"clearPref(""general.useragent.extra.microsoftdotnet"");",変更無し,"clearPref(""general.useragent.extra.microsoftdotnet"");"
