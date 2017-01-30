@@ -1665,6 +1665,43 @@
 1. 以下のアドオンを有効化する。 
     1. globalChrome.css 
 
+## 6.10 新規タブの先読みによる高速化の可否
+
+### 6.10.1 確認する項目
+
+- Tab-9-\*
+
+### 6.10.2 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。 
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 以下のアドオンを無効化する。 
+    2. globalChrome.css
+    3. UI Text Overrider
+    1. Disable about:config 
+
+### 6.10.3 検証
+
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+2. 以下の設定を行う。既存の値がない場合は新規に作成する。 
+   - 「devtools.chrome.enabled」（真偽型）を「true」に設定する。 
+3. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
+4. 以下のコードをコンソール内で実行する。
+   - `gBrowser._isPreloadingEnabled()`
+   - 確認項目 
+       1. 「true」と表示される。（Tab-9-1）
+          または、「false」と表示される。（Tab-9-2）
+
+### 6.10.4 後始末
+
+1. about:configで以下の設定をリセットする。 
+    1. 「network.dns.notifyResolution」（真偽型） 
+    2. 「devtools.chrome.enabled」（真偽型） 
+2. 以下のアドオンを有効化する。 
+    1. Disable about:config 
+    2. globalChrome.css 
+    3. UI Text Overrider 
+
 # 7 ネットワーク処理に関するカスタマイズ
 
 ## 7.1 プロキシの設定
