@@ -1745,6 +1745,7 @@
 - Network-5-2 
 - Network-6-\* 
 - Network-7-\* 
+- Network-8-\*
 
 ### 7.2.2 準備
 
@@ -1767,6 +1768,8 @@
             または、「false」である。(Network-6-2) 
         7. 「security.tls.insecure\_fallback\_hosts」の値が未設定または空文字である。(Network-7-1) 
             または、「{{ntlm_single_signon_hosts}}」である。(Network-7-2) 
+        8. 「network.dns.disableIPv6」の値が「false」である。(Network-8-1) 
+            または、「true」である。(Network-8-2) 
 
 ### 7.2.4 後始末
 
