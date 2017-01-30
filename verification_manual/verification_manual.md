@@ -1746,6 +1746,7 @@
 - Network-6-\* 
 - Network-7-\* 
 - Network-8-\*
+- Network-9-\*
 
 ### 7.2.2 準備
 
@@ -1770,6 +1771,10 @@
             または、「{{ntlm_single_signon_hosts}}」である。(Network-7-2) 
         8. 「network.dns.disableIPv6」の値が「false」である。(Network-8-1) 
             または、「true」である。(Network-8-2) 
+        9. 「network.http.pipelining」の値が「true」である。(Network-9-1) 
+            または、「false」である。(Network-9-2) 
+        10. 「network.http.proxy.pipelining」の値が「true」である。(Network-9-1) 
+            または、「false」である。(Network-9-2) 
 
 ### 7.2.4 後始末
 
