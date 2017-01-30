@@ -875,6 +875,8 @@
 - Privacy-33-2/3 
 - Privacy-35-\*
 - Privacy-36-\*
+- Privacy-37-\*
+- Privacy-38-\*
 
 ### 5.1.2 準備
 
@@ -950,6 +952,10 @@
     - 確認項目 
         1. 「enabled」と出力される。(Privacy-13-1) 
            または、「disabled」と表示される。(Privacy-13-2) 
+9. テストケースの「beacon.html」を開く。 
+    - 確認項目 
+        1. 「enabled」と出力される。(Privacy-38-1) 
+           または、「disabled」と表示される。(Privacy-38-2) 
 10. ロケーションバーに「about:config」と入力し、詳細設定一覧を開く。 
 11. 各設定値を確認する。 
     - 確認項目 
