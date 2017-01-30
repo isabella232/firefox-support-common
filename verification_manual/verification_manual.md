@@ -1748,6 +1748,7 @@
 - Network-8-\*
 - Network-9-\*
 - Network-10-\*
+- Network-11-2
 
 ### 7.2.2 準備
 
@@ -1778,7 +1779,9 @@
             または、「false」である。(Network-9-2) 
         11. 「netwnetwork.dns.blockDotOnion」の値が「false」である。(Network-10-1) 
             または、「true」である。(Network-10-2) 
-            
+3. ロケーションバーに「about:support」と入力し、トラブルシューティング情報の一覧を表示する。
+    - 確認項目
+        1. 「User Agent」の値が「{{user_agent_name}}」である。(Network-11-2) 
 
 ### 7.2.4 後始末
 
