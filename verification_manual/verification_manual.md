@@ -1749,6 +1749,7 @@
 - Network-9-\*
 - Network-10-\*
 - Network-11-2
+- Network-12-\*
 
 ### 7.2.2 準備
 
@@ -1756,6 +1757,8 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 2. 以下のアドオンを無効化する。 
     1. Disable about:config 
+3. テストケースの「sample.jar」を任意のサーバーに設置し、Content-Type「application/java-archive」を伴って返却されるように設定しておく。
+   ファイルの設置先は「{{jar_file_sample_url_base}}/sample.jar」とする。
 
 ### 7.2.3 検証
 
@@ -1782,6 +1785,10 @@
 3. ロケーションバーに「about:support」と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
         1. 「User Agent」の値が「{{user_agent_name}}」である。(Network-11-2) 
+4. ロケーションバーに「jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt」と入力し、開く。
+    - 確認項目
+        1. 「success」と表示される。（Network-12-1）
+           または、読み込みがブロックされた旨のエラーページが表示される。（Network-12-2）
 
 ### 7.2.4 後始末
 
