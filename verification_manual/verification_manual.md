@@ -887,6 +887,7 @@
     3. UI Text Overrider
 3. Privacy-32-\*の検証を行う場合は、MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
+    - `lockPref("logging.NetworkPredictor", 5);`
     - `lockPref("logging.config.sync", true);`
     - `lockPref("logging.config.add_timestamp", true);`
     - `lockPref("logging.config.LOG_FILE","C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log");`
@@ -1023,6 +1024,8 @@
     - 確認項目 
         1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の登場回数のうち、前者の方が多い。（Privacy-32-1）\
             または、両者の登場回数が等しい。（Privacy-32-2） 
+        2. ログ中の「Predictor::Predict」という行に続く「called on parent process」という行の後に、「not enabled」という行が表れていない。（Privacy-37-1）
+            または、表れている。（Privacy-37-2）
 
 ### 5.1.4 後始末
 
