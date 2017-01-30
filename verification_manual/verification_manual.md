@@ -1747,6 +1747,7 @@
 - Network-7-\* 
 - Network-8-\*
 - Network-9-\*
+- Network-10-\*
 
 ### 7.2.2 準備
 
@@ -1775,6 +1776,9 @@
             または、「false」である。(Network-9-2) 
         10. 「network.http.proxy.pipelining」の値が「true」である。(Network-9-1) 
             または、「false」である。(Network-9-2) 
+        11. 「netwnetwork.dns.blockDotOnion」の値が「false」である。(Network-10-1) 
+            または、「true」である。(Network-10-2) 
+            
 
 ### 7.2.4 後始末
 
