@@ -56,6 +56,7 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
     file.flush
     sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
        "--table-of-contents", "--toc-depth=3",
+       "-N",
        "-V", "documentclass=ltjsarticle",
        "-V", "classoption=titlepage",
        "--latex-engine=lualatex", file.path
