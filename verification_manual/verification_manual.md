@@ -1695,7 +1695,7 @@
 ### 検証
 
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. 以下の設定を行う。既存の値がない場合は新規に作成する。 
+2. about:configを開き、以下の設定を行う。既存の値がない場合は新規に作成する。 
    - 「devtools.chrome.enabled」（真偽型）を「true」に設定する。 
 3. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
 4. 以下のコードをコンソール内で実行する。
@@ -1707,7 +1707,6 @@
 ### 後始末
 
 1. about:configで以下の設定をリセットする。 
-    1. 「network.dns.notifyResolution」（真偽型） 
     2. 「devtools.chrome.enabled」（真偽型） 
 2. 以下のアドオンを有効化する。 
     1. Disable about:config 
