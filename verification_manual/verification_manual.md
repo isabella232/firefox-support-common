@@ -1756,9 +1756,38 @@
     1. Disable about:config 
     2. globalChrome.css
     3. UI Text Overrider
-    1. Disable about:config 
-    2. globalChrome.css 
-    3. UI Text Overrider 
+
+## ツールバーの項目
+
+### 確認する項目
+
+- Appearance-2-2
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。 
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 以下のアドオンを無効化する。 
+    1. globalChrome.css
+    2. UI Text Overrider
+
+### 検証
+
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+   - 確認項目 
+       1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
+       2. パネルメニューに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
+2. ツールバーカスタマイズで、ツールバーおよびパネルメニューの内容を変更する。
+3. Firefoxを再起動する。
+   - 確認項目 
+       1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
+       2. パネルメニューに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
+
+### 後始末
+
+1. 以下のアドオンを有効化する。 
+    1. globalChrome.css
+    2. UI Text Overrider
 
 ## Webブラウズ操作のその他のカスタマイズ
 
