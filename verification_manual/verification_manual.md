@@ -1723,6 +1723,7 @@
 - Ui-6-\*
 - Script-1-\*
 - Script-4-\*
+- Script-5-\*
 
 ### 準備
 
@@ -1752,11 +1753,15 @@
     - 確認項目 
         1. 2つ目以降のダイアログに、以後のダイアログを表示しないようにするかどうかを尋ねるチェックボックスが表示される。（Script-1-1）
            または、表示されない。（Script-1-2）
-7. コンソール下部の入力欄に「window.addEventListener('copy', (event) => console.log(event.type));」と入力し、実行する。
+7. コンソール下部の入力欄に「window.addEventListener('copy', (event) => console.log(event.type)); window.addEventListener('contextmenu', (event) => event.preventDefault());」と入力し、実行する。
 8. コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - 確認項目 
         1. コンソール上に「copy」という文字が出力される。（Script-4-1）
            または、出力されない。（Script-4-2）
+9. コンテンツ領域の上で右クリックする。
+    - 確認項目 
+        1. コンテキストメニューが開かれない。（Script-5-1）
+           または、開かれる。（Script-5-2）
 
 ### 後始末
 
