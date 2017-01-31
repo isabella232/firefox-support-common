@@ -1911,6 +1911,32 @@
 
 ### 確認する項目
 
+- Plugin-10-\*
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。 
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. Flashプラグインをインストールしておく。
+3. 以下のアドオンを無効化する。 
+    1. Disable Addons 
+
+### 検証
+
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+2. アドオンマネージャを開き、「プラグイン」を選択する。 
+    - 確認項目 
+        1. 個別の制御を行っていないNPAPIプラグインが、すべて無効化されている。（Plugin-10-1）
+           または、すべて有効化されている。（Plugin-10-2）
+           または、「実行時に確認する」が選択されている。(Plugin-10-3) 
+
+### 後始末
+
+
+## プラグインの個別制御
+
+### 確認する項目
+
 - Security-24-\*
 - Plugin-1-\* 
 - Plugin-2-\* 
@@ -1920,6 +1946,7 @@
 - Plugin-6-\* 
 - Plugin-7-\* 
 - Plugin-8-\* 
+- Plugin-9-\* 
 
 ### 準備
 
@@ -1933,6 +1960,7 @@
 7. 「 {{wmp__download_url}} 」からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*) 
 //
 8. Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*) 
+9. Icead Teaプラグインをシステムにインストールしておく。
 9. 以下のアドオンを無効化する。 
     1. Disable Addons 
 10. 各プラグインの制御が可能であるかどうか自体の検証のため、各設定ファイルに以下の内容を追記する。
@@ -1949,6 +1977,7 @@ lockPref("plugin.state.np32dsw", 2);
 lockPref("plugin.state.npctrl", 2);
 lockPref("plugin.state.np-mswmp", 2);
 lockPref("plugin.state.npatgpc", 2);
+lockPref("plugin.state.libnpjp", 2);
 
 lockPref("extensions.autopermission.sites.example.com", [
   "plugin:java=3",
@@ -1966,7 +1995,9 @@ lockPref("extensions.autopermission.sites.example.com", [
   "plugin:np-mswmp=3",
   "plugin-vulnerable:np-mswmp=3",
   "plugin:npatgpc=3",
-  "plugin-vulnerable:npatgpc=3"
+  "plugin-vulnerable:npatgpc=3",
+  "plugin:libnpjp=3",
+  "plugin-vulnerable:libnpjp=3"
 ].join(','));
 clearPref("extensions.autopermission.sites.example.com.lastValue");
       ~~~
@@ -1990,6 +2021,8 @@ host	plugin:np-mswmp	3	http://example.net
 host	plugin-vulnerable:np-mswmp	3	http://example.net
 host	plugin:npatgpc	3	http://example.net
 host	plugin-vulnerable:npatgpc	3	http://example.net
+host	plugin:libnpjp	3	http://example.net
+host	plugin-vulnerable:libnpjp	3	http://example.net
       ~~~
       
 
@@ -2020,6 +2053,9 @@ host	plugin-vulnerable:npatgpc	3	http://example.net
         7. Cisco WebExプラグインの項目（ActiveTouch General Plugin Container）が表示されており、「無効化する」が選択されている。(Plugin-7-1)\
             または、「常に有効化する」が選択されている。(Plugin-7-2)\
             または、「実行時に確認する」が選択されている。(Plugin-7-3) 
+        8. Icead Teaプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-9-1)\
+            または、「常に有効化する」が選択されている。(Plugin-9-2)\
+            または、「実行時に確認する」が選択されている。(Plugin-9-3) 
         8. OpenH264のプラグインが表示される。(Plugin-8-1)\
             または、表示されない。(Plugin-8-2) 
         9. 「Primetime Content Decryption
