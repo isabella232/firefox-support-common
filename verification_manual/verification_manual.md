@@ -1799,14 +1799,16 @@
 - Script-1-\*
 - Script-4-\*
 - Script-5-\*
+- Performance-2-2
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 2. 以下のアドオンを無効化する。 
-    1. globalChrome.css
-    2. UI Text Overrider
+    1. Disable about:config 
+    2. globalChrome.css
+    3. UI Text Overrider
 
 ### 検証
 
@@ -1837,12 +1839,16 @@
     - 確認項目 
         1. コンテキストメニューが開かれない。（Script-5-1）
            または、開かれる。（Script-5-2）
+10. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
+     - 確認項目 
+         1. 「content.notify.interval」の値が指定値の通りである。(Performance-2-2) 
 
 ### 後始末
 
 1. 以下のアドオンを有効化する。 
-    1. globalChrome.css 
-    2. UI Text Overrider 
+    1. Disable about:config 
+    2. globalChrome.css
+    3. UI Text Overrider
 
 <!--======================================================================-->
 
