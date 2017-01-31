@@ -242,7 +242,7 @@
     1. Disable about:config 
     2. globalChrome.css 
 4. 他に導入対象のアドオンがない場合、「Disable Sync」を管理者権限でインストールするよう配置しておく。
-   （ファイル「disablesync@clear-code.com.xpi」を「browser\extensions\」の位置に置く。）
+   （ファイル「disablesync@clear-code.com.xpi」を「browser/extensions/」の位置に置く。）
 5. システムの規定のブラウザを別のブラウザに設定する。
 
 ### 検証
