@@ -1803,7 +1803,8 @@
 
 - Update-1-3 
 - Update-2-2 
-- Update-3-2 
+- Update-3-2
+- Update-5-2
 
 ### 8.1.2 準備
 
@@ -1824,6 +1825,7 @@
         2. 「app.update.mode」の値が「0」である。(Update-1-3) 
         3. 「extensions.update.enabled」の値が「false」である。(Update-2-2) 
         4. 「browser.search.update」の値が「false」である。(Update-3-2) 
+        5. 「lightweightThemes.update.enabled」の値が「false」である。(Update-5-2) 
 
 ### 8.1.4 後始末
 
