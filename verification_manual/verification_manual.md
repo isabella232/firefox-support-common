@@ -1714,6 +1714,53 @@
     2. globalChrome.css 
     3. UI Text Overrider 
 
+## 表示フォントの設定
+
+### 確認する項目
+
+- Appearance-1-2
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。 
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 以下のアドオンを無効化する。 
+    1. Disable about:config 
+    2. globalChrome.css
+    3. UI Text Overrider
+
+### 検証
+
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+2. about:configを開き、以下の設定を行う。
+   - 「font.name.serif.ja」（文字列型）を「missing」に設定する。 
+   - 「font.name.sans-serif.ja」（文字列型）を「missing」に設定する。 
+   - 「font.name.monospace.ja」（文字列型）を「missing」に設定する。 
+3. テストケースの「font.html」を開く。
+4. 「Serif / セリフ体（明朝）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
+   - 確認項目 
+       1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+5. 「Sans-Serif / サンセリフ体（ゴシック）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
+   - 確認項目 
+       1. font.name-list.sans-serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+6. 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
+   - 確認項目 
+       1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+
+### 後始末
+
+1. about:configで以下の設定をリセットする。 
+    1. 「font.name.serif.ja」（文字列型） 
+    2. 「font.name.sans-serif.ja」（文字列型） 
+    3. 「font.name.monospace.ja」（文字列型） 
+2. 以下のアドオンを有効化する。 
+    1. Disable about:config 
+    2. globalChrome.css
+    3. UI Text Overrider
+    1. Disable about:config 
+    2. globalChrome.css 
+    3. UI Text Overrider 
+
 ## Webブラウズ操作のその他のカスタマイズ
 
 ### 確認する項目
