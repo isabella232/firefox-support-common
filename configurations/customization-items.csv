@@ -3712,23 +3712,41 @@ Addon-IEView-3,1,アドオン：IE View,閲覧中のページへの広告の埋�
 Addon-IEView-3,2,,,,禁止する,"1. IE Viewをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.ieview.useWizeShoppy"", false);",,"lockPref(""extensions.ieview.useWizeShoppy"", false);",新規,,,
 Addon-FireIE-1,1,アドオン：FireIE,動作モード,-,IE7互換モード（既定）,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",,"lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",新規,,,
 Addon-FireIE-1,2,,,,IE8互換モード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie8mode"");",,"lockPref(""extensions.fireie.compatMode"", ""ie8mode"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie8mode"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie8mode"");",新規,,,
 Addon-FireIE-1,3,,,,IE8標準準拠モード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie8forced"");",,"lockPref(""extensions.fireie.compatMode"", ""ie8forced"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie8forced"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie8forced"");",新規,,,
 Addon-FireIE-1,4,,,,IE9互換モード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie9mode"");",,"lockPref(""extensions.fireie.compatMode"", ""ie9mode"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie9mode"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie9mode"");",新規,,,
 Addon-FireIE-1,5,,,,IE9標準準拠モード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie9forced"");",,"lockPref(""extensions.fireie.compatMode"", ""ie9forced"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie9forced"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie9forced"");",新規,,,
 Addon-FireIE-1,6,,,,IE10互換モード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie10mode"");",,"lockPref(""extensions.fireie.compatMode"", ""ie10mode"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie10mode"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie10mode"");",新規,,,
 Addon-FireIE-1,7,,,,IE10標準準拠モード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie10forced"");",,"lockPref(""extensions.fireie.compatMode"", ""ie10forced"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie10forced"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie10forced"");",新規,,,
 Addon-FireIE-1,8,,,,IE11 Edgeモード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie11edge"");",,"lockPref(""extensions.fireie.compatMode"", ""ie11edge"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie11edge"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie11edge"");",新規,,,
 Addon-FireIE-1,9,,,,IE11 強制Edgeモード,"1. FireIEをインストールする
-2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie11forcededge"");",,"lockPref(""extensions.fireie.compatMode"", ""ie11forcededge"");",新規,,,
+2. MCDで設定を反映する","// Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
+lockPref(""plugin.load_flash_only"", false);
+lockPref(""extensions.fireie.compatMode"", ""ie11forcededge"");",○,"lockPref(""extensions.fireie.compatMode"", ""ie11forcededge"");",新規,,,
 Addon-FireIE-2,1,アドオン：FireIE,モード表示,-,表示する（既定）,FireIEをインストールする,-,,-,新規,,,
 Addon-FireIE-2,2,,,,表示しない,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.showUrlBarLabel"", false);
