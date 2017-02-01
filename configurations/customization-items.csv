@@ -3698,16 +3698,18 @@ Performance-2,2,,,,再描画間隔を明示する,MCDで設定を反映する,"l
 Addon-IEView-1,1,アドオン：IE View,IEの起動,-,自動では起動しない（既定）,IE Viewをインストールする,-,,-,新規,,,
 Addon-IEView-1,2,,,,特定サイトでIEを自動起動,"1. IE Viewをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");",,"lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");",新規,,,
-Addon-IEView-1,3,,,,特定サイトをIEを自動起動し、Firefox側のタブを閉じる,"1. IE Viewをインストールする
+Addon-IEView-1,3（廃止）,,,,特定サイトをIEを自動起動し、Firefox側のタブを閉じる,"1. IE Viewをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");
-lockPref(""extensions.ieview.closeReloadPage"", true);",,"lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");
+// IE View 1.5.6.1とFirefox 52の組み合わせにおいては以下の機能は動作しない
+lockPref(""extensions.ieview.closeReloadPage"", true);",○,"lockPref(""extensions.ieview.forceielist"", ""（半角スペース区切りのURLのリスト）"");
 lockPref(""extensions.ieview.closeReloadPage"", true);",新規,,,
 Addon-IEView-2,1,アドオン：IE View,起動するIEの設定,-,パスと起動オプションを指定する,"1. IE Viewをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.ieview.ieapp"", ""C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe"");
 lockPref(""extensions.ieview.ieargs"", """"); ",,"lockPref(""extensions.ieview.ieapp"", ""C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe"");
 lockPref(""extensions.ieview.ieargs"", """"); ",新規,,,
-Addon-IEView-3,1,アドオン：IE View,広告を使用,-,使用する（既定）,-,-,,-,新規,,,
-Addon-IEView-3,2,,,,使用しない,"1. IE Viewをインストールする
+Addon-IEView-3,1,アドオン：IE View,閲覧中のページへの広告の埋め込み（アドウェアとしての動作）,-,許可する（既定）,-,"-
+※IE View 1.5.6.1とFirefox 52の組み合わせにおいてはこの機能は動作しない。",○,-,新規,,,
+Addon-IEView-3,2,,,,禁止する,"1. IE Viewをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.ieview.useWizeShoppy"", false);",,"lockPref(""extensions.ieview.useWizeShoppy"", false);",新規,,,
 Addon-FireIE-1,1,アドオン：FireIE,動作モード,-,IE7互換モード（既定）,"1. FireIEをインストールする
 2. MCDで設定を反映する","lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",,"lockPref(""extensions.fireie.compatMode"", ""ie7mode"");",新規,,,
