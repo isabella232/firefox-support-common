@@ -1799,6 +1799,7 @@
 - Script-1-\*
 - Script-4-\*
 - Script-5-\*
+- Performance-1-2
 - Performance-2-2
 
 ### 準備
@@ -1841,7 +1842,8 @@
            または、開かれる。（Script-5-2）
 10. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
      - 確認項目 
-         1. 「content.notify.interval」の値が指定値の通りである。(Performance-2-2) 
+         1. 「browser.cache.memory.capacity」の値が指定値の通りである。(Performance-1-2) 
+         2. 「content.notify.interval」の値が指定値の通りである。(Performance-2-2) 
 
 ### 後始末
 
