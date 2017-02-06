@@ -3260,8 +3260,8 @@ lockPref(""app.update.service.enabled"", false);",○,MaintenanceService=false,,
 Update-5,1,自動更新,軽量テーマの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""lightweightThemes.update.enabled"", true);",,"lockPref(""lightweightThemes.update.enabled"", true);",,"lockPref(""lightweightThemes.update.enabled"", true);",,
 Update-5,2,,,,禁止する,MCDで設定を反映する,"lockPref(""lightweightThemes.update.enabled"", false);",,"lockPref(""lightweightThemes.update.enabled"", false);",,"lockPref(""lightweightThemes.update.enabled"", false);",,
 Ui-1,1,プログラム,Firefox組み込みのPDFビューアの使用可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", false);
-lockPref(""plugin.disable_full_page_plugin_for_types"", ""（application/prdを含まない値）"");",,"lockPref(""pdfjs.disabled"", false);
-lockPref(""plugin.disable_full_page_plugin_for_types"", ""（application/prdを含まない値）"");",○,"lockPref(""pdfjs.disabled"", false);",変更無し,"lockPref(""pdfjs.disabled"", false);"
+lockPref(""plugin.disable_full_page_plugin_for_types"", ""（application/pdfを含まない値）"");",,"lockPref(""pdfjs.disabled"", false);
+lockPref(""plugin.disable_full_page_plugin_for_types"", ""（application/pdfを含まない値）"");",○,"lockPref(""pdfjs.disabled"", false);",変更無し,"lockPref(""pdfjs.disabled"", false);"
 Ui-1,2,,,,禁止する,MCDで設定を反映する,"lockPref(""pdfjs.disabled"", true);",,"lockPref(""pdfjs.disabled"", true);",,"lockPref(""pdfjs.disabled"", true);",変更無し,"lockPref(""pdfjs.disabled"", true);"
 Ui-2,1,キーボード操作,F7キーによるキャレットブラウズモードの開始の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", true);",,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", true);",,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", true);",,
 Ui-2,2,,,,禁止する,MCDで設定を反映する,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", false);",,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", false);",,"lockPref(""accessibility.browsewithcaret_shortcut.enabled"", false);",,
