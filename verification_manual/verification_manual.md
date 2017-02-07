@@ -2372,7 +2372,7 @@ host	plugin-vulnerable:libnpjp	3	http://example.net
         15. 「ページのソース」が存在しない。(MenuShortcut-26) 
         16. 「接続...」が存在しない。(MenuShortcut-28) 
         17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
-        18. 「Service Workers」が存在しない（MenuShortcut-64）
+        18. 「Service Worker」が存在しない（MenuShortcut-64）
 3. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックする。
     - 確認項目 
         1. 「開発ツールを表示」が存在しない。(MenuShortcut-11) 
@@ -2392,7 +2392,7 @@ host	plugin-vulnerable:libnpjp	3	http://example.net
         15. 「ページのソース」が存在しない。(MenuShortcut-26) 
         16. 「接続...」が存在しない。(MenuShortcut-28) 
         17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
-        18. 「Service Workers」が存在しない（MenuShortcut-64）
+        18. 「Service Worker」が存在しない（MenuShortcut-64）
 4. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
     - 確認項目 
         1. 「ダウンロード」が存在しない。(MenuShortcut-7) 
