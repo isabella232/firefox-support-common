@@ -267,7 +267,7 @@ pref(""general.config.vendor"", ""autoconfig"");
 
 autoconfig.cfg:
 // the first line is always ignored by Firefox itself
-pref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
+lockPref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
 
 autoconfig.jsc:
 …",,"autoconfig.js:
@@ -277,7 +277,7 @@ pref(""general.config.vendor"", ""autoconfig"");
 
 autoconfig.cfg:
 // the first line is always ignored by Firefox itself
-pref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
+lockPref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
 
 autoconfig.jsc:
 …",,"autoconfig.js:
@@ -287,7 +287,7 @@ pref(""general.config.vendor"", ""autoconfig"");
 
 autoconfig.cfg:
 // the first line is always ignored by Firefox itself
-pref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
+lockPref(""autoadmin.global_config_url"", ""schema://path/to/autoconfig.jsc"");
 
 autoconfig.jsc:
 …",変更無し,"autoconfig.js:
