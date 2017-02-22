@@ -951,10 +951,13 @@ lockPref(""extensions.blocklist.itemURL"", """");
 lockPref(""extensions.blocklist.url"", """");",新規,,,
 Security-22（廃止）,1,セキュリティ,Webアプリケーションのインストールの可否,-,marketplace.firefox.comからのインストールのみ許可（既定）,-,-（Firefox 52で削除）,○,-,新規,,,
 Security-22（廃止）,2,,,,禁止する,MCDで設定を反映する,-（Firefox 52で削除）,○,"lockPref(""dom.mozApps.signed_apps_installable_from"", """"); ",新規,,,
-Security-23,1,セキュリティ,プラグインのサンドボックス内実行,-,Flashプラグインのみサンドボックス内で実行（既定）,-,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
-defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
-defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",新規,,,
-Security-23,2,,,,すべてサンドボックス内で実行,MCDで設定を反映する,"// 1: 管理者権限のないユーザのレベル
+Security-23,1,セキュリティ,プラグインのサンドボックス内実行,-,使用しない（既定）,-,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
+defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 0);",,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
+defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 0);",新規,,,
+Security-23,2,,,,Flashプラグインのみサンドボックス内で実行,MCDで設定を反映する,"lockPref(""dom.ipc.plugins.sandbox-level.default"", 0);
+lockPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",,"lockPref(""dom.ipc.plugins.sandbox-level.default"", 0);
+lockPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",新規,,,
+Security-23,3,,,,すべてサンドボックス内で実行,MCDで設定を反映する,"// 1: 管理者権限のないユーザのレベル
 // 2: より厳格なレベル（機能的に問題が起こりうる）
 // 3: 最も厳格なレベル
 lockPref(""dom.ipc.plugins.sandbox-level.default"", 1);

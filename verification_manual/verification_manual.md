@@ -825,9 +825,10 @@
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 7. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
     - 確認項目 
-        1. 「dom.ipc.plugins.sandbox-level.default」の値が「0」である。(Security-23-1)
-           または、「1」である。(Security-23-2)
-        2. 「dom.ipc.plugins.sandbox-level.flash」の値が「1」である。(Security-23-1/2)
+        1. 「dom.ipc.plugins.sandbox-level.default」の値が「0」である。(Security-23-1/2)
+           または、「1」である。(Security-23-3)
+        2. 「dom.ipc.plugins.sandbox-level.flash」の値が「0」である。(Security-23-1)
+           または、「1」である。(Security-23-2/3)
 
 ### 後始末
 
