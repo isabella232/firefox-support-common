@@ -472,10 +472,6 @@ MenuShortcut-60（廃止）,ポップアップブロック、アドオンのイ�
 MenuShortcut-61（廃止）,キャレットブラウズモード,caretbrowse,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,-,Ui-2を参照,,,,,,,,,
 MenuShortcut-62,ファイル＞新しいタブ,,Ctrl-T,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,,Ctrl-T,"#menu_newNavigatorTab,#key_newNavigatorTab",killedItems,,,○,,,,,,,,,,,
 MenuShortcut-63,コンテンツ領域のコンテキストメニュー＞新しいタブで開く,,-,#context-openlinkintab,killedItems,,,,-,#context-openlinkintab,killedItems,,,○,,,,,,,,,,,
-MenuShortcut-64,ツール＞ウェブ開発＞Service Worker,devtools_connect,-,"日本語版:
-#menu_devtools_serviceworkers,
-.subviewbutton[label='Service Worker']
-
-英語版:
-#menu_devtools_serviceworkers,
+MenuShortcut-64,ツール＞ウェブ開発＞Service Worker,devtools_connect,-,"#menu_devtools_serviceworkers,
+.subviewbutton[label='Service Worker'],
 .subviewbutton[label='Service Workers']",killedItemsWithDelay,,,○,,,,,,,,,,,,,,,,,
