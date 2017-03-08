@@ -954,12 +954,10 @@ Security-22（廃止）,2,,,,禁止する,MCDで設定を反映する,-（Firefo
 Security-23,1,セキュリティ,プラグインのサンドボックス内実行,-,サンドボックス内で実行しない（既定）,-,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
 defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 0);",,"defaultPref(""dom.ipc.plugins.sandbox-level.default"", 0);
 defaultPref(""dom.ipc.plugins.sandbox-level.flash"", 0);",新規,,,
-Security-23,2,,,,サンドボックス内実行を禁止する,MCDで設定を反映する,"lockPref(""dom.ipc.plugins.sandbox-level.default"", 0);
-lockPref(""dom.ipc.plugins.sandbox-level.flash"", 0);",,,,,,
-Security-23,3,,,,Flashプラグインのみサンドボックス内で実行,MCDで設定を反映する,"lockPref(""dom.ipc.plugins.sandbox-level.default"", 0);
+Security-23,2,,,,Flashプラグインのみサンドボックス内で実行,MCDで設定を反映する,"lockPref(""dom.ipc.plugins.sandbox-level.default"", 0);
 lockPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",,"lockPref(""dom.ipc.plugins.sandbox-level.default"", 0);
 lockPref(""dom.ipc.plugins.sandbox-level.flash"", 1);",新規,,,
-Security-23,4,,,,すべてサンドボックス内で実行,MCDで設定を反映する,"// 1: 管理者権限のないユーザのレベル
+Security-23,3,,,,すべてサンドボックス内で実行,MCDで設定を反映する,"// 1: 管理者権限のないユーザのレベル
 // 2: より厳格なレベル（機能的に問題が起こりうる）
 // 3: 最も厳格なレベル
 lockPref(""dom.ipc.plugins.sandbox-level.default"", 1);
