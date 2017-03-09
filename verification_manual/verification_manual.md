@@ -898,7 +898,7 @@
     1. Disable about:config 
     2. globalChrome.css 
     3. UI Text Overrider
-3. Privacy-32-\*の検証を行う場合は、MCD設定ファイルに以下の設定を追加しておく。
+3. Privacy-32-\*またはPrivacy-37-\*の検証を行う場合は、MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
     - `lockPref("logging.NetworkPredictor", 5);`
     - `lockPref("logging.config.sync", true);`
@@ -917,7 +917,7 @@
     - 確認項目
         4. 「ブロックリストを変更」ボタンが無効化されている。（Privacy-35-3/4）
 2. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウトする。（Privacy-35-3/4）
-   * `lockPref(“pref.privacy.disable_button.change_blocklist”, true);`
+   * `lockPref("pref.privacy.disable_button.change_blocklist", true);`
 2. Firefoxを起動する。
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「プライバシー」を開く。
@@ -941,7 +941,7 @@
         2. 「追加データを共有する（パフォーマンス情報など）」のチェックが外れている。(Privacy-18-2) 
         2. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。(Privacy-21-2) 
 5. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウト状態から復帰させる。（Privacy-35-3/4）
-   * `// lockPref(“pref.privacy.disable_button.change_blocklist”, true);`
+   * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 5. Firefoxを起動する。
 6. テストケースの「password.html」を開く。 
 7. ユーザID、パスワードを入力して送信する。 
@@ -985,7 +985,7 @@
     - 「devtools.chrome.enabled」（真偽型）を「true」に設定する。 
 13. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
 14. 以下のコードをコンソール内で実行する。
-    - Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false);
+    - `Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false);`
 15. コンソール上の「ネットワーク」が選択された状態にする。すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する。
 16. ブラウザウィンドウで「 http://www.clear-code.com/blog/2016/5/10.html 」を開く。 
     - 確認項目 
