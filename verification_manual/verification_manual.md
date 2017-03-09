@@ -893,6 +893,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。 
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
 2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。 
+2. Firefoxのテンポラリファイルおよびキャッシュファイル（%LocalAppData%\\Mozilla）を削除する。 
 2. 以下のアドオンを無効化する。 
     1. Disable about:config 
     2. globalChrome.css 
@@ -907,7 +908,7 @@
 ### 検証
 
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. ユーザープロファイルフォルダ内の「thumbnails」フォルダを開いて、「 https://addons.mozilla.org/ 」サイト内のリンクを何度か遷移する。
+2. テンポラリファイルおよびキャッシュファイルフォルダ内の「thumbnails」フォルダを開いて、「 https://addons.mozilla.org/ 」サイト内のリンクを何度か遷移する。
     - 確認項目
         1. サムネイル画像が保存される。（Privacy-36-1）
            または、サムネイル画像が保存されない。（Privacy-36-2）
