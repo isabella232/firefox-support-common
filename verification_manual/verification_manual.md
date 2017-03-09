@@ -1828,21 +1828,23 @@
    - 確認項目 
        1. 「abc」の下に赤い波線が表示される。（Ui-6-1）
           または、表示されない。（Ui-6-2）
-5. パネルメニュー内の「開発ツール」をクリックし、サブメニューの「Webコンソール」をクリックする。
-6. コンソール下部の入力欄に「alert('OK');alert('OK');alert('OK');」と入力し、実行する。
+5. パネルメニュー内の「開発ツール」をクリックし、サブメニューの「ウェブコンソール」をクリックする。
+6. コンソール下部の入力欄に「`alert('OK');alert('OK');alert('OK');`」と入力し、実行する。
     - 確認項目 
         1. 2つ目以降のダイアログに、以後のダイアログを表示しないようにするかどうかを尋ねるチェックボックスが表示される。（Script-1-1）
            または、表示されない。（Script-1-2）
-7. コンソール下部の入力欄に「window.addEventListener('copy', (event) => console.log(event.type)); window.addEventListener('contextmenu', (event) => event.preventDefault());」と入力し、実行する。
+7. コンソール下部の入力欄に「`window.addEventListener('copy', (event) => console.log(event.type)); window.addEventListener('contextmenu', (event) => event.preventDefault());`」と入力し、実行する。
 8. コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - 確認項目 
-        1. コンソール上に「copy」という文字が出力される。（Script-4-1）
+        1. コンソール上に「`copy`」という文字が出力される。（Script-4-1）
            または、出力されない。（Script-4-2）
 9. コンテンツ領域の上で右クリックする。
     - 確認項目 
         1. コンテキストメニューが開かれない。（Script-5-1）
            または、開かれる。（Script-5-2）
-10. 「表示」メニューを開き、「ズーム」→「拡大」をクリックしてページを拡大表示する。 
+10. Firefoxを終了し、以下のアドオンを有効化する。 
+    - globalChrome.css 
+10. Firefoxを起動し、「表示」メニューを開き、「ズーム」→「拡大」をクリックしてページを拡大表示する。 
     - 確認項目 
         1. アドレスバーの右端に拡大・縮小表示倍率ボタンが表示される。（Ui-7-1）
            または、表示されない。（Ui-7-2）
