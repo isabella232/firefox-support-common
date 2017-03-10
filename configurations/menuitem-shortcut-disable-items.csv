@@ -166,7 +166,8 @@ MenuShortcut-9（廃止）,ツール＞アプリ,openApps,Firefox 45で廃止,,,
 #wrapper-web-apps-button",false,yes,,,,,,,
 MenuShortcut-10,ツール＞ウェブ開発（開発ツールボタン）,webDeveloper,-,"#webDeveloperMenu,
 #developer-button,
-#wrapper-developer-button",killedItems,false,yes,,-,"#webDeveloperMenu,
+#wrapper-developer-button,
+#devToolsSeparator",killedItems,false,yes,○,-,"#webDeveloperMenu,
 #developer-button,
 #wrapper-developer-button",killedItems,false,yes,,-,"#webDeveloperMenu,
 #developer-button,
@@ -411,14 +412,16 @@ MenuShortcut-40,ヘルプ＞Firefoxについて のセパレータ,aboutSeparato
 MenuShortcut-41,編集＞テキストの記述方向を切り替える,textfieldDirection,Ctrl-Shift-X,"#textfieldDirection-separator,
 #textfieldDirection-swap,
 #key_switchTextDirection,
-#context-bidi-text-direction-toggle",killedItems,false,yes,○,Ctrl-Shift-X,"#textfieldDirection-separator,
+#context-bidi-text-direction-toggle,
+#context-sep-bidi",killedItems,false,yes,○,Ctrl-Shift-X,"#textfieldDirection-separator,
 #textfieldDirection-swap,
 #key_switchTextDirection",killedItems,false,yes,○,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#textfieldDirection-separator,
 #textfieldDirection-swap",false
 MenuShortcut-42,表示＞ページの記述方向を切り替える,documentDirection,-,"#documentDirection-separator,
 #documentDirection-swap,
-#context-bidi-page-direction-toggle",killedItems,false,yes,○,-,"#documentDirection-separator,
+#context-bidi-page-direction-toggle,
+#context-sep-bidi",killedItems,false,yes,○,-,"#documentDirection-separator,
 #documentDirection-swap",killedItems,false,yes,,-,"#documentDirection-separator,
 #documentDirection-swap",false,yes,-,変更無し,変更無し,yes,-,"#documentDirection-separator,
 #documentDirection-swap",false
@@ -460,7 +463,8 @@ MenuShortcut-53（廃止）,コンテンツ領域のコンテキストメニュ�
 MenuShortcut-54,コンテンツ領域のコンテキストメニュー＞選択範囲を共有,context-shareselect,-,#context-shareselect,killedItems,false,yes,,-,#context-shareselect,killedItems,false,yes,,-,#context-shareselect,false,yes,-,変更無し,変更無し,yes,-,#context-shareselect,false
 MenuShortcut-55,コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定,context-setDesktopBackground,-,#context-setDesktopBackground,killedItems,false,yes,,-,#context-setDesktopBackground,killedItems,false,yes,,-,#context-setDesktopBackground,false,yes,-,変更無し,変更無し,yes,-,#context-setDesktopBackground,false
 MenuShortcut-56（廃止）,コンテンツ領域のコンテキストメニュー＞画像をブロック,context-blockimage,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,,,Firefox 31で廃止,,,,-,廃止,廃止,-,-,#context-blockimage,false
-MenuShortcut-57,コンテンツ領域のコンテキストメニュー＞要素を調査,context-inspect,-,#context-inspect,killedItems,false,yes,,-,#context-inspect,killedItems,false,yes,,-,#context-inspect,false,yes,-,変更無し,変更無し,yes,-,#context-inspect,false
+MenuShortcut-57,コンテンツ領域のコンテキストメニュー＞要素を調査,context-inspect,-,"#context-inspect,
+#inspect-separator",killedItems,false,yes,○,-,#context-inspect,killedItems,false,yes,,-,#context-inspect,false,yes,-,変更無し,変更無し,yes,-,#context-inspect,false
 MenuShortcut-58,ポップアップブロック＞このサイトによるポップアップを許可する,blockedPopupAllowSite,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],killedItems,false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],killedItems,false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupAllowSite'],false
 MenuShortcut-59,ポップアップブロック＞ポップアップブロック設定を変更,blockedPopupEditSettings,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],killedItems,false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],killedItems,false,yes,,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false,yes,-,変更無し,変更無し,yes,-,#blockedPopupOptions menuitem[observes='blockedPopupEditSettings'],false
 MenuShortcut-60（廃止）,ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）,permissions,-,Hide-4に移動,,-,-,,-,Hide-4に移動,,-,-,,-,Hide-4に移動,-,-,-,Hide-4に移動,-,-,-,":root#PermissionsDialog:not([title*='Cookie']) #url,
