@@ -2176,7 +2176,8 @@ globalChrome.css:
   #panelMenu_pocket,
   #panelMenu_pocketSeparator,
   #pocket-button,
-  #wrapper-pocket-button {
+  #wrapper-pocket-button,
+  #context-savelinktopocket {
     display: none !important;
     -moz-user-focus: ignore !important;
   }
