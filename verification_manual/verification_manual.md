@@ -2062,60 +2062,64 @@
 10. 各プラグインの制御が可能であるかどうか自体の検証のため、各設定ファイルに以下の内容を追記する。
     - {{mcd_local_file}}:
 
-            lockPref("plugin.load_flash_only", false);
+        ~~~
+        lockPref("plugin.load_flash_only", false);
 
-            lockPref("plugin.state.java", 2);
-            lockPref("plugin.state.npdeployjava", 2);
-            lockPref("plugin.state.flash", 2);
-            lockPref("plugin.state.nppdf", 2);
-            lockPref("plugin.state.np32dsw", 2);
-            lockPref("plugin.state.npctrl", 2);
-            lockPref("plugin.state.np-mswmp", 2);
-            lockPref("plugin.state.npatgpc", 2);
-            lockPref("plugin.state.libnpjp", 2);
+        lockPref("plugin.state.java", 2);
+        lockPref("plugin.state.npdeployjava", 2);
+        lockPref("plugin.state.flash", 2);
+        lockPref("plugin.state.nppdf", 2);
+        lockPref("plugin.state.np32dsw", 2);
+        lockPref("plugin.state.npctrl", 2);
+        lockPref("plugin.state.np-mswmp", 2);
+        lockPref("plugin.state.npatgpc", 2);
+        lockPref("plugin.state.libnpjp", 2);
 
-            lockPref("extensions.autopermission.sites.example.com", [
-              "plugin:java=3",
-              "plugin-vulnerable:java=3",
-              "plugin:npdeployjava=3",
-              "plugin-vulnerable:npdeployjava=3",
-              "plugin:flash=3",
-              "plugin-vulnerable:flash=3",
-              "plugin:nppdf=3",
-              "plugin-vulnerable:nppdf=3",
-              "plugin:np32dsw=3",
-              "plugin-vulnerable:np32dsw=3",
-              "plugin:npctrl=3",
-              "plugin-vulnerable:npctrl=3",
-              "plugin:np-mswmp=3",
-              "plugin-vulnerable:np-mswmp=3",
-              "plugin:npatgpc=3",
-              "plugin-vulnerable:npatgpc=3",
-              "plugin:libnpjp=3",
-              "plugin-vulnerable:libnpjp=3"
-            ].join(','));
-            clearPref("extensions.autopermission.sites.example.com.lastValue");
+        lockPref("extensions.autopermission.sites.example.com", [
+          "plugin:java=3",
+          "plugin-vulnerable:java=3",
+          "plugin:npdeployjava=3",
+          "plugin-vulnerable:npdeployjava=3",
+          "plugin:flash=3",
+          "plugin-vulnerable:flash=3",
+          "plugin:nppdf=3",
+          "plugin-vulnerable:nppdf=3",
+          "plugin:np32dsw=3",
+          "plugin-vulnerable:np32dsw=3",
+          "plugin:npctrl=3",
+          "plugin-vulnerable:npctrl=3",
+          "plugin:np-mswmp=3",
+          "plugin-vulnerable:np-mswmp=3",
+          "plugin:npatgpc=3",
+          "plugin-vulnerable:npatgpc=3",
+          "plugin:libnpjp=3",
+          "plugin-vulnerable:libnpjp=3"
+        ].join(','));
+        clearPref("extensions.autopermission.sites.example.com.lastValue");
+        ~~~
 
     - default.permissions:
 
-            host	plugin:java	3	http://example.net
-            host	plugin-vulnerable:java	3	http://example.net
-            host	plugin:npdeployjava	3	http://example.net
-            host	plugin-vulnerable:npdeployjava	3	http://example.net
-            host	plugin:flash	3	http://example.net
-            host	plugin-vulnerable:flash	3	http://example.net
-            host	plugin:nppdf	3	http://example.net
-            host	plugin-vulnerable:nppdf	3	http://example.net
-            host	plugin:np32dsw	3	http://example.net
-            host	plugin-vulnerable:np32dsw	3	http://example.net
-            host	plugin:npctrl	3	http://example.net
-            host	plugin-vulnerable:npctrl	3	http://example.net
-            host	plugin:np-mswmp	3	http://example.net
-            host	plugin-vulnerable:np-mswmp	3	http://example.net
-            host	plugin:npatgpc	3	http://example.net
-            host	plugin-vulnerable:npatgpc	3	http://example.net
-            host	plugin:libnpjp	3	http://example.net
-            host	plugin-vulnerable:libnpjp	3	http://example.net
+        ~~~
+        host	plugin:java	3	http://example.net
+        host	plugin-vulnerable:java	3	http://example.net
+        host	plugin:npdeployjava	3	http://example.net
+        host	plugin-vulnerable:npdeployjava	3	http://example.net
+        host	plugin:flash	3	http://example.net
+        host	plugin-vulnerable:flash	3	http://example.net
+        host	plugin:nppdf	3	http://example.net
+        host	plugin-vulnerable:nppdf	3	http://example.net
+        host	plugin:np32dsw	3	http://example.net
+        host	plugin-vulnerable:np32dsw	3	http://example.net
+        host	plugin:npctrl	3	http://example.net
+        host	plugin-vulnerable:npctrl	3	http://example.net
+        host	plugin:np-mswmp	3	http://example.net
+        host	plugin-vulnerable:np-mswmp	3	http://example.net
+        host	plugin:npatgpc	3	http://example.net
+        host	plugin-vulnerable:npatgpc	3	http://example.net
+        host	plugin:libnpjp	3	http://example.net
+        host	plugin-vulnerable:libnpjp	3	http://example.net
+        ~~~
 
 
 ### 検証
