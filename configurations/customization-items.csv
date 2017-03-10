@@ -681,6 +681,10 @@ Security-15,2,,,,禁止する,MCDで設定を反映する,"* Firefox自体自体
 * ツールバーカスタマイズにおける、テーマの「おすすめ」 (Security-19)
 * 危険なアドオンのブロックの可否 (Security-21)
 * プロトコルごとの外部Webアプリケーションへの連携 (Security-25)
+* ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする (Security-26)
+* ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する (Security-27)
+* 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く (Security-28)
+* 危険なFlashコンテンツの読み込み (Security-31)
 * 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否 (Privacy-15)
 * 利用状況の統計の保存および送信の可否 (Privacy-18)
 * セキュリティエラーレポートの送信の可否 (Privacy-19)
@@ -1042,6 +1046,45 @@ lockPref(""gecko.handlerService.schemes.webcal.0.uriTemplate"", """");
 pref(""gecko.handlerService.schemes.webcal.1.uriTemplate"", """");
 pref(""gecko.handlerService.schemes.webcal.2.uriTemplate"", """");
 pref(""gecko.handlerService.schemes.webcal.3.uriTemplate"", """");",新規,,,
+Security-26,1,セキュリティ,ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする,-,ブロックする（既定）,-,-,新規,,,,,
+Security-26,2,,,,ブロックしない,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.safebrowsing.downloads.enabled"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #blockDownloads {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",新規,,,,,
+Security-27,1,セキュリティ,ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する,-,警告する（既定）,-,-,新規,,,,,
+Security-27,2,,,,警告しない,"1. MCDで設定を反映する
+2. アドオン「globalChrome.css」を導入する
+3. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.safebrowsing.downloads.remote.block_potentially_unwanted"", false);
+lockPref(""browser.safebrowsing.downloads.remote.block_uncommon"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #blockUncommonUnwanted {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",新規,,,,,
+Security-28,1,セキュリティ,認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く,-,タブを開く（既定）,-,-,新規,,,,,
+Security-28,2,,,,何もしない,MCDで設定を反映する,"lockPref(""network.captive-portal-service.enabled"", false);",新規,,,,,
+Security-29,1,セキュリティ,SSL/TLSでないページでの「secure」属性付きCookieの読み書き,-,許可する,MCDで設定を反映する,"lockPref(""network.cookie.leave-secure-alone"", false);",新規,,,,,
+Security-29,2,,,,禁止する（既定）,-,-,新規,,,,,
+Security-30,1,セキュリティ,誤ったMIME Typeが指定されたスクリプトファイルの実行,-,許可する,MCDで設定を反映する,"lockPref(""security.block_script_with_wrong_mime"", false);",新規,,,,,
+Security-30,2,,,,禁止する（既定）,-,-,新規,,,,,
+Security-31,1,セキュリティ,危険なFlashコンテンツの読み込み,-,許可する,MCDで設定を反映する,"lockPref(""browser.safebrowsing.blockedURIs.enabled"", false);",新規,,,,,
+Security-31,2,,,,ブロックする（既定）,-,-,新規,,,,,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,-,,-,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
 2. MCDで設定を反映する
@@ -1052,14 +1095,13 @@ lockPref(""privacy.sanitize.sanitizeOnShutdown"", false);
 
 globalChrome.css:
 @-moz-document
-  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   #privateBrowsingAutoStart {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.privatebrowsing.autostart"", false);
 lockPref(""privacy.sanitize.sanitizeOnShutdown"", false);
 
@@ -2333,6 +2375,10 @@ Privacy-37,1,プライバシー,ネットワーク経由での先読み機能の
 Privacy-37,2,,,,先読みを禁止する,MCDで設定を反映する,"lockPref(""network.predictor.enabled"", false);",,"lockPref(""network.predictor.enabled"", false);",新規,,,
 Privacy-38,1,プライバシー,Webビーコンの送信,-,許可する（既定）,-,-,,-,新規,,,
 Privacy-38,2,,,,禁止する,MCDで設定を反映する,"lockPref(""beacon.enabled"", false); ",,"lockPref(""beacon.enabled"", false); ",新規,,,
+Privacy-39,1,プライバシー,SSL/TLSでないページへのパスワード入力時の警告,-,警告する（既定）,-,-,新規,,,,,
+Privacy-39,2,,,,警告しない,MCDで設定を反映する,"lockPref(""security.insecure_field_warning.contextual.enabled"", false); ",新規,,,,,
+Privacy-40,1,プライバシー,パスワード保存ポップアップにおける、パスワードを平文表示するチェックボックスの表示の可否,-,表示する（既定）,-,-,新規,,,,,
+Privacy-40,2,,,,表示しない,MCDで設定を反映する,"lockPref(""signon.rememberSignons.visibilityToggle"", false); ",新規,,,,,
 Startup-1,1,起動時の挙動の制御,初回起動時の設定移行ウィザード,-,表示する（既定）,-,-,,-,,-,,
 Startup-1,2,,,,表示しない,override.iniに設定を反映する,"[XRE]
 EnableProfileMigrator=0",,"[XRE]
@@ -3208,6 +3254,13 @@ Network-11,1,UA文字列の制御,UA文字列の変更,-,変更しない（既�
 Network-11,2,,,,任意の値を設定する,MCDで設定を反映する,"lockPref(""general.useragent.override"", ""（任意の内容）"");",,"lockPref(""general.useragent.override"", ""（任意の内容）"");",新規,,,
 Network-12,1,ネットワーク接続,リモートファイルに対するjarプロトコルの使用,-,許可する（既定）,-,-,,-,新規,,,
 Network-12,2,,,,禁止する,MCDで設定を反映する,"lockPref(""network.jar.block-remote-files"", true);",,"lockPref(""network.jar.block-remote-files"", true);",新規,,,
+Network-13,1,ネットワーク接続,TLS 1.3の使用,-,許可する（既定）,MCDで設定を反映する,"lockPref(""security.tls.version.max"", 4);",新規,,,,,
+Network-13,2,,,,禁止する,-,-,新規,,,,,
+Network-14,1,ネットワーク接続,SSL/TLSでのSHA-1証明書の使用の可否,-,常に受け入れる,MCDで設定を反映する,"lockPref(""security.pki.sha1_enforcement_level"", 0);",新規,,,,,
+Network-14,2,,,,常に拒否する,MCDで設定を反映する,"lockPref(""security.pki.sha1_enforcement_level"", 1);",新規,,,,,
+Network-14,3,,,,2016年以前発行の公的な証明書を受け入れる,MCDで設定を反映する,"lockPref(""security.pki.sha1_enforcement_level"", 2);",新規,,,,,
+Network-14,4,,,,インポートした認証局の発行した証明書を受け入れる（既定）,-,"// lockPref(""security.pki.sha1_enforcement_level"", 3);",新規,,,,,
+Network-14,5,,,,2016年以前発行の公的な証明書とインポートした認証局の発行した証明書の両方を受け入れる,MCDで設定を反映する,"lockPref(""security.pki.sha1_enforcement_level"", 4);",新規,,,,,
 Update-1,1,自動更新,Firefoxの自動更新の可否,-,許可する（既定）,MCDで設定を反映する,"lockPref(""app.update.enabled"", true);
 lockPref(""app.update.auto"", true);
 lockPref(""app.update.mode"", 1);",,"lockPref(""app.update.enabled"", true);

@@ -226,3 +226,10 @@ Hide-9,設定画面の「ダウンロード」グループ,"1. アドオン「gl
     -moz-user-focus: ignore !important;
   }
 }",,
+Hide-10,ロケーションバーのズーム率表示,"1. アドオン「globalChrome.css」を導入する
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  #urlbar-zoom-button {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",○,,,,,
