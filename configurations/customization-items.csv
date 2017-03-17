@@ -46,6 +46,9 @@ UpdatePinnedShortcuts=true",新規,,,
 Install-10,3,,,,削除のみする,fainstall.iniを編集する,"[fainstall]
 UpdatePinnedShortcuts=delete",,"[fainstall]
 UpdatePinnedShortcuts=delete",新規,,,
+Install-11,1,インストール,タスクバー上へのピン留め用ショートカットの作成,-,作成する（既定）,-,-,新規,,,,,
+Install-11,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
+TaskbarShortcut=false",新規,,,,,
 Application-1,1,特定用途専用アプリケーションとしての利用,デスクトップのショートカット,-,既定の内容で作成（既定）,-,-,,-,,-,,
 Application-1,2,,,,作成しない,Firefox-setup.ini/Thunderbird-setup.iniを編集する,"[Install]
 DesktopShortcut=false",,"[Install]
