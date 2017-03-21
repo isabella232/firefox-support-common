@@ -2430,14 +2430,13 @@ lockPref(""browser.startup.homepage"", ""(URL)"");
 
 globalChrome.css:
 @-moz-document
-  url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   .homepage-buttons {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",,"MCD:
+}",○,"MCD:
 lockPref(""browser.startup.homepage"", ""(URL)"");
 
 globalChrome.css:
