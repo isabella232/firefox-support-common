@@ -1089,6 +1089,21 @@ Security-30,2,,,,禁止する（既定）,-,-,新規,,,,,
 Security-31,1,セキュリティ,危険なFlashコンテンツの読み込み,-,許可する,MCDで設定を反映する,"lockPref(""browser.safebrowsing.blockedURIs.enabled"", false);",新規,,,,,
 Security-31,2,,,,ブロックする（既定）,-,-,新規,,,,,
 Privacy-1,1,プライバシー,履歴の保存の可否,-,保存する（既定）,-,-,,-,,-,,
+Privacy-1,5,,,,履歴を基本的には保存し、ただし（一部項目は）終了時の消去を許可する,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
+2. MCDで設定を反映する
+3. アドオン「globalChrome.css」を導入する
+4. globalChrome.cssで設定を反映する","MCD:
+lockPref(""browser.privatebrowsing.autostart"", false);
+
+globalChrome.css:
+@-moz-document
+  url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
+  url-prefix(""about:preferences"") {
+  #privateBrowsingAutoStart {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",新規,,,,,
 Privacy-1,2,,,,保存を強制する,"1. アドオン「History Prefs Modifier」を導入する（Firefox 38以前のみ。Firefox 45以降では不要）
 2. MCDで設定を反映する
 3. アドオン「globalChrome.css」を導入する
