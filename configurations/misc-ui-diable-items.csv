@@ -27,7 +27,7 @@ Firefox 31以前：
     -moz-user-focus: ignore !important;
   }
 }",変更無し,"lockPref(""extensions.hideoptionpane@clear-code.com.browser.paneSecurity.enabled"", false);"
-Hide-2,設定画面の「Sync」パネル,アドオン「Disable Sync」を導入する,-,,-,,-,変更無し,-
+Hide-2,設定画面の「Sync」パネル、サイドバーの「同期タブ」,アドオン「Disable Sync」を導入する,-,,-,,-,変更無し,-
 Hide-3,設定画面の「ヘルプ」ボタン,"Firefox 38以降：
 1. アドオン「globalChrome.css」を導入する
 2. globalChrome.cssで設定を反映する
