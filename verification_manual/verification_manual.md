@@ -35,6 +35,7 @@
 - Install-7-\* 
 - Install-8-\* 
 - Install-9-2 
+- Install-11-\* 
 - Application-1-\* 
 - Application-2-\* 
 - Application-3-\* 
@@ -89,6 +90,8 @@
             2. {{start_menu_shortcut_path}} (Application-2-2) 
         3. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが表示されている。(Application-3-1)\
             またはショートカットが表示されていない。(Application-3-2) 
+        3. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが表示されている。(Install-11-1)\
+            またはショートカットが表示されていない。(Install-11-2) 
         4. コントロールパネル→プログラムと機能で、以下の通りとなっている。 
             1. 「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*) 
             2. 「{{meta_installer_name}}」がインストールされている。(Install-1-\*) 
