@@ -360,13 +360,13 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 2. その状態のまま、{{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
     - 確認項目
-        1. Firefoxの新しいウィンドウが開かれる。(Application-1-1)\
+        1. Firefoxの新しいウィンドウが開かれる。(Application-1-1/3)\
             または、「Firefoxは起動していますが応答しません。」というメッセージが出てFirefoxの新しいウィンドウが開かれない。(Application-1-3) 
 3. Firefoxを終了する。 
 4. {{start_menu_shortcut_path}}をダブルクリックしてFirefoxを起動する。   
 5. その状態のまま、{{start_menu_shortcut_path}}をダブルクリックしてFirefoxの多重起動を試みる。   
     - 確認項目
-        1. Firefoxの新しいウィンドウが開かれる。(Application-2-1)\
+        1. Firefoxの新しいウィンドウが開かれる。(Application-2-1/3)\
             または、「Firefoxは起動していますが応答しません。」というメッセージが出てFirefoxの新しいウィンドウが開かれない。(Application-2-3) 
 
 ## ウィンドウ名の制御
@@ -1111,7 +1111,7 @@
         2. 「ロケーションバーに検索候補を表示する」が表示されていない。(Privacy-17-2) 
 32. 「プライバシー」ペインを選択する。 
     - 確認項目 
-        1. 「常にプライベートブラウジングモード」が表示されていない。(Privacy-1-2) 
+        1. 「常にプライベートブラウジングモード」が表示されていない。(Privacy-1-2/5) 
         2. 「プライベートウィンドウでサイトによるトラッキングをブロックする」が表示されていない。(Privacy-33-3) 
         3. 「検索エンジンの検索候補の設定を変更」が表示されていない。(Privacy-17-2) 
 33. Firefoxを終了する。 
