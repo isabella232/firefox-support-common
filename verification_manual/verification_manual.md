@@ -1892,9 +1892,7 @@
     - 確認項目
         1. コンテキストメニューが開かれない。（Script-5-1）
            または、開かれる。（Script-5-2）
-10. Firefoxを終了し、以下のアドオンを有効化する。
-    - globalChrome.css
-11. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+10. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
      - 確認項目
          1. 「browser.cache.memory.capacity」の値が指定値の通りである。(Performance-1-2)
          2. 「content.notify.interval」の値が指定値の通りである。(Performance-2-2)
