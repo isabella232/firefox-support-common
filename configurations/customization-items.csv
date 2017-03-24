@@ -3367,15 +3367,6 @@ Ui-5,1,UI,リーダービュー機能の使用,-,使用する（既定）,-,-,,-
 Ui-5,2,,,,使用しない,MCDで設定を反映する,"lockPref(""reader.parse-on-load.enabled"", false)",,"lockPref(""reader.parse-on-load.enabled"", false)",新規,,,
 Ui-6,1,UI,スペルチェック機能の使用,-,使用する（既定）,-,-,,-,新規,,,
 Ui-6,2,,,,使用しない,MCDで設定を反映する,"lockPref(""layout.spellcheckDefault"", 0);",,"lockPref(""layout.spellcheckDefault"", 0);",新規,,,
-Ui-7,1,UI,アドレスバーの拡大・縮小ボタンの表示,-,表示する（既定）,-,-,,-,新規,,,
-Ui-7,2,,,,表示しない,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
-  #urlbar-zoom-button {
-    visibility: collapse !important;
-    -moz-user-focus: ignore !important;
-  }
-}
-",新規,,,,,
 Script-1,1,Webアプリの動作,スクリプトによる頻繁なalertの可否,-,許可する,MCDで設定を反映する,"lockPref(""dom.successive_dialog_time_limit"", 0);",,"lockPref(""dom.successive_dialog_time_limit"", 0);",,"lockPref(""dom.successive_dialog_time_limit"", 0);",,
 Script-1,2,,,,禁止する（既定）,MCDで設定を反映する,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
 lockPref(""dom.successive_dialog_time_limit"", 3);",,"// 3秒以内にalertが繰り返されたら警告を表示する（既定値）
