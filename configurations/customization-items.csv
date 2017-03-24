@@ -1099,7 +1099,7 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #privateBrowsingAutoStart {
+  menuitem[value=""dontremember""] {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
@@ -1115,7 +1115,7 @@ globalChrome.css:
 @-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
-  #privateBrowsingAutoStart {
+  menuitem[value=""dontremember""] {
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
