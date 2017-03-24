@@ -43,7 +43,7 @@ Firefox 31以前：
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",○,"@-moz-document
+}",変更あり,"@-moz-document
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
   .help-button {
@@ -121,7 +121,7 @@ Hide-4,ポップアップブロック、アドオンのインストール警告�
   }
 }"
 Hide-5,サイト別設定マネージャにおける、Cookie以外の権限に関する設定項目,"1. アドオン「globalChrome.css」を導入する
-2. globalChrome.cssで設定を反映する",Firefox 45で廃止,○,Firefox 45では機能が削除されたため不要,○,"@-moz-document
+2. globalChrome.cssで設定を反映する",Firefox 45で廃止,変更あり,Firefox 45では機能が削除されたため不要,○,"@-moz-document
   url-prefix(""about:permissions""),
   url-prefix(""chrome://browser/content/preferences/aboutPermissions.xul"") {
   #password-pref-item,
@@ -177,7 +177,7 @@ Hide-7,設定画面内の「タブグループ」グループにおける「新�
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",○,"@-moz-document
+}",変更あり,"@-moz-document
   url-prefix(""chrome://browser/content/preferences/preferences.xul""),
   url-prefix(""chrome://browser/content/preferences/in-content/preferences.xul""),
   url-prefix(""about:preferences"") {
@@ -232,4 +232,4 @@ Hide-10,ロケーションバーのズーム率表示,"1. アドオン「globalC
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
-}",○,,,,,
+}",新規,,,,,
