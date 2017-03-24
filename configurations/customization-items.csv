@@ -3585,7 +3585,8 @@ lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-6,2,,,,常に有効化する,"1. np-mswmp.dllを導入する
 2. MCDで設定を反映する
 （恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
-（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）",Plugin-1-2と同様。プラグイン名は「java」を「np-mswmp」に読み替える。,○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","Plugin-1-2と同様。プラグイン名は「java」を「np-mswmp」に読み替える。また、その上で以下の設定を加える。
+lockPref(""plugins.load_appdir_plugins"", true);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 2);
@@ -3593,7 +3594,8 @@ lockPref(""plugins.load_appdir_plugins"", true);",,
 Plugin-6,3,,,,クリックされたら有効にする,"1. np-mswmp.dllを導入する
 2. MCDで設定を反映する
 （恒久的な値をサイト別に設定する場合、アドオン「Permission Auto Registerer」も導入する）
-（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）",Plugin-1-3と同様。プラグイン名は「java」を「np-mswmp」に読み替える。,○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
+（Firefox 45以前向けの設定の仕方を採用する場合、アドオン「Force Addon Status」も導入する）","Plugin-1-3と同様。プラグイン名は「java」を「np-mswmp」に読み替える。また、その上で以下の設定を加える。
+lockPref(""plugins.load_appdir_plugins"", true);",○,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
 lockPref(""plugins.load_appdir_plugins"", true);",,"lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.pattern"", ""Windows Media Player"");
 lockPref(""extensions.force-addon-status@clear-code.com.plugins.0.enabledState"", 1);
