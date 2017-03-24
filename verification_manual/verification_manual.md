@@ -62,20 +62,20 @@
 2. 不要なファイルを削除する。
     - {{meta_installer_file_name}}\*.exe
 3. fainstall.iniを開き、検証環境に合わせて内容を修正する。 
-    - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の「（ドライブレター）:/」の指定をすべて「C:/（ドライブレター）/」に置換する。\
+    - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の「（ドライブレター）:/」の指定をすべて「C:/（ドライブレター）/」に置換する。
       以下、ファイルの作成先はすべて置換後のパスで読み替える。 
 4. {{meta_installer_file_name}}.batを実行する。
     - 確認項目
-        1. {{meta_installer_file_name}}.exeが作成される。(Install-9-1)\
+        1. {{meta_installer_file_name}}.exeが作成される。(Install-9-1)
            または、{{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2) 
 5. 作成された{{meta_installer_file_name}}\*.exeを実行する。
     - 確認項目
         1. メタインストーラの圧縮ファイルを展開する様子を示すダイアログが表示される。 
-        2. メタインストーラのウィザードが表示される。(Install-3-2)(Install-6-\*)\
+        2. メタインストーラのウィザードが表示される。(Install-3-2)(Install-6-\*)
             または、ウィザードが表示されない。(Install-3-3) 
-        3. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。(Install-4-2)\
+        3. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。(Install-4-2)
             または、メッセージが表示されない。(Install-4-1)
-        4. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2)\
+        4. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2)
             または、メッセージが表示されない。(Install-5-1)
 
 6. インストールされた環境が想定通りか確認する。
@@ -88,15 +88,15 @@
         2. 以下のファイル、フォルダが存在しない。
             1. {{desktop_shortcut_path}} (Application-1-2) 
             2. {{start_menu_shortcut_path}} (Application-2-2) 
-        3. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが表示されている。(Application-3-1)\
+        3. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが表示されている。(Application-3-1)
             またはショートカットが表示されていない。(Application-3-2) 
-        3. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが表示されている。(Install-11-1)\
+        3. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが表示されている。(Install-11-1)
             またはショートカットが表示されていない。(Install-11-2) 
         4. コントロールパネル→プログラムと機能で、以下の通りとなっている。 
             1. 「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*) 
             2. 「{{meta_installer_name}}」がインストールされている。(Install-1-\*) 
             3. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2) 
-            4. 「Mozilla Maintenance Service」がインストールされている。(Update-4-1)\
+            4. 「Mozilla Maintenance Service」がインストールされている。(Update-4-1)
                 または、インストールされていない。(Update-4-2) 
 
 ## 専用ユーザープロファイルの作成と使用
@@ -252,33 +252,33 @@
 
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
     - 確認項目
-        1. Firefoxが起動した時に「設定移行ウィザード」が表示される。(Startup-1-1)\
+        1. Firefoxが起動した時に「設定移行ウィザード」が表示される。(Startup-1-1)
            または、表示されない。(Startup-1-2) 
-        2. Firefoxを既定のブラウザにするか尋ねられる。(Startup-3-1)\
+        2. Firefoxを既定のブラウザにするか尋ねられる。(Startup-3-1)
             または、尋ねられない。(Startup-3-2) 
-        3. Firefox既定のホーム画面が表示される。(Startup-2-1)\
+        3. Firefox既定のホーム画面が表示される。(Startup-2-1)
             または、{{home_page}}が表示される。
             (Startup-2-2/3) 
-        4. 導入対象のアドオンが無効化されている。(Admin-2-1)(Admin-4-1)\
+        4. 導入対象のアドオンが無効化されている。(Admin-2-1)(Admin-4-1)
            または、有効化され機能している。(Admin-2-2)(Admin-4-1)
 2. ホームページのタブとして既定のホームページ（about:home）が開かれていない場合、ロケーションバーに「about:home」と入力し、ホームページを開く。(Startup-6-\*)  
     - 確認項目
-        1. 既定のホームページ内に「あなたの権利について……」のリンクおよび情報が表示される。(Startup-6-1)\
+        1. 既定のホームページ内に「あなたの権利について……」のリンクおよび情報が表示される。(Startup-6-1)
            または、表示されない。(Startup-6-2) 
 3. 任意のWebページを開く。 
 4. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。 
     - 確認項目
-        1. 「このWebページまたはファイルを新しいホームページに設定します。よろしいですか？」と問われ、「はい」を選択した後でツールバー上の「ホーム」ボタンをクリックすると、ドラッグ&ドロップしたリンク先のページが開かれる。(Startup-2-2)\
+        1. 「このWebページまたはファイルを新しいホームページに設定します。よろしいですか？」と問われ、「はい」を選択した後でツールバー上の「ホーム」ボタンをクリックすると、ドラッグ&ドロップしたリンク先のページが開かれる。(Startup-2-2)
           または、「ホーム」ボタンへのドロップが不可能である。(Startup-2-3) 
 7. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
     - 確認項目 
-        1. 「extensions.shownSelectionUI」の値が存在しないか、「false」である。(Admin-3-1)\
+        1. 「extensions.shownSelectionUI」の値が存在しないか、「false」である。(Admin-3-1)
             または、「true」である。(Admin-3-2) 
         2. 「browser.startup.homepage\_override.mstone」の値が「ignore」である。(Startup-4-2) 
 8. 詳細設定において、「extensions.lastAppVersion」を「1.0」に変更する。 
 9. Firefoxを再起動する。 
     - 確認項目 
-        1. アドオンの更新の確認が行われる。(Admin-3-1)\
+        1. アドオンの更新の確認が行われる。(Admin-3-1)
             または、確認が行われない。(Admin-3-2) 
 10. メニューバーの「ブックマーク」を開く。 
     - 確認項目 
@@ -309,7 +309,7 @@
            もしくは、表示されない。（Startup-7-2）
 20. Firefoxを終了し、プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、「 https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/ 」と入力し、ページを開く。(Startup-8-\*) 
     - 確認方法 
-        1. UIツアーが開始される。(Startup-8-1)\
+        1. UIツアーが開始される。(Startup-8-1)
            または、開始されない。(Startup-8-2) 
 
 ### 後始末
@@ -360,13 +360,13 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
 2. その状態のまま、{{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
     - 確認項目
-        1. Firefoxの新しいウィンドウが開かれる。(Application-1-1/3)\
+        1. Firefoxの新しいウィンドウが開かれる。(Application-1-1/3)
             または、「Firefoxは起動していますが応答しません。」というメッセージが出てFirefoxの新しいウィンドウが開かれない。(Application-1-3) 
 3. Firefoxを終了する。 
 4. {{start_menu_shortcut_path}}をダブルクリックしてFirefoxを起動する。   
 5. その状態のまま、{{start_menu_shortcut_path}}をダブルクリックしてFirefoxの多重起動を試みる。   
     - 確認項目
-        1. Firefoxの新しいウィンドウが開かれる。(Application-2-1/3)\
+        1. Firefoxの新しいウィンドウが開かれる。(Application-2-1/3)
             または、「Firefoxは起動していますが応答しません。」というメッセージが出てFirefoxの新しいウィンドウが開かれない。(Application-2-3) 
 
 ## ウィンドウ名の制御
@@ -424,7 +424,7 @@
 5. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。 
     - 確認項目
         1. インポートするよう設定した証明書がすべて指定通りにインポートされている。
-            (Security-2-1)\
+            (Security-2-1)
             または、再インポートされていない。 (Security-2-2) 
 
 ## アドオンの利用制限
@@ -526,15 +526,15 @@
 
 1. Firefoxのロケーションバーに「 https://itisatrap.org/firefox/its-an-attack.html 」と入力し、Enterを押下する。
     - 確認項目 
-        1. 攻撃サイトとしてブロックされる。(Security-5-1)\
+        1. 攻撃サイトとしてブロックされる。(Security-5-1)
            または、ブロックされない。(Security-5-2) 
 1. Firefoxのロケーションバーに「 http://itisatrap.org/firefox/unwanted.html 」と入力し、Enterを押下する。
     - 確認項目 
-        1. 望ましくないソフトウェアの提供サイトとしてブロックされる。(Security-5-1)\
+        1. 望ましくないソフトウェアの提供サイトとしてブロックされる。(Security-5-1)
            または、ブロックされない。(Security-5-2) 
 1. Firefoxのロケーションバーに「 http://itisatrap.org/firefox/its-a-trap.html 」と入力し、Enterを押下する。
     - 確認項目 
-        1. 詐欺サイトとしてブロックされる。(Security-6-1)\
+        1. 詐欺サイトとしてブロックされる。(Security-6-1)
            または、ブロックされない。(Security-6-2) 
 4. 「ツール」→「オプション」→「セキュリティ」タブを開く。 
     - 確認項目
@@ -597,7 +597,7 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
     - 確認項目 
-        1. 「このページを共有」ボタンが存在する。(Security-11-1)\
+        1. 「このページを共有」ボタンが存在する。(Security-11-1)
             または、存在しない。(Security-11-2) 
 3. ロケーションバーに「 https://activations.cdn.mozilla.net/ja/ 」と入力し、Enterを押してページを開く。 
 4. いずれかのサービスの「今すぐ追加」ボタンをクリックする。 
@@ -639,11 +639,11 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. テストケースの「local-file-link.html」を、ローカルファイルの読み込みを許可するサイトに設置してから開き、ページ内のリンクをクリックする。 
     - 確認項目 
-        1. 「C:\\file.txt」の位置に置いたファイルの内容が読み込まれる。(Security-13-1)\
+        1. 「C:\\file.txt」の位置に置いたファイルの内容が読み込まれる。(Security-13-1)
            または、何も起こらない。(Security-13-2) 
 2. テストケースの「cross-directory.html」について、「../configuration-sheets/constumize-item-list.csv」の位置にファイルがある事を確認した上で、ファイルを開く。 
     - 確認項目 
-        1. 「./cross-directory.html」および「../configuration-sheets/constumize-item-list.csv」の結果が「200」と表示される。(Security-14-1)\
+        1. 「./cross-directory.html」および「../configuration-sheets/constumize-item-list.csv」の結果が「200」と表示される。(Security-14-1)
            または、「./cross-directory.html」の結果は「200」、「../configuration-sheets/constumize-item-list.csv」の結果はエラーが表示される。(Security-14-2) 
 
 ## バックグラウンドで行われる通信の制限
@@ -997,7 +997,7 @@
     - 確認項目
         1. 「Do Not Trackの設定を管理」リンクをクリックして開かれたダイアログ内で、「Do Not Trackを常に有効にする」のチェックが入っている。 (Privacy-20-1/2) 
            または、チェックが外れている。 (Privacy-20-3/4) 
-        2. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。(Privacy-1-2/5)\
+        2. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。(Privacy-1-2/5)
             または、「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。(Privacy-1-3) 
         3. 「履歴」で「Firefoxの終了時に履歴を消去する」のチェックが外れていて選択不可になっている。(Privacy-1-2/3) 
            または、チェックが入っていて選択不可になっている。(Privacy-1-4) 
@@ -1057,9 +1057,9 @@
         5. 「security.ssl.errorReporting.enabled」の値が「false」である。(Privacy-19-2) 
         6. 「security.ssl.errorReporting.url」の値が空文字である。(Privacy-19-2) 
         7. 「browser.selfsupport.url」の値が空文字である。(Privacy-31-2) 
-        8. 「privacy.trackingprotection.enabled」の値が「true」である。(Privacy-33-2)\
+        8. 「privacy.trackingprotection.enabled」の値が「true」である。(Privacy-33-2)
             または、「false」である。(Privacy-33-3) 
-        9. 「privacy.trackingprotection.pbmode.enabled」の値が「true」である。(Privacy-33-2)\
+        9. 「privacy.trackingprotection.pbmode.enabled」の値が「true」である。(Privacy-33-2)
             または、「false」である。(Privacy-33-3) 
 12. 以下の設定を行う。既存の値がない場合は新規に作成する。 
     - 「network.dns.notifyResolution」（真偽型）を「true」に設定する。 
@@ -1070,11 +1070,11 @@
 15. コンソール上の「ネットワーク」が選択された状態にする。すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する。
 16. ブラウザウィンドウで「 http://www.clear-code.com/blog/2016/5/10.html 」を開く。 
     - 確認項目 
-        1. 「GET http://www.clear-code.com/blog/2016/5/18.html 」というログがコンソールに出力される。(Privacy-7-1)\
+        1. 「GET http://www.clear-code.com/blog/2016/5/18.html 」というログがコンソールに出力される。(Privacy-7-1)
             または、出力されない。(Privacy-7-2) 
 17. ブラウザウィンドウでテストケースの「prefetching.html」を開く。 
     - 確認項目 
-        1. 「dns-resolution-request: dns-prefetch.example.com」というログがブラウザコンソールに出力される。(Privacy-16-1)\
+        1. 「dns-resolution-request: dns-prefetch.example.com」というログがブラウザコンソールに出力される。(Privacy-16-1)
             または、出力されない。(Privacy-16-2) 
 18. ブラウザコンソールを閉じる。 
 19. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開いてから、タブを閉じる。 
@@ -1089,18 +1089,18 @@
         1. 「最近閉じたウィンドウ」が表示されない。(Privacy-10-2) 
 25. ツールバー上の検索窓にフォーカスし「a」と入力する。 
     - 確認項目 
-        1. 「a」の補完候補が表示される。(Privacy-17-1)\
+        1. 「a」の補完候補が表示される。(Privacy-17-1)
             または、表示されない。(Privacy-17-2)
 26. ツールバー上のロケーションバーにフォーカスし「新しい検索語句」等、履歴やブックマーク等からの候補が表示され得ないテキストを入力する。 
     - 確認項目 
-        1. 補完候補が表示される。(Privacy-17-1)\
+        1. 補完候補が表示される。(Privacy-17-1)
             または、表示されない。(Privacy-17-2)  
 27. ツールバー上の検索窓の虫眼鏡のアイコンをクリックし、ポップアップ表示されたパネルの最下部の「検索設定を変更」をクリックする。 
 28. 開かれた設定画面の「既定の検索エンジン」欄を見る。 
     - 確認項目 
-        1. 「検索候補を使用する」にチェックが入っていて選択不可になっている。(Privacy-17-1)\
+        1. 「検索候補を使用する」にチェックが入っていて選択不可になっている。(Privacy-17-1)
             または、チェックが外れていて選択不可になっている。(Privacy-17-2) 
-        2. 「ロケーションバーに検索候補を表示する」にチェックが入っていて選択不可になっている。(Privacy-17-1)\
+        2. 「ロケーションバーに検索候補を表示する」にチェックが入っていて選択不可になっている。(Privacy-17-1)
             または、チェックが外れていて選択不可になっている。(Privacy-17-2) 
 29. Firefoxを終了し、以下のアドオンを有効化する。 
     - globalChrome.css 
@@ -1120,7 +1120,7 @@
         1. sessionstore.jsが存在しない。（Privacy-10-2）
 34. (ユーザのホームのフルパス)\\http.log の位置に出力されているログファイルを開く。 
     - 確認項目 
-        1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の登場回数のうち、前者の方が多い。（Privacy-32-1）\
+        1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の登場回数のうち、前者の方が多い。（Privacy-32-1）
             または、両者の登場回数が等しい。（Privacy-32-2） 
         2. ログ中の「Predictor::Predict」という行に続く「called on parent process」という行の後に、「not enabled」という行が表れていない。（Privacy-37-1）
             または、表れている。（Privacy-37-2）
@@ -1454,9 +1454,9 @@
 2. ロケーションバーに「 https://addons.mozilla.org/ 」と入力し、ページを開く。 
 3. Web検索バーのアイコンをクリックする。 
     - 確認項目 
-        1. Web検索バーのアイコンに「+」のバッジが表示される。(Websearch-1-1)\
+        1. Web検索バーのアイコンに「+」のバッジが表示される。(Websearch-1-1)
             または、バッジが表示されない。(Websearch-1-2) 
-        2. パネル上に「”Firefoxアドオン”を追加」という項目が表示される。(Websearch-1-1)\
+        2. パネル上に「”Firefoxアドオン”を追加」という項目が表示される。(Websearch-1-1)
             または、表示されない。(Websearch-1-2) 
         3. パネル上に、無効にした検索エンジンが表れていない。(Websearch-2-2) 
 4. パネル下部の「検索設定を変更」をクリックする。(Websearch-2-2) 
@@ -1480,7 +1480,7 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. ロケーションバーに「 http://www.clear-code.com/ 」のように「 http:// 」で始まるURLを入力し、ページを開く。 
     - 確認項目 
-        1. ロケーションバーのURL表記に「http://」が含まれている。(Location-1-2)\
+        1. ロケーションバーのURL表記に「http://」が含まれている。(Location-1-2)
             または、含まれていない。(Location-1-1) 
 
 ## ダウンロードに関する機能の制御
@@ -1503,27 +1503,27 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
     - 確認項目 
-        1. 「ダウンロード」が存在する。(Download-1-1)\
+        1. 「ダウンロード」が存在する。(Download-1-1)
             または、存在しない。(Download-1-2) 
 3. ロケーションバーに「 http://www.clear-code.com/ 」と入力し、ページを開く。 
 4. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。 
     - 確認項目 
-        1. ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2)\
+        1. ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2)
             または、ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) 
 5. 「subfolder」という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。 
     - 確認項目 
-        1. ダウンロードの進行状況を示すポップアップが表示される。(Download-1-1)\
+        1. ダウンロードの進行状況を示すポップアップが表示される。(Download-1-1)
             または、表示されない。(Download-1-2) 
 6. ロケーションバーに「 http://www.mozilla.org/ 」と入力し、ページを開く。 
 7. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。 
     - 確認項目 
-        1. ダウンロード先として{{download_dir}}内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1)\
+        1. ダウンロード先として{{download_dir}}内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1)
             または、{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2) 
 8. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 9. オプション画面の「一般」を開く。
     - 確認項目
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*) 
-        2. ダウンロード先として{{download_dir}}内の「subfolder」が表示されている。(Download-3-1)\
+        2. ダウンロード先として{{download_dir}}内の「subfolder」が表示されている。(Download-3-1)
             または、{{download_dir}}が表示されている。(Download-3-2) 
 
 ## タブの操作に関する機能の制御
@@ -1552,18 +1552,18 @@
 3. 新しいウィンドウ内で新しいタブを2つ以上開く。 
 4. ウィンドウを閉じる操作を行う。 
     - 確認項目 
-        1. 複数のタブを閉じてよいかどうか確認される。(Tab-1-1)\
+        1. 複数のタブを閉じてよいかどうか確認される。(Tab-1-1)
             または、確認されない。(Tab-1-2/3) 
 5. タブを1つ選択し、右クリックして「他のタブをすべて閉じる」を選択する。 
     - 確認項目 
-        1. 複数のタブを閉じてよいかどうか確認される。(Tab-2-1)\
+        1. 複数のタブを閉じてよいかどうか確認される。(Tab-2-1)
             または、確認されない。(Tab-2-2/3) 
 6. テストケースの「links.html」を開く。リンクからタブを開き、15以上のタブが開かれた状態にする。 
 7. タブの上で右クリックし、メニューから「すべてのタブをブックマーク」を選択する。 
 8. フォルダ名を任意に指定し、ブックマークフォルダとして保存する。 
 9. メニューバーの「ブックマーク」から前の操作で作成されたブックマークフォルダを選択し、最下部の「タブですべて開く」を選択する。 
     - 確認項目 
-        1. 一度に複数のタブを開いてよいかどうか確認される。(Tab-3-1)\
+        1. 一度に複数のタブを開いてよいかどうか確認される。(Tab-3-1)
             または、確認されない。(Tab-3-2/3) 
 10. タブバー上の「+」ボタンをクリックして新しいタブを開く。またはパネルメニューを開き、パネルメニュー内の「新しいウィンドウ」をクリックする。 
     - 確認項目 
@@ -1637,9 +1637,9 @@
 2. ロケーションバーに「 https://www.youtube.com 」と入力し、ページを開く。 
 3. いずれか1つの動画を開く。
     - 確認項目 
-        1. タブ内にスピーカーのアイコンが表示される。(Ui-3-1)\
+        1. タブ内にスピーカーのアイコンが表示される。(Ui-3-1)
             または、表示されない。(Ui-3-2) 
-        2. タブを「ピン留め」した状態で、タブのアイコンにスピーカーのバッジが表示される。(Ui-3-1)\
+        2. タブを「ピン留め」した状態で、タブのアイコンにスピーカーのバッジが表示される。(Ui-3-1)
             または、表示されない。(Ui-3-2) 
 
 ## 認証プロンプトの重複表示の抑止
@@ -1717,11 +1717,11 @@
         1. ページ内に「Service Worker not available」と表示されている。(Script-2-3) 
 3. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
     - 確認項目 
-        1. 「dom.push.enabled」の値が「true」である。(Script-2-1/2)\
+        1. 「dom.push.enabled」の値が「true」である。(Script-2-1/2)
             または、「false」である。(Script-2-3) 
-        2. 「dom.serviceWorkers.enabled」の値が「true」である。(Script-2-1/2)\
+        2. 「dom.serviceWorkers.enabled」の値が「true」である。(Script-2-1/2)
             または、「false」である。(Script-2-3) 
-        3. 「dom.gamepad.enabled」の値が「true」である。(Script-3-1)\
+        3. 「dom.gamepad.enabled」の値が「true」である。(Script-3-1)
             または、「false」である。(Script-3-2) 
 4. 確認なしでpush通知を許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。 
         1. 「サイト別設定」タブで「通知を受信する」において「許可」にチェックが入っている。(Script-2-2/4) 
@@ -1756,7 +1756,7 @@
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「詳細」→「一般」を開く。
     - 確認項目 
-        1. 「ハードウェアアクセラレーション機能を使用する」にチェックが入っている。(Stability-1-1)\
+        1. 「ハードウェアアクセラレーション機能を使用する」にチェックが入っている。(Stability-1-1)
             または、チェックが入っていない。(Stability-1-2) 
 
 ### 後始末
@@ -1964,10 +1964,10 @@
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「詳細」→「ネットワーク」→「接続」→「接続設定」を開く。
     - 確認項目
-        1. 「プロキシを使用しない」が選択されている。(Network-2-1)\
-            または、「手動でプロキシを設定する」が選択されている。(Network-2-2)\
-            または、「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3)\
-            または、「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4)\
+        1. 「プロキシを使用しない」が選択されている。(Network-2-1)
+            または、「手動でプロキシを設定する」が選択されている。(Network-2-2)
+            または、「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3)
+            または、「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4)
             または、「システムのプロキシ設定を利用する」が選択されている。(Network-2-5) 
         2. 各プロキシが指定通りに設定されている。(Network-2-2) 
         3. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。(Network-2-3) 
@@ -2013,7 +2013,7 @@
         3. 「network.http.max-connections」の値が6である。(Network-5-2) 
         4. 「network.http.max-persistent-connections-per-server」の値が2である。(Network-5-2) 
         5. 「network.http.max-persistent-connections-per-proxy」の値が2である。(Network-5-2) 
-        6. 「network.http.spdy.enabled」の値が「true」である。(Network-6-1)\
+        6. 「network.http.spdy.enabled」の値が「true」である。(Network-6-1)
             または、「false」である。(Network-6-2) 
         7. 「security.tls.insecure\_fallback\_hosts」の値が未設定または空文字である。(Network-7-1) 
             または、「{{ntlm_single_signon_hosts}}」である。(Network-7-2) 
@@ -2027,11 +2027,11 @@
             または、「true」である。(Network-10-2) 
         12. 「security.tls.version.max」の値が「4」である。(Network-13-1) 
             または、「3」以下である。(Network-13-2) 
-        14. 「security.pki.sha1_enforcement_level」の値が「0」である。(Network-13-1) 
-            または、「1」である。(Network-13-2) 
-            または、「2」である。(Network-13-3) 
-            または、「3」である。(Network-13-4) 
-            または、「4」である。(Network-13-5) 
+        14. 「security.pki.sha1_enforcement_level」の値が「0」である。(Network-14-1) 
+            または、「1」である。(Network-14-2) 
+            または、「2」である。(Network-14-3) 
+            または、「3」である。(Network-14-4) 
+            または、「4」である。(Network-14-5) 
 3. ロケーションバーに「about:support」と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
         1. 「User Agent」の値が「{{user_agent_name}}」である。(Network-11-2) 
@@ -2217,34 +2217,34 @@
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. アドオンマネージャを開き、「プラグイン」を選択する。 
     - 確認項目 
-        1. Javaプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-1-1)\
-            または、「常に有効化する」が選択されている。(Plugin-1-2)\
+        1. Javaプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-1-1)
+            または、「常に有効化する」が選択されている。(Plugin-1-2)
             または、「実行時に確認する」が選択されている。(Plugin-1-3) 
-        2. Adobe Flashプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-2-1)\
-            または、「常に有効化する」が選択されている。(Plugin-2-2)\
+        2. Adobe Flashプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-2-1)
+            または、「常に有効化する」が選択されている。(Plugin-2-2)
             または、「実行時に確認する」が選択されている。(Plugin-2-3) 
-        3. Adobe Readerプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-3-1)\
-            または、「常に有効化する」が選択されている。(Plugin-3-2)\
+        3. Adobe Readerプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-3-1)
+            または、「常に有効化する」が選択されている。(Plugin-3-2)
             または、「実行時に確認する」が選択されている。(Plugin-3-3) 
-        4. Adobe Shockwaveプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-4-1)\
-            または、「常に有効化する」が選択されている。(Plugin-4-2)\
+        4. Adobe Shockwaveプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-4-1)
+            または、「常に有効化する」が選択されている。(Plugin-4-2)
             または、「実行時に確認する」が選択されている。(Plugin-4-3) 
-        5. Silverlightプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-5-1)\
-            または、「常に有効化する」が選択されている。(Plugin-5-2)\
+        5. Silverlightプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-5-1)
+            または、「常に有効化する」が選択されている。(Plugin-5-2)
             または、「実行時に確認する」が選択されている。(Plugin-5-3) 
-        6. Windows Media Playerプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-6-1)\
-            または、「常に有効化する」が選択されている。(Plugin-6-2)\
+        6. Windows Media Playerプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-6-1)
+            または、「常に有効化する」が選択されている。(Plugin-6-2)
             または、「実行時に確認する」が選択されている。(Plugin-6-3) 
-        7. Cisco WebExプラグインの項目（ActiveTouch General Plugin Container）が表示されており、「無効化する」が選択されている。(Plugin-7-1)\
-            または、「常に有効化する」が選択されている。(Plugin-7-2)\
+        7. Cisco WebExプラグインの項目（ActiveTouch General Plugin Container）が表示されており、「無効化する」が選択されている。(Plugin-7-1)
+            または、「常に有効化する」が選択されている。(Plugin-7-2)
             または、「実行時に確認する」が選択されている。(Plugin-7-3) 
-        8. Icead Teaプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-9-1)\
-            または、「常に有効化する」が選択されている。(Plugin-9-2)\
+        8. Icead Teaプラグインの項目が表示されており、「無効化する」が選択されている。(Plugin-9-1)
+            または、「常に有効化する」が選択されている。(Plugin-9-2)
             または、「実行時に確認する」が選択されている。(Plugin-9-3) 
-        8. OpenH264のプラグインが表示される。(Plugin-8-1)\
+        8. OpenH264のプラグインが表示される。(Plugin-8-1)
             または、表示されない。(Plugin-8-2) 
         9. 「Primetime Content Decryption
-            Module」が表示される。(Plugin-8-1)\
+            Module」が表示される。(Plugin-8-1)
             または、表示されない。(Plugin-8-2) 
 3. Flashプラグインの「設定」ボタンをクリックする。
     - 確認項目 
@@ -2252,7 +2252,7 @@
            または、チェックが入っていない。（Security-24-2）
 3. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - 確認項目 
-        1. 「コンテンツ」配下に「DRMコンテンツ」グループがある。(Plugin-8-1)\
+        1. 「コンテンツ」配下に「DRMコンテンツ」グループがある。(Plugin-8-1)
             または、無い。(Plugin-8-2) 
 4. 各プラグインのサイト別制御が可能であるかどうか自体の検証のため、「 http://example.com 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。 
         1. 各プラグインの設定が「毎回確認する」になっている。
