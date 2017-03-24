@@ -1027,6 +1027,11 @@
 9. ロケーションバーに「password」と入力する。(Privacy-4-2) 
     - 確認項目 
         1. ロケーションバーのオートコンプリートの項目が表示されない。(Privacy-4-2) 
+6. テストケースの「insecure-password.html」を開く。 
+7. ユーザIDまたはパスワードの入力欄にフォーカスを移す。
+    - 確認項目 
+        1. 安全でないフォームである旨の警告のメッセージが表示される。(Privacy-39-1) 
+           または、特に警告は表示されない。（Privacy-39-2）
 9. テストケースの「storage.html」を開く。 
     - 確認項目 
         1. 「window.localStorage = [object Storage]」と出力される。(Privacy-12-1) 
