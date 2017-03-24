@@ -1989,6 +1989,8 @@
 - Network-10-\*
 - Network-11-2
 - Network-12-\*
+- Network-13-\*
+- Network-14-\*
 
 ### 準備
 
@@ -2021,6 +2023,13 @@
             または、「false」である。(Network-9-2) 
         11. 「netwnetwork.dns.blockDotOnion」の値が「false」である。(Network-10-1) 
             または、「true」である。(Network-10-2) 
+        12. 「security.tls.version.max」の値が「4」である。(Network-13-1) 
+            または、「3」以下である。(Network-13-2) 
+        14. 「security.pki.sha1_enforcement_level」の値が「0」である。(Network-13-1) 
+            または、「1」である。(Network-13-2) 
+            または、「2」である。(Network-13-3) 
+            または、「3」である。(Network-13-4) 
+            または、「4」である。(Network-13-5) 
 3. ロケーションバーに「about:support」と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
         1. 「User Agent」の値が「{{user_agent_name}}」である。(Network-11-2) 
