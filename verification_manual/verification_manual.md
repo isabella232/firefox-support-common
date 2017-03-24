@@ -2332,7 +2332,8 @@
 - MenuShortcut-26 
 - MenuShortcut-28 
 - MenuShortcut-29 
-- MenuShortcut-64
+- MenuShortcut-64 
+- MenuShortcut-65
 
 ### 準備
 
@@ -2382,6 +2383,7 @@
         16. 「接続...」が存在しない。(MenuShortcut-28) 
         17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
         18. 「Service Worker」が存在しない（MenuShortcut-64）
+        19. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）
 3. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックする。
     - 確認項目 
         1. 「開発ツールを表示」が存在しない。(MenuShortcut-11) 
@@ -2402,6 +2404,7 @@
         16. 「接続...」が存在しない。(MenuShortcut-28) 
         17. 「その他のツールを入手」が存在しない。(MenuShortcut-29) 
         18. 「Service Worker」が存在しない（MenuShortcut-64）
+        19. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）
 4. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。 
     - 確認項目 
         1. 「ダウンロード」が存在しない。(MenuShortcut-7) 
