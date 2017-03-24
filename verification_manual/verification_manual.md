@@ -660,6 +660,9 @@
   - Security-21-2
   - Security-25-2
   - Security-26-2
+  - Security-27-2
+  - Security-28-2
+  - Security-31-2
   - Privacy-15-2
   - Privacy-18-2
   - Privacy-19-2
@@ -886,6 +889,41 @@
     - 確認項目 
         1. ダウンロード一覧の一番上の項目に「このファイルを開くのは危険です。」という警告のメッセージが表示される。（Security-27-1）
            または、特に警告のメッセージは表示されない。（Security-27-2） 
+
+## その他のセキュリティに関わる設定
+
+### 確認する項目
+
+- Security-28-\*
+- Security-29-\*
+- Security-30-\*
+- Security-31-\*
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。 
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。 
+2. 以下のアドオンを無効化する。 
+    1. Disable about:config 
+
+### 検証
+
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。 
+2. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。 
+    - 確認項目 
+        1. 「network.captive-portal-service.enabled」の値が「true」である。(Security-28-1)
+           または、「false」である。(Security-28-2)
+        2. 「network.cookie.leave-secure-alone」の値が「false」である。(Security-29-1)
+           または、「true」である。(Security-29-2)
+        3. 「security.block_script_with_wrong_mime」の値が「false」である。(Security-30-1)
+           または、「true」である。(Security-30-2)
+        3. 「browser.safebrowsing.blockedURIs.enabled」の値が「false」である。(Security-31-1)
+           または、「true」である。(Security-31-2)
+
+### 後始末
+
+1. 以下のアドオンを有効化する。 
+    1. Disable about:config 
 
 <!--======================================================================-->
 
