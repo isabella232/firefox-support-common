@@ -2243,6 +2243,12 @@ globalChrome.css:
     display: none !important;
     -moz-user-focus: ignore !important;
   }
+}
+@-moz-document url-prefix(""about:reader"") {
+  *|*#pocket-button {
+    display: none !important;
+    -moz-user-focus: ignore !important;
+  }
 }",変更あり,"MCD:
 lockPref(""browser.readinglist.enabled"", false);
 lockPref(""browser.readinglist.sidebarEverOpened"", false);
