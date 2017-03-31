@@ -2314,6 +2314,7 @@ Privacy-30,2,,,,制限する,MCDで設定を反映する,"lockPref(""browser.cac
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,"lockPref(""browser.cache.disk.smart_size.enabled"", false);
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,"lockPref(""browser.cache.disk.smart_size.enabled"", false);
 lockPref(""browser.cache.disk.capacity"", サイズ（KB）);",,
+Privacy-30,3,,,,ディスクキャッシュを使用しない,MCDで設定を反映する,"lockPref(""browser.cache.disk.enable"", false);",新規,,,,,
 Privacy-31,1,プライバシー,Firefoxのユーザー評価の送信の可否,-,許可する（規定）,-,-,,-,,-,-,
 Privacy-31,2,,,,禁止する,MCDで設定を反映する,"lockPref(""browser.selfsupport.enabled"", false);
 lockPref(""browser.selfsupport.url"", """");",変更あり,"lockPref(""browser.selfsupport.url"", """");",,"lockPref(""browser.selfsupport.url"", """");","lockPref(""browser.selfsupport.url"", """");",
