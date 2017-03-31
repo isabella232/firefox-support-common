@@ -239,4 +239,10 @@ Hide-11,プラグインの実行許可確認における「常に実行を許可
     visibility: collapse !important;
     -moz-user-focus: ignore !important;
   }
+}
+@-moz-document url-prefix(""chrome://browser/content/pageinfo/pageInfo.xul"") {
+  .permPluginTemplateRadioAllow {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
 }",新規,,,,,
