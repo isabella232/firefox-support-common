@@ -233,3 +233,10 @@ Hide-10,ロケーションバーのズーム率表示,"1. アドオン「globalC
     -moz-user-focus: ignore !important;
   }
 }",新規,,,,,
+Hide-11,プラグインの実行許可確認における「常に実行を許可する」ボタン,"1. アドオン「globalChrome.css」を導入する
+2. globalChrome.cssで設定を反映する","@-moz-document url-prefix(""chrome://browser/content/browser.xul"") {
+  button.click-to-play-popup-button[anonid=""secondarybutton""] {
+    visibility: collapse !important;
+    -moz-user-focus: ignore !important;
+  }
+}",新規,,,,,
