@@ -303,6 +303,7 @@
             (Update-4-2)
 15. Firefoxを終了し、以下のアドオンを有効化する。
     - globalChrome.css
+    - Disable Auto-update
 16. Firefoxを起動し、パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 17. オプション画面の「一般」を開く。
     - 確認項目
