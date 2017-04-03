@@ -249,6 +249,7 @@
 3. 以下のアドオンを無効化する。
     1. Disable about:config
     2. globalChrome.css
+    3. Disable Auto-update
 4. 他に導入対象のアドオンがない場合、「Disable Sync」を管理者権限でインストールするよう配置しておく。
    （ファイル「disablesync@clear-code.com.xpi」を「browser/extensions/」の位置に置く。）
 5. システムの規定のブラウザを別のブラウザに設定する。
@@ -298,7 +299,7 @@
             (Startup-3-2)
 18. オプション画面の「詳細」を開き、「更新」を選択する。
     - 確認項目
-        1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが外れており、無効化されている。
+        1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。
             (Update-4-2)
 15. Firefoxを終了し、以下のアドオンを有効化する。
     - globalChrome.css
@@ -322,6 +323,7 @@
 1. 以下のアドオンを有効化する。
     1. Disable about:config
     2. globalChrome.css
+    3. Disable Auto-update
 
 ## アドオンの署名確認の無効化
 
