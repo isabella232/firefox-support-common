@@ -575,13 +575,13 @@
         5. 「about:config」のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2)
 3. 以下の各方法で{{disabled_about_pages}}へのアクセスを試みる。(Security-8-2)
     1. 確認項目
-        1. ロケーションバーに「{{disabled_about_pages}}」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
+        1. ロケーションバーに{{disabled_about_pages}}と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
             (Security-8-2)
-        2. ロケーションバーに「{{disabled_about_pages}}」と入力し、Enterして、何も起こらない（ページが読み込まれない）。
+        2. ロケーションバーに{{disabled_about_pages}}と入力し、Enterして、何も起こらない（ページが読み込まれない）。
              (Security-8-2)
         3. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。
-        4. 「{{disabled_about_pages}}」のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-8-2)
-        5. 「{{disabled_about_pages}}」のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-8-2)
+        4. {{disabled_about_pages}}のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-8-2)
+        5. {{disabled_about_pages}}のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-8-2)
 
 ### 後始末：
 
