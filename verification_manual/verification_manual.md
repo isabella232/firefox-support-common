@@ -583,12 +583,6 @@
         4. {{disabled_about_pages}}のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-8-2)
         5. {{disabled_about_pages}}のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-8-2)
 
-### 後始末：
-
-1. 以下のアドオンを有効化する。
-    1. globalChrome.css
-    2. UI Text Overrider
-
 ## SNS連携機能とソーシャルAPIの利用制限
 
 ### 確認する項目
