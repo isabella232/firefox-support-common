@@ -559,7 +559,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     - カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Disable About Somethingを用いて{{disabled_about_pages}}の使用を禁止しておく。
+2. Security-8-2で何らかのabout:ページを無効化していない場合、検証のため、Disable About Somethingを用いて{{disabled_about_pages}}の使用を禁止しておく。
 
 ### 検証
 
