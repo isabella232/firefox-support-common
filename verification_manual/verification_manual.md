@@ -798,7 +798,7 @@
     1. globalChrome.css
     2. UI Text Overrider
     3. Disable Add-ons
-3. Silverlightのバージョン一覧 https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm から、セキュリティ上の脆弱性があるバージョンである「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」をダウンロードし、インストールしておく。
+3. Silverlightのバージョン一覧 https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンをダウンロードし、インストールしておく。
 
 ### 検証
 
