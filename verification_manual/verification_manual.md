@@ -1993,7 +1993,7 @@
             または、「false」である。(Network-9-2)
         10. 「network.http.proxy.pipelining」の値が「true」である。(Network-9-1)
             または、「false」である。(Network-9-2)
-        11. 「netwnetwork.dns.blockDotOnion」の値が「false」である。(Network-10-1)
+        11. 「network.dns.blockDotOnion」の値が「false」である。(Network-10-1)
             または、「true」である。(Network-10-2)
         12. 「security.tls.version.max」の値が「4」である。(Network-13-1)
             または、「3」以下である。(Network-13-2)
