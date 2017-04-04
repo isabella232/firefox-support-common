@@ -2112,7 +2112,7 @@
 3. 「 {{flash_download_url}} 」からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-2-\*)
 4. 「 {{acrobat__download_url}} 」からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*)
 5. 「 {{shockwave__download_url}} 」からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*)
-6. 「{{silverlight_download_url}}」からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*)
+6. 「 {{silverlight_download_url}} 」からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*)
 7. 「 {{wmp__download_url}} 」からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*)
 //
 8. Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*)
