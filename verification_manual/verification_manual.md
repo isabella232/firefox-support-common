@@ -1980,9 +1980,9 @@
     - 確認項目
         1. 「general.useragent.extra.microsoftdotnet」が項目として存在しない、もしくは、値が未定義である。(Network-1-1)
         2. 「network.automatic-ntlm-auth.trusted-uris」の値が「{{ntlm_single_signon_hosts}}」である。(Network-4-1)
-        3. 「network.http.max-connections」の値が6である。(Network-5-2)
-        4. 「network.http.max-persistent-connections-per-server」の値が2である。(Network-5-2)
-        5. 「network.http.max-persistent-connections-per-proxy」の値が2である。(Network-5-2)
+        3. 「network.http.max-connections」の値が{{max_connections}}である。(Network-5-2)
+        4. 「network.http.max-persistent-connections-per-server」の値が{{max_persistent_connections_per_server}}である。(Network-5-2)
+        5. 「network.http.max-persistent-connections-per-proxy」の値が{{max_persistent_connections_per_proxy}}である。(Network-5-2)
         6. 「network.http.spdy.enabled」の値が「true」である。(Network-6-1)
             または、「false」である。(Network-6-2)
         7. 「security.tls.insecure\_fallback\_hosts」の値が未設定または空文字である。(Network-7-1)
