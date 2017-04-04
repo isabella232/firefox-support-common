@@ -31,6 +31,7 @@ VARIABLES = {
   proxy_host:                     "10.0.2.2",
   proxy_auth_user:                "clearcode",
   pac_url:                        "http://??????/proxy.pac",
+  pac_url_setup:                  "",
   ntlm_single_signon_hosts:       "????,????,????",
   user_agent_name:                "Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/51.0",
   jar_file_sample_url_base:       "http://www.clear-code.com/temp/",
