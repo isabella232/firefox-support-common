@@ -26,7 +26,7 @@ VARIABLES = {
   disabled_about_pages:           "about:robots",
   history_expiration_max_pages:   "???",
   expire_history_by_days_version: "Flexible Expire History by Days",
-  max_cache_size:                 "???",
+  max_cache_size_in_megabytes:    "???",
   download_dir:                   "C:\\\\?????",
   proxy_host:                     "10.0.2.2",
   proxy_auth_user:                "clearcode",

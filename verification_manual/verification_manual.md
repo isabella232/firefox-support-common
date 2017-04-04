@@ -1356,7 +1356,7 @@
 
 ## ディスクキャッシュのサイズ制限
 
-- 制限する最大サイズは{{max_cache_size}}MBとする。
+- 制限する最大サイズは{{max_cache_size_in_megabytes}}MBとする。
 
 ### 確認する項目
 
@@ -1376,7 +1376,7 @@
     1. 確認項目
         1. 「キャッシュサイズを変更する」にチェックが入っておらず、選択不可になっている。(Privacy-30-1)
            または、チェックが入っていて、選択不可になっている。(Privacy-30-2)
-        2. 「ページキャッシュとして{{max_cache_size}}MBまで使用する」と表示されている。(Privacy-30-2)
+        2. 「ページキャッシュとして{{max_cache_size_in_megabytes}}MBまで使用する」と表示されている。(Privacy-30-2)
 
 ## Cookie、IndexedDB、Web Storage、およびService Worker用Cacheの保存ポリシー
 
