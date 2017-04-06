@@ -56,11 +56,22 @@ task :pdf => PDF_FILES
 
 rule ".pdf" => [".md", "Rakefile"] do |t|
   require "mustache"
+  require "csv"
   Tempfile.open("firefox-verification_manual") do |file|
+    verify_targets = CSV.read("verify-targets.csv")
+    verify_targets.each do |key,_|
+      VARIABLES[key] = true
+      if key.count("-") > 1
+        VARIABLES[key.gsub(/-[^-]+\z/, "")] = true
+      end
+    end
+
     contents = File.read(t.source)
     contents = contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
+    contents = contents.gsub(/({{#([^}]+)}}.+?){{\/}}/m, "\\1{{/\\2}}")
     file.puts(Mustache.render(contents, VARIABLES))
     file.flush
+
     sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
        "--table-of-contents", "--toc-depth=3",
        "-N",

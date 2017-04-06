@@ -26,22 +26,22 @@
 
 ### 確認する項目
 
-- Install-1-\*
-- Install-2-\*
-- Install-3-\*
-- Install-4-\*
-- Install-5-\*
-- Install-6-\*
-- Install-7-\*
-- Install-8-\*
-- Install-9-2
-- Install-10-2/3
-- Install-11-\*
-- Application-1-\*
-- Application-2-\*
-- Application-3-\*
-- Admin-1-\*
-- Update-4-\*
+{{#Install-1}} - Install-1-\* {{/Install-1}}
+{{#Install-2}} - Install-2-\* {{/Install-2}}
+{{#Install-3}} - Install-3-\* {{/Install-3}}
+{{#Install-4}} - Install-4-\* {{/Install-4}}
+{{#Install-5}} - Install-5-\* {{/Install-5}}
+{{#Install-6}} - Install-6-\* {{/Install-6}}
+{{#Install-7}} - Install-7-\* {{/Install-7}}
+{{#Install-8}} - Install-8-\* {{/Install-8}}
+{{#Install-9}} - Install-9-\* {{/Install-9}}
+{{#Install-10}} - Install-10-* {{/Install-10}}
+{{#Install-11}} - Install-11-\* {{/Install-11}}
+{{#Application-1}} - Application-1-\* {{/Application-1}}
+{{#Application-2}} - Application-2-\* {{/Application-2}}
+{{#Application-3}} - Application-3-\* {{/Application-3}}
+{{#Admin-1}} - Admin-1-\* {{/Admin-1}}
+{{#Update-4}} - Update-4-\* {{/Update-4}}
 
 ### 準備
 
@@ -58,47 +58,75 @@
 ### 検証
 
 1. メタインストーラ作成キット一式を用意する。
+{{#Install-2}}
     - 確認項目
-        1. メタインストーラ作成キット一式の格納フォルダ名が「{{meta_installer_file_name}}-source」である。(Install-2-\*)
+        1. メタインストーラ作成キット一式の格納フォルダ名が「{{meta_installer_file_name}}-source」である。(Install-2-\*){{/Install-2}}
 2. 不要なファイルを削除する。
     - {{meta_installer_file_name}}\*.exe
 3. fainstall.iniを開き、検証環境に合わせて内容を修正する。
     - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の「（ドライブレター）:/」の指定をすべて「C:/（ドライブレター）/」に置換する。
       以下、ファイルの作成先はすべて置換後のパスで読み替える。
 4. {{meta_installer_file_name}}.batを実行する。
+{{#Install-9}}
     - 確認項目
-        1. {{meta_installer_file_name}}.exeが作成される。(Install-9-1)
-           または、{{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2)
+        1. {{#Install-9-1}}{{meta_installer_file_name}}.exeが作成される。(Install-9-1){{/Install-9-1}}
+           {{#Install-9-2}}{{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2){{/Install-9-2}}{{/Install-9}}
 5. 作成された{{meta_installer_file_name}}\*.exeを実行する。
     - 確認項目
         1. メタインストーラの圧縮ファイルを展開する様子を示すダイアログが表示される。
-        2. メタインストーラのウィザードが表示される。(Install-3-2)(Install-6-\*)
-            または、ウィザードが表示されない。(Install-3-3)
-        3. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。(Install-4-2)
-            または、メッセージが表示されない。(Install-4-1)
-        4. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2)
-            または、メッセージが表示されない。(Install-5-1)
-
+{{#Install-3-2}}
+        1. メタインストーラのウィザードが表示される。(Install-3-2){{/Install-3-2}}
+{{#Install-3-3}}
+        1. メタインストーラのウィザードが表示されない。(Install-3-3){{/Install-3-3}}
+{{#Install-4-1}}
+        1. インストール完了後に完了を示すメッセージが表示されない。(Install-4-1){{/Install-4-1}}
+{{#Install-4-2}}
+        1. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。(Install-4-2){{/Install-4-2}}
+{{#Install-5-1}}
+        1. インストール完了後に再起動を求めるメッセージが表示されない。(Install-5-1){{/Install-5-1}}
+{{#Install-5-2}}
+        1. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2){{/Install-5-2}}
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
-        1. 以下のファイル、フォルダが存在する。
-            1. {{install_path}}\\firefox.exe (Install-8-\*)
-            2. {{install_path}}\\{{mcd_local_file}} (Admin-1-\*)
-            3. {{desktop_shortcut_path}} (Application-1-1/3)
-            4. {{start_menu_shortcut_path}} (Application-2-1/3)
-        2. 以下のファイル、フォルダが存在しない。
-            1. {{desktop_shortcut_path}} (Application-1-2)
-            2. {{start_menu_shortcut_path}} (Application-2-2)
-        3. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが表示されている。(Application-3-1)
-            またはショートカットが表示されていない。(Application-3-2)
-        3. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが表示されている。(Install-10-2)(Install-11-1)
-            またはショートカットが表示されていない。(Install-10-3)(Install-11-2)
-        4. コントロールパネル→プログラムと機能で、以下の通りとなっている。
-            1. 「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*)
-            2. 「{{meta_installer_name}}」がインストールされている。(Install-1-\*)
-            3. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2)
-            4. 「Mozilla Maintenance Service」がインストールされている。(Update-4-1)
-                または、インストールされていない。(Update-4-2)
+{{#Install-8}}
+        1. {{install_path}}\\firefox.exe が存在する。(Install-8-\*){{/Install-8}}
+{{#Admin-1}}
+        1. {{install_path}}\\{{mcd_local_file}} が存在する。(Admin-1-\*){{/Admin-1}}
+{{#Application-1-1}}
+        1. {{desktop_shortcut_path}} が存在する。(Application-1-1){{/Application-1-1}}
+{{#Application-1-2}}
+        1. {{desktop_shortcut_path}} (Application-1-2) が存在しない。{{/Application-1-2}}
+{{#Application-1-3}}
+        1. {{desktop_shortcut_path}} が存在する。(Application-1-3){{/Application-1-3}}
+{{#Application-2-1}}
+        1. {{start_menu_shortcut_path}} が存在する。(Application-2-1){{/Application-2-1}}
+{{#Application-2-2}}
+        1. {{start_menu_shortcut_path}} (Application-2-2) が存在しない{{/Application-2-2}}
+{{#Application-2-3}}
+        1. {{start_menu_shortcut_path}} が存在する。(Application-2-3){{/Application-2-3}}
+{{#Application-3-1}}
+        1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが存在する。(Application-3-1){{/Application-3-1}}
+{{#Application-3-2}}
+        1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが存在しない。(Application-3-2){{/Application-3-2}}
+{{#Install-10-2}}
+        1. スタートメニュー上部のMozilla Firefoxのショートカットが更新されている。(Install-10-2){{/Install-10-2}}
+{{#Install-10-3}}
+        1. スタートメニュー上部のMozilla Firefoxのショートカットが存在しない。(Install-10-3){{/Install-10-3}}
+{{#Install-11-1}}
+        1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが存在する。(Install-11-1){{/Install-11-1}}
+{{#Install-11-2}}
+        1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが存在しない。(Install-11-2){{/Install-11-2}}
+        1. コントロールパネル→プログラムと機能で、以下の通りとなっている。
+{{#Install-7}}
+            1. 「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*){{/Install-7}}
+{{#Install-1}}
+            1. 「{{meta_installer_name}}」がインストールされている。(Install-1-\*){{/Install-1}}
+{{#Install-9-2}}
+            1. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2){{/Install-9-2}}
+{{#Update-4-1}}
+            1. 「Mozilla Maintenance Service」がインストールされている。(Update-4-1){{/Update-4-1}}
+{{#Update-4-2}}
+            1. 「Mozilla Maintenance Service」がインストールされていない。(Update-4-2){{/Update-4-2}}
 
 ## 専用ユーザープロファイルの作成と使用
 
