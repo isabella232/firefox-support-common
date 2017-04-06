@@ -1,4 +1,3 @@
 configurations/*.xls
 testcases/unsigned-addon/sha1hash.txt
 testcases/unsigned-addon/*.xpi
-verification_manual/verify-targets.csv
