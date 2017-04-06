@@ -21,6 +21,7 @@ VARIABLES = {
   mcd_local_file:                 "autoconfig.cfg",
   special_profile_path:           "%AppData%\\\\Mozilla\\\\Firefox\\\\Profiles",
   special_profile_name:           "Special",
+  use_separate_profile:           false,
   home_page:                      "http://?????",
   window_title:                   "Mozilla Firefox",
   disabled_about_pages:           "about:robots",
@@ -68,7 +69,6 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
 
     contents = File.read(t.source)
     contents = contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
-    contents = contents.gsub(/({{#([^}]+)}}.+?){{\/}}/m, "\\1{{/\\2}}")
     file.puts(Mustache.render(contents, VARIABLES))
     file.flush
 

@@ -135,9 +135,9 @@
 
 ### 確認する項目
 
-- Application-1-3
-- Application-2-3
-- Application-6-2
+{{#Application-1-3}} - Application-1-3 {{/Application-1-3}}
+{{#Application-2-3}} - Application-2-3 {{/Application-2-3}}
+{{#Application-6-2}} - Application-6-2 {{/Application-6-2}}
 
 ### 準備
 
@@ -146,32 +146,37 @@
 
 ### 検証
 
+{{#Application-6-2}}
 1. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}」と入力してEnterを押す。
     - 確認項目
         1. 「{{special_profile_name}}」フォルダが存在する。(Application-6-2)
-        2. フォルダの内容は空である。(Application-6-2)
-2. {{desktop_shortcut_path}}のプロパティを開く。
+        2. フォルダの内容は空である。(Application-6-2){{/Application-6-2}}
+{{#Application-1-3}}
+1. {{desktop_shortcut_path}}のプロパティを開く。
     - 確認項目
         1. 作業フォルダが「"（Firefoxの実行ファイルがあるフォルダパス）"」である。(Application-1-3)
-        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3)
-3. {{start_menu_shortcut_path}}のプロパティを開く。
+        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3){{/Application-1-3}}
+{{#Application-2-3}}
+1. {{start_menu_shortcut_path}}のプロパティを開く。
     - 確認項目
         1. 作業フォルダが「"（Firefoxの実行ファイルがあるフォルダパス）"」である。(Application-2-3)
-        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3)
-4. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}\\{{special_profile_name}}」と入力してEnterを押す。
-5. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3){{/Application-2-3}}
+{{#Application-6-2}}
+1. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}\\{{special_profile_name}}」と入力してEnterを押す。
+1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
     - 確認項目
-        1. Firefoxの起動後、4で開いたフォルダに「prefs.js」などのファイルが作成される。
+        1. Firefoxの起動後、4で開いたフォルダに「prefs.js」などのファイルが作成される。(Application-6-2){{/Application-6-2}}
 
 ## 旧バージョンとの共存
 
 ### 確認する項目
 
-- Install-1-2
-- Install-2-2
-- Application-1-3
-- Application-2-3
-- Application-6-\*
+{{#Install-7-2}} - Install-7-2 {{/Install-7-2}}
+{{#Install-10-2}} - Install-10-2 {{/Install-10-2}}
+{{#Application-1-3}} - Application-1-3 {{/Application-1-3}}
+{{#Application-2-3}} - Application-2-3 {{/Application-2-3}}
+{{#Application-6}} - Application-6-\* {{/Application-6}}
+{{^Admin-1-3}}{{#Admin-1}} - Admin-1-1/2 {{/Admin-1}}{{/Admin-1-3}}
 
 ### 準備
 
@@ -192,61 +197,66 @@
 ### 検証
 
 1. 旧バージョンのメタインストーラを実行する。
-2. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
-3. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
+1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
-4. ユーザが変更可能な何らかの設定を変更する。
+1. ユーザが変更可能な何らかの設定を変更する。
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-        2. オプション画面の「検索」を開く。
-        3. 「既定の検索エンジン」を「Google」から「Yahoo！JAPAN」に変更する。
-5. Firefoxを終了する。
-6. 旧バージョン起動用のショートカットをスタートメニューのよく使うアプリケーション一覧の上にドラッグし、「スタート メニューに表示する」の表示が出たらドロップする。(Application-1-3)(Application-2-3)
+        1. オプション画面の「検索」を開く。
+        1. 「既定の検索エンジン」を「Google」から「Yahoo！JAPAN」に変更する。
+1. Firefoxを終了する。
+{{#Install-10-2}}
+1. 旧バージョン起動用のショートカットをスタートメニューのよく使うアプリケーション一覧の上にドラッグし、「スタート メニューに表示する」の表示が出たらドロップする。
     - 確認項目
         1. スタートメニュー最上部に、ボーダーラインで区切られた状態で旧バージョン起動用のショートカットが表示される。
-        2. 追加されたショートカットを右クリックして「プロパティ」を選択して開かれたショートカットのプロパティにおいて、ショートカットのリンク先が旧バージョンの実行ファイルの位置である。
-7. 新バージョンのメタインストーラを実行する。
+        1. 追加されたショートカットを右クリックして「プロパティ」を選択して開かれたショートカットのプロパティにおいて、ショートカットのリンク先が旧バージョンの実行ファイルの位置である。{{/Install-10-2}}
+1. 新バージョンのメタインストーラを実行する。
     - 確認項目
         1. 以下のファイル、フォルダが存在する。
             1. （旧バージョンのFirefoxのインストール先）\\firefox.exe
-            2. （旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}}
-            3. {{install_path}}\\firefox.exe(Install-1-2)(Install-2-2)
-            4. {{install_path}}\\{{mcd_local_file}}(Install-1-2)(Install-2-2)
-8. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
-9. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
+            1. （旧バージョンのFirefoxのインストール先）\\ {{mcd_local_file}}
+            1. {{install_path}}\\firefox.exe
+{{^Admin-1-3}}{{#Admin-1}}
+            1. {{install_path}}\\{{mcd_local_file}} (Admin-1-1/2){{/Admin-1}}{{/Admin-1-3}}
+1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+{{#Install-7-2}}
+1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
-        1. Firefoxのバージョンが{{firefox_version}}であると表示される。(Install-1-2)(Install-2-2)
-10. 旧バージョンで設定した設定が維持されている。(Application-1-3)(Application-2-3)(Application-6-1)または、設定が初期状態になっている。
-    (Application-1-3)(Application-2-3)(Application-6-2)
+        1. Firefoxのバージョンが{{firefox_version}}であると表示される。(Install-7-2){{/Install-7-2}}
+1. 旧バージョンで変更した設定が{{#use_separate_profile}}初期状態になっている。{{/use_separate_profile}}{{^use_separate_profile}}維持されている。{{/use_separate_profile}}(Application-1-3)(Application-2-3)(Application-6-\*)
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-        2. オプション画面の「検索」を開く。
-        3. 「既定の検索エンジン」として「Google」が選択されている。(Application-6-1)または「Yahoo！JAPAN」が選択されている。(Application-6-2)
-11. Firefoxを終了する。
-12. スタートメニュー最上部に、ボーダーラインで区切られた状態で存在しているショートカットを右クリックして「プロパティ」を選択し、ショートカットのプロパティを開く。
+        1. オプション画面の「検索」を開く。
+        1. 「既定の検索エンジン」として{{#use_separate_profile}}「Google」が選択されている。{{/use_separate_profile}}{{^use_separate_profile}}「Yahoo！JAPAN」が選択されている。{{/use_separate_profile}}(Application-6-\*)
+1. Firefoxを終了する。
+{{#Install-10-2}}
+1. スタートメニュー最上部に、ボーダーラインで区切られた状態で存在しているショートカットを右クリックして「プロパティ」を選択し、ショートカットのプロパティを開く。
     - 確認項目
-        1. ショートカットのリンク先が新バージョンの実行ファイルの位置である。(Application-1-3)(Application-2-3)
-13. 旧バージョンのメタインストーラを実行する。
+        1. ショートカットのリンク先が新バージョンの実行ファイルの位置である。(Install-10-2){{/Install-10-2}}
+1. 旧バージョンのメタインストーラを実行する。
     - 確認項目
         1. 以下のファイル、フォルダが存在する。
             1. （旧バージョンのFirefoxのインストール先）\\firefox.exe
-            2. （旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}}
-            3. {{install_path}}\\firefox.exe(Install-1-2)(Install-2-2)
-            4. {{install_path}}\\{{mcd_local_file}}(Install-1-2)(Install-2-2)
-14. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
-15. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
+            1. （旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}}
+            1. {{install_path}}\\firefox.exe
+{{^Admin-1-3}}{{#Admin-1}}
+            1. {{install_path}}\\{{mcd_local_file}} (Admin-1-1/2){{/Admin-1}}{{/Admin-1-3}}
+1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
-16. 旧バージョンで設定した設定が維持されている。(Application-1-3)(Application-2-3)(Application-6-\*)
+1. 旧バージョンで設定した設定が維持されている。(Application-1-3)(Application-2-3)(Application-6-\*)
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-        2. オプション画面の「検索」を開く。
-        3. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。(Application-6-\*)
+        1. オプション画面の「検索」を開く。
+        1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。(Application-6-\*)
 
 ### 後始末
 
 1. 新バージョンのメタインストーラを実行し、新バージョンのFirefoxが有効な状態に戻す。
+
 
 <!--======================================================================-->
 
