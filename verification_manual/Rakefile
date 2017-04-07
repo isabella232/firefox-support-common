@@ -64,13 +64,32 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
     verify_targets.each do |key,_|
       VARIABLES[key] = true
       if key.count("-") > 1
-        VARIABLES[key.gsub(/-[^-]+\z/, "")] = true
+        chosen_sub_index = key.split("-").last.to_i
+        base_key = key.gsub(/-[^-]+\z/, "")
+        VARIABLES[base_key] = true
+        (1..10).each do |sub_index|
+          unless sub_index == chosen_sub_index
+            VARIABLES["#{base_key}-#{sub_index}"] = false
+          end
+        end
       end
     end
 
     contents = File.read(t.source)
     contents = contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
-    file.puts(Mustache.render(contents, VARIABLES))
+    contents = Mustache.render(contents, VARIABLES)
+
+    NEEDLESS_SECTION_MATCHER = /^## [^#]+^### 確認する項目$\s*^###.*?(^## |\z)/m
+    while contents.match(NEEDLESS_SECTION_MATCHER) do
+      contents.sub!(NEEDLESS_SECTION_MATCHER, "\\1")
+    end
+
+    NEEDLESS_CHAPTER_MATCHER = /^# [^#]+(^# |\z)/m
+    while contents.match(NEEDLESS_CHAPTER_MATCHER) do
+      contents.sub!(NEEDLESS_CHAPTER_MATCHER, "\\1")
+    end
+
+    file.puts(contents)
     file.flush
 
     sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
