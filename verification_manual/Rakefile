@@ -22,6 +22,7 @@ VARIABLES = {
   special_profile_path:           "%AppData%\\\\Mozilla\\\\Firefox\\\\Profiles",
   special_profile_name:           "Special",
   use_separate_profile:           false,
+  start_with_no_remote:           false,
   home_page:                      "http://?????",
   window_title:                   "Mozilla Firefox",
   disabled_about_pages:           "about:robots",
