@@ -2083,7 +2083,7 @@
 1. about:supportを開く
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
-{{^Stability-2-1}}{{/Stability-2}}
+{{/Stability-2-1}}{{/Stability-2}}
 
 {{#Appearance-1-2}}
 ## 表示フォントの設定
@@ -3270,4 +3270,4 @@
     2. Privacy-6-3
     3. Hide-1
 {{/Hide-4}}
-
+z
