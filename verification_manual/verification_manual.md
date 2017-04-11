@@ -2065,6 +2065,26 @@
     1. globalChrome.css
 {{/Stability-1}}
 
+{{#Stability-2}}{{^Stability-2-1}}
+## プロセス分離の制御
+
+### 確認する項目
+
+- Stability-2-2/3
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+
+### 検証
+
+1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. about:supportを開く
+    - 確認項目
+       1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
+{{^Stability-2-1}}{{/Stability-2}}
+
 {{#Appearance-1-2}}
 ## 表示フォントの設定
 
