@@ -49,6 +49,13 @@ VARIABLES = {
   wmp__download_url:              "http://www.interoperabilitybridges.com/Windows-Media-Player-Firefox-Plugin-Download",
 }
 
+current_firefox_major_version = VARIABLES[:firefox_version].split(".").first.to_i
+VARIABLES["firefox#{current_firefox_major_version}"] = true
+(24..99).each do |version|
+  VARIABLES["firefox#{version}_or_older"] = current_firefox_major_version <= version
+  VARIABLES["firefox#{version}_or_later"] = current_firefox_major_version >= version
+end
+
 CLOBBER.include(PDF_FILES)
 
 task :default => :pdf
