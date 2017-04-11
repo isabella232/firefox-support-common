@@ -176,8 +176,8 @@ lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_normal"",
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_normal"", title);
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.title_privatebrowsing"", title + ""（プライベートブラウジング）"");
 lockPref(""extensions.uitextoverrider@clear-code.com.main-window.titlemodifier_privatebrowsing"", title + ""（プライベートブラウジング）"");",,
-,,,Appliaction-5,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,既定のアイコン（既定）,-,-,,-,,-,,
-,,,Appliaction-5,2,,,,任意のアイコン,"インストーラに含める場合、アイコンをresources/main-window.icoの位置に置く
+,,,Application-5,1,特定用途専用アプリケーションとしての利用,メインウィンドウのアイコン,-,既定のアイコン（既定）,-,-,,-,,-,,
+,,,Application-5,2,,,,任意のアイコン,"インストーラに含める場合、アイコンをresources/main-window.icoの位置に置く
 （直接反映する場合、アイコンをbrowser/chrome/icons/default/main-window.icoの位置に置く）",-,,-,,-,,
 ,,,Application-6,1,特定用途専用アプリケーションとしての利用,プロファイルの位置,-,%AppData%内（既定）,-,-,,-,,-,,
 ,,,Application-6,2,,,,任意の位置,fainstall.iniを編集する,"以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
