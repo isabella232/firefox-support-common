@@ -4,6 +4,8 @@ require "tempfile"
 #MD_FILES = FileList["*.md"]
 MD_FILES = FileList["verification_manual.md"]
 PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
+TARGETS_FILE = "verify-targets.csv"
+CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 VARIABLES = {
   firefox_version:                "52.0 ESR",
   windows_version:                "Windows 7",
@@ -67,7 +69,7 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
   require "mustache"
   require "csv"
   Tempfile.open("firefox-verification_manual") do |file|
-    verify_targets = CSV.read("verify-targets.csv")
+    verify_targets = CSV.read(TARGETS_FILE)
     verify_targets.each do |key,_|
       VARIABLES[key] = true
       if key.count("-") > 1
@@ -113,10 +115,41 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
     end
 
     contents = contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
+    contents = "#{introduction}\n#{contents}"
 
-    file.puts("#{introduction}\n#{contents}")
+    puts "Generating #{CHAPTERS_FILE}..."
+
+    items_to_sections = {}
+    contents.split(/^#[^#]/).each_with_index do |chapter, chapter_number|
+      next if chapter_number <= 1
+      chapter.split(/^##[^#]/).each_with_index do |section, section_number|
+        next if section_number.zero?
+        section_id = "#{chapter_number}.#{section_number}"
+        items = section.match(/^### *確認する項目\s*([^#]+)\n#/)[1]
+        items.each_line do |item|
+          item.gsub!(/\A\s*-\s*|\s*\n?\z/, "")
+          item.sub!(/(-[^-]+)-[^-]+\z/, "\\1")
+          next if item.empty?
+          items_to_sections[item] ||= []
+          items_to_sections[item] << section_id
+        end
+      end
+    end
+
+    CSV.open(CHAPTERS_FILE, "w") do |file|
+      verify_targets.each do |target, _|
+        section_ids = items_to_sections[target.sub(/(-[^-]+)-[^-]+\z/, "\\1")]
+        if section_ids
+          file << [target, section_ids.join("\n")]
+        else
+          puts "  Warning: no verification for #{target}\n"
+        end
+      end
+    end
+
+    puts "Generating #{t.name}..."
+    file.puts(contents)
     file.flush
-
     sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
        "--table-of-contents", "--toc-depth=3",
        "-N",
