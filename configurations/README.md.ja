@@ -1,0 +1,18 @@
+# 設定シートの使い方
+
+## 設定シートと検証手順の作成
+
+ 1. `customization-items.ods`の`customization-items`, `menuitem-shortcut-disable-items`, `misc-ui-diable-items`の各シートについて、反映する設定項目を検討し、反映したい項目についてA列に印を付ける。（空文字以外なら何でも可）
+    * この時、選択された項目が色付け表示される。意味は以下の通りである。
+        - 黄色: 選択された項目
+        - 橙色: 最新バージョンのFirefox向けに新たに追加された項目
+        - 灰色: 廃止された項目
+ 2. 各シートで選択された項目の項目番号一覧が`customization-items.ods`の`verify-targets`シートに列挙されるので、これを`verify-targets.csv`として保存し、`verification_manual.md`と同じディレクトリに置く。
+ 3. `rake`を実行する。すると、検証手順書のPDFファイルと同時に、`verify-targets-to-chapters.csv`として、各設定項目と検証手順書の章・節番号の対応付け一覧が出力される。
+    * この時、設定項目の選択状態について、検証手順書中に対応する項目がない場合はWarningが出力されるので、検証手順書自体の記載ミスなどがないか確認する。
+ 4. `verify-targets-to-chapters.csv`の内容を、`customization-items.ods`の`verify-targets-to-chapters`の`A1`を起点に貼り付ける。
+    * この時、`customization-items`, `menuitem-shortcut-disable-items`, `misc-ui-diable-items`の各シートについて、`検証手順書対応番号`列に検証手順書の対応する章番号が自動的に列挙される。
+    * この時、検証手順書に検証手順が含まれていない項目は、章番号の代わりに「省略」というテキストが代わりに表示される。
+ 5. 検証手順書に基づいて検証し、結果を設定シートに記入する。
+
+
