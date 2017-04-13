@@ -806,7 +806,7 @@
 - Security-15-2
 {{#Security-3-3 || Security-3-4}}   - Security-3-3/4 {{/Security-3-3 || Security-3-4}}
 {{#Security-5-2}}   - Security-5-2 {{/Security-5-2}}
-{{#Security-10-2}}{{#firefox45_or_older}}  - Security-10-2 {{/firefox45_or_older}}{{/Security-10-2}}
+{{#Security-10-2 && firefox45_or_older}}  - Security-10-2 {{/Security-10-2 && firefox45_or_older}}
 {{#Security-11-2}}   - Security-11-2 {{/Security-11-2}}
 {{#Security-18-2}}   - Security-18-2 {{/Security-18-2}}
 {{#Security-19-2}}   - Security-19-2 {{/Security-19-2}}
@@ -821,7 +821,7 @@
 {{#Privacy-19-2}}   - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-22-2}}   - Privacy-22-2 {{/Privacy-22-2}}
 {{#Privacy-24-2}}   - Privacy-24-2 {{/Privacy-24-2}}
-{{#Privacy-25-2}}{{#firefox45_or_older}}  - Privacy-25-2 {{/firefox45_or_older}}{{/Privacy-25-2}}
+{{#Privacy-25-2 && firefox45_or_older}}  - Privacy-25-2 {{/Privacy-25-2 && firefox45_or_older}}
 {{#Privacy-31-2}}   - Privacy-31-2 {{/Privacy-31-2}}
 {{#Privacy-33-3}}   - Privacy-33-3 {{/Privacy-33-3}}
 {{#Startup-8-2}}   - Startup-8-2 {{/Startup-8-2}}

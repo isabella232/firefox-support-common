@@ -70,6 +70,9 @@ class TemplateResolver
   def resolve
     prepare_firefox_version_variables
     prepare_customizations_variables
+    @variables["TRUE"] = true
+    @variables["FALSE"] = false
+    resolve_and_conditions
     resolve_or_conditions
     Mustache.render(@contents, @variables)
   end
@@ -101,9 +104,23 @@ class TemplateResolver
     end
   end
 
+  AND_CONDITIONS_MATCHER = /\{\{([#^\/])([^&}]+\&\&[^}]+)\}\}/
+  def resolve_or_conditions
+    @contents.gsub!(AND_CONDITIONS_MATCHER) do |match|
+      prefix = match.gsub(AND_CONDITIONS_MATCHER, "\\1")
+      variable_names = match.gsub(AND_CONDITIONS_MATCHER, "\\2").split("||").collect do |name|
+        name.strip
+      end
+      if variable_names.all?{|name| @variables[name] }
+        "{{#{prefix}TRUE}}"
+      else
+        "{{#{prefix}FALSE}}"
+      end
+    end
+  end
+
   OR_CONDITIONS_MATCHER = /\{\{([#^\/])([^|}]+\|\|[^}]+)\}\}/
   def resolve_or_conditions
-    @variables["FALSE"] = false
     @contents.gsub!(OR_CONDITIONS_MATCHER) do |match|
       prefix = match.gsub(OR_CONDITIONS_MATCHER, "\\1")
       variable_names = match.gsub(OR_CONDITIONS_MATCHER, "\\2").split("||").collect do |name|
