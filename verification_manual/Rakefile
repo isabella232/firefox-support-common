@@ -93,7 +93,7 @@ class ContentsCleaner
     @contents = contents
   end
 
-  def clanup
+  def cleanup
     cleanup_blank_lines
     cleanup_no_verification_steps
     cleanup_no_verification_sections
