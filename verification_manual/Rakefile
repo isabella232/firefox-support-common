@@ -135,18 +135,20 @@ class ContentsCleaner
   end
 
   def cleanup
-    cleanup_blank_lines
     cleanup_no_verification_steps
     cleanup_no_verification_sections
     cleanup_no_section_chapters
 
-    @contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
+    @contents.gsub!(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
+
+    cleanup_blank_lines
+
     "#{@introduction}\n#{@contents}"
   end
 
   private
 
-  BLANK_LINE_MATCHER = /^( *([-*]|[0-9]\. ).+\n)\n+( *([-*]|[0-9]\. ))/m
+  BLANK_LINE_MATCHER = /^( *([-*]|[0-9]+\. ).+\n)\n+( *([-*]|[0-9]+\. ))/m
   def cleanup_blank_lines
     while @contents.match(BLANK_LINE_MATCHER) do
       @contents.sub!(BLANK_LINE_MATCHER, "\\1\\3")
