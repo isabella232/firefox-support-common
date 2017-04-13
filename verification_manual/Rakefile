@@ -1,6 +1,7 @@
 require "rake/clean"
 require "tempfile"
 require "csv"
+require "mustache"
 
 #MD_FILES = FileList["*.md"]
 MD_FILES = FileList["verification_manual.md"]
@@ -54,30 +55,49 @@ VARIABLES = {
 
 CLOBBER.include(PDF_FILES)
 
+class TemplateResolver
+  class << self
+    def resolve(contents, variables)
+      new(contents, variables).resolve
+    end
+  end
+
+  def initialize(contents, variables)
+    @contents = contents
+    @variables = variables
+  end
+
+  def resolve
+    prepare_firefox_version_variables
+    prepare_customizations_variables
+    Mustache.render(@contents, @variables)
+  end
+
 def prepare_firefox_version_variables
-  current_firefox_major_version = VARIABLES[:firefox_version].split(".").first.to_i
-  VARIABLES["firefox#{current_firefox_major_version}"] = true
+  current_firefox_major_version = @variables[:firefox_version].split(".").first.to_i
+  @variables["firefox#{current_firefox_major_version}"] = true
   (24..99).each do |version|
-    VARIABLES["firefox#{version}_or_older"] = current_firefox_major_version <= version
-    VARIABLES["firefox#{version}_or_later"] = current_firefox_major_version >= version
+    @variables["firefox#{version}_or_older"] = current_firefox_major_version <= version
+    @variables["firefox#{version}_or_later"] = current_firefox_major_version >= version
   end
 end
 
 def prepare_customizations_variables
   verify_targets = CSV.read(TARGETS_FILE)
   verify_targets.each do |key, _|
-    VARIABLES[key] = true
+    @variables[key] = true
     if key.count("-") > 1
       chosen_sub_index = key.split("-").last.to_i
       base_key = key.gsub(/-[^-]+\z/, "")
-      VARIABLES[base_key] = true
+      @variables[base_key] = true
       (1..10).each do |sub_index|
         unless sub_index == chosen_sub_index
-          VARIABLES["#{base_key}-#{sub_index}"] = false
+          @variables["#{base_key}-#{sub_index}"] = false
         end
       end
     end
   end
+end
 end
 
 class ContentsCleaner
@@ -176,13 +196,8 @@ desc "Generate PDF"
 task :pdf => PDF_FILES
 
 rule ".pdf" => [".md", "Rakefile"] do |t|
-  require "mustache"
-
-  prepare_firefox_version_variables
-  prepare_customizations_variables
-
   contents = File.read(t.source)
-  contents = Mustache.render(contents, VARIABLES)
+  contents = TemplateResolver.resolve(contents, VARIABLES)
   contents = ContentsCleaner.cleanup(contents)
 
   puts "Generating #{CHAPTERS_FILE}..."
