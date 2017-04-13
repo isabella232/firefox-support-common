@@ -104,36 +104,37 @@ class ContentsCleaner
   end
 
   private
+
+  BLANK_LINE_MATCHER = /^( *([-*]|[0-9]\. ).+\n)\n+( *([-*]|[0-9]\. ))/m
   def cleanup_blank_lines
-    MATCHER = /^( *([-*]|[0-9]\. ).+\n)\n+( *([-*]|[0-9]\. ))/m
-    while @contents.match(MATCHER) do
-      @contents.sub!(MATCHER, "\\1\\3")
+    while @contents.match(BLANK_LINE_MATCHER) do
+      @contents.sub!(BLANK_LINE_MATCHER, "\\1\\3")
     end
   end
 
+  NO_VERIFICATION_STEP_GROUPS_MATCHER = /^<!-- *GROUP *-->[^<]*\n *- *確認項目\n+<!-- *\/ *GROUP *-->/
+  NO_VERIFICATION_STEPS_MATCHER = /^ *- *確認項目\n+( ?[0-9]\. |^#)/m
   def cleanup_no_verification_steps
-    BLANK_VERIFICATION_GROUPS_MATCHER = /^<!-- *GROUP *-->[^<]*\n *- *確認項目\n+<!-- *\/ *GROUP *-->/
-    while @contents.match(BLANK_VERIFICATION_GROUPS_MATCHER) do
-      @contents.sub!(BLANK_VERIFICATION_GROUPS_MATCHER, "")
+    while @contents.match(NO_VERIFICATION_STEP_GROUPS_MATCHER) do
+      @contents.sub!(NO_VERIFICATION_STEP_GROUPS_MATCHER, "")
     end
 
-    BLANK_VERIFICATIONS_MATCHER = /^ *- *確認項目\n+( ?[0-9]\. |^#)/m
-    while @contents.match(BLANK_VERIFICATIONS_MATCHER) do
-      @contents.sub!(BLANK_VERIFICATIONS_MATCHER, "\\1")
+    while @contents.match(NO_VERIFICATION_STEPS_MATCHER) do
+      @contents.sub!(NO_VERIFICATION_STEPS_MATCHER, "\\1")
     end
   end
 
+  NO_VERIFICATION_SECTIONS_MATCHER = /^## [^#]+^### 確認する項目$\s*^###.*?(^##? |\z)/m
   def cleanup_no_verification_sections
-    MATCHER = /^## [^#]+^### 確認する項目$\s*^###.*?(^##? |\z)/m
-    while @contents.match(MATCHER) do
-      @contents.sub!(MATCHER, "\\1")
+    while @contents.match(NO_VERIFICATION_SECTIONS_MATCHER) do
+      @contents.sub!(NO_VERIFICATION_SECTIONS_MATCHER, "\\1")
     end
   end
 
+  NO_SECTION_CHAPTERS_MATCHER = /^# [^#]+(^# |\z)/m
   def cleanup_no_section_chapters
-    MATCHER = /^# [^#]+(^# |\z)/m
-    while @contents.match(MATCHER) do
-      @contents.sub!(MATCHER, "\\1")
+    while @contents.match(NO_SECTION_CHAPTERS_MATCHER) do
+      @contents.sub!(NO_SECTION_CHAPTERS_MATCHER, "\\1")
     end
   end
 end
