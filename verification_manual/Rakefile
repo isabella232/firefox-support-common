@@ -80,41 +80,56 @@ def prepare_customizations_variables
   end
 end
 
-def cleanup_blank_lines(contents)
-  MATCHER = /^( *([-*]|[0-9]\. ).+\n)\n+( *([-*]|[0-9]\. ))/m
-  while contents.match(MATCHER) do
-    contents.sub!(MATCHER, "\\1\\3")
+class ContentsCleaner
+  def initialize(contents)
+    introduction, contents = contents.split(/<!-- *VERIFICATIONS ARE FROM HERE *-->/)
+    @introduction = introduction
+    @contents = contents
   end
-  contents
+
+  def clanup
+    cleanup_blank_lines
+    cleanup_no_verification_steps
+    cleanup_no_verification_sections
+    cleanup_no_section_chapters
+
+    @contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
+    "#{@introduction}\n#{@contents}"
+  end
+
+  private
+def cleanup_blank_lines
+  MATCHER = /^( *([-*]|[0-9]\. ).+\n)\n+( *([-*]|[0-9]\. ))/m
+  while @contents.match(MATCHER) do
+    @contents.sub!(MATCHER, "\\1\\3")
+  end
 end
 
-def cleanup_no_verification_steps(contents)
+def cleanup_no_verification_steps
   BLANK_VERIFICATION_GROUPS_MATCHER = /^<!-- *GROUP *-->[^<]*\n *- *確認項目\n+<!-- *\/ *GROUP *-->/
-  while contents.match(BLANK_VERIFICATION_GROUPS_MATCHER) do
-    contents.sub!(BLANK_VERIFICATION_GROUPS_MATCHER, "")
+  while @contents.match(BLANK_VERIFICATION_GROUPS_MATCHER) do
+    @contents.sub!(BLANK_VERIFICATION_GROUPS_MATCHER, "")
   end
 
   BLANK_VERIFICATIONS_MATCHER = /^ *- *確認項目\n+( ?[0-9]\. |^#)/m
-  while contents.match(BLANK_VERIFICATIONS_MATCHER) do
-    contents.sub!(BLANK_VERIFICATIONS_MATCHER, "\\1")
+  while @contents.match(BLANK_VERIFICATIONS_MATCHER) do
+    @contents.sub!(BLANK_VERIFICATIONS_MATCHER, "\\1")
   end
-
-  contents
 end
 
-def cleanup_no_verification_sections(contents)
+def cleanup_no_verification_sections
   MATCHER = /^## [^#]+^### 確認する項目$\s*^###.*?(^##? |\z)/m
-  while contents.match(MATCHER) do
-    contents.sub!(MATCHER, "\\1")
+  while @contents.match(MATCHER) do
+    @contents.sub!(MATCHER, "\\1")
   end
-  contents
 end
 
-def cleanup_no_section_chapters(contents)
+def cleanup_no_section_chapters
   MATCHER = /^# [^#]+(^# |\z)/m
-  while contents.match(MATCHER) do
-    contents.sub!(MATCHER, "\\1")
+  while @contents.match(MATCHER) do
+    @contents.sub!(MATCHER, "\\1")
   end
+end
 end
 
 def output_verify_targets_to_sections_list(contents)
@@ -161,15 +176,8 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
   contents = File.read(t.source)
   contents = Mustache.render(contents, VARIABLES)
 
-  introduction, contents = contents.split(/<!-- *VERIFICATIONS ARE FROM HERE *-->/)
-
-  contents = cleanup_blank_lines(contents)
-  contents = cleanup_no_verification_steps(contents)
-  contents = cleanup_no_verification_sections(contents)
-  contents = cleanup_no_section_chapters(contents)
-
-  contents = contents.gsub(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
-  contents = "#{introduction}\n#{contents}"
+  cleaner = ContentsCleaner.new(contents)
+  contents = cleaner.cleanup
 
   puts "Generating #{CHAPTERS_FILE}..."
   output_verify_targets_to_sections_list(contents)
