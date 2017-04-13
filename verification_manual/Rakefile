@@ -158,6 +158,7 @@ def output_verify_targets_to_sections_list(contents)
   end
 
   CSV.open(CHAPTERS_FILE, "w") do |rows|
+    verify_targets = CSV.read(TARGETS_FILE)
     verify_targets.each do |target, _|
       section_ids = items_to_sections[target.sub(/(-[^-]+)-[^-]+\z/, "\\1")]
       if section_ids
