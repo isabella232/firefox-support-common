@@ -132,7 +132,7 @@ class TemplateResolver
       if variable_names.empty?
         "{{#{prefix}FALSE}}"
       else
-        "{{#{prefix}#{variable_names.first}}}"
+        "{{#{prefix}#{variable_names.sort.first}}}"
       end
     end
   end
