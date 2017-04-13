@@ -36,7 +36,7 @@
 {{#Install-7}} - Install-7-\* {{/Install-7}}
 {{#Install-8}} - Install-8-\* {{/Install-8}}
 {{#Install-9}} - Install-9-\* {{/Install-9}}
-{{^Install-10-1}} - Install-10-2/3 {{/Install-10-1}}
+{{#Install-10-2 || Install-10-3}} - Install-10-2/3 {{/Install-10-2 || Install-10-3}}
 {{#Install-11}} - Install-11-\* {{/Install-11}}
 {{#Application-1}} - Application-1-\* {{/Application-1}}
 {{#Application-2}} - Application-2-\* {{/Application-2}}
@@ -59,21 +59,23 @@
 ### 検証
 
 1. メタインストーラ作成キット一式を用意する。
-{{#Install-2}}
     - 確認項目
+{{#Install-2}}
         1. メタインストーラ作成キット一式の格納フォルダ名が「{{meta_installer_file_name}}-source」である。(Install-2-\*)
 {{/Install-2}}
-2. 不要なファイルを削除する。
+1. 不要なファイルを削除する。
     - {{meta_installer_file_name}}\*.exe
-3. fainstall.iniを開き、検証環境に合わせて内容を修正する。
+1. fainstall.iniを開き、検証環境に合わせて内容を修正する。
     - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の「（ドライブレター）:/」の指定をすべて「C:/（ドライブレター）/」に置換する。
       以下、ファイルの作成先はすべて置換後のパスで読み替える。
-4. {{meta_installer_file_name}}.batを実行する。
-{{#Install-9}}
+1. {{meta_installer_file_name}}.batを実行する。
     - 確認項目
-        1. {{#Install-9-1}}{{meta_installer_file_name}}.exeが作成される。(Install-9-1){{/Install-9-1}}
-           {{#Install-9-2}}{{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2){{/Install-9-2}}
-{{/Install-9}}
+{{#Install-9-1}}
+        1. {{meta_installer_file_name}}.exeが作成される。(Install-9-1)
+{{/Install-9-1}}
+{{#Install-9-2}}
+        1. {{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2)
+{{/Install-9-2}}
 5. 作成された{{meta_installer_file_name}}\*.exeを実行する。
     - 確認項目
         1. メタインストーラの圧縮ファイルを展開する様子を示すダイアログが表示される。
@@ -105,10 +107,10 @@
         1. {{install_path}}\\{{mcd_local_file}} が存在する。(Admin-1-\*)
 {{/Admin-1}}
 {{#Application-1}}
-        1. {{desktop_shortcut_path}} が{{^Application-1-2}}存在する。(Application-1-1/3){{/Application-1-2}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
+        1. {{desktop_shortcut_path}} が{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
 {{/Application-1}}
 {{#Application-2}}
-        1. {{start_menu_shortcut_path}} が{{^Application-2-2}}存在する。(Application-2-1/3){{/Application-2-2}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
+        1. {{start_menu_shortcut_path}} が{{#Application-2-1 || Application-2-3}}存在する。(Application-2-1/3){{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
 {{/Application-2}}
 {{#Application-3}}
         1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが{{#Application-3-1}}存在する。(Application-3-1){{/Application-3-1}}{{#Application-3-2}}存在しない。(Application-3-2){{/Application-3-2}}
@@ -188,7 +190,7 @@
 {{#Application-1-3}} - Application-1-3 {{/Application-1-3}}
 {{#Application-2-3}} - Application-2-3 {{/Application-2-3}}
 {{#Application-6}} - Application-6-\* {{/Application-6}}
-{{^Admin-1-3}} - Admin-1-1/2 {{/Admin-1-3}}
+{{#Admin-1-1 || Admin-1-2}} - Admin-1-1/2 {{/Admin-1-1 || Admin-1-2}}
 
 ### 準備
 
@@ -232,9 +234,9 @@
         1. `（旧バージョンのFirefoxのインストール先）\\firefox.exe` が存在する。
         1. `（旧バージョンのFirefoxのインストール先）\\ {{mcd_local_file}}` が存在する。
         1. `{{install_path}}\\firefox.exe` が存在する。
-{{^Admin-1-3}}
+{{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\\{{mcd_local_file}}` が存在する。(Admin-1-1/2)
-{{/Admin-1-3}}
+{{/Admin-1-1 || Admin-1-2}}
 1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
@@ -255,9 +257,9 @@
         1. `（旧バージョンのFirefoxのインストール先）\\firefox.exe` が存在する。
         1. `（旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}}` が存在する。
         1. `{{install_path}}\\firefox.exe` が存在する。
-{{^Admin-1-3}}
+{{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\\{{mcd_local_file}}` が存在する。 (Admin-1-1/2)
-{{/Admin-1-3}}
+{{/Admin-1-1 || Admin-1-2}}
 1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
@@ -320,9 +322,9 @@
 {{#Startup-2-1}}
         1. 起動直後にFirefox既定のホーム画面が表示される。(Startup-2-1)
 {{/Startup-2-1}}
-{{^Startup-2-1}}
+{{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。(Startup-2-2/3)
-{{/Startup-2-1}}
+{{/Startup-2-2 || Startup-2-3}}
 {{#Admin-2}}
         1. 導入対象のアドオンの有効化の可否を尋ねるタブが{{#Admin-2-1}}開かれている。(Admin-2-1){{/Admin-2-1}}{{#Admin-2-2}}開かれていない。(Admin-2-2){{/Admin-2-2}}
 {{/Admin-2}}
@@ -334,7 +336,7 @@
     - 確認項目
         1. 既定のホームページ内に「あなたの権利について……」のリンクおよび情報が{{#Startup-6-1}}表示される。(Startup-6-1){{/Startup-6-1}}{{#Startup-6-2}}表示されない。(Startup-6-2){{/Startup-6-2}}
 {{/Startup-6}}
-{{^Startup-2-1}}
+<!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
     - 確認項目
@@ -344,7 +346,7 @@
 {{#Startup-2-3}}
         1. 「ホーム」ボタンへのドロップが不可能である。(Startup-2-3)
 {{/Startup-2-3}}
-{{/Startup-2-1}}
+<!--/GROUP-->
 1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Admin-3}}
@@ -438,8 +440,8 @@
 
 ### 確認する項目
 
-{{^Application-1-2}} - Application-1-1/3 {{/Application-1-2}}
-{{^Application-2-2}} - Application-2-1/3 {{/Application-2-2}}
+{{#Application-1-1 || Application-1-3}} - Application-1-1/3 {{/Application-1-1 || Application-1-3}}
+{{#Application-2-1 || Application-2-3}} - Application-2-1/3 {{/Application-2-1 || Application-2-3}}
 
 ### 準備
 
@@ -542,23 +544,28 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 2. 以下のアドオンを無効化する。
     1. globalChrome.css
-{{^Security-3-2}}{{^Security-3-5}}
+{{#Security-3-1 || Security-3-3 || Security-3-4}}
 3. {{#Admin-4-1}}テストケースのunsigned-sample-addon@clear-code.com.xpi{{/Admin-4-1}}{{^Admin-4-1}}署名済みアドオンのインストールパッケージ{{/Admin-4-1}}を用意する。
-{{/Security-3-5}}{{/Security-3-2}}
+{{/Security-3-1 || Security-3-3 || Security-3-4}}
 
 ### 検証
 
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{^Security-3-3}}{{^Security-3-4}}
+<!--GROUP-->
 1. アドオンのインストールを許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
+    - 確認項目
+{{#Security-3-2 || Security-3-5}}
         1. 「サイト別設定」タブで「アドオンのインストール」において「許可」にチェックが入っている。(Security-3-2/5)
         1. 「アドオンのインストール」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「アドオンのインストール」において{{#Security-3-2}}「許可」にチェックが入っている。(Security-3-2){{/Security-3-2}}{{#Security-3-5}}「ブロック」にチェックが入っている。(Security-3-5){{/Security-3-5}}
-{{/Security-3-4}}{{/Security-3-3}}
-{{^Security-3-2}}{{^Security-3-5}}
+{{/Security-3-2 || Security-3-5}}
+<!--/GROUP-->
+<!--GROUP-->
 1. Firefoxのウィンドウにアドオンのインストールパッケージをドラッグ&ドロップする。
     - 確認項目
+{{#Security-3-3 || Security-3-4}}
         1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。(Security-3-3/4)
-{{/Security-3-5}}{{/Security-3-2}}
+{{/Security-3-3 || Security-3-4}}
+<!--/GROUP-->
 {{#Security-3-4}}
 1. アドオンマネージャを開く。
     - 確認項目
@@ -597,6 +604,7 @@
 
 1. 以下のアドオンを有効化する。
     - globalChrome.css
+
 {{/Security-3-1}}
 
 {{#Security-4}}
@@ -614,15 +622,17 @@
 ### 検証：
 
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+<!--GROUP-->
 1. テストケースの「popupblock.html」を開く。
     - 確認項目
         1. ポップアップブロックの通知が{{^Security-4-3}}表示される。(Security-4-1/2/4/5){{/Security-4-3}}{{#Security-4-3}}表示されずに、タブまたはウィンドウが開かれる。(Security-4-3){{/Security-4-3}}
-{{^Security-4-1}}{{^Security-4-3}}{{^Security-4-4}}
+<!--/GROUP-->
+{{#Security-4-2 || Security-4-5}}
 1. ポップアップの許可対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
    - 確認項目
         1. 「サイト別設定」タブで「ポップアップウィンドウを開く」において「許可」にチェックが入っている。(Security-4-2/5)
-        2. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「ポップアップウィンドウを開く」において{{#Security-4-2}}「許可」にチェックが入っている。(Security-4-2){{/Security-4-2}}{{#Security-4-5}}「ブロック」にチェックが入っている。(Security-4-5){{/Security-4-5}}
-{{/Security-4-4}}{{/Security-4-3}}{{/Security-4-1}}
+        1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「ポップアップウィンドウを開く」において{{#Security-4-2}}「許可」にチェックが入っている。(Security-4-2){{/Security-4-2}}{{#Security-4-5}}「ブロック」にチェックが入っている。(Security-4-5){{/Security-4-5}}
+{{/Security-4-2 || Security-4-5}}
 {{/Security-4}}
 
 ## 攻撃サイトに対する警告
@@ -794,7 +804,7 @@
 ### 確認する項目
 
 - Security-15-2
-{{^Security-3-1}}   - Security-3-3/4 {{/Security-3-1}}
+{{#Security-3-3 || Security-3-4}}   - Security-3-3/4 {{/Security-3-3 || Security-3-4}}
 {{#Security-5-2}}   - Security-5-2 {{/Security-5-2}}
 {{#Security-10-2}}{{#firefox45_or_older}}  - Security-10-2 {{/firefox45_or_older}}{{/Security-10-2}}
 {{#Security-11-2}}   - Security-11-2 {{/Security-11-2}}
@@ -992,8 +1002,8 @@
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-        1. 「dom.ipc.plugins.sandbox-level.default」の値が{{^Security-23-3}}「0」である。(Security-23-1/2){{/Security-23-3}}{{#Security-23-3}}「1」である。(Security-23-3){{/Security-23-3}}
-        1. 「dom.ipc.plugins.sandbox-level.flash」の値が{{#Security-23-1}}「0」である。(Security-23-1){{/Security-23-1}}{{^Security-23-1}}「1」である。(Security-23-2/3){{/Security-23-1}}
+        1. 「dom.ipc.plugins.sandbox-level.default」の値が{{#Security-23-1 || Security-23-2}}「0」である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}「1」である。(Security-23-3){{/Security-23-3}}
+        1. 「dom.ipc.plugins.sandbox-level.flash」の値が{{#Security-23-1}}「0」である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}「1」である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
 
 ### 後始末
 
@@ -1093,7 +1103,7 @@
 {{#Privacy-3-2}} - Privacy-3-2 {{/Privacy-3-2}}
 {{#Privacy-4-2}} - Privacy-4-2 {{/Privacy-4-2}}
 {{#Privacy-5-2}} - Privacy-5-2 {{/Privacy-5-2}}
-{{#Privacy-6}}{{^Privacy-6-1}} - Privacy-6-2/3/4 {{/Privacy-6-1}}{{/Privacy-6}}
+{{#Privacy-6-2 || Privacy-6-3 || Privacy-6-4}} - Privacy-6-2/3/4 {{/Privacy-6-2 || Privacy-6-3 || Privacy-6-4}}
 {{#Privacy-7}} - Privacy-7-\* {{/Privacy-7}}
 {{#Privacy-8-2}} - Privacy-8-2 {{/Privacy-8-2}}
 {{#Privacy-10-2}} - Privacy-10-2 {{/Privacy-10-2}}
@@ -1108,7 +1118,7 @@
 {{#Privacy-21-2}} - Privacy-21-2 {{/Privacy-21-2}}
 {{#Privacy-31-2}} - Privacy-31-2 {{/Privacy-31-2}}
 {{#Privacy-32}} - Privacy-32-\* {{/Privacy-32}}
-{{^Privacy-33-1}} - Privacy-33-2/3 {{/Privacy-33-1}}
+{{#Privacy-33-2 || Privacy-33-3}} - Privacy-33-2/3 {{/Privacy-33-2 || Privacy-33-3}}
 {{#Privacy-35}} - Privacy-35-\* {{/Privacy-35}}
 {{#Privacy-36}} - Privacy-36-\* {{/Privacy-36}}
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
@@ -1141,7 +1151,7 @@
     - 確認項目
         1. サムネイル画像が{{#Privacy-36-1}}保存される。（Privacy-36-1）{{/Privacy-36-1}}{{#Privacy-36-2}}保存されない。（Privacy-36-2）{{/Privacy-36-2}}
 {{/Privacy-36}}
-{{^Privacy-35-1}}{{^Privacy-35-2}}
+{{#Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシー」を開く。
     - 確認項目
@@ -1149,40 +1159,38 @@
 1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウトする。（Privacy-35-3/4）
    * `lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
-{{/Privacy-35-2}}{{/Privacy-35-1}}
+{{/Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシー」を開く。
     - 確認項目
 {{#Privacy-20}}
-        1. 「Do Not Trackの設定を管理」リンクをクリックして開かれたダイアログ内で、「Do Not Trackを常に有効にする」の{{^Privacy-20-3}}{{^Privacy-20-4}}チェックが入っている。 (Privacy-20-1/2){{/Privacy-20-4}}{{/Privacy-20-3}}{{^Privacy-20-1}}{{^Privacy-20-2}}チェックが外れている。 (Privacy-20-3/4){{/Privacy-20-2}}{{/Privacy-20-1}}
+        1. 「Do Not Trackの設定を管理」リンクをクリックして開かれたダイアログ内で、「Do Not Trackを常に有効にする」の{{#Privacy-20-1 || Privacy-20-2}}チェックが入っている。 (Privacy-20-1/2){{/Privacy-20-1 || Privacy-20-2}}{{#Privacy-20-3 || Privacy-20-4}}チェックが外れている。 (Privacy-20-3/4){{/Privacy-20-3 || Privacy-20-4}}
 {{/Privacy-20}}
 {{#Privacy-1}}
-{{^Privacy-1-1}}{{^Privacy-1-3}}{{^Privacy-1-4}}
+{{#Privacy-1-2 || Privacy-1-5}}
         1. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。(Privacy-1-2/5)
-{{/Privacy-1-4}}{{/Privacy-1-3}}{{/Privacy-1-1}}
+{{/Privacy-1-2 || Privacy-1-5}}
 {{#Privacy-1-3}}
         1. 「履歴」で「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。(Privacy-1-3) 
 {{/Privacy-1-3}}
-        1. 「履歴」で「Firefoxの終了時に履歴を消去する」の{{^Privacy-1-1}}{{^Privacy-1-4}}{{^Privacy-1-5}}チェックが外れていて選択不可になっている。(Privacy-1-2/3){{/Privacy-1-5}}{{/Privacy-1-4}}{{/Privacy-1-1}}{{#Privacy-1-4}}チェックが入っていて選択不可になっている。(Privacy-1-4){{/Privacy-1-4}}{{#Privacy-1-5}}チェックが外れていて選択可能になっている。(Privacy-1-5){{/Privacy-1-5}}
+        1. 「履歴」で「Firefoxの終了時に履歴を消去する」の{{#Privacy-1-2 || Privacy-1-3}}チェックが外れていて選択不可になっている。(Privacy-1-2/3){{/Privacy-1-2 || Privacy-1-3}}{{#Privacy-1-4}}チェックが入っていて選択不可になっている。(Privacy-1-4){{/Privacy-1-4}}{{#Privacy-1-5}}チェックが外れていて選択可能になっている。(Privacy-1-5){{/Privacy-1-5}}
 {{#Privacy-1-4}}
         1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入って選択不可になっている。(Privacy-1-4)
 {{/Privacy-1-4}}
 {{/Privacy-1}}
 {{#Privacy-35}}
-        1. 「ブロックリストを変更」ボタンを押して表示されるブロックリストの選択で、{{^Privacy-35-2}}{{^Privacy-35-4}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-4}}{{/Privacy-35-2}}{{^Privacy-35-1}}{{^Privacy-35-3}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-3}}{{/Privacy-35-1}}
+        1. 「ブロックリストを変更」ボタンを押して表示されるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
 {{/Privacy-35}}
-{{#Privacy-6}}
-{{^Privacy-6-1}}
+<!--GROUP-->
 1. オプション画面の「詳細」→「ネットワーク」を開く。
     - 確認項目
 {{#Privacy-6-3}}
         1. 「Webサイトがオフライン作業用のデータの保存を求めてきたときに知らせる」のチェックが外れていて選択不可になっている。(Privacy-6-3)
 {{/Privacy-6-3}}
-{{^Privacy-6-3}}
+{{#Privacy-6-2 || Privacy-6-4}}
         1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-2/4)
-{{/Privacy-6-3}}
-{{/Privacy-6-1}}
-{{/Privacy-6}}
+{{/Privacy-6-2 || Privacy-6-4}}
+<!--/GROUP-->
 <!--GROUP-->
 1. オプション画面の「詳細」の「データの選択」を開く。
     - 確認項目
@@ -1194,11 +1202,11 @@
         1. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。(Privacy-21-2)
 {{/Privacy-21-2}}
 <!--/GROUP-->
-{{^Privacy-35-1}}{{^Privacy-35-2}}
-1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウト状態から復帰させる。（Privacy-35-3/4）
+{{#Privacy-35-3 || Privacy-35-4}}
+1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウト状態から復帰させる。
    * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
-{{/Privacy-35-2}}{{/Privacy-35-1}}
+{{/Privacy-35-3 || Privacy-35-4}}
 1. テストケースの「password.html」を開く。
 <!--GROUP-->
 1. ユーザID、パスワードを入力して送信する。
@@ -1264,10 +1272,10 @@
 {{#Privacy-31-2}}
         1. 「browser.selfsupport.url」の値が空文字である。(Privacy-31-2)
 {{/Privacy-31-2}}
-{{^Privacy-33-1}}
+{{#Privacy-33-2 || Privacy-33-3}}
         1. 「privacy.trackingprotection.enabled」の値が{{#Privacy-33-2}}「true」である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}「false」である。(Privacy-33-3){{/Privacy-33-3}}
         1. 「privacy.trackingprotection.pbmode.enabled」の値が{{#Privacy-33-2}}「true」である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}「false」である。(Privacy-33-3){{/Privacy-33-3}}
-{{/Privacy-33-1}}
+{{/Privacy-33-2 || Privacy-33-3}}
 <!--/GROUP-->
 1. 以下の設定を行う。既存の値がない場合は新規に作成する。
 {{#Privacy-16}}
@@ -1328,9 +1336,9 @@
 <!--GROUP-->
 1. 「プライバシー」ペインを選択する。
     - 確認項目
-{{^Privacy-1-1}}{{^Privacy-1-3}}{{^Privacy-1-4}}
+{{#Privacy-1-2 || Privacy-1-5}}
         1. 「常にプライベートブラウジングモード」が表示されていない。(Privacy-1-2/5)
-{{/Privacy-1-4}}{{/Privacy-1-3}}{{/Privacy-1-1}}
+{{/Privacy-1-2 || Privacy-1-5}}
 {{#Privacy-33-3}}
         1. 「プライベートウィンドウでサイトによるトラッキングをブロックする」が表示されていない。(Privacy-33-3)
 {{/Privacy-33-3}}
@@ -1442,7 +1450,7 @@
 1. 「Geolocationのライブサンプル」欄の「Show my location」ボタンをクリックする。
     - 確認項目
         1. {{^Privacy-14-3}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/2/4){{/Privacy-14-3}}{{#Privacy-14-3}}何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3){{/Privacy-14-3}}
-{{^Privacy-14-1}}{{^Privacy-14-3}}
+{{#Privacy-14-2 || Privacy-14-4}}
 1. 確認無しでの位置情報の取得を許可するサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Privacy-14-2/4)
@@ -1450,7 +1458,7 @@
 1. 確認無しでの位置情報の取得を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-2}}「許可」が選択されている。(Privacy-14-2){{/Privacy-14-2}}{{#Privacy-14-4}}「ブロック」が選択されている。(Privacy-14-4){{/Privacy-14-4}}
-{{/Privacy-14-3}}{{/Privacy-14-1}}
+{{/Privacy-14-2 || Privacy-14-4}}
 
 ### 後始末
 
@@ -1649,12 +1657,12 @@
 {{^Privacy-11-4}}
        1. 「Cookieを保存する期間」で{{^Privacy-11-3}}「サイトが指定した期限まで」が選択されている。（Privacy-11-1/2/5）{{/Privacy-11-3}}{{#Privacy-11-3}}「Firefoxを終了するまで」が選択されている。（Privacy-11-3）{{/Privacy-11-3}}
 {{/Privacy-11-4}}
-{{^Privacy-11-1}}{{^Privacy-11-3}}{{^Privacy-11-4}}
+{{#Privacy-11-2 || Privacy-11-5}}
 1. Cookie保存の許可対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
    - 確認項目
         1. 「サイト別設定」タブで「Cookieデータの保存」において「許可」にチェックが入っている。（Privacy-11-2/5）
         1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、{{#Privacy-11-2}}「Cookieデータの保存」において「許可」にチェックが入っている。（Privacy-11-2）{{/Privacy-11-2}}{{#Privacy-11-5}}「ブロック」にチェックが入っている。（Privacy-11-5）{{/Privacy-11-5}}
-{{/Privacy-11-4}}{{/Privacy-11-3}}{{/Privacy-11-1}}
+{{/Privacy-11-2 || Privacy-11-5}}
 
 ### 後始末
 
@@ -1769,7 +1777,7 @@
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
 {{#Download-2}}
     - 確認項目
-        1. {{^Download-2-3}}ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-3}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
+        1. {{#Download-2-1 || Download-2-2}}ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
 {{/Download-2}}
 <!--GROUP-->
 1. 「subfolder」という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。
@@ -1817,12 +1825,12 @@
 1. 新しいウィンドウ内で新しいタブを2つ以上開く。
 1. ウィンドウを閉じる操作を行う。
     - 確認項目
-        1. 複数のタブを閉じてよいかどうか{{#Tab-1-1}}確認される。(Tab-1-1){{/Tab-1-1}}{{^Tab-1-1}}確認されない。(Tab-1-2/3){{/Tab-1-1}}
+        1. 複数のタブを閉じてよいかどうか{{#Tab-1-1}}確認される。(Tab-1-1){{/Tab-1-1}}{{#Tab-1-2 || Tab-1-3}}確認されない。(Tab-1-2/3){{/Tab-1-2 || Tab-1-3}}
 {{/Tab-1}}
 {{#Tab-2}}
 1. タブを1つ選択し、右クリックして「他のタブをすべて閉じる」を選択する。
     - 確認項目
-        1. 複数のタブを閉じてよいかどうか{{#Tab-2-1}}確認される。(Tab-2-1){{/Tab-2-1}}{{^Tab-2-1}}確認されない。(Tab-2-2/3){{/Tab-2-1}}
+        1. 複数のタブを閉じてよいかどうか{{#Tab-2-1}}確認される。(Tab-2-1){{/Tab-2-1}}{{#Tab-2-2 || Tab-2-3}}確認されない。(Tab-2-2/3){{/Tab-2-2 || Tab-2-3}}
 {{/Tab-2}}
 {{#Tab-3}}
 1. テストケースの「links.html」を開く。リンクからタブを開き、15以上のタブが開かれた状態にする。
@@ -1830,30 +1838,27 @@
 1. フォルダ名を任意に指定し、ブックマークフォルダとして保存する。
 1. メニューバーの「ブックマーク」から前の操作で作成されたブックマークフォルダを選択し、最下部の「タブですべて開く」を選択する。
     - 確認項目
-        1. 一度に複数のタブを開いてよいかどうか{{#Tab-3-1}}確認される。(Tab-3-1){{/Tab-3-1}}{{^Tab-3-1}}確認されない。(Tab-3-2/3){{/Tab-3-1}}
+        1. 一度に複数のタブを開いてよいかどうか{{#Tab-3-1}}確認される。(Tab-3-1){{/Tab-3-1}}{{#Tab-3-2 || Tab-3-3}}確認されない。(Tab-3-2/3){{/Tab-3-2 || Tab-3-3}}
 {{/Tab-3}}
 1. タブバー上の「+」ボタンをクリックして新しいタブを開く。またはパネルメニューを開き、パネルメニュー内の「新しいウィンドウ」をクリックする。
     - 確認項目
 {{#Tab-5-1}}
         1. 右上に歯車アイコンのある空白ページが表示される。(Tab-5-1)
 {{/Tab-5-1}}
-{{#Tab-5-2}}
-        1. 右上に歯車アイコンのない空白ページが表示される。(Tab-5-2){{#Tab-7-2}}(Tab-7-2){{/Tab-7-2}}
-{{/Tab-5-2}}
-{{^Tab-5-2}}{{#Tab-7-2}}
-        1. 右上に歯車アイコンのない空白ページが表示される。(Tab-7-2)
-{{/Tab-7-2}}{{/Tab-5-2}}
+{{#Tab-5-2 || Tab-7-2}}
+        1. 右上に歯車アイコンのない空白ページが表示される。{{#Tab-5-2}}(Tab-5-2){{/Tab-5-2}}{{#Tab-7-2}}(Tab-7-2){{/Tab-7-2}}
+{{/Tab-5-2 || Tab-7-2}}
 {{^Tab-7-2}}
         1. タイルが表示される。(Tab-7-1/3/4/5)
 {{/Tab-7-2}}
-{{^Tab-7-1}}{{^Tab-7-2}}
-        1. タイルの中に{{#Tab-7-4}}未訪問のページが含まれる。(Tab-7-4){{/Tab-7-4}}{{^Tab-7-4}}訪問済みのページのみが表示される。(Tab-7-3/5){{/Tab-7-4}}
-{{/Tab-7-2}}{{/Tab-7-1}}
-{{^Tab-7-2}}{{^Tab-7-3}}{{^Tab-7-4}}
+{{#Tab-7-3 || Tab-7-4 || Tab-7-5}}
+        1. タイルの中に{{#Tab-7-4}}未訪問のページが含まれる。(Tab-7-4){{/Tab-7-4}}{{#Tab-7-3 || Tab-7-5}}訪問済みのページのみが表示される。(Tab-7-3/5){{/Tab-7-3 || Tab-7-5}}
+{{/Tab-7-3 || Tab-7-4 || Tab-7-5}}
+{{#Tab-7-1 || Tab-7-5}}
 1. 新しいタブ内の歯車ボタンをクリックする。
     - 確認項目
         1. 「おすすめサイトも表示」が{{#Tab-7-1}}表示される。(Tab-7-1){{/Tab-7-1}}{{#Tab-7-5}}表示されない。(Tab-7-5){{/Tab-7-5}}
-{{/Tab-7-4}}{{/Tab-7-3}}{{/Tab-7-2}}
+{{/Tab-7-1 || Tab-7-5}}
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
@@ -2014,14 +2019,14 @@
 1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Script-2}}
-        1. 「dom.push.enabled」の値が{{^Script-2-3}}「true」である。(Script-2-1/2){{/Script-2-3}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
-        1. 「dom.serviceWorkers.enabled」の値が{{^Script-2-3}}「true」である。(Script-2-1/2){{/Script-2-3}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
+        1. 「dom.push.enabled」の値が{{#Script-2-1 || Script-2-2}}「true」である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
+        1. 「dom.serviceWorkers.enabled」の値が{{#Script-2-1 || Script-2-2}}「true」である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
 {{/Script-2}}
 {{#Script-3}}
         1. 「dom.gamepad.enabled」の値が{{#Script-3-1}}「true」である。(Script-3-1){{/Script-3-1}}{{#Script-3-2}}「false」である。(Script-3-2){{/Script-3-2}}
 {{/Script-3}}
 <!--/GROUP-->
-{{^Script-2-1}}{{^Script-2-3}}
+{{#Script-2-2 || Script-2-4}}
 1. 確認なしでpush通知を許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
         1. 「サイト別設定」タブで「通知を受信する」において「許可」にチェックが入っている。(Script-2-2/4)
@@ -2029,7 +2034,7 @@
 1. 確認なしでpush通知を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
         1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-2}}「許可」が選択されている。(Script-2-2){{/Script-2-2}}{{#Script-2-4}}「ブロック」が選択されている。{{/Script-2-4}}
-{{/Script-2-3}}{{/Script-2-1}}
+{{/Script-2-2 || Script-2-4}}
 
 ### 後始末
 
@@ -2065,7 +2070,7 @@
     1. globalChrome.css
 {{/Stability-1}}
 
-{{#Stability-2}}{{^Stability-2-1}}
+{{#Stability-2-2 || Stability-2-3}}
 ## プロセス分離の制御
 
 ### 確認する項目
@@ -2083,7 +2088,7 @@
 1. about:supportを開く
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
-{{/Stability-2-1}}{{/Stability-2}}
+{{/Stability-2-2 || Stability-2-3}}
 
 {{#Appearance-1-2}}
 ## 表示フォントの設定
@@ -3270,4 +3275,4 @@
     2. Privacy-6-3
     3. Hide-1
 {{/Hide-4}}
-z
+
