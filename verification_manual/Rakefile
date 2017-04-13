@@ -81,6 +81,12 @@ def prepare_customizations_variables
 end
 
 class ContentsCleaner
+  class << self
+    def cleanup(contents)
+      new(contents).cleanup
+    end
+  end
+
   def initialize(contents)
     introduction, contents = contents.split(/<!-- *VERIFICATIONS ARE FROM HERE *-->/)
     @introduction = introduction
@@ -175,9 +181,7 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
 
   contents = File.read(t.source)
   contents = Mustache.render(contents, VARIABLES)
-
-  cleaner = ContentsCleaner.new(contents)
-  contents = cleaner.cleanup
+  contents = ContentsCleaner.cleanup(contents)
 
   puts "Generating #{CHAPTERS_FILE}..."
   output_verify_targets_to_sections_list(contents)
