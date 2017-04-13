@@ -73,31 +73,31 @@ class TemplateResolver
     Mustache.render(@contents, @variables)
   end
 
-def prepare_firefox_version_variables
-  current_firefox_major_version = @variables[:firefox_version].split(".").first.to_i
-  @variables["firefox#{current_firefox_major_version}"] = true
-  (24..99).each do |version|
-    @variables["firefox#{version}_or_older"] = current_firefox_major_version <= version
-    @variables["firefox#{version}_or_later"] = current_firefox_major_version >= version
+  def prepare_firefox_version_variables
+    current_firefox_major_version = @variables[:firefox_version].split(".").first.to_i
+    @variables["firefox#{current_firefox_major_version}"] = true
+    (24..99).each do |version|
+      @variables["firefox#{version}_or_older"] = current_firefox_major_version <= version
+      @variables["firefox#{version}_or_later"] = current_firefox_major_version >= version
+    end
   end
-end
 
-def prepare_customizations_variables
-  verify_targets = CSV.read(TARGETS_FILE)
-  verify_targets.each do |key, _|
-    @variables[key] = true
-    if key.count("-") > 1
-      chosen_sub_index = key.split("-").last.to_i
-      base_key = key.gsub(/-[^-]+\z/, "")
-      @variables[base_key] = true
-      (1..10).each do |sub_index|
-        unless sub_index == chosen_sub_index
-          @variables["#{base_key}-#{sub_index}"] = false
+  def prepare_customizations_variables
+    verify_targets = CSV.read(TARGETS_FILE)
+    verify_targets.each do |key, _|
+      @variables[key] = true
+      if key.count("-") > 1
+        chosen_sub_index = key.split("-").last.to_i
+        base_key = key.gsub(/-[^-]+\z/, "")
+        @variables[base_key] = true
+        (1..10).each do |sub_index|
+          unless sub_index == chosen_sub_index
+            @variables["#{base_key}-#{sub_index}"] = false
+          end
         end
       end
     end
   end
-end
 end
 
 class ContentsCleaner
