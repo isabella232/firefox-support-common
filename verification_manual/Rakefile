@@ -73,6 +73,7 @@ class TemplateResolver
     Mustache.render(@contents, @variables)
   end
 
+  private
   def prepare_firefox_version_variables
     current_firefox_major_version = @variables[:firefox_version].split(".").first.to_i
     @variables["firefox#{current_firefox_major_version}"] = true
