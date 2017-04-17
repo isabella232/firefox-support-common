@@ -16,6 +16,6 @@ Sub ExportAllToCsv
 		document.getCurrentController.setActiveSheet(Sheet)		
 		Filename = Directory + "/" + Basename + "." + SheetName + ".csv"
 		FileURL = convertToURL(Filename)
-		document.StoreAsURL(FileURL, SaveParams())
+		document.storeToURL(FileURL, SaveParams())
 	Next Sheet
 End Sub
