@@ -18,4 +18,6 @@ Sub ExportAllToCsv
 		FileURL = convertToURL(Filename)
 		document.storeToURL(FileURL, SaveParams())
 	Next Sheet
+
+	document.getCurrentController.setActiveSheet(Sheets(0))
 End Sub
