@@ -1,23 +1,23 @@
 Sub ExportAllToCsv
 	document = ThisComponent
 	GlobalScope.BasicLibraries.loadLibrary("Tools")
-	Basename = Tools.Strings.GetFileNameWithoutExtension(document.getURL(), "/")
-	Directory = Tools.Strings.DirectoryNameoutofPath(document.getURL(), "/")
+	basename = Tools.Strings.GetFileNameWithoutExtension(document.GetURL(), "/")
+	directory = Tools.Strings.DirectoryNameoutofPath(document.GetURL(), "/")
 
-	Dim SaveParams(1) as New com.sun.star.beans.PropertyValue
-	SaveParams(0).Name = "FilterName"
-	SaveParams(0).Value = "Text - txt - csv (StarCalc)"
-	SaveParams(1).Name = "FilterOptions"
-	SaveParams(1).Value = "44,34,0,1,1" ' 44=comma, 34=double-quote
+	Dim saveParams(1) as New com.sun.star.beans.PropertyValue
+	saveParams(0).Name = "FilterName"
+	saveParams(0).Value = "Text - txt - csv (StarCalc)"
+	saveParams(1).Name = "FilterOptions"
+	saveParams(1).Value = "44,34,0,1,1" ' 44=comma, 34=double-quote
 
-	Sheets = document.Sheets
-	For Each Sheet in Sheets()
-		SheetName = Sheet.Name
-		document.getCurrentController.setActiveSheet(Sheet)		
-		Filename = Directory + "/" + Basename + "." + SheetName + ".csv"
-		FileURL = convertToURL(Filename)
-		document.storeToURL(FileURL, SaveParams())
-	Next Sheet
+	sheets = document.Sheets
+	For Each sheet in sheets()
+		sheetName = sheet.Name
+		document.GetCurrentController.setActiveSheet(sheet)
+		filename = directory + "/" + basename + "." + sheetName + ".csv"
+		fileURL = convertToURL(Filename)
+		document.StoreToURL(fileURL, saveParams())
+	Next sheet
 
-	document.getCurrentController.setActiveSheet(Sheets(0))
+	document.GetCurrentController.setActiveSheet(sheets(0))
 End Sub
