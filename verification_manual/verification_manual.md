@@ -1607,7 +1607,9 @@
 {{#Privacy-30}}
 ## ディスクキャッシュのサイズ制限
 
+{{#Privacy-30-2}}
 - 制限する最大サイズは{{max_cache_size_in_megabytes}}MBとする。
+{{/Privacy-30-2}}
 
 ### 確認する項目
 
@@ -1617,18 +1619,28 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Privacy-30-2}}
 2. 設定値が1MB未満の場合、値が1MB以上になるよう調整する。
+{{/Privacy-30-2}}
 
 ### 検証
 
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+{{#Privacy-30-1 || Privacy-30-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「詳細」→「ネットワーク」を開く。
-    1. 確認項目
+    - 確認項目
         1. 「キャッシュサイズを変更する」に{{#Privacy-30-1}}チェックが入っておらず、選択不可になっている。(Privacy-30-1){{/Privacy-30-1}}{{#Privacy-30-2}}チェックが入っていて、選択不可になっている。(Privacy-30-2){{/Privacy-30-2}}
 {{#Privacy-30-2}}
         1. 「ページキャッシュとして{{max_cache_size_in_megabytes}}MBまで使用する」と表示されている。(Privacy-30-2)
 {{/Privacy-30-2}}
+{{/Privacy-30-1 || Privacy-30-2}}
+{{#Privacy-30-3}}
+1. http://www.clear-code.com/ などいくつかのWebページを閲覧する。
+1. ロケーションバーに「 about:cache 」と入力し、ページを開く。
+    - 確認項目
+        1. 「disk」欄の「Number of entries」、「Maximum storage size」、「Storage in use」がすべて「0」になっている。(Privacy-30-3)
+{{/Privacy-30-3}}
 {{/Privacy-30}}
 
 {{#Privacy-11}}
