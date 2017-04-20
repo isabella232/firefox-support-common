@@ -1639,7 +1639,10 @@
 1. http://www.clear-code.com/ などいくつかのWebページを閲覧する。
 1. ロケーションバーに「 about:cache 」と入力し、ページを開く。
     - 確認項目
-        1. 「disk」欄の「Number of entries」、「Maximum storage size」、「Storage in use」がすべて「0」になっている。(Privacy-30-3)
+        1. 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。(Privacy-30-3)
+1. 「{{special_profile_path}}\\{{special_profile_name}}\\cache2」、もしくは「%LocalAppData%\\Mozilla\\Firefox\\Profiles\\（ランダムな文字列）.default\\cache2」を開き、その中の「entries」フォルダを開く。
+    - 確認項目
+        1. フォルダが空である。(Privacy-30-3)
 {{/Privacy-30-3}}
 {{/Privacy-30}}
 
