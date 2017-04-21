@@ -235,19 +235,25 @@ def output_verify_targets_to_sections_list(contents, verify_targets)
   end
 end
 
-task :default => :pdf
-
-desc "Generate PDF"
-task :pdf => PDF_FILES
-
-rule ".pdf" => [".md", "Rakefile"] do |t|
-  contents = File.read(t.source)
+def prepare_contents(source)
+  contents = File.read(source)
   resolver = TemplateResolver.new(contents, VARIABLES)
   contents = resolver.resolve
   contents = ContentsCleaner.cleanup(contents)
 
   puts "Generating #{CHAPTERS_FILE}..."
   output_verify_targets_to_sections_list(contents, resolver.verify_targets)
+
+  contents
+end
+
+task :default => :pdf
+
+desc "Generate PDF"
+task :pdf => PDF_FILES
+
+rule ".pdf" => [".md", "Rakefile"] do |t|
+  contents = prepare_contents(t.source)
 
   puts "Generating #{t.name}..."
   Tempfile.open("firefox-verification_manual") do |file|
