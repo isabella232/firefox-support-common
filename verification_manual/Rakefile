@@ -90,6 +90,7 @@ class TemplateResolver
   def prepare_customizations_variables
     verify_targets = CSV.read(TARGETS_FILE)
     verify_targets.each do |key, _|
+      next if key.strip.empty?
       @variables[key] = true
       if key.count("-") > 1
         chosen_sub_index = key.split("-").last.to_i
