@@ -6,7 +6,7 @@ require "mustache"
 #MD_FILES = FileList["*.md"]
 MD_FILES = FileList["verification_manual.md"]
 PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
-TARGETS_FILE = "verify-targets.csv"
+SOURCE_CONFIGS_SPREADHSEET = "../configurations/customization-items.ods"
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 VARIABLES = {
   firefox_version:                "52.0 ESR",
@@ -62,9 +62,12 @@ class TemplateResolver
     end
   end
 
+  attr_reader :verify_targets
+
   def initialize(contents, variables)
     @contents = contents
     @variables = variables
+    @verify_targets = []
   end
 
   def resolve
@@ -88,9 +91,11 @@ class TemplateResolver
   end
 
   def prepare_customizations_variables
-    verify_targets = CSV.read(TARGETS_FILE)
+    system("ssconvert", "-S", SOURCE_CONFIGS_SPREADHSEET, "#{SOURCE_CONFIGS_SPREADHSEET}.%s.csv")
+    verify_targets = CSV.read("#{SOURCE_CONFIGS_SPREADHSEET}.verify-targets.csv")
     verify_targets.each do |key, _|
-      next if key.strip.empty?
+      next if key.nil? or key.strip.empty?
+      @verify_targets << key
       @variables[key] = true
       if key.count("-") > 1
         chosen_sub_index = key.split("-").last.to_i
@@ -200,7 +205,7 @@ class ContentsCleaner
   end
 end
 
-def output_verify_targets_to_sections_list(contents)
+def output_verify_targets_to_sections_list(contents, verify_targets)
   items_to_sections = {}
   contents.split(/^#[^#]/).each_with_index do |chapter, chapter_number|
     next if chapter_number <= 1
@@ -219,8 +224,7 @@ def output_verify_targets_to_sections_list(contents)
   end
 
   CSV.open(CHAPTERS_FILE, "w") do |rows|
-    verify_targets = CSV.read(TARGETS_FILE)
-    verify_targets.each do |target, _|
+    verify_targets.each do |target|
       section_ids = items_to_sections[target.sub(/(-[^-]+)-[^-]+\z/, "\\1")]
       if section_ids
         rows << [target, section_ids.join("\n")]
@@ -238,11 +242,12 @@ task :pdf => PDF_FILES
 
 rule ".pdf" => [".md", "Rakefile"] do |t|
   contents = File.read(t.source)
-  contents = TemplateResolver.resolve(contents, VARIABLES)
+  resolver = TemplateResolver.new(contents, VARIABLES)
+  contents = resolver.resolve
   contents = ContentsCleaner.cleanup(contents)
 
   puts "Generating #{CHAPTERS_FILE}..."
-  output_verify_targets_to_sections_list(contents)
+  output_verify_targets_to_sections_list(contents, resolver.verify_targets)
 
   puts "Generating #{t.name}..."
   Tempfile.open("firefox-verification_manual") do |file|
