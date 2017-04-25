@@ -260,7 +260,7 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
     file.puts(contents)
     file.flush
     sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
-       "--table-of-contents", "--toc-depth=3",
+       "--table-of-contents", "--toc-depth=2",
        "-N",
        "-V", "documentclass=ltjsarticle",
        "-V", "classoption=titlepage",
