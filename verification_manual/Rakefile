@@ -6,6 +6,8 @@ require "mustache"
 #MD_FILES = FileList["*.md"]
 MD_FILES = FileList["verification_manual.md"]
 PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
+DOCX_FILES = MD_FILES.map{|file| file.ext(".docx") }
+ODT_FILES = MD_FILES.map{|file| file.ext(".odt") }
 SOURCE_CONFIGS_SPREADHSEET = "../configurations/customization-items.ods"
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 VARIABLES = {
@@ -265,5 +267,50 @@ rule ".pdf" => [".md", "Rakefile"] do |t|
        "-V", "documentclass=ltjsarticle",
        "-V", "classoption=titlepage",
        "--latex-engine=lualatex", file.path
+  end
+end
+
+desc "Generate DOCX"
+task :docx => DOCX_FILES
+rule ".docx" => [".md", "Rakefile"] do |t|
+  template_params = []
+  if File.exist?("reference.dotx")
+    template_params << "--reference-docx"
+    template_params << "reference.dotx"
+  end
+
+  contents = prepare_contents(t.source)
+  puts "Generating #{t.name}..."
+  Tempfile.open("firefox-verification_manual") do |file|
+    file.puts(contents)
+    file.flush
+    sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
+       "--table-of-contents", "--toc-depth=2",
+       "-N",
+       "-t", "docx",
+       *template_params,
+       file.path
+  end
+end
+
+desc "Generate ODT"
+task :odt => ODT_FILES
+rule ".odt" => [".md", "Rakefile"] do |t|
+  template_params = []
+  if File.exist?("reference.ott")
+    template_params << "--reference-odt"
+    template_params << "reference.ott"
+  end
+
+  contents = prepare_contents(t.source)
+  puts "Generating #{t.name}..."
+  Tempfile.open("firefox-verification_manual") do |file|
+    file.puts(contents)
+    file.flush
+    sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
+       "--table-of-contents", "--toc-depth=2",
+       "-N",
+       *template_params,
+       file.path
   end
 end
