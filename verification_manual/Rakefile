@@ -253,10 +253,8 @@ task :default => :pdf
 
 desc "Generate PDF"
 task :pdf => PDF_FILES
-
 rule ".pdf" => [".md", "Rakefile"] do |t|
   contents = prepare_contents(t.source)
-
   puts "Generating #{t.name}..."
   Tempfile.open("firefox-verification_manual") do |file|
     file.puts(contents)
