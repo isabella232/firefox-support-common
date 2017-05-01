@@ -2710,11 +2710,11 @@
     - 確認項目
         1. 「Adobe Flashの保護モードを有効化」に{{#Security-24-1}}チェックが入っている。（Security-24-1）{{/Security-24-1}}{{#Security-24-2}}チェックが入っていない。（Security-24-2）{{/Security-24-2}}
 {{/Security-24}}
-{{#Plugin-8}}
+{{#Plugin-8 && use_globalchromecss}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - 確認項目
         1. 「コンテンツ」配下に「DRMコンテンツ」グループが{{#Plugin-8-1}}ある。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}無い。(Plugin-8-2){{/Plugin-8-2}}
-{{/Plugin-8}}
+{{/Plugin-8 && use_globalchromecss}}
 1. Permissions Auto Registererによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、「 http://example.com 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
