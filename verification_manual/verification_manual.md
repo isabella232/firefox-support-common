@@ -387,6 +387,7 @@
     - globalChrome.css
 {{/use_globalchromecss}}
     - Disable Auto-update
+{{#use_globalchromecss}}
 1. Firefoxを起動し、パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
     - 確認項目
@@ -396,8 +397,10 @@
 {{#Startup-3-2}}
         1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックおよび規定のブラウザに設定するボタンが表示されていない。(Startup-3-2)
 {{/Startup-3-2}}
+1. Firefoxを終了する。
+{{/use_globalchromecss}}
 {{#Startup-7}}
-1. Firefoxを終了し、システムの時計を1年先の日付に進めてからFirefoxを起動する。
+1. システムの時計を1年先の日付に進めてからFirefoxを起動する。
     - 確認項目
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
 {{/Startup-7}}
@@ -1368,9 +1371,9 @@
 {{#Privacy-1-2 || Privacy-1-5}}
         1. 「常にプライベートブラウジングモード」が表示されていない。(Privacy-1-2/5)
 {{/Privacy-1-2 || Privacy-1-5}}
-{{#Privacy-33-3}}
+{{#Privacy-33-3 && use_globalchromecss}}
         1. 「プライベートウィンドウでサイトによるトラッキングをブロックする」が表示されていない。(Privacy-33-3)
-{{/Privacy-33-3}}
+{{/Privacy-33-3 && use_globalchromecss}}
 {{#Privacy-17-2}}
         1. 「検索エンジンの検索候補の設定を変更」が表示されていない。(Privacy-17-2)
 {{/Privacy-17-2}}
