@@ -1810,6 +1810,7 @@
         1. ロケーションバーのURL表記に「http://」が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
 {{/Location-1}}
 
+
 ## ダウンロードに関する機能の制御
 
 ### 確認する項目
@@ -1847,6 +1848,16 @@
 {{/Download-1}}
 <!--/GROUP-->
 {{#Download-3}}
+1. ロケーションバーに「 https://getfirefox.com/ 」と入力し、ページを開く。
+1. Firefoxのダウンロード用ボタンをクリックし、「ファイルを保存」を選択する。
+    - 確認項目
+{{#Download-3-1 || Download-3-2}}
+        1. 特にダウンロード先を訊ねられずダウンロードが始まる。（Download-3-1/3-2）
+{{/Download-3-1 || Download-3-2}}
+{{#Download-3-3}}
+        1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3）
+{{/Download-3-3}}
+{{#Download-3-1 || Download-3-2}}
 1. ロケーションバーに「 http://www.mozilla.org/ 」と入力し、ページを開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
     - 確認項目
@@ -1856,6 +1867,7 @@
     - 確認項目
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*)
         1. ダウンロード先として{{#Download-3-1}}{{download_dir}}内の「subfolder」が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}{{download_dir}}が表示されている。(Download-3-2){{/Download-3-2}}
+{{/Download-3-1 || Download-3-2}}
 {{/Download-3}}
 
 ## タブの操作に関する機能の制御
