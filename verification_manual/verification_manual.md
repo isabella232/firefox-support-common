@@ -706,7 +706,7 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-9-2}}
 1. 以下の各方法でabout:configへのアクセスを試みる。(Security-9-2)
-    1. 確認項目
+    - 確認項目
         1. ロケーションバーに「about:config」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-9-2)
         1. ロケーションバーに「about:config」と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-9-2)
         1. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。
@@ -1432,10 +1432,10 @@
 1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、「アドオン」をクリックする。
 3. アドオンマネージャ内の「拡張機能」をクリックする。
-    1. 確認項目
+    - 確認項目
         1. 拡張機能の一覧に「Flexible Expire History by Days」が表示されており、有効になっている。(Privacy-9-1)
 4. {{expire_history_by_days_version}}の設定画面を開く。
-    1. 確認項目
+    - 確認項目
         1. 「Expire visits older than these days」の値が「5」である。(Privacy-9-1)
         2. 「Frequency of expiration」で「On the first idle time per a day」が選択されている。(Privacy-9-1)
 5. Firefoxのロケーションバーに「about:config」と入力し、ページを開く。
@@ -1446,10 +1446,10 @@
 10. メニューバーの「履歴」から「すべての履歴」を選択し、「履歴とブックマークの管理」ウィンドウを開く（すべての履歴項目を表示した状態にする）。
 11. 「履歴」配下の「7日以内」、「（前月）月」、または指定の履歴保存期間のしきい値となる日付が含まれる期間を選択する。
 12. 履歴一覧のカラム列を右クリックし、「最近表示した日時」にチェックを入れる。
-    1. 確認項目
+    - 確認項目
         1. 当日までの日付の履歴項目が並んでいる。
 13. マウスとキーボードから手を離し、4分以上、何も操作せずに放置する。
-    1. 確認項目
+    - 確認項目
         1. 前日を含めて過去5日間の履歴が残っており、それよりも古い履歴項目が残っていない。(Privacy-9-1)
 
 ### 後始末
@@ -2191,19 +2191,19 @@
 
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. about:configを開き、以下の設定を行う。
-   - 「font.name.serif.ja」（文字列型）を「missing」に設定する。
-   - 「font.name.sans-serif.ja」（文字列型）を「missing」に設定する。
-   - 「font.name.monospace.ja」（文字列型）を「missing」に設定する。
+    - 「font.name.serif.ja」（文字列型）を「missing」に設定する。
+    - 「font.name.sans-serif.ja」（文字列型）を「missing」に設定する。
+    - 「font.name.monospace.ja」（文字列型）を「missing」に設定する。
 3. テストケースの「font.html」を開く。
 4. 「Serif / セリフ体（明朝）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
-   - 確認項目
-       1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+    - 確認項目
+        1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
 5. 「Sans-Serif / サンセリフ体（ゴシック）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
-   - 確認項目
-       1. font.name-list.sans-serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+    - 確認項目
+        1. font.name-list.sans-serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
 6. 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
-   - 確認項目
-       1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+    - 確認項目
+        1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2）
 
 ### 後始末
 
