@@ -19,11 +19,11 @@
 
 ## メタインストーラを使用した、新規インストールの手順
 
-- メタインストーラの名称は{{meta_installer_name}}、ファイル名は{{meta_installer_file_name}}とする。
+- メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
 - メタインストーラの表示バージョンは{{meta_installer_version}}とする。
-- Firefoxのインストール先は{{install_path}}とする。
-- デスクトップのショートカットは{{desktop_shortcut_path}} に作成するものとする。
-- スタートメニューのショートカットは{{start_menu_shortcut_path}}に作成するものとする。
+- Firefoxのインストール先は `{{install_path}}` とする。
+- デスクトップのショートカットは `{{desktop_shortcut_path}}` に作成するものとする。
+- スタートメニューのショートカットは `{{start_menu_shortcut_path}}` に作成するものとする。
 
 ### 確認する項目
 
@@ -51,10 +51,10 @@
     2. Mozilla Firefox
     3. Mozilla Maintenance Service
 2. 以下のファイル、フォルダを削除する。
-    1. {{install_path}}
-    2. C:\\Program Files (x86)\\ClearCode Inc
-    3. Firefoxのユーザープロファイル（%AppData%\\Mozilla）
-    4. Firefoxのテンポラリファイルおよびキャッシュファイル（%LocalAppData%\\Mozilla）
+    1. `{{install_path}}`
+    2. `C:\Program Files (x86)\ClearCode Inc`
+    3. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
+    4. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 
 ### 検証
 
@@ -101,10 +101,10 @@
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
 {{#Install-8}}
-        1. {{install_path}}\\firefox.exe が存在する。(Install-8-\*)
+        1. `{{install_path}}\firefox.exe` が存在する。(Install-8-\*)
 {{/Install-8}}
 {{#Admin-1}}
-        1. {{install_path}}\\{{mcd_local_file}} が存在する。(Admin-1-\*)
+        1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-\*)
 {{/Admin-1}}
 {{#Application-1}}
         1. {{desktop_shortcut_path}} が{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
@@ -140,8 +140,8 @@
 
 ## 専用ユーザープロファイルの作成と使用
 
-- 専用ユーザープロファイルの作成先は{{special_profile_path}}とする。
-- 専用ユーザープロファイルの名前は{{special_profile_name}}とする。
+- 専用ユーザープロファイルの作成先は `{{special_profile_path}}` とする。
+- 専用ユーザープロファイルの名前は `{{special_profile_name}}` とする。
 
 ### 確認する項目
 
@@ -157,26 +157,26 @@
 ### 検証
 
 {{#Application-6-2}}
-1. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}」と入力してEnterを押す。
+1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
     - 確認項目
         1. 「{{special_profile_name}}」フォルダが存在する。(Application-6-2)
         2. フォルダの内容は空である。(Application-6-2)
 {{/Application-6-2}}
 {{#Application-1-3}}
-1. {{desktop_shortcut_path}}のプロパティを開く。
+1. `{{desktop_shortcut_path}}` のプロパティを開く。
     - 確認項目
-        1. 作業フォルダが「"（Firefoxの実行ファイルがあるフォルダパス）"」である。(Application-1-3)
-        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3)
+        1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。(Application-1-3)
+        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3)
 {{/Application-1-3}}
 {{#Application-2-3}}
-1. {{start_menu_shortcut_path}}のプロパティを開く。
+1. `{{start_menu_shortcut_path}}` のプロパティを開く。
     - 確認項目
-        1. 作業フォルダが「"（Firefoxの実行ファイルがあるフォルダパス）"」である。(Application-2-3)
-        2. 「リンク先」末尾に「-profile {{special_profile_path}}\\{{special_profile_name}}」というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3)
+        1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。(Application-2-3)
+        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3)
 {{/Application-2-3}}
 {{#Application-6-2}}
-1. Windowsエクスプローラ（フォルダウィンドウ）を開き、ロケーションバーに「{{special_profile_path}}\\{{special_profile_name}}」と入力してEnterを押す。
-1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
+1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
     - 確認項目
         1. Firefoxの起動後、4で開いたフォルダに「prefs.js」などのファイルが作成される。(Application-6-2)
 {{/Application-6-2}}
@@ -200,20 +200,20 @@
     3. Mozilla Firefox
     4. Mozilla Maintenance Service
 2. 以下のファイル、フォルダを削除する。
-    1. {{install_path}}
+    1. `{{install_path}}`
     1. 旧バージョンのメタインストーラによってインストールされたFirefox
-    1. C:\\Program Files (x86)\\ClearCode Inc
-    1. Firefoxのユーザープロファイル（%AppData%\\Mozilla）
-    1. Firefoxのテンポラリファイルおよびキャッシュファイル（%LocalAppData%\\Mozilla）
-    1. {{desktop_shortcut_path}}
-    1. {{start_menu_shortcut_path}}
+    1. `C:\Program Files (x86)\ClearCode Inc`
+    1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
+    1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+    1. `{{desktop_shortcut_path}}`
+    1. `{{start_menu_shortcut_path}}`
     1. クイック起動、タスクバー、およびスタートメニュー内に作成されたショートカット
 3. 旧バージョン、新バージョンの各メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
 
 ### 検証
 
 1. 旧バージョンのメタインストーラを実行する。
-1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
@@ -231,13 +231,13 @@
 {{/Install-10-2}}
 1. 新バージョンのメタインストーラを実行する。
     - 確認項目
-        1. `（旧バージョンのFirefoxのインストール先）\\firefox.exe` が存在する。
-        1. `（旧バージョンのFirefoxのインストール先）\\ {{mcd_local_file}}` が存在する。
-        1. `{{install_path}}\\firefox.exe` が存在する。
+        1. `（旧バージョンのFirefoxのインストール先）\firefox.exe` が存在する。
+        1. `（旧バージョンのFirefoxのインストール先）\ {{mcd_local_file}}` が存在する。
+        1. `{{install_path}}\firefox.exe` が存在する。
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\\{{mcd_local_file}}` が存在する。(Admin-1-1/2)
+        1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-1/2)
 {{/Admin-1-1 || Admin-1-2}}
-1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
@@ -254,13 +254,13 @@
         1. ショートカットのリンク先が新バージョンの実行ファイルの位置である。(Install-10-2){{/Install-10-2}}
 1. 旧バージョンのメタインストーラを実行する。
     - 確認項目
-        1. `（旧バージョンのFirefoxのインストール先）\\firefox.exe` が存在する。
-        1. `（旧バージョンのFirefoxのインストール先）\\{{mcd_local_file}}` が存在する。
-        1. `{{install_path}}\\firefox.exe` が存在する。
+        1. `（旧バージョンのFirefoxのインストール先）\firefox.exe` が存在する。
+        1. `（旧バージョンのFirefoxのインストール先）\{{mcd_local_file}}` が存在する。
+        1. `{{install_path}}\firefox.exe` が存在する。
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\\{{mcd_local_file}}` が存在する。 (Admin-1-1/2)
+        1. `{{install_path}}\{{mcd_local_file}}` が存在する。 (Admin-1-1/2)
 {{/Admin-1-1 || Admin-1-2}}
-1. {{desktop_shortcut_path}}をダブルクリックし、Firefoxを起動する。
+1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
@@ -300,7 +300,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。
+2. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 3. 以下のアドオンを無効化する。
     1. Disable about:config
 {{#use_globalchromecss}}
@@ -313,7 +313,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
 {{#Startup-1}}
         1. Firefoxが起動した時に「設定移行ウィザード」が{{#Startup-1-1}}表示される。(Startup-1-1){{/Startup-1-1}}{{#Startup-1-2}}表示されない。(Startup-1-2){{/Startup-1-2}}
@@ -334,7 +334,7 @@
         1. 導入対象のアドオンが{{#Admin-4-1}}機能している。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}機能していない。(Admin-4-2){{/Admin-4-2}}
 {{/Admin-4}}
 {{#Startup-6}}
-1. ホームページのタブとして既定のホームページ（about:home）が開かれていない場合、ロケーションバーに「about:home」と入力し、ホームページを開く。
+1. ホームページのタブとして既定のホームページ（`about:home`）が開かれていない場合、ロケーションバーに「`about:home`」と入力し、ホームページを開く。
     - 確認項目
         1. 既定のホームページ内に「あなたの権利について……」のリンクおよび情報が{{#Startup-6-1}}表示される。(Startup-6-1){{/Startup-6-1}}{{#Startup-6-2}}表示されない。(Startup-6-2){{/Startup-6-2}}
 {{/Startup-6}}
@@ -349,7 +349,7 @@
         1. 「ホーム」ボタンへのドロップが不可能である。(Startup-2-3)
 {{/Startup-2-3}}
 <!--/GROUP-->
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Admin-3}}
         1. 「extensions.shownSelectionUI」の値が{{#Admin-3-1}}存在しないか、「false」である。(Admin-3-1){{/Admin-3-1}}{{#Admin-3-2}}「true」である。(Admin-3-2){{/Admin-3-2}}
@@ -405,7 +405,7 @@
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
 {{/Startup-7}}
 {{#Startup-8}}
-1. Firefoxを終了し、プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、「 https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/ 」と入力し、ページを開く。
+1. Firefoxを終了し、プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、`https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/` と入力し、ページを開く。
     - 確認方法
         1. UIツアーが{{#Startup-8-1}}開始される。(Startup-8-1){{/Startup-8-1}}{{#Startup-8-2}}開始されない。(Startup-8-2){{/Startup-8-2}}
 {{/Startup-8}}
@@ -434,15 +434,15 @@
 
 ### 検証
 
-1. 用意したインストールパッケージを{{install_path}}\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiの位置に置く。
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. 用意したインストールパッケージを `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` の位置に置く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. {{#Admin-2-2}}アドオンを有効化した上で、{{/Admin-2-2}}Firefoxを再起動する。
     - 確認項目
         1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されている。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}表示されない。(Admin-4-2){{/Admin-4-2}}
 
 ### 後始末
 
-1. {{install_path}}\\browser\\extensions\\unsigned-sample-addon@clear-code.com.xpiを削除する。
+1. `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` を削除する。
 {{/Admin-4}}
 
 ## 起動方法の制御
@@ -459,16 +459,16 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Application-1}}
-1. その状態のまま、{{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
+1. その状態のまま、`{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
     - 確認項目
         1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-1-1/3)
 1. Firefoxを終了する。
 {{/Application-1}}
 {{#Application-2}}
-1. {{start_menu_shortcut_path}}をダブルクリックしてFirefoxを起動する。
-1. その状態のまま、{{start_menu_shortcut_path}}をダブルクリックしてFirefoxの多重起動を試みる。
+1. `{{start_menu_shortcut_path}}` をダブルクリックしてFirefoxを起動する。
+1. その状態のまま、`{{start_menu_shortcut_path}}` をダブルクリックしてFirefoxの多重起動を試みる。
     - 確認項目
         1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-2-1/3)
 {{/Application-2}}
@@ -489,7 +489,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. タスクバー上に表示された項目にポインタを載せ、ジャンプリストを表示させる。
     - 確認項目
 {{#Application-4}}
@@ -534,13 +534,13 @@
     - `lockPref("logging.config.sync", true);`
     - `lockPref("logging.config.add_timestamp", true);`
     - `lockPref("logging.config.clear_on_startup", true);`
-    - `lockPref("logging.config.LOG_FILE","C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log");`
-1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log-*` を全て削除しておく。
+    - `lockPref("logging.config.LOG_FILE","C:\Users\(ログオン中のユーザのアカウント名)\nss.log");`
+1. `C:\Users\(ログオン中のユーザのアカウント名)\nss.log-*` を全て削除しておく。
 {{/Security-1-3}}
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-1-1}}
 1. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。
     - 確認項目
@@ -555,7 +555,7 @@
 {{#Security-2-2}}再インポートされていない。(Security-2-2){{/Security-2-2}}
 {{/Security-2 && Security-1-1}}
 {{#Security-1-3}}
-1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log-*` の位置に出力されたログファイルを開く。
+1. `C:\Users\(ログオン中のユーザのアカウント名)\nss.log-*` の位置に出力されたログファイルを開く。
     - 確認項目
         1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。(Security-1-3)
 {{/Security-1-3}}
@@ -565,7 +565,7 @@
 
 1. Windowsの証明書データベースに検証用に追加した証明書を全て削除する。
 1. MCD設定ファイルに追加した設定を全て削除する
-1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log-*` を全て削除する。
+1. `C:\Users\(ログオン中のユーザのアカウント名)\nss.log-*` を全て削除する。
 {{/Security-1-3}}
 
 {{^Security-3-1}}
@@ -589,7 +589,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. アドオンのインストールを許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
@@ -623,20 +623,20 @@
             (Security-3-3)
         1. Alt-Tを押下して開いた「ツール」メニュー内に「アドオン」の項目が存在しない。
             (Security-3-3)
-        1. ロケーションバーに「about:addons」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
+        1. ロケーションバーに `about:addons` と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
             (Security-3-3)
-        1. ロケーションバーに「about:addons」と入力し、Enterして、何も起こらない（ページが読み込まれない）。
+        1. ロケーションバーに `about:addons` と入力し、Enterして、何も起こらない（ページが読み込まれない）。
              (Security-3-3)
-        1. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。
+        1. ロケーションバーに `about:about` と入力しEnterして「about:」一覧を表示する。
         1. 「about:addons」
             のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-3-3)
         1. 「about:addons」
             のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-3-3)
 {{/use_disableaddons}}
-1. 「 https://addons.mozilla.org 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
+1. `https://addons.mozilla.org` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
         1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3)
-1. 「 https://marketplace.firefox.com 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
+1. `https://marketplace.firefox.com` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
         1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3)
 {{/Security-3-3}}
@@ -664,7 +664,7 @@
 
 ### 検証：
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. テストケースの「popupblock.html」を開く。
     - 確認項目
@@ -694,15 +694,15 @@
 ### 検証
 
 {{#Security-5}}
-1. Firefoxのロケーションバーに「 https://itisatrap.org/firefox/its-an-attack.html 」と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに `https://itisatrap.org/firefox/its-an-attack.html` と入力し、Enterを押下する。
     - 確認項目
         1. 攻撃サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
-1. Firefoxのロケーションバーに「 http://itisatrap.org/firefox/unwanted.html 」と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに `http://itisatrap.org/firefox/unwanted.html` と入力し、Enterを押下する。
     - 確認項目
         1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
 {{/Security-5}}
 {{#Security-6}}
-1. Firefoxのロケーションバーに「 http://itisatrap.org/firefox/its-a-trap.html 」と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに `http://itisatrap.org/firefox/its-a-trap.html` と入力し、Enterを押下する。
     - 確認項目
         1. 詐欺サイトとしてブロック{{#Security-6-1}}される。(Security-6-1){{/Security-6-1}}{{#Security-6-2}}されない。(Security-6-2){{/Security-6-2}}
 {{/Security-6}}
@@ -734,22 +734,22 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-9-2}}
 1. 以下の各方法でabout:configへのアクセスを試みる。(Security-9-2)
     - 確認項目
-        1. ロケーションバーに「about:config」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-9-2)
-        1. ロケーションバーに「about:config」と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-9-2)
-        1. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。
-        1. 「about:config」のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-9-2)
-        1. 「about:config」のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2)
+        1. ロケーションバーに`about:config`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-9-2)
+        1. ロケーションバーに`about:config`と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-9-2)
+        1. ロケーションバーに`about:about`と入力しEnterして「about:」一覧を表示する。
+        1. `about:config`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-9-2)
+        1. `about:config`のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2)
 {{/Security-9-2}}
 {{#Security-8-2}}
 1. 以下の各方法で{{disabled_about_pages}}へのアクセスを試みる。(Security-8-2)
     - 確認項目
-        1. ロケーションバーに{{disabled_about_pages}}と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-8-2)
-        1. ロケーションバーに{{disabled_about_pages}}と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-8-2)
-        1. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。
+        1. ロケーションバーに`{{disabled_about_pages}}`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-8-2)
+        1. ロケーションバーに`{{disabled_about_pages}}`と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-8-2)
+        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
         1. {{disabled_about_pages}}のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-8-2)
         1. {{disabled_about_pages}}のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-8-2)
 {{/Security-8-2}}
@@ -768,14 +768,14 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#use_globalchromecss}}
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
         1. 「このページを共有」ボタンが{{#Security-11-1}}存在する。(Security-11-1){{/Security-11-1}}{{#Security-11-2}}存在しない。(Security-11-2){{/Security-11-2}}
 {{/use_globalchromecss}}
 {{#Security-11-2}}
-1. ロケーションバーに「 https://activations.cdn.mozilla.net/ja/ 」と入力し、Enterを押してページを開く。
+1. ロケーションバーに`https://activations.cdn.mozilla.net/ja/` と入力し、Enterを押してページを開く。
 1. いずれかのサービスの「今すぐ追加」ボタンをクリックする。
     - 確認項目
         1. 何も起こらない。(Security-11-2)
@@ -796,7 +796,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースの「popupblock.html」を開く。
     - 確認項目
 {{#Security-12-1}}
@@ -821,12 +821,12 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-13}}
 1. テストケースの「local-file-link.html」を、ローカルファイルの読み込みを許可するサイトに設置してから開き、ページ内のリンクをクリックする。
     - 確認項目
 {{#Security-13-1}}
-        1. 「C:\\file.txt」の位置に置いたファイルの内容が読み込まれる。(Security-13-1)
+        1. `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。(Security-13-1)
 {{/Security-13-1}}
 {{#Security-13-2}}
         1. 何も起こらない。(Security-13-2)
@@ -878,7 +878,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。
+1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 {{#use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
@@ -887,7 +887,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. ロケーションバーに「about:blank」と入力し、空のページを開く。
 3. パネルメニューの「開発ツール」→「開発ツールを表示」で開発ツールを表示する。
 4. 開発ツール右上の歯車アイコンをクリックする。
@@ -928,7 +928,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. パネルメニューからツールバーのカスタマイズ画面を開く。
     - 確認項目
@@ -968,8 +968,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「 https://addons.mozilla.org/ 」と入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `https://addons.mozilla.org` と入力し、ページを開く。
 1. ページの読み込みが完了したら、ロケーションバー上の鍵アイコンの箇所をクリックする。
     - 確認項目
         1. パネル上に「サイト別設定」が表示されない。(Security-20-2)
@@ -995,8 +995,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. 「 http://www.w3schools.com/html/html5\_video.asp 」を開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1.  `http://www.w3schools.com/html/html5\_video.asp` を開く。
     - 確認項目
         1. 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されている。（Security-16-1)
            または、表示されていない。（Security-16-3）
@@ -1019,11 +1019,11 @@
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{/use_globalchromecss || use_uitextoverrider || use_disableaddons}}
-1. Silverlightのバージョン一覧 https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンをダウンロードし、インストールしておく。
+1. Silverlightのバージョン一覧 `https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm` から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンをダウンロードし、インストールしておく。
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. アドオンマネージャを開き、「プラグイン」ペインを選択する。
     - 確認項目
         1. Silverlightの項目に対し、安全でないバージョンである旨の警告が<!--表示されている。（Security-21-1)
@@ -1056,8 +1056,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
         1. 「dom.ipc.plugins.sandbox-level.default」の値が{{#Security-23-1 || Security-23-2}}「0」である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}「1」である。(Security-23-3){{/Security-23-3}}
         1. 「dom.ipc.plugins.sandbox-level.flash」の値が{{#Security-23-1}}「0」である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}「1」である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
@@ -1082,7 +1082,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「プログラム」を開く。
     - 確認項目
@@ -1103,8 +1103,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「 http://testsafebrowsing.appspot.com/ 」と入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `http://testsafebrowsing.appspot.com/` と入力し、ページを開く。
 1. 「Desktop Download Warnings」セクションの「1. Should show a "malicious" warning, based on URL」のリンクをクリックする。
 1. ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
 1. ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
@@ -1134,8 +1134,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
         1. 「network.captive-portal-service.enabled」の値が{{#Security-28-1}}「true」である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}「false」である。(Security-28-2){{/Security-28-2}}
         1. 「network.cookie.leave-secure-alone」の値が{{#Security-29-1}}「false」である。(Security-29-1){{/Security-29-1}}{{#Security-29-2}}「true」である。(Security-29-2){{/Security-29-2}}
@@ -1187,8 +1187,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。
-1. Firefoxのテンポラリファイルおよびキャッシュファイル（%LocalAppData%\\Mozilla）を削除する。
+1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
 1. 以下のアドオンを無効化する。
     1. Disable about:config
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
@@ -1199,15 +1199,15 @@
     - `lockPref("logging.NetworkPredictor", 5);`
     - `lockPref("logging.config.sync", true);`
     - `lockPref("logging.config.add_timestamp", true);`
-    - `lockPref("logging.config.LOG_FILE","C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log");`
-1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log-*` を全て削除しておく。
+    - `lockPref("logging.config.LOG_FILE","C:\Users\(ログオン中のユーザのアカウント名)\http.log");`
+1. `C:\Users\(ログオン中のユーザのアカウント名)\http.log-*` を全て削除しておく。
 {{/Privacy-32 || Privacy-37}}
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Privacy-36}}
-1. テンポラリファイルおよびキャッシュファイルフォルダ内の「thumbnails」フォルダを開いて、「 https://addons.mozilla.org/ 」サイト内のリンクを何度か遷移する。
+1. テンポラリファイルおよびキャッシュファイルフォルダ内の「thumbnails」フォルダを開いて、`https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
     - 確認項目
         1. サムネイル画像が{{#Privacy-36-1}}保存される。（Privacy-36-1）{{/Privacy-36-1}}{{#Privacy-36-2}}保存されない。（Privacy-36-2）{{/Privacy-36-2}}
 {{/Privacy-36}}
@@ -1314,7 +1314,7 @@
     - 確認項目
         1. {{#Privacy-38-1}}「enabled」と出力される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}「disabled」と表示される。(Privacy-38-2){{/Privacy-38-2}}
 {{/Privacy-38}}
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開く。
+1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
 <!--GROUP-->
 1. 各設定値を確認する。
     - 確認項目
@@ -1349,9 +1349,9 @@
 {{/Privacy-16}}
 1. コンソール上の「ネットワーク」が選択された状態にする。すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する。
 {{#Privacy-7}}
-1. ブラウザウィンドウで「 http://www.clear-code.com/blog/2016/5/10.html 」を開く。
+1. ブラウザウィンドウで `http://www.clear-code.com/blog/2016/5/10.html` を開く。
     - 確認項目
-        1. 「GET http://www.clear-code.com/blog/2016/5/18.html 」というログがコンソールに{{#Privacy-7-1}}出力される。(Privacy-7-1){{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。(Privacy-7-2){{/Privacy-7-2}}
+        1. `GET http://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに{{#Privacy-7-1}}出力される。(Privacy-7-1){{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。(Privacy-7-2){{/Privacy-7-2}}
 {{/Privacy-7}}
 {{#Privacy-16}}
 1. ブラウザウィンドウでテストケースの「prefetching.html」を開く。
@@ -1415,7 +1415,7 @@
     - 確認項目
         1. sessionstore.jsが存在しない。（Privacy-10-2）
 {{/Privacy-10-2}}
-1. (ユーザのホームのフルパス)\\http.log の位置に出力されているログファイルを開く。
+1. `(ユーザのホームのフルパス)\http.log` の位置に出力されているログファイルを開く。
     - 確認項目
 {{#Privacy-32}}
         1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の{{#Privacy-32-1}}登場回数のうち、前者の方が多い。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}}両者の登場回数が等しい。（Privacy-32-2）{{/Privacy-32-2}}
@@ -1437,7 +1437,7 @@
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
-1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log-*` を全て削除する。
+1. `C:\Users\(ログオン中のユーザのアカウント名)\http.log-*` を全て削除する。
 {{/Privacy-32 || Privacy-37}}
 {{#Privacy-9-1}}
 ## 履歴の保存日数の制御
@@ -1465,7 +1465,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、「アドオン」をクリックする。
 3. アドオンマネージャ内の「拡張機能」をクリックする。
     - 確認項目
@@ -1474,11 +1474,11 @@
     - 確認項目
         1. 「Expire visits older than these days」の値が「5」である。(Privacy-9-1)
         2. 「Frequency of expiration」で「On the first idle time per a day」が選択されている。(Privacy-9-1)
-5. Firefoxのロケーションバーに「about:config」と入力し、ページを開く。
+5. Firefoxのロケーションバーに`about:config`と入力し、ページを開く。
 6.  「検索」欄に「idle.lastDailyNotification」と入力し、Enterを押下する。
 7. 項目が見つかった場合、項目を右クリックしてメニューから「リセット」を選択する。
 8. Firefoxを終了する。
-9. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+9. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 10. メニューバーの「履歴」から「すべての履歴」を選択し、「履歴とブックマークの管理」ウィンドウを開く（すべての履歴項目を表示した状態にする）。
 11. 「履歴」配下の「7日以内」、「（前月）月」、または指定の履歴保存期間のしきい値となる日付が含まれる期間を選択する。
 12. 履歴一覧のカラム列を右クリックし、「最近表示した日時」にチェックを入れる。
@@ -1514,8 +1514,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「 https://developer.mozilla.org/ja/docs/WebAPI/Using\_geolocation 」と入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `https://developer.mozilla.org/ja/docs/WebAPI/Using\_geolocation` と入力し、ページを開く。
 1. 「Geolocationのライブサンプル」欄の「Show my location」ボタンをクリックする。
     - 確認項目
         1. {{^Privacy-14-3}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/2/4){{/Privacy-14-3}}{{#Privacy-14-3}}何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3){{/Privacy-14-3}}
@@ -1549,7 +1549,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Privacy-22-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - 確認項目
@@ -1567,7 +1567,7 @@
             (Privacy-22-2)
         1. ロケーションバーに「about:accounts」と入力し、Enterして、何も起こらない（ページが読み込まれない）か、タブが閉じられる。
             (Privacy-22-2)
-        1. ロケーションバーに「about:about」と入力しEnterして「about:」一覧を表示する。
+        1. ロケーションバーに`about:about`と入力しEnterして「about:」一覧を表示する。
         1. 「about:accounts」のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Privacy-22-2)
         1. 「about:accounts」のリンクを左クリックし、空白のページが読み込まれるか、タブが閉じられる。(Privacy-22-2)
 {{/Privacy-22-2}}
@@ -1595,7 +1595,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. ロケーションバーに「about:accounts」と入力し、ページを開く。
 3. 「始める」をクリックする。
     - 確認項目
@@ -1622,7 +1622,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
@@ -1657,12 +1657,12 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. Firefoxのロケーションバーに「about:config」と入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+2. Firefoxのロケーションバーに`about:config`と入力し、ページを開く。
 3. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名「idle.lastDailyNotification」、値「0」で設定項目を登録する。
 4. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名「 places.database.lastMaintenance 」、値「0」で設定項目を登録する。
 5. Firefoxを終了する。
-6. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+6. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 7. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
 8. キーボード、マウスから手を離し、4分以上待つ。
 9. ブラウザコンソールの内容を確認する。
@@ -1702,7 +1702,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Privacy-30-1 || Privacy-30-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「詳細」→「ネットワーク」を開く。
@@ -1713,11 +1713,11 @@
 {{/Privacy-30-2}}
 {{/Privacy-30-1 || Privacy-30-2}}
 {{#Privacy-30-3}}
-1. http://www.clear-code.com/ などいくつかのWebページを閲覧する。
-1. ロケーションバーに「 about:cache 」と入力し、ページを開く。
+1. `http://www.clear-code.com/` などいくつかのWebページを閲覧する。
+1. ロケーションバーに `about:cache` と入力し、ページを開く。
     - 確認項目
         1. 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。(Privacy-30-3)
-1. 「{{special_profile_path}}\\{{special_profile_name}}\\cache2」、もしくは「%LocalAppData%\\Mozilla\\Firefox\\Profiles\\（ランダムな文字列）.default\\cache2」を開き、その中の「entries」フォルダを開く。
+1. `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\cache2` を開き、その中の「entries」フォルダを開く。
     - 確認項目
         1. フォルダが空である。(Privacy-30-3)
 {{/Privacy-30-3}}
@@ -1742,7 +1742,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシー」を開き、「記憶させる履歴を詳細設定する」を選択する。
    - 確認項目
@@ -1778,11 +1778,11 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。
+2. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースの「password.html」を開く。
 1. ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
 1. ユーザープロファイル内の「sessionstore-backups」フォルダ内の「recovery.js」を開く。
@@ -1808,8 +1808,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「 https://addons.mozilla.org/ 」と入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `https://addons.mozilla.org/` と入力し、ページを開く。
 1. Web検索バーのアイコンをクリックする。
     - 確認項目
 {{#Websearch-1}}
@@ -1840,10 +1840,10 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「 http://www.clear-code.com/ 」のように「 http:// 」で始まるURLを入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `http://www.clear-code.com/` のように `http://` で始まるURLを入力し、ページを開く。
     - 確認項目
-        1. ロケーションバーのURL表記に「http://」が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
+        1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
 {{/Location-1}}
 
 
@@ -1859,18 +1859,18 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル（{{special_profile_path}}）を削除する。
-3. 既定のダウンロード先（{{download_dir}}）を用意しておく。用意できない場合は、Download-2-1の参照先を「C:\\」などの実在するパスに変更し、以下の説明も読み替える。
+2. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+3. 既定のダウンロード先（{{download_dir}}）を用意しておく。用意できない場合は、Download-2-1の参照先を `C:\` などの実在するパスに変更し、以下の説明も読み替える。
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Download-1}}
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
         1. 「ダウンロード」が{{#Download-1-1}}存在する。(Download-1-1){{/Download-1-1}}{{#Download-1-2}}存在しない。(Download-1-2){{/Download-1-2}}
 {{/Download-1}}
-1. ロケーションバーに「 http://www.clear-code.com/ 」と入力し、ページを開く。
+1. ロケーションバーに `http://www.clear-code.com/` と入力し、ページを開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
 {{#Download-2}}
     - 確認項目
@@ -1884,7 +1884,7 @@
 {{/Download-1}}
 <!--/GROUP-->
 {{#Download-3}}
-1. ロケーションバーに「 https://getfirefox.com/ 」と入力し、ページを開く。
+1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
 1. Firefoxのダウンロード用ボタンをクリックし、「ファイルを保存」を選択する。
     - 確認項目
 {{#Download-3-1 || Download-3-2}}
@@ -1894,7 +1894,7 @@
         1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3）
 {{/Download-3-3}}
 {{#Download-3-1 || Download-3-2}}
-1. ロケーションバーに「 http://www.mozilla.org/ 」と入力し、ページを開く。
+1. ロケーションバーに `http://www.mozilla.org/` と入力し、ページを開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
     - 確認項目
         1. ダウンロード先として{{#Download-3-1}}{{download_dir}}内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2){{/Download-3-2}}
@@ -1927,7 +1927,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Tab-1}}
 1. 新しいウィンドウを開く。
 1. 新しいウィンドウ内で新しいタブを2つ以上開く。
@@ -1979,7 +1979,7 @@
 {{/Tab-3-3}}
 <!--/GROUP-->
 <!--GROUP-->
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Tab-2-3}}
         1. 「browser.tabs.warnOnCloseOtherTabs」の値がユーザー設定値の「false」である。(Tab-2-3)
@@ -2012,7 +2012,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プログラム」を開く。
     - 確認項目
@@ -2040,8 +2040,8 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「 https://www.youtube.com 」と入力し、ページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `https://www.youtube.com` と入力し、ページを開く。
 1. いずれか1つの動画を開く。
     - 確認項目
         1. タブ内にスピーカーのアイコンが{{#Ui-3-1}}表示される。(Ui-3-1){{/Ui-3-1}}{{#Ui-3-2}}表示されない。(Ui-3-2){{/Ui-3-2}}
@@ -2059,7 +2059,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 外部の埋め込みリソースを2つ以上埋め込んだWebページ（例： http://www.clear-code.com/blog/ ）をホームページに設定する。ホームページを変更できない場合はスキップする。
+2. 外部の埋め込みリソースを2つ以上埋め込んだWebページ（例： `http://www.clear-code.com/blog/` ）をホームページに設定する。ホームページを変更できない場合はスキップする。
 3. ユーザー名とパスワードによる認証が必要なHTTP Proxyを用意する。既存のProxyが無い場合は、以下に示す設定例に従い用意する。
     1. 検証器が到達可能なネットワーク上に、Ubuntu 14.04LTSがセットアップされたホストを用意する。仮に、IPアドレスは{{proxy_host}}であるとする。
     2. 以下のコマンド列を順に実行し、Apacheをインストールする。
@@ -2091,7 +2091,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. Firefox起動時に前回終了時のタブを復元するよう設定し、faviconを持つWebページのタブを2つ以上開く。
 3. Firefoxを再起動する。
     - 検証項目
@@ -2120,14 +2120,14 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Script-2-3}}
-1. ロケーションバーに「 https://labs.othersight.jp/webpushtest/ 」と入力し、ページを開く。
+1. ロケーションバーに `https://labs.othersight.jp/webpushtest/` と入力し、ページを開く。
     - 確認項目
         1. ページ内に「Service Worker not available」と表示されている。(Script-2-3)
 {{/Script-2-3}}
 <!--GROUP-->
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Script-2}}
         1. 「dom.push.enabled」の値が{{#Script-2-1 || Script-2-2}}「true」である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
@@ -2171,7 +2171,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「詳細」→「一般」を開く。
     - 確認項目
@@ -2199,7 +2199,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. about:supportを開く
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
@@ -2225,7 +2225,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. about:configを開き、以下の設定を行う。
     - 「font.name.serif.ja」（文字列型）を「missing」に設定する。
     - 「font.name.sans-serif.ja」（文字列型）を「missing」に設定する。
@@ -2272,7 +2272,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
         1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
         2. パネルメニューに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
@@ -2317,13 +2317,13 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Ui-2}}
 1. コンテンツ領域にフォーカスした状態でF7キーを押す。
    - 確認項目
        1. キャレットブラウズの開始の可否を{{#Ui-2-1}}尋ねられる。（Ui-2-1）{{/Ui-2-1}}{{#Ui-2-2}}尋ねられない。（Ui-2-2）{{/Ui-2-2}}
 {{/Ui-2}}
-1. ロケーションバーに「 http://www.clear-code.com/blog/ 」と入力し、ページを開く。
+1. ロケーションバーに `http://www.clear-code.com/blog/` と入力し、ページを開く。
 {{#Ui-5}}
     - 確認項目
         1. ロケーションバー内に本の形のアイコンが{{#Ui-5-1}}表示される。（Ui-5-1）{{/Ui-5-1}}{{#Ui-5-2}}表示されない。（Ui-5-2）{{/Ui-5-2}}
@@ -2351,7 +2351,7 @@
         1. コンテキストメニューが{{#Script-5-1}}開かれない。（Script-5-1）{{/Script-5-1}}{{#Script-5-2}}開かれる。（Script-5-2）{{/Script-5-2}}
 {{/Script-5}}
 <!--GROUP-->
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Performance-1-2}}
         1. 「browser.cache.memory.capacity」の値が指定値の通りである。(Performance-1-2)
@@ -2391,7 +2391,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「詳細」→「ネットワーク」→「接続」→「接続設定」を開く。
     - 確認項目
@@ -2449,9 +2449,9 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Network-1-1}}
         1. 「general.useragent.extra.microsoftdotnet」が項目として存在しない、もしくは、値が未定義である。(Network-1-1)
@@ -2488,12 +2488,12 @@
 {{/Network-14}}
 <!--/GROUP-->
 {{#Network-11-2}}
-1. ロケーションバーに「about:support」と入力し、トラブルシューティング情報の一覧を表示する。
+1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
         1. 「User Agent」の値が「{{user_agent_name}}」である。(Network-11-2)
 {{/Network-11-2}}
 {{#Network-12}}
-1. ロケーションバーに「jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt」と入力し、開く。
+1. ロケーションバーに `jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt` と入力し、開く。
     - 確認項目
 {{#Network-12-1}}
         1. 「success」と表示される。（Network-12-1）
@@ -2530,13 +2530,13 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Update-1-3}}
 1.  「ヘルプ」→「Firefoxについて」を開く。
     - 確認項目
         1. 「ソフトウェアの更新」が表示されない。(Update-1-3)
 {{/Update-1-3}}
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、各設定値を確認する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Update-1-3}}
         1. 「app.update.enabled」の値が「false」である。(Update-1-3)
@@ -2582,7 +2582,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
         1. 個別の制御を行っていないNPAPIプラグインが既定の状態で{{#Plugin-10-1}}無効化されている。（Plugin-10-1）{{/Plugin-10-1}}{{#Plugin-10-2}}有効化されている。（Plugin-10-2）{{/Plugin-10-2}}{{#Plugin-10-3}}「実行時に確認する」が選択されている。(Plugin-10-3){{/Plugin-10-3}}
@@ -2710,7 +2710,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
 {{#Plugin-1}}
@@ -2751,10 +2751,10 @@
     - 確認項目
         1. 「コンテンツ」配下に「DRMコンテンツ」グループが{{#Plugin-8-1}}ある。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}無い。(Plugin-8-2){{/Plugin-8-2}}
 {{/Plugin-8 && use_globalchromecss}}
-1. Permissions Auto Registererによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、「 http://example.com 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
+1. Permissions Auto Registererによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.com` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
-1. default.permissionsによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、「 http://example.net 」を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
+1. default.permissionsによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.net` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
 
@@ -2784,7 +2784,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. 外部アプリケーションで開く必要があるファイルへのリンクをクリックする。
 1. 「次のファイルを開こうとしています」のダイアログが表示されたら、起動する外部アプリケーションを選択して「OK」をクリックする。
 1. テンポラリフォルダの内容を確認する。
@@ -2816,7 +2816,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクをクリックする。
     - 確認項目
@@ -2866,7 +2866,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
     - 確認項目
 {{#MenuShortcut-3}}
@@ -2877,9 +2877,9 @@
 {{/MenuShortcut-62}}
 <!--/GROUP-->
 <!--GROUP-->
-1. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開く。
+1. ロケーションバーに `about:` と入力し、Alt-Enterでタブとして開く。
 1. 開かれたタブを閉じる。
-1. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開く。
+1. ロケーションバーに `about:` と入力し、Alt-Enterでタブとして開く。
 1. 開かれたタブをドラッグしてウィンドウ外にドロップし、ウィンドウとして開く。
 1. 開かれたウィンドウを閉じる。
     - 確認項目
@@ -2993,7 +2993,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
 {{#MenuShortcut-7}}        1. 「Ctrl-J」を押して、ダウンロード済みファイル一覧が開かれない。(MenuShortcut-7){{/MenuShortcut-7}}
 {{#MenuShortcut-11}}
@@ -3092,7 +3092,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
@@ -3138,11 +3138,11 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに「about:config」と入力し、詳細設定一覧を開いて、「bidi.browser.ui」の値を「true」に設定する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、「bidi.browser.ui」の値を「true」に設定する。
 1. Firefoxを終了する。
-1. {{desktop_shortcut_path}} がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. 「 https://addons.mozilla.org/ 」など、テキスト入力欄があるWebページを開く。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `https://addons.mozilla.org/` など、テキスト入力欄があるWebページを開く。
 {{#MenuShortcut-41}}
 1. テキスト入力欄をクリックしてフォーカスした状態にする。
     - 確認項目
@@ -3184,7 +3184,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#MenuShortcut-43}}
 1. 「履歴」メニューを開く。
     - 確認項目
@@ -3229,9 +3229,9 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
-1. 「 https://addons.mozilla.org 」を開き、何もない所で右クリックする。
+1. `https://addons.mozilla.org` を開き、何もない所で右クリックする。
     - 確認項目
 {{#MenuShortcut-52}}        1. 「このページを共有」が存在しない。(MenuShortcut-52){{/MenuShortcut-52}}
 {{#MenuShortcut-57}}        1. 「要素を調査」が存在しない。(MenuShortcut-57){{/MenuShortcut-57}}
@@ -3255,13 +3255,13 @@
 {{#MenuShortcut-55}}        1. 「デスクトップの背景に設定」が存在しない。(MenuShortcut-55){{/MenuShortcut-55}}
 <!--/GROUP-->
 <!--GROUP-->
-1. 「 http://www.w3schools.com/html/html5\_video.asp 」を開き、ページ内に埋め込まれた動画の上で右クリックする。
+1. `http://www.w3schools.com/html/html5\_video.asp` を開き、ページ内に埋め込まれた動画の上で右クリックする。
     - 確認項目
 {{#MenuShortcut-49}}        1. 「動画のURLをメールで送信」が存在しない。(MenuShortcut-49){{/MenuShortcut-49}}
 {{#MenuShortcut-50}}        1. 「この動画を共有」が存在しない。(MenuShortcut-50){{/MenuShortcut-50}}
 <!--/GROUP-->
 {{#MenuShortcut-51}}
-1. 「 http://www.w3schools.com/html/tryit.asp?filename=tryhtml5\_audio\_all 」を開き、ページ内に埋め込まれたオーディオコントロールの上で右クリックする。
+1. `http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_audio_all` を開き、ページ内に埋め込まれたオーディオコントロールの上で右クリックする。
     - 確認項目
         1. 「オーディオのURLをメールで送信」が存在しない。(MenuShortcut-51)
 {{/MenuShortcut-51}}
@@ -3282,7 +3282,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースの「popupblock.html」を開く。
     - 確認項目
         1. 「1個のポップアップがブロックされました」と表示される。(MenuShortcut-58/59)
@@ -3321,7 +3321,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Hide-6}}
     - 確認項目
         1. タブバー上に「+」ボタン（新しいタブを開くボタン）が表示されない。(Hide-6)
@@ -3358,7 +3358,7 @@
         1. 「同期タブ」が存在しない。(Hide-2)
 {{/Hide-2}}
 {{#Hide-11}}
-1. プラグインを使用するページを開き、プラグイン領域をクリックして再生を指示する。例： https://helpx.adobe.com/jp/flash-player/kb/235703.html （Flashの場合）
+1. プラグインを使用するページを開き、プラグイン領域をクリックして再生を指示する。例： `https://helpx.adobe.com/jp/flash-player/kb/235703.html` （Flashの場合）
     - 確認項目
         1. プラグインの有効化の可否を尋ねるポップアップに「常に許可」ボタンが表示されない。（Hide-11）
 {{/Hide-11}}
@@ -3393,7 +3393,7 @@
 
 ### 検証
 
-1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. 「コンテンツ」ペインを選択し、「ポップアップ」の「許可サイト」ボタンをクリックする。
     - 確認項目
