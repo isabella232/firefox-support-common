@@ -1193,12 +1193,15 @@
     1. Disable about:config
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-1. Privacy-32-\*またはPrivacy-37-\*の検証を行う場合は、MCD設定ファイルに以下の設定を追加しておく。
+{{#Privacy-32 || Privacy-37}}
+1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
     - `lockPref("logging.NetworkPredictor", 5);`
     - `lockPref("logging.config.sync", true);`
     - `lockPref("logging.config.add_timestamp", true);`
     - `lockPref("logging.config.LOG_FILE","C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log");`
+1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log-*` を全て削除しておく。
+{{/Privacy-32 || Privacy-37}}
 
 ### 検証
 
@@ -1432,8 +1435,10 @@
     1. Disable about:config
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-1. ログ収集用にMCD用設定ファイルに追加した設定を削除する。
-
+{{#Privacy-32 || Privacy-37}}
+1. MCD設定ファイルに追加した設定を全て削除する
+1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\http.log-*` を全て削除する。
+{{/Privacy-32 || Privacy-37}}
 {{#Privacy-9-1}}
 ## 履歴の保存日数の制御
 
