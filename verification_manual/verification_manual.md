@@ -516,29 +516,38 @@
 ### 確認する項目
 
 {{#Security-1-1}} - Security-1-1 {{/Security-1-1}}
-{{#Security-2}} - Security-2-\* {{/Security-2}}
+{{#Security-1-3}} - Security-1-3 {{/Security-1-3}}
+{{#Security-2 && Security-1-1}} - Security-2-\* {{/Security-2 && Security-1-1}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-1-3}}
+1. Windowsの証明書データベースに、証明書（{{imported_certs}}）をインポートしておく。
+{{/Security-1-3}}
 
 ### 検証
 
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Security-1-1}}
+{{#Security-1-1 || Security-1-3}}
 1. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。
     - 確認項目
+{{#Security-1-1}}
         1. インポートするよう設定した証明書（{{imported_certs}}）がすべて指定通りにインポートされている。 (Security-1-1)
 {{/Security-1-1}}
-{{#Security-2}}
+{{#Security-1-3}}
+        1. Windowsの証明書データベースにインポートした証明書（{{imported_certs}}）がすべて認識されている。 (Security-1-3)
+{{/Security-1-3}}
+{{/Security-1-1 || Security-1-3}}
+{{#Security-2 && Security-1-1}}
 1. インポートされた証明書（{{imported_certs}}）をすべて削除する。
 1. Firefoxを再起動する。
 1. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。
     - 確認項目
         1. インポートするよう設定した証明書が{{#Security-2-1}}すべて指定通りにインポートされている。(Security-2-1){{/Security-2-1}}
 {{#Security-2-2}}再インポートされていない。(Security-2-2){{/Security-2-2}}
-{{/Security-2}}
+{{/Security-2 && Security-1-1}}
 
 {{^Security-3-1}}
 ## アドオンの利用制限
