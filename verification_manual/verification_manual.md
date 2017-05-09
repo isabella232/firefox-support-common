@@ -525,21 +525,27 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-1-3}}
 1. Windowsの証明書データベースに、証明書（{{imported_certs}}）をインポートしておく。
+   この時、証明書はレジストリ上の以下の位置のいずれかに存在しているものとする。
+    - `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\Root\Certificates`
+    - `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root\Certificates`
+    - `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates\Root\Certificates`
+1. MCD設定ファイルに以下の設定を追加しておく。
+    - `lockPref("logging.pipnss", 5);`
+    - `lockPref("logging.config.sync", true);`
+    - `lockPref("logging.config.add_timestamp", true);`
+    - `lockPref("logging.config.clear_on_startup", true);`
+    - `lockPref("logging.config.LOG_FILE","C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log");`
+1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log-*` を全て削除しておく。
 {{/Security-1-3}}
 
 ### 検証
 
 1. {{desktop_shortcut_path}}がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Security-1-1 || Security-1-3}}
+{{#Security-1-1}}
 1. 「ツール」→「オプション」→「詳細」→「証明書」→「証明書を表示」ボタンから証明書マネージャを開く。
     - 確認項目
-{{#Security-1-1}}
         1. インポートするよう設定した証明書（{{imported_certs}}）がすべて指定通りにインポートされている。 (Security-1-1)
 {{/Security-1-1}}
-{{#Security-1-3}}
-        1. Windowsの証明書データベースにインポートした証明書（{{imported_certs}}）がすべて認識されている。 (Security-1-3)
-{{/Security-1-3}}
-{{/Security-1-1 || Security-1-3}}
 {{#Security-2 && Security-1-1}}
 1. インポートされた証明書（{{imported_certs}}）をすべて削除する。
 1. Firefoxを再起動する。
@@ -548,6 +554,19 @@
         1. インポートするよう設定した証明書が{{#Security-2-1}}すべて指定通りにインポートされている。(Security-2-1){{/Security-2-1}}
 {{#Security-2-2}}再インポートされていない。(Security-2-2){{/Security-2-2}}
 {{/Security-2 && Security-1-1}}
+{{#Security-1-3}}
+1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log-*` の位置に出力されたログファイルを開く。
+    - 確認項目
+        1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。(Security-1-3)
+{{/Security-1-3}}
+
+{{#Security-1-3}}
+### 後始末
+
+1. Windowsの証明書データベースに検証用に追加した証明書を全て削除する。
+1. MCD設定ファイルに追加した設定を全て削除する
+1. `C:\\Users\\(ログオン中のユーザのアカウント名)\\nss.log-*` を全て削除する。
+{{/Security-1-3}}
 
 {{^Security-3-1}}
 ## アドオンの利用制限
