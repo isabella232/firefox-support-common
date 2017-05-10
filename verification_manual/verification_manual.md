@@ -557,8 +557,8 @@
     - `lockPref("logging.config.sync", true);`
     - `lockPref("logging.config.add_timestamp", true);`
     - `lockPref("logging.config.clear_on_startup", true);`
-    - `lockPref("logging.config.LOG_FILE","C:\Users\(ログオン中のユーザのアカウント名)\nss.log");`
-1. `C:\Users\(ログオン中のユーザのアカウント名)\nss.log-*` を全て削除しておく。
+    - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\nss.log");`
+1. `C:\Users\Public\nss.log-*` を全て削除しておく。
 {{/Security-1-3}}
 
 ### 検証
@@ -578,7 +578,7 @@
 {{#Security-2-2}}再インポートされていない。(Security-2-2){{/Security-2-2}}
 {{/Security-2 && Security-1-1}}
 {{#Security-1-3}}
-1. `C:\Users\(ログオン中のユーザのアカウント名)\nss.log-*` の位置に出力されたログファイルを開く。
+1. `C:\Users\Public\nss.log-*` の位置に出力されたログファイルを開く。
     - 確認項目
         1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。(Security-1-3)
 {{/Security-1-3}}
@@ -588,7 +588,7 @@
 
 1. Windowsの証明書データベースに検証用に追加した証明書を全て削除する。
 1. MCD設定ファイルに追加した設定を全て削除する
-1. `C:\Users\(ログオン中のユーザのアカウント名)\nss.log-*` を全て削除する。
+1. `C:\Users\Public\nss.log-*` を全て削除する。
 {{/Security-1-3}}
 
 {{^Security-3-1}}
@@ -1222,8 +1222,8 @@
     - `lockPref("logging.NetworkPredictor", 5);`
     - `lockPref("logging.config.sync", true);`
     - `lockPref("logging.config.add_timestamp", true);`
-    - `lockPref("logging.config.LOG_FILE","C:\Users\(ログオン中のユーザのアカウント名)\http.log");`
-1. `C:\Users\(ログオン中のユーザのアカウント名)\http.log-*` を全て削除しておく。
+    - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
+1. `C:\Users\Public\http.log-*` を全て削除しておく。
 {{/Privacy-32 || Privacy-37}}
 
 ### 検証
@@ -1460,7 +1460,7 @@
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
-1. `C:\Users\(ログオン中のユーザのアカウント名)\http.log-*` を全て削除する。
+1. `C:\Users\Public\http.log-*` を全て削除する。
 {{/Privacy-32 || Privacy-37}}
 {{#Privacy-9-1}}
 ## 履歴の保存日数の制御
