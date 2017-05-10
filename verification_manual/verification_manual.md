@@ -81,19 +81,19 @@
         1. メタインストーラ作成キット一式の格納フォルダ名が「{{meta_installer_file_name}}-source」である。(Install-2-\*)
 {{/Install-2}}
 1. 不要なファイルを削除する。
-    - {{meta_installer_file_name}}\*.exe
+    - `{{meta_installer_file_name}}\*.exe`
 1. fainstall.iniを開き、検証環境に合わせて内容を修正する。
-    - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の「（ドライブレター）:/」の指定をすべて「C:/（ドライブレター）/」に置換する。
+    - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の `（ドライブレター）:\` の指定をすべて `C:\（ドライブレター）\ `に置換する。
       以下、ファイルの作成先はすべて置換後のパスで読み替える。
-1. {{meta_installer_file_name}}.batを実行する。
+1. `{{meta_installer_file_name}}.bat` を実行する。
     - 確認項目
 {{#Install-9-1}}
-        1. {{meta_installer_file_name}}.exeが作成される。(Install-9-1)
+        1. `{{meta_installer_file_name}}.exe` が作成される。(Install-9-1)
 {{/Install-9-1}}
 {{#Install-9-2}}
-        1. {{meta_installer_file_name}}-{{meta_installer_version}}.exeが作成される。(Install-9-2)
+        1. `{{meta_installer_file_name}}-{{meta_installer_version}}.exe` が作成される。(Install-9-2)
 {{/Install-9-2}}
-5. 作成された{{meta_installer_file_name}}\*.exeを実行する。
+5. 作成された `{{meta_installer_file_name}}\*.exe` を実行する。
     - 確認項目
         1. メタインストーラの圧縮ファイルを展開する様子を示すダイアログが表示される。
 {{#Install-3-2}}
