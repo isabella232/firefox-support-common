@@ -300,16 +300,16 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
-3. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{#use_globalchromecss}}
-    1. globalChrome.css
-{{/use_globalchromecss}}
-    1. Disable Auto-update
-4. 他に導入対象のアドオンがない場合、「Disable Sync」を管理者権限でインストールするよう配置しておく。
-   （ファイル「disablesync@clear-code.com.xpi」を「browser/extensions/」の位置に置く。）
-5. システムの規定のブラウザを別のブラウザに設定する。
+1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+{{#use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
+1. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
+{{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
+{{/use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
+1. 導入対象のアドオンがない場合、「Disable Sync」もしくは何らかのアドオンを管理者権限でインストールするよう配置しておく。
+   （「Disable Sync」の場合、ファイル `disablesync@clear-code.com.xpi` を `{{install_path}}\browser\extensions\` の位置に置く。）
+1. システムの規定のブラウザを別のブラウザに設定する。
 
 ### 検証
 
@@ -377,16 +377,17 @@
     - 確認項目
         1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックが外れていて、無効化されている。(Startup-3-2)
 {{/Startup-3-2}}
-{{#Startup-4-2}}
+{{#Update-4-2}}
 1. オプション画面の「詳細」を開き、「更新」を選択する。
     - 確認項目
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。(Update-4-2)
-{{/Startup-4-2}}
-1. Firefoxを終了し、以下のアドオンを有効化する。
-{{#use_globalchromecss}}
-    - globalChrome.css
-{{/use_globalchromecss}}
-    - Disable Auto-update
+{{/Update-4-2}}
+1. Firefoxを終了する。
+{{#use_globalchromecss || use_disableupdate}}
+1. 以下のアドオンを有効化する。
+{{#use_globalchromecss}}    - globalChrome.css{{/use_globalchromecss}}
+{{#use_disableupdate}}    - Disable Auto-update{{/use_disableupdate}}
+{{/use_globalchromecss || use_disableupdate}}
 {{#use_globalchromecss}}
 1. Firefoxを起動し、パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
@@ -403,21 +404,23 @@
 1. システムの時計を1年先の日付に進めてからFirefoxを起動する。
     - 確認項目
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
+1. Firefoxを終了する。
 {{/Startup-7}}
 {{#Startup-8}}
-1. Firefoxを終了し、プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、`https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/` と入力し、ページを開く。
+1. プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、`https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/` と入力し、ページを開く。
     - 確認方法
         1. UIツアーが{{#Startup-8-1}}開始される。(Startup-8-1){{/Startup-8-1}}{{#Startup-8-2}}開始されない。(Startup-8-2){{/Startup-8-2}}
 {{/Startup-8}}
 
 ### 後始末
 
+1. 導入対象のアドオンがなかった場合に検証用に導入したアドオンを削除する。
+{{#use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{#use_globalchromecss}}
-    1. globalChrome.css
-{{/use_globalchromecss}}
-    3. Disable Auto-update
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
+{{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
+{{/use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
 
 {{#Admin-4}}
 ## アドオンの署名確認の無効化
