@@ -198,6 +198,7 @@
         1. Firefoxの起動後、4で開いたフォルダに「prefs.js」などのファイルが作成される。(Application-6-2)
 {{/Application-6-2}}
 
+{{#Application-1-3 || Application-2-3 || Application-6}}
 ## 旧バージョンとの共存
 
 ### 確認する項目
@@ -207,7 +208,6 @@
 {{#Application-1-3}} - Application-1-3 {{/Application-1-3}}
 {{#Application-2-3}} - Application-2-3 {{/Application-2-3}}
 {{#Application-6}} - Application-6-\* {{/Application-6}}
-{{#Admin-1-1 || Admin-1-2}} - Admin-1-1/2 {{/Admin-1-1 || Admin-1-2}}
 
 ### 準備
 
@@ -252,14 +252,14 @@
         1. `（旧バージョンのFirefoxのインストール先）\ {{mcd_local_file}}` が存在する。
         1. `{{install_path}}\firefox.exe` が存在する。
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-1/2)
+        1. `{{install_path}}\{{mcd_local_file}}` が存在する。
 {{/Admin-1-1 || Admin-1-2}}
 1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが{{firefox_version}}であると表示される。(Install-7-2){{/Install-7-2}}
-1. 旧バージョンで変更した設定が{{#use_separate_profile}}初期状態になっている。{{/use_separate_profile}}{{^use_separate_profile}}維持されている。{{/use_separate_profile}}(Application-1-3)(Application-2-3)(Application-6-\*)
+1. 旧バージョンで変更した設定が{{#use_separate_profile}}初期状態になっている。{{/use_separate_profile}}{{^use_separate_profile}}維持されている。{{/use_separate_profile}}{{#Application-1}}(Application-1-3){{/Application-1}}{{#Application-2}}(Application-2-3){{/Application-2}}{{#Application-6}}(Application-6-\*){{/Application-6}}
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
         1. オプション画面の「検索」を開く。
@@ -275,7 +275,7 @@
         1. `（旧バージョンのFirefoxのインストール先）\{{mcd_local_file}}` が存在する。
         1. `{{install_path}}\firefox.exe` が存在する。
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\{{mcd_local_file}}` が存在する。 (Admin-1-1/2)
+        1. `{{install_path}}\{{mcd_local_file}}` が存在する。
 {{/Admin-1-1 || Admin-1-2}}
 1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
@@ -290,6 +290,7 @@
 ### 後始末
 
 1. 新バージョンのメタインストーラを実行し、新バージョンのFirefoxが有効な状態に戻す。
+{{/Application-1-3 || Application-2-3 || Application-6}}
 
 
 <!--======================================================================-->
