@@ -349,7 +349,7 @@
         1. 導入対象のアドオンの有効化の可否を尋ねるタブが{{#Admin-2-1}}開かれている。(Admin-2-1){{/Admin-2-1}}{{#Admin-2-2}}開かれていない。(Admin-2-2){{/Admin-2-2}}
 {{/Admin-2}}
 {{#Admin-4}}
-        1. 導入対象のアドオンが{{#Admin-4-1}}機能している。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}機能していない。(Admin-4-2){{/Admin-4-2}}
+        1. 導入対象のアドオンが{{#Admin-4-1}}有効である（機能している）。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}無効である（機能していない）。(Admin-4-2){{/Admin-4-2}}
 {{/Admin-4}}
 {{#Startup-6}}
 1. ホームページのタブとして既定のホームページ（`about:home`）が開かれていない場合、ロケーションバーに「`about:home`」と入力し、ホームページを開く。
@@ -457,7 +457,9 @@
 
 1. 用意したインストールパッケージを `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` の位置に置く。
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. {{#Admin-2-2}}アドオンを有効化した上で、{{/Admin-2-2}}Firefoxを再起動する。
+{{#Admin-2-1}}
+1. アドオンを有効化した上で、Firefoxを再起動する。
+{{/Admin-2-1}}
     - 確認項目
         1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されている。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}表示されない。(Admin-4-2){{/Admin-4-2}}
 
