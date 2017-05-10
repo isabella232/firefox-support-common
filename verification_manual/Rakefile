@@ -46,7 +46,7 @@ VARIABLES = {
   max_persistent_connections_per_proxy:  "2",
   user_agent_name:                "Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/51.0",
   jar_file_sample_url_base:       "http://www.clear-code.com/temp",
-  imported_certs:                 "(発行者名1)/(証明署名1), (発行者名1)/(証明署名2), ...",
+  imported_certs:                 "検証用証明書（example.com）, (発行者名1)/(証明署名1), (発行者名1)/(証明署名2), ...",
   use_disableaddons:              true,
   use_globalchromecss:            true,
   use_uitextoverrider:            true,
