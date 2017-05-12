@@ -848,7 +848,8 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-13}}
-1. テストケースの「local-file-link.html」を、ローカルファイルの読み込みを許可するサイトに設置してから開き、ページ内のリンクをクリックする。
+1. テストケースの `local-file-link.html` を、{{#Security-13-1}}ローカルファイルの読み込みを許可するサイト{{/Security-13-1}}{{#Security-13-2}}Web上{{/Security-13-2}}に設置してから開き、ページ内のリンクをクリックする。{{#Security-13-2}}  
+   （例： `http://www.clear-code.com/temp/local-file-link.html` ）{{/Security-13-2}}
     - 確認項目
 {{#Security-13-1}}
         1. `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。(Security-13-1)
