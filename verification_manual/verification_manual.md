@@ -730,6 +730,7 @@
         1. 詐欺サイトとしてブロック{{#Security-6-1}}される。(Security-6-1){{/Security-6-1}}{{#Security-6-2}}されない。(Security-6-2){{/Security-6-2}}
 {{/Security-6}}
 <!--GROUP-->
+{{#use_globalchromecss}}
 1. 「ツール」→「オプション」{{^Hide-1}}→「セキュリティ」タブ{{/Hide-1}}を開く。
     - 確認項目
 {{#Hide-1}}
@@ -738,6 +739,7 @@
 {{^Hide-1}}
         1. 「セキュリティ」タブ内で詐欺コンテンツのブロックに関する設定項目が表示されていない。{{#Security-5-2}}(Security-5-2){{/Security-5-2}}{{#Security-6-2}}(Security-6-2){{/Security-6-2}}
 {{/Hide-1}}
+{{/use_globalchromecss}}
 <!--/GROUP-->
 
 ## about:ページの利用制限
