@@ -855,17 +855,17 @@
         1. `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。(Security-13-1)
 {{/Security-13-1}}
 {{#Security-13-2}}
-        1. 何も起こらない。(Security-13-2)
+        1. 何も起こらない（読み込みがブロックされる）。(Security-13-2)
 {{/Security-13-2}}
 {{/Security-13}}
 {{#Security-14}}
-1. テストケースの「cross-directory.html」について、「../configuration-sheets/constumize-item-list.csv」の位置にファイルがある事を確認した上で、ファイルを開く。
+1. テストケースの `cross-directory.html` について、`../configuration-sheets/constumize-item-list.csv` の位置にファイルがある事を確認した上で、ファイルを開く。
     - 確認項目
 {{#Security-14-1}}
-        1. 「./cross-directory.html」および「../configuration-sheets/constumize-item-list.csv」の結果が「200」と表示される。(Security-14-1)
+        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が「200」と表示される。(Security-14-1)
 {{/Security-14-1}}
 {{#Security-14-2}}
-        1. 「./cross-directory.html」の結果は「200」、「../configuration-sheets/constumize-item-list.csv」の結果はエラーが表示される。(Security-14-2)
+        1. `./cross-directory.html` の結果は「200」、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。(Security-14-2)
 {{/Security-14-2}}
 {{/Security-14}}
 
