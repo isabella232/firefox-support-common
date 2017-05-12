@@ -78,7 +78,7 @@
 1. メタインストーラ作成キット一式を用意する。
     - 確認項目
 {{#Install-2}}
-        1. メタインストーラ作成キット一式の格納フォルダ名が「{{meta_installer_file_name}}-source」である。(Install-2-\*)
+        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}-source` である。(Install-2-\*)
 {{/Install-2}}
 1. 不要なファイルを削除する。
     - `{{meta_installer_file_name}}\*.exe`
@@ -176,7 +176,7 @@
 {{#Application-6-2}}
 1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
     - 確認項目
-        1. 「{{special_profile_name}}」フォルダが存在する。(Application-6-2)
+        1. `{{special_profile_name}}` フォルダが存在する。(Application-6-2)
         2. フォルダの内容は空である。(Application-6-2)
 {{/Application-6-2}}
 {{#Application-1-3}}
@@ -195,7 +195,7 @@
 1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
 1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
     - 確認項目
-        1. Firefoxの起動後、4で開いたフォルダに「prefs.js」などのファイルが作成される。(Application-6-2)
+        1. Firefoxの起動後、4で開いたフォルダに `prefs.js` などのファイルが作成される。(Application-6-2)
 {{/Application-6-2}}
 
 {{#Application-1-3 || Application-2-3 || Application-6}}
@@ -352,7 +352,7 @@
         1. 導入対象のアドオンが{{#Admin-4-1}}有効である（機能している）。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}無効である（機能していない）。(Admin-4-2){{/Admin-4-2}}
 {{/Admin-4}}
 {{#Startup-6}}
-1. ホームページのタブとして既定のホームページ（`about:home`）が開かれていない場合、ロケーションバーに「`about:home`」と入力し、ホームページを開く。
+1. ホームページのタブとして既定のホームページ（`about:home`）が開かれていない場合、ロケーションバーに `about:home` と入力し、ホームページを開く。
     - 確認項目
         1. 既定のホームページ内に「あなたの権利について……」のリンクおよび情報が{{#Startup-6-1}}表示される。(Startup-6-1){{/Startup-6-1}}{{#Startup-6-2}}表示されない。(Startup-6-2){{/Startup-6-2}}
 {{/Startup-6}}
@@ -370,13 +370,13 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Admin-3}}
-        1. 「extensions.shownSelectionUI」の値が{{#Admin-3-1}}存在しないか、「false」である。(Admin-3-1){{/Admin-3-1}}{{#Admin-3-2}}「true」である。(Admin-3-2){{/Admin-3-2}}
+        1. `extensions.shownSelectionUI` の値が{{#Admin-3-1}}存在しないか、`false`である。(Admin-3-1){{/Admin-3-1}}{{#Admin-3-2}}`true`である。(Admin-3-2){{/Admin-3-2}}
 {{/Admin-3}}
 {{#Startup-4-2}}
-        1. 「browser.startup.homepage\_override.mstone」の値が「ignore」である。(Startup-4-2)
+        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。(Startup-4-2)
 {{/Startup-4-2}}
 {{#Admin-3}}
-1. 詳細設定において、「extensions.lastAppVersion」を「1.0」に変更する。
+1. 詳細設定において、`extensions.lastAppVersion` を `1.0` に変更する。
 1. Firefoxを再起動する。
     - 確認項目
         1. アドオンの更新の確認が{{#Admin-3-1}}行われる。(Admin-3-1){{/Admin-3-1}}{{#Admin-3-2}}行われない。(Admin-3-2){{/Admin-3-2}}
@@ -650,7 +650,7 @@
             (Security-3-3)
         1. ロケーションバーに `about:addons` と入力し、Enterして、何も起こらない（ページが読み込まれない）。
              (Security-3-3)
-        1. ロケーションバーに `about:about` と入力しEnterして「about:」一覧を表示する。
+        1. ロケーションバーに `about:about` と入力しEnterして`about:`一覧を表示する。
         1. 「about:addons」
             のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-3-3)
         1. 「about:addons」
@@ -689,7 +689,7 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
-1. テストケースの「popupblock.html」を開く。
+1. テストケースの `popupblock.html` を開く。
     - 確認項目
         1. ポップアップブロックの通知が{{^Security-4-3}}表示される。(Security-4-1/2/4/5){{/Security-4-3}}{{#Security-4-3}}表示されずに、タブまたはウィンドウが開かれる。(Security-4-3){{/Security-4-3}}
 <!--/GROUP-->
@@ -765,7 +765,7 @@
     - 確認項目
         1. ロケーションバーに`about:config`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-9-2)
         1. ロケーションバーに`about:config`と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-9-2)
-        1. ロケーションバーに`about:about`と入力しEnterして「about:」一覧を表示する。
+        1. ロケーションバーに`about:about`と入力しEnterして`about:`一覧を表示する。
         1. `about:config`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-9-2)
         1. `about:config`のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2)
 {{/Security-9-2}}
@@ -862,10 +862,10 @@
 1. テストケースの `cross-directory.html` について、`../configuration-sheets/constumize-item-list.csv` の位置にファイルがある事を確認した上で、ファイルを開く。
     - 確認項目
 {{#Security-14-1}}
-        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が「200」と表示される。(Security-14-1)
+        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が `200` と表示される。(Security-14-1)
 {{/Security-14-1}}
 {{#Security-14-2}}
-        1. `./cross-directory.html` の結果は「200」、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。(Security-14-2)
+        1. `./cross-directory.html` の結果は `200` 、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。(Security-14-2)
 {{/Security-14-2}}
 {{/Security-14}}
 
@@ -914,7 +914,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. ロケーションバーに「about:blank」と入力し、空のページを開く。
+2. ロケーションバーに`about:blank`と入力し、空のページを開く。
 3. パネルメニューの「開発ツール」→「開発ツールを表示」で開発ツールを表示する。
 4. 開発ツール右上の歯車アイコンをクリックする。
 5. 「ブラウザとアドオンのデバッガを有効」と「リモートデバッガを有効」にチェックを入れる。
@@ -1045,7 +1045,9 @@
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{/use_globalchromecss || use_uitextoverrider || use_disableaddons}}
-1. Silverlightのバージョン一覧 `https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm` から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンをダウンロードし、インストールしておく。
+1. Silverlightのバージョン一覧から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンを以下のページからダウンロードし、インストールしておく。  
+   https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm
+   <!--↑`〜`で括ると改行されなくなってしまうので、地のテキストとしています。注意。-->
 
 ### 検証
 
@@ -1077,21 +1079,25 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-        1. 「dom.ipc.plugins.sandbox-level.default」の値が{{#Security-23-1 || Security-23-2}}「0」である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}「1」である。(Security-23-3){{/Security-23-3}}
-        1. 「dom.ipc.plugins.sandbox-level.flash」の値が{{#Security-23-1}}「0」である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}「1」である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
+        1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。(Security-23-3){{/Security-23-3}}
+        1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 {{/Security-23}}
 
 {{#Security-25}}
@@ -1155,23 +1161,27 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-        1. 「network.captive-portal-service.enabled」の値が{{#Security-28-1}}「true」である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}「false」である。(Security-28-2){{/Security-28-2}}
-        1. 「network.cookie.leave-secure-alone」の値が{{#Security-29-1}}「false」である。(Security-29-1){{/Security-29-1}}{{#Security-29-2}}「true」である。(Security-29-2){{/Security-29-2}}
-        1. 「security.block_script_with_wrong_mime」の値が{{#Security-30-1}}「false」である。(Security-30-1){{/Security-30-1}}{{#Security-30-2}}「true」である。(Security-30-2){{/Security-30-2}}
-        1. 「browser.safebrowsing.blockedURIs.enabled」の値が{{#Security-31-1}}「false」である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}「true」である。(Security-31-2){{/Security-31-2}}
+        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}`false`である。(Security-28-2){{/Security-28-2}}
+        1. `network.cookie.leave-secure-alone` の値が{{#Security-29-1}}`false`である。(Security-29-1){{/Security-29-1}}{{#Security-29-2}}`true`である。(Security-29-2){{/Security-29-2}}
+        1. `security.block_script_with_wrong_mime` の値が{{#Security-30-1}}`false`である。(Security-30-1){{/Security-30-1}}{{#Security-30-2}}`true`である。(Security-30-2){{/Security-30-2}}
+        1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 <!--======================================================================-->
 
@@ -1207,7 +1217,7 @@
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
-{{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}
+{{#Privacy-40}}{{^Privacy-5-2}} - Privacy-40-\* {{/Privacy-5-2}}{{/Privacy-40}}
 
 ### 準備
 
@@ -1215,10 +1225,12 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
+{{#use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
+{{#use_disableabotuconfig}}    1. Disable about:config{{/use_disableabotuconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
+{{/use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
@@ -1233,7 +1245,7 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Privacy-36}}
-1. テンポラリファイルおよびキャッシュファイルフォルダ内の「thumbnails」フォルダを開いて、`https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
+1. テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開いて、`https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
     - 確認項目
         1. サムネイル画像が{{#Privacy-36-1}}保存される。（Privacy-36-1）{{/Privacy-36-1}}{{#Privacy-36-2}}保存されない。（Privacy-36-2）{{/Privacy-36-2}}
 {{/Privacy-36}}
@@ -1293,7 +1305,7 @@
    * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
-1. テストケースの「password.html」を開く。
+1. テストケースの `password.html` を開く。
 <!--GROUP-->
 1. ユーザID、パスワードを入力して送信する。
     - 確認項目
@@ -1302,12 +1314,14 @@
         1. ファイルを再読み込みしてもパスワードが自動入力されない。(Privacy-5-2)
         1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。(Privacy-2-2)
 {{/Privacy-5-2}}
+{{^Privacy-5-2}}
 {{#Privacy-40-1}}
         1. パスワードの保存を提案するポップアップが表示され、その中に「パスワードを開示」チェックボックスが表示される。（Privacy-40-1）
 {{/Privacy-40-1}}
 {{#Privacy-40-2}}
         1. 「パスワードを開示」チェックボックスが表示されない。（Privacy-40-2）
 {{/Privacy-40-2}}
+{{/Privacy-5-2}}
 <!--/GROUP-->
 {{#Privacy-3-2}}
 1. ファイルに名前を付けて保存し、Firefoxを再起動する。
@@ -1315,59 +1329,59 @@
         1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在しない。(Privacy-3-2)
 {{/Privacy-3-2}}
 {{#Privacy-4-2}}
-1. ロケーションバーに「password」と入力する。
+1. ロケーションバーに `password` と入力する。
     - 確認項目
         1. ロケーションバーのオートコンプリートの項目が表示されない。(Privacy-4-2)
 {{/Privacy-4-2}}
 {{#Privacy-39}}
-1. テストケースの「insecure-password.html」を開く。
+1. テストケースの `insecure-password.html` を開く。
 1. ユーザIDまたはパスワードの入力欄にフォーカスを移す。
     - 確認項目
         1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。(Privacy-39-1){{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
 {{#Privacy-12}}
-1. テストケースの「storage.html」を開く。
+1. テストケースの `storage.html` を開く。
     - 確認項目
-        1. {{#Privacy-12-1}}「window.localStorage = [object Storage]」と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}「window.localStorage = null」と表示される。(Privacy-12-2){{/Privacy-12-2}}
+        1. {{#Privacy-12-1}}`window.localStorage = [object Storage]` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`window.localStorage = null` と表示される。(Privacy-12-2){{/Privacy-12-2}}
 {{/Privacy-12}}
 {{#Privacy-13}}
-1. テストケースの「indexed-db.html」を開く。
+1. テストケースの `indexed-db.html` を開く。
     - 確認項目
-        1. {{#Privacy-13-1}}「enabled」と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-2}}「disabled」と表示される。(Privacy-13-2){{/Privacy-13-2}}
+        1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-2}}`disabled` と表示される。(Privacy-13-2){{/Privacy-13-2}}
 {{/Privacy-13}}
 {{#Privacy-38}}
-1. テストケースの「beacon.html」を開く。
+1. テストケースの `beacon.html` を開く。
     - 確認項目
-        1. {{#Privacy-38-1}}「enabled」と出力される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}「disabled」と表示される。(Privacy-38-2){{/Privacy-38-2}}
+        1. {{#Privacy-38-1}}`enabled` と出力される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。(Privacy-38-2){{/Privacy-38-2}}
 {{/Privacy-38}}
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
 <!--GROUP-->
 1. 各設定値を確認する。
     - 確認項目
 {{#Privacy-8-2}}
-        1. 「places.history.expiration.max\_pages」の値が「{{history_expiration_max_pages}}」である。(Privacy-8-2)
+        1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。(Privacy-8-2)
 {{/Privacy-8-2}}
 {{#Privacy-15-2}}
-        1. 「browser.search.geoip.url」の値が空文字である。(Privacy-15-2)
+        1. `browser.search.geoip.url` の値が空文字である。(Privacy-15-2)
 {{/Privacy-15-2}}
 {{#Privacy-19-2}}
-        1. 「security.ssl.errorReporting.automatic」の値が「false」である。(Privacy-19-2)
-        1. 「security.ssl.errorReporting.enabled」の値が「false」である。(Privacy-19-2)
-        1. 「security.ssl.errorReporting.url」の値が空文字である。(Privacy-19-2)
+        1. `security.ssl.errorReporting.automatic` の値が`false`である。(Privacy-19-2)
+        1. `security.ssl.errorReporting.enabled` の値が`false`である。(Privacy-19-2)
+        1. `security.ssl.errorReporting.url` の値が空文字である。(Privacy-19-2)
 {{/Privacy-19-2}}
 {{#Privacy-31-2}}
-        1. 「browser.selfsupport.url」の値が空文字である。(Privacy-31-2)
+        1. `browser.selfsupport.url` の値が空文字である。(Privacy-31-2)
 {{/Privacy-31-2}}
 {{#Privacy-33-2 || Privacy-33-3}}
-        1. 「privacy.trackingprotection.enabled」の値が{{#Privacy-33-2}}「true」である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}「false」である。(Privacy-33-3){{/Privacy-33-3}}
-        1. 「privacy.trackingprotection.pbmode.enabled」の値が{{#Privacy-33-2}}「true」である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}「false」である。(Privacy-33-3){{/Privacy-33-3}}
+        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
+        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
 {{/Privacy-33-2 || Privacy-33-3}}
 <!--/GROUP-->
 1. 以下の設定を行う。既存の値がない場合は新規に作成する。
 {{#Privacy-16}}
-    - 「network.dns.notifyResolution」（真偽型）を「true」に設定する。
+    - `network.dns.notifyResolution`（真偽型）を`true`に設定する。
 {{/Privacy-16}}
-    - 「devtools.chrome.enabled」（真偽型）を「true」に設定する。
+    - `devtools.chrome.enabled`（真偽型）を`true`に設定する。
 1. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
 {{#Privacy-16}}
 1. 以下のコードをコンソール内で実行する。
@@ -1380,14 +1394,14 @@
         1. `GET http://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに{{#Privacy-7-1}}出力される。(Privacy-7-1){{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。(Privacy-7-2){{/Privacy-7-2}}
 {{/Privacy-7}}
 {{#Privacy-16}}
-1. ブラウザウィンドウでテストケースの「prefetching.html」を開く。
+1. ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - 確認項目
-        1. 「dns-resolution-request: dns-prefetch.example.com」というログがブラウザコンソールに{{#Privacy-16-1}}出力される。(Privacy-16-1){{/Privacy-16-1}}{{#Privacy-16-2}}出力されない。(Privacy-16-2){{/Privacy-16-2}}
+        1. `dns-resolution-request: dns-prefetch.example.com` というログがブラウザコンソールに{{#Privacy-16-1}}出力される。(Privacy-16-1){{/Privacy-16-1}}{{#Privacy-16-2}}出力されない。(Privacy-16-2){{/Privacy-16-2}}
 {{/Privacy-16}}
 1. ブラウザコンソールを閉じる。
 {{#Privacy-10-2}}
-1. ロケーションバーに「about:」と入力し、Alt-Enterでタブとして開いてから、タブを閉じる。
-1. 新しいブラウザウィンドウを開いてロケーションバーに「about:」と入力し、ページの読み込みが完了したらウィンドウを閉じる。 これを2回繰り返す。
+1. ロケーションバーに `about:` と入力し、Alt-Enterでタブとして開いてから、タブを閉じる。
+1. 新しいブラウザウィンドウを開いてロケーションバーに `about:` と入力し、ページの読み込みが完了したらウィンドウを閉じる。 これを2回繰り返す。
 1. 「履歴」メニューを開く。
     - 確認項目
         1. 「最近閉じたタブ」が表示されない。(Privacy-10-2)
@@ -1398,9 +1412,9 @@
         1. 「最近閉じたウィンドウ」が表示されない。(Privacy-10-2)
 {{/Privacy-10-2}}
 {{#Privacy-17}}
-1. ツールバー上の検索窓にフォーカスし「a」と入力する。
+1. ツールバー上の検索窓にフォーカスし `a` と入力する。
     - 確認項目
-        1. 「a」の補完候補が{{#Privacy-17-1}}表示される。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2}}表示されない。(Privacy-17-2){{/Privacy-17-2}}
+        1. `a` の補完候補が{{#Privacy-17-1}}表示される。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2}}表示されない。(Privacy-17-2){{/Privacy-17-2}}
 1. ツールバー上のロケーションバーにフォーカスし「新しい検索語句」等、履歴やブックマーク等からの候補が表示され得ないテキストを入力する。
     - 確認項目
         1. 補完候補が{{#Privacy-17-1}}表示される。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2}}表示されない。(Privacy-17-2){{/Privacy-17-2}}
@@ -1415,15 +1429,15 @@
     - globalChrome.css
 1. Firefoxを起動する。
 {{/use_globalchromecss}}
+{{#Privacy-17-2}}
 1. ツールバー上の検索窓の虫眼鏡のアイコンをクリックし、ポップアップ表示されたパネルの最下部の「検索設定を変更」をクリックする。
 1. 開かれた設定画面の「既定の検索エンジン」欄を見る。
-{{#Privacy-17-2}}
     - 確認項目
         1. 「検索候補を使用する」が表示されていない。(Privacy-17-2)
         1. 「ロケーションバーに検索候補を表示する」が表示されていない。(Privacy-17-2)
 {{/Privacy-17-2}}
 <!--GROUP-->
-1. 「プライバシー」ペインを選択する。
+1. 設定画面で「プライバシー」ペインを選択する。
     - 確認項目
 {{#Privacy-1-2 || Privacy-1-5}}
         1. 「常にプライベートブラウジングモード」が表示されていない。(Privacy-1-2/5)
@@ -1441,26 +1455,32 @@
     - 確認項目
         1. sessionstore.jsが存在しない。（Privacy-10-2）
 {{/Privacy-10-2}}
-1. `(ユーザのホームのフルパス)\http.log` の位置に出力されているログファイルを開く。
+1. `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）を開く。
     - 確認項目
 {{#Privacy-32}}
-        1. ログ中に現れる「nsHttpConnectionMgr::OnMsgSpeculativeConnect」と「Transport not created due to existing connection count」の{{#Privacy-32-1}}登場回数のうち、前者の方が多い。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}}両者の登場回数が等しい。（Privacy-32-2）{{/Privacy-32-2}}
+        1. ログ中に現れる `nsHttpConnectionMgr::OnMsgSpeculativeConnect` と `Transport not created due to existing connection count` の{{#Privacy-32-1}}登場回数のうち、前者の方が多い。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}}両者の登場回数が等しい。（Privacy-32-2）{{/Privacy-32-2}}  
+           （Linux環境で確認する場合の例：  
+           `cat http.log* | grep 'nsHttpConnectionMgr::OnMsgSpeculativeConnect' | wc -l; cat http.log* | grep 'Transport not created due to existing connection count' | wc -l` の実行結果の2行の数値について、{{#Privacy-32-1}}上が大きければ{{/Privacy-32-1}}{{#Privacy-32-2}}両者が同じであれば{{/Privacy-32-2}}設定は期待通り反映されている。）
 {{/Privacy-32}}
 {{#Privacy-37}}
-        1. ログ中の「Predictor::Predict」という行に続く「called on parent process」という行の後に、「not enabled」という行が{{#Privacy-37-1}}表れていない。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}}表れている。（Privacy-37-2）{{/Privacy-37-2}}
+        1. ログ中の `Predictor::Predict` という行の直後に続く `called on parent process` という行の直後に、`not enabled` という行が{{#Privacy-37-1}}表れていない。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}}表れている。（Privacy-37-2）{{/Privacy-37-2}}  
+           （Linux環境で確認する場合の例：  
+           `cat http.log* | grep -A 2 'Predictor::Predict' | grep -A 1 'called on parent process' | grep 'not enabled' | wc -l; cat http.log* | grep -A 1 'Predictor::Predict' | grep 'called on parent process' | wc -l` の実行結果の2行の数値が{{#Privacy-37-1}}異なっていれば{{/Privacy-37-1}}{{#Privacy-37-2}}同じであれば{{/Privacy-37-2}}、設定は期待通り反映されている。）
 {{/Privacy-37}}
 
 ### 後始末
 
 1. about:configで以下の設定をリセットする。
 {{#Privacy-16}}
-    1. 「network.dns.notifyResolution」（真偽型）
+    1. `network.dns.notifyResolution` （真偽型）
 {{/Privacy-16}}
-    1. 「devtools.chrome.enabled」（真偽型）
+    1. `devtools.chrome.enabled` （真偽型）
+{{#use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
+{{#use_disableabotuconfig}}    1. Disable about:config{{/use_disableabotuconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
+{{/use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
@@ -1498,10 +1518,10 @@
         1. 拡張機能の一覧に「Flexible Expire History by Days」が表示されており、有効になっている。(Privacy-9-1)
 4. {{expire_history_by_days_version}}の設定画面を開く。
     - 確認項目
-        1. 「Expire visits older than these days」の値が「5」である。(Privacy-9-1)
+        1. 「Expire visits older than these days」の値が`5`である。(Privacy-9-1)
         2. 「Frequency of expiration」で「On the first idle time per a day」が選択されている。(Privacy-9-1)
 5. Firefoxのロケーションバーに`about:config`と入力し、ページを開く。
-6.  「検索」欄に「idle.lastDailyNotification」と入力し、Enterを押下する。
+6.  「検索」欄に `idle.lastDailyNotification` と入力し、Enterを押下する。
 7. 項目が見つかった場合、項目を右クリックしてメニューから「リセット」を選択する。
 8. Firefoxを終了する。
 9. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
@@ -1535,13 +1555,15 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `https://developer.mozilla.org/ja/docs/WebAPI/Using\_geolocation` と入力し、ページを開く。
+1. ロケーションバーに `https://developer.mozilla.org/ja/docs/WebAPI/Using_geolocation` と入力し、ページを開く。
 1. 「Geolocationのライブサンプル」欄の「Show my location」ボタンをクリックする。
     - 確認項目
         1. {{^Privacy-14-3}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/2/4){{/Privacy-14-3}}{{#Privacy-14-3}}何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3){{/Privacy-14-3}}
@@ -1555,10 +1577,12 @@
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-2}}「許可」が選択されている。(Privacy-14-2){{/Privacy-14-2}}{{#Privacy-14-4}}「ブロック」が選択されている。(Privacy-14-4){{/Privacy-14-4}}
 {{/Privacy-14-2 || Privacy-14-4}}
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 {{/Privacy-14}}
 
 {{#Privacy-22-2 || Privacy-22-3}}
@@ -1589,19 +1613,19 @@
         2. 「Syncにサインイン」が存在しない。(Privacy-22-2)
 1. 以下の各方法でabout:accountsへのアクセスを試みる。
     - 確認項目
-        1. ロケーションバーに「about:accounts」と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
+        1. ロケーションバーに`about:accounts`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
             (Privacy-22-2)
-        1. ロケーションバーに「about:accounts」と入力し、Enterして、何も起こらない（ページが読み込まれない）か、タブが閉じられる。
+        1. ロケーションバーに`about:accounts`と入力し、Enterして、何も起こらない（ページが読み込まれない）か、タブが閉じられる。
             (Privacy-22-2)
-        1. ロケーションバーに`about:about`と入力しEnterして「about:」一覧を表示する。
-        1. 「about:accounts」のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Privacy-22-2)
-        1. 「about:accounts」のリンクを左クリックし、空白のページが読み込まれるか、タブが閉じられる。(Privacy-22-2)
+        1. ロケーションバーに`about:about`と入力しEnterして`about:`一覧を表示する。
+        1. `about:accounts`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Privacy-22-2)
+        1. `about:accounts`のリンクを左クリックし、空白のページが読み込まれるか、タブが閉じられる。(Privacy-22-2)
 {{/Privacy-22-2}}
 {{#Privacy-22-3}}
 1. パネルメニューを開き、パネルメニュー下部の「Syncにサインイン」をクリックする。
 2. 設定の「Sync」パネルが開かれるので、「サインイン」ボタンをクリックする。
     - 確認項目
-        1. 「設定が正しくありません」と表示され、サインインの処理が始まらない。(Privacy-22-3)
+        1. 「Bad configuration」または「設定が正しくありません」というエラーメッセージが表示され、サインインの処理が始まらない。(Privacy-22-3)
 {{/Privacy-22-3}}
 {{/Privacy-22-2 || Privacy-22-3}}
 
@@ -1616,22 +1640,25 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disablesync}}
+1. 以下のアドオンを無効化する。
     1. Disable Sync
+{{/use_disablesync}}
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. ロケーションバーに「about:accounts」と入力し、ページを開く。
+2. ロケーションバーに`about:accounts`と入力し、ページを開く。
 3. 「始める」をクリックする。
     - 確認項目
-        1. 「Bad configuration」または「設定が正しくありません」というエラーメッセージが表示され、アカウント登録の画面に遷移しない。
-            (Privacy-24-2)
+        1. 「Bad configuration」または「設定が正しくありません」というエラーメッセージが表示され、アカウント登録の画面に遷移しない。(Privacy-24-2)
 
+{{#use_disablesync}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable Sync
+{{/use_disablesync}}
 {{/Privacy-24-2}}
 
 ## プライバシーに関わる機能の利用制限
@@ -1685,8 +1712,8 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. Firefoxのロケーションバーに`about:config`と入力し、ページを開く。
-3. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名「idle.lastDailyNotification」、値「0」で設定項目を登録する。
-4. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名「 places.database.lastMaintenance 」、値「0」で設定項目を登録する。
+3. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名 `idle.lastDailyNotification`、値`0`で設定項目を登録する。
+4. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名 `places.database.lastMaintenance`、値`0`で設定項目を登録する。
 5. Firefoxを終了する。
 6. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 7. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
@@ -1694,10 +1721,10 @@
 9. ブラウザコンソールの内容を確認する。
     - 確認項目
         1. 以下のメッセージがすべて出力される。(Privacy-29-2)
-            1. 「PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().」
-            2. 「PlacesDBUtils.checkAndFixDatabase() successfully finished.」
-            3. 「Array [ ... ]」
-        2. 「Array [ ... ]」と表示されたメッセージの中に、「\> Vacuum」という内容が含まれている。(Privacy-29-2)
+            1. `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
+            2. `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
+            3. `Array [ ... ]`
+        2. `Array [ ... ]` と表示されたメッセージの中に、`> Vacuum` という内容が含まれている。(Privacy-29-2)
 
 ### 後始末
 
@@ -1743,7 +1770,7 @@
 1. ロケーションバーに `about:cache` と入力し、ページを開く。
     - 確認項目
         1. 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。(Privacy-30-3)
-1. `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\cache2` を開き、その中の「entries」フォルダを開く。
+1. `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\cache2` を開き、その中の `entries` フォルダを開く。
     - 確認項目
         1. フォルダが空である。(Privacy-30-3)
 {{/Privacy-30-3}}
@@ -1809,9 +1836,9 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. テストケースの「password.html」を開く。
+1. テストケースの `password.html` を開く。
 1. ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
-1. ユーザープロファイル内の「sessionstore-backups」フォルダ内の「recovery.js」を開く。
+1. ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.js` を開く。
    - 確認項目
        1. ファイル内に「ユーザ入力値」という文字列が{{#Privacy-34-1}}含まれている。（Privacy-34-1）{{/Privacy-34-1}}{{#Privacy-34-2}}含まれていない。（Privacy-34-2）{{/Privacy-34-2}}
 {{/Privacy-34}}
@@ -1903,7 +1930,7 @@
         1. {{#Download-2-1 || Download-2-2}}ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
 {{/Download-2}}
 <!--GROUP-->
-1. 「subfolder」という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。
+1. `subfolder` という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。
 {{#Download-1}}
     - 確認項目
         1. ダウンロードの進行状況を示すポップアップが{{#Download-1-1}}表示される。(Download-1-1){{/Download-1-1}}{{#Download-1-2}}表示されない。(Download-1-2){{/Download-1-2}}
@@ -1928,7 +1955,7 @@
 1. オプション画面の「一般」を開く。
     - 確認項目
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*)
-        1. ダウンロード先として{{#Download-3-1}}{{download_dir}}内の「subfolder」が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}{{download_dir}}が表示されている。(Download-3-2){{/Download-3-2}}
+        1. ダウンロード先として{{#Download-3-1}}{{download_dir}}内の `subfolder` が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}{{download_dir}}が表示されている。(Download-3-2){{/Download-3-2}}
 {{/Download-3-1 || Download-3-2}}
 {{/Download-3}}
 
@@ -1947,7 +1974,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. テストケース「links.html」を用意する。
+2. テストケース `links.html` を用意する。
 3. 以下のアドオンを無効化する。
     1. Disable about:config
 
@@ -1967,7 +1994,7 @@
         1. 複数のタブを閉じてよいかどうか{{#Tab-2-1}}確認される。(Tab-2-1){{/Tab-2-1}}{{#Tab-2-2 || Tab-2-3}}確認されない。(Tab-2-2/3){{/Tab-2-2 || Tab-2-3}}
 {{/Tab-2}}
 {{#Tab-3}}
-1. テストケースの「links.html」を開く。リンクからタブを開き、15以上のタブが開かれた状態にする。
+1. テストケースの `links.html` を開く。リンクからタブを開き、15以上のタブが開かれた状態にする。
 1. タブの上で右クリックし、メニューから「すべてのタブをブックマーク」を選択する。
 1. フォルダ名を任意に指定し、ブックマークフォルダとして保存する。
 1. メニューバーの「ブックマーク」から前の操作で作成されたブックマークフォルダを選択し、最下部の「タブですべて開く」を選択する。
@@ -2008,10 +2035,10 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Tab-2-3}}
-        1. 「browser.tabs.warnOnCloseOtherTabs」の値がユーザー設定値の「false」である。(Tab-2-3)
+        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`である。(Tab-2-3)
 {{/Tab-2-3}}
 {{#Tab-9-2}}
-        1. 「browser.newtab.preload」の値がユーザー設定値の「false」である。(Tab-9-2)
+        1. `browser.newtab.preload` の値がユーザー設定値の`false`である。(Tab-9-2)
 {{/Tab-9-2}}
 <!--/GROUP-->
 
@@ -2092,7 +2119,7 @@
         1. sudo apt-get install apache2 apache2-utils
         2. sudo a2enmod proxy\_http
         3. sudo a2enmod proxy\_connect
-    3. 以下のコマンド列を実行し、認証用のユーザー名（ここでは仮に「{{proxy_auth_user}}」とする）とパスワードを設定する。
+    3. 以下のコマンド列を実行し、認証用のユーザー名（ここでは仮に`{{proxy_auth_user}}`とする）とパスワードを設定する。
         1. sudo htpasswd -c /etc/apache2/.htpasswd {{proxy_auth_user}}
     4. /etc/apache2/conf-enabled/forward\_proxy.confの位置に以下の内容でファイルを作成する。
        
@@ -2156,11 +2183,11 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Script-2}}
-        1. 「dom.push.enabled」の値が{{#Script-2-1 || Script-2-2}}「true」である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
-        1. 「dom.serviceWorkers.enabled」の値が{{#Script-2-1 || Script-2-2}}「true」である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}「false」である。(Script-2-3){{/Script-2-3}}
+        1. `dom.push.enabled` の値が{{#Script-2-1 || Script-2-2}}`true`である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
+        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1 || Script-2-2}}`true`である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
 {{/Script-2}}
 {{#Script-3}}
-        1. 「dom.gamepad.enabled」の値が{{#Script-3-1}}「true」である。(Script-3-1){{/Script-3-1}}{{#Script-3-2}}「false」である。(Script-3-2){{/Script-3-2}}
+        1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。(Script-3-1){{/Script-3-1}}{{#Script-3-2}}`false`である。(Script-3-2){{/Script-3-2}}
 {{/Script-3}}
 <!--/GROUP-->
 {{#Script-2-2 || Script-2-4}}
@@ -2253,10 +2280,10 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. about:configを開き、以下の設定を行う。
-    - 「font.name.serif.ja」（文字列型）を「missing」に設定する。
-    - 「font.name.sans-serif.ja」（文字列型）を「missing」に設定する。
-    - 「font.name.monospace.ja」（文字列型）を「missing」に設定する。
-3. テストケースの「font.html」を開く。
+    - `font.name.serif.ja`（文字列型）を`missing`に設定する。
+    - `font.name.sans-serif.ja`（文字列型）を`missing`に設定する。
+    - `font.name.monospace.ja`（文字列型）を`missing`に設定する。
+3. テストケースの `font.html` を開く。
 4. 「Serif / セリフ体（明朝）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
         1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
@@ -2270,9 +2297,9 @@
 ### 後始末
 
 1. about:configで以下の設定をリセットする。
-    1. 「font.name.serif.ja」（文字列型）
-    2. 「font.name.sans-serif.ja」（文字列型）
-    3. 「font.name.monospace.ja」（文字列型）
+    1. `font.name.serif.ja`（文字列型）
+    2. `font.name.sans-serif.ja`（文字列型）
+    3. `font.name.monospace.ja`（文字列型）
 1. 以下のアドオンを有効化する。
     1. Disable about:config
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
@@ -2355,21 +2382,21 @@
         1. ロケーションバー内に本の形のアイコンが{{#Ui-5-1}}表示される。（Ui-5-1）{{/Ui-5-1}}{{#Ui-5-2}}表示されない。（Ui-5-2）{{/Ui-5-2}}
 {{/Ui-5}}
 {{#Ui-6}}
-1. いずれかの記事の末尾のコメント投稿用textareaに「abc」と入力し、ページ内の他の箇所をクリックしてフォーカスを外す。
+1. いずれかの記事の末尾のコメント投稿用textareaに `abc` と入力し、ページ内の他の箇所をクリックしてフォーカスを外す。
     - 確認項目
-        1. 「abc」の下に赤い波線が{{#Ui-6-1}}表示される。（Ui-6-1）{{/Ui-6-1}}{{#Ui-6-2}}表示されない。（Ui-6-2）{{/Ui-6-2}}
+        1. `abc` の下に赤い波線が{{#Ui-6-1}}表示される。（Ui-6-1）{{/Ui-6-1}}{{#Ui-6-2}}表示されない。（Ui-6-2）{{/Ui-6-2}}
 {{/Ui-6}}
 1. パネルメニュー内の「開発ツール」をクリックし、サブメニューの「ウェブコンソール」をクリックする。
 {{#Script-1}}
-1. コンソール下部の入力欄に「`alert('OK');alert('OK');alert('OK');`」と入力し、実行する。
+1. コンソール下部の入力欄に `alert('OK');alert('OK');alert('OK');` と入力し、実行する。
     - 確認項目
         1. 2つ目以降のダイアログに、以後のダイアログを表示しないようにするかどうかを尋ねるチェックボックスが{{#Script-1-1}}表示される。（Script-1-1）{{/Script-1-1}}{{#Script-1-2}}表示されない。（Script-1-2）{{/Script-1-2}}
 {{/Script-1}}
-1. コンソール下部の入力欄に「`window.addEventListener('copy', (event) => console.log(event.type)); window.addEventListener('contextmenu', (event) => event.preventDefault());`」と入力し、実行する。
+1. コンソール下部の入力欄に `window.addEventListener('copy', (event) => console.log(event.type)); window.addEventListener('contextmenu', (event) => event.preventDefault());` と入力し、実行する。
 {{#Script-4}}
 1. コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - 確認項目
-        1. コンソール上に「`copy`」という文字が{{#Script-4-1}}出力される。（Script-4-1）{{/Script-4-1}}{{#Script-4-2}}出力されない。（Script-4-2）{{/Script-4-2}}
+        1. コンソール上に `copy` という文字が{{#Script-4-1}}出力される。（Script-4-1）{{/Script-4-1}}{{#Script-4-2}}出力されない。（Script-4-2）{{/Script-4-2}}
 {{/Script-4}}
 {{#Script-5}}
 1. コンテンツ領域の上で右クリックする。
@@ -2380,10 +2407,10 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Performance-1-2}}
-        1. 「browser.cache.memory.capacity」の値が指定値の通りである。(Performance-1-2)
+        1. `browser.cache.memory.capacity` の値が指定値の通りである。(Performance-1-2)
 {{/Performance-1-2}}
 {{#Performance-2-2}}
-        1. 「content.notify.interval」の値が指定値の通りである。(Performance-2-2)
+        1. `content.notify.interval` の値が指定値の通りである。(Performance-2-2)
 {{/Performance-2-2}}
 <!--/GROUP-->
 
@@ -2470,8 +2497,8 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 2. 以下のアドオンを無効化する。
     1. Disable about:config
-3. テストケースの「sample.jar」を任意のサーバーに設置し、Content-Type「application/java-archive」を伴って返却されるように設定しておく。
-   ファイルの設置先は「{{jar_file_sample_url_base}}/sample.jar」とする。
+3. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
+   ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
 
 ### 検証
 
@@ -2480,37 +2507,37 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Network-1-1}}
-        1. 「general.useragent.extra.microsoftdotnet」が項目として存在しない、もしくは、値が未定義である。(Network-1-1)
+        1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。(Network-1-1)
 {{/Network-1-1}}
 {{#Network-4-1}}
-        1. 「network.automatic-ntlm-auth.trusted-uris」の値が「{{ntlm_single_signon_hosts}}」である。(Network-4-1)
+        1. `network.automatic-ntlm-auth.trusted-uris` の値が`{{ntlm_single_signon_hosts}}`である。(Network-4-1)
 {{/Network-4-1}}
 {{#Network-5-2}}
-        1. 「network.http.max-connections」の値が{{max_connections}}である。(Network-5-2)
-        1. 「network.http.max-persistent-connections-per-server」の値が{{max_persistent_connections_per_server}}である。(Network-5-2)
-        1. 「network.http.max-persistent-connections-per-proxy」の値が{{max_persistent_connections_per_proxy}}である。(Network-5-2)
+        1. `network.http.max-connections` の値が{{max_connections}}である。(Network-5-2)
+        1. `network.http.max-persistent-connections-per-server` の値が{{max_persistent_connections_per_server}}である。(Network-5-2)
+        1. `network.http.max-persistent-connections-per-proxy` の値が{{max_persistent_connections_per_proxy}}である。(Network-5-2)
 {{/Network-5-2}}
 {{#Network-6}}
-        1. 「network.http.spdy.enabled」の値が{{#Network-6-1}}「true」である。(Network-6-1){{/Network-6-1}}{{#Network-6-2}}「false」である。(Network-6-2){{/Network-6-2}}
+        1. `network.http.spdy.enabled` の値が{{#Network-6-1}}`true`である。(Network-6-1){{/Network-6-1}}{{#Network-6-2}}`false`である。(Network-6-2){{/Network-6-2}}
 {{/Network-6}}
 {{#Network-7}}
-        1. 「security.tls.insecure\_fallback\_hosts」の値が{{#Network-7-1}}未設定または空文字である。(Network-7-1){{/Network-7-1}}{{#Network-7-2}}「{{ntlm_single_signon_hosts}}」である。(Network-7-2){{/Network-7-2}}
+        1. `security.tls.insecure_fallback_hosts`の値が{{#Network-7-1}}未設定または空文字である。(Network-7-1){{/Network-7-1}}{{#Network-7-2}}`{{ntlm_single_signon_hosts}}`である。(Network-7-2){{/Network-7-2}}
 {{/Network-7}}
 {{#Network-8}}
-        1. 「network.dns.disableIPv6」の値が{{#Network-8-1}}「false」である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}「true」である。(Network-8-2){{/Network-8-2}}
+        1. `network.dns.disableIPv6` の値が{{#Network-8-1}}`false`である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}`true`である。(Network-8-2){{/Network-8-2}}
 {{/Network-8}}
 {{#Network-9}}
-        1. 「network.http.pipelining」の値が{{#Network-9-1}}「true」である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}「false」である。(Network-9-2){{/Network-9-2}}
-        1. 「network.http.proxy.pipelining」の値が{{#Network-9-1}}「true」である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}「false」である。(Network-9-2){{/Network-9-2}}
+        1. `network.http.pipelining` の値が{{#Network-9-1}}`true`である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}`false`である。(Network-9-2){{/Network-9-2}}
+        1. `network.http.proxy.pipelining` の値が{{#Network-9-1}}`true`である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}`false`である。(Network-9-2){{/Network-9-2}}
 {{/Network-9}}
 {{#Network-10}}
-        1. 「network.dns.blockDotOnion」の値が{{#Network-10-1}}「false」である。(Network-10-1){{/Network-10-1}}{{#Network-10-2}}「true」である。(Network-10-2){{/Network-10-2}}
+        1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。(Network-10-1){{/Network-10-1}}{{#Network-10-2}}`true`である。(Network-10-2){{/Network-10-2}}
 {{/Network-10}}
 {{#Network-13}}
-        1. 「security.tls.version.max」の値が{{#Network-13-1}}「4」である。(Network-13-1){{/Network-13-1}}{{#Network-13-2}}「3」以下である。(Network-13-2){{/Network-13-2}}
+        1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。(Network-13-1){{/Network-13-1}}{{#Network-13-2}}`3`以下である。(Network-13-2){{/Network-13-2}}
 {{/Network-13}}
 {{#Network-14}}
-        1. 「security.pki.sha1_enforcement_level」の値が{{#Network-14-1}}「0」である。(Network-14-1){{/Network-14-1}}{{#Network-14-2}}「1」である。(Network-14-2){{/Network-14-2}}{{#Network-14-3}}「2」である。(Network-14-3){{/Network-14-3}}{{#Network-14-4}}「3」である。(Network-14-4){{/Network-14-4}}{{#Network-14-5}}「4」である。(Network-14-5){{/Network-14-5}}
+        1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。(Network-14-1){{/Network-14-1}}{{#Network-14-2}}`1`である。(Network-14-2){{/Network-14-2}}{{#Network-14-3}}`2`である。(Network-14-3){{/Network-14-3}}{{#Network-14-4}}`3`である。(Network-14-4){{/Network-14-4}}{{#Network-14-5}}`4`である。(Network-14-5){{/Network-14-5}}
 {{/Network-14}}
 <!--/GROUP-->
 {{#Network-11-2}}
@@ -2565,17 +2592,17 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Update-1-3}}
-        1. 「app.update.enabled」の値が「false」である。(Update-1-3)
-        1. 「app.update.mode」の値が「0」である。(Update-1-3)
+        1. `app.update.enabled` の値が`false`である。(Update-1-3)
+        1. `app.update.mode` の値が`0`である。(Update-1-3)
 {{/Update-1-3}}
 {{#Update-2-2}}
-        1. 「extensions.update.enabled」の値が「false」である。(Update-2-2)
+        1. `extensions.update.enabled` の値が`false`である。(Update-2-2)
 {{/Update-2-2}}
 {{#Update-3-2}}
-        1. 「browser.search.update」の値が「false」である。(Update-3-2)
+        1. `browser.search.update` の値が`false`である。(Update-3-2)
 {{/Update-3-2}}
 {{#Update-5-2}}
-        1. 「lightweightThemes.update.enabled」の値が「false」である。(Update-5-2)
+        1. `lightweightThemes.update.enabled` の値が`false`である。(Update-5-2)
 {{/Update-5-2}}
 
 ### 後始末
@@ -2642,22 +2669,22 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Plugin-1}}
-1. 「 {{java_download_url}} 」からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*)
+1. ` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*)
 {{/Plugin-1}}
 {{#Plugin-2}}
-1. 「 {{flash_download_url}} 」からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-2-\*)
+1. `{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-2-\*)
 {{/Plugin-2}}
 {{#Plugin-3}}
-1. 「 {{acrobat__download_url}} 」からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*)
+1. `{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*)
 {{/Plugin-3}}
 {{#Plugin-4}}
-1. 「 {{shockwave__download_url}} 」からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*)
+1. `{{shockwave__download_url}}` からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*)
 {{/Plugin-4}}
 {{#Plugin-5}}
-1. 「 {{silverlight_download_url}} 」からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*)
+1. `{{silverlight_download_url}}` からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*)
 {{/Plugin-5}}
 {{#Plugin-6}}
-1. 「 {{wmp__download_url}} 」からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*)
+1. `{{wmp__download_url}}` からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*)
 //
 {{/Plugin-6}}
 {{#Plugin-7}}
@@ -2804,9 +2831,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. エクスプローラを起動して、アドレスバーに「%temp%」と入力し、システムのテンポラリフォルダを開く。
+2. エクスプローラを起動して、アドレスバーに `%temp%` と入力し、システムのテンポラリフォルダを開く。
 3. ファイルを更新日時順で並べ替えて、新しいファイルが出現したら分かるようにしておく。
-4. この検証手順書自体のファイルをWebサーバにアップロードするか、「odt sample」のようなキーワードでWebを検索するなどして、外部アプリケーションで開く必要があるファイルのダウンロード用リンクを用意しておく。
+4. この検証手順書自体のファイルをWebサーバにアップロードするか、`odt sample` のようなキーワードでWebを検索するなどして、外部アプリケーションで開く必要があるファイルのダウンロード用リンクを用意しておく。
 
 ### 検証
 
@@ -3165,7 +3192,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、「bidi.browser.ui」の値を「true」に設定する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、`bidi.browser.ui` の値を`true`に設定する。
 1. Firefoxを終了する。
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. `https://addons.mozilla.org/` など、テキスト入力欄があるWebページを開く。
@@ -3309,7 +3336,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. テストケースの「popupblock.html」を開く。
+1. テストケースの `popupblock.html` を開く。
     - 確認項目
         1. 「1個のポップアップがブロックされました」と表示される。(MenuShortcut-58/59)
 1. 「設定」ボタンをクリックする。
