@@ -2511,6 +2511,7 @@
 {{#Network-12}} - Network-12-\* {{/Network-12}}
 {{#Network-13}} - Network-13-\* {{/Network-13}}
 {{#Network-14}} - Network-14-\* {{/Network-14}}
+{{#Network-15-2}} - Network-15-2 {{/Network-15-2}}
 
 ### 準備
 
@@ -2562,6 +2563,9 @@
 {{#Network-14}}
         1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。(Network-14-1){{/Network-14-1}}{{#Network-14-2}}`1`である。(Network-14-2){{/Network-14-2}}{{#Network-14-3}}`2`である。(Network-14-3){{/Network-14-3}}{{#Network-14-4}}`3`である。(Network-14-4){{/Network-14-4}}{{#Network-14-5}}`4`である。(Network-14-5){{/Network-14-5}}
 {{/Network-14}}
+{{#Network-15-2}}
+        1. `network.http.pipelining.maxrequests` の値が{{max_pipelining_requests}}である。(Network-15-2)
+{{/Network-15-2}}
 <!--/GROUP-->
 {{#Network-11-2}}
 1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
