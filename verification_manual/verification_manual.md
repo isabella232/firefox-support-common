@@ -2731,6 +2731,7 @@
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{/use_disableaddons || use_globalchromecss}}
+{{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 1. 個別の設定が無く、各プラグインの制御が可能であるかどうか自体を検証する場合、各設定ファイルに以下の内容を追記する。
     - {{mcd_local_file}}:
 
@@ -2792,6 +2793,7 @@
         host	plugin:libnpjp	3	http://example.net
         host	plugin-vulnerable:libnpjp	3	http://example.net
         ~~~
+{{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 
 
 ### 検証
@@ -2837,12 +2839,14 @@
     - 確認項目
         1. 「コンテンツ」配下に「DRMコンテンツ」グループが{{#Plugin-8-1}}ある。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}無い。(Plugin-8-2){{/Plugin-8-2}}
 {{/Plugin-8 && use_globalchromecss}}
+{{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 1. Permissions Auto Registererによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.com` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
 1. default.permissionsによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.net` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
+{{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 
 ### 後始末
 
