@@ -2478,7 +2478,7 @@
 {{/Network-2-2}}
 {{#Network-2-3}}
         1. 「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3)
-        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURL（`{{pac_url}}`）が入力されている。(Network-2-3)
+        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURL（`{{pac_url}}`、または `data:application/javascript,`）が入力されている。(Network-2-3)
 {{/Network-2-3}}
 {{#Network-2-4}}
         1. 「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4)
