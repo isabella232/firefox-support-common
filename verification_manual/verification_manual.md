@@ -2704,9 +2704,9 @@
 {{#Plugin-1}}
 1. ` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*)
 {{/Plugin-1}}
-{{#Plugin-2}}
-1. `{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-2-\*)
-{{/Plugin-2}}
+{{#Plugin-2 || Security-24}}
+1. `{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
+{{/Plugin-2 || Security-24}}
 {{#Plugin-3}}
 1. `{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*)
 {{/Plugin-3}}
