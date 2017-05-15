@@ -1923,19 +1923,21 @@
     - 確認項目
         1. 「ダウンロード」が{{#Download-1-1}}存在する。(Download-1-1){{/Download-1-1}}{{#Download-1-2}}存在しない。(Download-1-2){{/Download-1-2}}
 {{/Download-1}}
+{{#Download-2 || Download-3-1 || Download-3-2}}
 1. ロケーションバーに `http://www.clear-code.com/` と入力し、ページを開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
 {{#Download-2}}
     - 確認項目
         1. {{#Download-2-1 || Download-2-2}}ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
 {{/Download-2}}
-<!--GROUP-->
+{{/Download-2 || Download-3-1 || Download-3-2}}
+{{#Download-3-1 || Download-3-2}}
 1. `subfolder` という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。
 {{#Download-1}}
     - 確認項目
         1. ダウンロードの進行状況を示すポップアップが{{#Download-1-1}}表示される。(Download-1-1){{/Download-1-1}}{{#Download-1-2}}表示されない。(Download-1-2){{/Download-1-2}}
 {{/Download-1}}
-<!--/GROUP-->
+{{/Download-3-1 || Download-3-2}}
 {{#Download-3}}
 1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
 1. Firefoxのダウンロード用ボタンをクリックし、「ファイルを保存」を選択する。
@@ -2855,7 +2857,9 @@
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{/use_disableaddons || use_globalchromecss}}
+{{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 1. 各プラグインの制御が可能であるかどうか自体の検証のために追加した設定を削除する。
+{{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 
 {{#External-1}}
 ## ファイルをダウンロードして外部アプリケーションで開く際の挙動の制御
