@@ -1811,9 +1811,9 @@
         1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、{{#Privacy-11-2}}「Cookieデータの保存」において「許可」にチェックが入っている。（Privacy-11-2）{{/Privacy-11-2}}{{#Privacy-11-5}}「ブロック」にチェックが入っている。（Privacy-11-5）{{/Privacy-11-5}}
 {{/Privacy-11-2 || Privacy-11-5}}
 
+{{#use_globalchromecss ||use_uitextoverrider}}
 ### 後始末
 
-{{#use_globalchromecss ||use_uitextoverrider}}
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
@@ -1974,9 +1974,13 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. テストケース `links.html` を用意する。
-3. 以下のアドオンを無効化する。
+{{#Tab-3}}
+1. テストケース `links.html` を用意する。
+{{/Tab-3}}
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -2001,6 +2005,7 @@
     - 確認項目
         1. 一度に複数のタブを開いてよいかどうか{{#Tab-3-1}}確認される。(Tab-3-1){{/Tab-3-1}}{{#Tab-3-2 || Tab-3-3}}確認されない。(Tab-3-2/3){{/Tab-3-2 || Tab-3-3}}
 {{/Tab-3}}
+{{#Tab-5 || Tab-7}}
 1. タブバー上の「+」ボタンをクリックして新しいタブを開く。またはパネルメニューを開き、パネルメニュー内の「新しいウィンドウ」をクリックする。
     - 確認項目
 {{#Tab-5-1}}
@@ -2009,12 +2014,13 @@
 {{#Tab-5-2 || Tab-5-3 || Tab-7-2}}
         1. 右上に歯車アイコンの{{#Tab-5-2}}ない{{/Tab-5-2}}{{#Tab-5-3}}ある{{/Tab-5-3}}空白ページが表示される。{{#Tab-5-2}}(Tab-5-2){{/Tab-5-2}}{{#Tab-5-3}}(Tab-5-3){{/Tab-5-3}}{{#Tab-7-2}}(Tab-7-2){{/Tab-7-2}}
 {{/Tab-5-2 || Tab-5-3 || Tab-7-2}}
-{{^Tab-7-2}}
+{{#Tab-7}}{{^Tab-7-2}}
         1. タイルが表示される。(Tab-7-1/3/4/5)
-{{/Tab-7-2}}
+{{/Tab-7-2}}{{/Tab-7}}
 {{#Tab-7-3 || Tab-7-4 || Tab-7-5}}
         1. タイルの中に{{#Tab-7-4}}未訪問のページが含まれる。(Tab-7-4){{/Tab-7-4}}{{#Tab-7-3 || Tab-7-5}}訪問済みのページのみが表示される。(Tab-7-3/5){{/Tab-7-3 || Tab-7-5}}
 {{/Tab-7-3 || Tab-7-4 || Tab-7-5}}
+{{/Tab-5 || Tab-7}}
 {{#Tab-7-1 || Tab-7-5}}
 1. 新しいタブ内の歯車ボタンをクリックする。
     - 確認項目
@@ -2042,10 +2048,12 @@
 {{/Tab-9-2}}
 <!--/GROUP-->
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 {{#Ui-1}}
 ## 内蔵PDFビューアの使用
@@ -2168,8 +2176,10 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -2200,11 +2210,12 @@
         1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-2}}「許可」が選択されている。(Script-2-2){{/Script-2-2}}{{#Script-2-4}}「ブロック」が選択されている。{{/Script-2-4}}
 {{/Script-2-2 || Script-2-4}}
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 {{#Stability-1}}
 ## ハードウェアアクセラレーションの使用
@@ -2269,12 +2280,12 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider}}
+{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
+{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -2294,6 +2305,7 @@
     - 確認項目
         1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2）
 
+{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. about:configで以下の設定をリセットする。
@@ -2301,9 +2313,10 @@
     2. `font.name.sans-serif.ja`（文字列型）
     3. `font.name.monospace.ja`（文字列型）
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
+{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 {{/Appearance-1-2}}
 
 {{#Appearance-2-2}}
@@ -2361,12 +2374,12 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider}}
+{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
+{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -2414,12 +2427,14 @@
 {{/Performance-2-2}}
 <!--/GROUP-->
 
+{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
+{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 
 <!--======================================================================-->
 
@@ -2495,9 +2510,11 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
-3. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
+{{/use_disableaboutconfig}}
+1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
 
 ### 検証
@@ -2556,10 +2573,12 @@
 {{/Network-12-2}}
 {{/Network-12}}
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 <!--======================================================================-->
 
@@ -2578,8 +2597,10 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}
+1. 以下のアドオンを無効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -2605,10 +2626,12 @@
         1. `lightweightThemes.update.enabled` の値が`false`である。(Update-5-2)
 {{/Update-5-2}}
 
+{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
     1. Disable about:config
+{{/use_disableaboutconfig}}
 
 <!--======================================================================-->
 
