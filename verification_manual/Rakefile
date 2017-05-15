@@ -166,9 +166,12 @@ class ContentsCleaner
   end
 
   def cleanup
+    cleanup_separators
+    cleanup_no_child_parents
     cleanup_no_verification_steps
     cleanup_no_verification_sections
     cleanup_blank_chapters
+    cleanup_blank_subsections
 
     @contents.gsub!(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
 
@@ -179,10 +182,22 @@ class ContentsCleaner
 
   private
 
+  SEPARATORS_MATCHER = /<!-- *[-=]+ *-->/
+  def cleanup_separators
+    @contents.gsub!(SEPARATORS_MATCHER, "")
+  end
+
   BLANK_LINE_MATCHER = /^( *([-*]|[0-9]+\. ).+\n)\n+( *([-*]|[0-9]+\. ))/m
   def cleanup_blank_lines
     while @contents.match(BLANK_LINE_MATCHER) do
       @contents.sub!(BLANK_LINE_MATCHER, "\\1\\3")
+    end
+  end
+
+  NO_CHILD_PARENTS_MATCHER = /^[0-9]+\. 以下の(アドオン|カスタマイズ)を[有無]効化する。(\n+(^[0-9#]|\z))/m
+  def cleanup_no_child_parents
+    while @contents.match(NO_CHILD_PARENTS_MATCHER) do
+      @contents.sub!(NO_CHILD_PARENTS_MATCHER, "\\2")
     end
   end
 
@@ -209,6 +224,13 @@ class ContentsCleaner
   def cleanup_blank_chapters
     while @contents.match(BLANK_CHAPTERS_MATCHER) do
       @contents.sub!(BLANK_CHAPTERS_MATCHER, "\\1")
+    end
+  end
+
+  BLANK_SUBSECTIONS_MATCHER = /^### (準備|後始末)(\n+(^#|\z))/m
+  def cleanup_blank_subsections
+    while @contents.match(BLANK_SUBSECTIONS_MATCHER) do
+      @contents.sub!(BLANK_SUBSECTIONS_MATCHER, "\\2")
     end
   end
 end

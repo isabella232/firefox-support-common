@@ -319,12 +319,10 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
-{{#use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
 1. 以下のアドオンを無効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
-{{/use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
 1. 導入対象のアドオンがない場合、「Disable Sync」もしくは何らかのアドオンを管理者権限でインストールするよう配置しておく。
    （「Disable Sync」の場合、ファイル `disablesync@clear-code.com.xpi` を `{{install_path}}\browser\extensions\` の位置に置く。）
 1. システムの規定のブラウザを別のブラウザに設定する。
@@ -401,11 +399,9 @@
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。(Update-4-2)
 {{/Update-4-2}}
 1. Firefoxを終了する。
-{{#use_globalchromecss || use_disableupdate}}
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    - globalChrome.css{{/use_globalchromecss}}
 {{#use_disableupdate}}    - Disable Auto-update{{/use_disableupdate}}
-{{/use_globalchromecss || use_disableupdate}}
 {{#use_globalchromecss}}
 1. Firefoxを起動し、パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
@@ -433,12 +429,10 @@
 ### 後始末
 
 1. 導入対象のアドオンがなかった場合に検証用に導入したアドオンを削除する。
-{{#use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
 1. 以下のアドオンを有効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
-{{/use_disableaboutconfig || use_globalchromecss || use_disableupdate}}
 
 {{#Admin-4}}
 ## アドオンの署名確認の無効化
@@ -583,9 +577,9 @@
         1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。(Security-1-3)
 {{/Security-1-3}}
 
-{{#Security-1-3}}
 ### 後始末
 
+{{#Security-1-3}}
 1. Windowsの証明書データベースに検証用に追加した証明書を全て削除する。
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\nss.log-*` を全て削除する。
@@ -602,10 +596,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss}}
 1. 以下のアドオンを無効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#Security-3-1 || Security-3-3 || Security-3-4}}
 1. {{#Admin-4-1}}テストケースのunsigned-sample-addon@clear-code.com.xpi{{/Admin-4-1}}{{^Admin-4-1}}署名済みアドオンのインストールパッケージ{{/Admin-4-1}}を用意する。
 {{/Security-3-1 || Security-3-3 || Security-3-4}}
@@ -664,12 +656,10 @@
         1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3)
 {{/Security-3-3}}
 
-{{#use_globalchromecss}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 
 {{/Security-3-1}}
 
@@ -905,11 +895,9 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
-{{#use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -925,13 +913,11 @@
     - 確認項目
         1. 一切のネットワーク通信が記録されない。(Security-15-2)
 
-{{#use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 {{/Security-15-2}}
 
 ## 外部リソースへのアクセスの制限
@@ -946,11 +932,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -972,13 +956,11 @@
         1. 無反応である、もしくはツールアダプタアドオンが準備中になっている。(Security-15-2)
 {{/Security-15-2}}
 
-{{#use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 {{#Security-20-2}}
 ## パーミッション設定の制限
@@ -1039,12 +1021,10 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider || use_disableaddons}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-{{/use_globalchromecss || use_uitextoverrider || use_disableaddons}}
 1. Silverlightのバージョン一覧から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンを以下のページからダウンロードし、インストールしておく。  
    https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm
    <!--↑`〜`で括ると改行されなくなってしまうので、地のテキストとしています。注意。-->
@@ -1059,12 +1039,10 @@
 
 ### 後始末
 
-{{#use_globalchromecss || use_uitextoverrider || use_disableaddons}}
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-{{/use_globalchromecss || use_uitextoverrider || use_disableaddons}}
 1. 検証のためにインストールしたSliverlightプラグインをアンインストールする。
 {{/Security-21}}
 
@@ -1079,10 +1057,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -1092,12 +1068,10 @@
         1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。(Security-23-3){{/Security-23-3}}
         1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{/Security-23}}
 
 {{#Security-25}}
@@ -1161,10 +1135,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -1176,12 +1148,10 @@
         1. `security.block_script_with_wrong_mime` の値が{{#Security-30-1}}`false`である。(Security-30-1){{/Security-30-1}}{{#Security-30-2}}`true`である。(Security-30-2){{/Security-30-2}}
         1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 <!--======================================================================-->
 
@@ -1225,12 +1195,10 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_disableabotuconfig}}    1. Disable about:config{{/use_disableabotuconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
@@ -1475,12 +1443,10 @@
     1. `network.dns.notifyResolution` （真偽型）
 {{/Privacy-16}}
     1. `devtools.chrome.enabled` （真偽型）
-{{#use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを有効化する。
 {{#use_disableabotuconfig}}    1. Disable about:config{{/use_disableabotuconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_disableabotuconfig || use_globalchromecss || use_uitextoverrider}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
@@ -1499,10 +1465,8 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. 以下のアドオンを無効化する。
-{{#use_disableaddons}}
-    1. Disable Addons
-{{/use_disableaddons}}
-    1. Disable about:config
+{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 1. 十分な日数分の履歴項目を以下の手順で用意する。
     1. システムの日付と時刻について、インターネット経由での調整を無効にする。例えばWindowsであれば、タスクバーの時計を右クリックして「日付と時刻の調整」を選択し、「日付と時刻」ダイアログの「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを外す。（※要：管理者権限）
     1. システムの日付を5＋2日以上前の日付に変更する。
@@ -1538,10 +1502,8 @@
 
 1. システムの日付と時刻について、インターネット経由での調整を有効に戻す。
 1. 以下のアドオンを有効化する。
-{{#use_disableaddons}}
-    1. Disable Addons
-{{/use_disableaddons}}
-    1. Disable about:config
+{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{/Privacy-9-1}}
 
 {{#Privacy-14}}
@@ -1555,10 +1517,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -1577,12 +1537,10 @@
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-2}}「許可」が選択されている。(Privacy-14-2){{/Privacy-14-2}}{{#Privacy-14-4}}「ブロック」が選択されている。(Privacy-14-4){{/Privacy-14-4}}
 {{/Privacy-14-2 || Privacy-14-4}}
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{/Privacy-14}}
 
 {{#Privacy-22-2 || Privacy-22-3}}
@@ -1640,10 +1598,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disablesync}}
 1. 以下のアドオンを無効化する。
-    1. Disable Sync
-{{/use_disablesync}}
+{{#use_disablesync}}    1. Disable Sync{{/use_disablesync}}
 
 ### 検証
 
@@ -1653,12 +1609,10 @@
     - 確認項目
         1. 「Bad configuration」または「設定が正しくありません」というエラーメッセージが表示され、アカウント登録の画面に遷移しない。(Privacy-24-2)
 
-{{#use_disablesync}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable Sync
-{{/use_disablesync}}
+{{#use_disablesync}}    1. Disable Sync{{/use_disablesync}}
 {{/Privacy-24-2}}
 
 ## プライバシーに関わる機能の利用制限
@@ -1704,7 +1658,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 
@@ -1729,7 +1683,7 @@
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{/Privacy-29-2}}
@@ -1787,11 +1741,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -1811,13 +1763,11 @@
         1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、{{#Privacy-11-2}}「Cookieデータの保存」において「許可」にチェックが入っている。（Privacy-11-2）{{/Privacy-11-2}}{{#Privacy-11-5}}「ブロック」にチェックが入っている。（Privacy-11-5）{{/Privacy-11-5}}
 {{/Privacy-11-2 || Privacy-11-5}}
 
-{{#use_globalchromecss ||use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 {{/Privacy-11}}
 
 {{#Privacy-34}}
@@ -1979,10 +1929,8 @@
 {{#Tab-3}}
 1. テストケース `links.html` を用意する。
 {{/Tab-3}}
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -2050,12 +1998,10 @@
 {{/Tab-9-2}}
 <!--/GROUP-->
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 {{#Ui-1}}
 ## 内蔵PDFビューアの使用
@@ -2068,10 +2014,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss}}
 1. 以下のアドオンを無効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 
 ### 検証
 
@@ -2081,12 +2025,10 @@
     - 確認項目
         1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」、「PDFファイル」となっている場合もあるため注意）の取り扱い方法{{#Ui-1-1}}が「Firefoxでプレビュー表示」となっている。(Ui-1-1){{/Ui-1-1}}{{#Ui-1-2}}の選択肢に「Firefoxでプレビュー表示」が存在しない。(Ui-1-2){{/Ui-1-2}}
 
-{{#use_globalchromecss}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{/Ui-1}}
 
 {{#Ui-3}}
@@ -2178,10 +2120,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -2212,12 +2152,10 @@
         1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-2}}「許可」が選択されている。(Script-2-2){{/Script-2-2}}{{#Script-2-4}}「ブロック」が選択されている。{{/Script-2-4}}
 {{/Script-2-2 || Script-2-4}}
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 {{#Stability-1}}
 ## ハードウェアアクセラレーションの使用
@@ -2230,10 +2168,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss}}
 1. 以下のアドオンを無効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 
 ### 検証
 
@@ -2243,12 +2179,10 @@
     - 確認項目
         1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。(Stability-1-1){{/Stability-1-1}}{{#Stability-1-2}}または、チェックが入っていない。(Stability-1-2){{/Stability-1-2}}
 
-{{#use_globalchromecss}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{/Stability-1}}
 
 {{#Stability-2-2 || Stability-2-3}}
@@ -2282,12 +2216,10 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -2307,18 +2239,18 @@
     - 確認項目
         1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2）
 
-{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
+{{#use_disableaboutconfig}}
 1. about:configで以下の設定をリセットする。
     1. `font.name.serif.ja`（文字列型）
     2. `font.name.sans-serif.ja`（文字列型）
     3. `font.name.monospace.ja`（文字列型）
+{{/use_disableaboutconfig}}
 1. 以下のアドオンを有効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 {{/Appearance-1-2}}
 
 {{#Appearance-2-2}}
@@ -2332,11 +2264,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -2350,13 +2280,11 @@
         1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
         2. パネルメニューに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
 
-{{#use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 {{/Appearance-2-2}}
 
 ## Webブラウズ操作のその他のカスタマイズ
@@ -2377,12 +2305,10 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -2435,14 +2361,12 @@
 {{/Performance-2-2}}
 <!--/GROUP-->
 
-{{#use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_disableaboutconfig || use_globalchromecss || use_uitextoverrider}}
 
 <!--======================================================================-->
 
@@ -2459,10 +2383,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss}}
 1. 以下のアドオンを無効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 1. 自動プロキシ設定スクリプトのURLが未設定の場合、設定する。{{pac_url_setup}}
 
 ### 検証
@@ -2489,12 +2411,10 @@
         1. 「システムのプロキシ設定を利用する」が選択されている。(Network-2-5)
 {{/Network-2-5}}
 
-{{#use_globalchromecss}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. globalChrome.css
-{{/use_globalchromecss}}
+{{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{/Network-2}}
 
 ## その他のネットワーク関連設定
@@ -2519,10 +2439,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
 
@@ -2585,12 +2503,10 @@
 {{/Network-12-2}}
 {{/Network-12}}
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 <!--======================================================================-->
 
@@ -2609,10 +2525,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaboutconfig}}
 1. 以下のアドオンを無効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -2638,12 +2552,10 @@
         1. `lightweightThemes.update.enabled` の値が`false`である。(Update-5-2)
 {{/Update-5-2}}
 
-{{#use_disableaboutconfig}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
-{{/use_disableaboutconfig}}
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 <!--======================================================================-->
 
@@ -2661,26 +2573,22 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. NPAPIプラグインを何種類かインストールしておく。
-{{#use_disableaddons}}
 1. 以下のアドオンを無効化する。
-    1. Disable Addons
-{{/use_disableaddons}}
+{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 1. 各プラグインの制御が可能であるかどうか自体を検証する場合、{{mcd_local_file}}に以下の内容を追記する。
    - lockPref("plugin.load_flash_only", false);
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. アドオンマネージャを開き、「プラグイン」を選択する。
+1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
         1. 個別の制御を行っていないNPAPIプラグインが既定の状態で{{#Plugin-10-1}}無効化されている。（Plugin-10-1）{{/Plugin-10-1}}{{#Plugin-10-2}}有効化されている。（Plugin-10-2）{{/Plugin-10-2}}{{#Plugin-10-3}}「実行時に確認する」が選択されている。(Plugin-10-3){{/Plugin-10-3}}
 
 ### 後始末
 
-{{#use_disableaddons}}
 1. 以下のアドオンを有効化する。
-    1. Disable Addons
-{{/use_disableaddons}}
+{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 1. 各プラグインの制御が可能であるかどうか自体を検証した場合、{{mcd_local_file}}に加えた変更を元に戻す。
 {{/Plugin-10}}
 
@@ -2703,36 +2611,19 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Plugin-1}}
-1. ` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*)
-{{/Plugin-1}}
+{{#Plugin-1}}1. ` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*){{/Plugin-1}}
 {{#Plugin-2 || Security-24}}
 1. `{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
 {{/Plugin-2 || Security-24}}
-{{#Plugin-3}}
-1. `{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*)
-{{/Plugin-3}}
-{{#Plugin-4}}
-1. `{{shockwave__download_url}}` からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*)
-{{/Plugin-4}}
-{{#Plugin-5}}
-1. `{{silverlight_download_url}}` からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*)
-{{/Plugin-5}}
-{{#Plugin-6}}
-1. `{{wmp__download_url}}` からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*)
-//
-{{/Plugin-6}}
-{{#Plugin-7}}
-1. Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*)
-{{/Plugin-7}}
-{{#Plugin-9}}
-1. Icead Teaプラグインをシステムにインストールしておく。
-{{/Plugin-9}}
-{{#use_disableaddons || use_globalchromecss}}
+{{#Plugin-3}}1. `{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*){{/Plugin-3}}
+{{#Plugin-4}}1. `{{shockwave__download_url}}` からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*){{/Plugin-4}}
+{{#Plugin-5}}1. `{{silverlight_download_url}}` からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*){{/Plugin-5}}
+{{#Plugin-6}}1. `{{wmp__download_url}}` からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*){{/Plugin-6}}
+{{#Plugin-7}}1. Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*){{/Plugin-7}}
+{{#Plugin-9}}1. Icead Teaプラグインをシステムにインストールしておく。{{/Plugin-9}}
 1. 以下のアドオンを無効化する。
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
-{{/use_disableaddons || use_globalchromecss}}
 {{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 1. 個別の設定が無く、各プラグインの制御が可能であるかどうか自体を検証する場合、各設定ファイルに以下の内容を追記する。
     - {{mcd_local_file}}:
@@ -2801,7 +2692,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. アドオンマネージャを開き、「プラグイン」を選択する。
+1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
 {{#Plugin-1}}
         1. Javaプラグインの項目が表示されており、{{#Plugin-1-1}}「無効化する」が選択されている。(Plugin-1-1){{/Plugin-1-1}}{{#Plugin-1-2}}「常に有効化する」が選択されている。(Plugin-1-2){{/Plugin-1-2}}{{#Plugin-1-3}}「実行時に確認する」が選択されている。(Plugin-1-3){{/Plugin-1-3}}
@@ -2852,11 +2743,9 @@
 
 ### 後始末
 
-{{#use_disableaddons || use_globalchromecss}}
 1. 以下のアドオンを有効化する。
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
-{{/use_disableaddons || use_globalchromecss}}
 {{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 1. 各プラグインの制御が可能であるかどうか自体の検証のために追加した設定を削除する。
 {{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
@@ -2902,11 +2791,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_globalchromecss || use_uitextoverrider}}
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 ### 検証
 
@@ -2929,13 +2816,11 @@
         1. 「見つかりませんでした。」と表示される。（Addon-IEView-3-2）
 {{/Addon-IEView-3-2}}
 
-{{#use_globalchromecss || use_uitextoverrider}}
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
-{{/use_globalchromecss || use_uitextoverrider}}
 
 <!--======================================================================-->
 
@@ -3227,8 +3112,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のアドオンを無効化する。
-    1. Disable about:config
+1. 以下のアドオンを無効化する。
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -3251,9 +3136,13 @@
     - 確認項目
         1. 「ページの記述方向を切り替える」が存在しない。(MenuShortcut-42)
         2. 「ページの情報を表示」の下にセパレータが存在しない。(MenuShortcut-42)
+{{/MenuShortcut-42}}
+{{#MenuShortcut-41}}
 1. 「編集」メニューを開く。
     - 確認項目
         1. 「テキストの記述方向を切り替える」が存在しない。(MenuShortcut-41)
+{{/MenuShortcut-41}}
+{{#MenuShortcut-42}}
 1. 「表示」メニューを開く。
     - 確認項目
         1. 「ページの記述方向を切り替える」が存在しない。(MenuShortcut-42)
@@ -3262,7 +3151,7 @@
 ### 後始末
 
 1. 以下のアドオンを有効化する。
-    1. Disable about:config
+{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ## 履歴とブックマーク
 
@@ -3371,15 +3260,15 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. 以下のカスタマイズを無効化する。
-    1. Security-4-2/3/4
+1. 以下のカスタマイズを無効化する。
+{{#Security-4-2 || Security-4-3 || Security-4-4}}    1. Security-4-2/3/4{{/Security-4-2 || Security-4-3 || Security-4-4}}
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
-        1. 「1個のポップアップがブロックされました」と表示される。(MenuShortcut-58/59)
+        1. 「1個のポップアップがブロックされました」と表示される。{{#MenuShortcut-58}}(MenuShortcut-58){{/MenuShortcut-58}}{{#MenuShortcut-59}}(MenuShortcut-59){{/MenuShortcut-59}}
 1. 「設定」ボタンをクリックする。
     - 確認項目
 {{#MenuShortcut-58}}        1. 「このサイトによるポップアップを許可する」が存在しない。(MenuShortcut-58){{/MenuShortcut-58}}
@@ -3388,7 +3277,7 @@
 ### 後始末
 
 1. 以下のカスタマイズを有効化する。
-    1. Security-4-2/3/4
+{{#Security-4-2 || Security-4-3 || Security-4-4}}    1. Security-4-2/3/4{{/Security-4-2 || Security-4-3 || Security-4-4}}
 
 <!--======================================================================-->
 
@@ -3474,15 +3363,13 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#use_disableaddons}}
 1. 以下のアドオンを無効化する。
-    1. Disable Addons
-{{/use_disableaddons}}
+{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 1. 以下のカスタマイズを無効化する。
-    1. Security-4-3（ポップアップブロックを有効化する）：{{mcd_local_file}}/autoconfig.jscから項目を削除
+{{#Security-4-3}}    1. Security-4-3（ポップアップブロックを有効化する）：{{mcd_local_file}}/autoconfig.jscから項目を削除{{/Security-4-3}}
 {{#use_globalchromecss}}
-    1. Privacy-6-3（オフラインキャッシュの設定UIを有効化する）：globalChrome.cssと{{mcd_local_file}}/autoconfig.jscから項目を削除
-    1. Hide-1（「セキュリティ」ペインを有効化する）：globalChrome.cssから項目を削除
+{{#Privacy-6-3}}    1. Privacy-6-3（オフラインキャッシュの設定UIを有効化する）：globalChrome.cssと{{mcd_local_file}}/autoconfig.jscから項目を削除{{/Privacy-6-3}}
+{{#Hide-1}}    1. Hide-1（「セキュリティ」ペインを有効化する）：globalChrome.cssから項目を削除{{/Hide-1}}
 {{/use_globalchromecss}}
 
 ### 検証
@@ -3507,13 +3394,13 @@
 
 ### 後始末
 
-{{#use_disableaddons}}
 1. 以下のアドオンを有効化する。
-    1. Disable Addons
-{{/use_disableaddons}}
+{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 1. 以下のカスタマイズを有効化する。
-    1. Security-4-3
-    1. Privacy-6-3
-    1. Hide-1
+{{#Security-4-3}}    1. Security-4-3{{/Security-4-3}}
+{{#use_globalchromecss}}
+{{#Privacy-6-3}}    1. Privacy-6-3{{/Privacy-6-3}}
+{{#Hide-1}}    1. Hide-1{{/Hide-1}}
+{{/use_globalchromecss}}
 {{/Hide-4}}
 
