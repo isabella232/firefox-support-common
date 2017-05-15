@@ -168,7 +168,7 @@ class ContentsCleaner
   def cleanup
     cleanup_no_verification_steps
     cleanup_no_verification_sections
-    cleanup_no_section_chapters
+    cleanup_blank_chapters
 
     @contents.gsub!(/^[ \t]*<!--[^>]*-->\n|<!--[^>]*-->/, "")
 
@@ -205,10 +205,10 @@ class ContentsCleaner
     end
   end
 
-  NO_SECTION_CHAPTERS_MATCHER = /^# [^#]+(^# |\z)/m
-  def cleanup_no_section_chapters
-    while @contents.match(NO_SECTION_CHAPTERS_MATCHER) do
-      @contents.sub!(NO_SECTION_CHAPTERS_MATCHER, "\\1")
+  BLANK_CHAPTERS_MATCHER = /^# [^#]+(^# |\z)/m
+  def cleanup_blank_chapters
+    while @contents.match(BLANK_CHAPTERS_MATCHER) do
+      @contents.sub!(BLANK_CHAPTERS_MATCHER, "\\1")
     end
   end
 end
