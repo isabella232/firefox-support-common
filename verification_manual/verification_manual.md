@@ -2241,12 +2241,10 @@
 
 ### 後始末
 
-{{#use_disableaboutconfig}}
 1. about:configで以下の設定をリセットする。
     1. `font.name.serif.ja`（文字列型）
     2. `font.name.sans-serif.ja`（文字列型）
     3. `font.name.monospace.ja`（文字列型）
-{{/use_disableaboutconfig}}
 1. 以下のアドオンを有効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
