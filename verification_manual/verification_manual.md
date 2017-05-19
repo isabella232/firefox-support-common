@@ -1188,6 +1188,7 @@
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
 {{#Privacy-40}}{{^Privacy-5-2}} - Privacy-40-\* {{/Privacy-5-2}}{{/Privacy-40}}
+{{#Privacy-33-2 && Privacy-41}} - Privacy-41-\* {{/Privacy-33-2 && Privacy-41}}
 
 ### 準備
 
@@ -1217,6 +1218,11 @@
     - 確認項目
         1. サムネイル画像が{{#Privacy-36-1}}保存される。（Privacy-36-1）{{/Privacy-36-1}}{{#Privacy-36-2}}保存されない。（Privacy-36-2）{{/Privacy-36-2}}
 {{/Privacy-36}}
+{{#Privacy-33-2 && Privacy-41}}
+1. ブラウザウィンドウで `http://www.kantei.go.jp/` を開く。
+    - 確認項目
+        1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。(Privacy-41-1){{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。(Privacy-41-2){{/Privacy-41-2}}
+{{/Privacy-33-2 && Privacy-41}}
 {{#Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシー」を開く。
