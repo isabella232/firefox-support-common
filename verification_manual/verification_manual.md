@@ -475,7 +475,7 @@
 
 ### 後始末
 
-1. 導入対象のアドオンがなかった場合に検証用に導入したアドオンを削除する。
+1. 導入対象のアドオンがなかった場合に検証用に導入したアドオンがあれば、削除する。
 1. 以下のアドオンを有効化する。
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
@@ -588,7 +588,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-1-3}}
-1. Windowsの証明書データベースに、証明書（{{imported_certs}}）をインポートしておく。
+1. Windowsの証明書データベースに、証明書（{{imported_certs}}）がインポートされた状態にしておく。
    この時、証明書はレジストリ上の以下の位置のいずれかに存在しているものとする。
     - `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\Root\Certificates`
     - `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root\Certificates`
@@ -627,7 +627,7 @@
 ### 後始末
 
 {{#Security-1-3}}
-1. Windowsの証明書データベースに検証用に追加した証明書を全て削除する。
+1. Windowsの証明書データベースに検証用に追加した証明書があれば、全て削除する。
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\nss.log-*` を全て削除する。
 {{/Security-1-3}}
