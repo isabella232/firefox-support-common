@@ -490,7 +490,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. アドオンの未署名のインストールパッケージとして、テストケースのunsigned-sample-addon@clear-code.com.xpiを用意する。
+2. アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意する。
 
 ### 検証
 
@@ -644,7 +644,7 @@
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#Security-3-1 || Security-3-3 || Security-3-4}}
-1. {{#Admin-4-1}}テストケースのunsigned-sample-addon@clear-code.com.xpi{{/Admin-4-1}}{{^Admin-4-1}}署名済みアドオンのインストールパッケージ{{/Admin-4-1}}を用意する。
+1. {{#Admin-4-1}}テストケースの `unsigned-sample-addon@clear-code.com.xpi` {{/Admin-4-1}}{{^Admin-4-1}}署名済みアドオンのインストールパッケージ{{/Admin-4-1}}を用意する。
 {{/Security-3-1 || Security-3-3 || Security-3-4}}
 
 ### 検証
@@ -857,7 +857,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. テストケースの「popupblock.html」を開く。
+1. テストケースの `popupblock.html` を開く。
     - 確認項目
 {{#Security-12-1}}
         1. ポップアップが開かれるか、またはポップアップブロックの通知が表示される。(Security-12-1)
