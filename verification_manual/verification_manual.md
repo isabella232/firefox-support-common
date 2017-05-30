@@ -261,7 +261,7 @@
     2. 旧バージョンのメタインストーラ
     3. Mozilla Firefox
     4. Mozilla Maintenance Service
-2. 以下のファイル、フォルダを削除する。
+1. 以下のファイル、フォルダを削除する。
     1. `{{install_path}}`
     1. 旧バージョンのメタインストーラによってインストールされたFirefox
     1. `C:\Program Files (x86)\ClearCode Inc`
@@ -299,7 +299,7 @@
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` が存在する。
 {{/Admin-1-1 || Admin-1-2}}
-1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
+1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
@@ -376,7 +376,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
     - 確認項目
 {{#Startup-1}}
         1. Firefoxが起動した時に「設定移行ウィザード」が{{#Startup-1-1}}表示される。(Startup-1-1){{/Startup-1-1}}{{#Startup-1-2}}表示されない。(Startup-1-2){{/Startup-1-2}}
@@ -468,7 +468,7 @@
 1. Firefoxを終了する。
 {{/Startup-7}}
 {{#Startup-8}}
-1. プロファイルを削除してからFirefoxを起動する。ホームページを既定の状態から変更している場合は、`https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/` と入力し、ページを開く。
+1. プロファイルを削除してからFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}ホームページを既定の状態から変更している場合は、`https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/` と入力し、ページを開く。
     - 確認方法
         1. UIツアーが{{#Startup-8-1}}開始される。(Startup-8-1){{/Startup-8-1}}{{#Startup-8-2}}開始されない。(Startup-8-2){{/Startup-8-2}}
 {{/Startup-8}}
@@ -948,7 +948,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 2. ロケーションバーに`about:blank`と入力し、空のページを開く。
 3. パネルメニューの「開発ツール」→「開発ツールを表示」で開発ツールを表示する。
 4. 開発ツール右上の歯車アイコンをクリックする。
@@ -1259,7 +1259,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Privacy-36}}
 1. テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開いて、`https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
     - 確認項目
@@ -1838,7 +1838,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 1. テストケースの `password.html` を開く。
 1. ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
 1. ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.js` を開く。
