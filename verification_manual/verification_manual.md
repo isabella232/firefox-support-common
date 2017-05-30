@@ -2469,7 +2469,8 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
-1. 自動プロキシ設定スクリプトのURLが未設定の場合、設定する。{{pac_url_setup}}
+1. 自動プロキシ設定スクリプトのURLが未設定の場合、設定する。  
+   {{pac_url_setup}}
 
 ### 検証
 
@@ -2486,7 +2487,8 @@
 {{/Network-2-2}}
 {{#Network-2-3}}
         1. 「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3)
-        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURL（`{{pac_url}}`、または `data:application/javascript,`）が入力されている。(Network-2-3)
+        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。(Network-2-3)  
+           （`{{pac_url}}` または `data:application/javascript,`）
 {{/Network-2-3}}
 {{#Network-2-4}}
         1. 「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4)
