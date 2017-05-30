@@ -9,15 +9,24 @@
 
 ## 環境
 
-対象のFirefoxのバージョンは{{firefox_version}}とする。
+- 対象のFirefoxのバージョンは{{firefox_version}}とする。
+- 検証環境は{{windows_version}}とする。
+- 参照する設定資料は{{configuration_sheet_name}}とする。
 
-検証環境は{{windows_version}}とする。
+## 基本の設定
 
-参照する設定資料は{{configuration_sheet_name}}とする。
+- メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
+- メタインストーラの表示バージョンは{{meta_installer_version}}とする。
+- Firefoxのインストール先は `{{install_path}}` とする。
+- デスクトップのショートカットは `{{desktop_shortcut_path}}` に作成するものとする。
+- スタートメニューのショートカットは `{{start_menu_shortcut_path}}` に作成するものとする。
 
 {{#Admin-1-2 || Network-2-3 || Security-4-2 || Security-4-5}}
-## 検証時の準備
+## 検証の準備
 
+{{#is_upgrade}}
+* 現行バージョンのFirefoxのセットアップ手順を確認し、現行環境を復元できる用意を整えておく。
+{{/is_upgrade}}
 {{#Admin-1-2}}
 * リモート設定ファイルを参照できない環境で検証する場合、MCD用設定ファイルの「Admin-1-2」に対応する設定をコメントアウトし、ローカル設定ファイルのみを使用するように設定する。
 {{/Admin-1-2}}
@@ -27,25 +36,77 @@
 {{#Security-4-2 || Security-4-5}}
 * ポップアップの許可対象サイトを参照できない環境で検証する場合、ポップアップの許可対象サイト一覧に `example.com` を加えるよう設定する。
 {{/Security-4-2 || Security-4-5}}
+* 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部の検証を実施できない場合がある。
+* 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく。
+  `https://github.com/clear-code/firefox-support-common/`
 
 {{/Admin-1-2 || Network-2-3 || Security-4-2 || Security-4-5}}
 
 <!--======================================================================-->
 
-# 新規インストールに関するカスタマイズ
+# インストール時の挙動に関するカスタマイズ
 
-## メタインストーラを使用した、新規インストールの手順
+## インストーラの作成
 
-- メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
-- メタインストーラの表示バージョンは{{meta_installer_version}}とする。
-- Firefoxのインストール先は `{{install_path}}` とする。
-- デスクトップのショートカットは `{{desktop_shortcut_path}}` に作成するものとする。
-- スタートメニューのショートカットは `{{start_menu_shortcut_path}}` に作成するものとする。
+### 確認する項目
+
+{{#Install-2}} - Install-2-\* {{/Install-2}}
+{{#Install-9}} - Install-9-\* {{/Install-9}}
+
+### 検証
+
+1. メタインストーラ作成キット一式を用意する。
+    - 確認項目
+{{#Install-2}}
+        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。(Install-2-\*)
+{{/Install-2}}
+1. 不要なファイルを削除する。
+    - `{{meta_installer_file_name}}\*.exe`
+1. fainstall.iniを開き、検証環境に合わせて内容を修正する。
+    - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の `（ドライブレター）:\` の指定をすべて `C:\（ドライブレター）\ `に置換する。
+      以下、ファイルの作成先はすべて置換後のパスで読み替える。
+1. `{{meta_installer_file_name}}.bat` を実行する。
+{{#Install-9}}
+    - 確認項目
+{{#Install-9-1}}
+        1. `{{meta_installer_file_name}}.exe` が作成される。(Install-9-1)
+{{/Install-9-1}}
+{{#Install-9-2}}
+        1. `{{meta_installer_file_name}}-{{meta_installer_version}}.exe` が作成される。(Install-9-2)
+{{/Install-9-2}}
+{{/Install-9}}
+
+{{#is_upgrade}}{{#Install-7-2}}
+## 現行環境への上書きインストール
+
+### 確認する項目
+
+ - Install-7-2
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. `{{meta_installer_file_name}}\*.exe` が作成済みの状態にする。
+1. 現行バージョンのFirefoxがセットアップ済みの状態にしておく。
+1. コントロールパネル→プログラムと機能で以下がインストールされているならばアンインストールする。
+    1. {{meta_installer_name}}
+1. 以下のファイル、フォルダを削除する。
+    1. `C:\Program Files (x86)\ClearCode Inc`
+
+### 検証
+
+1. `{{meta_installer_file_name}}\*.exe` を実行する。
+1. インストールされた環境が想定通りか確認する。
+    - 確認項目
+        1. `{{install_path}}\distribution` 内にファイルが設置されていた場合、それらがすべてFirefoxのインストーラにより削除されている。(Install-7-2)
+{{/Install-7-2}}{{/is_upgrade}}
+
+
+## 新規インストール
 
 ### 確認する項目
 
 {{#Install-1}} - Install-1-\* {{/Install-1}}
-{{#Install-2}} - Install-2-\* {{/Install-2}}
 {{#Install-3}} - Install-3-\* {{/Install-3}}
 {{#Install-4}} - Install-4-\* {{/Install-4}}
 {{#Install-5}} - Install-5-\* {{/Install-5}}
@@ -63,37 +124,21 @@
 
 ### 準備
 
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. `{{meta_installer_file_name}}\*.exe` が作成済みの状態にする。
 1. コントロールパネル→プログラムと機能で以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
-    2. Mozilla Firefox
-    3. Mozilla Maintenance Service
-2. 以下のファイル、フォルダを削除する。
+    1 Mozilla Firefox
+    1. Mozilla Maintenance Service
+1. 以下のファイル、フォルダを削除する。
     1. `{{install_path}}`
-    2. `C:\Program Files (x86)\ClearCode Inc`
-    3. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
-    4. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+    1. `C:\Program Files (x86)\ClearCode Inc`
+    1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
+    1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 
 ### 検証
 
-1. メタインストーラ作成キット一式を用意する。
-    - 確認項目
-{{#Install-2}}
-        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}-source` である。(Install-2-\*)
-{{/Install-2}}
-1. 不要なファイルを削除する。
-    - `{{meta_installer_file_name}}\*.exe`
-1. fainstall.iniを開き、検証環境に合わせて内容を修正する。
-    - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の `（ドライブレター）:\` の指定をすべて `C:\（ドライブレター）\ `に置換する。
-      以下、ファイルの作成先はすべて置換後のパスで読み替える。
-1. `{{meta_installer_file_name}}.bat` を実行する。
-    - 確認項目
-{{#Install-9-1}}
-        1. `{{meta_installer_file_name}}.exe` が作成される。(Install-9-1)
-{{/Install-9-1}}
-{{#Install-9-2}}
-        1. `{{meta_installer_file_name}}-{{meta_installer_version}}.exe` が作成される。(Install-9-2)
-{{/Install-9-2}}
-5. 作成された `{{meta_installer_file_name}}\*.exe` を実行する。
+1. `{{meta_installer_file_name}}\*.exe` を実行する。
     - 確認項目
         1. メタインストーラの圧縮ファイルを展開する様子を示すダイアログが表示される。
 {{#Install-3-2}}
