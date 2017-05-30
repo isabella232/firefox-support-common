@@ -1957,7 +1957,8 @@
 {{/Download-1}}
 {{#Download-2 || Download-3-1 || Download-3-2}}
 1. ロケーションバーに `http://www.clear-code.com/` と入力し、ページを開く。
-1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
+   もしくは、Content-Typeが `application/octet-stream`のリンク先ファイルが自動ダウンロードされるページを開く。
+1. Webページ中の任意のリンクを右クリックするか、しばらく待つかし、表示されたダイアログで「名前を付けてリンク先を保存」を選択する。
 {{#Download-2}}
     - 確認項目
         1. {{#Download-2-1 || Download-2-2}}ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
