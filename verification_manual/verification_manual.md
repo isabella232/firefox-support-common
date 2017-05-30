@@ -2956,10 +2956,10 @@
 1. 「履歴」メニューを開く。
     - 確認項目
 {{#MenuShortcut-1}}
-        1. 「最近閉じたタブ」それ自体もしくはその配下の項目が存在しない。(MenuShortcut-1)
+        1. 「最近閉じたタブ」が存在しない。(MenuShortcut-1)
 {{/MenuShortcut-1}}
 {{#MenuShortcut-2}}
-        1. 「最近閉じたウィンドウ」それ自体もしくはその配下の項目が存在しない。(MenuShortcut-2)
+        1. 「最近閉じたウィンドウ」が存在しない。(MenuShortcut-2)
 {{/MenuShortcut-2}}
 <!--/GROUP-->
 {{#MenuShortcut-10}}
