@@ -39,6 +39,9 @@
 * 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部の検証を実施できない場合がある。
 * 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく。
   `https://github.com/clear-code/firefox-support-common/`
+{{#Security-21}}
+* 脆弱性があるバージョンのプラグインの自動無効化の挙動を確認するため、安全でないバージョンのプラグインのインストールが可能なようにしておく。
+{{/Security-21}}
 
 {{/Admin-1-2 || Network-2-3 || Security-4-2 || Security-4-5}}
 
@@ -1147,12 +1150,13 @@
 ### 確認する項目
 
 {{#Security-26}} - Security-26-\* {{/Security-26}}
-{{#Security-27}}- Security-27-\* {{/Security-27}}
+{{#Security-27}} - Security-27-\* {{/Security-27}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合は実際の動作での検証が不可能なため、安全でない実行ファイルのダウンロードが可能な状態にしておく。
 
 ### 検証
 
@@ -1168,6 +1172,16 @@
 1. ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
     - 確認項目
         1. ダウンロード一覧の一番上の項目に{{#Security-27-1}}「このファイルを開くのは危険です。」という警告のメッセージが表示される。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}}特に警告のメッセージは表示されない。（Security-27-2）{{/Security-27-2}}
+
+フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
+
+{{#Privacy-26}}
+- `browser.safebrowsing.download.enabled` が{{#Privacy-26-1}} `true` である。(Privacy-26-1){{/Privacy-26-1}}{{#Privacy-26-2}} `false` である。(Privacy-26-2){{/Privacy-26-2}}
+{{/Privacy-26}}
+{{#Privacy-27}}
+- `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Privacy-27-1}} `true` である。(Privacy-27-1){{/Privacy-27-1}}{{#Privacy-27-2}} `false` である。(Privacy-27-2){{/Privacy-27-2}}
+{{/Privacy-27}}
+
 
 ## その他のセキュリティに関わる設定
 
