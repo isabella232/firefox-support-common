@@ -1173,7 +1173,7 @@
     - 確認項目
         1. ダウンロード一覧の一番上の項目に{{#Security-27-1}}「このファイルを開くのは危険です。」という警告のメッセージが表示される。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}}特に警告のメッセージは表示されない。（Security-27-2）{{/Security-27-2}}
 
-フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
+ただし、フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
 
 {{#Privacy-26}}
 - `browser.safebrowsing.download.enabled` が{{#Privacy-26-1}} `true` である。(Privacy-26-1){{/Privacy-26-1}}{{#Privacy-26-2}} `false` である。(Privacy-26-2){{/Privacy-26-2}}
@@ -1269,6 +1269,7 @@
     - `lockPref("logging.config.add_timestamp", true);`
     - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
 1. `C:\Users\Public\http.log-*` を全て削除しておく。
+1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
 {{/Privacy-32 || Privacy-37}}
 
 ### 検証
@@ -1495,13 +1496,28 @@
 {{#Privacy-32}}
         1. ログ中に現れる `nsHttpConnectionMgr::OnMsgSpeculativeConnect` と `Transport not created due to existing connection count` の{{#Privacy-32-1}}登場回数のうち、前者の方が多い。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}}両者の登場回数が等しい。（Privacy-32-2）{{/Privacy-32-2}}  
            （Linux環境で確認する場合の例：  
-           `cat http.log* | grep 'nsHttpConnectionMgr::OnMsgSpeculativeConnect' | wc -l; cat http.log* | grep 'Transport not created due to existing connection count' | wc -l` の実行結果の2行の数値について、{{#Privacy-32-1}}上が大きければ{{/Privacy-32-1}}{{#Privacy-32-2}}両者が同じであれば{{/Privacy-32-2}}設定は期待通り反映されている。）
+           `cat http.log* | grep 'nsHttpConnectionMgr::OnMsgSpeculativeConnect' | wc -l; cat http.log* | grep 'Transport not created due to existing connection count' | wc -l` の実行結果の2行の数値について、{{#Privacy-32-1}}上が大きければ{{/Privacy-32-1}}{{#Privacy-32-2}}両者が同じであれば{{/Privacy-32-2}}設定は期待通り反映されている。）  
+           （Firefox上で確認する場合の例：  
+           ログをFirefoxで開き、Webコンソールを表示して `var body = document.body.textContent; var requested = body.match(/nsHttpConnectionMgr::OnMsgSpeculativeConnect/g) || []; var skipped = body.match(/Transport not created due to existing connection count/g) || []; console.log('all skipped?: ' + (requested.length == skipped.length));` を実行し、結果が{{#Privacy-32-1}} `all skipped?: false` {{/Privacy-32-1}}{{#Privacy-32-2}} `all skipped?: true` {{/Privacy-32-2}}であれば設定は期待通り反映されている。）
 {{/Privacy-32}}
 {{#Privacy-37}}
         1. ログ中の `Predictor::Predict` という行の直後に続く `called on parent process` という行の直後に、`not enabled` という行が{{#Privacy-37-1}}表れていない。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}}表れている。（Privacy-37-2）{{/Privacy-37-2}}  
            （Linux環境で確認する場合の例：  
-           `cat http.log* | grep -A 2 'Predictor::Predict' | grep -A 1 'called on parent process' | grep 'not enabled' | wc -l; cat http.log* | grep -A 1 'Predictor::Predict' | grep 'called on parent process' | wc -l` の実行結果の2行の数値が{{#Privacy-37-1}}異なっていれば{{/Privacy-37-1}}{{#Privacy-37-2}}同じであれば{{/Privacy-37-2}}、設定は期待通り反映されている。）
+           `cat http.log* | grep -A 2 'Predictor::Predict' | grep -A 1 'called on parent process' | grep 'not enabled' | wc -l; cat http.log* | grep -A 1 'Predictor::Predict' | grep 'called on parent process' | wc -l` の実行結果の2行の数値が{{#Privacy-37-1}}異なっていれば{{/Privacy-37-1}}{{#Privacy-37-2}}同じであれば{{/Privacy-37-2}}、設定は期待通り反映されている。）  
+           （Firefox上で確認する場合の例：  
+           ログをFirefoxで開き、Webコンソールを表示して `var body = document.body.textContent; var success = body.match(/Predictor::Predict.*\n.*called on parent process.*\n.*not enabled/g) || []; var fail = body.match(/Predictor::Predict.*\n.*called on parent process/g) || []; console.log('all cancened?: ' + (success.length == fail.length));` を実行し、結果が{{#Privacy-37-1}} `all cancened?: false` {{/Privacy-37-1}}{{#Privacy-37-2}} `all cancened?: true` {{/Privacy-37-2}}であれば設定は期待通り反映されている。）
 {{/Privacy-37}}
+
+{{#Privacy-32 || #Privacy-37}}
+ただし、先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
+
+{{#Privacy-32}}
+- `network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。(Privacy-32-1){{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。(Privacy-32-2){{/Privacy-32-2}}
+{{/Privacy-32}}
+{{#Privacy-37}}
+- `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。(Privacy-37-1){{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。(Privacy-37-2){{/Privacy-37-2}}
+{{/Privacy-37}}
+{{/Privacy-32 || #Privacy-37}}
 
 ### 後始末
 
