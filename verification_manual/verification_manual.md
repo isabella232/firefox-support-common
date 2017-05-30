@@ -2697,16 +2697,16 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Plugin-1}}1. ` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*){{/Plugin-1}}
+{{#Plugin-1}}1. Javaプラグインが未導入の場合、` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*){{/Plugin-1}}
 {{#Plugin-2 || Security-24}}
-1. `{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
+1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
 {{/Plugin-2 || Security-24}}
-{{#Plugin-3}}1. `{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*){{/Plugin-3}}
-{{#Plugin-4}}1. `{{shockwave__download_url}}` からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*){{/Plugin-4}}
-{{#Plugin-5}}1. `{{silverlight_download_url}}` からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*){{/Plugin-5}}
-{{#Plugin-6}}1. `{{wmp__download_url}}` からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*){{/Plugin-6}}
-{{#Plugin-7}}1. Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*){{/Plugin-7}}
-{{#Plugin-9}}1. Icead Teaプラグインをシステムにインストールしておく。{{/Plugin-9}}
+{{#Plugin-3}}1. Adobe Acrobatプラグインが未導入の場合、`{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*){{/Plugin-3}}
+{{#Plugin-4}}1. Adobe Shockwaveプラグインが未導入の場合、`{{shockwave__download_url}}` からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*){{/Plugin-4}}
+{{#Plugin-5}}1. Silverlightプラグインが未導入の場合、`{{silverlight_download_url}}` からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*){{/Plugin-5}}
+{{#Plugin-6}}1. Windows Media Playerプラグインが未導入の場合、`{{wmp__download_url}}` からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*){{/Plugin-6}}
+{{#Plugin-7}}1. Cisco WebExtプラグインが未導入の場合、Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*){{/Plugin-7}}
+{{#Plugin-9}}1. Icead Teaプラグインが未導入の場合、Icead Teaプラグインをシステムにインストールしておく。{{/Plugin-9}}
 1. 以下のアドオンを無効化する。
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
