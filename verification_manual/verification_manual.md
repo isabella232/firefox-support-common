@@ -1175,14 +1175,13 @@
 1. ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
     - 確認項目
         1. ダウンロード一覧の一番上の項目に{{#Security-27-1}}「このファイルを開くのは危険です。」という警告のメッセージが表示される。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}}特に警告のメッセージは表示されない。（Security-27-2）{{/Security-27-2}}
-
-ただし、フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
-
+1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
+    - 確認項目
 {{#Privacy-26}}
-- `browser.safebrowsing.download.enabled` が{{#Privacy-26-1}} `true` である。(Privacy-26-1){{/Privacy-26-1}}{{#Privacy-26-2}} `false` である。(Privacy-26-2){{/Privacy-26-2}}
+        1. `browser.safebrowsing.download.enabled` が{{#Privacy-26-1}} `true` である。(Privacy-26-1){{/Privacy-26-1}}{{#Privacy-26-2}} `false` である。(Privacy-26-2){{/Privacy-26-2}}
 {{/Privacy-26}}
 {{#Privacy-27}}
-- `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Privacy-27-1}} `true` である。(Privacy-27-1){{/Privacy-27-1}}{{#Privacy-27-2}} `false` である。(Privacy-27-2){{/Privacy-27-2}}
+        1. `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Privacy-27-1}} `true` である。(Privacy-27-1){{/Privacy-27-1}}{{#Privacy-27-2}} `false` である。(Privacy-27-2){{/Privacy-27-2}}
 {{/Privacy-27}}
 
 
@@ -1510,15 +1509,14 @@
            （Firefox上で確認する場合の例：  
            ログをFirefoxで開き、Webコンソールを表示して `var body = document.body.textContent; var success = body.match(/Predictor::Predict.*\n.*called on parent process.*\n.*not enabled/g) || []; var fail = body.match(/Predictor::Predict.*\n.*called on parent process/g) || []; console.log('all cancened?: ' + (success.length == fail.length));` を実行し、結果が{{#Privacy-37-1}} `all cancened?: false` {{/Privacy-37-1}}{{#Privacy-37-2}} `all cancened?: true` {{/Privacy-37-2}}であれば設定は期待通り反映されている。）
 {{/Privacy-37}}
-
 {{#Privacy-32 || #Privacy-37}}
-ただし、先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
-
+1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
+    - 確認項目
 {{#Privacy-32}}
-- `network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。(Privacy-32-1){{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。(Privacy-32-2){{/Privacy-32-2}}
+        1. `network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。(Privacy-32-1){{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。(Privacy-32-2){{/Privacy-32-2}}
 {{/Privacy-32}}
 {{#Privacy-37}}
-- `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。(Privacy-37-1){{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。(Privacy-37-2){{/Privacy-37-2}}
+        1. `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。(Privacy-37-1){{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。(Privacy-37-2){{/Privacy-37-2}}
 {{/Privacy-37}}
 {{/Privacy-32 || #Privacy-37}}
 
