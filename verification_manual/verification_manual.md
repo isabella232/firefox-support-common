@@ -370,7 +370,9 @@
 {{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
 1. 導入対象のアドオンがない場合、「Disable Sync」もしくは何らかのアドオンを管理者権限でインストールするよう配置しておく。
    （「Disable Sync」の場合、ファイル `disablesync@clear-code.com.xpi` を `{{install_path}}\browser\extensions\` の位置に置く。）
-1. システムの規定のブラウザを別のブラウザに設定する。
+1. システムの既定のブラウザを別のブラウザに設定する。
+   例えばIEであれば、インターネットオプションから既定のブラウザに設定する。
+   もしくは、Windowsのコントロールパネル内の既定のアプリの設定から、既定のブラウザをIEに設定する。
 
 ### 検証
 
