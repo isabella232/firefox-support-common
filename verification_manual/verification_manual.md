@@ -85,8 +85,8 @@
 
 ### 確認する項目
 
-{{#Admin-1-1 || Admin-1-2}} - Admin-1-1/2{{/Admin-1-1 || Admin-1-2}}
 {{#Install-7-2}} - Install-7-2{{/Install-7-2}}
+{{#Admin-1-1 || Admin-1-2}} - Admin-1-1/2{{/Admin-1-1 || Admin-1-2}}
 
 ### 準備
 
