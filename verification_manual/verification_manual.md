@@ -103,13 +103,13 @@
 1. `{{meta_installer_file_name}}\*.exe` を実行する。
 1. インストールされた環境が想定通りか確認する。
     - 確認項目
-{{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\*.cfg` の位置にあったファイルが、`{{install_path}}\*.cfg.*.backup`にリネームされている。(Admin-1-1/2)
-        1. `{{install_path}}\defaults\pref\*.js` の位置にあったファイルが、`{{install_path}}\defaults\pref\*.js.*.backup`にリネームされている。(Admin-1-1/2)
-{{/Admin-1-1 || Admin-1-2}}
 {{#Install-7-2}}
         1. `{{install_path}}\distribution` 内にファイルが設置されていた場合、それらがすべてFirefoxのインストーラにより削除されている。(Install-7-2)
 {{/Install-7-2}}
+{{#Admin-1-1 || Admin-1-2}}
+        1. `{{install_path}}\*.cfg` の位置にあったファイルが、`{{install_path}}\*.cfg.backup.*`にリネームされている。(Admin-1-1/2)
+        1. `{{install_path}}\defaults\pref\*.js` の位置にあったファイルが、`{{install_path}}\defaults\pref\*.js.backup.*`にリネームされている。(Admin-1-1/2)
+{{/Admin-1-1 || Admin-1-2}}
 {{/is_upgrade}}
 
 
