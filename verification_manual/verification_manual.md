@@ -1301,7 +1301,7 @@
     - 確認項目
         1. 「ブロックリストを変更」ボタンが無効化されている。（Privacy-35-3/4）
 1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウトする。（Privacy-35-3/4）
-   * `lockPref("pref.privacy.disable_button.change_blocklist", true);`
+    * `lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -1348,7 +1348,7 @@
 <!--/GROUP-->
 {{#Privacy-35-3 || Privacy-35-4}}
 1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウト状態から復帰させる。
-   * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
+    * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
 1. テストケースの `password.html` を開く。
