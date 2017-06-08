@@ -1501,6 +1501,7 @@
     - 確認項目
         1. sessionstore.jsが存在しない。（Privacy-10-2）
 {{/Privacy-10-2}}
+{{#Privacy-32 || Privacy-37}}
 1. `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）を開く。
     - 確認項目
 {{#Privacy-32}}
@@ -1517,7 +1518,6 @@
            （Firefox上で確認する場合の例：  
            ログをFirefoxで開き、Webコンソールを表示して `var body = document.body.textContent; var success = body.match(/Predictor::Predict.*\n.*called on parent process.*\n.*not enabled/g) || []; var fail = body.match(/Predictor::Predict.*\n.*called on parent process/g) || []; console.log('all cancened?: ' + (success.length == fail.length));` を実行し、結果が{{#Privacy-37-1}} `all cancened?: false` {{/Privacy-37-1}}{{#Privacy-37-2}} `all cancened?: true` {{/Privacy-37-2}}であれば設定は期待通り反映されている。）
 {{/Privacy-37}}
-{{#Privacy-32 || #Privacy-37}}
 1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
 {{#Privacy-32}}
@@ -1526,7 +1526,7 @@
 {{#Privacy-37}}
         1. `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。(Privacy-37-1){{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。(Privacy-37-2){{/Privacy-37-2}}
 {{/Privacy-37}}
-{{/Privacy-32 || #Privacy-37}}
+{{/Privacy-32 || Privacy-37}}
 
 ### 後始末
 
