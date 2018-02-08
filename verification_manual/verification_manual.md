@@ -180,10 +180,10 @@
         1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-\*)
 {{/Admin-1}}
 {{#Application-1}}
-        1. {{desktop_shortcut_path}} が{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
+        1. `{{desktop_shortcut_path}}` が{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
 {{/Application-1}}
 {{#Application-2}}
-        1. {{start_menu_shortcut_path}} が{{#Application-2-1 || Application-2-3}}存在する。(Application-2-1/3){{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
+        1. `{{start_menu_shortcut_path}}` が{{#Application-2-1 || Application-2-3}}存在する。(Application-2-1/3){{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
 {{/Application-2}}
 {{#Application-3}}
         1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが{{#Application-3-1}}存在する。(Application-3-1){{/Application-3-1}}{{#Application-3-2}}存在しない。(Application-3-2){{/Application-3-2}}
@@ -779,7 +779,7 @@
     - 確認項目
         1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
 {{#Security-5-2}}
-1. 「{{special_profile_path}}\\{{special_profile_name}}\\safebrowsing」、もしくは「%LocalAppData%\\Mozilla\\Firefox\\Profiles\\（ランダムな文字列）.default\\safebrowsing」を開く。
+1. 「`{{special_profile_path}}\{{special_profile_name}}\safebrowsing`」、もしくは「`%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\safebrowsing`」を開く。
     - 確認項目
         1. フォルダが空である。(Security-5-2)
 {{/Security-5-2}}
