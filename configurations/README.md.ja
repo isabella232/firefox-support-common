@@ -7,6 +7,7 @@
         - 黄色: 選択された項目
         - 橙色: 最新バージョンのFirefox向けに新たに追加された項目
         - 灰色: 廃止された項目
+    * `verify-targets`シートを`customization-items.ods.verify-targets.csv`という名前で保存する
  2. `verification_manual.md`と同じ位置に置いた`Rakefile`から`customization-items.ods`を参照するようにし、`rake`を実行する。すると、検証手順書のPDFファイルと同時に、`verify-targets-to-chapters.csv`として、各設定項目と検証手順書の章・節番号の対応付け一覧が出力される。
     * この時、設定項目の選択状態について、検証手順書中に対応する項目がない場合はWarningが出力されるので、検証手順書自体の記載ミスなどがないか確認する。
  3. `verify-targets-to-chapters.csv`の内容を、`customization-items.ods`の`verify-targets-to-chapters`の`A1`を起点に貼り付ける。
