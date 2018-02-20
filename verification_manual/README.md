@@ -10,7 +10,7 @@
 
 ## Install tools (Debian GNU/Linux)
 
-    sudo apt-get install -y texlive-full pandoc ruby rake
+    sudo apt-get install -y pandoc ruby ruby-bundler rake texlive-luatex texlive-lang-japanese texlive-latex-extra
 
 ## Install gems
 
