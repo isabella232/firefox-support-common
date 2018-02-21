@@ -135,7 +135,7 @@
     1. `{{meta_installer_file_name}}\*.exe` が作成済みの状態にする。
 1. コントロールパネル→プログラムと機能で以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
-    1 Mozilla Firefox
+    1. Mozilla Firefox
     1. Mozilla Maintenance Service
 1. 以下のファイル、フォルダを削除する。
     1. `{{install_path}}`
