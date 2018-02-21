@@ -1,0 +1,10 @@
+{
+    "policies": {
+	"popups": {
+	    "allow": [
+		"http://example.com",
+		"https://example.org:8080"
+	    ]
+	}
+    }
+}

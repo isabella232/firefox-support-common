@@ -1,0 +1,10 @@
+{
+    "policies": {
+	"flash_plugin": {
+	    "block": [
+		"http://example.com",
+		"https://example.org:8080"
+	    ]
+	}
+    }
+}

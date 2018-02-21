@@ -1,0 +1,8 @@
+{
+    "policies": {
+	"block": [
+	    "https://example.com",
+	    "https://example.org:8080"
+	]
+    }
+}
