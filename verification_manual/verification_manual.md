@@ -2675,6 +2675,8 @@
 1. NPAPIプラグインを何種類かインストールしておく。
 1. 以下のアドオンを無効化する。
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+1. 各プラグインの制御が可能であるかどうか自体を検証する場合、{{mcd_local_file}}に以下の内容を追記する。
+   - lockPref("plugin.load_flash_only", false);
 
 ### 検証
 
