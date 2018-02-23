@@ -2575,6 +2575,9 @@
 {{/Network-7}}
 {{#Network-8}}
         1. `network.dns.disableIPv6` の値が{{#Network-8-1}}`false`である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}`true`である。(Network-8-2){{/Network-8-2}}
+{{#dns_disable_prefetch}}
+        1. `network.dns.disablePrefetch` の値が{{#Network-8-1}}`false`である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}`true`である。(Network-8-2){{/Network-8-2}}
+{{/dns_disable_prefetch}}
 {{/Network-8}}
 {{#Network-9}}
         1. `network.http.pipelining` の値が{{#Network-9-1}}`true`である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}`false`である。(Network-9-2){{/Network-9-2}}
