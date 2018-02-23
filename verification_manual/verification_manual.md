@@ -2557,9 +2557,15 @@
         1. `network.automatic-ntlm-auth.trusted-uris` の値が`{{ntlm_single_signon_hosts}}`である。(Network-4-1)
 {{/Network-4-1}}
 {{#Network-5-2}}
+{{#max_connections}}
         1. `network.http.max-connections` の値が{{max_connections}}である。(Network-5-2)
+{{/max_connections}}
+{{#max_persistent_connections_per_server}}
         1. `network.http.max-persistent-connections-per-server` の値が{{max_persistent_connections_per_server}}である。(Network-5-2)
+{{/max_persistent_connections_per_server}}
+{{#max_persistent_connections_per_proxy}}
         1. `network.http.max-persistent-connections-per-proxy` の値が{{max_persistent_connections_per_proxy}}である。(Network-5-2)
+{{/max_persistent_connections_per_proxy}}
 {{/Network-5-2}}
 {{#Network-6}}
         1. `network.http.spdy.enabled` の値が{{#Network-6-1}}`true`である。(Network-6-1){{/Network-6-1}}{{#Network-6-2}}`false`である。(Network-6-2){{/Network-6-2}}
