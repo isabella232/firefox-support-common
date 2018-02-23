@@ -2708,7 +2708,12 @@
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
+{{^Security-24-2}}
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{/Security-24-2}}
+{{#Security-24-2}}
+    1. カスタマイズ済みFirefox(32bit版)のインストールが完了した状態にする。
+{{/Security-24-2}}
 {{#Plugin-1}}1. Javaプラグインが未導入の場合、` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*){{/Plugin-1}}
 {{#Plugin-2 || Security-24}}
 1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
