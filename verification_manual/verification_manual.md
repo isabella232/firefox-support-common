@@ -2287,7 +2287,12 @@
 
 ### 確認する項目
 
-- Stability-2-2/3
+{{#Stability-2-2}}
+- Stability-2-2
+{{/Stability-2-2}}
+{{#Stability-2-3}}
+- Stability-2-3
+{{/Stability-2-3}}
 
 ### 準備
 
