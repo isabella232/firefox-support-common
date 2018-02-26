@@ -1653,6 +1653,7 @@
 ### 確認する項目
 
 - Privacy-22-2/3
+- Privacy-24-2
 
 ### 準備
 
@@ -1683,40 +1684,13 @@
         1. `about:accounts`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Privacy-22-2)
         1. `about:accounts`のリンクを左クリックし、空白のページが読み込まれるか、タブが閉じられる。(Privacy-22-2)
 {{/Privacy-22-2}}
-{{#Privacy-22-3}}
-1. パネルメニューを開き、パネルメニュー下部の「Syncにサインイン」をクリックする。
-2. 設定の「Sync」パネルが開かれるので、「サインイン」ボタンをクリックする。
+{{#Privacy-22-3 && Privacy-24-2}}
+1. パネルメニューを開き、パネルメニュー上部の「Syncにログイン」をクリックする。
+2. 設定の「Firefox アカウント」パネルが開かれるので、「ログイン」ボタンをクリックする。
     - 確認項目
-        1. 「Bad configuration」または「設定が正しくありません」というエラーメッセージが表示され、サインインの処理が始まらない。(Privacy-22-3)
-{{/Privacy-22-3}}
+        1. 「ログイン」ボタンをクリックしてもログイン画面「https://accounts.firefox.com」に遷移しない。(Privacy-22-3)(Privacy-24-2)
+{{/Privacy-22-3 && Privacy-24-2}}
 {{/Privacy-22-2 || Privacy-22-3}}
-
-{{#Privacy-24-2}}
-## Firefox Accountsの利用制限
-
-### 確認する項目
-
-- Privacy-24-2
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disablesync}}    1. Disable Sync{{/use_disablesync}}
-
-### 検証
-
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. ロケーションバーに`about:accounts`と入力し、ページを開く。
-    - 確認項目
-        1. 「Bad configuration」または「設定が正しくありません」というエラーメッセージが表示され、アカウント登録の画面に遷移しない。(Privacy-24-2)
-
-### 後始末
-
-1. 以下のアドオンを有効化する。
-{{#use_disablesync}}    1. Disable Sync{{/use_disablesync}}
-{{/Privacy-24-2}}
 
 ## プライバシーに関わる機能の利用制限
 
