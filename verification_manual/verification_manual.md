@@ -1077,7 +1077,7 @@
            または、表示されていない。（Security-16-3）
 {{/Security-16}}
 
-{{#Security-21}}
+{{#Security-21 && use_silverlight}}
 ## アドオンとプラグインのブロックリストの使用の可否
 
 ### 確認する項目
@@ -1111,7 +1111,7 @@
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 1. 検証のためにインストールしたSliverlightプラグインをアンインストールする。
-{{/Security-21}}
+{{/Security-21 && use_silverlight}}
 
 {{#Security-23}}
 ## プラグインのサンドボックス内実行
