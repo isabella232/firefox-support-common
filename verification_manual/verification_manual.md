@@ -2822,11 +2822,16 @@
         1. OpenH264のプラグインが{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
         1. 「Primetime Content Decryption Module」が{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
 {{/Plugin-8}}
-{{#Security-24}}
+{{#Security-24 || Security-33}}
 1. Flashプラグインの「設定」ボタンをクリックする。
     - 確認項目
+{{#Security-24}}
         1. 「Adobe Flashの保護モードを有効化」に{{#Security-24-1}}チェックが入っている。（Security-24-1）{{/Security-24-1}}{{#Security-24-2}}チェックが入っていない。（Security-24-2）{{/Security-24-2}}
 {{/Security-24}}
+{{#Security-33}}
+        1. 「危険ででしゃばりなFlashコンテンツをブロック」に{{#Security-33-1}}チェックが入っている。（Security-33-1）{{/Security-33-1}}{{#Security-33-2}}チェックが入っていない。（Security-33-2）{{/Security-33-2}}
+{{/Security-33}}
+{{/Security-24 || Security-33}}
 {{#Plugin-8 && use_globalchromecss}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - 確認項目
