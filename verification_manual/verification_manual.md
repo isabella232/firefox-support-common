@@ -2692,6 +2692,7 @@
 ### 確認する項目
 
 {{#Security-24}} - Security-24-\* {{/Security-24}}
+{{#Security-33}} - Security-33-\* {{/Security-33}}
 {{#Plugin-1}} - Plugin-1-\* {{/Plugin-1}}
 {{#Plugin-2}} - Plugin-2-\* {{/Plugin-2}}
 {{#Plugin-3}} - Plugin-3-\* {{/Plugin-3}}
