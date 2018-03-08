@@ -1174,21 +1174,32 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合は実際の動作での検証が不可能なため、安全でない実行ファイルのダウンロードが可能な状態にしておく。
+{{#Security-26}}
+1. 検証用にHTTPで端末から `http://download.safebrowsingtest.com/download` としてアクセス可能なサーバーを用意する
+    1. 端末の hosts ファイルにアクセス先のサーバーのアドレスとホスト名を追記する。( 例: `127.0.0.1 download.safebrowsingtest.com` を `%SYSTEMROOT%\System32\drivers\etc\hosts` に追記し、名前解決できるようにする。)
+    1. サーバーにて `echo "TEST" > /tmp/download/test` などとして `/tmp/download` 以下に `test` というファイルを用意する。
+    1. サーバーにて `sudo ruby -run -e httpd . -p 80` などとして /tmp をHTTP経由でアクセスできる状態にする。
+{{/Security-26}}
 
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `http://testsafebrowsing.appspot.com/` と入力し、ページを開く。
-1. 「Desktop Download Warnings」セクションの「1. Should show a "malicious" warning, based on URL」のリンクをクリックする。
+{{#Security-26}}
+1. ロケーションバーに `http://download.safebrowsingtest.com/download` と入力し、ページを開く。
+1. 「test」ファイルのリンクをクリックする。
 1. ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
 1. ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
     - 確認項目
         1. ダウンロード一覧の一番上の項目に{{#Security-26-1}}「このファイルはウイルスやマルウェアが含まれています。」という警告のメッセージが表示される。（Security-26-1）{{/Security-26-1}}{{#Security-26-2}}特に警告のメッセージは表示されない。（Security-26-2）{{/Security-26-2}}
+{{/Security-26}}
+{{#Security-27}}
+1. ロケーションバーに `http://testsafebrowsing.appspot.com/` と入力し、ページを開く。
 1. 「Desktop Download Warnings」セクションの「5. Should show an "uncommon" warning, for .exe」のリンクをクリックする。
 1. ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
 1. ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
     - 確認項目
         1. ダウンロード一覧の一番上の項目に{{#Security-27-1}}「このファイルを開くのは危険です。」という警告のメッセージが表示される。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}}特に警告のメッセージは表示されない。（Security-27-2）{{/Security-27-2}}
+{{/Security-27}}
 1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
 {{#Privacy-26}}
