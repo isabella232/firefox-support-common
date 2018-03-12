@@ -1905,7 +1905,7 @@
         1. パネル上に「”Firefoxアドオン”を追加」という項目が{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-2}}表示されない。(Websearch-1-2){{/Websearch-1-2}}
 {{/Websearch-1}}
 {{#Websearch-2-2}}
-        1. パネル上に、無効にした検索エンジンが表れていない。(Websearch-2-2)
+        1. パネル上に、無効にした検索エンジンが表れていない（ないし有効にした検索エンジンのみが表示される）。(Websearch-2-2)
 {{/Websearch-2-2}}
 {{#Websearch-2-2}}
 1. パネル下部の「検索設定を変更」をクリックする。(Websearch-2-2)
