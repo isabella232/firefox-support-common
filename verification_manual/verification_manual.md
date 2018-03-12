@@ -1092,17 +1092,12 @@
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-1. Silverlightのバージョン一覧から、セキュリティ上の脆弱性があるバージョンとして「Silverlight 5 Build 5.1.41105.0 Released December 8, 2015」またはそれより古いいずれかのバージョンを以下のページからダウンロードし、インストールしておく。  
-   https://www.microsoft.com/getsilverlight/locale/en-us/html/Microsoft%20Silverlight%20Release%20History.htm
-   <!--↑`〜`で括ると改行されなくなってしまうので、地のテキストとしています。注意。-->
-
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. アドオンマネージャを開き、「プラグイン」ペインを選択する。
+1. `about:debugging` を開き、テストケースから `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
     - 確認項目
-        1. Silverlightの項目に対し、安全でないバージョンである旨の警告が<!--表示されている。（Security-21-1)
-           または、-->表示されていない。（Security-21-2）
+        1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。(Security-21-1){{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。(Security-21-2){{/Security-21-2}}
 
 ### 後始末
 
