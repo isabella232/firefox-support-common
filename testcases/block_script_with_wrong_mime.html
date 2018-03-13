@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="block_script_with_wrong_mime.js"></script>
+  </head>
+  <body>
+    <p>
+      Check <code>lockPref("security.block_script_with_wrong_mime", false);</code> behavior
+    </p>
+    <ul>
+      <li>python block_script_with_wrong_mime.py</li>
+      <li>open http://localhost:8888/block_script_with_wrong_mime.html</li>
+    </ul>
+    <pre style='background:#f5f5fa;margin: 1em; padding: 1em;'>
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+server_address = ('localhost', 8888)
+
+# Return JavaScript with an invalid MIME type
+SimpleHTTPRequestHandler.extensions_map['.js'] = 'image/png'
+
+SimpleHTTPRequestHandler.protocol_version = "HTTP/1.0"
+httpd = HTTPServer(server_address, SimpleHTTPRequestHandler)
+
+sa = httpd.socket.getsockname()
+print("Serving HTTP on", sa[0], "port", sa[1], "...")
+try:
+    httpd.serve_forever()
+except KeyboardInterrupt:
+    print("\nKeyboard interrupt received, exiting.")
+    httpd.server_close()
+    sys.exit(0)
+    </pre>
+  </body>
+</html>
