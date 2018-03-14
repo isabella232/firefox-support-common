@@ -1229,9 +1229,19 @@
     - 確認項目
         1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}`false`である。(Security-28-2){{/Security-28-2}}
         1. `network.cookie.leave-secure-alone` の値が{{#Security-29-1}}`false`である。(Security-29-1){{/Security-29-1}}{{#Security-29-2}}`true`である。(Security-29-2){{/Security-29-2}}
-        1. `security.block_script_with_wrong_mime` の値が{{#Security-30-1}}`false`である。(Security-30-1){{/Security-30-1}}{{#Security-30-2}}`true`である。(Security-30-2){{/Security-30-2}}
         1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
         1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。(Security-32-1){{/Security-32-1}}{{#Security-32-2}}`false`である。(Security-32-2){{/Security-32-2}}
+{{#Security-30}}
+1. テストケースの `block_script_with_wrong_mime.py` を実行し誤ったMIMEタイプを返すHTTPサーバーを起動する。
+1. Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
+    - 確認項目
+{{#Security-30-1}}
+        1. アラートダイアログに`3`が表示され、スクリプトがブロックされていない。(Security-30-1)
+{{/Security-30-1}}
+{{#Security-30-2}}
+        1. アラートダイアログが表示されず、スクリプトがブロックされている。(Security-30-1)
+{{/Security-30-2}}
+{{/Security-30}}
 
 ### 後始末
 
