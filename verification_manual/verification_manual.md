@@ -1228,10 +1228,23 @@
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
         1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}`false`である。(Security-28-2){{/Security-28-2}}
-        1. `network.cookie.leave-secure-alone` の値が{{#Security-29-1}}`false`である。(Security-29-1){{/Security-29-1}}{{#Security-29-2}}`true`である。(Security-29-2){{/Security-29-2}}
         1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
         1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。(Security-32-1){{/Security-32-1}}{{#Security-32-2}}`false`である。(Security-32-2){{/Security-32-2}}
 {{#Security-30}}
+
+{{#Security-29}}
+1. `network.cookie.leave-secure-alone`を {{#Security-29-1}}`true`（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`false`（Security-29-2）{{/Security-29-2}}に設定する。
+1. `https://piro.sakura.ne.jp` を開き、Ctrl-Shift-KでWebコンソールを開く。
+1. `document.cookie = 'secure=true; Secure'` を実行する。
+1. `document.cookie` を実行する。(`secure=true` という結果が出力される。)
+1. `http://piro.sakura.ne.jp` を新しいタブで開き、Ctrl-Shift-KでWebコンソールを開く。
+1. `document.cookie = 'secure=false; Secure'` を実行する。(HTTPSで設定したCookieの値をHTTPなページから書き換える)
+1. `https://piro.sakura.ne.jp` のタブに戻り、ページを再読み込みする。
+1. `document.cookie` を実行する。
+    - 確認項目
+        1. {{#Security-29-1}}`secure=true` という結果が出力される。（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`secure=false` という結果が出力される。（Security-29-2）{{/Security-29-2}}
+{{/Security-29}}
+
 1. テストケースの `block_script_with_wrong_mime.py` を実行し誤ったMIMEタイプを返すHTTPサーバーを起動する。
 1. Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - 確認項目
