@@ -1,6 +1,6 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
-server_address = ('localhost', 8888)
+server_address = ('0.0.0.0', 8888)
 
 # Return JavaScript with an invalid MIME type
 SimpleHTTPRequestHandler.extensions_map['.js'] = 'image/png'
