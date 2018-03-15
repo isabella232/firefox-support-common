@@ -789,7 +789,7 @@
         1. 「プライバシーとセキュリティ」タブが表示されていない。(Hide-1)
 {{/Hide-1}}
 {{^Hide-1}}
-        1. 「セキュリティ」タブ内で詐欺コンテンツのブロックに関する設定項目が表示されていない。{{#Security-5-2}}(Security-5-2){{/Security-5-2}}{{#Security-6-2}}(Security-6-2){{/Security-6-2}}
+        1. 「プライバシーとセキュリティ」タブ内で詐欺コンテンツのブロックに関する設定項目が表示されていない。{{#Security-5-2}}(Security-5-2){{/Security-5-2}}{{#Security-6-2}}(Security-6-2){{/Security-6-2}}
 {{/Hide-1}}
 {{/use_globalchromecss}}
 <!--/GROUP-->
