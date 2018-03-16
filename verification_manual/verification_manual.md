@@ -1898,7 +1898,7 @@
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 1. テストケースの `password.html` を開く。
 1. ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
-1. ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.js` を開く。
+1. ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` を開く。
    - 確認項目
        1. ファイル内に「ユーザ入力値」という文字列が{{#Privacy-34-1}}含まれている。（Privacy-34-1）{{/Privacy-34-1}}{{#Privacy-34-2}}含まれていない。（Privacy-34-2）{{/Privacy-34-2}}
 {{/Privacy-34}}
