@@ -2,9 +2,17 @@ function install(aData, aReason) {}
 function startup(aData, aReason) {
   const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
   const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+  const log = (aMessage, ...aArgs) => {
+    Services.console.logStringMessage(`${aMessage} ${JSON.stringify(aArgs)}`);
+  };
+  log('Startup');
+
   const applicationChrome = Services.dirsvc.get('AChrom', Ci.nsIFile);
-  if (!applicationChrome.isDirectory())
+  log(`Scanning ${applicationChrome.path}...`);
+  if (!applicationChrome.isDirectory()) {
+    log('No script file found.');
     return;
+  }
 
   const Prefs = Services.prefs;
   const DefaultPrefs = Services.prefs.getDefaultBranch(null);
@@ -84,12 +92,15 @@ function startup(aData, aReason) {
   const files = applicationChrome.directoryEntries;
   while (files.hasMoreElements()) {
     const file = files.getNext().QueryInterface(Ci.nsIFile);
+    log(`Checking ${file.path}...`);
     if (!file.isFile() || !/\.js$/i.test(file.leafName))
       continue;
+    log(`Loading ${file.path}...`);
     Cc['@mozilla.org/moz/jssubscript-loader;1']
       .getService(Ci.mozIJSSubScriptLoader)
       .loadSubScript(Services.io.newFileURI(file).spec, namespace);
   }
+  log('Done.');
 }
 function shutdown(aData, aReason) {}
 function uninstall(aData, aReason) {}
