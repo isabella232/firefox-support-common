@@ -1,7 +1,7 @@
-function install(aData, aReason) {}
-function startup(aData, aReason) {
-  const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
-  const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
+const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+
+function loadScripts() {
   const log = (aMessage, ...aArgs) => {
     Services.console.logStringMessage(`${aMessage} ${JSON.stringify(aArgs)}`);
   };
@@ -31,6 +31,7 @@ function startup(aData, aReason) {
     getPref(aKey) {
       const type = Prefs.getPrefType(aKey);
       if (type == Prefs.PREF_INVALID)
+
         return null;
       try {
         switch (type) {
@@ -101,6 +102,19 @@ function startup(aData, aReason) {
       .loadSubScript(Services.io.newFileURI(file).spec, namespace);
   }
   log('Done.');
+}
+
+function install(aData, aReason) {}
+function startup(aData, aReason) {
+  if (Services.startup.startingUp)
+    Services.obs.addObserver({
+      observe() {
+        Services.obs.removeObserver(this, 'sessionstore-windows-restored');
+        loadScripts();
+      }
+    }, 'sessionstore-windows-restored', false);
+  else
+    loadScripts();
 }
 function shutdown(aData, aReason) {}
 function uninstall(aData, aReason) {}
