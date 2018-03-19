@@ -55,6 +55,7 @@ VARIABLES = {
   use_globalchromecss:            true,
   use_uitextoverrider:            true,
   use_silverlight:                true,
+  use_policyengine:               true,
   java_download_url:              "https://java.com/ja/download/",
   flash_download_url:             "https://get.adobe.com/jp/flashplayer/",
   acrobat__download_url:          "https://get.adobe.com/jp/reader/",
