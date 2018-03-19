@@ -1468,7 +1468,7 @@
         1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
 {{/Privacy-33-2 || Privacy-33-3}}
 {{#Privacy-42-2}}
-{{^#use_policyengine}}
+{{^use_policyengine}}
         1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。(Privacy-42-1){{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。(Privacy-42-2){{/Privacy-42-2}}
 {{/use_policyengine}}
 {{/Privacy-42-2}}
