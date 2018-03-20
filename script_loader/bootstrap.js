@@ -106,15 +106,17 @@ function loadScripts() {
 
 function install(aData, aReason) {}
 function startup(aData, aReason) {
-  if (Services.startup.startingUp)
+  if (Services.startup.startingUp) {
     Services.obs.addObserver({
       observe() {
         Services.obs.removeObserver(this, 'sessionstore-windows-restored');
         loadScripts();
       }
     }, 'sessionstore-windows-restored', false);
-  else
+  }
+  else {
     loadScripts();
+  }
 }
 function shutdown(aData, aReason) {}
 function uninstall(aData, aReason) {}
