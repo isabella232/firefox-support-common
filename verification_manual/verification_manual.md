@@ -800,6 +800,7 @@
 
 {{#Security-8-2}} - Security-8-2 {{/Security-8-2}}
 {{#Security-9-2}} - Security-9-2 {{/Security-9-2}}
+{{#Security-9-3}} - Security-9-3 {{/Security-9-3}}
 {{#Security-34-2}} - Security-34-2 {{/Security-34-2}}
 {{#Security-35-2}} - Security-35-2 {{/Security-35-2}}
 
@@ -823,6 +824,15 @@
         1. `about:config`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-9-2)
         1. `about:config`のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2)
 {{/Security-9-2}}
+{{#Security-9-3}}
+1. 以下の各方法で`about:config`へのアクセスを試みる。(Security-9-3)
+    - 確認項目
+        1. ロケーションバーに`about:config`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-9-3)
+        1. ロケーションバーに`about:config`と入力し、Enterするとブロックしたことを示すページが読み込まれる。(Security-9-3)
+        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
+        1. `about:config`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-9-3)
+        1. `about:config`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-9-3)
+{{/Security-9-3}}
 {{#Security-8-2}}
 1. 以下の各方法で{{disabled_about_pages}}へのアクセスを試みる。(Security-8-2)
     - 確認項目
