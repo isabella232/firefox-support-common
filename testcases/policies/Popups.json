@@ -1,9 +1,10 @@
 {
     "policies": {
-	"popups": {
-	    "allow": [
+	"Popups": {
+	    "Allow": [
 		"http://example.com",
-		"https://example.org:8080"
+		"https://example.org:8080",
+		"https://www.clear-code.com"
 	    ]
 	}
     }
