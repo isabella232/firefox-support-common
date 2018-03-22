@@ -1,7 +1,7 @@
 {
     "policies": {
-	"install_addons": {
-	    "allow": [
+	"InstallAddons": {
+	    "Allow": [
 		"https://example.com",
 		"https://example.org:8080"
 	    ]
