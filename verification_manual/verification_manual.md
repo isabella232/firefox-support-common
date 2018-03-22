@@ -801,6 +801,7 @@
 {{#Security-8-2}} - Security-8-2 {{/Security-8-2}}
 {{#Security-9-2}} - Security-9-2 {{/Security-9-2}}
 {{#Security-34-2}} - Security-34-2 {{/Security-34-2}}
+{{#Security-35-2}} - Security-35-2 {{/Security-35-2}}
 
 ### 準備
 
@@ -840,6 +841,16 @@
         1. `about:profiles`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-34-2)
         1. `about:profiles`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-34-2)
 {{/Security-34-2}}
+{{#Security-35-2}}
+1. 以下の各方法で`about:support`へのアクセスを試みる。(Security-35-2)
+    - 確認項目
+        1. ロケーションバーに`about:support`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-35-2)
+        1. ロケーションバーに`about:support`と入力し、Enterするとブロックしたことを示すページが開かれる。(Security-35-2)
+        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
+        1. `about:support`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-35-2)
+        1. `about:support`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-35-2)
+        1. 「ヘルプ」→「トラブルシューティング情報」をクリックし、ブロックしたことを示すページが開かれる。(Security-35-2)
+{{/Security-35-2}}
 
 {{#Security-11}}
 ## SNS連携機能とソーシャルAPIの利用制限
