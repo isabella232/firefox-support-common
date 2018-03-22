@@ -1305,6 +1305,7 @@
 {{#Privacy-3-2}} - Privacy-3-2 {{/Privacy-3-2}}
 {{#Privacy-4-2}} - Privacy-4-2 {{/Privacy-4-2}}
 {{#Privacy-5-2}} - Privacy-5-2 {{/Privacy-5-2}}
+{{#Privacy-5-3}} - Privacy-5-3 {{/Privacy-5-3}}
 {{#Privacy-6-2 || Privacy-6-3 || Privacy-6-4}} - Privacy-6-2/3/4 {{/Privacy-6-2 || Privacy-6-3 || Privacy-6-4}}
 {{#Privacy-7}} - Privacy-7-\* {{/Privacy-7}}
 {{#Privacy-8-2}} - Privacy-8-2 {{/Privacy-8-2}}
@@ -1431,11 +1432,11 @@
 <!--GROUP-->
 1. ユーザID、パスワードを入力して送信する。
     - 確認項目
-{{#Privacy-5-2}}
-        1. パスワードの保存を尋ねられない。(Privacy-5-2)
-        1. ファイルを再読み込みしてもパスワードが自動入力されない。(Privacy-5-2)
-        1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。(Privacy-2-2)
-{{/Privacy-5-2}}
+{{#Privacy-5-2 || Privacy-5-3}}
+        1. パスワードの保存を尋ねられない。{{#Privacy-5-2}}(Privacy-5-2){{/Privacy-5-2}}{{#Privacy-5-3}}(Privacy-5-3){{/Privacy-5-3}}
+        1. ファイルを再読み込みしてもパスワードが自動入力されない。{{#Privacy-5-2}}(Privacy-5-2){{/Privacy-5-2}}{{#Privacy-5-3}}(Privacy-5-3){{/Privacy-5-3}}
+        1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。{{#Privacy-5-2}}(Privacy-5-2){{/Privacy-5-2}}{{#Privacy-5-3}}(Privacy-5-3){{/Privacy-5-3}}
+{{/Privacy-5-2 || Privacy-5-3}}
 {{^Privacy-5-2}}
 {{#Privacy-40-1}}
         1. パスワードの保存を提案するポップアップが表示され、その中に「パスワードを開示」チェックボックスが表示される。（Privacy-40-1）
