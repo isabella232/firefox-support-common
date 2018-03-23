@@ -2605,7 +2605,6 @@
 ### 確認する項目
 
 {{#MenuShortcut-3}} - MenuShortcut-3 {{/MenuShortcut-3}}
-{{#MenuShortcut-5}} - MenuShortcut-5 {{/MenuShortcut-5}}
 {{#MenuShortcut-10}} - MenuShortcut-10 {{/MenuShortcut-10}}
 {{#MenuShortcut-62}} - MenuShortcut-62 {{/MenuShortcut-62}}
 
@@ -2632,9 +2631,6 @@
 {{#MenuShortcut-3}}
         1. 「新しいプライベートウィンドウを開く」が存在しない。(MenuShortcut-3)
 {{/MenuShortcut-3}}
-{{#MenuShortcut-5}}
-        1. 「オフライン作業」が存在しない。(MenuShortcut-5)
-{{/MenuShortcut-5}}
 {{#MenuShortcut-62}}
         1. 「新しいタブ」が存在しない。(MenuShortcut-62)
 {{/MenuShortcut-62}}
@@ -2650,11 +2646,6 @@
     - 確認項目
         1. 「新しいプライベートウィンドウ」が存在しない。(MenuShortcut-3)
 {{/MenuShortcut-3}}
-{{#MenuShortcut-5}}
-1. パネルメニュー内の「開発ツール」をクリックする。
-    - 確認項目
-        1. 「オフライン作業」セクションが存在しない。(MenuShortcut-5)
-{{/MenuShortcut-5}}
 <!--GROUP-->
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
