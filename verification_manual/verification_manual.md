@@ -2408,15 +2408,8 @@
 
 {{#Security-24}} - Security-24-\* {{/Security-24}}
 {{#Security-33}} - Security-33-\* {{/Security-33}}
-{{#Plugin-1}} - Plugin-1-\* {{/Plugin-1}}
 {{#Plugin-2}} - Plugin-2-\* {{/Plugin-2}}
-{{#Plugin-3}} - Plugin-3-\* {{/Plugin-3}}
-{{#Plugin-4}} - Plugin-4-\* {{/Plugin-4}}
-{{#Plugin-5}} - Plugin-5-\* {{/Plugin-5}}
-{{#Plugin-6}} - Plugin-6-\* {{/Plugin-6}}
-{{#Plugin-7}} - Plugin-7-\* {{/Plugin-7}}
 {{#Plugin-8}} - Plugin-8-\* {{/Plugin-8}}
-{{#Plugin-9}} - Plugin-9-\* {{/Plugin-9}}
 
 ### 準備
 
@@ -2427,19 +2420,12 @@
 {{#Security-24-2}}
     1. カスタマイズ済みFirefox(32bit版)のインストールが完了した状態にする。
 {{/Security-24-2}}
-{{#Plugin-1}}1. Javaプラグインが未導入の場合、` {{java_download_url}}` からJavaプラグインのインストーラをダウンロードし、インストールしておく。(Plugin-1-\*){{/Plugin-1}}
 {{#Plugin-2 || Security-24}}
 1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
 {{/Plugin-2 || Security-24}}
-{{#Plugin-3}}1. Adobe Acrobatプラグインが未導入の場合、`{{acrobat__download_url}}` からAdobe Acrobat Reader プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-3-\*){{/Plugin-3}}
-{{#Plugin-4}}1. Adobe Shockwaveプラグインが未導入の場合、`{{shockwave__download_url}}` からAdobe Shockwave プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-4-\*){{/Plugin-4}}
-{{#Plugin-5}}1. Silverlightプラグインが未導入の場合、`{{silverlight_download_url}}` からSilverlight プラグインのインストーラをダウンロードし、インストールしておく。(Plugin-5-\*){{/Plugin-5}}
-{{#Plugin-6}}1. Windows Media Playerプラグインが未導入の場合、`{{wmp__download_url}}` からWindows Media Playerプラグインをダウンロードし、インストールしておく。(Plugin-6-\*){{/Plugin-6}}
-{{#Plugin-7}}1. Cisco WebExtプラグインが未導入の場合、Cisco WebExプラグインを入手し、インストールしておく。（※メタインストーラにnpatgpc.dllを含めているときはスキップ）(Plugin-7-\*){{/Plugin-7}}
-{{#Plugin-9}}1. Icead Teaプラグインが未導入の場合、Icead Teaプラグインをシステムにインストールしておく。{{/Plugin-9}}
 1. 以下のアドオンを無効化する。
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-{{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
+{{#Plugin-2}}
 1. 個別の設定が無く、各プラグインの制御が可能であるかどうか自体を検証する場合、各設定ファイルに以下の内容を追記する。
     - {{mcd_local_file}}:
 
@@ -2501,7 +2487,7 @@
         host	plugin:libnpjp	3	http://example.net
         host	plugin-vulnerable:libnpjp	3	http://example.net
         ~~~
-{{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
+{{/Plugin-2}}
 
 
 ### 検証
@@ -2509,30 +2495,9 @@
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
-{{#Plugin-1}}
-        1. Javaプラグインの項目が表示されており、{{#Plugin-1-1}}「無効化する」が選択されている。(Plugin-1-1){{/Plugin-1-1}}{{#Plugin-1-2}}「常に有効化する」が選択されている。(Plugin-1-2){{/Plugin-1-2}}{{#Plugin-1-3}}「実行時に確認する」が選択されている。(Plugin-1-3){{/Plugin-1-3}}
-{{/Plugin-1}}
 {{#Plugin-2}}
         1. Adobe Flashプラグインの項目が表示されており、{{#Plugin-2-1}}「無効化する」が選択されている。(Plugin-2-1){{/Plugin-2-1}}{{#Plugin-2-2}}「常に有効化する」が選択されている。(Plugin-2-2){{/Plugin-2-2}}{{#Plugin-2-3}}「実行時に確認する」が選択されている。(Plugin-2-3){{/Plugin-2-3}}
 {{/Plugin-2}}
-{{#Plugin-3}}
-        1. Adobe Readerプラグインの項目が表示されており、{{#Plugin-3-1}}「無効化する」が選択されている。(Plugin-3-1){{/Plugin-3-1}}{{#Plugin-3-2}}「常に有効化する」が選択されている。(Plugin-3-2){{/Plugin-3-2}}{{#Plugin-3-3}}「実行時に確認する」が選択されている。(Plugin-3-3){{/Plugin-3-3}}
-{{/Plugin-3}}
-{{#Plugin-4}}
-        1. Adobe Shockwaveプラグインの項目が表示されており、{{#Plugin-4-1}}「無効化する」が選択されている。(Plugin-4-1){{/Plugin-4-1}}{{#Plugin-4-2}}「常に有効化する」が選択されている。(Plugin-4-2){{/Plugin-4-2}}{{#Plugin-4-3}}「実行時に確認する」が選択されている。(Plugin-4-3){{/Plugin-4-3}}
-{{/Plugin-4}}
-{{#Plugin-5}}
-        1. Silverlightプラグインの項目が表示されており、{{#Plugin-5-1}}「無効化する」が選択されている。(Plugin-5-1){{/Plugin-5-1}}{{#Plugin-5-2}}「常に有効化する」が選択されている。(Plugin-5-2){{/Plugin-5-2}}{{#Plugin-5-3}}「実行時に確認する」が選択されている。(Plugin-5-3){{/Plugin-5-3}}
-{{/Plugin-5}}
-{{#Plugin-6}}
-        1. Windows Media Playerプラグインの項目が表示されており、{{#Plugin-6-1}}「無効化する」が選択されている。(Plugin-6-1){{/Plugin-6-1}}{{#Plugin-6-2}}「常に有効化する」が選択されている。(Plugin-6-2){{/Plugin-6-2}}{{#Plugin-6-3}}「実行時に確認する」が選択されている。(Plugin-6-3){{/Plugin-6-3}}
-{{/Plugin-6}}
-{{#Plugin-7}}
-        1. Cisco WebExプラグインの項目（ActiveTouch General Plugin Container）が表示されており、{{#Plugin-7-1}}「無効化する」が選択されている。(Plugin-7-1){{/Plugin-7-1}}{{#Plugin-7-2}}「常に有効化する」が選択されている。(Plugin-7-2){{/Plugin-7-2}}{{#Plugin-7-3}}「実行時に確認する」が選択されている。(Plugin-7-3){{/Plugin-7-3}}
-{{/Plugin-7}}
-{{#Plugin-9}}
-        1. Icead Teaプラグインの項目が表示されており、{{#Plugin-9-1}}「無効化する」が選択されている。(Plugin-9-1){{/Plugin-9-1}}{{#Plugin-9-2}}「常に有効化する」が選択されている。(Plugin-9-2){{/Plugin-9-2}}{{#Plugin-9-3}}「実行時に確認する」が選択されている。(Plugin-9-3){{/Plugin-9-3}}
-{{/Plugin-9}}
 {{#Plugin-8}}
         1. OpenH264のプラグインが{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
         1. 「Primetime Content Decryption Module」が{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
@@ -2553,22 +2518,19 @@
     - 確認項目
         1. 「コンテンツ」配下に「DRMコンテンツ」グループが{{#Plugin-8-1}}ある。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}無い。(Plugin-8-2){{/Plugin-8-2}}
 {{/Plugin-8}}
-{{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
+{{#Plugin-2}}
 1. Permissions Auto Registererによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.com` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
 1. default.permissionsによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.net` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
     - 確認項目
         1. 各プラグインの設定が「毎回確認する」になっている。
-{{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
+{{/Plugin-2}}
 
 ### 後始末
 
 1. 以下のアドオンを有効化する。
 {{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-{{#Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
-1. 各プラグインの制御が可能であるかどうか自体の検証のために追加した設定を削除する。
-{{/Plugin-1 && Plugin-2 && Plugin-3 && Plugin-4 && Plugin-5 && Plugin-6 && Plugin-7 && Plugin-9}}
 
 {{#External-1}}
 ## ファイルをダウンロードして外部アプリケーションで開く際の挙動の制御
