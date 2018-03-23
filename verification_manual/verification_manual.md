@@ -2605,7 +2605,6 @@
 ### 確認する項目
 
 {{#MenuShortcut-3}} - MenuShortcut-3 {{/MenuShortcut-3}}
-{{#MenuShortcut-4}} - MenuShortcut-4 {{/MenuShortcut-4}}
 {{#MenuShortcut-5}} - MenuShortcut-5 {{/MenuShortcut-5}}
 {{#MenuShortcut-10}} - MenuShortcut-10 {{/MenuShortcut-10}}
 {{#MenuShortcut-62}} - MenuShortcut-62 {{/MenuShortcut-62}}
@@ -2633,9 +2632,6 @@
 {{#MenuShortcut-3}}
         1. 「新しいプライベートウィンドウを開く」が存在しない。(MenuShortcut-3)
 {{/MenuShortcut-3}}
-{{#MenuShortcut-4}}
-        1. 「ページのURLをメールで送信」が存在しない。(MenuShortcut-4)
-{{/MenuShortcut-4}}
 {{#MenuShortcut-5}}
         1. 「オフライン作業」が存在しない。(MenuShortcut-5)
 {{/MenuShortcut-5}}
@@ -2662,9 +2658,6 @@
 <!--GROUP-->
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
-{{#MenuShortcut-4}}
-        1. 「ページのURLをメールで送信」が存在しない。(MenuShortcut-4)
-{{/MenuShortcut-4}}
 {{#MenuShortcut-10}}
         1. 「開発ツール」が存在しない。(MenuShortcut-10)
 {{/MenuShortcut-10}}
