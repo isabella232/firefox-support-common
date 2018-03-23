@@ -2755,10 +2755,6 @@
 
 ### 確認する項目
 
-{{#MenuShortcut-30}} - MenuShortcut-30 {{/MenuShortcut-30}}
-{{#MenuShortcut-31}} - MenuShortcut-31 {{/MenuShortcut-31}}
-{{#MenuShortcut-32}} - MenuShortcut-32 {{/MenuShortcut-32}}
-{{#MenuShortcut-33}} - MenuShortcut-33 {{/MenuShortcut-33}}
 {{#MenuShortcut-35}} - MenuShortcut-35 {{/MenuShortcut-35}}
 {{#MenuShortcut-36}} - MenuShortcut-36 {{/MenuShortcut-36}}
 {{#MenuShortcut-37}} - MenuShortcut-37 {{/MenuShortcut-37}}
@@ -2777,10 +2773,6 @@
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
-{{#MenuShortcut-30}}        1. 「Firefoxヘルプ」が存在しない。(MenuShortcut-30) {{/MenuShortcut-30}}
-{{#MenuShortcut-31}}        1. 「Firefoxツアー」が存在しない。(MenuShortcut-31){{/MenuShortcut-31}}
-{{#MenuShortcut-32}}        1. 「キーボードショートカット」が存在しない。(MenuShortcut-32){{/MenuShortcut-32}}
-{{#MenuShortcut-33}}        1. 「Firefoxヘルスレポート」が存在しない。(MenuShortcut-33){{/MenuShortcut-33}}
 {{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35){{/MenuShortcut-35}}
 {{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しない。(MenuShortcut-36){{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
@@ -2791,10 +2783,6 @@
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
-{{#MenuShortcut-30}}        1. 「Firefoxヘルプ」が存在しない。(MenuShortcut-30) {{/MenuShortcut-30}}
-{{#MenuShortcut-31}}        1. 「Firefoxツアー」が存在しない。(MenuShortcut-31){{/MenuShortcut-31}}
-{{#MenuShortcut-32}}        1. 「キーボードショートカット」が存在しない。(MenuShortcut-32){{/MenuShortcut-32}}
-{{#MenuShortcut-33}}        1. 「Firefoxヘルスレポート」が存在しない。(MenuShortcut-33){{/MenuShortcut-33}}
 {{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35){{/MenuShortcut-35}}
 {{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しない。(MenuShortcut-36){{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
