@@ -355,6 +355,7 @@
 {{#Admin-2}} - Admin-2-\* {{/Admin-2}}
 {{#Admin-3}} - Admin-3-\* {{/Admin-3}}
 {{#Admin-4-1}} - Admin-4-1 {{/Admin-4-1}}
+{{#Admin-5}} - Admin-5-\* {{/Admin-5}}
 {{#Startup-1}} - Startup-1-\* {{/Startup-1}}
 {{#Startup-2}} - Startup-2-\* {{/Startup-2}}
 {{#Startup-3}} - Startup-3-\* {{/Startup-3}}
@@ -482,6 +483,11 @@
     - 確認方法
         1. UIツアーが{{#Startup-8-1}}開始される。(Startup-8-1){{/Startup-8-1}}{{#Startup-8-2}}開始されない。(Startup-8-2){{/Startup-8-2}}
 {{/Startup-8}}
+{{#Admin-5}}
+1. about:supportを開く
+    - 確認項目
+       1. 「アプリケーション基本情報」の「Enterprise Policies」に{{#Admin-5-1}}「Active」と表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}「Inactive」と表示されている。(Admin-5-2){{/Admin-5-2}}
+{{/Admin-5}}
 
 ### 後始末
 
