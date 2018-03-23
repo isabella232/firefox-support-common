@@ -2316,7 +2316,6 @@
 {{#Network-6}} - Network-6-\* {{/Network-6}}
 {{#Network-7}} - Network-7-\* {{/Network-7}}
 {{#Network-8}} - Network-8-\* {{/Network-8}}
-{{#Network-9}} - Network-9-\* {{/Network-9}}
 {{#Network-10}} - Network-10-\* {{/Network-10}}
 {{#Network-11-2}} - Network-11-2 {{/Network-11-2}}
 {{#Network-12}} - Network-12-\* {{/Network-12}}
@@ -2368,10 +2367,6 @@
         1. `network.dns.disablePrefetch` の値が{{#Network-8-1}}`false`である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}`true`である。(Network-8-2){{/Network-8-2}}
 {{/dns_disable_prefetch}}
 {{/Network-8}}
-{{#Network-9}}
-        1. `network.http.pipelining` の値が{{#Network-9-1}}`true`である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}`false`である。(Network-9-2){{/Network-9-2}}
-        1. `network.http.proxy.pipelining` の値が{{#Network-9-1}}`true`である。(Network-9-1){{/Network-9-1}}{{#Network-9-2}}`false`である。(Network-9-2){{/Network-9-2}}
-{{/Network-9}}
 {{#Network-10}}
         1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。(Network-10-1){{/Network-10-1}}{{#Network-10-2}}`true`である。(Network-10-2){{/Network-10-2}}
 {{/Network-10}}
