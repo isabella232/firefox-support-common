@@ -2823,14 +2823,6 @@
 
 ### 確認する項目
 
-{{#MenuShortcut-46}} - MenuShortcut-46 {{/MenuShortcut-46}}
-{{#MenuShortcut-47}} - MenuShortcut-47 {{/MenuShortcut-47}}
-{{#MenuShortcut-48}} - MenuShortcut-48 {{/MenuShortcut-48}}
-{{#MenuShortcut-49}} - MenuShortcut-49 {{/MenuShortcut-49}}
-{{#MenuShortcut-50}} - MenuShortcut-50 {{/MenuShortcut-50}}
-{{#MenuShortcut-51}} - MenuShortcut-51 {{/MenuShortcut-51}}
-{{#MenuShortcut-52}} - MenuShortcut-52 {{/MenuShortcut-52}}
-{{#MenuShortcut-54}} - MenuShortcut-54 {{/MenuShortcut-54}}
 {{#MenuShortcut-55}} - MenuShortcut-55 {{/MenuShortcut-55}}
 {{#MenuShortcut-57}} - MenuShortcut-57 {{/MenuShortcut-57}}
 {{#MenuShortcut-63}} - MenuShortcut-63 {{/MenuShortcut-63}}
@@ -2846,38 +2838,18 @@
 <!--GROUP-->
 1. `https://addons.mozilla.org` を開き、何もない所で右クリックする。
     - 確認項目
-{{#MenuShortcut-52}}        1. 「このページを共有」が存在しない。(MenuShortcut-52){{/MenuShortcut-52}}
 {{#MenuShortcut-57}}        1. 「要素を調査」が存在しない。(MenuShortcut-57){{/MenuShortcut-57}}
 <!--/GROUP-->
-{{#MenuShortcut-54}}
-1. ページ内の文字列を選択して右クリックする。
-    - 確認項目
-        1. 「選択範囲を共有」が存在しない。(MenuShortcut-54)
-{{/MenuShortcut-54}}
 <!--GROUP-->
 1. ページ内のリンクの上で右クリックする。
     - 確認項目
-{{#MenuShortcut-46}}        1. 「このリンクを共有」が存在しない。(MenuShortcut-46){{/MenuShortcut-46}}
 {{#MenuShortcut-63}}        1. 「新しいタブで開く」が存在しない。(MenuShortcut-63){{/MenuShortcut-63}}
 <!--/GROUP-->
 <!--GROUP-->
 1. ページ内に埋め込まれた画像の上で右クリックする。
     - 確認項目
-{{#MenuShortcut-47}}        1. 「画像のURLをメールで送信」が存在しない。(MenuShortcut-47){{/MenuShortcut-47}}
-{{#MenuShortcut-48}}        1. 「この画像を共有」が存在しない。(MenuShortcut-48){{/MenuShortcut-48}}
 {{#MenuShortcut-55}}        1. 「デスクトップの背景に設定」が存在しない。(MenuShortcut-55){{/MenuShortcut-55}}
 <!--/GROUP-->
-<!--GROUP-->
-1. `http://www.w3schools.com/html/html5\_video.asp` を開き、ページ内に埋め込まれた動画の上で右クリックする。
-    - 確認項目
-{{#MenuShortcut-49}}        1. 「動画のURLをメールで送信」が存在しない。(MenuShortcut-49){{/MenuShortcut-49}}
-{{#MenuShortcut-50}}        1. 「この動画を共有」が存在しない。(MenuShortcut-50){{/MenuShortcut-50}}
-<!--/GROUP-->
-{{#MenuShortcut-51}}
-1. `http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_audio_all` を開き、ページ内に埋め込まれたオーディオコントロールの上で右クリックする。
-    - 確認項目
-        1. 「オーディオのURLをメールで送信」が存在しない。(MenuShortcut-51)
-{{/MenuShortcut-51}}
 
 ## ポップアップブロック
 
