@@ -923,7 +923,7 @@
            または、表示されていない。（Security-16-3）
 {{/Security-16}}
 
-{{#Security-21 && use_silverlight}}
+{{#Security-21}}
 ## アドオンとプラグインのブロックリストの使用の可否
 
 ### 確認する項目
@@ -934,8 +934,6 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
@@ -943,12 +941,7 @@
     - 確認項目
         1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。(Security-21-1){{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。(Security-21-2){{/Security-21-2}}
 
-### 後始末
-
-1. 以下のアドオンを有効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-1. 検証のためにインストールしたSliverlightプラグインをアンインストールする。
-{{/Security-21 && use_silverlight}}
+{{/Security-21}}
 
 {{#Security-23}}
 ## プラグインのサンドボックス内実行
