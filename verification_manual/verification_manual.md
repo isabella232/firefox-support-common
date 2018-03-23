@@ -835,7 +835,6 @@
 {{#Privacy-19-2}}   - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-22-2}}   - Privacy-22-2 {{/Privacy-22-2}}
 {{#Privacy-24-2}}   - Privacy-24-2 {{/Privacy-24-2}}
-{{#Privacy-31-2}}   - Privacy-31-2 {{/Privacy-31-2}}
 {{#Privacy-33-3}}   - Privacy-33-3 {{/Privacy-33-3}}
 {{#Startup-8-2}}   - Startup-8-2 {{/Startup-8-2}}
 {{#Update-1-3}}   - Update-1-3 {{/Update-1-3}}
@@ -1131,7 +1130,6 @@
 {{#Privacy-18-2}} - Privacy-18-2 {{/Privacy-18-2}}
 {{#Privacy-19-2}} - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-21-2}} - Privacy-21-2 {{/Privacy-21-2}}
-{{#Privacy-31-2}} - Privacy-31-2 {{/Privacy-31-2}}
 {{#Privacy-32}} - Privacy-32-\* {{/Privacy-32}}
 {{#Privacy-33-2 || Privacy-33-3}} - Privacy-33-2/3 {{/Privacy-33-2 || Privacy-33-3}}
 {{#Privacy-35}} - Privacy-35-\* {{/Privacy-35}}
@@ -1299,9 +1297,6 @@
         1. `security.ssl.errorReporting.enabled` の値が`false`である。(Privacy-19-2)
         1. `security.ssl.errorReporting.url` の値が空文字である。(Privacy-19-2)
 {{/Privacy-19-2}}
-{{#Privacy-31-2}}
-        1. `browser.selfsupport.url` の値が空文字である。(Privacy-31-2)
-{{/Privacy-31-2}}
 {{#Privacy-33-2 || Privacy-33-3}}
         1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
         1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
