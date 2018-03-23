@@ -353,8 +353,6 @@
 ### 確認する項目
 
 {{#Admin-2}} - Admin-2-\* {{/Admin-2}}
-{{#Admin-3}} - Admin-3-\* {{/Admin-3}}
-{{#Admin-4-1}} - Admin-4-1 {{/Admin-4-1}}
 {{#Admin-5}} - Admin-5-\* {{/Admin-5}}
 {{#Startup-1}} - Startup-1-\* {{/Startup-1}}
 {{#Startup-2}} - Startup-2-\* {{/Startup-2}}
@@ -401,9 +399,6 @@
 {{#Admin-2}}
         1. 導入対象のアドオンの有効化の可否を尋ねるタブが{{#Admin-2-1}}開かれている。(Admin-2-1){{/Admin-2-1}}{{#Admin-2-2}}開かれていない。(Admin-2-2){{/Admin-2-2}}
 {{/Admin-2}}
-{{#Admin-4}}
-        1. `about:support` において、導入対象のアドオンが{{#Admin-4-1}}有効と表示される。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}無効と表示される。(Admin-4-2){{/Admin-4-2}}
-{{/Admin-4}}
 {{#Startup-6}}
 1. ホームページのタブとして既定のホームページ（`about:home`）が開かれていない場合、ロケーションバーに `about:home` と入力し、ホームページを開く。
     - 確認項目
@@ -422,21 +417,12 @@
 <!--/GROUP-->
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-{{#Admin-3}}
-        1. `extensions.shownSelectionUI` の値が{{#Admin-3-1}}存在しないか、`false`である。(Admin-3-1){{/Admin-3-1}}{{#Admin-3-2}}`true`である。(Admin-3-2){{/Admin-3-2}}
-{{/Admin-3}}
 {{#Startup-4-2}}
         1. `browser.startup.homepage_override.mstone` の値が `ignore` である。(Startup-4-2)
 {{/Startup-4-2}}
 {{#Startup-10-2}}
         1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
 {{/Startup-10-2}}
-{{#Admin-3}}
-1. 詳細設定において、`extensions.lastAppVersion` を `1.0` に変更する。
-1. Firefoxを再起動する。
-    - 確認項目
-        1. アドオンの更新の確認が{{#Admin-3-1}}行われる。(Admin-3-1){{/Admin-3-1}}{{#Admin-3-2}}行われない。(Admin-3-2){{/Admin-3-2}}
-{{/Admin-3}}
 {{#Startup-5-2}}
 1. メニューバーの「ブックマーク」を開く。
     - 確認項目
@@ -497,36 +483,6 @@
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
 
-{{#Admin-4}}
-## アドオンの署名確認の無効化
-
-### 確認する項目
-
-- Admin-4-*
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. アドオンの未署名のインストールパッケージとして、テストケースの以下のファイルを用意する。  
-   `unsigned-sample-addon@clear-code.com.xpi` 
-
-### 検証
-
-1. 用意したインストールパッケージを以下の位置に置く。  
-   `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Admin-2-1}}
-1. アドオンを有効化した上で、Firefoxを再起動する。
-{{/Admin-2-1}}
-    - 確認項目
-        1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されている。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}表示されない。(Admin-4-2){{/Admin-4-2}}
-
-### 後始末
-
-1. 以下の位置に設置したファイルを削除する。  
-   `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` 
-{{/Admin-4}}
 
 ## 起動方法の制御
 
@@ -655,7 +611,7 @@
 1. 以下のアドオンを無効化する。
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#Security-3-1 || Security-3-3 || Security-3-4}}
-1. {{#Admin-4-1}}テストケースの `unsigned-sample-addon@clear-code.com.xpi` {{/Admin-4-1}}{{^Admin-4-1}}署名済みアドオンのインストールパッケージ{{/Admin-4-1}}を用意する。
+1. 署名済みアドオンのインストールパッケージを用意する。
 {{/Security-3-1 || Security-3-3 || Security-3-4}}
 
 ### 検証
