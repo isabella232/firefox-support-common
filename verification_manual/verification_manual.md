@@ -2604,7 +2604,6 @@
 
 ### 確認する項目
 
-{{#MenuShortcut-2}} - MenuShortcut-2 {{/MenuShortcut-2}}
 {{#MenuShortcut-3}} - MenuShortcut-3 {{/MenuShortcut-3}}
 {{#MenuShortcut-4}} - MenuShortcut-4 {{/MenuShortcut-4}}
 {{#MenuShortcut-5}} - MenuShortcut-5 {{/MenuShortcut-5}}
@@ -2629,17 +2628,6 @@
 {{/MenuShortcut-62}}
 <!--/GROUP-->
 <!--GROUP-->
-1. ロケーションバーに `about:` と入力し、Alt-Enterでタブとして開く。
-1. 開かれたタブを閉じる。
-1. ロケーションバーに `about:` と入力し、Alt-Enterでタブとして開く。
-1. 開かれたタブをドラッグしてウィンドウ外にドロップし、ウィンドウとして開く。
-1. 開かれたウィンドウを閉じる。
-    - 確認項目
-{{#MenuShortcut-2}}
-        1. 「Ctrl-Shift-N」を押して、閉じたウィンドウが復元されない。(MenuShortcut-2)
-{{/MenuShortcut-2}}
-<!--/GROUP-->
-<!--GROUP-->
 1. 「ファイル」メニューを開く。
     - 確認項目
 {{#MenuShortcut-3}}
@@ -2655,13 +2643,6 @@
         1. 「新しいタブ」が存在しない。(MenuShortcut-62)
 {{/MenuShortcut-62}}
 <!--/GROUP-->
-<!--GROUP-->
-1. 「履歴」メニューを開く。
-    - 確認項目
-{{#MenuShortcut-2}}
-        1. 「最近閉じたウィンドウ」が存在しない。(MenuShortcut-2)
-{{/MenuShortcut-2}}
-<!--/GROUP-->
 {{#MenuShortcut-10}}
 1. 「ツール」メニューを開く。
     - 確認項目
@@ -2673,13 +2654,6 @@
     - 確認項目
         1. 「新しいプライベートウィンドウ」が存在しない。(MenuShortcut-3)
 {{/MenuShortcut-3}}
-<!--GROUP-->
-1. パネルメニュー内の「履歴」をクリックする。
-    - 確認項目
-{{#MenuShortcut-2}}
-        1. 「最近閉じたウィンドウ」セクションが存在しない。(MenuShortcut-2)
-{{/MenuShortcut-2}}
-<!--/GROUP-->
 {{#MenuShortcut-5}}
 1. パネルメニュー内の「開発ツール」をクリックする。
     - 確認項目
