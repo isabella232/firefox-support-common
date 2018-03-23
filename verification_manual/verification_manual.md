@@ -2604,7 +2604,6 @@
 
 ### 確認する項目
 
-{{#MenuShortcut-1}} - MenuShortcut-1 {{/MenuShortcut-1}}
 {{#MenuShortcut-2}} - MenuShortcut-2 {{/MenuShortcut-2}}
 {{#MenuShortcut-3}} - MenuShortcut-3 {{/MenuShortcut-3}}
 {{#MenuShortcut-4}} - MenuShortcut-4 {{/MenuShortcut-4}}
@@ -2636,9 +2635,6 @@
 1. 開かれたタブをドラッグしてウィンドウ外にドロップし、ウィンドウとして開く。
 1. 開かれたウィンドウを閉じる。
     - 確認項目
-{{#MenuShortcut-1}}
-        1. 「Ctrl-Shift-T」を押して、閉じたタブが復元されない。(MenuShortcut-1)
-{{/MenuShortcut-1}}
 {{#MenuShortcut-2}}
         1. 「Ctrl-Shift-N」を押して、閉じたウィンドウが復元されない。(MenuShortcut-2)
 {{/MenuShortcut-2}}
@@ -2662,9 +2658,6 @@
 <!--GROUP-->
 1. 「履歴」メニューを開く。
     - 確認項目
-{{#MenuShortcut-1}}
-        1. 「最近閉じたタブ」が存在しない。(MenuShortcut-1)
-{{/MenuShortcut-1}}
 {{#MenuShortcut-2}}
         1. 「最近閉じたウィンドウ」が存在しない。(MenuShortcut-2)
 {{/MenuShortcut-2}}
@@ -2675,14 +2668,6 @@
         1. 「ウェブ開発」が存在しない。(MenuShortcut-10)
         1. 「ページ情報」の前にセパレータが存在しない。(MenuShortcut-10)
 {{/MenuShortcut-10}}
-{{#MenuShortcut-1}}
-1. タブの上で右クリックする。
-    - 確認項目
-        1. 「閉じたタブを開き直す」が存在しない。(MenuShortcut-1)
-1. タブバーの「+」ボタン上で右クリックする。
-    - 確認項目
-        1. 「閉じたタブを開き直す」が存在しない。(MenuShortcut-1)
-{{/MenuShortcut-1}}
 1. パネルメニューを開く。
 {{#MenuShortcut-3}}
     - 確認項目
@@ -2691,9 +2676,6 @@
 <!--GROUP-->
 1. パネルメニュー内の「履歴」をクリックする。
     - 確認項目
-{{#MenuShortcut-1}}
-        1. 「最近閉じたタブ」セクションが存在しない。(MenuShortcut-1)
-{{/MenuShortcut-1}}
 {{#MenuShortcut-2}}
         1. 「最近閉じたウィンドウ」セクションが存在しない。(MenuShortcut-2)
 {{/MenuShortcut-2}}
