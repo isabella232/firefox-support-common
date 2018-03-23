@@ -773,33 +773,6 @@
         1. 「ヘルプ」→「トラブルシューティング情報」をクリックし、ブロックしたことを示すページが開かれる。(Security-35-2)
 {{/Security-35-2}}
 
-{{#Security-11}}
-## SNS連携機能とソーシャルAPIの利用制限
-
-### 確認する項目
-
-- Security-11-\*
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-
-### 検証
-
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#use_globalchromecss}}
-1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
-    - 確認項目
-        1. 「このページを共有」ボタンが{{#Security-11-1}}存在する。(Security-11-1){{/Security-11-1}}{{#Security-11-2}}存在しない。(Security-11-2){{/Security-11-2}}
-{{/use_globalchromecss}}
-{{#Security-11-2}}
-1. ロケーションバーに`https://activations.cdn.mozilla.net/ja/` と入力し、Enterを押してページを開く。
-1. いずれかのサービスの「今すぐ追加」ボタンをクリックする。
-    - 確認項目
-        1. 何も起こらない。(Security-11-2)
-{{/Security-11-2}}
-{{/Security-11}}
 
 {{#Security-12}}
 ## JavaScriptの実行制限
@@ -871,8 +844,6 @@
 - Security-15-2
 {{#Security-3-3 || Security-3-4}}   - Security-3-3/4 {{/Security-3-3 || Security-3-4}}
 {{#Security-5-2}}   - Security-5-2 {{/Security-5-2}}
-{{#Security-10-2 && firefox45_or_older}}  - Security-10-2 {{/Security-10-2 && firefox45_or_older}}
-{{#Security-11-2}}   - Security-11-2 {{/Security-11-2}}
 {{#Security-18-2}}   - Security-18-2 {{/Security-18-2}}
 {{#Security-19-2}}   - Security-19-2 {{/Security-19-2}}
 {{#Security-21-2}}   - Security-21-2 {{/Security-21-2}}
