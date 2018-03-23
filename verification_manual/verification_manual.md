@@ -1965,22 +1965,22 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Script-2}}
-        1. `dom.push.enabled` の値が{{#Script-2-1 || Script-2-2}}`true`である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
-        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1 || Script-2-2}}`true`である。(Script-2-1/2){{/Script-2-1 || Script-2-2}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
+        1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。(Script-2-1){{/Script-2-1}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
+        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1}}`true`である。(Script-2-1){{/Script-2-1}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
 {{/Script-2}}
 {{#Script-3}}
         1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。(Script-3-1){{/Script-3-1}}{{#Script-3-2}}`false`である。(Script-3-2){{/Script-3-2}}
 {{/Script-3}}
 <!--/GROUP-->
-{{#Script-2-2 || Script-2-4}}
+{{#Script-2-4}}
 1. 確認なしでpush通知を許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
-        1. 「サイト別設定」タブで「通知を受信する」において「許可」にチェックが入っている。(Script-2-2/4)
+        1. 「サイト別設定」タブで「通知を受信する」において「許可」にチェックが入っている。(Script-2-4)
 1. 「通知を受信する」で、「ブロック」を選択してFirefoxを再起動する。
 1. 確認なしでpush通知を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
-        1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-2}}「許可」が選択されている。(Script-2-2){{/Script-2-2}}{{#Script-2-4}}「ブロック」が選択されている。{{/Script-2-4}}
-{{/Script-2-2 || Script-2-4}}
+        1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、「ブロック」が選択されている。(Script-2-4)
+{{/Script-2-4}}
 
 ### 後始末
 
@@ -2112,7 +2112,6 @@
 {{#Script-1}} - Script-1-\* {{/Script-1}}
 {{#Script-4}} - Script-4-\* {{/Script-4}}
 {{#Script-5}} - Script-5-\* {{/Script-5}}
-{{#Script-6}} - Script-6-\* {{/Script-6}}
 {{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
 {{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
 
@@ -2159,7 +2158,7 @@
     - 確認項目
         1. コンソール上に `copy` という文字が{{#Script-4-1}}出力される。（Script-4-1）{{/Script-4-1}}{{#Script-4-2}}出力されない。（Script-4-2）{{/Script-4-2}}
 {{/Script-4}}
-{{#Script-5 || Script-6}}
+{{#Script-5}}
 1. コンテンツ領域の上で右クリックする。
     - 確認項目
 {{#Script-6}}
