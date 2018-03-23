@@ -1518,11 +1518,6 @@
     - 確認項目
         1. 「Sync」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
         2. 「Syncにサインイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
-1. 以下の各方法でabout:accountsへのアクセスを試みる。
-    - 確認項目
-        1. ロケーションバーに`about:accounts`と入力し、Enterして、エラーページが表示される。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
-        1. ロケーションバーに`about:about`と入力しEnterして`about:`一覧を表示する。
-        1. `about:accounts`のリンクを左クリックし、エラーページが表示される。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
 
 {{/Privacy-22-2 || Privacy-22-3 || Privacy-24-2 || Privacy-24-3}}
 
