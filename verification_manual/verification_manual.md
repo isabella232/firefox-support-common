@@ -2606,7 +2606,6 @@
 
 {{#MenuShortcut-3}} - MenuShortcut-3 {{/MenuShortcut-3}}
 {{#MenuShortcut-10}} - MenuShortcut-10 {{/MenuShortcut-10}}
-{{#MenuShortcut-62}} - MenuShortcut-62 {{/MenuShortcut-62}}
 
 ### 準備
 
@@ -2621,9 +2620,6 @@
 {{#MenuShortcut-3}}
         1. 「Ctrl-Shift-P」を押して、新しいプライベートウィンドウが開かれない。(MenuShortcut-3)
 {{/MenuShortcut-3}}
-{{#MenuShortcut-62}}
-        1. 「Ctrl-T」を押して、新しいタブが開かれない。(MenuShortcut-62)
-{{/MenuShortcut-62}}
 <!--/GROUP-->
 <!--GROUP-->
 1. 「ファイル」メニューを開く。
@@ -2631,9 +2627,6 @@
 {{#MenuShortcut-3}}
         1. 「新しいプライベートウィンドウを開く」が存在しない。(MenuShortcut-3)
 {{/MenuShortcut-3}}
-{{#MenuShortcut-62}}
-        1. 「新しいタブ」が存在しない。(MenuShortcut-62)
-{{/MenuShortcut-62}}
 <!--/GROUP-->
 {{#MenuShortcut-10}}
 1. 「ツール」メニューを開く。
@@ -2825,7 +2818,6 @@
 
 {{#MenuShortcut-55}} - MenuShortcut-55 {{/MenuShortcut-55}}
 {{#MenuShortcut-57}} - MenuShortcut-57 {{/MenuShortcut-57}}
-{{#MenuShortcut-63}} - MenuShortcut-63 {{/MenuShortcut-63}}
 
 ### 準備
 
@@ -2841,43 +2833,8 @@
 {{#MenuShortcut-57}}        1. 「要素を調査」が存在しない。(MenuShortcut-57){{/MenuShortcut-57}}
 <!--/GROUP-->
 <!--GROUP-->
-1. ページ内のリンクの上で右クリックする。
-    - 確認項目
-{{#MenuShortcut-63}}        1. 「新しいタブで開く」が存在しない。(MenuShortcut-63){{/MenuShortcut-63}}
-<!--/GROUP-->
-<!--GROUP-->
 1. ページ内に埋め込まれた画像の上で右クリックする。
     - 確認項目
 {{#MenuShortcut-55}}        1. 「デスクトップの背景に設定」が存在しない。(MenuShortcut-55){{/MenuShortcut-55}}
 <!--/GROUP-->
-
-## ポップアップブロック
-
-### 確認する項目
-
-{{#MenuShortcut-58}} - MenuShortcut-58 {{/MenuShortcut-58}}
-{{#MenuShortcut-59}} - MenuShortcut-59 {{/MenuShortcut-59}}
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のカスタマイズを無効化する。
-{{#Security-4-3 || Security-4-4}}    1. Security-4-3/4{{/Security-4-3 || Security-4-4}}
-
-### 検証
-
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. テストケースの `popupblock.html` を開く。
-    - 確認項目
-        1. 「1個のポップアップがブロックされました」と表示される。{{#MenuShortcut-58}}(MenuShortcut-58){{/MenuShortcut-58}}{{#MenuShortcut-59}}(MenuShortcut-59){{/MenuShortcut-59}}
-1. 「設定」ボタンをクリックする。
-    - 確認項目
-{{#MenuShortcut-58}}        1. 「このサイトによるポップアップを許可する」が存在しない。(MenuShortcut-58){{/MenuShortcut-58}}
-{{#MenuShortcut-59}}        1. 「ポップアップブロック設定を変更」が存在しない。(MenuShortcut-59){{/MenuShortcut-59}}
-
-### 後始末
-
-1. 以下のカスタマイズを有効化する。
-{{#Security-4-3 || Security-4-4}}    1. Security-4-3/4{{/Security-4-3 || Security-4-4}}
 
