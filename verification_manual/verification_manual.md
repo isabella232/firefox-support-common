@@ -835,7 +835,6 @@
 {{#Privacy-19-2}}   - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-22-2}}   - Privacy-22-2 {{/Privacy-22-2}}
 {{#Privacy-24-2}}   - Privacy-24-2 {{/Privacy-24-2}}
-{{#Privacy-25-2 && firefox45_or_older}}  - Privacy-25-2 {{/Privacy-25-2 && firefox45_or_older}}
 {{#Privacy-31-2}}   - Privacy-31-2 {{/Privacy-31-2}}
 {{#Privacy-33-3}}   - Privacy-33-3 {{/Privacy-33-3}}
 {{#Startup-8-2}}   - Startup-8-2 {{/Startup-8-2}}
