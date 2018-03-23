@@ -466,9 +466,9 @@
         1. UIツアーが{{#Startup-8-1}}開始される。(Startup-8-1){{/Startup-8-1}}{{#Startup-8-2}}開始されない。(Startup-8-2){{/Startup-8-2}}
 {{/Startup-8}}
 {{#Admin-5}}
-1. about:supportを開く
+1. 「オプション」を開く
     - 確認項目
-       1. 「アプリケーション基本情報」の「Enterprise Policies」に{{#Admin-5-1}}「Active」と表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}「Inactive」と表示されている。(Admin-5-2){{/Admin-5-2}}
+       1. ページ上部に「Your organization has disabled the ability to change some options.」というメッセージが{{#Admin-5-1}}表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。(Admin-5-2){{/Admin-5-2}}
 {{/Admin-5}}
 
 ### 後始末
