@@ -1691,11 +1691,6 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Download-1}}
-1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
-    - 確認項目
-        1. 「ダウンロード」が{{#Download-1-1}}存在する。(Download-1-1){{/Download-1-1}}{{#Download-1-2}}存在しない。(Download-1-2){{/Download-1-2}}
-{{/Download-1}}
 {{#Download-2 || Download-3-1 || Download-3-2}}
 1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
 1. 今すぐダウンロードをクリックしダウンロードを開始する。(ただしファイルの保存はキャンセルする)
