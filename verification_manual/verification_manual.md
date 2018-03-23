@@ -2131,6 +2131,7 @@
 1. オプション画面の「詳細」→「一般」を開く。
     - 確認項目
         1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。(Stability-1-1){{/Stability-1-1}}{{#Stability-1-2}}または、チェックが入っていない。(Stability-1-2){{/Stability-1-2}}
+{{/Stability-1}}
 
 
 {{#Stability-2-2 || Stability-2-3}}
