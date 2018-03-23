@@ -359,7 +359,6 @@
 {{#Startup-3}} - Startup-3-\* {{/Startup-3}}
 {{#Startup-4-2}} - Startup-4-2 {{/Startup-4-2}}
 {{#Startup-5-2}} - Startup-5-2 {{/Startup-5-2}}
-{{#Startup-6}} - Startup-6-\* {{/Startup-6}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
 {{#Startup-8}} - Startup-8-\* {{/Startup-8}}
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
@@ -398,11 +397,6 @@
 {{#Admin-2}}
         1. 導入対象のアドオンの有効化の可否を尋ねるタブが{{#Admin-2-1}}開かれている。(Admin-2-1){{/Admin-2-1}}{{#Admin-2-2}}開かれていない。(Admin-2-2){{/Admin-2-2}}
 {{/Admin-2}}
-{{#Startup-6}}
-1. ホームページのタブとして既定のホームページ（`about:home`）が開かれていない場合、ロケーションバーに `about:home` と入力し、ホームページを開く。
-    - 確認項目
-        1. 既定のホームページ内に「あなたの権利について……」のリンクおよび情報が{{#Startup-6-1}}表示される。(Startup-6-1){{/Startup-6-1}}{{#Startup-6-2}}表示されない。(Startup-6-2){{/Startup-6-2}}
-{{/Startup-6}}
 <!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
