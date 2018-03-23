@@ -732,7 +732,6 @@
 
 ### 確認する項目
 
-{{#Security-9-2}} - Security-9-2 {{/Security-9-2}}
 {{#Security-9-3}} - Security-9-3 {{/Security-9-3}}
 {{#Security-34-2}} - Security-34-2 {{/Security-34-2}}
 {{#Security-35-2}} - Security-35-2 {{/Security-35-2}}
@@ -745,15 +744,6 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Security-9-2}}
-1. 以下の各方法でabout:configへのアクセスを試みる。(Security-9-2)
-    - 確認項目
-        1. ロケーションバーに`about:config`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-9-2)
-        1. ロケーションバーに`about:config`と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-9-2)
-        1. ロケーションバーに`about:about`と入力しEnterして`about:`一覧を表示する。
-        1. `about:config`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-9-2)
-        1. `about:config`のリンクを左クリックし、空白のページが読み込まれる。  (Security-9-2)
-{{/Security-9-2}}
 {{#Security-9-3}}
 1. 以下の各方法で`about:config`へのアクセスを試みる。(Security-9-3)
     - 確認項目
