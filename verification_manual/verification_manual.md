@@ -1505,13 +1505,13 @@
 {{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 {{/Privacy-14}}
 
-{{#Privacy-22-2 || Privacy-22-3}}
+{{#Privacy-22-2 || Privacy-22-3 || Privacy-24-2 || Privacy-24-3}}
 ## Firefox Syncの利用制限
 
 ### 確認する項目
 
-- Privacy-22-2/3
-- Privacy-24-2
+{{#Privacy-22-2 || Privacy-22-3}}- Privacy-22-2/3{{/Privacy-22-2 || Privacy-22-3}}
+{{#Privacy-24-2 || Privacy-24-3}}- Privacy-24-2/3{{/Privacy-24-2 || Privacy-24-3}}
 
 ### 準備
 
@@ -1521,34 +1521,23 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Privacy-22-2}}
-1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
+1. パネルメニューを開く。
     - 確認項目
-        1. 「Sync」の項目が存在しない。(Privacy-22-2)
+        1. 「Syncにログイン」の項目が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
 1. 「ツール」メニューを開く。
     - 確認項目
-        1. 「Syncにログイン」が存在しない。(Privacy-22-2)
+        1. 「Syncにログイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
-        1. 「Sync」が存在しない。(Privacy-22-2)
-        2. 「Syncにサインイン」が存在しない。(Privacy-22-2)
+        1. 「Sync」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
+        2. 「Syncにサインイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
 1. 以下の各方法でabout:accountsへのアクセスを試みる。
     - 確認項目
-        1. ロケーションバーに`about:accounts`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
-            (Privacy-22-2)
-        1. ロケーションバーに`about:accounts`と入力し、Enterして、何も起こらない（ページが読み込まれない）か、タブが閉じられる。
-            (Privacy-22-2)
+        1. ロケーションバーに`about:accounts`と入力し、Enterして、エラーページが表示される。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
         1. ロケーションバーに`about:about`と入力しEnterして`about:`一覧を表示する。
-        1. `about:accounts`のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Privacy-22-2)
-        1. `about:accounts`のリンクを左クリックし、空白のページが読み込まれるか、タブが閉じられる。(Privacy-22-2)
-{{/Privacy-22-2}}
-{{#Privacy-22-3 && Privacy-24-2}}
-1. パネルメニューを開き、パネルメニュー上部の「Syncにログイン」をクリックする。
-2. 設定の「Firefox アカウント」パネルが開かれるので、「ログイン」ボタンをクリックする。
-    - 確認項目
-        1. 「ログイン」ボタンをクリックしてもログイン画面「https://accounts.firefox.com」に遷移しない。(Privacy-22-3)(Privacy-24-2)
-{{/Privacy-22-3 && Privacy-24-2}}
-{{/Privacy-22-2 || Privacy-22-3}}
+        1. `about:accounts`のリンクを左クリックし、エラーページが表示される。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
+
+{{/Privacy-22-2 || Privacy-22-3 || Privacy-24-2 || Privacy-24-3}}
 
 ## プライバシーに関わる機能の利用制限
 
