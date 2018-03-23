@@ -732,7 +732,6 @@
 
 ### 確認する項目
 
-{{#Security-8-2}} - Security-8-2 {{/Security-8-2}}
 {{#Security-9-2}} - Security-9-2 {{/Security-9-2}}
 {{#Security-9-3}} - Security-9-3 {{/Security-9-3}}
 {{#Security-34-2}} - Security-34-2 {{/Security-34-2}}
@@ -742,9 +741,6 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     - カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-8-2}}
-1. Security-8-2で何らかのabout:ページを無効化していない場合、検証のため、Disable About Somethingを用いて{{disabled_about_pages}}の使用を禁止しておく。
-{{/Security-8-2}}
 
 ### 検証
 
@@ -767,15 +763,6 @@
         1. `about:config`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-9-3)
         1. `about:config`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-9-3)
 {{/Security-9-3}}
-{{#Security-8-2}}
-1. 以下の各方法で{{disabled_about_pages}}へのアクセスを試みる。(Security-8-2)
-    - 確認項目
-        1. ロケーションバーに`{{disabled_about_pages}}`と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。(Security-8-2)
-        1. ロケーションバーに`{{disabled_about_pages}}`と入力し、Enterして、何も起こらない（ページが読み込まれない）。(Security-8-2)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. {{disabled_about_pages}}のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-8-2)
-        1. {{disabled_about_pages}}のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-8-2)
-{{/Security-8-2}}
 {{#Security-34-2}}
 1. 以下の各方法で`about:profiles`へのアクセスを試みる。(Security-34-2)
     - 確認項目
