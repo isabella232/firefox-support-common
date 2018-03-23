@@ -1561,43 +1561,6 @@
         1. 「リンクをPocketに保存」が存在しない。(Privacy-27-2)
 {{/Privacy-27-2 || Privacy-27-3}}
 
-{{#Privacy-29-2}}
-## アイドル状態での履歴・ブックマーク用データベースの自動最適化
-
-### 確認する項目
-
-- Privacy-29-2
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
-
-### 検証
-
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-2. Firefoxのロケーションバーに`about:config`と入力し、ページを開く。
-3. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名 `idle.lastDailyNotification`、値`0`で設定項目を登録する。
-4. リスト領域を右クリックしてメニューから「新規作成」→整数値を選択し、設定名 `places.database.lastMaintenance`、値`0`で設定項目を登録する。
-5. Firefoxを終了する。
-6. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-7. パネルメニューの「開発ツール」（またはメニューバーの「Web開発」）をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
-8. キーボード、マウスから手を離し、4分以上待つ。
-9. ブラウザコンソールの内容を確認する。
-    - 確認項目
-        1. 以下のメッセージがすべて出力される。(Privacy-29-2)
-            1. `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
-            2. `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
-            3. `Array [ ... ]`
-        2. `Array [ ... ]` と表示されたメッセージの中に、`> Vacuum` という内容が含まれている。(Privacy-29-2)
-
-### 後始末
-
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
-{{/Privacy-29-2}}
 
 {{#Privacy-30}}
 ## ディスクキャッシュのサイズ制限
