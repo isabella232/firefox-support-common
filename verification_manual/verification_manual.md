@@ -2658,7 +2658,6 @@
 
 ### 確認する項目
 
-{{#MenuShortcut-7}} - MenuShortcut-7 {{/MenuShortcut-7}}
 {{#MenuShortcut-11}} - MenuShortcut-11 {{/MenuShortcut-11}}
 {{#MenuShortcut-12}} - MenuShortcut-12 {{/MenuShortcut-12}}
 {{#MenuShortcut-13}} - MenuShortcut-13 {{/MenuShortcut-13}}
@@ -2688,7 +2687,6 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
-{{#MenuShortcut-7}}        1. 「Ctrl-J」を押して、ダウンロード済みファイル一覧が開かれない。(MenuShortcut-7){{/MenuShortcut-7}}
 {{#MenuShortcut-11}}
         1. 「Ctrl-Shift-I」を押して、開発ツールが開かれない。(MenuShortcut-11)
         1. 「F12」を押して、開発ツールが開かれない。(MenuShortcut-11)
@@ -2706,11 +2704,6 @@
 {{#MenuShortcut-23}}        1. 「Ctrl-Shift-M」を押して、レスポンシブデザインビューが開かれない。(MenuShortcut-23){{/MenuShortcut-23}}
 {{#MenuShortcut-25}}        1. 「Shift-F4」を押してスクラッチパッド、が開かれない。(MenuShortcut-25){{/MenuShortcut-25}}
 {{#MenuShortcut-26}}        1. 「Ctrl-U」を押して、ページのソースが開かれない。(MenuShortcut-26){{/MenuShortcut-26}}
-{{#MenuShortcut-7}}
-1. 「ツール」メニューを開く。
-     - 確認項目
-        1. 「ダウンロード」が存在しない。(MenuShortcut-7)
-{{/MenuShortcut-7}}
 <!--GROUP-->
 1. 「ツール」メニュー内の「ウェブ開発」を開く。
     - 確認項目
@@ -2757,11 +2750,6 @@
 {{#MenuShortcut-64}}        1. 「Service Worker」が存在しない（MenuShortcut-64）{{/MenuShortcut-64}}
 {{#MenuShortcut-65}}        1. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）{{/MenuShortcut-65}}
 <!--/GROUP-->
-{{#MenuShortcut-7}}
-1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
-    - 確認項目
-        1. 「ダウンロード」が存在しない。(MenuShortcut-7)
-{{/MenuShortcut-7}}
 
 ## ヘルプ
 
