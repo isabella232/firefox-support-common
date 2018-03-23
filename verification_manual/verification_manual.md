@@ -1131,7 +1131,6 @@
 {{#Privacy-17}} - Privacy-17-\* {{/Privacy-17}}
 {{#Privacy-18-2}} - Privacy-18-2 {{/Privacy-18-2}}
 {{#Privacy-19-2}} - Privacy-19-2 {{/Privacy-19-2}}
-{{#Privacy-20}} - Privacy-20-\* {{/Privacy-20}}
 {{#Privacy-21-2}} - Privacy-21-2 {{/Privacy-21-2}}
 {{#Privacy-31-2}} - Privacy-31-2 {{/Privacy-31-2}}
 {{#Privacy-32}} - Privacy-32-\* {{/Privacy-32}}
@@ -1190,9 +1189,6 @@
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシーとセキュリティ」を開く。
     - 確認項目
-{{#Privacy-20}}
-        1. 「Do Not Trackの設定を管理」リンクをクリックして開かれたダイアログ内で、「Do Not Trackを常に有効にする」の{{#Privacy-20-1 || Privacy-20-2}}チェックが入っている。 (Privacy-20-1/2){{/Privacy-20-1 || Privacy-20-2}}{{#Privacy-20-3 || Privacy-20-4}}チェックが外れている。 (Privacy-20-3/4){{/Privacy-20-3 || Privacy-20-4}}
-{{/Privacy-20}}
 {{#Privacy-1}}
 {{#Privacy-1-2 || Privacy-1-5}}
         1. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。(Privacy-1-2/5)
