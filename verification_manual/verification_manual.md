@@ -1040,12 +1040,12 @@
 {{/Security-27}}
 1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
-{{#Privacy-26}}
-        1. `browser.safebrowsing.download.enabled` が{{#Privacy-26-1}} `true` である。(Privacy-26-1){{/Privacy-26-1}}{{#Privacy-26-2}} `false` である。(Privacy-26-2){{/Privacy-26-2}}
-{{/Privacy-26}}
-{{#Privacy-27}}
-        1. `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Privacy-27-1}} `true` である。(Privacy-27-1){{/Privacy-27-1}}{{#Privacy-27-2}} `false` である。(Privacy-27-2){{/Privacy-27-2}}
-{{/Privacy-27}}
+{{#Security-26}}
+        1. `browser.safebrowsing.download.enabled` が{{#Security-26-1}} `true` である。(Security-26-1){{/Security-26-1}}{{#Security-26-2}} `false` である。(Security-26-2){{/Security-26-2}}
+{{/Security-26}}
+{{#Security-27}}
+        1. `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Security-27-1}} `true` である。(Security-27-1){{/Security-27-1}}{{#Security-27-2}} `false` である。(Security-27-2){{/Security-27-2}}
+{{/Security-27}}
 
 
 ## その他のセキュリティに関わる設定
