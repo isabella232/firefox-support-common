@@ -2760,7 +2760,6 @@
 {{#MenuShortcut-37}} - MenuShortcut-37 {{/MenuShortcut-37}}
 {{#MenuShortcut-38}} - MenuShortcut-38 {{/MenuShortcut-38}}
 {{#MenuShortcut-39}} - MenuShortcut-39 {{/MenuShortcut-39}}
-{{#MenuShortcut-40}} - MenuShortcut-40 {{/MenuShortcut-40}}
 
 ### 準備
 
@@ -2778,7 +2777,6 @@
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
 {{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しない。(MenuShortcut-38){{/MenuShortcut-38}}
 {{#MenuShortcut-39}}        1. 「誤警告を報告」が存在しない。(MenuShortcut-39){{/MenuShortcut-39}}
-{{#MenuShortcut-40}}        1. 「Firefoxについて」の前にセパレータが存在しない。(MenuShortcut-40){{/MenuShortcut-40}}
 <!--/GROUP-->
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
@@ -2788,66 +2786,13 @@
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
 {{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しない。(MenuShortcut-38){{/MenuShortcut-38}}
 {{#MenuShortcut-39}}        1. 「誤警告を報告」が存在しない。(MenuShortcut-39){{/MenuShortcut-39}}
-{{#MenuShortcut-40}}        1. 「Firefoxについて」の前にセパレータが存在しない。(MenuShortcut-40){{/MenuShortcut-40}}
 <!--/GROUP-->
 
-## 書字方向の切り替えの制御
-
-### 確認する項目
-
-{{#MenuShortcut-41}} - MenuShortcut-41 {{/MenuShortcut-41}}
-{{#MenuShortcut-42}} - MenuShortcut-42 {{/MenuShortcut-42}}
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
-
-### 検証
-
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、`bidi.browser.ui` の値を`true`に設定する。
-1. Firefoxを終了する。
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. `https://addons.mozilla.org/` など、テキスト入力欄があるWebページを開く。
-{{#MenuShortcut-41}}
-1. テキスト入力欄をクリックしてフォーカスした状態にする。
-    - 確認項目
-        1. 「Ctrl-Shift-X」を押して、テキスト入力欄の書字方向が切り替わらない(MenuShortcut-41)
-1. テキスト入力欄の中で右クリックしてコンテキストメニューを開く。
-    - 確認項目
-        1. 「テキストの記述方向を切り替える」が存在しない。(MenuShortcut-41)
-        2. 「スペルチェックを行う」の下にセパレータが存在しない。(MenuShortcut-41)
-{{/MenuShortcut-41}}
-{{#MenuShortcut-42}}
-1. ページ内の何もない所で右クリックしてコンテキストメニューを開く。
-    - 確認項目
-        1. 「ページの記述方向を切り替える」が存在しない。(MenuShortcut-42)
-        2. 「ページの情報を表示」の下にセパレータが存在しない。(MenuShortcut-42)
-{{/MenuShortcut-42}}
-{{#MenuShortcut-41}}
-1. 「編集」メニューを開く。
-    - 確認項目
-        1. 「テキストの記述方向を切り替える」が存在しない。(MenuShortcut-41)
-{{/MenuShortcut-41}}
-{{#MenuShortcut-42}}
-1. 「表示」メニューを開く。
-    - 確認項目
-        1. 「ページの記述方向を切り替える」が存在しない。(MenuShortcut-42)
-{{/MenuShortcut-42}}
-
-### 後始末
-
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ## 履歴とブックマーク
 
 ### 確認する項目
 
-{{#MenuShortcut-43}} - MenuShortcut-43 {{/MenuShortcut-43}}
 {{#MenuShortcut-44}} - MenuShortcut-44 {{/MenuShortcut-44}}
 
 ### 準備
@@ -2858,11 +2803,6 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#MenuShortcut-43}}
-1. 「履歴」メニューを開く。
-    - 確認項目
-        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。(MenuShortcut-43)
-{{/MenuShortcut-43}}
 {{#MenuShortcut-44}}
 1. 「ブックマーク」メニューを開く。
     - 確認項目
