@@ -1282,7 +1282,7 @@
 {{#Privacy-13}}
 1. テストケースの `indexed-db.html` を開く。
     - 確認項目
-        1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-2}}`disabled` と表示される。(Privacy-13-2){{/Privacy-13-2}}
+        1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。(Privacy-13-3){{/Privacy-13-3}}
 {{/Privacy-13}}
 {{#Privacy-38}}
 1. テストケースの `beacon.html` を開く。
@@ -1502,16 +1502,16 @@
 1. ロケーションバーに `https://developer.mozilla.org/ja/docs/WebAPI/Using_geolocation` と入力し、ページを開く。
 1. 「Geolocationのライブサンプル」欄の「Show my location」ボタンをクリックする。
     - 確認項目
-        1. {{^Privacy-14-3}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/2/4){{/Privacy-14-3}}{{#Privacy-14-3}}何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3){{/Privacy-14-3}}
-{{#Privacy-14-2 || Privacy-14-4}}
+        1. {{^Privacy-14-3}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/4){{/Privacy-14-3}}{{#Privacy-14-3}}何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3){{/Privacy-14-3}}
+{{#Privacy-14-4}}
 1. 確認無しでの位置情報の取得を許可するサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
-        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Privacy-14-2/4)
+        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Privacy-14-4)
 1. 「位置情報の送信」で、「ブロック」を選択してFirefoxを再起動する。
 1. 確認無しでの位置情報の取得を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
-        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-2}}「許可」が選択されている。(Privacy-14-2){{/Privacy-14-2}}{{#Privacy-14-4}}「ブロック」が選択されている。(Privacy-14-4){{/Privacy-14-4}}
-{{/Privacy-14-2 || Privacy-14-4}}
+        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「ブロック」が選択されている。(Privacy-14-4)
+{{/Privacy-14-4}}
 
 ### 後始末
 
