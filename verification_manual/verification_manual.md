@@ -360,7 +360,6 @@
 {{#Startup-4-2}} - Startup-4-2 {{/Startup-4-2}}
 {{#Startup-5-2}} - Startup-5-2 {{/Startup-5-2}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
-{{#Startup-8}} - Startup-8-\* {{/Startup-8}}
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 
@@ -444,11 +443,6 @@
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
 1. Firefoxを終了する。
 {{/Startup-7}}
-{{#Startup-8}}
-1. プロファイルを削除してからFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}ホームページを既定の状態から変更している場合は、`https://www.mozilla.org/ja/firefox/{{meta_installer_version}}/tour/` と入力し、ページを開く。
-    - 確認方法
-        1. UIツアーが{{#Startup-8-1}}開始される。(Startup-8-1){{/Startup-8-1}}{{#Startup-8-2}}開始されない。(Startup-8-2){{/Startup-8-2}}
-{{/Startup-8}}
 {{#Admin-5}}
 1. 「オプション」を開く
     - 確認項目
@@ -820,7 +814,6 @@
 {{#Privacy-22-2}}   - Privacy-22-2 {{/Privacy-22-2}}
 {{#Privacy-24-2}}   - Privacy-24-2 {{/Privacy-24-2}}
 {{#Privacy-33-3}}   - Privacy-33-3 {{/Privacy-33-3}}
-{{#Startup-8-2}}   - Startup-8-2 {{/Startup-8-2}}
 {{#Update-1-3}}   - Update-1-3 {{/Update-1-3}}
 {{#Update-2-2}}   - Update-2-2 {{/Update-2-2}}
 {{#Plugin-8-2}}   - Plugin-8-2 {{/Plugin-8-2}}
