@@ -556,14 +556,12 @@
         1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-2-1/3)
 {{/Application-2}}
 
-## ウィンドウ名の制御
-
-- メインウィンドウのタイトルは{{window_title}}とする。
+{{#Application-5}}
+## ウィンドウのアイコンの変更
 
 ### 確認する項目
 
-{{#Application-4}} - Application-4-\* {{/Application-4}}
-{{#Application-5}} - Application-5-\* {{/Application-5}}
+ - Application-5-\*
 
 ### 準備
 
@@ -575,19 +573,11 @@
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. タスクバー上に表示された項目にポインタを載せ、ジャンプリストを表示させる。
     - 確認項目
-{{#Application-4}}
-        1. 項目のタイトルが「{{window_title}}」で終わっている。（※確認できないときはスキップ）(Application-4-\*)
-{{/Application-4}}
-{{#Application-5}}
         1. タスクバー上の項目、もしくはジャンプリストの項目に指定のアイコンが表示されている。(Application-5-\*)
-{{/Application-5}}
 1. 前項で項目のタイトルを確認できない場合、Ctrl-Shift-ESCを押下し、タスクマネージャを起動して、「アプリケーション」タブを選択する。
     - 確認項目
-{{#Application-4}}
-        1. 項目のタイトルが「{{window_title}}」で終わっている。 (Application-4-\*)
-{{/Application-4}}
-{{#Application-5}}
         1. 項目に指定のアイコンが表示されている。(Application-5-\*)
+
 {{/Application-5}}
 
 <!--======================================================================-->
