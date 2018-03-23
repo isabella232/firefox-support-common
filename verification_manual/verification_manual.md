@@ -1575,9 +1575,6 @@
 <!--GROUP-->
 1. 設定画面で「プライバシー」ペインを選択する。
     - 確認項目
-{{#Privacy-1-2 || Privacy-1-5}}
-        1. 「常にプライベートブラウジングモード」が表示されていない。(Privacy-1-2/5)
-{{/Privacy-1-2 || Privacy-1-5}}
 {{#Privacy-33-3 && use_globalchromecss}}
         1. 「プライベートウィンドウでサイトによるトラッキングをブロックする」が表示されていない。(Privacy-33-3)
 {{/Privacy-33-3 && use_globalchromecss}}
