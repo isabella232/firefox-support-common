@@ -942,32 +942,6 @@
 {{#use_globalchromecss}}    1. globalChrome.css{{/use_globalchromecss}}
 {{#use_uitextoverrider}}    1. UI Text Overrider{{/use_uitextoverrider}}
 
-{{#Security-20-2}}
-## パーミッション設定の制限
-
-### 確認する項目
-
-- Security-20-2
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-
-### 検証
-
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `https://addons.mozilla.org` と入力し、ページを開く。
-1. ページの読み込みが完了したら、ロケーションバー上の鍵アイコンの箇所をクリックする。
-    - 確認項目
-        1. パネル上に「サイト別設定」が表示されない。(Security-20-2)
-{{#firefox45_or_older}}
-        1. パネル右の「\>」をクリックした先の画面で「詳細を表示」ボタンが表示されない。(Security-20-2)
-{{/firefox45_or_older}}
-1. ページ上のコンテキストメニューから「ページの情報を表示」を選択する。
-    - 確認項目
-        1. 「サイト別設定」タブが表示されない。(Security-20-2)
-{{/Security-20-2}}
 
 {{#Security-16}}
 ## フルスクリーン表示の制限
