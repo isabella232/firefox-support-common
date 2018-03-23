@@ -1163,7 +1163,7 @@
 {{#Privacy-4-2}} - Privacy-4-2 {{/Privacy-4-2}}
 {{#Privacy-5-2}} - Privacy-5-2 {{/Privacy-5-2}}
 {{#Privacy-5-3}} - Privacy-5-3 {{/Privacy-5-3}}
-{{#Privacy-6-2 || Privacy-6-3 || Privacy-6-4}} - Privacy-6-2/3/4 {{/Privacy-6-2 || Privacy-6-3 || Privacy-6-4}}
+{{#Privacy-6-3 || Privacy-6-4}} - Privacy-6-3/4 {{/Privacy-6-3 || Privacy-6-4}}
 {{#Privacy-7}} - Privacy-7-\* {{/Privacy-7}}
 {{#Privacy-8-2}} - Privacy-8-2 {{/Privacy-8-2}}
 {{#Privacy-10-2}} - Privacy-10-2 {{/Privacy-10-2}}
@@ -1266,9 +1266,9 @@
 {{#Privacy-6-3}}
         1. 「Webサイトがオフライン作業用のデータの保存を求めてきたときに知らせる」のチェックが外れていて選択不可になっている。(Privacy-6-3)
 {{/Privacy-6-3}}
-{{#Privacy-6-2 || Privacy-6-4}}
-        1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-2/4)
-{{/Privacy-6-2 || Privacy-6-4}}
+{{#Privacy-6-4}}
+        1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-4)
+{{/Privacy-6-4}}
 <!--/GROUP-->
 <!--GROUP-->
 1. オプション画面の「プライバシーとセキュリティ」を開く。
