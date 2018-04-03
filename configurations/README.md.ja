@@ -1,5 +1,14 @@
 # 設定シートの使い方
 
+## 更新時の運用
+
+customization-items-esr60beta.odsは、2018年4月3日時点のcustomization-items.odsのforkであり、以後項目の追加は行われない（誤記の修正は反映）。
+2018年4月3日から2018年5月8日（ESR60正式版リリース）までの間に開始されるカスタマイズは、customization-items-esr60beta.odsを元に行う。
+ESR60正式版リリース以後に開始されたカスタマイズはcustomization-items.odsを元に行う。
+
+ESR67向けの作業を行う時は、カスタマイズがcustomization-items-esr60beta.odsを元に行われたかcustomization-items.odsを元に行われたかによって作業フローが異なる。
+customization-items-esr60beta.odsをもとにカスタマイズしていた場合、まずcustomization-items-esr60beta.ods以降2018年4月3日から2018年5月8日（ESR60正式版リリース）までの間にcustomization-items.odsに追加された項目の取り扱いを決める必要がある。
+
 ## 設定シートと検証手順の作成
 
  1. `customization-items.ods`の`customization-items`, `menuitem-shortcut-disable-items`, `misc-ui-diable-items`の各シートについて、反映する設定項目を検討し、反映したい項目についてA列に印を付ける。（空文字以外なら何でも可）
