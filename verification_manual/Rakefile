@@ -11,7 +11,7 @@ ODT_FILES = MD_FILES.map{|file| file.ext(".odt") }
 SOURCE_CONFIGS_SPREADHSEET = "../configurations/customization-items.ods"
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 VARIABLES = {
-  is_upgrade:                     true,
+  is_upgrade_from_uncontrolled:   true,
   firefox_version:                "52.0 ESR",
   windows_version:                "Windows 7",
   configuration_sheet_name:       "customization-items.ods",

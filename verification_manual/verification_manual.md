@@ -24,9 +24,9 @@
 {{#Admin-1-2 || Network-2-3 || Security-4-5}}
 ## 検証の準備
 
-{{#is_upgrade}}
+{{#is_upgrade_from_uncontrolled}}
 * 現行バージョンのFirefoxのセットアップ手順を確認し、現行環境を復元できる用意を整えておく。
-{{/is_upgrade}}
+{{/is_upgrade_from_uncontrolled}}
 {{#Admin-1-2}}
 * リモート設定ファイルを参照できない環境で検証する場合、MCD用設定ファイルの「Admin-1-2」に対応する設定をコメントアウトし、ローカル設定ファイルのみを使用するように設定する。
 {{/Admin-1-2}}
@@ -79,7 +79,7 @@
 {{/Install-9-2}}
 {{/Install-9}}
 
-{{#is_upgrade}}
+{{#is_upgrade_from_uncontrolled}}
 ## 現行環境への上書きインストール
 
 ### 確認する項目
@@ -105,7 +105,7 @@
         1. `{{install_path}}\*.cfg` の位置にあったファイルが、`{{install_path}}\*.cfg.backup.*`にリネームされている。(Admin-1-1/2)
         1. `{{install_path}}\defaults\pref\*.js` の位置にあったファイルが、`{{install_path}}\defaults\pref\*.js.backup.*`にリネームされている。(Admin-1-1/2)
 {{/Admin-1-1 || Admin-1-2}}
-{{/is_upgrade}}
+{{/is_upgrade_from_uncontrolled}}
 
 
 ## 新規インストール
