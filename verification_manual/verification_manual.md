@@ -1049,7 +1049,7 @@
 1. `https://piro.sakura.ne.jp` のタブに戻り、ページを再読み込みする。
 1. `document.cookie` を実行する。
     - 確認項目
-        1. {{#Security-29-1}}`secure=true` という結果が出力される。（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`secure=false` という結果が出力される。（Security-29-2）{{/Security-29-2}}
+        1. {{#Security-29-1}}`secure=false` という結果が出力される。（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`secure=true` という結果が出力される。（Security-29-2）{{/Security-29-2}}
 {{/Security-29}}
 
 1. テストケースの `block_script_with_wrong_mime.py` を実行し誤ったMIMEタイプを返すHTTPサーバーを起動する。
