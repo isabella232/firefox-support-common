@@ -672,11 +672,6 @@
 1. Firefoxのロケーションバーに `http://itisatrap.org/firefox/unwanted.html` と入力し、Enterを押下する。
     - 確認項目
         1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
-{{#Security-5-2}}
-1. 「`{{special_profile_path}}\{{special_profile_name}}\safebrowsing`」、もしくは「`%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\safebrowsing`」を開く。
-    - 確認項目
-        1. フォルダが空である。(Security-5-2)
-{{/Security-5-2}}
 {{/Security-5}}
 {{#Security-6}}
 1. Firefoxのロケーションバーに `http://itisatrap.org/firefox/its-a-trap.html` と入力し、Enterを押下する。
