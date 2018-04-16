@@ -2153,7 +2153,7 @@
     - 確認項目
         1. コンソール上に `copy` という文字が{{#Script-4-1}}出力される。（Script-4-1）{{/Script-4-1}}{{#Script-4-2}}出力されない。（Script-4-2）{{/Script-4-2}}
 {{/Script-4}}
-{{#Script-5}}
+{{#Script-5 || Script-6}}
 1. コンテンツ領域の上で右クリックする。
     - 確認項目
 {{#Script-6}}
