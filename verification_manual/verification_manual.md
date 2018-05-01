@@ -1233,19 +1233,19 @@
         1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。(Privacy-39-1){{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
 {{#Privacy-12}}
-1. テストケースの `storage.html` を開く。
+1. テストケースのトップページ (`index.html`) を開き「storage」の欄を確認する
     - 確認項目
-        1. {{#Privacy-12-1}}`window.localStorage = [object Storage]` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`window.localStorage = null` と表示される。(Privacy-12-2){{/Privacy-12-2}}
+        1. {{#Privacy-12-1}}`enabled` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。(Privacy-12-2){{/Privacy-12-2}}
 {{/Privacy-12}}
 {{#Privacy-13}}
-1. テストケースの `indexed-db.html` を開く。
+1. テストケースのトップページ (`index.html`) を開き「indexedDB」の欄を確認する
     - 確認項目
-        1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。(Privacy-13-3){{/Privacy-13-3}}
+        1. `enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。(Privacy-13-3){{/Privacy-13-3}}
 {{/Privacy-13}}
 {{#Privacy-38}}
-1. テストケースの `beacon.html` を開く。
+1. テストケースのトップページ (`index.html`) を開き「beacon」の欄を確認する
     - 確認項目
-        1. {{#Privacy-38-1}}`enabled` と出力される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。(Privacy-38-2){{/Privacy-38-2}}
+        1. {{#Privacy-38-1}}`enabled` と表示される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。(Privacy-38-2){{/Privacy-38-2}}
 {{/Privacy-38}}
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
 <!--GROUP-->
