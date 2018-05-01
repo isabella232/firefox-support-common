@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style>
+body {font-size:14px;font-family:sans-serif;line-height:1.5;}
+h1 {font-size:1.5em}
+h2 {font-size:1.3em}
+table {font: inherit;border-collapse:collapse;}
+td,th{padding:3px;border: 1px solid #999;}
+a {text-decoration:none;color:#00a;}
+a:visited {color:#00a;}
+</style>
+</head>
+<body>
+<h1>Firefox検証用リソース</h1>
+<h2>閲覧中のブラウザの状態</h2>
+<table>
+<tr id='beacon'><th>機能</th><th>ステータス</th></tr>
+<tr id='beacon'><th>beacon</th><td></td></tr>
+<tr id='storage'><th>storage</th><td></td></tr>
+<tr id='indexedDB'><th>indexedDB</th><td></td></tr>
+</table>
+
+<h2>検証用リソース</h2>
+<dl>
+<dt><a href='./unsigned-sample-addon@clear-code.com.xpi'>unsigned-sample-addon@clear-code.com.xpi</a></dt>
+<dd>未署名アドオン</dd>
+<dt><a href='./blocked-addon.xpi'>blocked-addon.xpi</a></dt>
+<dd>ブロック済みのアドオン。about:debuggingから読み込むこと (Security-21)</dd>
+<dt><a href='./sample.jar'>sample.jar</a></dt>
+<dd>リモート読み込み用JARファイル (Network-12)</dd>
+<dt><a href="./cross-directory.html">cross-directory.html</a></dt>
+<dd>ローカルファイルからの他ディレクトリの参照の可否。手元に配置して使う (Security-14)</dd>
+</dl>
+
+<h2>個別検証ページ</h2>
+<dl>
+<!--
+<dt><a href="./block_script_widt_wrong_mime.html">block_script_with_wrong_mime.html</a></dt>
+<dt><a href="./cookie.html">cookie.html</a></dt>
+<dt><a href="./prefetching.html">prefetching.html</a></dt>
+-->
+<dt><a href="./popupblock.html">popupblock.html</a></dt>
+<dd>広告などのポップアップの表示の可否 (Security-4)</dd>
+<dt><a href="./local-file-link.html">local-file-link.html</a></dt>
+<dd>ローカルファイル読み込みを許可するサイト (Security-13)</dd>
+<dt><a href="./fullscreen.html">fullscreen.html</a></dt>
+<dd>フルスクリーン表示の可否 (Security-16)</dd>
+<dt><a href="./password.html">password.html</a></dt>
+<dd>フォーム入力履歴の保存 (Privacy-2/Privacy-5/Privacy-40)</dd>
+<dt><a href="./preconnect.html">preconnect.html</a></dt>
+<dd>DNSの先読み設定の許可 (Privacy-16)</dd>
+<dt><a href="./insecure-password.html">insecure-password.html</a></dt>
+<dd>SSL/TLSでないページへのパスワード入力時の警告 (Privacy-39)</dd>
+<dt><a href="./alert.html">alert.html</a></dt>
+<dd>スクリプトによる頻繁なalertの可否 (Script-1)</dd>
+<dt><a href="./links.html">links.html</a></dt>
+<dd>複数タブ表示時の警告 (Tab-1)</dd>
+<dt><a href="./textfield.html">textfield.html</a></dt>
+<dd>スペルチェック機能 (UI-6)</dd>
+<dt><a href="./font.html">font.html</a></dt>
+<dd>表示フォントの明示 (Appearance-1)</dd>
+</dl>
+</body>
+<script>
+function beacon() {
+  try {
+    navigator.sendBeacon('http://www.clear-code.com/beacon', '');
+    return 'enabled';
+  }
+  catch(e) {
+    return 'disabled';
+  }
+}
+
+function storage() {
+  if (window.localStorage) {
+    return 'enabled'
+  } else {
+    return 'disabled'
+  }
+}
+
+function indexedDB() {
+  try {
+    var request = indexedDB.open("testFiles", 1);
+    return "enabled";
+  } catch(e) {
+    if (e.name === "InvalidStateError") {
+      return "disabled";
+    } else {
+      return "unexpected error: " + e;
+    }
+  }
+}
+
+var _query = (q) => document.querySelector(q);
+
+_query('#beacon td').textContent = beacon();
+_query('#storage td').textContent = storage();
+_query('#indexedDB td').textContent = indexedDB();
+</script>
+</html>
