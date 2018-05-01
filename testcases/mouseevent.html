@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>copyevent test</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1>Mouse Event Overriding Test</h1>
+<pre style='background:#fafafa;display:inline-block;margin:1em 0;padding:2em;'>
+window.addEventListener('copy', (e) => alert(e.type));
+window.addEventListener('contextmenu', (e) => e.preventDefault());
+</pre>
+
+<ol>
+<li>Copy the following text using CTRL-C</li>
+
+<p style='color:#f00'>COPY ME!</p>
+
+<li>Try to open the context menu using a right click</li>
+</ol>
+
+</body>
+<script>
+window.addEventListener('copy', (e) => alert(e.type));
+window.addEventListener('contextmenu', (e) => e.preventDefault());
+</script>
+</html>

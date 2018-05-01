@@ -2153,22 +2153,30 @@
     - 確認項目
         1. 2つ目以降のダイアログに、以後のダイアログを表示しないようにするかどうかを尋ねるチェックボックスが{{#Script-1-1}}表示される。（Script-1-1）{{/Script-1-1}}{{#Script-1-2}}表示されない。（Script-1-2）{{/Script-1-2}}
 {{/Script-1}}
-1. コンソール下部の入力欄に `window.addEventListener('copy', (event) => console.log(event.type)); window.addEventListener('click', (event) => console.log('button = ' + event.button)); window.addEventListener('contextmenu', (event) => event.preventDefault());` と入力し、実行する。
+
+1. テストケースの `mouseevent.html` を開く。
+
 {{#Script-4}}
 1. コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - 確認項目
-        1. コンソール上に `copy` という文字が{{#Script-4-1}}出力される。（Script-4-1）{{/Script-4-1}}{{#Script-4-2}}出力されない。（Script-4-2）{{/Script-4-2}}
+{{#Script-4-1}}
+        1. コンソール上に `copy` という文字が出力される。（Script-4-1）
+{{/Script-4-1}}
+{{#Script-4-2}}
+        1. コンソール上に `copy` という文字が出力されない。（Script-4-2）
+{{/Script-4-2}}
 {{/Script-4}}
-{{#Script-5 || Script-6}}
+
+{{#Script-5}}
 1. コンテンツ領域の上で右クリックする。
     - 確認項目
-{{#Script-6}}
-        1. コンソール上に `button = 2` という文字が{{#Script-6-1}}出力される。（Script-6-1）{{/Script-6-1}}{{#Script-6-2}}出力されない。（Script-6-2）{{/Script-6-2}}
-{{/Script-6}}
-{{#Script-5}}
-        1. コンテキストメニューが{{#Script-5-1}}開かれない。（Script-5-1）{{/Script-5-1}}{{#Script-5-2}}開かれる。（Script-5-2）{{/Script-5-2}}
+{{#Script-5-1}}
+        1. コンテキストメニューが開かれない。（Script-5-1）
+{{/Script-5-1}}
+{{#Script-5-2}}
+        1. コンテキストメニューが開かれる。（Script-5-1）
+{{/Script-5-2}}
 {{/Script-5}}
-{{/Script-5 || Script-6}}
 <!--GROUP-->
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
