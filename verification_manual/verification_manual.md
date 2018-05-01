@@ -1233,7 +1233,7 @@
         1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。(Privacy-39-1){{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
 {{#Privacy-12}}
-1. テストケースのトップページ (`index.html`) を開き「storage」の欄を確認する
+1. テストケースのトップページ (`index.html`) を開き「localStorage」の欄を確認する
     - 確認項目
         1. {{#Privacy-12-1}}`enabled` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。(Privacy-12-2){{/Privacy-12-2}}
 {{/Privacy-12}}
@@ -1437,11 +1437,16 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `https://developer.mozilla.org/ja/docs/WebAPI/Using_geolocation` と入力し、ページを開く。
-1. 「Geolocationのライブサンプル」欄の「Show my location」ボタンをクリックする。
+1. テストケースのトップページ (`index.html`) を開き「geolocation」の欄を確認する
     - 確認項目
-        1. {{^Privacy-14-3}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。(Privacy-14-1/4){{/Privacy-14-3}}{{#Privacy-14-3}}何も表示されないか、「Geolocation is not supported by your browser」というエラーメッセージが表示される。(Privacy-14-3){{/Privacy-14-3}}
-{{#Privacy-14-4}}
+{{#Privacy-14-3}}
+        1. `disabled`と表示されている (Privacy-14-3)
+{{/Privacy-14-3}}
+{{#Privacy-14-1 || Privacy-14-4 }}
+        1. `enabled`と表示されている (Privacy-14-1/4)
+        1. 「exec」をクリックすると「このサイトに位置情報の共有を許可しますか？」と尋ねられる。
+{{/Privacy-14-1 || Privacy-14-4 }}
+
 1. 確認無しでの位置情報の取得を許可するサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「許可」が選択されている。(Privacy-14-4)

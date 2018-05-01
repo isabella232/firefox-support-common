@@ -15,10 +15,27 @@ a:visited {color:#00a;}
 <h1>Firefox検証用リソース</h1>
 <h2>閲覧中のブラウザの状態</h2>
 <table>
-<tr id='beacon'><th>機能</th><th>ステータス</th></tr>
-<tr id='beacon'><th>beacon</th><td></td></tr>
-<tr id='storage'><th>storage</th><td></td></tr>
-<tr id='indexedDB'><th>indexedDB</th><td></td></tr>
+<tr><th>機能</th><th>ステータス</th><th></th></tr>
+<tr id='beacon'>
+  <th>beacon</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
+<tr id='localStorage'>
+  <th>localStorage</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
+<tr id='geolocation'>
+  <th>geolocation</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'>exec</a></td>
+</tr>
+<tr id='indexedDB'>
+  <th>indexedDB</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
 </table>
 
 <h2>検証用リソース</h2>
@@ -82,11 +99,23 @@ function beacon() {
   }
 }
 
-function storage() {
-  if (window.localStorage) {
-    return 'enabled'
+function localStorage() {
+  return window.localStorage ? 'enabled' : 'disabled';
+}
+
+function geolocation() {
+  return navigator.geolocation ? 'enabled' : 'disabled';
+}
+
+function doGeolocation($btn) {
+  if (!navigator.geolocation) {
+    alert('not supported');
   } else {
-    return 'disabled'
+    navigator.geolocation.getCurrentPosition((p) => {
+      alert(`success: your location is (${p.coords.latitude}, ${p.coords.longitude})`);
+    }, () => {
+      alert('fail: cannot fetch your location')
+    });
   }
 }
 
@@ -105,8 +134,11 @@ function indexedDB() {
 
 var _query = (q) => document.querySelector(q);
 
-_query('#beacon td').textContent = beacon();
-_query('#storage td').textContent = storage();
-_query('#indexedDB td').textContent = indexedDB();
+_query('#beacon .status').textContent = beacon();
+_query('#localStorage .status').textContent = localStorage();
+_query('#geolocation .status').textContent = geolocation();
+_query('#indexedDB .status').textContent = indexedDB();
+
+_query('#geolocation .exec a').onclick = doGeolocation;
 </script>
 </html>
