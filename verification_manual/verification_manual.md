@@ -37,7 +37,7 @@
 * ポップアップの許可対象サイトを参照できない環境で検証する場合、ポップアップの許可対象サイト一覧に `example.com` を加えるよう設定する。
 {{/Security-4-5}}
 * 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部の検証を実施できない場合がある。
-* 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく。
+* 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく（テストケースリストは `testcases/index.html` に存在する）。
   `https://github.com/clear-code/firefox-support-common/`
 
 {{/Admin-1-2 || Network-2-3 || Security-4-5}}
@@ -366,7 +366,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 {{#Admin-2}}
-1. 導入対象のアドオンがない場合、テストケースの「popupalt.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{UUID}.xpi`に配置する。
+1. 導入対象のアドオンがない場合、テストケースリストの「popupalt.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{UUID}.xpi`に配置する。
 {{/Admin-2}}
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
@@ -565,7 +565,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-3-1 || Security-3-3 || Security-3-4}}
-1. テストケースの「popupalt.xpi」リンクから署名済みアドオンをダウンロードしておく。
+1. テストケースリストの「popupalt.xpi」リンクから署名済みアドオンをダウンロードしておく。
 {{/Security-3-1 || Security-3-3 || Security-3-4}}
 
 ### 検証
@@ -664,15 +664,16 @@
 ### 検証
 
 {{#Security-5}}
-1. Firefoxのロケーションバーに `https://itisatrap.org/firefox/its-an-attack.html` と入力し、Enterを押下する。
+1. テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - 確認項目
         1. 攻撃サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
-1. Firefoxのロケーションバーに `http://itisatrap.org/firefox/unwanted.html` と入力し、Enterを押下する。
+1. Firefoxのロケーションバーに `https://itisatrap.org/firefox/unwanted.html` と入力し、Enterを押下する。
+1. テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - 確認項目
         1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
 {{/Security-5}}
 {{#Security-6}}
-1. Firefoxのロケーションバーに `http://itisatrap.org/firefox/its-a-trap.html` と入力し、Enterを押下する。
+1. テストケースリストのリンクから `https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - 確認項目
         1. 詐欺サイトとしてブロック{{#Security-6-1}}される。(Security-6-1){{/Security-6-1}}{{#Security-6-2}}されない。(Security-6-2){{/Security-6-2}}
 {{/Security-6}}
@@ -1231,17 +1232,17 @@
         1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。(Privacy-39-1){{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
 {{#Privacy-12}}
-1. テストケースのトップページ (`index.html`) を開き「localStorage」の欄を確認する
+1. テストケースリストを開き「localStorage」の欄を確認する
     - 確認項目
         1. {{#Privacy-12-1}}`enabled` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。(Privacy-12-2){{/Privacy-12-2}}
 {{/Privacy-12}}
 {{#Privacy-13}}
-1. テストケースのトップページ (`index.html`) を開き「indexedDB」の欄を確認する
+1. テストケースリストを開き「indexedDB」の欄を確認する
     - 確認項目
         1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。(Privacy-13-3){{/Privacy-13-3}}
 {{/Privacy-13}}
 {{#Privacy-38}}
-1. テストケースのトップページ (`index.html`) を開き「beacon」の欄を確認する
+1. テストケースリストを開き「beacon」の欄を確認する
     - 確認項目
         1. {{#Privacy-38-1}}`enabled` と表示される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。(Privacy-38-2){{/Privacy-38-2}}
 {{/Privacy-38}}
@@ -1435,7 +1436,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. テストケースのトップページ (`index.html`) を開き「geolocation」の欄を確認する
+1. テストケースリストを開き「geolocation」の欄を確認する
     - 確認項目
 {{#Privacy-14-3}}
         1. `disabled`と表示されている (Privacy-14-3)
