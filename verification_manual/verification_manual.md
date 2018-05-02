@@ -365,14 +365,15 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
-{{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
-1. 導入対象のアドオンがない場合、「Disable Sync」もしくは何らかのアドオンを管理者権限でインストールするよう配置しておく。
-   （「Disable Sync」の場合、ファイル `disablesync@clear-code.com.xpi` を `{{install_path}}\browser\extensions\` の位置に置く。）
-1. システムの既定のブラウザを別のブラウザに設定する。
-   例えばIEであれば、インターネットオプションから既定のブラウザに設定する。
-   もしくは、Windowsのコントロールパネル内の既定のアプリの設定から、既定のブラウザをIEに設定する。
+{{#Admin-2}}
+1. 導入対象のアドオンがない場合、テストケースの「popupalt.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{UUID}.xpi`に配置する。
+{{/Admin-2}}
+{{#Startup-3}}
+1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
+{{/Startup-3}}
+{{#Startup-4-2 || Startup-10-2}}
+1. Policy Engineでabout:configを無効化している場合、一時的に有効化しておく
+{{/Startup-4-2 || Startup-10-2}}
 
 ### 検証
 
@@ -390,9 +391,12 @@
 {{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。(Startup-2-2/3)
 {{/Startup-2-2 || Startup-2-3}}
-{{#Admin-2}}
-        1. 導入対象のアドオンの有効化の可否を尋ねるタブが{{#Admin-2-1}}開かれている。(Admin-2-1){{/Admin-2-1}}{{#Admin-2-2}}開かれていない。(Admin-2-2){{/Admin-2-2}}
-{{/Admin-2}}
+{{#Admin-2-1}}
+        1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されている。(Admin-2-1)
+{{/Admin-2-1}}
+{{#Admin-2-2}}
+        1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されていない。(Admin-2-2)
+{{/Admin-2-2}}
 <!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
@@ -404,14 +408,6 @@
         1. 「ホーム」ボタンへのドロップが不可能である。(Startup-2-3)
 {{/Startup-2-3}}
 <!--/GROUP-->
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Startup-4-2}}
-        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。(Startup-4-2)
-{{/Startup-4-2}}
-{{#Startup-10-2}}
-        1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
-{{/Startup-10-2}}
 {{#Startup-5-2}}
 1. メニューバーの「ブックマーク」を開く。
     - 確認項目
@@ -432,27 +428,32 @@
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。(Update-4-2)
 {{/Update-4-2}}
 1. Firefoxを終了する。
-1. 以下のアドオンを有効化する。
-{{#use_disableupdate}}    - Disable Auto-update{{/use_disableupdate}}
 {{#Startup-7}}
 1. システムの時計を1年先の日付に進めてからFirefoxを起動する。
     - 確認項目
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
-1. Firefoxを終了する。
 {{/Startup-7}}
 {{#Admin-5}}
 1. 「オプション」を開く
     - 確認項目
        1. ページ上部に「Your organization has disabled the ability to change some options.」というメッセージが{{#Admin-5-1}}表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。(Admin-5-2){{/Admin-5-2}}
 {{/Admin-5}}
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
+    - 確認項目
+{{#Startup-4-2}}
+        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。(Startup-4-2)
+{{/Startup-4-2}}
+{{#Startup-10-2}}
+        1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
+{{/Startup-10-2}}
 
 ### 後始末
 
-1. 導入対象のアドオンがなかった場合に検証用に導入したアドオンがあれば、削除する。
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
-{{#use_disableupdate}}    1. Disable Auto-update{{/use_disableupdate}}
-
+1. 検証用に導入したアドオンを削除する。
+1. Policy Engineに加えた変更を元に戻す。
+{{#Startup-7}}
+1. 1年進めたシステムの時計を元に戻す。
+{{/Startup-7}}
 
 ## 起動方法の制御
 
