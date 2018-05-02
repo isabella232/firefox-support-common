@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>Prefetch Feature Test</title>
+<style>body{line-height:1.5;font-size:15px}</style>
+</head>
+<body>
+<h1>Prefetch Feature Test</h1>
+
+<ol>
+<li>Open "http.log" with your browser directly (using CTRL-O).
+<li>Execute the following script in the developer console.
+</ol>
+
+<pre style='background:#eee;padding:1em;display:inline-block'>
+var text = document.body.textContent;
+var requested = text.match(/nsHttpConnectionMgr::OnMsgSpeculativeConnect/g) || [];
+var skipped = text.match(/Transport not created due to existing connection count/g) || [];
+console.log('All skipped?', requested.length == skipped.length);
+
+var success = text.match(/Predictor::Predict.*\n.*called on parent process.*\n.*not enabled/g) || [];
+var fail = text.match(/Predictor::Predict.*\n.*called on parent process/g) || [];
+console.log('All cancelled?', success.length == fail.length);
+</pre>
+</body>
+</html>

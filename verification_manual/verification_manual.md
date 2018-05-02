@@ -1325,21 +1325,13 @@
 {{/Privacy-17}}
 1. Firefoxを終了する。
 {{#Privacy-32 || Privacy-37}}
-1. `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）を開く。
+1. `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - 確認項目
 {{#Privacy-32}}
-        1. ログ中に現れる `nsHttpConnectionMgr::OnMsgSpeculativeConnect` と `Transport not created due to existing connection count` の{{#Privacy-32-1}}登場回数のうち、前者の方が多い。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}}両者の登場回数が等しい。（Privacy-32-2）{{/Privacy-32-2}}  
-           （Linux環境で確認する場合の例：  
-           `cat http.log* | grep 'nsHttpConnectionMgr::OnMsgSpeculativeConnect' | wc -l; cat http.log* | grep 'Transport not created due to existing connection count' | wc -l` の実行結果の2行の数値について、{{#Privacy-32-1}}上が大きければ{{/Privacy-32-1}}{{#Privacy-32-2}}両者が同じであれば{{/Privacy-32-2}}設定は期待通り反映されている。）  
-           （Firefox上で確認する場合の例：  
-           ログをFirefoxで開き、Webコンソールを表示して `var body = document.body.textContent; var requested = body.match(/nsHttpConnectionMgr::OnMsgSpeculativeConnect/g) || []; var skipped = body.match(/Transport not created due to existing connection count/g) || []; console.log('all skipped?: ' + (requested.length == skipped.length));` を実行し、結果が{{#Privacy-32-1}} `all skipped?: false` {{/Privacy-32-1}}{{#Privacy-32-2}} `all skipped?: true` {{/Privacy-32-2}}であれば設定は期待通り反映されている。）
+        1. {{#Privacy-32-1}}「All skipped? false」{{/Privacy-32-1}}{{#Privacy-32-2}}「All skipped? true」{{/Privacy-32-2}}とコンソールに出力される。
 {{/Privacy-32}}
 {{#Privacy-37}}
-        1. ログ中の `Predictor::Predict` という行の直後に続く `called on parent process` という行の直後に、`not enabled` という行が{{#Privacy-37-1}}表れていない。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}}表れている。（Privacy-37-2）{{/Privacy-37-2}}  
-           （Linux環境で確認する場合の例：  
-           `cat http.log* | grep -A 2 'Predictor::Predict' | grep -A 1 'called on parent process' | grep 'not enabled' | wc -l; cat http.log* | grep -A 1 'Predictor::Predict' | grep 'called on parent process' | wc -l` の実行結果の2行の数値が{{#Privacy-37-1}}異なっていれば{{/Privacy-37-1}}{{#Privacy-37-2}}同じであれば{{/Privacy-37-2}}、設定は期待通り反映されている。）  
-           （Firefox上で確認する場合の例：  
-           ログをFirefoxで開き、Webコンソールを表示して `var body = document.body.textContent; var success = body.match(/Predictor::Predict.*\n.*called on parent process.*\n.*not enabled/g) || []; var fail = body.match(/Predictor::Predict.*\n.*called on parent process/g) || []; console.log('all cancened?: ' + (success.length == fail.length));` を実行し、結果が{{#Privacy-37-1}} `all cancened?: false` {{/Privacy-37-1}}{{#Privacy-37-2}} `all cancened?: true` {{/Privacy-37-2}}であれば設定は期待通り反映されている。）
+        1. {{#Privacy-37-1}}「All cancelled? false」{{/Privacy-37-1}}{{#Privacy-37-2}}「All cancelled? true」{{/Privacy-37-2}}とコンソールに出力される。
 {{/Privacy-37}}
 1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
