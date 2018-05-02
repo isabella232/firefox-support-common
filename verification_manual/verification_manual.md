@@ -1950,7 +1950,7 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Script-2-3}}
-1. ロケーションバーに `https://labs.othersight.jp/webpushtest/` と入力し、ページを開く。
+1. テストケースリストから `https://labs.othersight.jp/webpushtest/` のリンクをクリックする。
     - 確認項目
         1. ページ内に「Service Worker not available」と表示されている。(Script-2-3)
 {{/Script-2-3}}
