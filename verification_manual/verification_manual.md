@@ -672,8 +672,7 @@
 1. テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - 確認項目
         1. 攻撃サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
-1. Firefoxのロケーションバーに `https://itisatrap.org/firefox/unwanted.html` と入力し、Enterを押下する。
-1. テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
+1. テストケースリストのリンクから`https://itisatrap.org/firefox/unwanted.html` を開く。
     - 確認項目
         1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
 {{/Security-5}}
