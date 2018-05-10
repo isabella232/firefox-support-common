@@ -367,7 +367,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 {{#Admin-2}}
-1. 導入対象のアドオンがない場合、テストケースリストの「popupalt.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{UUID}.xpi`に配置する。
+1. 導入対象のアドオンがない場合、テストケースリストの「popupalt.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`に配置する。
 {{/Admin-2}}
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
