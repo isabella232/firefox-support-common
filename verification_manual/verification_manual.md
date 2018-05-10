@@ -1468,6 +1468,8 @@
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「ブロック」が選択されている。(Privacy-14-4)
 {{/Privacy-14-4}}
 
+{{/Privacy-14}}
+
 {{#Privacy-22-2 || Privacy-22-3 || Privacy-24-2 || Privacy-24-3}}
 ## Firefox Syncの利用制限
 
