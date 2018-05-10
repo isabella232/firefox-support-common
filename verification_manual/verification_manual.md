@@ -372,9 +372,11 @@
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
+{{#Security-9-3}}
 {{#Startup-4-2 || Startup-10-2}}
-1. Policy Engineでabout:configを無効化している場合、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
 {{/Startup-4-2 || Startup-10-2}}
+{{/Security-9-3}}
 
 ### 検証
 
@@ -451,7 +453,11 @@
 ### 後始末
 
 1. 検証用に導入したアドオンを削除する。
+{{#Security-9-3}}
+{{#Startup-4-2 || Startup-10-2}}
 1. Policy Engineに加えた変更を元に戻す。
+{{/Startup-4-2 || Startup-10-2}}
+{{/Security-9-3}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
