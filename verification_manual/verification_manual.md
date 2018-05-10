@@ -932,8 +932,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Security-9-3}}
 
 ### 検証
 
@@ -943,10 +944,12 @@
         1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。(Security-23-3){{/Security-23-3}}
         1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
 
+{{#Security-9-3}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-9-3}}
+
 {{/Security-23}}
 
 {{#Security-25}}
@@ -1023,8 +1026,8 @@
 ### 確認する項目
 
 {{#Security-28}} - Security-28-\* {{/Security-28}}
-{{#Security-29}}- Security-29-\* {{/Security-29}}
-{{#Security-30}}- Security-30-\* {{/Security-30}}
+{{#Security-29}} - Security-29-\* {{/Security-29}}
+{{#Security-30}} - Security-30-\* {{/Security-30}}
 {{#Security-31}} - Security-31-\* {{/Security-31}}
 {{#Security-32}} - Security-32-\* {{/Security-32}}
 
@@ -1032,8 +1035,11 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+{{#Security-28 || Security-31 || Security-32}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Security-28 || Security-31 || Security-32}}
+{{/Security-9-3}}
 
 ### 検証
 
@@ -1069,10 +1075,13 @@
 {{/Security-30-2}}
 {{/Security-30}}
 
+{{#Security-9-3}}
+{{#Security-28 || Security-31 || Security-32}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-28 || Security-31 || Security-32}}
+{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -1119,8 +1128,11 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-1. 以下のアドオンを無効化する。
-{{#use_disableabotuconfig}}    1. Disable about:config{{/use_disableabotuconfig}}
+{{#Security-9-3}}
+{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+{{/Security-9-3}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
@@ -1357,8 +1369,11 @@
     1. `network.dns.notifyResolution` （真偽型）
 {{/Privacy-16}}
     1. `devtools.chrome.enabled` （真偽型）
-1. 以下のアドオンを有効化する。
-{{#use_disableabotuconfig}}    1. Disable about:config{{/use_disableabotuconfig}}
+{{#Security-9-3}}
+{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+{{/Security-9-3}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
@@ -1376,9 +1391,12 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-3-3}}
+1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
+{{/Security-3-3}}
+{{#Security-9-3}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Security-9-3}}
 1. 十分な日数分の履歴項目を以下の手順で用意する。
     1. システムの日付と時刻について、インターネット経由での調整を無効にする。例えばWindowsであれば、タスクバーの時計を右クリックして「日付と時刻の調整」を選択し、「日付と時刻」ダイアログの「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを外す。（※要：管理者権限）
     1. システムの日付を5＋2日以上前の日付に変更する。
@@ -1413,9 +1431,9 @@
 ### 後始末
 
 1. システムの日付と時刻について、インターネット経由での調整を有効に戻す。
-1. 以下のアドオンを有効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-3-3 || Security-9-3}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-3-3 || Security-9-3}}
 {{/Privacy-9-1}}
 
 {{#Privacy-14}}
@@ -1429,8 +1447,6 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
 
 ### 検証
 
@@ -1444,7 +1460,6 @@
         1. `enabled`と表示されている (Privacy-14-1/4)
         1. 「exec」をクリックすると「このサイトに位置情報の共有を許可しますか？」と尋ねられる。
 {{/Privacy-14-1 || Privacy-14-4 }}
-
 {{#Privacy-14-4}}
 1. 確認無しでの位置情報の取得を許可するサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
@@ -1454,12 +1469,6 @@
     - 確認項目
         1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、「ブロック」が選択されている。(Privacy-14-4)
 {{/Privacy-14-4}}
-
-### 後始末
-
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
-{{/Privacy-14}}
 
 {{#Privacy-22-2 || Privacy-22-3 || Privacy-24-2 || Privacy-24-3}}
 ## Firefox Syncの利用制限
