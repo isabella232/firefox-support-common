@@ -560,7 +560,7 @@
 1. `C:\Users\Public\nss.log-*` を全て削除する。
 {{/Security-1-3}}
 
-{{^Security-3-1}}
+{{#Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
 ## アドオンの利用制限
 
 ### 確認する項目
@@ -571,9 +571,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-3-1 || Security-3-3 || Security-3-4}}
+{{#Security-3-3 || Security-3-4}}
 1. テストケースリストの「popupalt.xpi」リンクから署名済みアドオンをダウンロードしておく。
-{{/Security-3-1 || Security-3-3 || Security-3-4}}
+{{/Security-3-3 || Security-3-4}}
 
 ### 検証
 
@@ -624,7 +624,7 @@
         1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3)
 {{/Security-3-3}}
 
-{{/Security-3-1}}
+{{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
 
 {{#Security-4}}
 ## 広告などのポップアップのブロック
