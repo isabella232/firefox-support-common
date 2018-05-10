@@ -439,7 +439,7 @@
 {{#Admin-5}}
 1. 「オプション」を開く
     - 確認項目
-       1. ページ上部に「Your organization has disabled the ability to change some options.」というメッセージが{{#Admin-5-1}}表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。(Admin-5-2){{/Admin-5-2}}
+       1. ページ上部に「あなたの所属組織が一部のオプションの変更を制限しています。」というメッセージが{{#Admin-5-1}}表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。(Admin-5-2){{/Admin-5-2}}
 {{/Admin-5}}
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
