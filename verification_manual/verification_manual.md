@@ -602,7 +602,6 @@
         1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4)
 {{/Security-3-4}}
 {{#Security-3-3}}
-{{#use_disableaddons}}
 1. 以下の各方法でアドオンマネージャへのアクセスを試みる。
     - 確認項目
         1. パネルメニューに「アドオン」の項目が存在しない。
@@ -620,7 +619,6 @@
             のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-3-3)
         1. 「about:addons」
             のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-3-3)
-{{/use_disableaddons}}
 1. `https://addons.mozilla.org` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
         1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3)
@@ -2425,8 +2423,9 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. NPAPIプラグインを何種類かインストールしておく。
-1. 以下のアドオンを無効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+{{#Security-3-3}}
+1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
+{{/Security-3-3}}
 
 ### 検証
 
@@ -2437,8 +2436,9 @@
 
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+{{#Security-3-3}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-3-3}}
 1. 各プラグインの制御が可能であるかどうか自体を検証した場合、{{mcd_local_file}}に加えた変更を元に戻す。
 {{/Plugin-10}}
 
@@ -2463,8 +2463,11 @@
 {{#Plugin-2 || Security-24}}
 1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
 {{/Plugin-2 || Security-24}}
-1. 以下のアドオンを無効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+{{#Security-3-3}}
+{{#Plugin-2 || Plugin-8}}
+1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
+{{/Plugin-2 || Plugin-8}}
+{{/Security-3-3}}
 {{#Plugin-2}}
 1. 個別の設定が無く、各プラグインの制御が可能であるかどうか自体を検証する場合、各設定ファイルに以下の内容を追記する。
     - {{mcd_local_file}}:
@@ -2562,10 +2565,13 @@
         1. 各プラグインの設定が「毎回確認する」になっている。
 {{/Plugin-2}}
 
+{{#Security-3-3}}
+{{#Plugin-2 || Plugin-8}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaddons}}    1. Disable Addons{{/use_disableaddons}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Plugin-2 || Plugin-8}}
+{{/Security-3-3}}
 
 {{#External-1}}
 ## ファイルをダウンロードして外部アプリケーションで開く際の挙動の制御
