@@ -142,6 +142,7 @@
 ### 検証
 
 1. `{{meta_installer_file_name}}\*.exe` を実行する。
+<!--GROUP-->
     - 確認項目
 {{#Install-3-2}}
         1. メタインストーラのウィザードが表示される。(Install-3-2)
@@ -161,6 +162,7 @@
 {{#Install-5-2}}
         1. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2)
 {{/Install-5-2}}
+<!--/GROUP-->
 <!--GROUP-->
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
