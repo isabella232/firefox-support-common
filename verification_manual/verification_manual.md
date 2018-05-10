@@ -1755,8 +1755,11 @@
 {{#Tab-3}}
 1. テストケース `links.html` を用意する。
 {{/Tab-3}}
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+{{#Tab-2-3 || Tab-9-2}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Tab-2-3 || Tab-9-2}}
+{{/Security-9-3}}
 
 ### 検証
 
@@ -1813,10 +1816,13 @@
 {{/Tab-9-2}}
 <!--/GROUP-->
 
+{{#Security-9-3}}
+{{#Tab-2-3 || Tab-9-2}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Tab-2-3 || Tab-9-2}}
+{{/Security-9-3}}
 
 
 {{#Tab-10 || Tab-11 || Tab-12 || Tab-13 || Tab-14 || Tab-15}}
@@ -1959,8 +1965,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Security-9-3}}
 
 ### 検証
 
@@ -1991,10 +1998,11 @@
         1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、「ブロック」が選択されている。(Script-2-4)
 {{/Script-2-4}}
 
+{{#Security-9-3}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-9-3}}
 
 {{#Stability-1}}
 ## ハードウェアアクセラレーションの使用
@@ -2056,8 +2064,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Security-9-3}}
 
 ### 検証
 
@@ -2083,8 +2092,9 @@
     1. `font.name.serif.ja`（文字列型）
     2. `font.name.sans-serif.ja`（文字列型）
     3. `font.name.monospace.ja`（文字列型）
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-9-3}}
 {{/Appearance-1-2}}
 
 {{#Appearance-2-2}}
@@ -2128,8 +2138,11 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+{{#Performance-1 || Performance-2}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Performance-1 || Performance-2}}
+{{/Security-9-3}}
 
 ### 検証
 
@@ -2195,10 +2208,13 @@
 {{/Performance-2-2}}
 <!--/GROUP-->
 
+{{#Security-9-3}}
+{{#Performance-1 || Performance-2}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Performance-1 || Performance-2}}
+{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -2265,8 +2281,11 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
+{{/Security-9-3}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
 
@@ -2331,10 +2350,13 @@
 {{/Network-12-2}}
 {{/Network-12}}
 
+{{#Security-9-3}}
+{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
+{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -2353,8 +2375,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 以下のアドオンを無効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+{{#Security-9-3}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+{{/Security-9-3}}
 
 ### 検証
 
@@ -2380,10 +2403,11 @@
         1. `lightweightThemes.update.enabled` の値が`false`である。(Update-5-2)
 {{/Update-5-2}}
 
+{{#Security-9-3}}
 ### 後始末
 
-1. 以下のアドオンを有効化する。
-{{#use_disableaboutconfig}}    1. Disable about:config{{/use_disableaboutconfig}}
+1. Policy Engineに加えた変更を元に戻す。
+{{/Security-9-3}}
 
 <!--======================================================================-->
 
