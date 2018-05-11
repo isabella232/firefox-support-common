@@ -1130,9 +1130,13 @@
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
 {{#Privacy-40}}{{^Privacy-5-2}} - Privacy-40-\* {{/Privacy-5-2}}{{/Privacy-40}}
-{{#Privacy-33-2 && Privacy-41}} - Privacy-41-\* {{/Privacy-33-2 && Privacy-41}}
+{{#Privacy-33-2}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2}}
+{{^Privacy-33-2}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2}}
+{{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
 {{#Privacy-43-2}} - Privacy-43-2{{/Privacy-43-2}}
 {{#Privacy-33-3 && Privacy-43-4}} - Privacy-43-4{{/Privacy-33-3 && Privacy-43-4}}
+{{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
+{{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
 
 ### 準備
 
@@ -1235,9 +1239,13 @@
 1. ユーザID、パスワードを入力して送信する。
     - 確認項目
 {{#Privacy-2-2 || Privacy-2-3 || Privacy-5-2 || Privacy-5-3}}
-        1. パスワードの保存を尋ねられない。{{#Privacy-2-2 || Privacy-2-3}}(Privacy-2-2/3){{/Privacy-2-2 || Privacy-2-3}}{{#Privacy-5-2 || Privacy-5-3}}(Privacy-5-2/3){{/Privacy-5-2 || Privacy-5-3}}
-        1. ファイルを再読み込みしてもパスワードが自動入力されない。{{#Privacy-2-2 || Privacy-2-3}}(Privacy-2-2/3){{/Privacy-2-2 || Privacy-2-3}}{{#Privacy-5-2 || Privacy-5-3}}(Privacy-5-2/3){{/Privacy-5-2 || Privacy-5-3}}
-        1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。{{#Privacy-2-2 || Privacy-2-3}}(Privacy-2-2/3){{/Privacy-2-2 || Privacy-2-3}}{{#Privacy-5-2 || Privacy-5-3}}(Privacy-5-2/3){{/Privacy-5-2 || Privacy-5-3}}
+{{#Privacy-5-2 || Privacy-5-3}}
+        1. パスワードの保存を尋ねられない。(Privacy-5-2/3)
+        1. ファイルを再読み込みしてもパスワードが自動入力されない。(Privacy-5-2/3)
+{{/Privacy-5-2 || Privacy-5-3}}
+{{#Privacy-2-2 || Privacy-2-3}}
+        1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。(Privacy-2-2/3)
+{{/Privacy-2-2 || Privacy-2-3}}
 {{/Privacy-2-2 || Privacy-2-3 || Privacy-5-2 || Privacy-5-3}}
 {{^Privacy-5-2}}
 {{#Privacy-40-1}}
@@ -2149,6 +2157,7 @@
 {{#Ui-2}} - Ui-2-\* {{/Ui-2}}
 {{#Ui-5}} - Ui-5-\* {{/Ui-5}}
 {{#Ui-6}} - Ui-6-\* {{/Ui-6}}
+{{#Ui-7}} - Ui-7-\* {{/Ui-7}}
 {{#Script-1}} - Script-1-\* {{/Script-1}}
 {{#Script-4}} - Script-4-\* {{/Script-4}}
 {{#Script-5}} - Script-5-\* {{/Script-5}}
