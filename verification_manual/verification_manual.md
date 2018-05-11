@@ -2788,6 +2788,7 @@
 {{#MenuShortcut-26}}        1. 「Ctrl-U」を押して、ページのソースが開かれない。(MenuShortcut-26){{/MenuShortcut-26}}
 -->
 <!--GROUP-->
+{{^MenuShortcut-10}}
 1. 「ツール」メニュー内の「ウェブ開発」を開く。
     - 確認項目
 {{#MenuShortcut-11}}        1. 「開発ツールを表示」が存在しない。(MenuShortcut-11){{/MenuShortcut-11}}
@@ -2809,8 +2810,10 @@
 {{#MenuShortcut-29}}        1. 「その他のツールを入手」が存在しない。(MenuShortcut-29){{/MenuShortcut-29}}
 {{#MenuShortcut-64}}        1. 「Service Worker」が存在しない（MenuShortcut-64）{{/MenuShortcut-64}}
 {{#MenuShortcut-65}}        1. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）{{/MenuShortcut-65}}
+{{/MenuShortcut-10}}
 <!--/GROUP-->
 <!--GROUP-->
+{{^MenuShortcut-10}}
 1. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックする。
     - 確認項目
 {{#MenuShortcut-11}}        1. 「開発ツールを表示」が存在しない。(MenuShortcut-11){{/MenuShortcut-11}}
@@ -2832,6 +2835,7 @@
 {{#MenuShortcut-29}}        1. 「その他のツールを入手」が存在しない。(MenuShortcut-29){{/MenuShortcut-29}}
 {{#MenuShortcut-64}}        1. 「Service Worker」が存在しない（MenuShortcut-64）{{/MenuShortcut-64}}
 {{#MenuShortcut-65}}        1. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）{{/MenuShortcut-65}}
+{{/MenuShortcut-10}}
 <!--/GROUP-->
 
 ## ヘルプ
