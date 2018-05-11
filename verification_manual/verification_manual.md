@@ -1312,10 +1312,10 @@
         1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。(Privacy-42-1){{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。(Privacy-42-2){{/Privacy-42-2}}
 {{/Privacy-42-2}}
 {{#Privacy-44}}
-        1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。(Privacy-44-1){{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。(Privacy-44-2){{/Privacy-44-2}}{{#Privacy-44-3}}`3`である。(Privacy-44-3){{/Privacy-44-3}}{{#Privacy-44-4}}`4`である。(Privacy-44-4){{/Privacy-44-4}}
+        1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。(Privacy-44-1){{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。(Privacy-44-2){{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。(Privacy-44-3){{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。(Privacy-44-4){{/Privacy-44-4}}
 {{/Privacy-44}}
 {{#Privacy-45}}
-        1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。(Privacy-45-1){{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。(Privacy-45-2){{/Privacy-45-2}}{{#Privacy-45-3}}`3`である。(Privacy-45-3){{/Privacy-45-3}}{{#Privacy-45-4}}`4`である。(Privacy-45-4){{/Privacy-45-4}}
+        1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。(Privacy-45-1){{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。(Privacy-45-2){{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。(Privacy-45-3){{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。(Privacy-45-4){{/Privacy-45-4}}
 {{/Privacy-45}}
 {{#Privacy-46}}
         1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。(Privacy-46-1){{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。(Privacy-46-2){{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。(Privacy-46-3){{/Privacy-46-3}}
