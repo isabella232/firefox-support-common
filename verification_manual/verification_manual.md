@@ -1228,7 +1228,9 @@
     * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
+{{#Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-5-2 || Privacy-5-3 || Privacy-40-1 || Privacy-40-2}}
 1. テストケースの `password.html` を開く。
+{{/Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-5-2 || Privacy-5-3 || Privacy-40-1 || Privacy-40-2}}
 <!--GROUP-->
 1. ユーザID、パスワードを入力して送信する。
     - 確認項目
