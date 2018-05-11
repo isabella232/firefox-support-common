@@ -125,7 +125,7 @@ class TemplateResolver
   def resolve_and_conditions
     @contents.gsub!(AND_CONDITIONS_MATCHER) do |match|
       prefix = match.gsub(AND_CONDITIONS_MATCHER, "\\1")
-      variable_names = match.gsub(AND_CONDITIONS_MATCHER, "\\2").split("||").collect do |name|
+      variable_names = match.gsub(AND_CONDITIONS_MATCHER, "\\2").split("&&").collect do |name|
         name.strip
       end
       if variable_names.all?{|name| @variables[name] }
