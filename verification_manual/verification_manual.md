@@ -2777,7 +2777,7 @@
 {{#MenuShortcut-14}}        1. 「Ctrl-Shift-S」を押して、デバッガが開かれない。(MenuShortcut-14){{/MenuShortcut-14}}
 {{#MenuShortcut-15}}        1. 「Shift-F7」を押して、スタイルエディタが開かれない。(MenuShortcut-15){{/MenuShortcut-15}}
 {{#MenuShortcut-16}}        1. 「Shift-F5」を押して、プロファイラが開かれない。(MenuShortcut-16){{/MenuShortcut-16}}
-{{#MenuShortcut-17}}        1. 「Ctrl-Shift-Q」を押して、ネットワークモニターが開かれない。(MenuShortcut-17){{/MenuShortcut-17}}
+{{#MenuShortcut-17}}        1. 「Ctrl-Shift-E」を押して、ネットワークモニターが開かれない。(MenuShortcut-17){{/MenuShortcut-17}}
 {{#MenuShortcut-18}}        1. 「Shitf-F2」を押して、開発ツールバーが開かれない。(MenuShortcut-18){{/MenuShortcut-18}}
 {{#MenuShortcut-20}}        1. 「Shift-F8」を押して、WebIDEが開かれない。(MenuShortcut-20){{/MenuShortcut-20}}
 {{#MenuShortcut-21}}        1. 「Ctrl-Shift-Alt-I」を押して、ブラウザツールボックスが開かれない。(MenuShortcut-21){{/MenuShortcut-21}}
