@@ -1052,9 +1052,15 @@
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
+{{#Security-28}}
         1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}`false`である。(Security-28-2){{/Security-28-2}}
+{{/Security-28}}
+{{#Security-31}}
         1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
+{{/Security-31}}
+{{#Security-32}}
         1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。(Security-32-1){{/Security-32-1}}{{#Security-32-2}}`false`である。(Security-32-2){{/Security-32-2}}
+{{/Security-32}}
 {{#Security-30}}
 
 {{#Security-29}}
