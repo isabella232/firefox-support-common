@@ -2485,9 +2485,9 @@
 {{#Security-24-2}}
     1. カスタマイズ済みFirefox(32bit版)のインストールが完了した状態にする。
 {{/Security-24-2}}
-{{#Plugin-2 || Security-24}}
-1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。{{#Plugin-2}}(Plugin-2-\*){{/Plugin-2}}{{#Security-24}}(Security-24-\*){{/Security-24}}
-{{/Plugin-2 || Security-24}}
+{{#Plugin-2 || Security-24 || Security-33}}
+1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
+{{/Plugin-2 || Security-24 || Security-33}}
 {{#Security-3-3}}
 {{#Plugin-2 || Plugin-8}}
 1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
