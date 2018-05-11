@@ -2856,24 +2856,32 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. 通常のWebページ（例：`http://www.example.com/`）を開く。
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
 {{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35){{/MenuShortcut-35}}
-{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しない。(MenuShortcut-36){{/MenuShortcut-36}}
+{{#MenuShortcut-36}}        1. 「フィードバックを送信」が無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
-{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しない。(MenuShortcut-38){{/MenuShortcut-38}}
-{{#MenuShortcut-39}}        1. 「誤警告を報告」が存在しない。(MenuShortcut-39){{/MenuShortcut-39}}
+{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
 <!--/GROUP-->
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
 {{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35){{/MenuShortcut-35}}
-{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しない。(MenuShortcut-36){{/MenuShortcut-36}}
+{{#MenuShortcut-36}}        1. 「フィードバックを送信」が無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
-{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しない。(MenuShortcut-38){{/MenuShortcut-38}}
-{{#MenuShortcut-39}}        1. 「誤警告を報告」が存在しない。(MenuShortcut-39){{/MenuShortcut-39}}
+{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
 <!--/GROUP-->
+{{#MenuShortcut-39}}
+1. `https://itisatrap.org/firefox/its-a-trap.html` を開く。
+1. 「ヘルプ」メニューを開く。
+    - 確認項目
+        1. 「詐欺サイトの誤警告を指摘」が無効化されている。(MenuShortcut-39)
+1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
+    - 確認項目
+        1. 「詐欺サイトの誤警告を指摘」が無効化されている。(MenuShortcut-39)
+{{/MenuShortcut-39}}
 
 
 ## 履歴とブックマーク
