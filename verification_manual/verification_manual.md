@@ -38,7 +38,8 @@
 {{/Security-4-5}}
 * 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部の検証を実施できない場合がある。
 * 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく（テストケースリストは `testcases/index.html` に存在する）。
-  `https://github.com/clear-code/firefox-support-common/`
+
+  https://github.com/clear-code/firefox-support-common/
 
 {{/Admin-1-2 || Network-2-3 || Security-4-5}}
 
