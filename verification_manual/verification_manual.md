@@ -1309,6 +1309,7 @@
         1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。(Privacy-45-1){{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。(Privacy-45-2){{/Privacy-45-2}}{{#Privacy-45-3}}`3`である。(Privacy-45-3){{/Privacy-45-3}}{{#Privacy-45-4}}`4`である。(Privacy-45-4){{/Privacy-45-4}}
 {{/Privacy-45}}
 <!--/GROUP-->
+{{#Privacy-7 || Privacy-16}}
 1. 以下の設定を行う。既存の値がない場合は新規に作成する。
 {{#Privacy-16}}
     - `network.dns.notifyResolution`（真偽型）を`true`に設定する。
@@ -1331,6 +1332,7 @@
         1. `dns-resolution-request: dns-prefetch.example.com` というログがブラウザコンソールに{{#Privacy-16-1}}出力される。(Privacy-16-1){{/Privacy-16-1}}{{#Privacy-16-2}}出力されない。(Privacy-16-2){{/Privacy-16-2}}
 {{/Privacy-16}}
 1. ブラウザコンソールを閉じる。
+{{/Privacy-7 || Privacy-16}}
 {{#Privacy-10-2}}
 1. ロケーションバーに `about:` と入力し、Alt-Enterでタブとして開いてから、タブを閉じる。
 1. 新しいブラウザウィンドウを開いてロケーションバーに `about:` と入力し、ページの読み込みが完了したらウィンドウを閉じる。 これを2回繰り返す。
