@@ -12,12 +12,12 @@ SOURCE_CONFIGS_SPREADHSEET = "../configurations/customization-items.ods"
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 VARIABLES = {
   is_upgrade_from_uncontrolled:   true,
-  firefox_version:                "52.0 ESR",
+  firefox_version:                "60.0 ESR",
   windows_version:                "Windows 7",
   configuration_sheet_name:       "customization-items.ods",
   meta_installer_name:            "Fx Meta Installer",
   meta_installer_file_name:       "FxMetaInstaller",
-  meta_installer_version:         "52.0",
+  meta_installer_version:         "60.0",
   install_path:                   "C:\\Program Files (x86)\\Mozilla Firefox",
   desktop_shortcut_path:          "C:\\Users\\Public\\Desktop\\Firefox.lnk",
   start_menu_shortcut_path:       "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk",
@@ -46,7 +46,7 @@ VARIABLES = {
   max_persistent_connections_per_server: "2",
   max_persistent_connections_per_proxy:  "2",
   max_pipelining_requests:               "32",
-  user_agent_name:                "Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/51.0",
+  user_agent_name:                "Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/60.0",
   jar_file_sample_url_base:       "http://www.clear-code.com/temp",
   imported_certs:                 "検証用証明書（example.com）, (発行者名1)/(証明署名1), (発行者名1)/(証明署名2), ...",
   use_disableaboutconfig:         true,
