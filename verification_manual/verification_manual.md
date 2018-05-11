@@ -1137,6 +1137,8 @@
 {{#Privacy-33-3 && Privacy-43-4}} - Privacy-43-4{{/Privacy-33-3 && Privacy-43-4}}
 {{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
 {{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
+{{#Privacy-46}} - Privacy-46-\* {{/Privacy-46}}
+{{#Privacy-47}} - Privacy-47-\* {{/Privacy-47}}
 
 ### 準備
 
@@ -1145,9 +1147,9 @@
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
 {{#Security-9-3}}
-{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
 {{/Security-9-3}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
@@ -1311,11 +1313,16 @@
 {{/Privacy-42-2}}
 {{#Privacy-44}}
         1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。(Privacy-44-1){{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。(Privacy-44-2){{/Privacy-44-2}}{{#Privacy-44-3}}`3`である。(Privacy-44-3){{/Privacy-44-3}}{{#Privacy-44-4}}`4`である。(Privacy-44-4){{/Privacy-44-4}}
-
 {{/Privacy-44}}
 {{#Privacy-45}}
         1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。(Privacy-45-1){{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。(Privacy-45-2){{/Privacy-45-2}}{{#Privacy-45-3}}`3`である。(Privacy-45-3){{/Privacy-45-3}}{{#Privacy-45-4}}`4`である。(Privacy-45-4){{/Privacy-45-4}}
 {{/Privacy-45}}
+{{#Privacy-46}}
+        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。(Privacy-46-1){{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。(Privacy-46-2){{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。(Privacy-46-3){{/Privacy-46-3}}
+{{/Privacy-46}}
+{{#Privacy-47}}
+        1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。(Privacy-47-1){{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。(Privacy-47-2){{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。(Privacy-47-3){{/Privacy-47-3}}
+{{/Privacy-47}}
 <!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
 1. 以下の設定を行う。既存の値がない場合は新規に作成する。
