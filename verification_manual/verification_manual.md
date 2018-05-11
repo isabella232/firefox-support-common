@@ -2784,7 +2784,9 @@
 {{#MenuShortcut-22}}        1. 「Ctrl-Shift-J」を押して、ブラウザコンソールが開かれない。(MenuShortcut-22){{/MenuShortcut-22}}
 {{#MenuShortcut-23}}        1. 「Ctrl-Shift-M」を押して、レスポンシブデザインビューが開かれない。(MenuShortcut-23){{/MenuShortcut-23}}
 {{#MenuShortcut-25}}        1. 「Shift-F4」を押してスクラッチパッド、が開かれない。(MenuShortcut-25){{/MenuShortcut-25}}
+<!--
 {{#MenuShortcut-26}}        1. 「Ctrl-U」を押して、ページのソースが開かれない。(MenuShortcut-26){{/MenuShortcut-26}}
+-->
 <!--GROUP-->
 1. 「ツール」メニュー内の「ウェブ開発」を開く。
     - 確認項目
