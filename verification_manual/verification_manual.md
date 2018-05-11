@@ -923,6 +923,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#disable_devtools}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+{{/disable_devtools}}
 
 ### 検証
 
@@ -931,6 +934,11 @@
     - 確認項目
         1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。(Security-21-1){{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。(Security-21-2){{/Security-21-2}}
 
+{{#disable_devtools}}
+### 後始末
+
+1. Policy Engineに加えた変更を元に戻す。
+{{/disable_devtools}}
 {{/Security-21}}
 
 {{#Security-23}}
