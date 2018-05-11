@@ -374,7 +374,7 @@
 {{/Startup-3}}
 {{#Security-9-3}}
 {{#Startup-4-2 || Startup-10-2}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Startup-4-2 || Startup-10-2}}
 {{/Security-9-3}}
 
@@ -931,7 +931,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
@@ -1043,7 +1043,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
 {{#Security-28 || Security-31 || Security-32}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-28 || Security-31 || Security-32}}
 {{/Security-9-3}}
 
@@ -1148,9 +1148,12 @@
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
 {{#Security-9-3}}
 {{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
 {{/Security-9-3}}
+{{#MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+{{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
@@ -1428,7 +1431,7 @@
 1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
 {{/Security-3-3}}
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-9-3}}
 1. 十分な日数分の履歴項目を以下の手順で用意する。
     1. システムの日付と時刻について、インターネット経由での調整を無効にする。例えばWindowsであれば、タスクバーの時計を右クリックして「日付と時刻の調整」を選択し、「日付と時刻」ダイアログの「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを外す。（※要：管理者権限）
@@ -1792,7 +1795,7 @@
 {{/Tab-3}}
 {{#Security-9-3}}
 {{#Tab-2-3 || Tab-9-2}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Tab-2-3 || Tab-9-2}}
 {{/Security-9-3}}
 
@@ -2002,7 +2005,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
@@ -2101,7 +2104,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
@@ -2177,9 +2180,13 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
 {{#Performance-1 || Performance-2}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Performance-1 || Performance-2}}
 {{/Security-9-3}}
+{{#MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく
+{{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}
+
 
 ### 検証
 
@@ -2319,7 +2326,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
 {{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
 {{/Security-9-3}}
 {{#Network-12}}
@@ -2414,7 +2421,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
