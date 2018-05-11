@@ -373,11 +373,9 @@
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
-{{#Security-9-3}}
-{{#Startup-4-2 || Startup-10-2}}
+{{#Security-9-3}}{{#Startup-4-2 || Startup-10-2}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Startup-4-2 || Startup-10-2}}
-{{/Security-9-3}}
+{{/Startup-4-2 || Startup-10-2}}{{/Security-9-3}}
 
 ### 検証
 
@@ -454,11 +452,9 @@
 ### 後始末
 
 1. 検証用に導入したアドオンを削除する。
-{{#Security-9-3}}
-{{#Startup-4-2 || Startup-10-2}}
+{{#Security-9-3}}{{#Startup-4-2 || Startup-10-2}}
 1. Policy Engineに加えた変更を元に戻す。
-{{/Startup-4-2 || Startup-10-2}}
-{{/Security-9-3}}
+{{/Startup-4-2 || Startup-10-2}}{{/Security-9-3}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
@@ -822,6 +818,9 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+{{#disable_devtools}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+{{/disable_devtools}}
 
 ### 検証
 
@@ -842,6 +841,11 @@
         1. 一切のネットワーク通信が記録されない。(Security-15-2)
 {{/Update-1-1}}
 
+{{#disable_devtools}}
+### 後始末
+
+1. Policy Engineに加えた変更を元に戻す。
+{{/disable_devtools}}
 {{/Security-15-2}}
 
 ## 外部リソースへのアクセスの制限
@@ -856,6 +860,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#disable_devtools}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+{{/disable_devtools}}
 
 ### 検証
 
@@ -876,6 +883,12 @@
     - 確認項目
         1. 無反応である、もしくはADB Helperアドオンが準備中になっている。(Security-15-2)
 {{/Security-15-2}}
+
+{{#disable_devtools}}
+### 後始末
+
+1. Policy Engineに加えた変更を元に戻す。
+{{/disable_devtools}}
 
 
 {{#Security-16}}
@@ -1042,11 +1055,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-{{#Security-28 || Security-31 || Security-32}}
+{{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Security-28 || Security-31 || Security-32}}
-{{/Security-9-3}}
+{{/Security-28 || Security-31 || Security-32}}{{/Security-9-3}}
 
 ### 検証
 
@@ -1088,13 +1099,11 @@
 {{/Security-30-2}}
 {{/Security-30}}
 
-{{#Security-9-3}}
-{{#Security-28 || Security-31 || Security-32}}
+{{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
-{{/Security-28 || Security-31 || Security-32}}
-{{/Security-9-3}}
+{{/Security-28 || Security-31 || Security-32}}{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -1147,14 +1156,12 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#Security-9-3}}
-{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
+{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
-{{/Security-9-3}}
-{{#MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}{{/Security-9-3}}
+{{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
-{{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}
+{{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
@@ -1409,11 +1416,9 @@
 {{/Privacy-16}}
     1. `devtools.chrome.enabled` （真偽型）
 {{/Privacy-7 || Privacy-16}}
-{{#Security-9-3}}
-{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
+{{#Security-9-3 || disable_devtools}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}
 1. Policy Engineに加えた変更を元に戻す。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
-{{/Security-9-3}}
+{{/disable_devtools || Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}{{/Security-9-3 || disable_devtools}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
@@ -1797,11 +1802,9 @@
 {{#Tab-3}}
 1. テストケース `links.html` を用意する。
 {{/Tab-3}}
-{{#Security-9-3}}
-{{#Tab-2-3 || Tab-9-2}}
+{{#Security-9-3}}{{#Tab-2-3 || Tab-9-2}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Tab-2-3 || Tab-9-2}}
-{{/Security-9-3}}
+{{/Tab-2-3 || Tab-9-2}}{{/Security-9-3}}
 
 ### 検証
 
@@ -1858,13 +1861,11 @@
 {{/Tab-9-2}}
 <!--/GROUP-->
 
-{{#Security-9-3}}
-{{#Tab-2-3 || Tab-9-2}}
+{{#Security-9-3}}{{#Tab-2-3 || Tab-9-2}}
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
-{{/Tab-2-3 || Tab-9-2}}
-{{/Security-9-3}}
+{{/Tab-2-3 || Tab-9-2}}{{/Security-9-3}}
 
 
 {{#Tab-10 || Tab-11 || Tab-12 || Tab-13 || Tab-14 || Tab-15}}
@@ -2182,14 +2183,12 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-{{#Performance-1 || Performance-2}}
+{{#Security-9-3}}{{#Performance-1 || Performance-2}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Performance-1 || Performance-2}}
-{{/Security-9-3}}
-{{#MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
+{{/Performance-1 || Performance-2}}{{/Security-9-3}}
+{{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく
-{{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-57 || MenuShortcut-64 || MenuShortcut-65}}
+{{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 
 
 ### 検証
@@ -2255,13 +2254,11 @@
 {{/Performance-2-2}}
 <!--/GROUP-->
 
-{{#Security-9-3}}
-{{#Performance-1 || Performance-2}}
+{{#Security-9-3}}{{#Performance-1 || Performance-2}}
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
-{{/Performance-1 || Performance-2}}
-{{/Security-9-3}}
+{{/Performance-1 || Performance-2}}{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -2328,11 +2325,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
+{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
-{{/Security-9-3}}
+{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}{{/Security-9-3}}
 {{#Network-12}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
@@ -2399,13 +2394,11 @@
 {{/Network-12-2}}
 {{/Network-12}}
 
-{{#Security-9-3}}
-{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
+{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
-{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
-{{/Security-9-3}}
+{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -2665,6 +2658,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#disable_devtools}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+{{/disable_devtools}}
 
 ### 検証
 
@@ -2686,6 +2682,12 @@
     - 確認項目
         1. 「見つかりませんでした。」と表示される。（Addon-IEView-3-2）
 {{/Addon-IEView-3-2}}
+
+{{#disable_devtools}}
+### 後始末
+
+1. Policy Engineに加えた変更を元に戻す。
+{{/disable_devtools}}
 
 
 <!--======================================================================-->
