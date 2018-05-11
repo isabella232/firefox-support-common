@@ -1380,11 +1380,13 @@
 
 ### 後始末
 
+{{#Privacy-7 || Privacy-16}}
 1. about:configで以下の設定をリセットする。
 {{#Privacy-16}}
     1. `network.dns.notifyResolution` （真偽型）
 {{/Privacy-16}}
     1. `devtools.chrome.enabled` （真偽型）
+{{/Privacy-7 || Privacy-16}}
 {{#Security-9-3}}
 {{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45}}
 1. Policy Engineに加えた変更を元に戻す。
