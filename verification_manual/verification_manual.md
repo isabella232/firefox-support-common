@@ -39,7 +39,7 @@
 * 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部の検証を実施できない場合がある。
 * 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく（テストケースリストは `testcases/index.html` に存在する）。
 
-  https://github.com/clear-code/firefox-support-common/
+        https://github.com/clear-code/firefox-support-common/
 
 {{/Admin-1-2 || Network-2-3 || Security-4-5}}
 
@@ -1282,17 +1282,17 @@
         1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。(Privacy-39-1){{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
 {{#Privacy-12}}
-1. テストケースリストを開き「localStorage」の欄を確認する
+1. テストケースの「browser.html」を開き「localStorage」の欄を確認する
     - 確認項目
         1. {{#Privacy-12-1}}`enabled` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。(Privacy-12-2){{/Privacy-12-2}}
 {{/Privacy-12}}
 {{#Privacy-13}}
-1. テストケースリストを開き「indexedDB」の欄を確認する
+1. テストケースの「browser.html」を開き「indexedDB」の欄を確認する
     - 確認項目
         1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。(Privacy-13-3){{/Privacy-13-3}}
 {{/Privacy-13}}
 {{#Privacy-38}}
-1. テストケースリストを開き「beacon」の欄を確認する
+1. テストケースの「browser.html」を開き「beacon」の欄を確認する
     - 確認項目
         1. {{#Privacy-38-1}}`enabled` と表示される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。(Privacy-38-2){{/Privacy-38-2}}
 {{/Privacy-38}}
@@ -1491,7 +1491,7 @@
 ### 検証
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. テストケースリストを開き「geolocation」の欄を確認する
+1. テストケースの「browser.html」を開き「geolocation」の欄を確認する
     - 確認項目
 {{#Privacy-14-3}}
         1. `disabled`と表示されている (Privacy-14-3)
