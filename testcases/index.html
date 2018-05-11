@@ -6,145 +6,127 @@ body {font-size:14px;font-family:sans-serif;line-height:1.5;}
 h1 {font-size:1.5em}
 h2 {font-size:1.3em}
 table {font: inherit;border-collapse:collapse;}
-td,th{padding:3px;border: 1px solid #999;}
-a {text-decoration:none;color:#00a;display:inline-block;padding:3px 5px;}
+td,th{font-weight:normal;text-align:left;}
+th {width:400px;}
+a {text-decoration:none;color:#00a;display:block;padding:3px 5px;}
 a:visited {color:#00a;}
 </style>
 </head>
 <body>
 <h1>Firefox検証用リソース</h1>
-<h2>閲覧中のブラウザの状態</h2>
-<table>
-<tr><th>機能</th><th>ステータス</th><th></th></tr>
-<tr id='beacon'>
-  <th>beacon</th>
-  <td class='status'></td>
-  <td class='exec'><a href='javascript:;'></a></td>
+<p>
+<input style='width:600px;' placeholder='キーワードで絞り込み' autofocus type='text' id='q'>
+</p>
+
+<table id='links'>
+<tr>
+<th><a target='_blank' href='./{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi'>popupalt.xpi</a></th>
+<td>書名済みのアドオン (popupalt)</td>
 </tr>
-<tr id='localStorage'>
-  <th>localStorage</th>
-  <td class='status'></td>
-  <td class='exec'><a href='javascript:;'></a></td>
+<tr>
+<th><a target='_blank' href='./blocked-addon.xpi'>blocked-addon.xpi</a></th>
+<td>ブロック済みのアドオン。about:debuggingから読み込むこと (Security-21)</td>
 </tr>
-<tr id='geolocation'>
-  <th>geolocation</th>
-  <td class='status'></td>
-  <td class='exec'><a href='javascript:;'>exec</a></td>
+<tr>
+<th><a target='_blank' href='./sample.jar'>sample.jar</a></th>
+<td>リモート読み込み用JARファイル (Network-12)</td>
 </tr>
-<tr id='indexedDB'>
-  <th>indexedDB</th>
-  <td class='status'></td>
-  <td class='exec'><a href='javascript:;'></a></td>
+<tr>
+<th><a target='_blank' href="./browser.html">browser.html</a></th>
+<td>ブラウザの機能状態を示す (geolocation,localstorageなど)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./cross-directory.html">cross-directory.html</a></th>
+<td>ローカルファイルからの他ディレクトリの参照の可否。手元に配置して使う (Security-14)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./popupblock.html">popupblock.html</a></th>
+<td>広告などのポップアップの表示の可否 (Security-4)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./fullscreen.html">fullscreen.html</a></th>
+<td>フルスクリーン表示の可否 (Security-16)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./password.html">password.html</a></th>
+<td>フォーム入力履歴の保存 (Privacy-2/Privacy-5/Privacy-40)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./preconnect.html">preconnect.html</a></th>
+<td>DNSの先読み設定の許可 (Privacy-16)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./httplog.html">httplog.html</a></th>
+<td>先読み機能のログファイル検証 (Privacy-32/Privacy-37)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./insecure-password.html">insecure-password.html</a></th>
+<td>SSL/TLSでないページへのパスワード入力時の警告 (Privacy-39)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./alert.html">alert.html</a></th>
+<td>スクリプトによる頻繁なalertの可否 (Script-1)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./mouseevent.html">mouseevent.html</a></th>
+<td>マウス操作に対するオーバーライドの可否 (Script-4/Script-5)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./links.html">links.html</a></th>
+<td>複数タブ表示時の警告 (Tab-1)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./textfield.html">textfield.html</a></th>
+<td>スペルチェック機能 (UI-6)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="./font.html">font.html</a></th>
+<td>表示フォントの明示 (Appearance-1)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="http://www.clear-code.com/temp/local-file-link.html">http://www.clear-code.com/temp/local-file-link.html</a></th>
+<td>ローカルファイル読み込みを許可するサイト (Security-13)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="https://itisatrap.org/firefox/its-an-attack.html">https://itisatrap.org/firefox/its-an-attack.html</a></th>
+<td>攻撃サイトのブロック (Security-5)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="https://itisatrap.org/firefox/unwanted.html">https://itisatrap.org/firefox/unwanted.html</a></th>
+<td>望ましくないソフトウェアの提供サイト (Security-5)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="https://itisatrap.org/firefox/its-a-trap.html">https://itisatrap.org/firefox/its-a-trap.html</a></th>
+<td>詐欺サイト (Security-6)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="http://testsafebrowsing.appspot.com/">http://testsafebrowsing.appspot.com</a></th>
+<td>ファイルのダウンロード保護 (Security-27)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="http://clear-code.com/blog/2016/5/18.html">http://clear-code.com/blog/2016/5/18.html</a></th>
+<td>リンクの先読み (Privacy-7)</td>
+</tr>
+<tr>
+<th><a target='_blank' href="https://labs.othersight.jp/webpushtest/">https://labs.othersight.jp/webpushtest/</a></th>
+<td>プッシュ通知の可否 (Privacy-2)</td>
 </tr>
 </table>
-
-<h2>検証用リソース</h2>
-<dl>
-<dt><a target='_blank' href='./{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi'>popupalt.xpi</a></dt>
-<dd>書名済みのアドオン (popupalt)</dd>
-<dt><a target='_blank' href='./blocked-addon.xpi'>blocked-addon.xpi</a></dt>
-<dd>ブロック済みのアドオン。about:debuggingから読み込むこと (Security-21)</dd>
-<dt><a target='_blank' href='./sample.jar'>sample.jar</a></dt>
-<dd>リモート読み込み用JARファイル (Network-12)</dd>
-<dt><a target='_blank' href="./cross-directory.html">cross-directory.html</a></dt>
-<dd>ローカルファイルからの他ディレクトリの参照の可否。手元に配置して使う (Security-14)</dd>
-</dl>
-
-<h2>個別検証ページ</h2>
-<dl>
-<dt><a target='_blank' href="./popupblock.html">popupblock.html</a></dt>
-<dd>広告などのポップアップの表示の可否 (Security-4)</dd>
-<dt><a target='_blank' href="http://www.clear-code.com/temp/local-file-link.html">local-file-link.html</a></dt>
-<dd>ローカルファイル読み込みを許可するサイト (Security-13)</dd>
-<dt><a target='_blank' href="./fullscreen.html">fullscreen.html</a></dt>
-<dd>フルスクリーン表示の可否 (Security-16)</dd>
-<dt><a target='_blank' href="./password.html">password.html</a></dt>
-<dd>フォーム入力履歴の保存 (Privacy-2/Privacy-5/Privacy-40)</dd>
-<dt><a target='_blank' href="./preconnect.html">preconnect.html</a></dt>
-<dd>DNSの先読み設定の許可 (Privacy-16)</dd>
-<dt><a target='_blank' href="./httplog.html">httplog.html</a></dt>
-<dd>先読み機能のログファイル検証 (Privacy-32/Privacy-37)</dd>
-<dt><a target='_blank' href="./insecure-password.html">insecure-password.html</a></dt>
-<dd>SSL/TLSでないページへのパスワード入力時の警告 (Privacy-39)</dd>
-<dt><a target='_blank' href="./alert.html">alert.html</a></dt>
-<dd>スクリプトによる頻繁なalertの可否 (Script-1)</dd>
-<dt><a target='_blank' href="./mouseevent.html">mouseevent.html</a></dt>
-<dd>マウス操作に対するオーバーライドの可否 (Script-4/Script-5)</dd>
-<dt><a target='_blank' href="./links.html">links.html</a></dt>
-<dd>複数タブ表示時の警告 (Tab-1)</dd>
-<dt><a target='_blank' href="./textfield.html">textfield.html</a></dt>
-<dd>スペルチェック機能 (UI-6)</dd>
-<dt><a target='_blank' href="./font.html">font.html</a></dt>
-<dd>表示フォントの明示 (Appearance-1)</dd>
-</dl>
-<h2>外部リンク</h2>
-<dl>
-<dt><a target='_blank' href="https://itisatrap.org/firefox/its-an-attack.html">https://itisatrap.org/firefox/its-an-attack.html</a></dt>
-<dd>攻撃サイトのブロック (Security-5)</dd>
-<dt><a target='_blank' href="https://itisatrap.org/firefox/unwanted.html">https://itisatrap.org/firefox/unwanted.html</a></dt>
-<dd>望ましくないソフトウェアの提供サイト (Security-5)</dd>
-<dt><a target='_blank' href="https://itisatrap.org/firefox/its-a-trap.html">https://itisatrap.org/firefox/its-a-trap.html</a></dt>
-<dd>詐欺サイト (Security-6)</dd>
-<dt><a target='_blank' href="http://testsafebrowsing.appspot.com/">http://testsafebrowsing.appspot.com</a></dt>
-<dd>ファイルのダウンロード保護 (Security-27)</dd>
-<dt><a target='_blank' href="http://clear-code.com/blog/2016/5/18.html">http://clear-code.com/blog/2016/5/18.html</a></dt>
-<dd>リンクの先読み (Privacy-7)</dd>
-<dt><a target='_blank' href="https://labs.othersight.jp/webpushtest/">https://labs.othersight.jp/webpushtest/</a></dt>
-<dd>プッシュ通知の可否 (Privacy-2)</dd>
-</dl>
-`
 </body>
 <script>
-function beacon() {
-  try {
-    navigator.sendBeacon('http://www.clear-code.com/beacon', '');
-    return 'enabled';
-  }
-  catch(e) {
-    return 'disabled';
-  }
+function doSearch() {
+    var q = document.querySelector('#q').value;
+    var rows = document.querySelectorAll('#links tr');
+    for (var i=0; i<rows.length; i++) {
+        var $tr = rows[i];
+        var $a = $tr.querySelector('a');
+        if ($a.textContent.indexOf(q) > -1) {
+            $tr.removeAttribute('hidden');
+        } else {
+            $tr.setAttribute('hidden', 1);
+        }
+    };
 }
-
-function localStorage() {
-  return window.localStorage ? 'enabled' : 'disabled';
-}
-
-function geolocation() {
-  return navigator.geolocation ? 'enabled' : 'disabled';
-}
-
-function doGeolocation($btn) {
-  if (!navigator.geolocation) {
-    alert('not supported');
-  } else {
-    navigator.geolocation.getCurrentPosition((p) => {
-      alert(`success: your location is (${p.coords.latitude}, ${p.coords.longitude})`);
-    }, () => {
-      alert('fail: cannot fetch your location')
-    });
-  }
-}
-
-function indexedDB() {
-  try {
-    var request = indexedDB.open("testFiles", 1);
-    return "enabled";
-  } catch(e) {
-    if (e.name === "InvalidStateError") {
-      return "disabled";
-    } else {
-      return "unexpected error: " + e;
-    }
-  }
-}
-
-var _query = (q) => document.querySelector(q);
-
-_query('#beacon .status').textContent = beacon();
-_query('#localStorage .status').textContent = localStorage();
-_query('#geolocation .status').textContent = geolocation();
-_query('#indexedDB .status').textContent = indexedDB();
-
-_query('#geolocation .exec a').onclick = doGeolocation;
+document.querySelector('#q').oninput = doSearch
 </script>
 </html>

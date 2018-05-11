@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style>
+body {font-size:14px;font-family:sans-serif;line-height:1.5;}
+h1 {font-size:1.5em}
+h2 {font-size:1.3em}
+table {font: inherit;border-collapse:collapse;}
+td,th{padding:3px;border: 1px solid #999;}
+a {text-decoration:none;color:#00a;display:inline-block;padding:3px 5px;}
+a:visited {color:#00a;}
+</style>
+</head>
+<body>
+<h2>閲覧中のブラウザの状態</h2>
+<table>
+<tr><th>機能</th><th>ステータス</th><th></th></tr>
+<tr id='beacon'>
+  <th>beacon</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
+<tr id='localStorage'>
+  <th>localStorage</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
+<tr id='geolocation'>
+  <th>geolocation</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'>exec</a></td>
+</tr>
+<tr id='indexedDB'>
+  <th>indexedDB</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
+</table>
+</body>
+<script>
+function beacon() {
+  try {
+    navigator.sendBeacon('http://www.clear-code.com/beacon', '');
+    return 'enabled';
+  }
+  catch(e) {
+    return 'disabled';
+  }
+}
+
+function localStorage() {
+  return window.localStorage ? 'enabled' : 'disabled';
+}
+
+function geolocation() {
+  return navigator.geolocation ? 'enabled' : 'disabled';
+}
+
+function doGeolocation($btn) {
+  if (!navigator.geolocation) {
+    alert('not supported');
+  } else {
+    navigator.geolocation.getCurrentPosition((p) => {
+      alert(`success: your location is (${p.coords.latitude}, ${p.coords.longitude})`);
+    }, () => {
+      alert('fail: cannot fetch your location')
+    });
+  }
+}
+
+function indexedDB() {
+  try {
+    var request = indexedDB.open("testFiles", 1);
+    return "enabled";
+  } catch(e) {
+    if (e.name === "InvalidStateError") {
+      return "disabled";
+    } else {
+      return "unexpected error: " + e;
+    }
+  }
+}
+
+var _query = (q) => document.querySelector(q);
+
+_query('#beacon .status').textContent = beacon();
+_query('#localStorage .status').textContent = localStorage();
+_query('#geolocation .status').textContent = geolocation();
+_query('#indexedDB .status').textContent = indexedDB();
+_query('#geolocation .exec a').onclick = doGeolocation;
+</script>
+</html>
