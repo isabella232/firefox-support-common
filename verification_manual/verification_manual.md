@@ -986,8 +986,8 @@
 {{#Security-26}}
 1. 検証用にHTTPで端末から `http://download.safebrowsingtest.com/download` としてアクセス可能なサーバーを用意する
     1. 端末の hosts ファイルにアクセス先のサーバーのアドレスとホスト名を追記する。( 例: `127.0.0.1 download.safebrowsingtest.com` を `%SYSTEMROOT%\System32\drivers\etc\hosts` に追記し、名前解決できるようにする。)
-    1. サーバーにて `echo "TEST" > /tmp/download/test` などとして `/tmp/download` 以下に `test` というファイルを用意する。
-    1. サーバーにて `sudo ruby -run -e httpd . -p 80` などとして /tmp をHTTP経由でアクセスできる状態にする。
+    1. サーバーにて `mkdir -p /tmp/download && echo "TEST" > /tmp/download/test` などとして `/tmp/download` 以下に `test` というファイルを用意する。
+    1. サーバーにて `sudo ruby -run -e httpd /tmp -p 80` などとして /tmp をHTTP経由でアクセスできる状態にする。
 {{/Security-26}}
 
 ### 検証
