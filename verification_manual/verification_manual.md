@@ -2307,8 +2307,10 @@
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく
 {{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
 {{/Security-9-3}}
+{{#Network-12}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
+{{/Network-12}}
 
 ### 検証
 
