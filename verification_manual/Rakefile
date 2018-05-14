@@ -178,8 +178,6 @@ class TemplateResolver
       end
     end
   end
-
-  @variables["disable_devtools"] = %w/MenuShortcut-10 MenuShortcut-11 MenuShortcut-12 MenuShortcut-13 MenuShortcut-14 MenuShortcut-15 MenuShortcut-16 MenuShortcut-17 MenuShortcut-18 MenuShortcut-20 MenuShortcut-21 MenuShortcut-22 MenuShortcut-23 MenuShortcut-24 MenuShortcut-25 MenuShortcut-26 MenuShortcut-28 MenuShortcut-29 MenuShortcut-57 MenuShortcut-64 MenuShortcut-65/.any? {|key| @variables[key] }
 end
 
 class ContentsCleaner
