@@ -1112,6 +1112,13 @@
 {{#Security-30-2}}
         1. アラートダイアログが表示されず、スクリプトがブロックされている。(Security-30-2)
 {{/Security-30-2}}
+1. 実行環境がない場合、about:configで`security.block_script_with_wrong_mime` の値を確認する。
+{{#Security-30-1}}
+        1. 値が`false`である
+{{/Security-30-1}}
+{{#Security-30-2}}
+        1. 値が`true`である
+{{/Security-30-2}}
 {{/Security-30}}
 
 {{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
