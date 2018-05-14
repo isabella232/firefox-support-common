@@ -2522,69 +2522,6 @@
 1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
 {{/Plugin-2 || Plugin-8}}
 {{/Security-3-3}}
-{{#Plugin-2}}
-1. 個別の設定が無く、各プラグインの制御が可能であるかどうか自体を検証する場合、各設定ファイルに以下の内容を追記する。
-    - {{mcd_local_file}}:
-
-        ~~~
-        lockPref("plugin.load_flash_only", false);
-
-        lockPref("plugin.state.java", 2);
-        lockPref("plugin.state.npdeployjava", 2);
-        lockPref("plugin.state.flash", 2);
-        lockPref("plugin.state.nppdf", 2);
-        lockPref("plugin.state.np32dsw", 2);
-        lockPref("plugin.state.npctrl", 2);
-        lockPref("plugin.state.np-mswmp", 2);
-        lockPref("plugin.state.npatgpc", 2);
-        lockPref("plugin.state.libnpjp", 2);
-
-        lockPref("extensions.autopermission.sites.example.com", [
-          "plugin:java=3",
-          "plugin-vulnerable:java=3",
-          "plugin:npdeployjava=3",
-          "plugin-vulnerable:npdeployjava=3",
-          "plugin:flash=3",
-          "plugin-vulnerable:flash=3",
-          "plugin:nppdf=3",
-          "plugin-vulnerable:nppdf=3",
-          "plugin:np32dsw=3",
-          "plugin-vulnerable:np32dsw=3",
-          "plugin:npctrl=3",
-          "plugin-vulnerable:npctrl=3",
-          "plugin:np-mswmp=3",
-          "plugin-vulnerable:np-mswmp=3",
-          "plugin:npatgpc=3",
-          "plugin-vulnerable:npatgpc=3",
-          "plugin:libnpjp=3",
-          "plugin-vulnerable:libnpjp=3"
-        ].join(','));
-        clearPref("extensions.autopermission.sites.example.com.lastValue");
-        ~~~
-
-    - default.permissions:
-
-        ~~~
-        host	plugin:java	3	http://example.net
-        host	plugin-vulnerable:java	3	http://example.net
-        host	plugin:npdeployjava	3	http://example.net
-        host	plugin-vulnerable:npdeployjava	3	http://example.net
-        host	plugin:flash	3	http://example.net
-        host	plugin-vulnerable:flash	3	http://example.net
-        host	plugin:nppdf	3	http://example.net
-        host	plugin-vulnerable:nppdf	3	http://example.net
-        host	plugin:np32dsw	3	http://example.net
-        host	plugin-vulnerable:np32dsw	3	http://example.net
-        host	plugin:npctrl	3	http://example.net
-        host	plugin-vulnerable:npctrl	3	http://example.net
-        host	plugin:np-mswmp	3	http://example.net
-        host	plugin-vulnerable:np-mswmp	3	http://example.net
-        host	plugin:npatgpc	3	http://example.net
-        host	plugin-vulnerable:npatgpc	3	http://example.net
-        host	plugin:libnpjp	3	http://example.net
-        host	plugin-vulnerable:libnpjp	3	http://example.net
-        ~~~
-{{/Plugin-2}}
 
 
 ### 検証
@@ -2610,14 +2547,6 @@
         1. 「危険ででしゃばりなFlashコンテンツをブロック」に{{#Security-33-1}}チェックが入っている。（Security-33-1）{{/Security-33-1}}{{#Security-33-2}}チェックが入っていない。（Security-33-2）{{/Security-33-2}}
 {{/Security-33}}
 {{/Security-24 || Security-33}}
-{{#Plugin-2}}
-1. Permissions Auto Registererによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.com` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
-    - 確認項目
-        1. 各プラグインの設定が「毎回確認する」になっている。
-1. default.permissionsによる各プラグインのサイト別制御が可能であるかどうか自体を検証する場合、`http://example.net` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開き、「サイト別設定」タブを選択する。
-    - 確認項目
-        1. 各プラグインの設定が「毎回確認する」になっている。
-{{/Plugin-2}}
 
 {{#Security-3-3}}
 {{#Plugin-2 || Plugin-8}}
