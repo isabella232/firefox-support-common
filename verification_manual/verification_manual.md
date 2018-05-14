@@ -531,6 +531,13 @@
     - `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\Root\Certificates`
     - `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root\Certificates`
     - `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates\Root\Certificates`
+1. インポート済みの証明書がない場合、次の手順でダミーの証明書をインポートする。
+    - スタートメニューから「mmc.exe」を実行する
+    - 「ファイル > スナップインの追加と削除」を選ぶ
+    - 「証明書」を選び、「コンピューターアカウント」を選択する。
+    - 「信頼されたルート証明機関」を右クリックし、「すべてのタスク > インポート」へと進む
+    - テストケースの「dummy.crt」を選び、ウィザードを完了させる。
+    - 一覧に「dummy.clear-code.com」という証明書が表示されたことを確認する。
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.pipnss", 5);`
     - `lockPref("logging.config.sync", true);`
