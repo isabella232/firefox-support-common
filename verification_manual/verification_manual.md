@@ -1762,7 +1762,7 @@
 1. 再ダウンロードのリンクから「名前を付けてリンク先を保存」をクリックする。
 {{#Download-2}}
     - 確認項目
-        1. {{#Download-2-1 || Download-2-2}}ダウンロード先として{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
+        1. {{#Download-2-1 || Download-2-2}}ダウンロード先として`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
 {{/Download-2}}
 {{/Download-2 || Download-3-1 || Download-3-2}}
 {{#Download-3-1 || Download-3-2}}
@@ -1786,12 +1786,12 @@
 1. ロケーションバーに `http://www.mozilla.org/` と入力し、ページを開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
     - 確認項目
-        1. ダウンロード先として{{#Download-3-1}}{{download_dir}}内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}{{download_dir}}が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2){{/Download-3-2}}
+        1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2){{/Download-3-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
     - 確認項目
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*)
-        1. ダウンロード先として{{#Download-3-1}}{{download_dir}}内の `subfolder` が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}{{download_dir}}が表示されている。(Download-3-2){{/Download-3-2}}
+        1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の `subfolder` が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が表示されている。(Download-3-2){{/Download-3-2}}
 {{/Download-3-1 || Download-3-2}}
 {{/Download-3}}
 
