@@ -1161,7 +1161,7 @@
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
-{{#Privacy-40}}{{^Privacy-5-2}} - Privacy-40-\* {{/Privacy-5-2}}{{/Privacy-40}}
+{{#Privacy-40}}{{^Privacy-5-2}}{{^Privacy-5-3}} - Privacy-40-\* {{/Privacy-5-3}}{{/Privacy-5-2}}{{/Privacy-40}}
 {{#Privacy-33-2}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2}}
 {{^Privacy-33-2}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2}}
 {{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
@@ -1287,14 +1287,14 @@
         1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。(Privacy-2-2/3)
 {{/Privacy-2-2 || Privacy-2-3}}
 {{/Privacy-2-2 || Privacy-2-3 || Privacy-5-2 || Privacy-5-3}}
-{{^Privacy-5-2}}
+{{^Privacy-5-2}}{{^Privacy-5-3}}
 {{#Privacy-40-1}}
         1. パスワードの保存を提案するポップアップが表示され、その中に「パスワードを開示」チェックボックスが表示される。（Privacy-40-1）
 {{/Privacy-40-1}}
 {{#Privacy-40-2}}
         1. 「パスワードを開示」チェックボックスが表示されない。（Privacy-40-2）
 {{/Privacy-40-2}}
-{{/Privacy-5-2}}
+{{/Privacy-5-3}}{{/Privacy-5-2}}
 <!--/GROUP-->
 {{#Privacy-3-2}}
 1. ファイルに名前を付けて保存し、Firefoxを再起動する。
