@@ -1161,7 +1161,7 @@
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
-{{#Privacy-40}}{{^Privacy-5-2}}{{^Privacy-5-3}} - Privacy-40-\* {{/Privacy-5-3}}{{/Privacy-5-2}}{{/Privacy-40}}
+{{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}
 {{#Privacy-33-2}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2}}
 {{^Privacy-33-2}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2}}
 {{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
@@ -1361,6 +1361,15 @@
 {{#Privacy-47}}
         1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。(Privacy-47-1){{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。(Privacy-47-2){{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。(Privacy-47-3){{/Privacy-47-3}}
 {{/Privacy-47}}
+{{#Privacy-5-2 || Privacy-5-3}}
+  {{#Privacy-40-1}}
+        1. `signon.rememberSignons.visibilityToggle` の値が`true`である (Privacy-40-1)
+  {{/Privacy-40-1}}
+  {{#Privacy-40-2}}
+        1. `signon.rememberSignons.visibilityToggle` の値が`false`である (Privacy-40-2)
+  {{/Privacy-40-2}}
+{{/Privacy-5-3 || Privacy-5-2}}
+
 <!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
 1. 以下の設定を行う。既存の値がない場合は新規に作成する。
