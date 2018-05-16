@@ -606,7 +606,7 @@
         1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4)
 {{/Security-3-4}}
 {{#Security-3-3}}
-1. （Policy Engineを利用している場合）以下の各方法でアドオンマネージャへのアクセスを試みる。
+1. （Policy Engineを利用している場合のみ）以下の各方法でアドオンマネージャへのアクセスを試みる。
     - 確認項目
         1. パネルメニューに「アドオン」の項目が存在しない。
             (Security-3-3)
@@ -1112,12 +1112,13 @@
 {{#Security-30-2}}
         1. アラートダイアログが表示されず、スクリプトがブロックされている。(Security-30-2)
 {{/Security-30-2}}
-1. 実行環境がない場合、about:configで`security.block_script_with_wrong_mime` の値を確認する。
+1. Pythonの実行環境がない場合、about:configを開いて次の設定値を確認する。
+    - 確認項目
 {{#Security-30-1}}
-        1. 値が`false`である
+        1. `security.block_script_with_wrong_mime`の値が`false`である (Security-30-1)
 {{/Security-30-1}}
 {{#Security-30-2}}
-        1. 値が`true`である
+        1. `security.block_script_with_wrong_mime`の値が`true`である (Security-30-2)
 {{/Security-30-2}}
 {{/Security-30}}
 
