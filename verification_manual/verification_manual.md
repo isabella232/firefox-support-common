@@ -1091,7 +1091,6 @@
 {{#Security-30}}
 
 {{#Security-29}}
-1. `network.cookie.leave-secure-alone`を {{#Security-29-1}}`false`（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`true`（Security-29-2）{{/Security-29-2}}に設定する。
 1. `https://piro.sakura.ne.jp` を開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=true; Secure'` を実行する。
 1. `document.cookie` を実行する。(`secure=true` という結果が出力される。)
