@@ -434,6 +434,14 @@
 1. システムの時計を1年先の日付に進めてからFirefoxを起動する。
     - 確認項目
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
+1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
+    - 確認項目
+  {{#Startup-7-1}}
+        1. `browser.disableResetPrompt`の値が`false`である (Startup-7-1)
+  {{/Startup-7-1}}
+  {{#Startup-7-2}}
+        1. `browser.disableResetPrompt`の値が`true`である (Startup-7-2)
+  {{/Startup-7-2}}
 {{/Startup-7}}
 {{#Admin-5}}
 1. 「オプション」を開く
