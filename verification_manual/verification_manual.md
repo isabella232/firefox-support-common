@@ -434,6 +434,14 @@
 1. システムの時計を1年先の日付に進めてからFirefoxを起動する。
     - 確認項目
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
+1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
+    - 確認項目
+  {{#Startup-7-1}}
+        1. `browser.disableResetPrompt`の値が`false`である (Startup-7-1)
+  {{/Startup-7-1}}
+  {{#Startup-7-2}}
+        1. `browser.disableResetPrompt`の値が`true`である (Startup-7-2)
+  {{/Startup-7-2}}
 {{/Startup-7}}
 {{#Admin-5}}
 1. 「オプション」を開く
@@ -606,7 +614,7 @@
         1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4)
 {{/Security-3-4}}
 {{#Security-3-3}}
-1. （Policy Engineを利用している場合）以下の各方法でアドオンマネージャへのアクセスを試みる。
+1. （Policy Engineを利用している場合のみ）以下の各方法でアドオンマネージャへのアクセスを試みる。
     - 確認項目
         1. パネルメニューに「アドオン」の項目が存在しない。
             (Security-3-3)
@@ -1091,7 +1099,6 @@
 {{#Security-30}}
 
 {{#Security-29}}
-1. `network.cookie.leave-secure-alone`を {{#Security-29-1}}`false`（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`true`（Security-29-2）{{/Security-29-2}}に設定する。
 1. `https://piro.sakura.ne.jp` を開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=true; Secure'` を実行する。
 1. `document.cookie` を実行する。(`secure=true` という結果が出力される。)
@@ -1112,12 +1119,13 @@
 {{#Security-30-2}}
         1. アラートダイアログが表示されず、スクリプトがブロックされている。(Security-30-2)
 {{/Security-30-2}}
-1. 実行環境がない場合、about:configで`security.block_script_with_wrong_mime` の値を確認する。
+1. Pythonの実行環境がない場合、about:configを開いて次の設定値を確認する。
+    - 確認項目
 {{#Security-30-1}}
-        1. 値が`false`である
+        1. `security.block_script_with_wrong_mime`の値が`false`である (Security-30-1)
 {{/Security-30-1}}
 {{#Security-30-2}}
-        1. 値が`true`である
+        1. `security.block_script_with_wrong_mime`の値が`true`である (Security-30-2)
 {{/Security-30-2}}
 {{/Security-30}}
 
@@ -1161,7 +1169,7 @@
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
-{{#Privacy-40}}{{^Privacy-5-2}}{{^Privacy-5-3}} - Privacy-40-\* {{/Privacy-5-3}}{{/Privacy-5-2}}{{/Privacy-40}}
+{{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}
 {{#Privacy-33-2}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2}}
 {{^Privacy-33-2}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2}}
 {{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
@@ -1361,6 +1369,15 @@
 {{#Privacy-47}}
         1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。(Privacy-47-1){{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。(Privacy-47-2){{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。(Privacy-47-3){{/Privacy-47-3}}
 {{/Privacy-47}}
+{{#Privacy-5-2 || Privacy-5-3}}
+  {{#Privacy-40-1}}
+        1. `signon.rememberSignons.visibilityToggle` の値が`true`である (Privacy-40-1)
+  {{/Privacy-40-1}}
+  {{#Privacy-40-2}}
+        1. `signon.rememberSignons.visibilityToggle` の値が`false`である (Privacy-40-2)
+  {{/Privacy-40-2}}
+{{/Privacy-5-3 || Privacy-5-2}}
+
 <!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
 1. 以下の設定を行う。既存の値がない場合は新規に作成する。
