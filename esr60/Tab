@@ -1,0 +1,283 @@
+Tab-1: 複数のタブを閉じる際の警告の可否
+
+    :1: 警告する（既定）
+
+    lockPref("browser.tabs.warnOnClose", true);
+
+    :2: 警告しない
+
+    lockPref("browser.tabs.warnOnClose", false);
+
+    :3: 警告しないが、任意で警告を表示する状態に戻せる
+
+    if (!getPref("browser.tabs.warnOnClose.initialized")) {
+      pref("browser.tabs.warnOnClose", false);
+      pref("browser.tabs.warnOnClose.initialized", true);
+    }
+
+Tab-2: 「他のタブをすべて閉じる」の警告の可否
+
+    :1: 警告する（既定）
+
+    lockPref("browser.tabs.warnOnCloseOtherTabs", true);
+
+    :2: 警告しない
+
+    lockPref("browser.tabs.warnOnCloseOtherTabs", false);
+
+    :3: 警告しないが、任意で警告を表示する状態に戻せる
+
+    if (!getPref("browser.tabs.warnOnCloseOtherTabs.initialized")) {
+      pref("browser.tabs.warnOnCloseOtherTabs", false);
+      pref("browser.tabs.warnOnCloseOtherTabs.initialized", true);
+    }
+
+Tab-3: 複数のタブを一度に開く際の警告の可否
+
+    :1: 警告する（既定）
+
+    lockPref("browser.tabs.warnOnOpen", true);
+
+    :2: 警告しない
+
+    lockPref("browser.tabs.warnOnOpen", false);
+
+    :3: 警告しないが、任意で警告を表示する状態に戻せる
+
+    if (!getPref("browser.tabs.warnOnOpen.initialized")) {
+      pref("browser.tabs.warnOnOpen", false);
+      pref("browser.tabs.warnOnOpen.initialized", true);
+    }
+
+Tab-4: タブバーの表示の可否
+
+    :1: [廃止] 常に表示する
+
+    Firefox 31時点で機能が廃止されたためカスタマイズ不可能
+
+    :2: [廃止] タブが1つだけの時は隠す
+
+    Firefox 31時点で機能が廃止されたためカスタマイズ不可能
+
+Tab-5: 新しいタブの内容
+
+    :1: about:newtab（既定）
+
+    -
+
+    :2: [廃止] 何も表示しない
+
+    廃止
+
+    :3: アドオンを使わず空白ページを表示する
+
+    lockPref("browser.newtabpage.enabled",false);
+    lockPref("browser.newtabpage.enhanced",false);
+    lockPref("browser.newtabpage.directory.ping","");
+    lockPref("browser.newtabpage.directory.source","about:blank");
+
+Tab-6: Webページによって開かれる新規ウィンドウを、代わりにタブで開く
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("browser.link.open_newwindow", 1);
+    lockPref("browser.link.open_newwindow.restriction", 0);
+
+Tab-7: 既定の新しいタブで表示する内容(Tab-5-1が指定されているときに設定可能な項目)
+
+    :1: [廃止] ユーザの設定を優先（既定）
+
+    -
+
+    :2: [廃止] 「空白ページを表示」で固定（Firefox 38以前では「白紙」で固定）
+
+    MCD:
+    lockPref("browser.newtabpage.enabled", false);
+    lockPref("browser.newtabpage.enhanced", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("about:newtab"),
+      url-prefix("chrome://browser/content/newtab/newTab.xul")
+      {
+      *|*#newtab-customize-panel,
+      *|*[id="newtab-customize-panel"],
+      *|*#newtab-customize-button,
+      *|*[id="newtab-customize-button"] {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :3: [廃止] 「よく見るサイトを表示」で固定（Firefox 38以前では「クラシック」で固定）
+
+    MCD:
+    lockPref("browser.newtabpage.enabled", true);
+    lockPref("browser.newtabpage.enhanced", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("about:newtab"),
+      url-prefix("chrome://browser/content/newtab/newTab.xul")
+      {
+      *|*#newtab-customize-panel,
+      *|*[id="newtab-customize-panel"],
+      *|*#newtab-customize-button,
+      *|*[id="newtab-customize-button"] {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :4: [廃止] 「よく見るサイトを表示/おすすめサイトも表示=ON」で固定（Firefox 38以前では「拡張」で固定）
+
+    MCD:
+    lockPref("browser.newtabpage.enabled", true);
+    lockPref("browser.newtabpage.enhanced", true);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("about:newtab"),
+      url-prefix("chrome://browser/content/newtab/newTab.xul")
+      {
+      *|*#newtab-customize-panel,
+      *|*[id="newtab-customize-panel"],
+      *|*#newtab-customize-button,
+      *|*[id="newtab-customize-button"] {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :5: [廃止] 「よく見るサイトを表示」以下の「おすすめサイトも表示」のみ選択禁止（Firefox 38以前では「拡張」のみ禁止）
+
+    MCD:
+    lockPref("browser.newtabpage.enhanced", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("about:newtab"),
+      url-prefix("chrome://browser/content/newtab/newTab.xul")
+      {
+      *|*#newtab-customize-enhanced,
+      *|*[id="newtab-customize-enhanced"] {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Tab-8: 新しいタブを初めて開いた時の案内の表示
+
+    :1: [廃止] 表示する（既定）
+
+    Bug 1229636によりFirefox 46で廃止
+
+    :2: [廃止] 表示しない
+
+    Bug 1229636によりFirefox 46で廃止
+
+Tab-9: 新しいタブを開く操作の高速化
+
+    :1: 事前読み込みで高速化する（既定）
+
+    -
+
+    :2: 高速化しない（Tab-5-2選択時は常にこの動作）
+
+    lockPref("browser.newtab.preload", false);
+
+Tab-10: 検索バーの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 常に表示する
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.showSearch", true);
+
+    :3: 常に非表示にする
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.showSearch", false);
+
+Tab-11: トップサイトの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 常に表示する
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.showTopSites", true);
+
+    :3: 常に表示する（2段組）
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.showTopSites", true);
+    lockPref("browser.newtabpage.activity-stream.topSitesRows", 2)
+
+    :4: 常に非表示にする
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.showTopSites", false);
+
+Tab-12: ハイライトの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 常に表示する
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+
+    :3: 常に非表示にする
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+
+Tab-13: スニペットの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 常に表示する
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.feeds.snippets", true);
+
+    :3: 常に非表示にする
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.feeds.snippets", false);
+
+Tab-14: インポートボタンの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    lockPref("browser.newtabpage.activity-stream.migrationExpired", true);
+
+Tab-15: 新機能のツアーの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    lockPref("browser.onboarding.newtour", "");
+
