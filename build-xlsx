@@ -103,8 +103,8 @@ def main():
     wb = xlsxwriter.Workbook(OUT_FILE)
 
     fmt_default = wb.add_format(DEFAULT_FORMAT)
-    fmt_deprecated = wb.add_format({'bg_color': '#CCCCCC'})
-    fmt_selected = wb.add_format({'bg_color': '#FFA07A'})
+    fmt_deprecated = wb.add_format({'bg_color': '#CCCCCC', 'border': 1})
+    fmt_selected = wb.add_format({'bg_color': '#FFA07A', 'border': 1})
 
     for title, files in WORKBOOK_DEF:
         sheet = wb.add_worksheet(title)
