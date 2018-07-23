@@ -1,0 +1,221 @@
+Plugin-1: Javaプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    lockPref("plugin.load_flash_only", false);
+    lockPref("plugin.state.java", 0);
+    lockPref("plugin.state.npdeployjava", 0);
+    // 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+    サイト別の初期状態のみを設定する場合:
+    default.permissions:
+    host<\t>plugin:java<\t>2<\t>http://example.com
+    host<\t>plugin-vulnerable:java<\t>2<\t>http://example.com
+    host<\t>plugin:npdeployjava<\t>2<\t>http://example.com
+    host<\t>plugin-vulnerable:npdeployjava<\t>2<\t>http://example.com
+    # または
+    origin<\t>plugin:java<\t>2<\t>http://example.com
+    origin<\t>plugin-vulnerable:java<\t>2<\t>http://example.com
+    origin<\t>plugin:npdeployjava<\t>2<\t>http://example.com
+    origin<\t>plugin-vulnerable:npdeployjava<\t>2<\t>http://example.com
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    サイト別の値を恒久的に設定する場合:
+    lockPref("extensions.autopermission.sites.example.com", "plugin:java=2,plugin-vulnerable:java=2,plugin:npdeployjava=2,plugin-vulnerable:npdeployjava=2");
+    clearPref("extensions.autopermission.sites.example.com.lastValue");
+
+    :2: 常に有効化する
+
+    lockPref("plugin.load_flash_only", false);
+    lockPref("plugin.state.java", 2);
+    lockPref("plugin.state.npdeployjava", 2);
+    // 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+    // ブロックリストによってプラグインが安全でないバージョンと判定されている場合、この設定は機能しない（常に有効化するにはSecurity-21-2と併用すること）
+
+    サイト別の初期状態のみを設定する場合:
+    default.permissions:
+    host<\t>plugin:java<\t>1<\t>http://example.com
+    host<\t>plugin-vulnerable:java<\t>1<\t>http://example.com
+    host<\t>plugin:npdeployjava<\t>1<\t>http://example.com
+    host<\t>plugin-vulnerable:npdeployjava<\t>1<\t>http://example.com
+    # または
+    origin<\t>plugin:java<\t>1<\t>http://example.com
+    origin<\t>plugin-vulnerable:java<\t>1<\t>http://example.com
+    origin<\t>plugin:npdeployjava<\t>1<\t>http://example.com
+    origin<\t>plugin-vulnerable:npdeployjava<\t>1<\t>http://example.com
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    サイト別の値を恒久的に設定する場合:
+    lockPref("extensions.autopermission.sites.example.com", "plugin:java=1,plugin-vulnerable:java=1,plugin:npdeployjava=1,plugin-vulnerable:npdeployjava=1");
+    clearPref("extensions.autopermission.sites.example.com.lastValue");
+
+    :3: クリックされたら有効にする（既定）
+
+    lockPref("plugin.load_flash_only", false);
+    lockPref("plugin.state.java", 1);
+    lockPref("plugin.state.npdeployjava", 1);
+    // 全体を0で常に無効化した場合、サイト別設定での有効化は不可能
+
+    サイト別の初期状態のみを設定する場合:
+    default.permissions:
+    host<\t>plugin:java<\t>3<\t>http://example.com
+    host<\t>plugin-vulnerable:java<\t>3<\t>http://example.com
+    host<\t>plugin:npdeployjava<\t>3<\t>http://example.com
+    host<\t>plugin-vulnerable:npdeployjava<\t>3<\t>http://example.com
+    # または
+    origin<\t>plugin:java<\t>3<\t>http://example.com
+    origin<\t>plugin-vulnerable:java<\t>3<\t>http://example.com
+    origin<\t>plugin:npdeployjava<\t>3<\t>http://example.com
+    origin<\t>plugin-vulnerable:npdeployjava<\t>3<\t>http://example.com
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    サイト別の値を恒久的に設定する場合:
+    lockPref("extensions.autopermission.sites.example.com", "plugin:java=3,plugin-vulnerable:java=3,plugin:npdeployjava=3,plugin-vulnerable:npdeployjava=3");
+    clearPref("extensions.autopermission.sites.example.com.lastValue");
+
+Plugin-2: Adobe Flashプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    Plugin-1-1と同様。プラグイン名は「java」を「flash」に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「flash」に読み替える。
+
+    :3: クリックされたら有効にする（既定）
+
+    Plugin-1-3と同様。プラグイン名は「java」を「flash」に読み替える。
+
+Plugin-3: Adobe Acrobatプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    Plugin-1-1と同様。プラグイン名は「java」を「nppdf」に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「nppdf」に読み替える。
+
+    :3: クリックされたら有効にする（既定）
+
+    Plugin-1-3と同様。プラグイン名は「java」を「nppdf」に読み替える。
+
+Plugin-4: Shockwaveプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    Plugin-1-1と同様。プラグイン名は「java」を「np32dsw」に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「np32dsw」に読み替える。
+
+    :3: クリックされたら有効にする（既定）
+
+    Plugin-1-3と同様。プラグイン名は「java」を「np32dsw」に読み替える。
+
+Plugin-5: Silverlightプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    Plugin-1-1と同様。プラグイン名は「java」を「npctrl」に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「npctrl」に読み替える。
+
+    :3: クリックされたら有効にする（既定）
+
+    Plugin-1-3と同様。プラグイン名は「java」を「npctrl」に読み替える。
+
+Plugin-6: Windows Media Playerプラグインの有効・無効の制御
+
+    :1: 常に無効化する（既定）
+
+    Plugin-1-1と同様。プラグイン名は「java」を「np-mswmp」に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「np-mswmp」に読み替える。また、その上で以下の設定を加える。
+    lockPref("plugins.load_appdir_plugins", true);
+
+    :3: クリックされたら有効にする
+
+    Plugin-1-3と同様。プラグイン名は「java」を「np-mswmp」に読み替える。また、その上で以下の設定を加える。
+    lockPref("plugins.load_appdir_plugins", true);
+
+Plugin-7: Cisco WebExプラグインの有効・無効の制御
+
+    :1: 常に無効化する（既定）
+
+    Plugin-1-1と同様。プラグイン名は「java」を「npatgpc」に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「npatgpc」に読み替える。また、その上で以下の設定を加える。
+    lockPref("plugins.load_appdir_plugins", true);
+
+    :3: クリックされたら有効にする
+
+    Plugin-1-3と同様。プラグイン名は「java」を「npatgpc」に読み替える。また、その上で以下の設定を加える。
+    lockPref("plugins.load_appdir_plugins", true);
+
+Plugin-8: Gecko Media Pluginの利用の可否
+
+    :1: 許可する（規定）
+
+    -
+
+    :2: 禁止する
+
+    MCD:
+    lockPref("media.eme.enabled",false);
+    lockPref("media.gmp-eme-adobe.enabled",false);
+    lockPref("media.gmp-eme-adobe.autoupdate",false);
+    lockPref("media.gmp-gmpopenh264.enabled",false);
+    lockPref("media.gmp-gmpopenh264.autoupdate",false);
+    lockPref("media.gmp-manager.url","about:blank");
+    lockPref("media.gmp-provider.enabled",false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #drmGroup {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Plugin-9: IcedTeaプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    Plugin-1-1と同様。プラグイン名は「java」を「libnpjp」（または「libnpjp2」）に読み替える。
+
+    :2: 常に有効化する
+
+    Plugin-1-2と同様。プラグイン名は「java」を「libnpjp」（または「libnpjp2」）に読み替える。
+
+    :3: クリックされたら有効にする（既定）
+
+    Plugin-1-3と同様。プラグイン名は「java」を「libnpjp」（または「libnpjp2」）に読み替える。
+
+Plugin-10: すべてのプラグインの初期状態
+
+    :1: 常に無効化する
+
+    lockPref("plugin.default.state", 0);
+
+    :2: 常に有効化する
+
+    lockPref("plugin.default.state", 2);
+
+    :3: クリックされたら有効にする（既定）
+
+    lockPref("plugin.default.state", 1);
+

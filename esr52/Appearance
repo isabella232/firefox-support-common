@@ -1,0 +1,28 @@
+Appearance-1: 表示フォントの明示
+
+    :1: 設定しない（既定）
+
+    -
+
+    :2: 設定する
+
+    lockPref("font.name-list.serif.ja", "（フォントの英語名のカンマ区切りのリスト）");
+    lockPref("font.name-list.sans-serif.ja", "（フォントの英語名のカンマ区切りのリスト）");
+    lockPref("font.name-list.monospace.ja", "（フォントの英語名のカンマ区切りのリスト）");
+
+Appearance-2: ツールバー上の項目の初期設定
+
+    :1: 制御しない（既定）
+
+    -
+
+    :2: 制御する
+
+    // そのバージョンのFirefox上で実際に希望の状態になるようカスタマイズした結果の値を使用すること。
+    pref("browser.uiCustomization.state", JSON.stringify({
+      ...
+    }));
+    pref("browser.migrated-sync-button", true);
+    pref("browser.toolbarbuttons.introduced.pocket-button", true);
+    pref("browser.migration.version", 42);
+

@@ -1,0 +1,20 @@
+Performance-1: メモリキャッシュのサイズ
+
+    :1: 自動的に決める（既定）
+
+    -
+
+    :2: 明示する
+
+    lockPref("browser.cache.memory.capacity", （整数値、単位：キロバイト）);
+
+Performance-2: コンテンツの再描画間隔
+
+    :1: 120ミリ秒間隔で再描画（既定）
+
+    // defaultPref("content.notify.interval", 120000);
+
+    :2: 再描画間隔を明示する
+
+    lockPref("content.notify.interval", （整数値、単位：マイクロ秒）);
+

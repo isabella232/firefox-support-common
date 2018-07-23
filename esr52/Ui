@@ -1,0 +1,70 @@
+Ui-1: Firefox組み込みのPDFビューアの使用可否
+
+    :1: 許可する（既定）
+
+    lockPref("pdfjs.disabled", false);
+    lockPref("plugin.disable_full_page_plugin_for_types", "（application/pdfを含まない値）");
+
+    :2: 禁止する
+
+    lockPref("pdfjs.disabled", true);
+
+Ui-2: F7キーによるキャレットブラウズモードの開始の可否
+
+    :1: 許可する（既定）
+
+    lockPref("accessibility.browsewithcaret_shortcut.enabled", true);
+
+    :2: 禁止する
+
+    lockPref("accessibility.browsewithcaret_shortcut.enabled", false);
+
+Ui-3: タブごとの音声インジケータの利用の許可
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    @-moz-document url-prefix("chrome://browser/content/browser.xul") {
+      .tab-icon-sound,
+      .tab-icon-overlay {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Ui-4: 同一プロキシへの同時アクセスによる認証ダイアログの多重表示の抑止
+
+    :1: [廃止] 抑止する
+
+    lockPref("extensions.no-duplicated-authentication@clear-code.com.proxy", true);
+    lockPref("extensions.no-duplicated-authentication@clear-code.com.password", false);
+    lockPref("extensions.no-duplicated-authentication@clear-code.com.withoutRealm", false);
+    lockPref("extensions.no-duplicated-authentication@clear-code.com.withRealm", false);
+
+    :2: 抑止しない
+
+    -
+
+Ui-5: リーダービュー機能の使用
+
+    :1: 使用する（既定）
+
+    -
+
+    :2: 使用しない
+
+    lockPref("reader.parse-on-load.enabled", false)
+
+Ui-6: スペルチェック機能の使用
+
+    :1: 使用する（既定）
+
+    -
+
+    :2: 使用しない
+
+    lockPref("layout.spellcheckDefault", 0);
+
