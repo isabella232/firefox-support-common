@@ -1,0 +1,78 @@
+Admin-1: 管理者による設定の制御
+
+    :1: ローカルのファイルで設定する
+
+    autoconfig.js:
+    pref("general.config.obscure_value", 0);
+    pref("general.config.filename", "autoconfig.cfg");
+    pref("general.config.vendor", "autoconfig");
+
+    autoconfig.cfg:
+    // the first line is always ignored by Firefox itself
+    …
+
+    :2: リモートのファイルで設定する
+
+    autoconfig.js:
+    pref("general.config.obscure_value", 0);
+    pref("general.config.filename", "autoconfig.cfg");
+    pref("general.config.vendor", "autoconfig");
+
+    autoconfig.cfg:
+    // the first line is always ignored by Firefox itself
+    lockPref("autoadmin.global_config_url", "schema://path/to/autoconfig.jsc");
+
+    autoconfig.jsc:
+    …
+
+    :3: 設定しない（既定）
+
+    -
+
+Admin-2: 初回起動時のアドオン導入警告の可否
+
+    :1: 警告する（既定）
+
+    lockPref("extensions.autoDisableScopes", 15);
+
+    :2: 警告しない
+
+    lockPref("extensions.autoDisableScopes", 11);
+
+Admin-3: Firefoxバージョンアップ時のアドオン更新確認の可否
+
+    :1: [廃止] 確認する（既定）
+
+    lockPref("extensions.shownSelectionUI", false);
+    lockPref("extensions.showMismatchUI", true);
+
+    :2: [廃止] 確認しない
+
+    lockPref("extensions.shownSelectionUI", true);
+    lockPref("extensions.showMismatchUI", false);
+
+Admin-4: Mozillaにより署名されていないアドオンのインストールパッケージの使用の可否
+
+    :1: 許可する
+
+    lockPref("xpinstall.signatures.required", false);
+
+    :2: 禁止する（既定）
+
+    lockPref("xpinstall.signatures.required", true);
+
+Admin-5: ポリシー設定の使用の可否
+
+    :1: 使用する
+
+    MCD:
+    lockPref("browser.policies.enabled", true);
+    lockPref("browser.policies.loglevel", "debug");
+
+    policies.json:
+    { "policies": { … } }
+
+    :2: 使用しない
+
+    -
+

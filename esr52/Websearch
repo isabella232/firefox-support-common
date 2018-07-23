@@ -1,0 +1,51 @@
+Websearch-1: 検索エンジンの追加・削除の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #addEngines,
+      #removeEngineButton,
+      #restoreDefaultSearchEngines {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+    @-moz-document url-prefix("chrome://browser/content/search/engineManager.xul") {
+      #addEngines {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+    @-moz-document url-prefix("chrome://browser/content/browser.xul") {
+      #PopupSearchAutoComplete [anonid="add-engines"] {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+      .searchbar-search-button[addengines="true"] {
+        list-style-image: url("chrome://browser/skin/search-indicator.png") !important;
+      }
+      @media (min-resolution: 1.1dppx) {
+        .searchbar-search-button[addengines="true"] {
+          list-style-image: url("chrome://browser/skin/search-indicator-badge-add@2x.png") !important;
+        }
+      }
+    }
+
+Websearch-2: 初期状態で利用する検索エンジン
+
+    :1: すべて使用する（既定）
+
+    -
+
+    :2: 限定する
+
+    lockPref("extensions.disablesearchengines@clear-code.com.disabled", "（無効化するエンジンの名前のカンマ区切りのリスト）");
+    または
+    lockPref("extensions.disablesearchengines@clear-code.com.enabled", "（有効化するエンジンの名前のカンマ区切りのリスト）");
+

@@ -1,0 +1,484 @@
+MenuShortcut-1: 閉じたタブを開き直す (Ctrl-Shift-T)
+
+    :1: 無効化する
+
+    #key_undoCloseTab,
+    #History\:UndoCloseTab,
+    #historyUndoMenu,
+    #toolbar-context-undoCloseTab,
+    #context_undoCloseTab,
+    #PanelUI-recentlyClosedTabs-separator,
+    #PanelUI-recentlyClosedTabs
+
+MenuShortcut-2: 閉じたウィンドウを開き直す (Ctrl-Shift-N)
+
+    :1: 無効化する
+
+    #key_undoCloseWindow,
+    #History\:UndoCloseWindow,
+    #historyUndoWindowMenu,
+    #PanelUI-recentlyClosedWindows-separator,
+    #PanelUI-recentlyClosedWindows
+
+MenuShortcut-3: ファイル＞新しいプライベートウィンドウを開く (Ctrl-Shift-P)
+
+    :1: 無効化する
+
+    #menu_newPrivateWindow,
+    #privatebrowsing-button,
+    #wrapper-privatebrowsing-button,
+    #key_privatebrowsing,
+    #Tools\:PrivateBrowsing,
+    #context-openlinkprivate
+
+MenuShortcut-4: ファイル＞ページのURLをメールで送信（ページのURLをメールで送信ボタン）
+
+    :1: 無効化する
+
+    #Browser\:SendLink,
+    #menu_sendLink,
+    #context-sendpage,
+    #email-link-button,
+    #wrapper-email-link-button
+
+MenuShortcut-5: ファイル＞オフライン作業
+
+    :1: 無効化する
+
+    #goOfflineMenuitem,
+    [oncommand="BrowserOffline.toggleOfflineStatus();"]
+
+MenuShortcut-6: ツール＞プライベートブラウジングの開始 (Firefox 31で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-7: ツール＞ダウンロード（旧バージョンでは「ダウンロードマネージャ」） (Ctrl-J)
+
+    :1: 無効化する
+
+    #key_openDownloads,
+    #Tools\:Downloads,
+    #menu_openDownloads,
+    #downloads-button,
+    #wrapper-downloads-button
+
+MenuShortcut-8: ツール＞ページの調査 (Firefox 31で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-9: ツール＞アプリ (Firefox 45で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-10: ツール＞ウェブ開発（開発ツールボタン）
+
+    :1: 無効化する
+
+    #webDeveloperMenu,
+    #developer-button,
+    #wrapper-developer-button,
+    #devToolsSeparator
+
+MenuShortcut-11: ツール＞ウェブ開発＞開発ツールを表示 (Ctrl-Shift-I,F12)
+
+    :1: 無効化する
+
+    #menu_devToolbox,
+    #key_devToolboxMenuItem,
+    #key_devToolboxMenuItemF12,
+    [key='key_devToolboxMenuItem']
+
+MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
+
+    :1: 無効化する
+
+    #key_inspector,
+    #menu_inspector,
+    [key='key_inspector']
+
+MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
+
+    :1: 無効化する
+
+    #key_webconsole,
+    #menu_webconsole,
+    [key='key_webconsole']
+
+MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
+
+    :1: 無効化する
+
+    #key_jsdebugger,
+    #menu_jsdebugger,
+    [key='key_jsdebugger']
+
+MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F7)
+
+    :1: 無効化する
+
+    #key_styleeditor,
+    #menu_styleeditor,
+    [key='key_styleeditor']
+
+MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バージョンでは「プロファイラ」） (Shift-F5)
+
+    :1: 無効化する
+
+    #key_performance,
+    #menu_performance,
+    [key='key_performance']
+
+MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-Q)
+
+    :1: 無効化する
+
+    #key_netmonitor,
+    #menu_netmonitor,
+    [key='key_netmonitor']
+
+MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
+
+    :1: 無効化する
+
+    #key_devToolbar,
+    #menu_devToolbar,
+    [key='key_devToolbar']
+
+MenuShortcut-19: ツール＞ウェブ開発＞アプリマネージャ (Firefox 38で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-20: ツール＞ウェブ開発＞WebIDE (Shift-F8)
+
+    :1: 無効化する
+
+    #key_webide,
+    #menu_webide,
+    [key='key_webide']
+
+MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
+
+    :1: 無効化する
+
+    #key_browserToolbox,
+    #menu_browserToolbox,
+    [key='key_browserToolbox']
+
+MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl-Shift-J)
+
+    :1: 無効化する
+
+    #key_browserConsole,
+    #menu_browserConsole,
+    [key='key_browserConsole']
+
+MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビュー (Ctrl-Shift-M)
+
+    :1: 無効化する
+
+    #key_responsiveUI,
+    #menu_responsiveUI,
+    [key='key_responsiveUI']
+
+MenuShortcut-24: ツール＞ウェブ開発＞スポイト
+
+    :1: 無効化する
+
+    #menu_eyedropper,
+    .subviewbutton[label='スポイト'],
+    .subviewbutton[label='Eyedropper']
+
+MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F4)
+
+    :1: 無効化する
+
+    #key_scratchpad,
+    #menu_scratchpad,
+    [key='key_scratchpad']
+
+MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
+
+    :1: 無効化する
+
+    #key_viewSource,
+    [key='key_viewSource'],
+    #View\:PageSource,
+    #devtoolsMenuBroadcaster_PageSource,
+    #context-viewsource,
+    #context-sep-viewsource,
+    #context-viewpartialsource-selection,
+    #context-viewpartialsource-mathml
+
+MenuShortcut-27: ツール＞ウェブ開発＞エラーコンソール (Firefox 48で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-28: ツール＞ウェブ開発＞接続...
+
+    :1: 無効化する
+
+    #menu_devtools_connect,
+    .subviewbutton[label='接続...'],
+    .subviewbutton[label='Connect…']
+
+MenuShortcut-29: ツール＞ウェブ開発＞その他のツールを入手
+
+    :1: 無効化する
+
+    #getMoreDevtools,
+    .subviewbutton[label='その他のツールを入手'],
+    .subviewbutton[label='Get More Tools']
+
+MenuShortcut-30: ヘルプ＞Firefoxヘルプ（旧バージョンでは「ヘルプ」）
+
+    :1: 無効化する
+
+    #menu_openHelp,
+    #key_openHelpMac,
+    .subviewbutton[oncommand^='openHelp'][oncommand*='firefox-help']
+
+MenuShortcut-31: ヘルプ＞Firefoxツアー
+
+    :1: 無効化する
+
+    #menu_openTour,
+    .subviewbutton[oncommand^='openTourPage']
+
+MenuShortcut-32: ヘルプ＞キーボードショートカット
+
+    :1: 無効化する
+
+    #menu_keyboardShortcuts,
+    .subviewbutton[oncommand^='openHelp'][oncommand*='keyboard-shortcuts']
+
+MenuShortcut-33: ヘルプ＞Firefoxヘルスレポート
+
+    :1: 無効化する
+
+    #healthReport,
+    .subviewbutton[oncommand^='openHealthReport']
+
+MenuShortcut-34: ヘルプ＞使いこなそう (Firefox 31で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-35: ヘルプ＞トラブルシューティング情報
+
+    :1: 無効化する
+
+    #troubleShooting,
+    .subviewbutton[oncommand^='openTroubleshootingPage']
+
+MenuShortcut-36: ヘルプ＞フィードバックを送信
+
+    :1: 無効化する
+
+    #feedbackPage,
+    .subviewbutton[oncommand^='openFeedbackPage']
+
+MenuShortcut-37: ヘルプ＞アドオンを無効にして再起動
+
+    :1: 無効化する
+
+    #helpSafeMode,
+    .subviewbutton[oncommand^='safeModeRestart']
+
+MenuShortcut-38: ヘルプ＞詐欺サイトを報告
+
+    :1: 無効化する
+
+    #menu_HelpPopup_reportPhishingtoolmenu,
+    .subviewbutton[oncommand*='getReportURL'][oncommand*='Phish']
+
+MenuShortcut-39: ヘルプ＞誤警告を報告
+
+    :1: 無効化する
+
+    #menu_HelpPopup_reportPhishingErrortoolmenu,
+    .subviewbutton[oncommand*='getReportURL'][oncommand*='Error']
+
+MenuShortcut-40: ヘルプ＞Firefoxについて のセパレータ
+
+    :1: 無効化する
+
+    #aboutSeparator
+
+MenuShortcut-41: 編集＞テキストの記述方向を切り替える (Ctrl-Shift-X)
+
+    :1: 無効化する
+
+    #textfieldDirection-separator,
+    #textfieldDirection-swap,
+    #key_switchTextDirection,
+    #context-bidi-text-direction-toggle,
+    #context-sep-bidi
+
+MenuShortcut-42: 表示＞ページの記述方向を切り替える
+
+    :1: 無効化する
+
+    #documentDirection-separator,
+    #documentDirection-swap,
+    #context-bidi-page-direction-toggle,
+    #context-sep-bidi
+
+MenuShortcut-43: 履歴＞（メニュー内のセパレータ）
+
+    :1: 無効化する
+
+    #startHistorySeparator
+
+MenuShortcut-44: ブックマーク＞ブックマークツールバー（およびそれに付随する各項目）
+
+    :1: 無効化する
+
+    #organizeBookmarksSeparator,
+    #bookmarksToolbarSeparator,
+    #bookmarksToolbarFolderMenu,
+    #panelMenu_viewBookmarksToolbar + toolbarseparator,
+    #panelMenu_bookmarksToolbar,
+    #BMB_bookmarksToolbar
+
+MenuShortcut-45: コンテンツ領域のコンテキストメニュー＞リンクを保存する... (Firefox 51で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-46: コンテンツ領域のコンテキストメニュー＞このリンクを共有
+
+    :1: 無効化する
+
+    #context-sharelink
+
+MenuShortcut-47: コンテンツ領域のコンテキストメニュー＞画像のURLをメールで送信
+
+    :1: 無効化する
+
+    #context-sendimage
+
+MenuShortcut-48: コンテンツ領域のコンテキストメニュー＞この画像を共有
+
+    :1: 無効化する
+
+    #context-shareimage
+
+MenuShortcut-49: コンテンツ領域のコンテキストメニュー＞動画のURLをメールで送信
+
+    :1: 無効化する
+
+    #context-sendvideo
+
+MenuShortcut-50: コンテンツ領域のコンテキストメニュー＞この動画を共有
+
+    :1: 無効化する
+
+    #context-sharevideo
+
+MenuShortcut-51: コンテンツ領域のコンテキストメニュー＞オーディオのURLをメールで送信
+
+    :1: 無効化する
+
+    #context-sendaudio
+
+MenuShortcut-52: コンテンツ領域のコンテキストメニュー＞このページを共有 ()
+
+    :1: 無効化する
+
+    #context-sharepage
+
+MenuShortcut-53: コンテンツ領域のコンテキストメニュー＞ページを保存する... (Firefox 51で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-54: コンテンツ領域のコンテキストメニュー＞選択範囲を共有
+
+    :1: 無効化する
+
+    #context-shareselect
+
+MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定
+
+    :1: 無効化する
+
+    #context-setDesktopBackground
+
+MenuShortcut-56: コンテンツ領域のコンテキストメニュー＞画像をブロック (Firefox 31で廃止)
+
+    :1: [廃止] 無効化する
+
+
+
+MenuShortcut-57: コンテンツ領域のコンテキストメニュー＞要素を調査
+
+    :1: 無効化する
+
+    #context-inspect,
+    #inspect-separator
+
+MenuShortcut-58: ポップアップブロック＞このサイトによるポップアップを許可する
+
+    :1: 無効化する
+
+    #blockedPopupOptions menuitem[observes='blockedPopupAllowSite']
+
+MenuShortcut-59: ポップアップブロック＞ポップアップブロック設定を変更
+
+    :1: 無効化する
+
+    #blockedPopupOptions menuitem[observes='blockedPopupEditSettings']
+
+MenuShortcut-60: ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）
+
+    :1: [廃止] 無効化する
+
+    Hide-4に移動
+
+MenuShortcut-61: キャレットブラウズモード
+
+    :1: [廃止] 無効化する
+
+    Ui-2を参照
+
+MenuShortcut-62: ファイル＞新しいタブ (Ctrl-T)
+
+    :1: 無効化する
+
+    #menu_newNavigatorTab,#key_newNavigatorTab
+
+MenuShortcut-63: コンテンツ領域のコンテキストメニュー＞新しいタブで開く
+
+    :1: 無効化する
+
+    #context-openlinkintab
+
+MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
+
+    :1: 無効化する
+
+    #menu_devtools_serviceworkers,
+    .subviewbutton[label='Service Worker'],
+    .subviewbutton[label='Service Workers']
+
+MenuShortcut-65: ツール＞ウェブ開発＞ブラウザーコンテンツツールボックス
+
+    :1: 無効化する
+
+    #menu_browserContentToolbox,
+    .subviewbutton[label='ブラウザーコンテンツツールボックス'],
+    .subviewbutton[label='Browser Content Toolbox']
+

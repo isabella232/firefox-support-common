@@ -1,0 +1,81 @@
+Script-1: スクリプトによる頻繁なalertの可否
+
+    :1: 許可する
+
+    lockPref("dom.successive_dialog_time_limit", 0);
+
+    :2: 禁止する（既定）
+
+    // 3秒以内にalertが繰り返されたら警告を表示する（既定値）
+    lockPref("dom.successive_dialog_time_limit", 3);
+
+Script-2: プッシュ通知の可否
+
+    :1: 確認の上で許可する（通常版・既定）
+
+    lockPref("dom.push.enabled", true);
+    lockPref("dom.serviceWorkers.enabled", true);
+
+    :2: [廃止] 特定サイトのみ確認なしで許可する
+
+    廃止
+
+    :4: 特定サイトのみ初期状態で確認なしで許可する
+
+    default.permissions:
+    host<\t>desktop-notification<\t>1<\t>http://example.com
+    # または
+    origin<\t>desktop-notification<\t>1<\t>http://example.com
+
+    MCD:
+    lockPref("dom.push.enabled", true);
+    lockPref("dom.serviceWorkers.enabled", true);
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :3: 禁止する（ESR版・既定）
+
+    lockPref("dom.push.enabled", false);
+    lockPref("dom.serviceWorkers.enabled", false);
+    lockPref("dom.push.serverURL", "");
+
+Script-3: ゲームパッドAPIの利用の可否
+
+    :1: 許可する（既定）
+
+    lockPref("dom.gamepad.enabled",true);
+
+    :2: 禁止する
+
+    lockPref("dom.gamepad.enabled",false);
+
+Script-4: DOMイベントによるクリップボード操作のオーバーライド
+
+    :1: 許可する（既定）
+
+    defaultPref("dom.event.clipboardevents.enabled", true);
+
+    :2: 禁止する
+
+    lockPref("dom.event.clipboardevents.enabled", false);
+
+Script-5: DOMイベントによるコンテキストメニュー操作のオーバーライド
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("dom.event.contextmenu.enabled", false);
+
+Script-6: 左クリック以外のクリック操作によるイベントの発火
+
+    :1: [廃止] 許可する（既定）
+
+    Firefox 31までの間で廃止
+
+    :2: [廃止] 禁止する
+
+    // Firefox 31までの間で廃止
+    lockPref("nglayout.events.dispatchLeftClickOnly", true);
+

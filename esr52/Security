@@ -1,0 +1,728 @@
+Security-1: 独自のルート証明書をあらかじめ導入しておく
+
+    :1: 導入する
+
+    // Cert Importer
+    lockPref("extensions.certimporter.importAs.*", 0);
+    lockPref("extensions.certimporter.importAs.（ファイル名）", 1);
+
+    // Auto Confirm
+    var TRUST_WEBSITE = 1 << 0;
+    var TRUST_EMAIL   = 1 << 1;
+    var TRUST_OBJECT  = 1 << 2;
+    var TRUST_ALL = TRUST_WEBSITE | TRUST_EMAIL | TRUST_OBJECT;
+    function autoConfirmImport(aCertName, aTrust) {
+      if (!aTrust)
+        aTrust = TRUST_ALL;
+      var base = "extensions.auto-confirm@myokoym.net.general.auto-import-" + aCertName.replace(/\./g, '_');
+      var actions = ["accept"];
+      if (aTrust & TRUST_OBJECT)
+        actions.unshift("check;id:trustObjSign");
+      if (aTrust & TRUST_EMAIL)
+        actions.unshift("check;id:trustEmail");
+      if (aTrust & TRUST_WEBSITE)
+        actions.unshift("check;id:trustSSL");
+
+      // 日本語環境用の設定
+      var baseJa = base + "-ja";
+      lockPref(baseJa + ".url", "chrome://pippki/content/downloadcert.xul");
+      lockPref(baseJa + ".text", "“" + aCertName + "” が行う認証のうち、信頼するものを選択してください。");
+      lockPref(baseJa + ".actions", JSON.stringify(actions));
+
+      // 英語環境用の設定
+      var baseEn = base + "-en";
+      lockPref(baseEn + ".url", "chrome://pippki/content/downloadcert.xul");
+      lockPref(baseEn + ".text", "Do you want to trust “" + aCertName + "” for the following purposes?");
+      lockPref(baseEn + ".actions", JSON.stringify(actions));
+    }
+    autoConfirmImport("(証明書の名前)", TRUST_WEBSITE);
+
+    :2: 導入しない（既定）
+
+    -
+
+    :3: Windowsの証明書データベースから自動的にインポートする
+
+    lockPref("security.enterprise_roots.enabled", true);
+
+Security-2: 独自のルート証明書の自動再登録の可否
+
+    :1: 自動的に再登録する
+
+    lockPref("extensions.certimporter.allowRegisterAgain", true);
+
+    :2: 自動的に再登録しない（既定）
+
+    lockPref("extensions.certimporter.allowRegisterAgain", false);
+
+Security-3: アドオンのインストールの可否
+
+    :1: 確認の上で許可する（既定）
+
+    -
+
+    :2: 特定サイトのみ常に許可する
+
+    lockPref("extensions.autopermission.sites.example.com", "install=1");
+    clearPref("extensions.autopermission.sites.example.com.lastValue");
+
+    :5: 特定サイトのみ初期状態で許可する
+
+    default.permissions:
+    host<\t>install<\t>1<\t>http://example.com
+    # または
+    origin<\t>install<\t>1<\t>http://example.com
+
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :3: 禁止する
+
+    lockPref("extensions.autopermission.sites.addons.mozilla.org", "install=0");
+    clearPref("extensions.autopermission.sites.addons.mozilla.org.lastValue");
+    lockPref("extensions.autopermission.sites.update.mozilla.org", "install=0");
+    clearPref("extensions.autopermission.sites.update.mozilla.org.lastValue");
+    lockPref("extensions.autopermission.sites.getpersonas.com", "install=0");
+    clearPref("extensions.autopermission.sites.getpersonas.com.lastValue");
+    lockPref("extensions.autopermission.sites.marketplace.firefox.com", "install=0");
+    clearPref("extensions.autopermission.sites.marketplace.firefox.com.lastValue");
+    lockPref("extensions.autopermission.sites.testpilot.firefox.com", "install=0");
+    clearPref("extensions.autopermission.sites.testpilot.firefox.com.lastValue");
+    // アドオンマネージャからのインストールを禁止
+    lockPref("extensions.update.enabled", false);
+    lockPref("xpinstall.enabled", false);
+    lockPref("extensions.getAddons.get.url", "");
+    lockPref("extensions.getAddons.getWithPerformance.url", "");
+    lockPref("extensions.getAddons.link.url", "");
+    lockPref("extensions.getAddons.recommended.url", "");
+    lockPref("extensions.getAddons.search.browseURL", "");
+    lockPref("extensions.getAddons.search.url", "");
+
+    :4: 禁止するが、設定の変更は許可する
+
+    lockPref("extensions.update.enabled", false);
+    lockPref("xpinstall.enabled", false);
+    lockPref("extensions.disableaddons@clear-code.com.disable.manager", false);
+    // アドオンマネージャからのインストールを禁止
+    lockPref("extensions.getAddons.get.url", "");
+    lockPref("extensions.getAddons.getWithPerformance.url", "");
+    lockPref("extensions.getAddons.link.url", "");
+    lockPref("extensions.getAddons.recommended.url", "");
+    lockPref("extensions.getAddons.search.browseURL", "");
+    lockPref("extensions.getAddons.search.url", "");
+
+Security-4: 広告などのポップアップの表示の可否
+
+    :1: 確認の上で許可する（既定）
+
+    -
+
+    :2: 特定サイトのみ常に確認無しで許可する
+
+    // アドオンを使わない場合はSecurity-4-5で代替する
+    lockPref("extensions.autopermission.sites.(site)", "popup=1");
+    clearPref("extensions.autopermission.sites.(site).lastValue");
+
+    :5: 特定サイトのみ初期状態で確認無しで許可する
+
+    default.permissions:
+    host<\t>popup<\t>1<\t>http://example.com
+    # または
+    origin<\t>popup<\t>1<\t>http://example.com
+
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :3: すべて確認無しで許可する
+
+    lockPref("dom.disable_open_during_load", false);
+
+    :4: 禁止する
+
+    MCDで
+    lockPref("dom.disable_open_during_load", true);
+    と設定した上で、「UI・キーボードショートカット無効化項目一覧」に従いUIを無効化
+
+Security-5: 攻撃サイトに対する警告の可否
+
+    :1: 警告する（既定）
+
+    MCD:
+    lockPref("browser.safebrowsing.malware.enabled", true);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #enableSafeBrowsing,
+      #enableSafeBrowsing + vbox {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :2: 警告しない
+
+    MCD:
+    lockPref("browser.safebrowsing.malware.enabled", false);
+    lockPref("browser.safebrowsing.downloads.remote.url", "");
+    lockPref("browser.safebrowsing.provider.google.gethashURL", "");
+    lockPref("browser.safebrowsing.provider.google.reportURL", "");
+    lockPref("browser.safebrowsing.provider.google.updateURL", "");
+    lockPref("browser.safebrowsing.provider.google4.gethashURL", "");
+    lockPref("browser.safebrowsing.provider.google4.reportURL", "");
+    lockPref("browser.safebrowsing.provider.google4.updateURL", "");
+    lockPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+    lockPref("browser.safebrowsing.provider.mozilla.updateURL", "");
+    lockPref("browser.safebrowsing.reportMalwareMistakeURL", "");
+    lockPref("browser.safebrowsing.reportPhishMistakeURL", "");
+    lockPref("browser.safebrowsing.reportPhishURL", "");
+    // データベースファイルの初期化も含めて完全停止するための指定
+    var { SafeBrowsing } = Components.utils.import("resource://gre/modules/SafeBrowsing.jsm", {});
+    SafeBrowsing.init = function() {};
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #enableSafeBrowsing,
+      #enableSafeBrowsing + vbox {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Security-6: 偽装サイトに対する警告の可否
+
+    :1: 警告する（既定）
+
+    lockPref("browser.safebrowsing.phishing.enabled", true);
+
+    :2: 警告しない
+
+    MCD:
+    lockPref("browser.safebrowsing.phishing.enabled", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #enableSafeBrowsing,
+      #enableSafeBrowsing + vbox {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Security-7: プラグインのインストールの可否
+
+    :1: [廃止] 許可する（既定）
+
+    -
+
+    :2: [廃止] 一切禁止する
+
+    -（Firefox 38で廃止）
+
+Security-8: about:***の利用の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("extensions.disable-about-something@clear-code.com.about.（サフィックス）",  false);
+
+Security-9: about:configの利用の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    -
+
+Security-10: エラーコンソールの利用の可否
+
+    :1: [廃止] 許可する
+
+    -（Firefox 48で廃止）
+
+    :2: [廃止] 禁止する（既定）
+
+    -
+
+Security-11: SNS連携機能の利用の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    MCD:
+    lockPref("social.enabled", false);
+    lockPref("social.activeProviders", "");
+    lockPref("social.directories", "");
+    lockPref("social.remote-install.enabled", false);
+    lockPref("social.share.activationPanelEnabled", false);
+    lockPref("social.shareDirectory", "");
+    lockPref("social.toast-notifications.enabled", false);
+    lockPref("social.whitelist", "");
+
+    globalChrome.css:
+    @-moz-document url-prefix("chrome://browser/content/browser.xul") {
+      #social-share-button,
+      #wrapper-social-share-button {
+        display: none !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Security-12: JavaScriptの実行の可否
+
+    :1: 許可する（既定）
+
+    lockPref("javascript.enabled", true);
+
+    :2: [廃止] 特定サイトのみ許可する
+
+    -（Firefox 29〜52の間で廃止）
+
+    :3: 禁止する
+
+    lockPref("javascript.enabled", false);
+
+Security-13: ローカルファイルの読み込みの可否
+
+    :1: 特定サイトのみ許可する
+
+    lockPref("capability.policy.policynames", "trusted");
+    lockPref("capability.policy.trusted.sites", "http://example.com http://example.net");
+    lockPref("capability.policy.trusted.checkloaduri.enabled", "allAccess");
+
+    :2: 禁止する（既定）
+
+    -
+
+Security-14: ローカルファイルからの他ディレクトリの参照の可否
+
+    :1: 許可する
+
+    lockPref("security.fileuri.strict_origin_policy", false);
+
+    :2: 禁止する（既定）
+
+    lockPref("security.fileuri.strict_origin_policy", true);
+
+Security-15: その他、バックグラウンドで行われる外部への通信の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    * Firefox自体自体の自動更新のURL（Update-1）
+    * アドオンの自動更新のURL（Update-2）
+    * アドオンのインストール (Security-3-3/4)
+    * セーフブラウジング（Security-5）
+    * ソーシャルAPI（Security-11）
+    * ツールバーカスタマイズにおける、「その他のテーマを入手」 (Security-18)
+    * ツールバーカスタマイズにおける、テーマの「おすすめ」 (Security-19)
+    * 危険なアドオンのブロックの可否 (Security-21)
+    * プロトコルごとの外部Webアプリケーションへの連携 (Security-25)
+    * ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする (Security-26)
+    * ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する (Security-27)
+    * 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く (Security-28)
+    * 危険なFlashコンテンツの読み込み (Security-31)
+    * 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否 (Privacy-15)
+    * 利用状況の統計の保存および送信の可否 (Privacy-18)
+    * セキュリティエラーレポートの送信の可否 (Privacy-19)
+    * Firefox Syncの利用の可否 (Privacy-22)
+    * Firefoxアカウント (Privacy-24)
+    * Firefoxのユーザー評価の送信の可否 (Privacy-31)
+    * トラッキング防止 (Privacy-33)
+    * UIツアー（Startup-8）
+    * Gecko Media Pluginの利用の可否 (Plugin-8)
+
+    上記に加え、以下の設定を行う。
+
+    // プラグインのブロック時などの詳細説明のURL
+    lockPref("app.support.baseURL", "");
+    // e10s（プロセス分離）の詳細説明のURL
+    lockPref("app.support.e10sAccessibilityUrl", "");
+    // Webサイトの互換性情報のURL
+    lockPref("breakpad.reportURL", "");
+    // about:homeに表示するアドバイス情報の取得元URL
+    lockPref("browser.aboutHomeSnippets.updateUrl", "");
+    // ツールバーカスタマイズの方法を説明するページへの誘導の無効化
+    lockPref("browser.customizemode.tip0.learnMoreUrl", "");
+    // オートコレクト用辞書の取得先URL
+    lockPref("browser.dictionaries.download.url", "");
+    // 位置情報サービスの説明用URL
+    lockPref("browser.geolocation.warning.infoURL", "");
+    // 新規タブを開いた時のページにおけるタイル情報の取得、統計情報収集用通信の無効化
+    lockPref("browser.newtabpage.directory.ping","");
+    lockPref("browser.newtabpage.directory.source","about:blank");
+    // 地域ごとのデフォルトの検索サービス切り替え
+    lockPref("browser.search.geoSpecificDefaults", false);
+    lockPref("browser.search.geoSpecificDefaults.url", "");
+    // 検索プロバイダ（検索エンジン）の取得元URL
+    lockPref("browser.search.searchEnginesURL", "");
+    // 接続の状態（接続が制限されているかどうかなど）を判定するためのアクセス先
+    lockPref("captivedetect.canonicalURL","");
+    // Developer Editionの説明
+    lockPref("devtools.devedition.promo.url", "");
+    // 開発ツールで使用するデバイス
+    lockPref("devtools.devices.url", "");
+    // 開発者ツールからの外部サイト参照の無効化
+    lockPref("devtools.gcli.imgurUploadURL", "");
+    lockPref("devtools.gcli.jquerySrc", "");
+    lockPref("devtools.gcli.lodashSrc", "");
+    lockPref("devtools.gcli.underscoreSrc", "");
+    lockPref("devtools.webide.adaptersAddonURL", "");
+    lockPref("devtools.webide.adbAddonURL", "");
+    lockPref("devtools.webide.addonsURL", "");
+    lockPref("devtools.webide.simulatorAddonsURL", "");
+    lockPref("devtools.webide.templatesURL", "");
+    // 実験的機能の案内の無効化
+    lockPref("experiments.manifest.uri", "");
+    // パッチ、組み込みのアドオンの更新
+    lockPref("extensions.systemAddon.update.url", "");
+    // パッチ、組み込みのアドオンの更新
+    lockPref("extensions.webservice.discoverURL", "");
+    // 位置情報をWi-Fiアクセスポイントから取得するためのURL
+    lockPref("geo.wifi.uri", "");
+    // Firefox Accounts
+    lockPref("identity.fxaccounts.remote.webchannel.uri", "");
+    // Firefox Sync向けモバイルアプリの宣伝リンク
+    lockPref("identity.mobilepromo.android", "");
+    lockPref("identity.mobilepromo.ios", "");
+    // トラッキング防止の案内
+    lockPref("privacy.trackingprotection.introURL", "");
+    // Firefox Sync
+    // 初回起動時のみのスタートページ
+    lockPref("startup.homepage_welcome_url", "");
+    lockPref("startup.homepage_welcome_url.additional", "");
+    // クラッシュレポーターの関連情報
+    lockPref("toolkit.crashreporter.infoURL", "");
+    // アドオンの署名義務化に関するメッセージ
+    lockPref("xpinstall.signatures.devInfoURL", "");
+
+Security-16: フルスクリーン表示の可否
+
+    :1: 確認の上で許可する（既定）
+
+    lockPref("full-screen-api.enabled", true);
+
+    :2: 特定サイトのみ確認なしで許可する
+
+    Firefox 45で廃止
+
+    :3: 禁止する
+
+    lockPref("full-screen-api.enabled", false);
+
+Security-17: about:homeからマーケットプレイスへの遷移の可否
+
+    :1: 許可する（規定）
+
+    Firefox 45で廃止
+
+    :2: 禁止する
+
+    Firefox 45で廃止
+
+Security-18: ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否
+
+    :1: 許可する（規定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("lightweightThemes.getMoreURL", "");
+
+Security-19: ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否
+
+    :1: 許可する（規定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("lightweightThemes.recommendedThemes", "");
+
+Security-20: パーミッション設定変更の可否
+
+    :1: 変更を許可する（既定）
+
+    -
+
+    :2: 変更を禁止する
+
+    @-moz-document url-prefix("chrome://browser/content/browser.xul") {
+      #identity-popup-permissions-content {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+    @-moz-document url-prefix("chrome://browser/content/pageinfo/pageInfo.xul") {
+      #permTab,
+      #permPanel {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Security-21: 危険なアドオンのとプラグインのブロックの可否
+
+    :1: ブロックする（既定）
+
+    -
+
+    :2: ブロックしない
+
+    lockPref("extensions.blocklist.enabled", false);
+    lockPref("extensions.blocklist.detailsURL", "");
+    lockPref("extensions.blocklist.itemURL", "");
+    lockPref("extensions.blocklist.url", "");
+
+Security-22: Webアプリケーションのインストールの可否
+
+    :1: [廃止] marketplace.firefox.comからのインストールのみ許可（既定）
+
+    -（Firefox 52で削除）
+
+    :2: [廃止] 禁止する
+
+    -（Firefox 52で削除）
+
+Security-23: プラグインのサンドボックス内実行
+
+    :1: サンドボックス内で実行しない（既定）
+
+    defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
+    defaultPref("dom.ipc.plugins.sandbox-level.flash", 0);
+
+    :2: Flashプラグインのみサンドボックス内で実行
+
+    lockPref("dom.ipc.plugins.sandbox-level.default", 0);
+    lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+    :3: すべてサンドボックス内で実行
+
+    // 1: 管理者権限のないユーザのレベル
+    // 2: より厳格なレベル（機能的に問題が起こりうる）
+    // 3: 最も厳格なレベル
+    lockPref("dom.ipc.plugins.sandbox-level.default", 1);
+    lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+Security-24: Flashプラグインの保護モード
+
+    :1: 使用する（既定）
+
+    -
+
+    :2: 使用しない
+
+    lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
+
+Security-25: プロトコルごとの外部Webアプリケーションへの連携
+
+    :1: 使用する（既定）
+
+    -
+
+    :2: 使用しない
+
+    // Webフィード用のサービス
+    lockPref("browser.contentHandlers.types.0.name", "");
+    lockPref("browser.contentHandlers.types.0.uri", "");
+    lockPref("browser.contentHandlers.types.1.name", "");
+    lockPref("browser.contentHandlers.types.1.uri", "");
+    pref("browser.contentHandlers.types.2.name", "");
+    pref("browser.contentHandlers.types.2.uri", "");
+    pref("browser.contentHandlers.types.3.name", "");
+    pref("browser.contentHandlers.types.3.uri", "");
+    pref("browser.contentHandlers.types.4.name", "");
+    pref("browser.contentHandlers.types.4.uri", "");
+    pref("browser.contentHandlers.types.5.name", "");
+    pref("browser.contentHandlers.types.5.uri", "");
+    // IRC
+    lockPref("gecko.handlerService.schemes.irc.0.name", "");
+    lockPref("gecko.handlerService.schemes.irc.0.uriTemplate", "");
+    pref("gecko.handlerService.schemes.irc.1.name", "");
+    pref("gecko.handlerService.schemes.irc.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.irc.2.name", "");
+    pref("gecko.handlerService.schemes.irc.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.irc.3.name", "");
+    pref("gecko.handlerService.schemes.irc.3.uriTemplate", "");
+    lockPref("gecko.handlerService.schemes.ircs.0.name", "");
+    lockPref("gecko.handlerService.schemes.ircs.0.uriTemplate", "");
+    pref("gecko.handlerService.schemes.ircs.1.name", "");
+    pref("gecko.handlerService.schemes.ircs.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.ircs.2.name", "");
+    pref("gecko.handlerService.schemes.ircs.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.ircs.3.name", "");
+    pref("gecko.handlerService.schemes.ircs.3.uriTemplate", "");
+    // メール
+    lockPref("gecko.handlerService.schemes.mailto.0.name", "");
+    lockPref("gecko.handlerService.schemes.mailto.0.uriTemplate", "");
+    lockPref("gecko.handlerService.schemes.mailto.1.name", "");
+    lockPref("gecko.handlerService.schemes.mailto.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.mailto.2.name", "");
+    pref("gecko.handlerService.schemes.mailto.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.mailto.3.name", "");
+    pref("gecko.handlerService.schemes.mailto.3.uriTemplate", "");
+    // カレンダー
+    lockPref("gecko.handlerService.schemes.webcal.0.name", "");
+    lockPref("gecko.handlerService.schemes.webcal.0.uriTemplate", "");
+    pref("gecko.handlerService.schemes.webcal.1.name", "");
+    pref("gecko.handlerService.schemes.webcal.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.webcal.2.name", "");
+    pref("gecko.handlerService.schemes.webcal.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.webcal.3.name", "");
+    pref("gecko.handlerService.schemes.webcal.3.uriTemplate", "");
+
+Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
+
+    :1: ブロックする（既定）
+
+    MCD:
+    lockPref("browser.safebrowsing.downloads.enabled", true);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #blockDownloads {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :2: ブロックしない
+
+    MCD:
+    lockPref("browser.safebrowsing.downloads.enabled", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #blockDownloads {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
+
+    :1: 警告する（既定）
+
+    MCD:
+    lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
+    lockPref("browser.safebrowsing.downloads.remote.block_uncommon", true);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #blockUncommonUnwanted {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :2: 警告しない
+
+    MCD:
+    lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+    lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #blockUncommonUnwanted {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+Security-28: 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く
+
+    :1: タブを開く（既定）
+
+    -
+
+    :2: 何もしない
+
+    lockPref("network.captive-portal-service.enabled", false);
+
+Security-29: SSL/TLSでないページでの「secure」属性付きCookieの読み書き
+
+    :1: 許可する
+
+    lockPref("network.cookie.leave-secure-alone", false);
+
+    :2: 禁止する（既定）
+
+    -
+
+Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの実行
+
+    :1: 許可する
+
+    lockPref("security.block_script_with_wrong_mime", false);
+
+    :2: 禁止する（既定）
+
+    -
+
+Security-31: 危険なFlashコンテンツの読み込み
+
+    :1: 許可する
+
+    lockPref("browser.safebrowsing.blockedURIs.enabled", false);
+
+    :2: ブロックする（既定）
+
+    -
+
+Security-32: アドオンのインストール時の警告
+
+    :1: 警告する（既定）
+
+    MCD:
+    lockPref("xpinstall.whitelist.required", true);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #addonInstallBox {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+
+    :2: 警告しない
+
+    MCD:
+    lockPref("xpinstall.whitelist.required", false);
+
+    globalChrome.css:
+    @-moz-document
+      url-prefix("chrome://browser/content/preferences/in-content/preferences.xul"),
+      url-prefix("about:preferences") {
+      #addonInstallBox {
+        visibility: collapse !important;
+        -moz-user-focus: ignore !important;
+      }
+    }
+

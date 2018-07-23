@@ -1,0 +1,37 @@
+Stability-1: ハードウェアアクセラレーションを有効化するかどうか
+
+    :1: 有効化する（安定性より描画性能を優先する）
+
+    lockPref("gfx.direct2d.disabled", false);
+    lockPref("layers.acceleration.disabled", false);
+
+    :2: 無効化する（描画性能より安定性を優先する）
+
+    lockPref("gfx.direct2d.disabled", true);
+    lockPref("layers.acceleration.disabled", true);
+
+Stability-2: プロセス分離（e10s）を有効化するかどうか
+
+    :1: 制御しない（自動的に有効化・無効化が判断される）
+
+    -
+
+    :2: 強制的に有効化
+
+    // 基本的な有効化の設定（設定ダイアログにあるチェックボックスに対応）
+    lockPref("browser.tabs.remote.autostart", true);
+    // アクセシビリティ機能によるe10s無効化を抑止
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1198459
+    lockPref("browser.tabs.remote.force-enable", true);
+    // アドオンがあることによるe10s無効化を抑止
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1232274
+    lockPref("extensions.e10sBlocksEnabling", false);
+    lockPref("extensions.e10sBlockedByAddons", false);
+
+    :3: 強制的に無効化
+
+    lockPref("browser.tabs.remote.autostart", false);
+    lockPref("browser.tabs.remote.autostart.1", false);
+    lockPref("browser.tabs.remote.autostart.2", false);
+    lockPref("browser.tabs.remote.force-enable", false);
+

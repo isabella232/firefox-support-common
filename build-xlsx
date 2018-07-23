@@ -1,0 +1,171 @@
+#!/usr/bin/python3
+
+import re
+import sys
+import glob
+import os.path
+try:
+    import xlsxwriter
+except ImportError:
+    print("ERROR: Please install xlswriter to run this script\n")
+    print("  $ sudo apt install python3-xlsxwriter\n")
+    sys.exit(1)
+
+#
+# Global settings
+
+OUT_FILE = 'configurations.xlsx'
+
+ESR_PREVIOUS = 'esr52'
+ESR_CURRENT = 'esr60'
+
+WORKBOOK_DEF = [
+    ('基本設定', [
+        'Install',
+        'Application',
+        'Admin',
+        'Security',
+        'Privacy',
+        'Startup',
+        'Websearch',
+        'Location',
+        'Download',
+        'Tab',
+        'Network',
+        'Update',
+        'Ui',
+        'Script',
+        'Plugin',
+        'External',
+        'Stability',
+        'Appearance',
+        'Performance',
+        'Addon-IEView',
+        'Addon-FireIE',
+    ]),
+    ('機能無効化', [
+        'MenuShortcut',
+    ]),
+]
+
+DEFAULT_FORMAT = {
+    'valign': 'top',
+    'border': 1,
+    'font_size': 8,
+    'font_name': 'MS Gothic',
+    'text_wrap': 1
+}
+
+def load_file(path):
+    res = []
+    item = None
+    opt = None
+
+    for line in open(path):
+        line = line.rstrip()
+
+        if not line: continue
+
+        m = re.match('^(\S+): (.+)', line)
+        if m:
+            item = {'item_id': m.group(1),
+                    'item_title': m.group(2),
+                    'opts': []}
+            res.append(item)
+            continue
+
+        m = re.match('^    :(\d+): (.+)', line)
+        if m:
+            opt = {'opt_id': '%s-%s' % (item['item_id'], m.group(1)),
+                   'opt_no': m.group(1),
+                   'opt_title': m.group(2),
+                   'conf': ''}
+            item['opts'].append(opt)
+            continue
+
+        if line.startswith('    '):
+           opt['conf'] += line[4:] + '\n'
+    return res
+
+def load_as_dict(path):
+    try:
+        data = load_file(path)
+    except IOError:
+        return {}
+
+    res = {}
+    for item in data:
+        for opt in item['opts']:
+            res[opt['opt_id']] = opt['conf']
+    return res
+
+def main():
+    wb = xlsxwriter.Workbook(OUT_FILE)
+
+    fmt_default = wb.add_format(DEFAULT_FORMAT)
+    fmt_deprecated = wb.add_format({'bg_color': '#CCCCCC'})
+    fmt_selected = wb.add_format({'bg_color': '#FFA07A'})
+
+    for title, files in WORKBOOK_DEF:
+        sheet = wb.add_worksheet(title)
+
+        sheet.write(0, 0, '選択')
+        sheet.write(0, 1, '項目番号')
+        sheet.write(0, 2, '項目名')
+        sheet.write(0, 3, '選択番号')
+        sheet.write(0, 4, '選択肢')
+        sheet.write(0, 5, '標準設定 (%s)' % ESR_CURRENT)
+        sheet.write(0, 6, '導入設定 (%s)' % ESR_CURRENT)
+        sheet.write(0, 7, '標準設定 (%s)' % ESR_PREVIOUS)
+        sheet.write(0, 8, '導入設定 (%s)' % ESR_PREVIOUS)
+
+        sheet.set_column(0, 8, None, fmt_default)
+        sheet.set_column(0, 0, 3)
+        sheet.set_column(1, 1, 12)
+        sheet.set_column(2, 2, 30)
+        sheet.set_column(3, 3, 5)
+        sheet.set_column(4, 4, 20)
+        sheet.set_column(5, 5, 40)
+        sheet.set_column(6, 6, 20)
+        sheet.set_column(7, 7, 40)
+        sheet.set_column(8, 8, 20)
+
+        sheet.conditional_format('D2:I999', {
+            'type':     'formula',
+            'criteria': 'ISNUMBER(FIND("o",$A2))',
+            'format':   fmt_selected
+        })
+
+        sheet.conditional_format('D2:I9999', {
+            'type':     'formula',
+            'criteria': 'ISNUMBER(FIND("廃止",$E2))',
+            'format':   fmt_deprecated
+        })
+
+        row = 1
+        for fn in files:
+            curr = load_file(os.path.join(ESR_CURRENT, fn))
+            prev = load_as_dict(os.path.join(ESR_PREVIOUS, fn))
+
+            for data in curr:
+                if len(data['opts']) > 1:
+                    sheet.merge_range(row, 1, row + len(data['opts']) - 1, 1, '')
+                    sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
+
+                for d in data['opts']:
+                    sheet.write(row, 0, " ")
+                    sheet.write(row, 1, data['item_id'])
+                    sheet.write(row, 2, data['item_title'])
+                    sheet.write(row, 3, d['opt_no'])
+                    sheet.write(row, 4, d['opt_title'])
+                    sheet.write(row, 5, d['conf'].strip())
+                    sheet.write(row, 6, " ")
+                    sheet.write(row, 7, prev.get(d['opt_id'], " "))
+                    sheet.write(row, 8, " ")
+                    row += 1
+
+    wb.close()
+    print('Generated:', OUT_FILE)
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,184 @@
+Plugin-1: Javaプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する
+
+    Firefox56で廃止。https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
+
+    :2: [廃止] 常に有効化する
+
+    Firefox56で廃止。https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
+
+    :3: [廃止] クリックされたら有効にする（既定）
+
+    Firefox56で廃止。https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
+
+Plugin-2: Adobe Flashプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    lockPref("plugin.state.flash", 0);
+
+    サイト別の初期状態のみを設定する場合:
+    default.permissions:
+    host<\t>plugin:flash<\t>2<\t>http://example.com
+    host<\t>plugin-vulnerable:flash<\t>2<\t>http://example.com
+    # または
+    origin<\t>plugin:flash<\t>2<\t>http://example.com
+    origin<\t>plugin-vulnerable:flash<\t>2<\t>http://example.com
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :2: 常に有効化する
+
+    lockPref("plugin.state.flash", 2);
+
+    サイト別の初期状態のみを設定する場合:
+    default.permissions:
+    host<\t>plugin:flash<\t>1<\t>http://example.com
+    host<\t>plugin-vulnerable:flash<\t>1<\t>http://example.com
+    # または
+    origin<\t>plugin:flash<\t>1<\t>http://example.com
+    origin<\t>plugin-vulnerable:flash<\t>1<\t>http://example.com
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :3: クリックされたら有効にする（既定）
+
+    lockPref("plugin.state.flash", 1);
+
+    サイト別の初期状態のみを設定する場合:
+    default.permissions:
+    host<\t>plugin:flash<\t>3<\t>http://example.com
+    host<\t>plugin-vulnerable:flash<\t>3<\t>http://example.com
+    # または
+    origin<\t>plugin:flash<\t>3<\t>http://example.com
+    origin<\t>plugin-vulnerable:flash<\t>3<\t>http://example.com
+    MCD:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+Plugin-3: Adobe Acrobatプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する
+
+    Firefox 55で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+    :2: [廃止] 常に有効化する
+
+    Firefox 55で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+    :3: [廃止] クリックされたら有効にする（既定）
+
+    Firefox 55で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+Plugin-4: Shockwaveプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する
+
+    Firefox 55で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+    :2: [廃止] 常に有効化する
+
+    Firefox 55で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+    :3: [廃止] クリックされたら有効にする（既定）
+
+    Firefox 55で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+Plugin-5: Silverlightプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する
+
+    Firefox 53で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1318833
+
+    :2: [廃止] 常に有効化する
+
+    Firefox 53で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1318833
+
+    :3: [廃止] クリックされたら有効にする（既定）
+
+    Firefox 53で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1318833
+
+Plugin-6: Windows Media Playerプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する（既定）
+
+    Firefox 55で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+    :2: [廃止] 常に有効化する
+
+    Firefox 55で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+    :3: [廃止] クリックされたら有効にする
+
+    Firefox 55で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
+
+Plugin-7: Cisco WebExプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する（既定）
+
+    https://addons.mozilla.org/ja/firefox/addon/cisco-webex-extension/
+    WebExtensionsに移行したため廃止
+
+    :2: [廃止] 常に有効化する
+
+    https://addons.mozilla.org/ja/firefox/addon/cisco-webex-extension/
+    WebExtensionsに移行したため廃止
+
+    :3: [廃止] クリックされたら有効にする
+
+    https://addons.mozilla.org/ja/firefox/addon/cisco-webex-extension/
+    WebExtensionsに移行したため廃止
+
+Plugin-8: Gecko Media Pluginの利用の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("media.eme.enabled",false);
+    lockPref("media.gmp-eme-adobe.enabled",false);
+    lockPref("media.gmp-eme-adobe.autoupdate",false);
+    lockPref("media.gmp-gmpopenh264.enabled",false);
+    lockPref("media.gmp-gmpopenh264.autoupdate",false);
+    lockPref("media.gmp-widevinecdm.enabled",false);
+    lockPref("media.gmp-widevinecdm.autoupdate",false);
+    lockPref("media.gmp-manager.url","about:blank");
+    lockPref("media.gmp-provider.enabled",false);
+
+Plugin-9: IcedTeaプラグインの有効・無効の制御
+
+    :1: [廃止] 常に無効化する
+
+    Firefox 56で廃止
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
+
+    :2: [廃止] 常に有効化する
+
+    Firefox 56で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
+
+    :3: [廃止] クリックされたら有効にする（既定）
+
+    Firefox 56で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
+
+Plugin-10: すべてのプラグインの初期状態
+
+    :1: [廃止] 常に無効化する
+
+    Plugin-2に統合
+
+    :2: [廃止] 常に有効化する
+
+    Plugin-2に統合
+
+    :3: [廃止] クリックされたら有効にする（既定）
+
+    Plugin-2に統合
+
