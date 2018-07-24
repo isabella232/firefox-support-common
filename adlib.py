@@ -1,3 +1,11 @@
+"""A Simple Library for Firefox Setting Definitions.
+
+Usage:
+
+  >>> import adlib
+  >>> adlib.load(open('esr60/Install'))
+"""
+
 import re
 import textwrap
 
