@@ -64,6 +64,17 @@ Network-4: NTLM認証によるシングルサインオンの許可
     lockPref("network.negotiate-auth.delegation-uris", "ドメイン名のカンマ区切りのリスト");
     lockPref("network.negotiate-auth.trusted-uris", "ドメイン名のカンマ区切りのリスト");
 
+    :2: 許可する (Policy Engine)
+
+    // SPNGO: network.automatic-ntlm-auth.trusted-uris
+    // Delegated: network.negotiate-auth.delegation-uris
+    // NTLM: network.automatic-ntlm-auth.trusted-uris
+    "Authentication": {
+      "SPNEGO": ["https://example.com/"],
+      "Delegated": ["https://example.com/"],
+      "NTLM": ["https://example.com/"]
+    }
+
 Network-5: HTTPの同時接続数
 
     :1: パフォーマンスを優先（既定）
