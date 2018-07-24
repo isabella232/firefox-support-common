@@ -578,7 +578,7 @@ Privacy-22: Firefox Syncの利用の可否
     lockPref("webextensions.storage.sync.enabled", false);
     lockPref("webextensions.storage.sync.serverURL", "");
 
-Privacy-23: ソーシャルAPIの利用の可否
+Privacy-23: [廃止] ソーシャルAPIの利用の可否
 
     :1: [廃止] 許可する（既定）
 
@@ -606,7 +606,7 @@ Privacy-24: Firefoxアカウントの利用の可否
     lockPref("identity.fxaccounts.settings.devices.uri", "");
     lockPref("identity.fxaccounts.settings.uri","");
 
-Privacy-25: Firefox Helloの利用の可否
+Privacy-25: [廃止] Firefox Helloの利用の可否
 
     :1: [廃止] 許可する（既定）
 
@@ -670,7 +670,7 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
       }
     }
 
-Privacy-28: その他、プライバシー情報に関わる一切の機能の利用の可否
+Privacy-28: [廃止] その他、プライバシー情報に関わる一切の機能の利用の可否
 
     :1: [廃止] 許可する（既定）
 

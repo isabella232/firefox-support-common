@@ -1,4 +1,4 @@
-Plugin-1: Javaプラグインの有効・無効の制御
+Plugin-1: [廃止] Javaプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する
 
@@ -56,7 +56,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
-Plugin-3: Adobe Acrobatプラグインの有効・無効の制御
+Plugin-3: [廃止] Adobe Acrobatプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する
 
@@ -73,7 +73,7 @@ Plugin-3: Adobe Acrobatプラグインの有効・無効の制御
     Firefox 55で廃止
     https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
 
-Plugin-4: Shockwaveプラグインの有効・無効の制御
+Plugin-4: [廃止] Shockwaveプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する
 
@@ -89,7 +89,7 @@ Plugin-4: Shockwaveプラグインの有効・無効の制御
 
     Firefox 55で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
 
-Plugin-5: Silverlightプラグインの有効・無効の制御
+Plugin-5: [廃止] Silverlightプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する
 
@@ -104,7 +104,7 @@ Plugin-5: Silverlightプラグインの有効・無効の制御
 
     Firefox 53で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1318833
 
-Plugin-6: Windows Media Playerプラグインの有効・無効の制御
+Plugin-6: [廃止] Windows Media Playerプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する（既定）
 
@@ -118,7 +118,7 @@ Plugin-6: Windows Media Playerプラグインの有効・無効の制御
 
     Firefox 55で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1351490
 
-Plugin-7: Cisco WebExプラグインの有効・無効の制御
+Plugin-7: [廃止] Cisco WebExプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する（既定）
 
@@ -153,7 +153,7 @@ Plugin-8: Gecko Media Pluginの利用の可否
     lockPref("media.gmp-manager.url","about:blank");
     lockPref("media.gmp-provider.enabled",false);
 
-Plugin-9: IcedTeaプラグインの有効・無効の制御
+Plugin-9: [廃止] IcedTeaプラグインの有効・無効の制御
 
     :1: [廃止] 常に無効化する
 
@@ -168,7 +168,7 @@ Plugin-9: IcedTeaプラグインの有効・無効の制御
 
     Firefox 56で廃止https://bugzilla.mozilla.org/show_bug.cgi?id=1279218
 
-Plugin-10: すべてのプラグインの初期状態
+Plugin-10: [廃止] すべてのプラグインの初期状態
 
     :1: [廃止] 常に無効化する
 

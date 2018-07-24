@@ -214,7 +214,7 @@ Security-6: 偽装サイトに対する警告の可否
       }
     }
 
-Security-7: プラグインのインストールの可否
+Security-7: [廃止] プラグインのインストールの可否
 
     :1: [廃止] 許可する（既定）
 
@@ -244,7 +244,7 @@ Security-9: about:configの利用の可否
 
     -
 
-Security-10: エラーコンソールの利用の可否
+Security-10: [廃止] エラーコンソールの利用の可否
 
     :1: [廃止] 許可する
 
@@ -491,7 +491,7 @@ Security-21: 危険なアドオンのとプラグインのブロックの可否
     lockPref("extensions.blocklist.itemURL", "");
     lockPref("extensions.blocklist.url", "");
 
-Security-22: Webアプリケーションのインストールの可否
+Security-22: [廃止] Webアプリケーションのインストールの可否
 
     :1: [廃止] marketplace.firefox.comからのインストールのみ許可（既定）
 

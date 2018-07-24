@@ -82,7 +82,7 @@ Script-5: DOMイベントによるコンテキストメニュー操作のオー�
 
     lockPref("dom.event.contextmenu.enabled", false);
 
-Script-6: 左クリック以外のクリック操作によるイベントの発火
+Script-6: [廃止] 左クリック以外のクリック操作によるイベントの発火
 
     :1: [廃止] 許可する（既定）
 

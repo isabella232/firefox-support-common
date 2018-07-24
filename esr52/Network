@@ -64,7 +64,7 @@ Network-2: プロキシの利用
 
     lockPref("network.proxy.type", 5);
 
-Network-3: SSL3.0の利用の可否
+Network-3: [廃止] SSL3.0の利用の可否
 
     :1: [廃止] 許可する
 
@@ -134,7 +134,7 @@ Network-9: HTTP Pipeliningの使用
 
     :1: 許可する
 
-    lockPref("network.http.pipelining", true); 
+    lockPref("network.http.pipelining", true);
     lockPref("network.http.proxy.pipelining", true)
 
     :2: 禁止する（既定）

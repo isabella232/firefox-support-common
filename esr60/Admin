@@ -39,7 +39,7 @@ Admin-2: 初回起動時のアドオン導入警告の可否
 
     lockPref("extensions.autoDisableScopes", 11);
 
-Admin-3: Firefoxバージョンアップ時のアドオン更新確認の可否
+Admin-3: [廃止] Firefoxバージョンアップ時のアドオン更新確認の可否
 
     :1: [廃止] 確認する（既定）
 

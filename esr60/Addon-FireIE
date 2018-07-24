@@ -1,4 +1,4 @@
-Addon-FireIE-1: 動作モード
+Addon-FireIE-1: [廃止] 動作モード
 
     :1: [廃止] IE7互換モード（既定）
 
@@ -54,7 +54,7 @@ Addon-FireIE-1: 動作モード
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie11forcededge");
 
-Addon-FireIE-2: モード表示
+Addon-FireIE-2: [廃止] モード表示
 
     :1: [廃止] 表示する（既定）
 
@@ -65,7 +65,7 @@ Addon-FireIE-2: モード表示
     lockPref("extensions.fireie.showUrlBarLabel", false);
     lockPref("extensions.fireie.hideUrlBarButton", true);
 
-Addon-FireIE-3: 定義ファイルの自動更新
+Addon-FireIE-3: [廃止] 定義ファイルの自動更新
 
     :1: [廃止] 自動更新する（既定）
 
@@ -76,7 +76,7 @@ Addon-FireIE-3: 定義ファイルの自動更新
     lockPref("extensions.fireie.subscriptions_autoupdate", false);
     lockPref("extensions.fireie.subscriptions_defaultAdded", false);
 
-Addon-FireIE-4: ルールに当てはまらないサイトの取り扱い
+Addon-FireIE-4: [廃止] ルールに当てはまらないサイトの取り扱い
 
     :1: [廃止] 何もしない（既定）
 
@@ -90,7 +90,7 @@ Addon-FireIE-4: ルールに当てはまらないサイトの取り扱い
 
     lockPref("extensions.fireie.autoSwitchOnRuleMiss", "ie");
 
-Addon-FireIE-5: その他のバックグラウンドでの通信
+Addon-FireIE-5: [廃止] その他のバックグラウンドでの通信
 
     :1: [廃止] 許可する（既定）
 

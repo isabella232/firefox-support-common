@@ -132,7 +132,9 @@ Install-12: 管理者権限の確認
     :1: 確認する（既定）
 
 
+
     :2: 確認しない
 
     [Install]
     RequireAdminPrivilege=false
+

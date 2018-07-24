@@ -48,7 +48,7 @@ MenuShortcut-5: ファイル＞オフライン作業
     #goOfflineMenuitem,
     [oncommand="BrowserOffline.toggleOfflineStatus();"]
 
-MenuShortcut-6: ツール＞プライベートブラウジングの開始 (Firefox 31で廃止)
+MenuShortcut-6: [廃止] ツール＞プライベートブラウジングの開始 (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
 
@@ -64,13 +64,13 @@ MenuShortcut-7: ツール＞ダウンロード（旧バージョンでは「ダ�
     #downloads-button,
     #wrapper-downloads-button
 
-MenuShortcut-8: ツール＞ページの調査 (Firefox 31で廃止)
+MenuShortcut-8: [廃止] ツール＞ページの調査 (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
 
 
 
-MenuShortcut-9: ツール＞アプリ (Firefox 45で廃止)
+MenuShortcut-9: [廃止] ツール＞アプリ (Firefox 45で廃止)
 
     :1: [廃止] 無効化する
 
@@ -150,7 +150,7 @@ MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
     #menu_devToolbar,
     [key='key_devToolbar']
 
-MenuShortcut-19: ツール＞ウェブ開発＞アプリマネージャ (Firefox 38で廃止)
+MenuShortcut-19: [廃止] ツール＞ウェブ開発＞アプリマネージャ (Firefox 38で廃止)
 
     :1: [廃止] 無効化する
 
@@ -217,7 +217,7 @@ MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
     #context-viewpartialsource-selection,
     #context-viewpartialsource-mathml
 
-MenuShortcut-27: ツール＞ウェブ開発＞エラーコンソール (Firefox 48で廃止)
+MenuShortcut-27: [廃止] ツール＞ウェブ開発＞エラーコンソール (Firefox 48で廃止)
 
     :1: [廃止] 無効化する
 
@@ -268,7 +268,7 @@ MenuShortcut-33: ヘルプ＞Firefoxヘルスレポート
     #healthReport,
     .subviewbutton[oncommand^='openHealthReport']
 
-MenuShortcut-34: ヘルプ＞使いこなそう (Firefox 31で廃止)
+MenuShortcut-34: [廃止] ヘルプ＞使いこなそう (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
 
@@ -351,7 +351,7 @@ MenuShortcut-44: ブックマーク＞ブックマークツールバー（およ
     #panelMenu_bookmarksToolbar,
     #BMB_bookmarksToolbar
 
-MenuShortcut-45: コンテンツ領域のコンテキストメニュー＞リンクを保存する... (Firefox 51で廃止)
+MenuShortcut-45: [廃止] コンテンツ領域のコンテキストメニュー＞リンクを保存する... (Firefox 51で廃止)
 
     :1: [廃止] 無効化する
 
@@ -399,7 +399,7 @@ MenuShortcut-52: コンテンツ領域のコンテキストメニュー＞この
 
     #context-sharepage
 
-MenuShortcut-53: コンテンツ領域のコンテキストメニュー＞ページを保存する... (Firefox 51で廃止)
+MenuShortcut-53: [廃止] コンテンツ領域のコンテキストメニュー＞ページを保存する... (Firefox 51で廃止)
 
     :1: [廃止] 無効化する
 
@@ -417,7 +417,7 @@ MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デス
 
     #context-setDesktopBackground
 
-MenuShortcut-56: コンテンツ領域のコンテキストメニュー＞画像をブロック (Firefox 31で廃止)
+MenuShortcut-56: [廃止] コンテンツ領域のコンテキストメニュー＞画像をブロック (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
 
@@ -442,13 +442,13 @@ MenuShortcut-59: ポップアップブロック＞ポップアップブロック
 
     #blockedPopupOptions menuitem[observes='blockedPopupEditSettings']
 
-MenuShortcut-60: ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）
+MenuShortcut-60: [廃止] ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）
 
     :1: [廃止] 無効化する
 
     Hide-4に移動
 
-MenuShortcut-61: キャレットブラウズモード
+MenuShortcut-61: [廃止] キャレットブラウズモード
 
     :1: [廃止] 無効化する
 

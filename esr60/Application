@@ -67,7 +67,7 @@ Application-3: クイック起動のショートカット
     [Install]
     QuickLaunchShortcut=false
 
-Application-4: メインウィンドウのタイトル
+Application-4: [廃止] メインウィンドウのタイトル
 
     :1: [廃止] 既定の名前（既定）
 

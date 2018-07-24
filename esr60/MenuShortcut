@@ -1,10 +1,14 @@
-MenuShortcut-1: 閉じたタブを開き直す (Ctrl-Shift-T)
+MenuShortcut-1: [廃止] 閉じたタブを開き直す (Ctrl-Shift-T)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-2: 閉じたウィンドウを開き直す (Ctrl-Shift-N)
+
+
+MenuShortcut-2: [廃止] 閉じたウィンドウを開き直す (Ctrl-Shift-N)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-3: ファイル＞新しいプライベートウィンドウを開く (Ctrl-Shift-P)
 
@@ -12,29 +16,41 @@ MenuShortcut-3: ファイル＞新しいプライベートウィンドウを開�
 
     "DisablePrivateBrowsing": true,
 
-MenuShortcut-4: ファイル＞ページのURLをメールで送信（ページのURLをメールで送信ボタン）
+MenuShortcut-4: [廃止] ファイル＞ページのURLをメールで送信（ページのURLをメールで送信ボタン）
 
     :1: [廃止] 無効化する
 
-MenuShortcut-5: ファイル＞オフライン作業
+
+
+MenuShortcut-5: [廃止] ファイル＞オフライン作業
 
     :1: [廃止] 無効化する
 
-MenuShortcut-6: ツール＞プライベートブラウジングの開始 (Firefox 31で廃止)
+
+
+MenuShortcut-6: [廃止] ツール＞プライベートブラウジングの開始 (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-7: ツール＞ダウンロード（旧バージョンでは「ダウンロードマネージャ」） (Ctrl-Shift-Y(旧バージョンではCtrl+J))
+
+
+MenuShortcut-7: [廃止] ツール＞ダウンロード（旧バージョンでは「ダウンロードマネージャ」） (Ctrl-Shift-Y(旧バージョンではCtrl+J))
 
     :1: [廃止] 無効化する
 
-MenuShortcut-8: ツール＞ページの調査 (Firefox 31で廃止)
+
+
+MenuShortcut-8: [廃止] ツール＞ページの調査 (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-9: ツール＞アプリ (Firefox 45で廃止)
+
+
+MenuShortcut-9: [廃止] ツール＞アプリ (Firefox 45で廃止)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-10: ツール＞ウェブ開発（開発ツールボタン）
 
@@ -90,9 +106,11 @@ MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
 
     "DisableDeveloperTools": true,
 
-MenuShortcut-19: ツール＞ウェブ開発＞アプリマネージャ (Firefox 38で廃止)
+MenuShortcut-19: [廃止] ツール＞ウェブ開発＞アプリマネージャ (Firefox 38で廃止)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-20: ツール＞ウェブ開発＞WebIDE (Shift-F8)
 
@@ -136,9 +154,11 @@ MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
 
     "DisableDeveloperTools": true,
 
-MenuShortcut-27: ツール＞ウェブ開発＞エラーコンソール (Firefox 48で廃止)
+MenuShortcut-27: [廃止] ツール＞ウェブ開発＞エラーコンソール (Firefox 48で廃止)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-28: ツール＞ウェブ開発＞接続...
 
@@ -152,25 +172,35 @@ MenuShortcut-29: ツール＞ウェブ開発＞その他のツールを入手
 
     "DisableDeveloperTools": true,
 
-MenuShortcut-30: ヘルプ＞Firefoxヘルプ（旧バージョンでは「ヘルプ」）
+MenuShortcut-30: [廃止] ヘルプ＞Firefoxヘルプ（旧バージョンでは「ヘルプ」）
 
     :1: [廃止] 無効化する
 
-MenuShortcut-31: ヘルプ＞Firefoxツアー
+
+
+MenuShortcut-31: [廃止] ヘルプ＞Firefoxツアー
 
     :1: [廃止] 無効化する
 
-MenuShortcut-32: ヘルプ＞キーボードショートカット
+
+
+MenuShortcut-32: [廃止] ヘルプ＞キーボードショートカット
 
     :1: [廃止] 無効化する
 
-MenuShortcut-33: ヘルプ＞Firefoxヘルスレポート (Firefox 59で廃止)
+
+
+MenuShortcut-33: [廃止] ヘルプ＞Firefoxヘルスレポート (Firefox 59で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-34: ヘルプ＞使いこなそう (Firefox 31で廃止)
+
+
+MenuShortcut-34: [廃止] ヘルプ＞使いこなそう (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-35: ヘルプ＞トラブルシューティング情報
 
@@ -202,65 +232,95 @@ MenuShortcut-39: ヘルプ＞誤警告を報告
 
     "DisableFeedbackCommands": true,
 
-MenuShortcut-40: ヘルプ＞Firefoxについて のセパレータ
+MenuShortcut-40: [廃止] ヘルプ＞Firefoxについて のセパレータ
 
     :1: [廃止] 無効化する
 
-MenuShortcut-41: 編集＞テキストの記述方向を切り替える (Ctrl-Shift-X)
+
+
+MenuShortcut-41: [廃止] 編集＞テキストの記述方向を切り替える (Ctrl-Shift-X)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-42: 表示＞ページの記述方向を切り替える
+
+
+MenuShortcut-42: [廃止] 表示＞ページの記述方向を切り替える
 
     :1: [廃止] 無効化する
 
-MenuShortcut-43: 履歴＞（メニュー内のセパレータ）
+
+
+MenuShortcut-43: [廃止] 履歴＞（メニュー内のセパレータ）
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-44: ブックマーク＞ブックマークツールバー（およびそれに付随する各項目）
 
     :1: 無効化する
 
-MenuShortcut-45: コンテンツ領域のコンテキストメニュー＞リンクを保存する... (Firefox 51で廃止)
+
+
+MenuShortcut-45: [廃止] コンテンツ領域のコンテキストメニュー＞リンクを保存する... (Firefox 51で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-46: コンテンツ領域のコンテキストメニュー＞このリンクを共有 (Firefox 57で廃止)
+
+
+MenuShortcut-46: [廃止] コンテンツ領域のコンテキストメニュー＞このリンクを共有 (Firefox 57で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-47: コンテンツ領域のコンテキストメニュー＞画像のURLをメールで送信
+
+
+MenuShortcut-47: [廃止] コンテンツ領域のコンテキストメニュー＞画像のURLをメールで送信
 
     :1: [廃止] 無効化する
 
-MenuShortcut-48: コンテンツ領域のコンテキストメニュー＞この画像を共有 (Firefox 57で廃止)
+
+
+MenuShortcut-48: [廃止] コンテンツ領域のコンテキストメニュー＞この画像を共有 (Firefox 57で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-49: コンテンツ領域のコンテキストメニュー＞動画のURLをメールで送信
+
+
+MenuShortcut-49: [廃止] コンテンツ領域のコンテキストメニュー＞動画のURLをメールで送信
 
     :1: [廃止] 無効化する
 
-MenuShortcut-50: コンテンツ領域のコンテキストメニュー＞この動画を共有 (Firefox 57で廃止)
+
+
+MenuShortcut-50: [廃止] コンテンツ領域のコンテキストメニュー＞この動画を共有 (Firefox 57で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-51: コンテンツ領域のコンテキストメニュー＞オーディオのURLをメールで送信
+
+
+MenuShortcut-51: [廃止] コンテンツ領域のコンテキストメニュー＞オーディオのURLをメールで送信
 
     :1: [廃止] 無効化する
 
-MenuShortcut-52: コンテンツ領域のコンテキストメニュー＞このページを共有 (Firefox 57で廃止)
+
+
+MenuShortcut-52: [廃止] コンテンツ領域のコンテキストメニュー＞このページを共有 (Firefox 57で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-53: コンテンツ領域のコンテキストメニュー＞ページを保存する... (Firefox 51で廃止)
+
+
+MenuShortcut-53: [廃止] コンテンツ領域のコンテキストメニュー＞ページを保存する... (Firefox 51で廃止)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-54: コンテンツ領域のコンテキストメニュー＞選択範囲を共有 (Firefox 57で廃止)
+
+
+MenuShortcut-54: [廃止] コンテンツ領域のコンテキストメニュー＞選択範囲を共有 (Firefox 57で廃止)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デスクトップの背景に設定
 
@@ -268,9 +328,11 @@ MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デス
 
     "BlockSetDesktopBackground": true,
 
-MenuShortcut-56: コンテンツ領域のコンテキストメニュー＞画像をブロック (Firefox 31で廃止)
+MenuShortcut-56: [廃止] コンテンツ領域のコンテキストメニュー＞画像をブロック (Firefox 31で廃止)
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-57: コンテンツ領域のコンテキストメニュー＞要素を調査
 
@@ -278,33 +340,41 @@ MenuShortcut-57: コンテンツ領域のコンテキストメニュー＞要素
 
     "DisableDeveloperTools": true,
 
-MenuShortcut-58: ポップアップブロック＞このサイトによるポップアップを許可する
+MenuShortcut-58: [廃止] ポップアップブロック＞このサイトによるポップアップを許可する
 
     :1: [廃止] 無効化する
 
-MenuShortcut-59: ポップアップブロック＞ポップアップブロック設定を変更
+
+
+MenuShortcut-59: [廃止] ポップアップブロック＞ポップアップブロック設定を変更
 
     :1: [廃止] 無効化する
 
-MenuShortcut-60: ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）
+
+
+MenuShortcut-60: [廃止] ポップアップブロック、アドオンのインストール警告、オフラインデータの許可の編集（Cookie以外の権限に関するサイトごとの権限設定）
 
     :1: [廃止] 無効化する
 
     Hide-4に移動
 
-MenuShortcut-61: キャレットブラウズモード
+MenuShortcut-61: [廃止] キャレットブラウズモード
 
     :1: [廃止] 無効化する
 
     Ui-2を参照
 
-MenuShortcut-62: ファイル＞新しいタブ (Ctrl-T)
+MenuShortcut-62: [廃止] ファイル＞新しいタブ (Ctrl-T)
 
     :1: [廃止] 無効化する
 
-MenuShortcut-63: コンテンツ領域のコンテキストメニュー＞新しいタブで開く
+
+
+MenuShortcut-63: [廃止] コンテンツ領域のコンテキストメニュー＞新しいタブで開く
 
     :1: [廃止] 無効化する
+
+
 
 MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
 
@@ -317,3 +387,4 @@ MenuShortcut-65: ツール＞ウェブ開発＞ブラウザーコンテンツツ
     :1: 無効化する
 
     "DisableDeveloperTools": true,
+

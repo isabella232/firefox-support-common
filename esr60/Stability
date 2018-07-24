@@ -47,3 +47,4 @@ Stability-3: RDPでの音声再生の有効化
     // リモートデスクトップ接続で音声が鳴らない不具合を回避する
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1385207
     lockPref("security.sandbox.content.level", 2)
+

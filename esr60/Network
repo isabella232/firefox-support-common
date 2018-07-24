@@ -46,7 +46,7 @@ Network-2: プロキシの利用
 
     lockPref("network.proxy.type", 5);
 
-Network-3: SSL3.0の利用の可否
+Network-3: [廃止] SSL3.0の利用の可否
 
     :1: [廃止] 許可する
 
@@ -112,11 +112,11 @@ Network-8: IPv6の使用
 
     lockPref("network.dns.disableIPv6", true);
 
-Network-9: HTTP Pipeliningの使用
+Network-9: [廃止] HTTP Pipeliningの使用
 
     :1: [廃止] 許可する
 
-    lockPref("network.http.pipelining", true); 
+    lockPref("network.http.pipelining", true);
     lockPref("network.http.proxy.pipelining", true)
 
     :2: [廃止] 禁止する（既定）
@@ -185,7 +185,7 @@ Network-14: SSL/TLSでのSHA-1証明書の使用の可否
 
     lockPref("security.pki.sha1_enforcement_level", 4);
 
-Network-15: HTTP Pipeliningの最大同時リクエスト数
+Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
 
     :1: [廃止] パフォーマンスを優先（既定）
 

@@ -19,7 +19,7 @@ Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
     lockPref("accessibility.browsewithcaret_shortcut.enabled", false);
 
-Ui-3: タブごとの音声インジケータの利用の許可
+Ui-3: [廃止] タブごとの音声インジケータの利用の許可
 
     :1: [廃止] 許可する（既定）
 
@@ -73,7 +73,7 @@ Ui-7: FirefoxScreenshots機能の使用
 
     "DisableFirefoxScreenshots": true
 
-Ui-8: アドレスバーの拡大・縮小ボタンの表示
+Ui-8: [廃止] アドレスバーの拡大・縮小ボタンの表示
 
     :1: [廃止] 表示する（既定）
 

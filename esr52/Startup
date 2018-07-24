@@ -129,7 +129,7 @@ Startup-8: UIの変更点を解説するツアーの表示の可否
     lockPref("browser.uitour.themeOrigin", "");
     lockPref("browser.uitour.url", "");
 
-Startup-9: マルチプロセスモードのフィードバックを促すメッセージの表示の可否
+Startup-9: [廃止] マルチプロセスモードのフィードバックを促すメッセージの表示の可否
 
     :1: [廃止] 表示する（既定）
 

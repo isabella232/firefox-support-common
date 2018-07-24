@@ -329,7 +329,7 @@ Privacy-19: セキュリティエラーレポートの送信の可否
     lockPref("security.ssl.errorReporting.enabled", false);
     lockPref("security.ssl.errorReporting.url", "");
 
-Privacy-20: 「Do Not Track」ヘッダの送出の可否
+Privacy-20: [廃止] 「Do Not Track」ヘッダの送出の可否
 
     :1: [廃止] 許可で送出する
 
@@ -391,7 +391,7 @@ Privacy-22: Firefox Syncの利用の可否
     lockPref("webextensions.storage.sync.enabled", false);
     lockPref("webextensions.storage.sync.serverURL", "");
 
-Privacy-23: ソーシャルAPIの利用の可否
+Privacy-23: [廃止] ソーシャルAPIの利用の可否
 
     :1: [廃止] 許可する（既定）
 
@@ -427,7 +427,7 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     "DisableFirefoxAccounts": true,
 
-Privacy-25: Firefox Helloの利用の可否
+Privacy-25: [廃止] Firefox Helloの利用の可否
 
     :1: [廃止] 許可する（既定）
 
@@ -437,7 +437,7 @@ Privacy-25: Firefox Helloの利用の可否
 
     -（Firefox 52で廃止）
 
-Privacy-26: 「忘れる」ボタンの利用の可否
+Privacy-26: [廃止] 「忘れる」ボタンの利用の可否
 
     :1: [廃止] 許可する（既定）
 
@@ -463,7 +463,7 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     "DisablePocket": true,
 
-Privacy-28: その他、プライバシー情報に関わる一切の機能の利用の可否
+Privacy-28: [廃止] その他、プライバシー情報に関わる一切の機能の利用の可否
 
     :1: [廃止] 許可する（既定）
 
@@ -473,7 +473,7 @@ Privacy-28: その他、プライバシー情報に関わる一切の機能の�
 
     Security-15に統合
 
-Privacy-29: 履歴・ブックマーク用データベースの自動最適化
+Privacy-29: [廃止] 履歴・ブックマーク用データベースの自動最適化
 
     :1: [廃止] 1週間に1回、最低限の最適化のみ行う（既定）
 
@@ -498,7 +498,7 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
 
     lockPref("browser.cache.disk.enable", false); lockPref("browser.cache.disk.smart_size.enabled", false); lockPref("browser.cache.disk.capacity", 0); lockPref("browser.cache.disk.max_entry_size", 0);
 
-Privacy-31: Firefoxのユーザー評価の送信の可否
+Privacy-31: [廃止] Firefoxのユーザー評価の送信の可否
 
     :1: [廃止] 許可する（既定）
 
