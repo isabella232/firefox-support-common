@@ -4,6 +4,7 @@ import re
 import sys
 import glob
 import os.path
+import adlib
 try:
     import xlsxwriter
 except ImportError:
@@ -56,40 +57,9 @@ DEFAULT_FORMAT = {
     'text_wrap': 1
 }
 
-def load_file(path):
-    res = []
-    item = None
-    opt = None
-
-    for line in open(path):
-        line = line.rstrip()
-
-        if not line: continue
-
-        m = re.match('^(\S+): (.+)', line)
-        if m:
-            item = {'item_id': m.group(1),
-                    'item_title': m.group(2),
-                    'opts': []}
-            res.append(item)
-            continue
-
-        m = re.match('^    :(\d+): (.+)', line)
-        if m:
-            opt = {'opt_id': '%s-%s' % (item['item_id'], m.group(1)),
-                   'opt_no': m.group(1),
-                   'opt_title': m.group(2),
-                   'conf': ''}
-            item['opts'].append(opt)
-            continue
-
-        if line.startswith('    '):
-           opt['conf'] += line[4:] + '\n'
-    return res
-
 def load_as_dict(path):
     try:
-        data = load_file(path)
+        data = adlib.load(path)
     except IOError:
         return {}
 
@@ -144,7 +114,7 @@ def main():
 
         row = 1
         for fn in files:
-            curr = load_file(os.path.join(ESR_CURRENT, fn))
+            curr = adlib.load(os.path.join(ESR_CURRENT, fn))
             prev = load_as_dict(os.path.join(ESR_PREVIOUS, fn))
 
             for data in curr:
