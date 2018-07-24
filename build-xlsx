@@ -69,15 +69,73 @@ def load_as_dict(path):
             res[opt['opt_id']] = opt['conf']
     return res
 
+def setup_conditional_format(sheet, formats):
+    countif = 'COUNTIFS($A$2:$A$9999,"",$B$2:$B$9999,$B2)<>COUNTIF($B$2:$B$9999,$B2)'
+
+    # THE ORDER OF RULES BELOW IS IMPORTANT. THE EARLIER RULE TAKES
+    # PRECEDENCE OVER THE LATER. SO PLEASE TAKE CARE WHEN EDITTING THEM.
+
+    # DEPRECATED
+    sheet.conditional_format('B2:C9999', {
+        'type':     'formula',
+        'criteria': 'ISNUMBER(FIND("廃止",$C2))',
+        'format':   formats['deprecated']
+    })
+
+    sheet.conditional_format('D2:I9999', {
+        'type':     'formula',
+        'criteria': 'ISNUMBER(FIND("廃止",$E2))',
+        'format':   formats['deprecated']
+    })
+
+    # QUESTION
+    sheet.conditional_format('D2:I9999', {
+        'type':     'formula',
+        'criteria': '$A2 = "?"',
+        'format':   formats['question']
+    })
+
+    # SELECTED (NEW)
+    sheet.conditional_format('D2:I9999', {
+        'type':     'formula',
+        'criteria': 'AND($H2 = "", $A2 <> "")',
+        'format':   formats['new']
+    })
+
+    sheet.conditional_format('B2:C9999', {
+        'type':     'formula',
+        'criteria': 'AND($H2 = "", %s)'  % countif,
+        'format':   formats['new']
+    })
+
+    # SELECTED
+    sheet.conditional_format('D2:I9999', {
+        'type':     'formula',
+        'criteria': '$A2 <> ""',
+        'format':   formats['selected']
+    })
+
+    sheet.conditional_format('B2:C9999', {
+        'type':     'formula',
+        'criteria': countif,
+        'format':   formats['selected']
+    })
+
+
 def main():
     wb = xlsxwriter.Workbook(OUT_FILE)
 
-    fmt_default = wb.add_format(DEFAULT_FORMAT)
-    fmt_deprecated = wb.add_format({'bg_color': '#CCCCCC', 'border': 1})
-    fmt_selected = wb.add_format({'bg_color': '#FFA07A', 'border': 1})
+    formats = {
+        'default':    wb.add_format(DEFAULT_FORMAT),
+        'deprecated': wb.add_format({'bg_color': '#CCCCCC', 'border': 1}),
+        'selected':   wb.add_format({'bg_color': '#ffd700', 'border': 1}),
+        'question':   wb.add_format({'bg_color': '#90ee90', 'border': 1}),
+        'new':        wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
+    }
 
     for title, files in WORKBOOK_DEF:
         sheet = wb.add_worksheet(title)
+        setup_conditional_format(sheet, formats)
 
         sheet.write(0, 0, '選択')
         sheet.write(0, 1, '項目番号')
@@ -89,7 +147,7 @@ def main():
         sheet.write(0, 7, '標準設定 (%s)' % ESR_PREVIOUS)
         sheet.write(0, 8, '導入設定 (%s)' % ESR_PREVIOUS)
 
-        sheet.set_column(0, 8, None, fmt_default)
+        sheet.set_column(0, 8, None, formats['default'])
         sheet.set_column(0, 0, 3)
         sheet.set_column(1, 1, 12)
         sheet.set_column(2, 2, 30)
@@ -99,18 +157,6 @@ def main():
         sheet.set_column(6, 6, 20)
         sheet.set_column(7, 7, 40)
         sheet.set_column(8, 8, 20)
-
-        sheet.conditional_format('D2:I999', {
-            'type':     'formula',
-            'criteria': 'ISNUMBER(FIND("o",$A2))',
-            'format':   fmt_selected
-        })
-
-        sheet.conditional_format('D2:I9999', {
-            'type':     'formula',
-            'criteria': 'ISNUMBER(FIND("廃止",$E2))',
-            'format':   fmt_deprecated
-        })
 
         row = 1
         for fn in files:
@@ -123,15 +169,15 @@ def main():
                     sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
 
                 for d in data['opts']:
-                    sheet.write(row, 0, " ")
+                    sheet.write(row, 0, "", formats['default'])
                     sheet.write(row, 1, data['item_id'])
                     sheet.write(row, 2, data['item_title'])
                     sheet.write(row, 3, d['opt_no'])
                     sheet.write(row, 4, d['opt_title'])
                     sheet.write(row, 5, d['conf'].strip())
-                    sheet.write(row, 6, " ")
-                    sheet.write(row, 7, prev.get(d['opt_id'], " "))
-                    sheet.write(row, 8, " ")
+                    sheet.write(row, 6, "", formats['default'])
+                    sheet.write(row, 7, prev.get(d['opt_id'], ""), formats['default'])
+                    sheet.write(row, 8, "", formats['default'])
                     row += 1
 
     wb.close()
