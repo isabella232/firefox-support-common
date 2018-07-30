@@ -20,17 +20,30 @@ Script-2: プッシュ通知の可否
 
     廃止
 
-    :4: 特定サイトのみ初期状態で確認なしで許可する
+    :4: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     default.permissions:
+    # 許可
     host<\t>desktop-notification<\t>1<\t>http://example.com
+    # 禁止
+    host<\t>desktop-notification<\t>2<\t>http://example.com
     # または
-    origin<\t>desktop-notification<\t>1<\t>http://example.com
+    # origin<\t>desktop-notification<\t>1<\t>http://example.com
+    # origin<\t>desktop-notification<\t>2<\t>http://example.com
 
     MCD:
     lockPref("dom.push.enabled", true);
     lockPref("dom.serviceWorkers.enabled", true);
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
+
+    "Permissions": {
+      "Notifications": {
+        "Allow": ["https://www.example.com", ... ],
+        "Block": ["https://www.example.com", ... ]
+      }
+    }
 
     :3: 禁止する（ESR版・既定）
 

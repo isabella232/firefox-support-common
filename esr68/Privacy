@@ -249,15 +249,28 @@ Privacy-14: 位置情報の利用の可否
 
     廃止
 
-    :4: 特定サイトのみ初期状態で確認なしで許可する
+    :4: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     default.permissions:
+    # 許可
     host<\t>geo<\t>1<\t>http://example.com
+    # 禁止
+    host<\t>geo<\t>2<\t>http://example.com
     # または
-    origin<\t>geo<\t>1<\t>http://example.com
+    # origin<\t>geo<\t>1<\t>http://example.com
+    # origin<\t>geo<\t>2<\t>http://example.com
 
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
+
+    "Permissions": {
+      "Location": {
+        "Allow": ["https://www.example.com", ... ],
+        "Block": ["https://www.example.com", ... ]
+      }
+    }
 
     :3: 禁止する
 
@@ -707,14 +720,27 @@ Privacy-46: カメラの利用の可否
 
     -
 
-    :2: 特定サイトのみ初期状態で原則確認なしで許可する
+    :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     default.permissions:
+    # 許可
     host<\t>camera<\t>1<\t>http://example.com
+    # 禁止
+    host<\t>camera<\t>2<\t>http://example.com
     # または
-    origin<\t>camera<\t>1<\t>http://example.com
+    # origin<\t>camera<\t>1<\t>http://example.com
+    # origin<\t>camera<\t>2<\t>http://example.com
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
+
+    "Permissions": {
+      "Camera": {
+        "Allow": ["https://www.example.com", ... ],
+        "Block": ["https://www.example.com", ... ]
+      }
+    }
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
@@ -730,14 +756,27 @@ Privacy-47: マイクの利用の可否
 
     -
 
-    :2: 特定サイトのみ初期状態で確認なしで許可する
+    :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     default.permissions:
+    # 許可
     host<\t>microphone<\t>1<\t>http://example.com
+    # 禁止
+    host<\t>microphone<\t>2<\t>http://example.com
     # または
-    origin<\t>microphone<\t>1<\t>http://example.com
+    # origin<\t>microphone<\t>1<\t>http://example.com
+    # origin<\t>microphone<\t>2<\t>http://example.com
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
+
+    "Permissions": {
+      "Microphone": {
+        "Allow": ["https://www.example.com", ... ],
+        "Block": ["https://www.example.com", ... ]
+      }
+    }
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
