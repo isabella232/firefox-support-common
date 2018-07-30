@@ -70,3 +70,13 @@ Update-5: 軽量テーマの自動更新の可否
 
     lockPref("lightweightThemes.update.enabled", false);
 
+Update-6: システムアドオンの自動更新の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する（ポリシーで設定）
+
+    "DisableSystemAddonUpdate": true,
+
