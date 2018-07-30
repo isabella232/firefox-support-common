@@ -206,3 +206,22 @@ Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
 
     lockPref("network.http.pipelining.maxrequests", 8);
 
+Network-16: FQDN形式でない（ドットを含まない）ホスト名でのシングルサインオンの許可
+
+    :1: 許可する
+
+    lockPref("network.negotiate-auth.allow-non-fqdn", true);
+    lockPref("network.automatic-ntlm-auth.allow-non-fqdn", true);
+
+    :2: 許可する (Policy Engine)
+
+    // AllowNonFQDN.SPNEGO: network.negotiate-auth.allow-non-fqdn
+    // AllowNonFQDN.NTLM: network.automatic-ntlm-auth.allow-non-fqdn
+    "Authentication": {
+      ...
+      "AllowNonFQDN": {
+        "SPNEGO": true,
+        "NTLM": true
+      }
+    }
+
