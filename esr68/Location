@@ -1,0 +1,10 @@
+Location-1: ロケーションバーにおけるURLの「http://」の省略表示の可否
+
+    :1: 省略する（既定）
+
+    -
+
+    :2: 省略しない
+
+    lockPref("browser.urlbar.trimURLs", false);
+

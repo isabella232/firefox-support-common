@@ -1,0 +1,208 @@
+Network-1: Microsoft .NET Frameworkへの対応
+
+    :1: 対応する
+
+    clearPref("general.useragent.extra.microsoftdotnet");
+
+    :2: 対応しない（既定）
+
+    -
+
+Network-2: プロキシの利用
+
+    :1: 利用しない
+
+    lockPref("network.proxy.type", 0);
+
+    :2: 固定のプロキシを利用する
+
+    lockPref("network.proxy.type", 1);
+    lockPref("network.proxy.http", "（ホスト名）");
+    lockPref("network.proxy.http_port", （ポート番号）);
+    lockPref("network.proxy.share_proxy_settings", true);
+
+    :3: プロキシ自動設定スクリプトを利用する
+
+    lockPref("network.proxy.type", 2);
+    clearPref("network.proxy.http");
+    clearPref("network.proxy.http_port");
+    clearPref("network.proxy.share_proxy_settings");
+    clearPref("network.proxy.ssl");
+    clearPref("network.proxy.ssl_port");
+    clearPref("network.proxy.ftp");
+    clearPref("network.proxy.ftp_port");
+    clearPref("network.proxy.gopher");
+    clearPref("network.proxy.gopher_port");
+    clearPref("network.proxy.socks");
+    clearPref("network.proxy.socks_port");
+    clearPref("network.proxy.no_proxies_on");
+    lockPref("network.proxy.autoconfig_url", "（ファイルのURL）");
+
+    :4: WPADでネットワークのプロキシ設定を自動検出する
+
+    lockPref("network.proxy.type", 4);
+
+    :5: システムの設定を利用する（既定）
+
+    lockPref("network.proxy.type", 5);
+
+Network-3: [廃止] SSL3.0の利用の可否
+
+    :1: [廃止] 許可する
+
+    Firefox 39時点で廃止
+
+    :2: [廃止] 禁止する（既定）
+
+    Firefox 39時点で廃止
+
+Network-4: NTLM認証によるシングルサインオンの許可
+
+    :1: 許可する
+
+    lockPref("network.automatic-ntlm-auth.trusted-uris", "ドメイン名のカンマ区切りのリスト");
+    lockPref("network.negotiate-auth.delegation-uris", "ドメイン名のカンマ区切りのリスト");
+    lockPref("network.negotiate-auth.trusted-uris", "ドメイン名のカンマ区切りのリスト");
+
+    :2: 許可する (Policy Engine)
+
+    // SPNGO: network.automatic-ntlm-auth.trusted-uris
+    // Delegated: network.negotiate-auth.delegation-uris
+    // NTLM: network.automatic-ntlm-auth.trusted-uris
+    "Authentication": {
+      "SPNEGO": ["https://example.com/"],
+      "Delegated": ["https://example.com/"],
+      "NTLM": ["https://example.com/"]
+    }
+
+Network-5: HTTPの同時接続数
+
+    :1: パフォーマンスを優先（既定）
+
+    // 最大同時接続数
+    //defaultPref("network.http.max-connections", 900);
+    // Proxy未使用時・使用時それぞれの、Keep-Aliveでの最大同時維持接続数
+    //defaultPref("network.http.max-persistent-connections-per-server", 6);
+    //defaultPref("network.http.max-persistent-connections-per-proxy", 32);
+
+    :2: トラフィックを抑える事を優先
+
+    // 最大同時接続数
+    lockPref("network.http.max-connections", 6);
+    // Proxy未使用時・使用時それぞれの、Keep-Aliveでの最大同時維持接続数
+    lockPref("network.http.max-persistent-connections-per-server", 2);
+    lockPref("network.http.max-persistent-connections-per-proxy", 2);
+
+Network-6: SPDYプロトコルの使用の可否
+
+    :1: 許可する（既定）
+
+    lockPref("network.http.spdy.enabled", true);
+
+    :2: 禁止する
+
+    lockPref("network.http.spdy.enabled", false);
+
+Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の使用の可否
+
+    :1: 禁止する（既定）
+
+    -
+
+    :2: 特定のホストでのみ許可する
+
+    lockPref("security.tls.insecure_fallback_hosts", "（ホスト名のカンマ区切りのリスト）");
+
+Network-8: IPv6の使用
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("network.dns.disableIPv6", true);
+
+Network-9: [廃止] HTTP Pipeliningの使用
+
+    :1: [廃止] 許可する
+
+    lockPref("network.http.pipelining", true);
+    lockPref("network.http.proxy.pipelining", true)
+
+    :2: [廃止] 禁止する（既定）
+
+    -
+
+Network-10: onionドメインの名前解決
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("network.dns.blockDotOnion", true);
+
+Network-11: UA文字列の変更
+
+    :1: 変更しない（既定）
+
+    -
+
+    :2: 任意の値を設定する
+
+    lockPref("general.useragent.override", "（任意の内容）");
+
+Network-12: リモートファイルに対するjarプロトコルの使用
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("network.jar.block-remote-files", true);
+
+Network-13: TLS 1.3の使用
+
+    :1: 許可する（既定）
+
+    lockPref("security.tls.version.max", 4);
+
+    :2: 禁止する
+
+    -
+
+Network-14: SSL/TLSでのSHA-1証明書の使用の可否
+
+    :1: 常に受け入れる
+
+    lockPref("security.pki.sha1_enforcement_level", 0);
+
+    :2: 常に拒否する
+
+    lockPref("security.pki.sha1_enforcement_level", 1);
+
+    :3: 2016年以前発行の公的な証明書を受け入れる
+
+    lockPref("security.pki.sha1_enforcement_level", 2);
+
+    :4: インポートした認証局の発行した証明書を受け入れる（既定）
+
+    // lockPref("security.pki.sha1_enforcement_level", 3);
+
+    :5: 2016年以前発行の公的な証明書とインポートした認証局の発行した証明書の両方を受け入れる
+
+    lockPref("security.pki.sha1_enforcement_level", 4);
+
+Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
+
+    :1: [廃止] パフォーマンスを優先（既定）
+
+    lockPref("network.http.pipelining.maxrequests", 32);
+
+    :2: [廃止] トラフィックを抑える事を優先
+
+    lockPref("network.http.pipelining.maxrequests", 8);
+

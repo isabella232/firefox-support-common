@@ -1,0 +1,151 @@
+Startup-1: 初回起動時の設定移行ウィザード
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    [XRE]
+    EnableProfileMigrator=0
+
+Startup-2: 起動時のホームページの指定
+
+    :1: ユーザが指定（既定）
+
+    -
+
+    :2: 管理者が指定し、変更を許可
+
+    [Global]
+    id=（導入先ID）
+    version=（バージョン）
+    about=Mozilla Firefox
+
+    [LocalizablePreferences]
+    browser.startup.homepage="（URL）"
+
+    :3: 管理者が指定し、変更を禁止
+
+    lockPref("browser.startup.homepage", "(URL)");
+
+    :4: 管理者が指定し、変更を禁止（ポリシーで設定）
+
+    "Homepage": { "URL": "http://example.com", "Locked": true/false, "Additional": ["https://example.org:8080", ...] }
+
+Startup-3: 既定のブラウザでなかった場合の、起動時における既定のブラウザにするかどうかの確認の可否
+
+    :1: 確認する（既定）
+
+    lockPref("browser.shell.checkDefaultBrowser", true);
+
+    :2: 確認しない
+
+    lockPref("browser.shell.checkDefaultBrowser", false);
+
+    :3: 確認しない（ポリシーで設定）
+
+    "DontCheckDefaultBrowser": true
+
+Startup-4: バージョンアップ後の初回起動時における、バージョンアップ完了案内のタブの表示の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("browser.startup.homepage_override.mstone", "ignore");
+
+Startup-5: 初期状態のブックマーク
+
+    :1: 初期項目を使う（既定）
+
+    -
+
+    :2: 空にする
+
+    lockPref("browser.places.smartBookmarksVersion", -1);
+    defaultPref("browser.places.importBookmarksHTML", true);
+    lockPref("browser.bookmarks.autoExportHTML", false);
+    defaultPref("browser.bookmarks.restore_default_bookmarks", false);
+
+    :3: 管理者が指定したブックマークを追加する
+
+    // ブックマークのアップデートは起動ごとに行われる。
+    // JSONの定義から削除したサイトは次回起動時に自動的に削除される。
+    "Bookmarks": [
+      {
+        "Title": "Clear Code",
+        "URL": "http://www.clear-code.com",
+        "Favicon": "http://www.clear-code.com/favicon.ico",
+        "Placement": "toolbar",
+        "Folder": "Company"
+      }
+    ]
+
+
+Startup-6: [廃止] 「あなたの権利」の表示の可否
+
+    :1: [廃止] 許可する（既定）
+
+    -
+
+    :2: [廃止] 禁止する
+
+    -
+
+Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時における設定のリセットの提案の可否
+
+    :1: リセットを提案する（既定）
+
+    lockPref("browser.disableResetPrompt", false);
+
+    :2: リセットを提案しない
+
+    lockPref("browser.disableResetPrompt", true);
+
+Startup-8: [廃止] UIの変更点を解説するツアーの表示の可否
+
+    :1: [廃止] ツアーを表示する（既定）
+
+    -
+
+    :2: [廃止] ツアーを表示しない
+
+    lockPref("browser.uitour.enabled", false);
+    lockPref("browser.uitour.pinnedTabUrl", "");
+    lockPref("browser.uitour.readerViewTrigger", "$^");
+    lockPref("browser.uitour.themeOrigin", "");
+    lockPref("browser.uitour.url", "");
+
+Startup-9: [廃止] マルチプロセスモードのフィードバックを促すメッセージの表示の可否
+
+    :1: [廃止] 表示する（既定）
+
+    Firefox 52で廃止
+
+    :2: [廃止] 表示しない
+
+    Firefox 52で廃止
+
+Startup-10: 初回起動時などにダミーのウィンドウを使用してハードウェア性能をテストする
+
+    :1: ハードウェア情報が変更されていたら起動時に性能をテストする（既定）
+
+    -
+
+    :2: ハードウェア情報の変更を無視し、性能を測定しない
+
+    lockPref("sanity-test.running", true);
+
+Startup-11: [廃止] 起動時のActiviyStream(新規タブページの改良版)の表示の可否
+
+    :1: [廃止] 表示する（既定）
+
+    -
+
+    :2: [廃止] 表示しない
+
+    lockPref("browser.newtabpage.activity-stream.enabled", false);
+

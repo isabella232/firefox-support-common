@@ -1,0 +1,140 @@
+Install-1: インストーラの表示名
+
+    :1: Fx Meta Installer（既定）
+
+    -
+
+    :2: 任意の名前
+
+    !define PRODUCT_FULL_NAME  "（名前）"
+
+Install-2: インストーラのファイル名
+
+    :1: FxMetaInstaller
+
+    -
+
+    :2: 任意の名前
+
+    !define PRODUCT_NAME  "（名前）"
+
+Install-3: インストーラのウィザード
+
+    :1: 表示し、操作確認を求める
+
+    !define PRODUCT_INSTALL_MODE "NORMAL"
+
+    :2: 表示し、操作確認を求めない（既定）
+
+    !define PRODUCT_INSTALL_MODE "PASSIVE"
+
+    :3: 一切表示しない
+
+    !define PRODUCT_INSTALL_MODE "QUIET"
+
+Install-4: インストール完了後のメッセージ
+
+    :1: 表示しない（既定）
+
+    -
+
+    :2: 表示する
+
+    [fainstall]
+    FinishTitle=Fx Meta Installer
+    FinishMessage=インストールが完了しました
+
+Install-5: インストール完了後の再起動要求
+
+    :1: 表示しない（既定）
+
+    -
+
+    :2: 表示する
+
+    [fainstall]
+    ConfirmRestartTitle=Fx Meta Installer
+    ConfirmRestartMessage=今すぐコンピュータを再起動しますか？
+
+Install-6: インストーラのウィザードの表示言語
+
+    :1: 日本語（既定）
+
+    !define PRODUCT_LANGUAGE "Japanese"
+
+    :2: 英語
+
+    !define PRODUCT_LANGUAGE "English"
+
+Install-7: Firefox/Thunderbirdの同梱
+
+    :1: 同梱しない（既定）
+
+    -
+
+    :2: 指定バージョンを同梱する
+
+    -
+
+Install-8: Firefox/Thunderbirdのインストール先
+
+    :1: 既定のインストール先（既定）
+
+    -
+
+    :2: 任意のインストール先
+
+    [Install]
+    InstallDirectoryName=
+    InstallDirectoryPath=
+
+Install-9: メタインストーラの表示バージョン
+
+    :1: 更新しない（既定）
+
+    -
+
+    :2: 指定する
+
+    [fainstall]
+    DisplayVersion=バージョン番号
+
+Install-10: スタートメニュー、タスクバー上のショートカットの更新
+
+    :1: 更新しない（既定）
+
+    -
+
+    :2: 更新する
+
+    [fainstall]
+    UpdatePinnedShortcuts=true
+
+    :3: 削除のみする
+
+    [fainstall]
+    UpdatePinnedShortcuts=delete
+
+Install-11: タスクバー上へのピン留め用ショートカットの作成
+
+    :1: 作成する（既定）
+
+    [Install]
+    TaskbarShortcut=true
+
+    :2: 作成しない
+
+    [Install]
+    TaskbarShortcut=false
+
+Install-12: 管理者権限の確認
+
+    :1: 確認する（既定）
+
+
+
+    :2: 確認しない
+
+    [Install]
+    RequireAdminPrivilege=false
+

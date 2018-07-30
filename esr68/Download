@@ -1,0 +1,46 @@
+Download-1: ダウンロードマネージャの利用の可否
+
+    :1: 利用する（既定）
+
+    -
+
+    :2: 利用しない
+
+    Firefox 31時点で機能が廃止されたためカスタマイズ不可能。
+    ダウンロードボタンの機能を可能な限り無効化する設定は以下の通り。
+
+    lockPref("browser.download.animateNotifications", false);
+    lockPref("browser.download.useDownloadDir", false);
+    lockPref("browser.download.manager.addToRecentDocs", false);
+
+Download-2: ファイルの既定のダウンロード先
+
+    :1: 指定する：任意
+
+    defaultPref("browser.open.lastDir", "（ディレクトリのパス）");
+    defaultPref("browser.download.lastDir", "（ディレクトリのパス）");
+
+    :2: 指定する：デスクトップ
+
+    defaultPref("browser.open.lastDir", `${getenv("USERPROFILE")}\\Desktop`);
+    pref("browser.download.lastDir", "");
+    pref("browser.download.folderList", 0);
+
+    :3: 指定しない（既定）
+
+    -
+
+Download-3: ファイルのダウンロード先ディレクトリの制御
+
+    :1: 全体で共通のディレクトリにダウンロードする（既定）
+
+    lockPref("browser.download.lastDir.savePerSite", false);
+
+    :2: サイトごとにダウンロード先ディレクトリを保持する
+
+    lockPref("browser.download.lastDir.savePerSite", true);
+
+    :3: ダウンロード先を固定せず、常にユーザに選択させる
+
+    lockPref("browser.download.useDownloadDir", false);
+
