@@ -473,13 +473,13 @@ Privacy-28: [廃止] その他、プライバシー情報に関わる一切の�
 
     Security-15に統合
 
-Privacy-29: [廃止] 履歴・ブックマーク用データベースの自動最適化
+Privacy-29: 履歴・ブックマーク用データベースの自動最適化
 
-    :1: [廃止] 1週間に1回、最低限の最適化のみ行う（既定）
+    :1: 1週間に1回、最低限の最適化のみ行う（既定）
 
     -
 
-    :2: [廃止] 1週間に1回、VACUUMも含めて行う（
+    :2: 1週間に1回、VACUUMも含めて行う（
 
     「Places Auto Vacuum On Idle」互換スクリプト:https://github.com/clear-code/places-auto-vacuum-on-idle/blob/master/autoconfig-places-auto-vacuum-on-idle.js
 
