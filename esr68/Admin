@@ -6,6 +6,7 @@ Admin-1: 管理者による設定の制御
     pref("general.config.obscure_value", 0);
     pref("general.config.filename", "autoconfig.cfg");
     pref("general.config.vendor", "autoconfig");
+    pref("general.config.sandbox_enabled", false);
 
     autoconfig.cfg:
     // the first line is always ignored by Firefox itself
@@ -17,6 +18,7 @@ Admin-1: 管理者による設定の制御
     pref("general.config.obscure_value", 0);
     pref("general.config.filename", "autoconfig.cfg");
     pref("general.config.vendor", "autoconfig");
+    pref("general.config.sandbox_enabled", false);
 
     autoconfig.cfg:
     // the first line is always ignored by Firefox itself
