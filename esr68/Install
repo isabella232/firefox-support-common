@@ -138,3 +138,8 @@ Install-12: 管理者権限の確認
     [Install]
     RequireAdminPrivilege=false
 
+    :3: 特定のフォルダで書き込み可否を判断する
+
+    [Install]
+    AdminPrivilegeCheckDirectory=C:\Program Files (x86)\
+
