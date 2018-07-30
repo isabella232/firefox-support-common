@@ -34,7 +34,7 @@ Security-3: アドオンのインストールの可否
 
     :6: 特定サイトのみ常に許可する（ポリシーとして設定）
 
-    "InstallAddons": { "Allow": ["(origin1)", "(origin2)", …] }
+    "InstallAddonsPermission": { "Allow": ["(origin1)", "(origin2)", …] }
 
     :5: 特定サイトのみ初期状態で許可する
 

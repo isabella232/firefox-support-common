@@ -326,7 +326,7 @@ MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デス
 
     :1: 無効化する
 
-    "BlockSetDesktopBackground": true,
+    "DisableSetDesktopBackground": true,
 
 MenuShortcut-56: [廃止] コンテンツ領域のコンテキストメニュー＞画像をブロック (Firefox 31で廃止)
 
