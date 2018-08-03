@@ -281,3 +281,12 @@ Tab-15: 新機能のツアーの表示
 
     lockPref("browser.onboarding.newtour", "");
 
+Tab-16: トップサイトに表示されるウェブサイト
+
+    :1: 変更しない（既定）
+
+    -
+
+    :2: 変更する
+
+    lockPref("browser.newtabpage.activity-stream.default.sites", "...");

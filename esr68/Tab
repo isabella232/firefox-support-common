@@ -281,7 +281,17 @@ Tab-15: 新機能のツアーの表示
 
     lockPref("browser.onboarding.newtour", "");
 
-Tab-16: Ctrl-Tabでのタブ切り替え時の挙動
+Tab-16: トップサイトに表示されるウェブサイト
+
+    :1: 変更しない（既定）
+
+    -
+
+    :2: 変更する
+
+    lockPref("browser.newtabpage.activity-stream.default.sites", "...");
+
+Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     :1: 最近使ったタブの順で切り替える（ESR68既定）
 
