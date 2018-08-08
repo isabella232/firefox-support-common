@@ -1802,11 +1802,8 @@
 {{#Download-3}}
 1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
 1. Firefoxのダウンロード用ボタンをクリックし、「ファイルを保存」を選択する。
-    - 確認項目
-{{#Download-3-1 || Download-3-2}}
-        1. 特にダウンロード先を訊ねられずダウンロードが始まる。（Download-3-1/3-2）
-{{/Download-3-1 || Download-3-2}}
 {{#Download-3-3}}
+    - 確認項目
         1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3）
 {{/Download-3-3}}
 {{#Download-3-1 || Download-3-2}}
