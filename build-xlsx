@@ -17,8 +17,8 @@ except ImportError:
 
 OUT_FILE = 'configurations.xlsx'
 
-ESR_PREVIOUS = 'old-esr52'
-ESR_CURRENT = 'esr60'
+ESR_PREVIOUS = 'esr60'
+ESR_CURRENT = 'esr68'
 
 WORKBOOK_DEF = [
     ('基本設定', [
