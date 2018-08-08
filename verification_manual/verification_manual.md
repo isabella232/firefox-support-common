@@ -1254,9 +1254,6 @@
 <!--GROUP-->
 1. オプション画面の「詳細」→「ネットワーク」を開く。
     - 確認項目
-{{#Privacy-6-3}}
-        1. 「Webサイトがオフライン作業用のデータの保存を求めてきたときに知らせる」のチェックが外れていて選択不可になっている。(Privacy-6-3)
-{{/Privacy-6-3}}
 {{#Privacy-6-4}}
         1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-4)
 {{/Privacy-6-4}}
@@ -1335,6 +1332,9 @@
 <!--GROUP-->
 1. 各設定値を確認する。
     - 確認項目
+{{#Privacy-6-3}}
+        1. `offline.cache.enabled`の値が`false`、または`offline.cache.capacity`の値が`1`である。(Privacy-6-3)
+{{/Privacy-6-3}}
 {{#Privacy-8-2}}
         1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。(Privacy-8-2)
 {{/Privacy-8-2}}
