@@ -429,20 +429,6 @@
     - 確認項目
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。(Update-4-2)
 {{/Update-4-2}}
-1. Firefoxを終了する。
-{{#Startup-7}}
-1. システムの時計を1年先の日付に進めてからFirefoxを起動する。
-    - 確認項目
-        1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
-1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
-    - 確認項目
-  {{#Startup-7-1}}
-        1. `browser.disableResetPrompt`の値が`false`である (Startup-7-1)
-  {{/Startup-7-1}}
-  {{#Startup-7-2}}
-        1. `browser.disableResetPrompt`の値が`true`である (Startup-7-2)
-  {{/Startup-7-2}}
-{{/Startup-7}}
 {{#Admin-5}}
 1. 「オプション」を開く
     - 確認項目
@@ -456,6 +442,19 @@
 {{#Startup-10-2}}
         1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
 {{/Startup-10-2}}
+{{#Startup-7}}
+1. システムの時計を1年先の日付に進め、Firefoxを再起動する。
+    - 確認項目
+        1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
+1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
+    - 確認項目
+  {{#Startup-7-1}}
+        1. `browser.disableResetPrompt`の値が`false`である (Startup-7-1)
+  {{/Startup-7-1}}
+  {{#Startup-7-2}}
+        1. `browser.disableResetPrompt`の値が`true`である (Startup-7-2)
+  {{/Startup-7-2}}
+{{/Startup-7}}
 
 ### 後始末
 
@@ -631,9 +630,6 @@
             のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-3-3)
         1. 「about:addons」
             のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-3-3)
-1. `https://addons.mozilla.org` を開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
-    - 確認項目
-        1. 「サイト別設定」タブで「アドオンのインストール」において「標準設定を使用する」にチェックが入っている。(Security-3-3)
 {{/Security-3-3}}
 
 {{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
@@ -1242,7 +1238,7 @@
         1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入っていて選択不可になっている。(Privacy-1-4)
 {{/Privacy-1-4}}
 {{#Privacy-1-5}}
-        2. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが外れていて選択不可になっている。(Privacy-1-5)
+        1. （一部の履歴の削除を禁止する設定を導入した場合のみ）「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが外れていて選択不可になっている。(Privacy-1-5)
 {{/Privacy-1-5}}
 {{/Privacy-1}}
 {{#Privacy-35}}
@@ -1258,9 +1254,6 @@
 <!--GROUP-->
 1. オプション画面の「詳細」→「ネットワーク」を開く。
     - 確認項目
-{{#Privacy-6-3}}
-        1. 「Webサイトがオフライン作業用のデータの保存を求めてきたときに知らせる」のチェックが外れていて選択不可になっている。(Privacy-6-3)
-{{/Privacy-6-3}}
 {{#Privacy-6-4}}
         1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-4)
 {{/Privacy-6-4}}
@@ -1339,6 +1332,9 @@
 <!--GROUP-->
 1. 各設定値を確認する。
     - 確認項目
+{{#Privacy-6-3}}
+        1. `offline.cache.enabled`の値が`false`、または`offline.cache.capacity`の値が`1`である。(Privacy-6-3)
+{{/Privacy-6-3}}
 {{#Privacy-8-2}}
         1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。(Privacy-8-2)
 {{/Privacy-8-2}}
