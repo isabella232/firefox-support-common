@@ -613,23 +613,9 @@
         1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4)
 {{/Security-3-4}}
 {{#Security-3-3}}
-1. （Policy Engineを利用している場合のみ）以下の各方法でアドオンマネージャへのアクセスを試みる。
+1. （Policy Engineを利用している場合のみ）ロケーションバーに`about:addons`と入力して確定する。
     - 確認項目
-        1. パネルメニューに「アドオン」の項目が存在しない。
-            (Security-3-3)
-        1. パネルメニュー内の「カスタマイズ」をクリックした後の「Firefoxをカスタマイズ」の項目一覧に「アドオン」の項目が存在しない。
-            (Security-3-3)
-        1. Alt-Tを押下して開いた「ツール」メニュー内に「アドオン」の項目が存在しない。
-            (Security-3-3)
-        1. ロケーションバーに `about:addons` と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
-            (Security-3-3)
-        1. ロケーションバーに `about:addons` と入力し、Enterして、何も起こらない（ページが読み込まれない）。
-             (Security-3-3)
-        1. ロケーションバーに `about:about` と入力しEnterして`about:`一覧を表示する。
-        1. 「about:addons」
-            のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-3-3)
-        1. 「about:addons」
-            のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-3-3)
+        1. `about:addons`への遷移がブロックされる (Security-3-3)
 {{/Security-3-3}}
 
 {{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
@@ -707,34 +693,20 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-9-3}}
-1. 以下の各方法で`about:config`へのアクセスを試みる。(Security-9-3)
+1. ロケーションバーに`about:config`と入力して確定する
     - 確認項目
-        1. ロケーションバーに`about:config`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-9-3)
-        1. ロケーションバーに`about:config`と入力し、Enterするとブロックしたことを示すページが読み込まれる。(Security-9-3)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. `about:config`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-9-3)
-        1. `about:config`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-9-3)
+        1. `about:config`への遷移がブロックされる (Security-9-3)
 {{/Security-9-3}}
 {{#Security-34-2}}
-1. 以下の各方法で`about:profiles`へのアクセスを試みる。(Security-34-2)
+1. ロケーションバーに`about:profiles`と入力して確定する
     - 確認項目
-        1. ロケーションバーに`about:profiles`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-34-2)
-        1. ロケーションバーに`about:profiles`と入力し、Enterするとブロックしたことを示すページが開かれる。(Security-34-2)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. `about:profiles`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-34-2)
-        1. `about:profiles`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-34-2)
+        1. `about:profiles`への遷移がブロックされる (Security-34-2)
 {{/Security-34-2}}
 {{#Security-35-2}}
-1. 以下の各方法で`about:support`へのアクセスを試みる。(Security-35-2)
+1. ロケーションバーに`about:support`と入力して確定する
     - 確認項目
-        1. ロケーションバーに`about:support`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-35-2)
-        1. ロケーションバーに`about:support`と入力し、Enterするとブロックしたことを示すページが開かれる。(Security-35-2)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. `about:support`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-35-2)
-        1. `about:support`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-35-2)
-        1. 「ヘルプ」→「トラブルシューティング情報」をクリックし、ブロックしたことを示すページが開かれる。(Security-35-2)
+        1. `about:support`への遷移がブロックされる (Security-35-2)
 {{/Security-35-2}}
-
 
 {{#Security-12}}
 ## JavaScriptの実行制限
