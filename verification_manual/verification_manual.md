@@ -613,23 +613,9 @@
         1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4)
 {{/Security-3-4}}
 {{#Security-3-3}}
-1. （Policy Engineを利用している場合のみ）以下の各方法でアドオンマネージャへのアクセスを試みる。
+1. （Policy Engineを利用している場合のみ）ロケーションバーに`about:addons`と入力して確定する。
     - 確認項目
-        1. パネルメニューに「アドオン」の項目が存在しない。
-            (Security-3-3)
-        1. パネルメニュー内の「カスタマイズ」をクリックした後の「Firefoxをカスタマイズ」の項目一覧に「アドオン」の項目が存在しない。
-            (Security-3-3)
-        1. Alt-Tを押下して開いた「ツール」メニュー内に「アドオン」の項目が存在しない。
-            (Security-3-3)
-        1. ロケーションバーに `about:addons` と入力し、Alt-Enterして、タブが開かれない（開かれてもすぐ閉じられる）。
-            (Security-3-3)
-        1. ロケーションバーに `about:addons` と入力し、Enterして、何も起こらない（ページが読み込まれない）。
-             (Security-3-3)
-        1. ロケーションバーに `about:about` と入力しEnterして`about:`一覧を表示する。
-        1. 「about:addons」
-            のリンクを中クリックまたはCtrl-clickし、空白のページがタブで開かれるか、タブが開かれないか、タブが開かれてすぐに閉じられる。(Security-3-3)
-        1. 「about:addons」
-            のリンクを左クリックし、何も起こらないか、空白のページが読み込まれるか、タブが閉じられる。(Security-3-3)
+        1. `about:addons`への遷移がブロックされる (Security-3-3)
 {{/Security-3-3}}
 
 {{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
@@ -707,34 +693,20 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-9-3}}
-1. 以下の各方法で`about:config`へのアクセスを試みる。(Security-9-3)
+1. ロケーションバーに`about:config`と入力して確定する
     - 確認項目
-        1. ロケーションバーに`about:config`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-9-3)
-        1. ロケーションバーに`about:config`と入力し、Enterするとブロックしたことを示すページが読み込まれる。(Security-9-3)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. `about:config`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-9-3)
-        1. `about:config`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-9-3)
+        1. `about:config`への遷移がブロックされる (Security-9-3)
 {{/Security-9-3}}
 {{#Security-34-2}}
-1. 以下の各方法で`about:profiles`へのアクセスを試みる。(Security-34-2)
+1. ロケーションバーに`about:profiles`と入力して確定する
     - 確認項目
-        1. ロケーションバーに`about:profiles`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-34-2)
-        1. ロケーションバーに`about:profiles`と入力し、Enterするとブロックしたことを示すページが開かれる。(Security-34-2)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. `about:profiles`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-34-2)
-        1. `about:profiles`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-34-2)
+        1. `about:profiles`への遷移がブロックされる (Security-34-2)
 {{/Security-34-2}}
 {{#Security-35-2}}
-1. 以下の各方法で`about:support`へのアクセスを試みる。(Security-35-2)
+1. ロケーションバーに`about:support`と入力して確定する
     - 確認項目
-        1. ロケーションバーに`about:support`と入力し、Alt-Enterして、ブロックしたことを示すページが開かれる。(Security-35-2)
-        1. ロケーションバーに`about:support`と入力し、Enterするとブロックしたことを示すページが開かれる。(Security-35-2)
-        1. ロケーションバーに`about:about`と入力しEnterして `about:` 一覧を表示する。
-        1. `about:support`のリンクを中クリックまたはCtrl-clickし、ブロックしたことを示すページが開かれる。(Security-35-2)
-        1. `about:support`のリンクを左クリックし、ブロックしたことを示すページが読み込まれる。(Security-35-2)
-        1. 「ヘルプ」→「トラブルシューティング情報」をクリックし、ブロックしたことを示すページが開かれる。(Security-35-2)
+        1. `about:support`への遷移がブロックされる (Security-35-2)
 {{/Security-35-2}}
-
 
 {{#Security-12}}
 ## JavaScriptの実行制限
@@ -1802,11 +1774,8 @@
 {{#Download-3}}
 1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
 1. Firefoxのダウンロード用ボタンをクリックし、「ファイルを保存」を選択する。
-    - 確認項目
-{{#Download-3-1 || Download-3-2}}
-        1. 特にダウンロード先を訊ねられずダウンロードが始まる。（Download-3-1/3-2）
-{{/Download-3-1 || Download-3-2}}
 {{#Download-3-3}}
+    - 確認項目
         1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3）
 {{/Download-3-3}}
 {{#Download-3-1 || Download-3-2}}
@@ -1817,7 +1786,9 @@
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
     - 確認項目
+{{^Download-1-2}}
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*)
+{{/Download-1-2}}
         1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の `subfolder` が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が表示されている。(Download-3-2){{/Download-3-2}}
 {{/Download-3-1 || Download-3-2}}
 {{/Download-3}}
@@ -2101,10 +2072,12 @@
 
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-1. オプション画面の「詳細」→「一般」を開く。
+1. オプション画面の「一般」を開く。
+1. 「推奨のパフォーマンス設定を利用する」のチェックを外す。
     - 確認項目
         1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。(Stability-1-1){{/Stability-1-1}}{{#Stability-1-2}}または、チェックが入っていない。(Stability-1-2){{/Stability-1-2}}
 {{/Stability-1}}
+1. 「推奨のパフォーマンス設定を利用する」のチェックを元に戻す。
 
 
 {{#Stability-2-2 || Stability-2-3}}
@@ -2198,7 +2171,7 @@
 2. ツールバーカスタマイズで、ツールバーおよびパネルメニューの内容を変更する。
 3. Firefoxを再起動する。
     - 確認項目
-        1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
+        1. （表示項目を固定した場合は）ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
 
 {{/Appearance-2-2}}
 
@@ -2250,7 +2223,7 @@
 {{#Ui-7}}
 1. ロケーションバー右側の「…」をクリックする。
     - 確認項目
-        1. メニューに「スクリーンショットを撮る」が{{#Ui-7-1}}表示される。（Ui-7-1）{{/Ui-7-1}}{{#Ui-7-2}}表示されない。（Ui-7-2）{{/Ui-7-2}}
+        1. メニューに「スクリーンショットを撮る」が{{#Ui-7-1}}表示される。（Ui-7-1）{{/Ui-7-1}}{{#Ui-7-2 || Ui-7-3}}表示されない。（Ui-7-2）{{/Ui-7-2 || Ui-7-3}}
 {{/Ui-7}}
 {{#Script-1}}
 1. テストケースの `alert.html` を開く。
@@ -2692,7 +2665,6 @@
 1. 「ツール」メニューを開く。
     - 確認項目
         1. 「ウェブ開発」が存在しない。(MenuShortcut-10)
-        1. 「ページ情報」の前にセパレータが存在しない。(MenuShortcut-10)
 {{/MenuShortcut-10}}
 1. パネルメニューを開く。
 {{#MenuShortcut-3}}
