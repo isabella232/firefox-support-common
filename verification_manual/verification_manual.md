@@ -1204,7 +1204,7 @@
         1. 「履歴」で「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。(Privacy-1-3) 
 {{/Privacy-1-3}}
 {{#Privacy-1-2 || Privacy-1-3}}
-        1. 「履歴」→「記憶させる履歴を詳細設定する」が選択されており、「Firefoxの終了時に履歴を消去する」の{{#Privacy-1-2 || Privacy-1-3}}チェックが外れていて選択不可になっている。(Privacy-1-2/3){{/Privacy-1-2 || Privacy-1-3}}
+        1. 「履歴」→「記憶させる履歴を詳細設定する」が選択されており、「Firefoxの終了時に履歴を消去する」の{{#Privacy-1-2 || Privacy-1-3}}項目が存在しないか、チェックが外れていて選択不可になっている。(Privacy-1-2/3){{/Privacy-1-2 || Privacy-1-3}}
 {{/Privacy-1-2 || Privacy-1-3}}
 {{#Privacy-1-4}}
         1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入っていて選択不可になっている。(Privacy-1-4)
@@ -1783,13 +1783,13 @@
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
     - 確認項目
         1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2){{/Download-3-2}}
+{{^Download-1-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
     - 確認項目
-{{^Download-1-2}}
         1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*)
-{{/Download-1-2}}
         1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の `subfolder` が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が表示されている。(Download-3-2){{/Download-3-2}}
+{{/Download-1-2}}
 {{/Download-3-1 || Download-3-2}}
 {{/Download-3}}
 
@@ -2075,7 +2075,7 @@
 1. オプション画面の「一般」を開く。
 1. 「推奨のパフォーマンス設定を利用する」のチェックを外す。
     - 確認項目
-        1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。(Stability-1-1){{/Stability-1-1}}{{#Stability-1-2}}または、チェックが入っていない。(Stability-1-2){{/Stability-1-2}}
+        1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。(Stability-1-1){{/Stability-1-1}}{{#Stability-1-2}}チェックが入っていない。(Stability-1-2){{/Stability-1-2}}
 {{/Stability-1}}
 1. 「推奨のパフォーマンス設定を利用する」のチェックを元に戻す。
 
@@ -2804,27 +2804,27 @@
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
-{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35){{/MenuShortcut-35}}
-{{#MenuShortcut-36}}        1. 「フィードバックを送信」が無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
-{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
-{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
+{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。(MenuShortcut-35){{/MenuShortcut-35}}
+{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
+{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。(MenuShortcut-37){{/MenuShortcut-37}}
+{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
 <!--/GROUP-->
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
-{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しない。(MenuShortcut-35){{/MenuShortcut-35}}
-{{#MenuShortcut-36}}        1. 「フィードバックを送信」が無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
-{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しない。(MenuShortcut-37){{/MenuShortcut-37}}
-{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
+{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。(MenuShortcut-35){{/MenuShortcut-35}}
+{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
+{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。(MenuShortcut-37){{/MenuShortcut-37}}
+{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
 <!--/GROUP-->
 {{#MenuShortcut-39}}
 1. `https://itisatrap.org/firefox/its-a-trap.html` を開く。
 1. 「ヘルプ」メニューを開く。
     - 確認項目
-        1. 「詐欺サイトの誤警告を指摘」が無効化されている。(MenuShortcut-39)
+        1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。(MenuShortcut-39)
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
-        1. 「詐欺サイトの誤警告を指摘」が無効化されている。(MenuShortcut-39)
+        1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。(MenuShortcut-39)
 {{/MenuShortcut-39}}
 
 
