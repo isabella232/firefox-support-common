@@ -2159,12 +2159,13 @@
 {{/Security-9-3}}
 {{/Appearance-1-2}}
 
-{{#Appearance-2-2}}
+{{#Appearance-2-2 || Appearance-3-2}}
 ## ツールバーの項目
 
 ### 確認する項目
 
-- Appearance-2-2
+{{#Appearance-2-2}} - Appearance-2-2 {{/Appearance-2-2}}
+{{#Appearance-3-2}} - Appearance-3-2 {{/Appearance-3-2}}
 
 ### 準備
 
@@ -2173,6 +2174,7 @@
 
 ### 検証
 
+{{#Appearance-2-2}}
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
         1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
@@ -2180,8 +2182,13 @@
 3. Firefoxを再起動する。
     - 確認項目
         1. （表示項目を固定した場合は）ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
-
 {{/Appearance-2-2}}
+{{#Appearance-3-2}}
+1. ロケーションバーの表示を確認する
+    - 確認項目
+        1. ロケーションバーと検索バーが統合されていない (Appearance-3-2)
+{{/Appearance-3-2}}
+{{/Appearance-2-2 || Appearance-3-2}}
 
 ## Webブラウズ操作のその他のカスタマイズ
 
