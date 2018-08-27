@@ -38,7 +38,7 @@ Script-2: プッシュ通知の可否
     lockPref("dom.serviceWorkers.enabled", false);
     lockPref("dom.push.serverURL", "");
 
-    :6: すべてのサイトについて初期状態で確認無しで禁止する
+    :6: すべてのサイトについて初期状態で確認無しで禁止する（「通知の許可の要求をブロック」にチェック）
 
     lockPref("permissions.default.desktop-notification", 2);
 
