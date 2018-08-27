@@ -780,9 +780,9 @@ Privacy-47: マイクの利用の可否
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
-    lockPref("permissions.default.microphone", 1)
+    lockPref("permissions.default.microphone", 1);
 
     :4: すべてのサイトについて初期状態で確認無しで禁止する
 
-    lockPref("permissions.default.microphone", 2)
+    lockPref("permissions.default.microphone", 2);
 
