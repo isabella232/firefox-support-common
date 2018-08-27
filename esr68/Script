@@ -51,6 +51,10 @@ Script-2: プッシュ通知の可否
     lockPref("dom.serviceWorkers.enabled", false);
     lockPref("dom.push.serverURL", "");
 
+    :6: すべてのサイトについて初期状態で確認無しで禁止する
+
+    lockPref("permissions.default.desktop-notification", 2);
+
 Script-3: ゲームパッドAPIの利用の可否
 
     :1: 許可する（既定）
