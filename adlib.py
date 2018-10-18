@@ -1,9 +1,27 @@
-"""A Simple Library for Firefox Setting Definitions.
-
-Usage:
+"""
+HOW TO USE
 
   >>> import adlib
-  >>> adlib.load(open('esr60/Install'))
+  >>> adlib.load('esr60/Install')
+
+DATA SCHEMA
+
+  [{
+    'item_id': 'Privacy-2',
+    'item_title': 'フォームの入力履歴の保存の可否',
+    'opts': [{'conf': '-',
+              'opt_id': 'Privacy-2-1',
+              'opt_no': '1',
+              'opt_title': '保存する（既定）'},
+             {'conf': 'lockPref("browser.formfill.enable", false);',
+              'opt_id': 'Privacy-2-2',
+              'opt_no': '2',
+              'opt_title': '保存しない'},
+             {'conf': '"DisableFormHistory": true',
+              'opt_id': 'Privacy-2-3',
+              'opt_no': '3',
+              'opt_title': '保存しない（ポリシーで設定）'}]
+  }, ...]
 """
 
 import re
@@ -55,6 +73,9 @@ class Loader:
         self.data[-1]['opts'][-1]['conf'] = self.conf.strip()
         self.conf = ''
 
+#
+# API
+
 def load(path):
     loader = Loader()
 
@@ -65,22 +86,3 @@ def load(path):
     loader.flush()
 
     return loader.data
-
-def dump(data):
-    res = ''
-
-    for item in data:
-        if all('廃止' in opt['opt_title'] for opt in item['opts']):
-            item['item_title'] = '[廃止] ' + item['item_title']
-
-        res += '%s: %s' % (item['item_id'], item['item_title'])
-
-        res += '\n\n'
-
-        for opt in item['opts']:
-            res += '    :%s: %s' % (opt['opt_no'], opt['opt_title'])
-            res += '\n\n'
-            res += textwrap.indent(opt['conf'], '    ')
-            res += '\n\n'
-
-    return res
