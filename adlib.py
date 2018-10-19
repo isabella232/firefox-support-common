@@ -1,27 +1,21 @@
 """
 HOW TO USE
+----------
 
-  >>> import adlib
-  >>> adlib.load('esr60/Install')
+>>> import adlib
+>>> adlib.load('esr60/Install')
 
 DATA SCHEMA
+-----------
 
-  [{
+  {
     'item_id': 'Privacy-2',
     'item_title': 'フォームの入力履歴の保存の可否',
-    'opts': [{'conf': '-',
-              'opt_id': 'Privacy-2-1',
-              'opt_no': '1',
-              'opt_title': '保存する（既定）'},
-             {'conf': 'lockPref("browser.formfill.enable", false);',
-              'opt_id': 'Privacy-2-2',
-              'opt_no': '2',
-              'opt_title': '保存しない'},
-             {'conf': '"DisableFormHistory": true',
+    'opts': [{'conf': '"DisableFormHistory": true',
               'opt_id': 'Privacy-2-3',
               'opt_no': '3',
               'opt_title': '保存しない（ポリシーで設定）'}]
-  }, ...]
+  }
 """
 
 import re
