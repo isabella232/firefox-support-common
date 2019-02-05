@@ -31,6 +31,7 @@ Stability-2: プロセス分離（e10s）を有効化するかどうか
     :3: 強制的に無効化
 
     lockPref("browser.tabs.remote.autostart", false);
+    lockPref("browser.tabs.remote.autostart.2", false);
     lockPref("browser.tabs.remote.desktopbehavior", false);
     // シングルコンテンツプロセスを強制(autostart.Nの代替)
     lockPref("dom.ipc.multiOptOut", 1);
