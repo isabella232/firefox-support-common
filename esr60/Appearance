@@ -46,3 +46,20 @@ Appearance-3: ロケーションバーと検索バーの統合
     // PolicyEngineで設定する
     "SearchBar": "separate"
 
+
+Appearance-4: ウィンドウコントロールの不具合の回避（Bug 1521692）
+
+    :1: 回避する
+
+    globalChrome.css:
+    @namescape url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+    @media (-moz-windows-classic) {
+      #main-window[tabsintitlebar]:not([sizemode=fullscreen]) #titlebar-buttonbox {
+        z-index: 3 !important;
+      }
+    }
+
+    :2: 回避しない（既定）
+
+    -
+
