@@ -2124,12 +2124,12 @@
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
 {{/Stability-2-2 || Stability-2-3}}
 
-{{#Appearance-1-2}}
+{{#Appearance-1-2 || Appearance-1-3}}
 ## 表示フォントの設定
 
 ### 確認する項目
 
-- Appearance-1-2
+- Appearance-1-2/3
 
 ### 準備
 
@@ -2149,13 +2149,13 @@
 3. テストケースの `font.html` を開く。
 4. 「Serif / セリフ体（明朝）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
-        1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+        1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2/3）
 5. 「Sans-Serif / サンセリフ体（ゴシック）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
-        1. font.name-list.sans-serif.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+        1. font.name-list.sans-serif.jaに設定したフォントの名前が表示される。（Appearance-1-2/3）
 6. 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
-        1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2）
+        1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2/3）
 
 ### 後始末
 
@@ -2166,7 +2166,7 @@
 {{#Security-9-3}}
 1. Policy Engineに加えた変更を元に戻す。
 {{/Security-9-3}}
-{{/Appearance-1-2}}
+{{/Appearance-1-2 || Appearance-1-3}}
 
 {{#Appearance-2-2 || Appearance-3-2}}
 ## ツールバーの項目
