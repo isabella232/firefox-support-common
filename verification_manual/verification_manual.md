@@ -130,7 +130,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. `{{meta_installer_file_name}}\*.exe` が作成済みの状態にする。
-1. コントロールパネル→プログラムと機能で以下がインストールされているならばアンインストールする。
+1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
     1. Mozilla Firefox
     1. Mozilla Maintenance Service
@@ -192,16 +192,16 @@
         1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが{{#Install-11-1}}存在する。(Install-11-1){{/Install-11-1}}{{#Install-11-2}}存在しない。(Install-11-2){{/Install-11-2}}
 {{/Install-11}}
 {{#Install-7}}
-        1. コントロールパネル→プログラムと機能で、「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*)
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*)
 {{/Install-7}}
 {{#Install-1}}
-        1. コントロールパネル→プログラムと機能で、「{{meta_installer_name}}」がインストールされている。(Install-1-\*)
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」がインストールされている。(Install-1-\*)
 {{/Install-1}}
 {{#Install-9-2}}
-        1. コントロールパネル→プログラムと機能で、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2)
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2)
 {{/Install-9-2}}
 {{#Update-4}}
-        1. コントロールパネル→プログラムと機能で、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。(Update-4-1){{/Update-4-1}}{{#Update-4-2}}いない。(Update-4-2){{/Update-4-2}}
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。(Update-4-1){{/Update-4-1}}{{#Update-4-2}}いない。(Update-4-2){{/Update-4-2}}
 {{/Update-4}}
 <!--/GROUP-->
 
@@ -261,7 +261,7 @@
 
 ### 準備
 
-1. コントロールパネル→プログラムと機能 で以下がインストールされているならばアンインストールする。
+1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
     2. 旧バージョンのメタインストーラ
     3. Mozilla Firefox
