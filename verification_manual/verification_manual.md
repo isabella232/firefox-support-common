@@ -174,10 +174,10 @@
         1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-\*)
 {{/Admin-1}}
 {{#Application-1}}
-        1. `{{desktop_shortcut_path}}` が{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
+        1. デスクトップのショートカットが{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
 {{/Application-1}}
 {{#Application-2}}
-        1. `{{start_menu_shortcut_path}}` が{{#Application-2-1 || Application-2-3}}存在する。(Application-2-1/3){{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
+        1. スタートメニューのショートカットが{{#Application-2-1 || Application-2-3}}存在する。(Application-2-1/3){{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
 {{/Application-2}}
 {{#Application-3}}
         1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが{{#Application-3-1}}存在する。(Application-3-1){{/Application-3-1}}{{#Application-3-2}}存在しない。(Application-3-2){{/Application-3-2}}
@@ -230,20 +230,20 @@
         2. フォルダの内容は空である。(Application-6-2)
 {{/Application-6-2}}
 {{#Application-1-3}}
-1. `{{desktop_shortcut_path}}` のプロパティを開く。
+1. デスクトップのショートカットのプロパティを開く。
     - 確認項目
         1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。(Application-1-3)
         2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3)
 {{/Application-1-3}}
 {{#Application-2-3}}
-1. `{{start_menu_shortcut_path}}` のプロパティを開く。
+1. スタートメニューのショートカットのプロパティを開く。
     - 確認項目
         1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。(Application-2-3)
         2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3)
 {{/Application-2-3}}
 {{#Application-6-2}}
 1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
-1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
+1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
     - 確認項目
         1. Firefoxの起動後、4で開いたフォルダに `prefs.js` などのファイルが作成される。(Application-6-2)
 {{/Application-6-2}}
@@ -272,15 +272,15 @@
     1. `C:\Program Files (x86)\ClearCode Inc`
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
-    1. `{{desktop_shortcut_path}}`
-    1. `{{start_menu_shortcut_path}}`
+    1. デスクトップのショートカット
+    1. スタートメニューのショートカット
     1. クイック起動、タスクバー、およびスタートメニュー内に作成されたショートカット
 3. 旧バージョン、新バージョンの各メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
 
 ### 検証
 
 1. 旧バージョンのメタインストーラを実行する。
-1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
+1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
@@ -304,7 +304,7 @@
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` が存在する。
 {{/Admin-1-1 || Admin-1-2}}
-1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
+1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
@@ -327,7 +327,7 @@
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` が存在する。
 {{/Admin-1-1 || Admin-1-2}}
-1. `{{desktop_shortcut_path}}` をダブルクリックし、Firefoxを起動する。
+1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
@@ -488,8 +488,8 @@
 1. Firefoxを終了する。
 {{/Application-1}}
 {{#Application-2}}
-1. `{{start_menu_shortcut_path}}` をダブルクリックしてFirefoxを起動する。
-1. その状態のまま、`{{start_menu_shortcut_path}}` をダブルクリックしてFirefoxの多重起動を試みる。
+1. スタートメニューのショートカットをクリックしてFirefoxを起動する。
+1. その状態のまま、スタートメニューのショートカットをクリックしてFirefoxの多重起動を試みる。
     - 確認項目
         1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-2-1/3)
 {{/Application-2}}
