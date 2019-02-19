@@ -1450,6 +1450,8 @@
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
 {{/Privacy-32 || Privacy-37}}
+
+
 {{#Privacy-9-1}}
 ## 履歴の保存日数の制御
 
