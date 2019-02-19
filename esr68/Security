@@ -419,13 +419,18 @@ Security-23: プラグインのサンドボックス内実行
 
     :1: サンドボックス内で実行しない（既定）
 
-    defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
-    defaultPref("dom.ipc.plugins.sandbox-level.flash", 0);
+    lockPref("dom.ipc.plugins.sandbox-level.default", 0);
+    lockPref("dom.ipc.plugins.sandbox-level.flash", 0);
 
     :2: Flashプラグインのみサンドボックス内で実行
 
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+    :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
+
+    defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
+    defaultPref("dom.ipc.plugins.sandbox-level.flash", 2);
 
     :3: すべてサンドボックス内で実行
 
