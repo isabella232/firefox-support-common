@@ -2413,7 +2413,7 @@
         1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。(Network-1-1)
 {{/Network-1-1}}
 {{#Network-4-1}}
-        1. `network.automatic-ntlm-auth.trusted-uris` の値が`{{ntlm_single_signon_hosts}}`である。(Network-4-1)
+        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。(Network-4-1)
 {{/Network-4-1}}
 {{#Network-5-2}}
 {{#max_connections}}
