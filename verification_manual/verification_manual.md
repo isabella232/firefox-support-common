@@ -2601,7 +2601,8 @@
 1. Flashプラグインの「設定」ボタンをクリックする。
     - 確認項目
 {{#Security-24}}
-        1. 「Adobe Flashの保護モードを有効化」に{{#Security-24-1}}チェックが入っている。（Security-24-1）{{/Security-24-1}}{{#Security-24-2}}チェックが入っていない。（Security-24-2）{{/Security-24-2}}
+        1. 32bit版Firefoxにおいて、「Adobe Flashの保護モードを有効化」に{{#Security-24-1}}チェックが入っている。（Security-24-1）{{/Security-24-1}}{{#Security-24-2}}チェックが入っていない。（Security-24-2）{{/Security-24-2}}
+           （64bit版Firefoxにおいては機能が存在しないため確認を省略する。）
 {{/Security-24}}
 {{#Security-33}}
         1. 「危険ででしゃばりなFlashコンテンツをブロック」に{{#Security-33-1}}チェックが入っている。（Security-33-1）{{/Security-33-1}}{{#Security-33-2}}チェックが入っていない。（Security-33-2）{{/Security-33-2}}
