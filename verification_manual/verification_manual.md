@@ -385,7 +385,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1}}
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1}}
     - 確認項目
 {{#Startup-1}}
         1. Firefoxが起動した時に「設定移行ウィザード」が{{#Startup-1-1}}表示される。(Startup-1-1){{/Startup-1-1}}{{#Startup-1-2}}表示されない。(Startup-1-2){{/Startup-1-2}}
@@ -486,9 +486,9 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Application-1}}
-1. その状態のまま、`{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
+1. その状態のまま、デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxの追加起動を試みる。
     - 確認項目
         1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-1-1/3)
 1. Firefoxを終了する。
@@ -514,7 +514,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. タスクバー上に表示された項目にポインタを載せ、ジャンプリストを表示させる。
     - 確認項目
         1. タスクバー上の項目、もしくはジャンプリストの項目に指定のアイコンが表示されている。(Application-5-\*)
@@ -565,7 +565,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-1-3}}
 1. `C:\Users\Public\nss.log-*` の位置に出力されたログファイルを開く。
     - 確認項目
@@ -597,7 +597,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. アドオンのインストールを許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
@@ -643,7 +643,7 @@
 
 ### 検証：
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
@@ -700,7 +700,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-9-3}}
 1. ロケーションバーに`about:config`と入力して確定する
     - 確認項目
@@ -731,7 +731,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
 {{#Security-12-1}}
@@ -756,7 +756,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-13}}
 1. テストケースの `local-file-link.html` を、{{#Security-13-1}}ローカルファイルの読み込みを許可するサイト{{/Security-13-1}}{{#Security-13-2}}Web上{{/Security-13-2}}に設置してから開き、ページ内のリンクをクリックする。{{#Security-13-2}}  
    （例： `http://www.clear-code.com/temp/local-file-link.html` ）{{/Security-13-2}}
@@ -816,7 +816,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 2. ロケーションバーに`about:blank`と入力し、空のページを開く。
 3. パネルメニューの「開発ツール」（またはメニューバーの「Web開発」）→「開発ツールを表示」で開発ツールを表示する。
 4. 開発ツール右上の歯車アイコンをクリックする。
@@ -858,7 +858,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. パネルメニューからツールバーのカスタマイズ画面を開く。
     - 確認項目
@@ -897,7 +897,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1.  `http://www.w3schools.com/html/html5\_video.asp` を開く。
     - 確認項目
         1. 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されている。（Security-16-1)
@@ -921,7 +921,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. `about:debugging` を開き、テストケースから `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
     - 確認項目
         1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。(Security-21-1){{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。(Security-21-2){{/Security-21-2}}
@@ -950,7 +950,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
         1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。(Security-23-3){{/Security-23-3}}
@@ -978,7 +978,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「一般」を開く。
     - 確認項目
@@ -1008,7 +1008,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに `http://testsafebrowsing.appspot.com/` と入力し、ページを開く。
 {{#Security-26}}
 <!--
@@ -1061,7 +1061,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Security-28}}
@@ -1182,7 +1182,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Privacy-36}}
 1. テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開いて、`https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
     - 確認項目
@@ -1479,7 +1479,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. パネルメニューを開き、「アドオン」をクリックする。
 3. アドオンマネージャ内の「拡張機能」をクリックする。
     - 確認項目
@@ -1492,7 +1492,7 @@
 6.  「検索」欄に `idle.lastDailyNotification` と入力し、Enterを押下する。
 7. 項目が見つかった場合、項目を右クリックしてメニューから「リセット」を選択する。
 8. Firefoxを終了する。
-9. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+9. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 10. メニューバーの「履歴」から「すべての履歴」を選択し、「履歴とブックマークの管理」ウィンドウを開く（すべての履歴項目を表示した状態にする）。
 11. 「履歴」配下の「7日以内」、「（前月）月」、または指定の履歴保存期間のしきい値となる日付が含まれる期間を選択する。
 12. 履歴一覧のカラム列を右クリックし、「最近表示した日時」にチェックを入れる。
@@ -1524,7 +1524,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースの「browser.html」を開き「geolocation」の欄を確認する
     - 確認項目
 {{#Privacy-14-3 || Privacy-14-6}}
@@ -1561,7 +1561,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開く。
     - 確認項目
         1. 「Syncにログイン」の項目が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
@@ -1589,7 +1589,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
         1. 「Pocket」が存在しない。(Privacy-27-2)
@@ -1620,7 +1620,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Privacy-30-1 || Privacy-30-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「詳細」→「ネットワーク」を開く。
@@ -1655,7 +1655,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシーとセキュリティ」を開く。
     - 確認項目
@@ -1688,7 +1688,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 1. テストケースの `password.html` を開く。
 1. ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
 1. ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` を開く。
@@ -1715,7 +1715,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに `https://addons.mozilla.org/` と入力し、ページを開く。
 1. Web検索バーのアイコンをクリックする。
     - 確認項目
@@ -1750,7 +1750,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに `http://www.clear-code.com/` のように `http://` で始まるURLを入力し、ページを開く。
     - 確認項目
         1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
@@ -1774,7 +1774,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Download-2 || Download-3-1 || Download-3-2}}
 1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
 1. 今すぐダウンロードをクリックしダウンロードを開始する。(ただしファイルの保存はキャンセルする)
@@ -1836,7 +1836,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Tab-1}}
 1. 新しいウィンドウを開く。
 1. 新しいウィンドウ内で新しいタブを2つ以上開く。
@@ -2025,7 +2025,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プログラム」を開く。
     - 確認項目
@@ -2051,7 +2051,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Script-2-3}}
 1. テストケースリストから `https://labs.othersight.jp/webpushtest/` のリンクをクリックする。
     - 確認項目
@@ -2098,7 +2098,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
 1. 「推奨のパフォーマンス設定を利用する」のチェックを外す。
@@ -2129,7 +2129,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. about:supportを開く
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
@@ -2152,7 +2152,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. about:configを開き、以下の設定を行う。
     - `font.name.serif.ja`（文字列型）を`missing`に設定する。
     - `font.name.sans-serif.ja`（文字列型）を`missing`に設定する。
@@ -2195,7 +2195,7 @@
 ### 検証
 
 {{#Appearance-2-2}}
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
         1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
 2. ツールバーカスタマイズで、ツールバーおよびパネルメニューの内容を変更する。
@@ -2225,7 +2225,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 2. ツールバーを右クリックし、「メニューバー」にチェックを入れる。
 3. テストケースの `popup-with-flags.html` を開く。
 4. ページ内の「toolbar」というリンクをクリックする。
@@ -2262,7 +2262,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Ui-2}}
 1. コンテンツ領域にフォーカスした状態でF7キーを押す。
    - 確認項目
@@ -2349,7 +2349,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」→「ネットワークプロキシ」→「接続設定」を開く。
     - 確認項目
@@ -2404,7 +2404,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
@@ -2492,7 +2492,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#Update-1-3}}
 1.  「ヘルプ」→「Firefoxについて」を開く。
     - 確認項目
@@ -2542,7 +2542,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
         1. 個別の制御を行っていないNPAPIプラグインが既定の状態で{{#Plugin-10-1}}無効化されている。（Plugin-10-1）{{/Plugin-10-1}}{{#Plugin-10-2}}有効化されている。（Plugin-10-2）{{/Plugin-10-2}}{{#Plugin-10-3}}「実行時に確認する」が選択されている。(Plugin-10-3){{/Plugin-10-3}}
@@ -2585,7 +2585,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
 {{#Plugin-2}}
@@ -2632,7 +2632,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. 外部アプリケーションで開く必要があるファイルへのリンクをクリックする。
 1. 「次のファイルを開こうとしています」のダイアログが表示されたら、起動する外部アプリケーションを選択して「OK」をクリックする。
 1. テンポラリフォルダの内容を確認する。
@@ -2662,7 +2662,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクをクリックする。
     - 確認項目
@@ -2706,7 +2706,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
     - 確認項目
 {{#MenuShortcut-3}}
@@ -2769,7 +2769,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
 {{#MenuShortcut-11}}
         1. 「Ctrl-Shift-I」を押して、開発ツールが開かれない。(MenuShortcut-11)
@@ -2858,7 +2858,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 1. 通常のWebページ（例：`http://www.example.com/`）を開く。
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
@@ -2900,7 +2900,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 {{#MenuShortcut-44}}
 1. 「ブックマーク」メニューを開く。
     - 確認項目
@@ -2931,7 +2931,7 @@
 
 ### 検証
 
-1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
 1. `https://addons.mozilla.org` を開き、何もない所で右クリックする。
     - 確認項目
