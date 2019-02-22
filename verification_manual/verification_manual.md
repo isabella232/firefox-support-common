@@ -2164,13 +2164,13 @@
 3. テストケースの `font.html` を開く。
 4. 「Serif / セリフ体（明朝）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
-        1. font.name-list.serif.jaに設定したフォントの名前が表示される。（Appearance-1-2/3）
+        1. `missing` ではなく、 `font.name-list.serif.ja` に設定したフォントのいずれかの名前が表示される。（Appearance-1-2/3）
 5. 「Sans-Serif / サンセリフ体（ゴシック）」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
-        1. font.name-list.sans-serif.jaに設定したフォントの名前が表示される。（Appearance-1-2/3）
+        1. `missing` ではなく、 `font.name-list.sans-serif.ja` に設定したフォントのいずれかの名前が表示される。（Appearance-1-2/3）
 6. 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - 確認項目
-        1. font.name-list.monospace.jaに設定したフォントの名前が表示される。（Appearance-1-2/3）
+        1. `missing` ではなく、 `font.name-list.monospace.ja` に設定したフォントのいずれかの名前が表示される。（Appearance-1-2/3）
 
 ### 後始末
 
