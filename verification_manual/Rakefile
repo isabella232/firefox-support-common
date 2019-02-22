@@ -27,6 +27,7 @@ VARIABLES = {
   restart_message:                "今すぐコンピュータを再起動しますか？",
   mcd_local_file:                 "autoconfig.cfg",
   special_profile_path:           "%AppData%\\Mozilla\\Firefox\\Profiles",
+  #special_profile_actual_path:    "`C:\\Users\\(ユーザー名)\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles`",
   special_profile_name:           "Special",
   use_separate_profile:           false,
   start_with_no_remote:           false,

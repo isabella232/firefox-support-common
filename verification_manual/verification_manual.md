@@ -213,7 +213,7 @@
 
 ## 専用ユーザープロファイルの作成と使用
 
-- 専用ユーザープロファイルの作成先は `{{special_profile_path}}` とする。
+- 専用ユーザープロファイルの作成先は `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}とする。
 - 専用ユーザープロファイルの名前は `{{special_profile_name}}` とする。
 
 ### 確認する項目
@@ -372,7 +372,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 {{#Admin-2}}
 1. 導入対象のアドオンがない場合、テストケースリストの「{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`に配置する。
 {{/Admin-2}}
@@ -809,7 +809,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 {{#disable_devtools}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
 {{/disable_devtools}}
@@ -1161,7 +1161,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
 {{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
@@ -1687,7 +1687,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+2. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 
 ### 検証
 
@@ -1772,7 +1772,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル（`{{special_profile_path}}`）を削除する。
+2. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 3. 既定のダウンロード先（`{{download_dir}}`）を用意しておく。用意できない場合は、Download-2-1の参照先を `C:\` などの実在するパスに変更し、以下の説明も読み替える。
 
 ### 検証
