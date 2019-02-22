@@ -1169,6 +1169,9 @@
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
+{{#Privacy-1 && MenuShortcut-3}}
+1. MenuShortcut-3によるプライベートブラウジングの無効化設定を解除し、一時的に有効化しておく。
+{{/Privacy-1 && MenuShortcut-3}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
     - `lockPref("logging.nsHttp", 5);`
