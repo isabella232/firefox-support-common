@@ -2153,6 +2153,9 @@
 {{#Security-9-3}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Security-9-3}}
+{{#disable_devtools}}
+1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく
+{{/disable_devtools}}
 
 ### 検証
 
@@ -2178,9 +2181,9 @@
     1. `font.name.serif.ja`（文字列型）
     2. `font.name.sans-serif.ja`（文字列型）
     3. `font.name.monospace.ja`（文字列型）
-{{#Security-9-3}}
+{{#Security-9-3 || disable_devtools}}
 1. Policy Engineに加えた変更を元に戻す。
-{{/Security-9-3}}
+{{/Security-9-3 || disable_devtools}}
 {{/Appearance-1-2 || Appearance-1-3}}
 
 {{#Appearance-2-2 || Appearance-3-2}}
