@@ -96,3 +96,14 @@ Script-6: [廃止] 左クリック以外のクリック操作によるイベン�
     // Firefox 31までの間で廃止
     lockPref("nglayout.events.dispatchLeftClickOnly", true);
 
+Script-7: 音声の自動再生の可否
+
+    :1: 許可する
+
+    lockPref("media.autoplay.default", 0);
+
+    :2: 禁止する（既定）
+
+    lockPref("media.autoplay.default", 1);
+
+

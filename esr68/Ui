@@ -83,3 +83,13 @@ Ui-8: [廃止] アドレスバーの拡大・縮小ボタンの表示
 
     廃止
 
+Ui-9:タブの複数選択
+
+    :1: 許可する（既定）
+
+    lockPref("browser.tabs.multiselect", true);
+
+    :2: 禁止する
+
+    lockPref("browser.tabs.multiselect", false);
+
