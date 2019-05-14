@@ -32,7 +32,7 @@ Appearance-2: ツールバー上の項目の初期設定
     pref("browser.uiCustomization.state", JSON.stringify({
       ...
     }));
-    Pref("browser.migration.version", 60);
+    Pref("browser.migration.version", 78);
 
 Appearance-3: ロケーションバーと検索バーの統合
 
@@ -46,7 +46,7 @@ Appearance-3: ロケーションバーと検索バーの統合
     "SearchBar": "separate"
 
 
-Appearance-4（廃止）: ウィンドウコントロールの不具合の回避（Bug 1521692）
+Appearance-4: [廃止] ウィンドウコントロールの不具合の回避（Bug 1521692）
 
     :1: 回避する
 
