@@ -10,8 +10,34 @@ Download-1: ダウンロードマネージャの利用の可否
     ダウンロードボタンの機能を可能な限り無効化する設定は以下の通り。
 
     lockPref("browser.download.animateNotifications", false);
-    lockPref("browser.download.useDownloadDir", false);
     lockPref("browser.download.manager.addToRecentDocs", false);
+    lockPref("browser.download.panel.shown", true);
+    lockPref("browser.download.useDownloadDir", false);
+    lockPref("browser.uiCustomization.state", JSON.stringify({
+      "placements":{
+        "widget-overflow-fixed-list":[],
+        "nav-bar":[
+          "back-button",
+          "forward-button",
+          "stop-reload-button",
+          "home-button",
+          "customizableui-special-spring1",
+          "urlbar-container",
+          "customizableui-special-spring2",
+          // "downloads-button",
+          "library-button",
+          "sidebar-button",
+          "fxa-toolbar-menu-button"
+        ],
+        "toolbar-menubar":["menubar-items"],
+        "TabsToolbar":["tabbrowser-tabs","new-tab-button","alltabs-button"],
+        "PersonalToolbar":["personal-bookmarks"]
+      },
+      "seen":["developer-button"],
+      "dirtyAreaCache":["nav-bar","toolbar-menubar","TabsToolbar","PersonalToolbar"],
+      "currentVersion":16,
+      "newElementCount":3
+    }));
 
 Download-2: ファイルの既定のダウンロード先
 
