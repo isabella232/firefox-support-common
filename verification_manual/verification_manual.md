@@ -1703,12 +1703,12 @@
 
 # Webブラウズ機能に関するカスタマイズ
 
-{{#Websearch-1 || Websearch-2}}
+{{#Websearch-1-1 || Websearch-1-3 || Websearch-2}}
 ## 検索エンジンの制限
 
 ### 確認する項目
 
-{{#Websearch-1}} - Websearch-1-\* {{/Websearch-1}}
+{{#Websearch-1-1 || Websearch-1-3}} - Websearch-1-1/3 {{/Websearch-1-1 || Websearch-1-3}}
 {{#Websearch-2-2}} - Websearch-2-2 {{/Websearch-2-2}}
 
 ### 準備
@@ -1723,8 +1723,8 @@
 1. Web検索バーのアイコンをクリックする。
     - 確認項目
 {{#Websearch-1}}
-        1. Web検索バーのアイコンに「+」のバッジが{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-2}}表示されない。(Websearch-1-2){{/Websearch-1-2}}
-        1. パネル上に「”Firefoxアドオン”を追加」という項目が{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-2}}表示されない。(Websearch-1-2){{/Websearch-1-2}}
+        1. Web検索バーのアイコンに「+」のバッジが{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-3}}表示されない。(Websearch-1-3){{/Websearch-1-3}}
+        1. パネル上に「”Firefoxアドオン”を追加」という項目が{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-3}}表示されない。(Websearch-1-3){{/Websearch-1-3}}
 {{/Websearch-1}}
 {{#Websearch-2-2}}
         1. パネル上に、無効にした検索エンジンが表れていない（ないし有効にした検索エンジンのみが表示される）。(Websearch-2-2)
@@ -1736,7 +1736,7 @@
         1. 「ワンクリック検索エンジン」のリストに、無効にした検索エンジンが表れていない。(Websearch-2-2)
 {{/Websearch-2-2}}
 
-{{/Websearch-1 || Websearch-2}}
+{{/Websearch-1-1 || Websearch-1-3 || Websearch-2}}
 
 
 {{#Location-1}}
