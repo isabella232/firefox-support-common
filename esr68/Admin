@@ -45,13 +45,11 @@ Admin-3: [廃止] Firefoxバージョンアップ時のアドオン更新確認�
 
     :1: [廃止] 確認する（既定）
 
-    lockPref("extensions.shownSelectionUI", false);
-    lockPref("extensions.showMismatchUI", true);
+    廃止
 
     :2: [廃止] 確認しない
 
-    lockPref("extensions.shownSelectionUI", true);
-    lockPref("extensions.showMismatchUI", false);
+    廃止
 
 Admin-4: Mozillaにより署名されていないアドオンのインストールパッケージの使用の可否
 

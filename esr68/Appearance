@@ -50,13 +50,7 @@ Appearance-4: [廃止] ウィンドウコントロールの不具合の回避（
 
     :1: 回避する
 
-    globalChrome.css:
-    @namescape url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-    @media (-moz-windows-classic) {
-      #main-window[tabsintitlebar]:not([sizemode=fullscreen]) #titlebar-buttonbox {
-        z-index: 3 !important;
-      }
-    }
+    廃止
 
     :2: 回避しない（既定）
 
