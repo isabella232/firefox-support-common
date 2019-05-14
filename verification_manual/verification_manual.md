@@ -2708,8 +2708,8 @@
 
 ### 確認する項目
 
-{{#Addon-IEView-1-2}} - Addon-IEView-1-2 {{/Addon-IEView-1-2}}
-{{#Addon-IEView-2-1}} - Addon-IEView-2-1 {{/Addon-IEView-2-1}}
+{{#Addon-IEView-1-2 || Addon-IEView-1-3 || Addon-IEView-1-4 || Addon-IEView-1-5}} - Addon-IEView-1-2/3/4/5 {{/Addon-IEView-1-2 || Addon-IEView-1-3 || Addon-IEView-1-4 || Addon-IEView-1-5}}
+{{#Addon-IEView-2-1 || Addon-IEView-2-2}} - Addon-IEView-2-1/2 {{/Addon-IEView-2-1 || Addon-IEView-2-2}}
 {{#Addon-IEView-3-2}} - Addon-IEView-3-2 {{/Addon-IEView-3-2}}
 
 ### 準備
@@ -2724,14 +2724,17 @@
 
 1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
 <!--GROUP-->
-1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクをクリックする。
+1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクから新しいタブを開く。
     - 確認項目
-{{#Addon-IEView-1-2}}
-        1. IEが起動する。（Addon-IEView-1-2）
-{{/Addon-IEView-1-2}}
-{{#Addon-IEView-2-1}}
-        1. 指定したパスのIEが起動しており、指定したオプションも反映されている。（Addon-IEView-2-1）
-{{/Addon-IEView-2-1}}
+{{#Addon-IEView-1}}
+        1. IEが起動する。（Addon-IEView-1-2/3/4/5）
+{{/Addon-IEView-1}}
+{{#Addon-IEView-1-3 || Addon-IEView-1-5}}
+        1. Firefox上のタブが閉じられる。（Addon-IEView-1-3/5）
+{{/Addon-IEView-1-3 || Addon-IEView-1-5}}
+{{#Addon-IEView-2-1 || Addon-IEView-2-2}}
+        1. 指定したパスのIEが起動しており、指定したオプションも反映されている。（Addon-IEView-2-1/2）
+{{/Addon-IEView-2-1 || Addon-IEView-2-2}}
 <!--/GROUP-->
 {{#Addon-IEView-3-2}}
 1. 自動的にIEを起動するよう設定されたページ以外のページを開く。

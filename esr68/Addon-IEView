@@ -4,24 +4,43 @@ Addon-IEView-1: IEの起動
 
     -
 
-    :2: 特定サイトでIEを自動起動
+    :2: 特定サイトでIEを自動起動（MCD）
 
     lockPref("extensions.ieview.forceielist", "（半角スペース区切りのURLのリスト）");
 
-    :3: [廃止] 特定サイトをIEを自動起動し、Firefox側のタブを閉じる
+    :4: 特定サイトでIEを自動起動（ポリシー設定）
+
+    ieview-we@clear-code.com.jsonのdataに以下を指定：
+    
+    "forceielist": "（半角スペース区切りのURLのリスト）",
+
+    :3: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（MCD）
 
     lockPref("extensions.ieview.forceielist", "（半角スペース区切りのURLのリスト）");
-    // IE View 1.5.6.1とFirefox 52の組み合わせにおいては以下の機能は動作しない
     lockPref("extensions.ieview.closeReloadPage", true);
+
+    :5: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（ポリシー設定）
+
+    ieview-we@clear-code.com.jsonのdataに以下を指定：
+    
+    "forceielist": "（半角スペース区切りのURLのリスト）",
+    "closeReloadPage": true,
 
 Addon-IEView-2: 起動するIEの設定
 
-    :1: パスと起動オプションを指定する
+    :1: パスと起動オプションを指定する（MCD）
 
     lockPref("extensions.ieview.ieapp", "C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe");
     lockPref("extensions.ieview.ieargs", "");
 
-Addon-IEView-3: 閲覧中のページへの広告の埋め込み（アドウェアとしての動作）
+    :2: パスと起動オプションを指定する（ポリシー設定）
+
+    ieview-we@clear-code.com.jsonのdataに以下を指定：
+    
+    "ieapp": "C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe",
+    "ieargs": "",
+
+Addon-IEView-3: [廃止] 閲覧中のページへの広告の埋め込み（アドウェアとしての動作）
 
     :1: 許可する（既定）
 
