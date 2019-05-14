@@ -92,7 +92,8 @@ Application-5: メインウィンドウのアイコン
 
     :2: 任意のアイコン
 
-    -
+    インストーラに含める場合、アイコンをresources/main-window.icoの位置に置く
+    （直接反映する場合、アイコンをbrowser/chrome/icons/default/main-window.icoの位置に置く）
 
 Application-6: プロファイルの位置
 
