@@ -6,9 +6,15 @@ ESR60からESR68の変更点
 
 ### Firefox 61
 
+主な変更
+
  * HTTP(S)ページからftp://のサブリソースを参照できなくなった
  * ロケーションバーの「...」メニューに「検索エンジンを追加」が追加された
  * ロケーションバーの「...」メニューに「共有」が追加された (Windows/OSXのみ)
+ * Windowsの再起動時に自動的に起動する機能が追加された
+
+機能改善
+
  * TLS 1.3の最新仕様に追従 (Draft 28対応)
  * ブックマークの同期処理の機能改善
  * 組み込みのテーマ「ダーク」の見栄えが改善された
@@ -24,26 +30,38 @@ Bugs
 Links
 
  * https://www.mozilla.org/en-US/firefox/61.0/releasenotes/
+ * https://www.mozilla.org/en-US/firefox/61.0.1/releasenotes/
+ * https://www.mozilla.org/en-US/firefox/61.0.2/releasenotes/
  * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=61%2B
 
 ### Firefox 62
 
- * ホーム画面のサムネイルの4行表示に対応。
- * タブのコンテキストメニューから「コンテナーを開き直す」でタブを開き直せるようになった。
- * シマンテックの証明書がすべて無効化された。 security.pki.distrust_ca_policy = 0 と設定すると従来の挙動に戻せる。
- * CSSシェイプに対応。
- * CSS Variable Fontに対応。
- * autoconfig.cfgがサンドボックス内で実行されるようになった。general.config.sandbox_enabled = false で従来の挙動に戻せる。
- * ブックマークの「説明」フィールドを削除。
- * macOS 10.14で、OS自体がダークモードの時はFirefoxのテーマもダークになるようにした。
- * security.pki.name_matching_modeの初期値が3に変更され、証明書の検証がより厳密になった。
- * macOSで、Adobe Flashがより安全なサンドボックス内で実行されるようになった。
- * WebRTCでの画面共有時、画面を共有するウィンドウは最前面になるようになった。
+主な変更
+
+ * AutoConfigがサンドボックスで実行されるようになった (`general.config.sandbox_enabled`)
+ * ブックマーク情報から「説明」フィールドが削除された
+ * `security.pki.name_matching_mode`の初期値が3に変更された
+ * Adobe Flashのサンドボックスの制約強化 (Mac OSXのみ)
+
+機能改善
+
+ * タブのコンテキストメニューに「コンテナーを開き直す」が追加された (Multi-Account Container導入時のみ)
+ * 新規タブページの「ハイライト」欄が 4x2 マスに変更された
+ * CSSの最新仕様に対応 (CSS Shapes + Variable fonts)
+ * Mac OSXがダークモードの時はFirefoxのテーマもダークとする (10.14以降のみ)
+ * WebRTCでの画面共有時、画面を共有するウィンドウは最前面に移動するようになった
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/62.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=62%2B
+ * https://support.mozilla.org/en-US/kb/containers
 
 ### Firefox 63
 
  * Windows 10のOS自体の配色設定（「規定のアプリ モード」の「白」「黒」）に配色を合わせるようになった。
  * コンテンツブロッキングの機能が改善され、トラッキングCookieの制御などを統一されたUIで行えるようになった。
+ * シマンテックの証明書がすべて無効化された。 security.pki.distrust_ca_policy = 0 と設定すると従来の挙動に戻せる。
  * 複数のウィンドウやタブを開いた状態での終了時に、次回起動時にセッションを復元するかどうかの訊ね方が変わった。
  * OSのアクセシビリティ設定に従ってアニメーション効果を抑制するようになった。
  * ブックマークされたページをサイドバーで開く機能を削除。
