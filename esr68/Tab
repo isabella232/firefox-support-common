@@ -95,80 +95,19 @@ Tab-7: [廃止] 既定の新しいタブで表示する内容(Tab-5-1が指定�
 
     :2: [廃止] 「空白ページを表示」で固定（Firefox 38以前では「白紙」で固定）
 
-    MCD:
-    lockPref("browser.newtabpage.enabled", false);
-    lockPref("browser.newtabpage.enhanced", false);
-
-    globalChrome.css:
-    @-moz-document
-      url-prefix("about:newtab"),
-      url-prefix("chrome://browser/content/newtab/newTab.xul")
-      {
-      *|*#newtab-customize-panel,
-      *|*[id="newtab-customize-panel"],
-      *|*#newtab-customize-button,
-      *|*[id="newtab-customize-button"] {
-        display: none !important;
-        -moz-user-focus: ignore !important;
-      }
-    }
+    Tab-10～14に移行
 
     :3: [廃止] 「よく見るサイトを表示」で固定（Firefox 38以前では「クラシック」で固定）
 
-    MCD:
-    lockPref("browser.newtabpage.enabled", true);
-    lockPref("browser.newtabpage.enhanced", false);
-
-    globalChrome.css:
-    @-moz-document
-      url-prefix("about:newtab"),
-      url-prefix("chrome://browser/content/newtab/newTab.xul")
-      {
-      *|*#newtab-customize-panel,
-      *|*[id="newtab-customize-panel"],
-      *|*#newtab-customize-button,
-      *|*[id="newtab-customize-button"] {
-        display: none !important;
-        -moz-user-focus: ignore !important;
-      }
-    }
+    Tab-10～14に移行
 
     :4: [廃止] 「よく見るサイトを表示/おすすめサイトも表示=ON」で固定（Firefox 38以前では「拡張」で固定）
 
-    MCD:
-    lockPref("browser.newtabpage.enabled", true);
-    lockPref("browser.newtabpage.enhanced", true);
-
-    globalChrome.css:
-    @-moz-document
-      url-prefix("about:newtab"),
-      url-prefix("chrome://browser/content/newtab/newTab.xul")
-      {
-      *|*#newtab-customize-panel,
-      *|*[id="newtab-customize-panel"],
-      *|*#newtab-customize-button,
-      *|*[id="newtab-customize-button"] {
-        display: none !important;
-        -moz-user-focus: ignore !important;
-      }
-    }
+    Tab-10～14に移行
 
     :5: [廃止] 「よく見るサイトを表示」以下の「おすすめサイトも表示」のみ選択禁止（Firefox 38以前では「拡張」のみ禁止）
 
-    MCD:
-    lockPref("browser.newtabpage.enhanced", false);
-
-    globalChrome.css:
-    @-moz-document
-      url-prefix("about:newtab"),
-      url-prefix("chrome://browser/content/newtab/newTab.xul")
-      {
-      *|*#newtab-customize-enhanced,
-      *|*[id="newtab-customize-enhanced"] {
-        display: none !important;
-        -moz-user-focus: ignore !important;
-      }
-    }
+    Tab-10～14に移行
 
 Tab-8: [廃止] 新しいタブを初めて開いた時の案内の表示
 
