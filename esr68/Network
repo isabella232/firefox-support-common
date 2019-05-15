@@ -14,12 +14,28 @@ Network-2: プロキシの利用
 
     lockPref("network.proxy.type", 0);
 
+    :6: 利用しない（ポリシーで設定）
+
+    "Proxy": {
+      "Mode": "none",
+      "Locked": true
+    }
+
     :2: 固定のプロキシを利用する
 
     lockPref("network.proxy.type", 1);
     lockPref("network.proxy.http", "（ホスト名）");
     lockPref("network.proxy.http_port", （ポート番号）);
     lockPref("network.proxy.share_proxy_settings", true);
+
+    :7: 固定のプロキシを利用する（ポリシーで設定）
+
+    "Proxy": {
+      "Mode": "manual",
+      "HTTPProxy": "（ホスト名）:（ポート番号）",
+      "UseHTTPProxyForAllProtocols": true,
+      "Locked": true
+    }
 
     :3: プロキシ自動設定スクリプトを利用する
 
@@ -38,13 +54,35 @@ Network-2: プロキシの利用
     clearPref("network.proxy.no_proxies_on");
     lockPref("network.proxy.autoconfig_url", "（ファイルのURL）");
 
+    :8: プロキシ自動設定スクリプトを利用する（ポリシーで設定）
+
+    "Proxy": {
+      "Mode": "autoConfig",
+      "AutoConfigURL": "（ファイルのURL）",
+      "Locked": true
+    }
+
     :4: WPADでネットワークのプロキシ設定を自動検出する
 
     lockPref("network.proxy.type", 4);
 
+    :9: WPADでネットワークのプロキシ設定を自動検出する（ポリシーで設定）
+
+    "Proxy": {
+      "Mode": "autoDetect",
+      "Locked": true
+    }
+
     :5: システムの設定を利用する（既定）
 
     lockPref("network.proxy.type", 5);
+
+    :10: システムの設定を利用する（ポリシーで設定）
+
+    "Proxy": {
+      "Mode": "system",
+      "Locked": true
+    }
 
 Network-3: [廃止] SSL3.0の利用の可否
 
@@ -127,8 +165,7 @@ Network-9: [廃止] HTTP Pipeliningの使用
 
     :1: [廃止] 許可する
 
-    lockPref("network.http.pipelining", true);
-    lockPref("network.http.proxy.pipelining", true)
+    廃止
 
     :2: [廃止] 禁止する（既定）
 
@@ -154,15 +191,15 @@ Network-11: UA文字列の変更
 
     lockPref("general.useragent.override", "（任意の内容）");
 
-Network-12: リモートファイルに対するjarプロトコルの使用
+Network-12: [廃止] リモートファイルに対するjarプロトコルの使用
 
     :1: 許可する（既定）
 
-    -
+    廃止
 
     :2: 禁止する
 
-    lockPref("network.jar.block-remote-files", true);
+    廃止
 
 Network-13: TLS 1.3の使用
 
@@ -200,11 +237,11 @@ Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
 
     :1: [廃止] パフォーマンスを優先（既定）
 
-    lockPref("network.http.pipelining.maxrequests", 32);
+    廃止
 
     :2: [廃止] トラフィックを抑える事を優先
 
-    lockPref("network.http.pipelining.maxrequests", 8);
+    廃止
 
 Network-16: FQDN形式でない（ドットを含まない）ホスト名でのシングルサインオンの許可
 
