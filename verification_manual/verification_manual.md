@@ -594,7 +594,7 @@
 1. `C:\Users\Public\nss.log-*` を全て削除する。
 {{/Security-1-3}}
 
-{{#Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
+{{#Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6 || Security-3-7}}
 ## アドオンの利用制限
 
 ### 確認する項目
@@ -605,9 +605,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-3-3 || Security-3-4}}
+{{#Security-3-3 || Security-3-4 || Security-3-7}}
 1. テストケースリストの「{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi」リンクから署名済みアドオンをダウンロードしておく。
-{{/Security-3-3 || Security-3-4}}
+{{/Security-3-3 || Security-3-4 || Security-3-7}}
 
 ### 検証
 
@@ -623,25 +623,25 @@
 <!--GROUP-->
 1. Firefoxのウィンドウに署名済みアドオンのファイルをドラッグ&ドロップする。
     - 確認項目
-{{#Security-3-3 || Security-3-4}}
-        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。(Security-3-3/4)
-{{/Security-3-3 || Security-3-4}}
+{{#Security-3-3 || Security-3-4 || Security-3-7}}
+        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。(Security-3-3/4/7)
+{{/Security-3-3 || Security-3-4 || Security-3-7}}
 <!--/GROUP-->
-{{#Security-3-4}}
+{{#Security-3-4 || Security-3-7}}
 1. アドオンマネージャを開く。
     - 確認項目
-        1. 「アドオン入手」が表示されない。(Security-3-4)
-        1. 歯車アイコンが表示されている場合、そのポップアップメニュー内に「ファイルからアドオンをインストール」が含まれない。(Security-3-4)
-        1. 「拡張機能」タブが選択された状態で、アドオンマネージャ上にアドオンのインストールパッケージをドラッグ&ドロップして、アドオンがインストールされない。(Security-3-4)
-        1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4)
-{{/Security-3-4}}
+        1. 「アドオン入手」が表示されない。(Security-3-4/7)
+        1. 歯車アイコンが表示されている場合、そのポップアップメニュー内に「ファイルからアドオンをインストール」が含まれない。(Security-3-4/7)
+        1. 「拡張機能」タブが選択された状態で、アドオンマネージャ上にアドオンのインストールパッケージをドラッグ&ドロップして、アドオンがインストールされない。(Security-3-4/7)
+        1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4/7)
+{{/Security-3-4 || Security-3-7}}
 {{#Security-3-3}}
 1. （Policy Engineを利用している場合のみ）ロケーションバーに`about:addons`と入力して確定する。
     - 確認項目
         1. `about:addons`への遷移がブロックされる (Security-3-3)
 {{/Security-3-3}}
 
-{{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6}}
+{{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6 || Security-3-7}}
 
 {{#Security-4}}
 ## 広告などのポップアップのブロック

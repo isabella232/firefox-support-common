@@ -57,13 +57,12 @@ Security-3: アドオンのインストールの可否
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
-    :3: 禁止する（ポリシー設定を併用）
+    :3: 禁止する（ポリシー設定）
 
-    ポリシー：
-    "BlockAboutAddons": true
-
-    MCD：
-    lockPref("xpinstall.enabled", false);
+    "BlockAboutAddons": true,
+    "InstallAddonsPermission": {
+      "Default": false
+    }
 
     :4: 禁止するが、設定の変更は許可する
 
@@ -75,6 +74,12 @@ Security-3: アドオンのインストールの可否
     lockPref("extensions.getAddons.recommended.url", "");
     lockPref("extensions.getAddons.search.browseURL", "");
     lockPref("extensions.getAddons.search.url", "");
+
+    :7: 禁止するが、設定の変更は許可する（ポリシー設定）
+
+    "InstallAddonsPermission": {
+      "Default": false
+    }
 
 Security-4: 広告などのポップアップの表示の可否
 
@@ -691,4 +696,19 @@ Security-39: 特定のWebサイトへのアクセスの遮断
         ...
       ]
     }
+
+Security-40: アドオンのインストールを遮断した際の追加のメッセージ
+
+    :1: 常に共通のメッセージを表示（既定）
+
+    -
+
+    :2: アドオンごとにメッセージを指定（ポリシーで設定）
+
+    "ExtensionSettings": {
+      "example@example.com": { // アドオンのID
+        "blocked_install_message": "このアドオンは使用禁止です"
+      }
+    }
+
 
