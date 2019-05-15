@@ -77,3 +77,16 @@ Appearance-5: アプリケーションのUIに使用する言語
       ...
     ]
 
+Appearance-6: ヘルプメニュー配下に登録する独自のサポートページの情報
+
+    :1: 表示しない（既定）
+
+    -
+
+    :2: 表示する（ポリシーで設定）
+
+    "SupportMenu": {
+      "Title":     "タイトル",
+      "URL":       "https://example.com/",
+      "AccessKey": "H"
+    },

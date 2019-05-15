@@ -1235,9 +1235,9 @@
 {{#Privacy-1-2 || Privacy-1-3}}
         1. 「履歴」→「記憶させる履歴を詳細設定する」が選択されており、「Firefoxの終了時に履歴を消去する」の{{#Privacy-1-2 || Privacy-1-3}}項目が存在しないか、チェックが外れていて選択不可になっている。(Privacy-1-2/3){{/Privacy-1-2 || Privacy-1-3}}
 {{/Privacy-1-2 || Privacy-1-3}}
-{{#Privacy-1-4}}
-        1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入っていて選択不可になっている。(Privacy-1-4)
-{{/Privacy-1-4}}
+{{#Privacy-1-4 || Privacy-1-6}}
+        1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入っていて選択不可になっている。(Privacy-1-4/6)
+{{/Privacy-1-4 || Privacy-1-6}}
 {{#Privacy-1-5}}
         1. （一部の履歴の削除を禁止する設定を導入した場合のみ）「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが外れていて選択不可になっている。(Privacy-1-5)
 {{/Privacy-1-5}}
@@ -1283,9 +1283,9 @@
     * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
-{{#Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-5-2 || Privacy-5-3 || Privacy-40-1 || Privacy-40-2}}
+{{#Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-40-1 || Privacy-40-2}}
 1. テストケースの `password.html` を開く。
-{{/Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-5-2 || Privacy-5-3 || Privacy-40-1 || Privacy-40-2}}
+{{/Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-40-1 || Privacy-40-2}}
 <!--GROUP-->
 1. ユーザID、パスワードを入力して送信する。
     - 確認項目
@@ -1312,11 +1312,11 @@
     - 確認項目
         1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在しない。(Privacy-3-2)
 {{/Privacy-3-2}}
-{{#Privacy-4-2}}
+{{#Privacy-4-2 || Privacy-4-3}}
 1. ロケーションバーに `password` と入力する。
     - 確認項目
-        1. ロケーションバーのオートコンプリートの項目が表示されない。(Privacy-4-2)
-{{/Privacy-4-2}}
+        1. ロケーションバーのオートコンプリートの項目として履歴が表示されない。(Privacy-4-2/3)
+{{/Privacy-4-2 || Privacy-4-3}}
 {{#Privacy-39}}
 1. テストケースの `insecure-password.html` を開く。
 1. パスワードの入力欄にフォーカスを移す。
@@ -2475,14 +2475,15 @@
 {{#Network-12}} - Network-12-\* {{/Network-12}}
 {{#Network-13}} - Network-13-\* {{/Network-13}}
 {{#Network-14}} - Network-14-\* {{/Network-14}}
+{{#Network-16}} - Network-16-\* {{/Network-16}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
+{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-16}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}{{/Security-9-3}}
+{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-16}}{{/Security-9-3}}
 {{#Network-12}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
@@ -2527,8 +2528,11 @@
         1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。(Network-10-1){{/Network-10-1}}{{#Network-10-2}}`true`である。(Network-10-2){{/Network-10-2}}
 {{/Network-10}}
 {{#Network-13}}
-        1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。(Network-13-1){{/Network-13-1}}{{#Network-13-2}}`3`以下である。(Network-13-2){{/Network-13-2}}
+        1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。(Network-13-1){{/Network-13-1}}{{#Network-13-2 || Network-13-3}}`3`以下である。(Network-13-2/3){{/Network-13-2 || Network-13-3}}
 {{/Network-13}}
+{{#Network-16}}
+        1. `security.tls.version.max` の値が{{#Network-16-1}}`1`である。(Network-16-1){{/Network-16-1}}{{#Network-16-2}}`2`以上である。(Network-16-2){{/Network-16-2}}
+{{/Network-16}}
 {{#Network-14}}
         1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。(Network-14-1){{/Network-14-1}}{{#Network-14-2}}`1`である。(Network-14-2){{/Network-14-2}}{{#Network-14-3}}`2`である。(Network-14-3){{/Network-14-3}}{{#Network-14-4}}`3`である。(Network-14-4){{/Network-14-4}}{{#Network-14-5}}`4`である。(Network-14-5){{/Network-14-5}}
 {{/Network-14}}

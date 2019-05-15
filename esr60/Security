@@ -621,3 +621,26 @@ Security-35: about:supportの使用
 
     "BlockAboutSupport": true,
 
+Security-36: 特定のWebサイトへのアクセスの遮断
+
+    :1: 遮断しない（既定）
+
+    -
+
+    :2: 遮断する（ポリシーで設定）
+
+    // ブロックする対象のURLを示すマッチパターン。
+    // （詳細は https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns を参照）
+    // http:またはhttps:で始まるサイトのみが対象で、最大1000項目まで指定可能。
+    "WebsiteFilter": {
+      "Block": [
+        "https://twitter.com/*",
+        "https://*.twitter.com/*",
+        ...
+      ],
+      "Exceptions": [
+        "https://twitter.com/about",
+        ...
+      ]
+    }
+
