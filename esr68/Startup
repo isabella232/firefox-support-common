@@ -67,7 +67,6 @@ Startup-5: 初期状態のブックマーク
 
     :2: 空にする
 
-    lockPref("browser.places.smartBookmarksVersion", -1);
     defaultPref("browser.places.importBookmarksHTML", true);
     lockPref("browser.bookmarks.autoExportHTML", false);
     defaultPref("browser.bookmarks.restore_default_bookmarks", false);
@@ -111,15 +110,11 @@ Startup-8: [廃止] UIの変更点を解説するツアーの表示の可否
 
     :1: [廃止] ツアーを表示する（既定）
 
-    -
+    廃止
 
     :2: [廃止] ツアーを表示しない
 
-    lockPref("browser.uitour.enabled", false);
-    lockPref("browser.uitour.pinnedTabUrl", "");
-    lockPref("browser.uitour.readerViewTrigger", "$^");
-    lockPref("browser.uitour.themeOrigin", "");
-    lockPref("browser.uitour.url", "");
+    廃止
 
 Startup-9: [廃止] マルチプロセスモードのフィードバックを促すメッセージの表示の可否
 
@@ -145,9 +140,9 @@ Startup-11: [廃止] 起動時のActiviyStream(新規タブページの改良版
 
     :1: [廃止] 表示する（既定）
 
-    -
+    廃止
 
     :2: [廃止] 表示しない
 
-    lockPref("browser.newtabpage.activity-stream.enabled", false);
+    廃止
 
