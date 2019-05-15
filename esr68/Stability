@@ -28,9 +28,6 @@ Stability-2: プロセス分離（e10s）を有効化するかどうか
     // アクセシビリティ機能によるe10s無効化を抑止
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1198459
     lockPref("browser.tabs.remote.force-enable", true);
-    // アドオンがあることによるe10s無効化を抑止
-    lockPref("extensions.interposition.enabled", true);
-    lockPref("extensions.interposition.prefetching", true);
 
     :3: 強制的に無効化
 
