@@ -14,8 +14,8 @@ Addon-IEView-1: IEの起動
       "Extensions": {
         "ieview-we@clear-code.com": {
           "forceielist": "（半角スペース区切りのURLのリスト）"
-        },
-      },
+        }
+      }
     }
 
     :3: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（MCD）
@@ -30,8 +30,8 @@ Addon-IEView-1: IEの起動
         "ieview-we@clear-code.com": {
           "forceielist": "（半角スペース区切りのURLのリスト）",
           "closeReloadPage": true
-        },
-      },
+        }
+      }
     }
 
 Addon-IEView-2: 起動するIEの設定
@@ -48,8 +48,8 @@ Addon-IEView-2: 起動するIEの設定
         "ieview-we@clear-code.com": {
           "ieapp": "C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe",
           "ieargs": ""
-        },
-      },
+        }
+      }
     }
 
 Addon-IEView-3: [廃止] 閲覧中のページへの広告の埋め込み（アドウェアとしての動作）
