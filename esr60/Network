@@ -172,11 +172,7 @@ Network-13: TLS 1.3の使用
 
     :2: 禁止する
 
-    lockPref("security.tls.version.max", 3); // 1 = TLS 1.0, 2 = TLS 1.1, 3 = TLS 1.2
-
-    :3: 禁止する（ポリシーで設定）
-
-    "SSLVersionMax": "tls1.2", // "tls1", "tls1.1", "tls1.2" のいずれか
+    -
 
 Network-14: SSL/TLSでのSHA-1証明書の使用の可否
 
@@ -209,14 +205,4 @@ Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
     :2: [廃止] トラフィックを抑える事を優先
 
     lockPref("network.http.pipelining.maxrequests", 8);
-
-Network-16: TLS 1.xの使用
-
-    :1: TLS 1.0の使用を許可する（既定）
-
-    lockPref("security.tls.version.min", 1);
-
-    :2: 特定バージョン以上のTLSの使用を強制（ポリシーで設定）
-
-    "SSLVersionMin": "tls1.1", // "tls1", "tls1.1", "tls1.2", "tls1.3" のいずれか
 

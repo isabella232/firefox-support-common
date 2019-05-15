@@ -31,6 +31,10 @@ Privacy-1: 履歴の保存の可否
     lockPref("privacy.clearOnShutdown.offlineApps", true); // ウェブサイトのオフライン作業用データ
     lockPref("privacy.clearOnShutdown.openWindows", true); // 開かれているすべてのウィンドウ
 
+    :6: 終了時に消去する（ポリシーで設定）
+
+    "SanitizeOnShutdown": true
+
 Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）
 
     :1: 保存する（既定）
@@ -75,6 +79,15 @@ Privacy-4: ロケーションバーの入力履歴の表示の可否
     lockPref("browser.urlbar.suggest.bookmark", false);
     lockPref("browser.urlbar.suggest.openpage", false);
     lockPref("browser.urlbar.suggest.searches", false);
+
+    :3: 表示しない（ポリシーで設定）
+
+    （履歴を表示しないだけで、格納は行われる）
+    "Preferences": {
+      "browser.urlbar.suggest.openpage": false,
+      "browser.urlbar.suggest.history": false,
+      "browser.urlbar.suggest.bookmark": false
+    },
 
 Privacy-5: パスワードの保存の可否
 

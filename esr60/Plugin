@@ -28,13 +28,6 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
-    :4: 常に無効化する（ポリシーで設定）
-
-    "FlashPlugin": {
-      "Default": false,
-      "Locked": true
-    },
-
     :2: 常に有効化する
 
     lockPref("plugin.state.flash", 2);
@@ -48,13 +41,6 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
     origin<\t>plugin-vulnerable:flash<\t>1<\t>http://example.com
     MCD:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
-
-    :5: 常に有効化する（ポリシーで設定）
-
-    "FlashPlugin": {
-      "Default": true,
-      "Locked": true
-    },
 
     :3: クリックされたら有効にする（既定）
 

@@ -2475,15 +2475,15 @@
 {{#Network-12}} - Network-12-\* {{/Network-12}}
 {{#Network-13}} - Network-13-\* {{/Network-13}}
 {{#Network-14}} - Network-14-\* {{/Network-14}}
-{{#Network-16}} - Network-16-\* {{/Network-16}}
+{{#Network-17}} - Network-17-\* {{/Network-17}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-16}}
+{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-16}}{{/Security-9-3}}
+{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}{{/Security-9-3}}
 {{#Network-12}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
@@ -2530,9 +2530,9 @@
 {{#Network-13}}
         1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。(Network-13-1){{/Network-13-1}}{{#Network-13-2 || Network-13-3}}`3`以下である。(Network-13-2/3){{/Network-13-2 || Network-13-3}}
 {{/Network-13}}
-{{#Network-16}}
-        1. `security.tls.version.max` の値が{{#Network-16-1}}`1`である。(Network-16-1){{/Network-16-1}}{{#Network-16-2}}`2`以上である。(Network-16-2){{/Network-16-2}}
-{{/Network-16}}
+{{#Network-17}}
+        1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。(Network-17-1){{/Network-17-1}}{{#Network-17-2}}`2`以上である。(Network-17-2){{/Network-17-2}}
+{{/Network-17}}
 {{#Network-14}}
         1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。(Network-14-1){{/Network-14-1}}{{#Network-14-2}}`1`である。(Network-14-2){{/Network-14-2}}{{#Network-14-3}}`2`である。(Network-14-3){{/Network-14-3}}{{#Network-14-4}}`3`である。(Network-14-4){{/Network-14-4}}{{#Network-14-5}}`4`である。(Network-14-5){{/Network-14-5}}
 {{/Network-14}}

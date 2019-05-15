@@ -8,27 +8,3 @@ Location-1: ロケーションバーにおけるURLの「http://」の省略表�
 
     lockPref("browser.urlbar.trimURLs", false);
 
-Location-2: ロケーションバーにおける国際化ドメインの表示
-
-    :1: 原則として国際化ドメインのまま表示する（既定）
-
-    -
-
-    :2: 必ずpunycode形式で表示する（ポリシーで設定）
-
-    "Preferences": {
-      "network.IDN_show_punycode": true
-    },
-
-Location-3: ロケーションバーへのURL以外の入力の取り扱い
-
-    :1: 常に検索する（既定）
-
-    -
-
-    :2: 入力内容が1単語のみの時、検索を実行する前にローカルドメインのホスト名として名前解決を試みる
-
-    "Preferences": {
-      "browser.fixup.dns_first_for_single_words": true
-    },
-
