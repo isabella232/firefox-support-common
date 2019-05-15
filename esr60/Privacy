@@ -114,7 +114,8 @@ Privacy-6: Webアプリのオフラインキャッシュの利用の可否
 
     lockPref("browser.offline-apps.notify", false);
     lockPref("offline-apps.allow_by_default", false);
-    lockPref("browser.cache.offline.enable", false);lockPref("browser.cache.offline.insecure.enable", false);
+    lockPref("browser.cache.offline.enable", false);
+    lockPref("browser.cache.offline.insecure.enable", false);
 
 Privacy-7: リンク先の先読みの可否
 
@@ -140,7 +141,8 @@ Privacy-9: 日数ベースでの履歴の自動削除
 
     :1: 日数ベースで履歴を自動削除する
 
-    browser.storage.local.get()で値を取得している箇所で定義されている「days」と「frequency」の既定値を編集する。
+    Flexible Expire History by Days の background.js において、browser.storage.local.get()で値を取得している箇所で定義されている「days」の既定値を変更する。
+    また、Managed Storageで「frequency」の既定値を指定する。
 
 Privacy-10: セッション情報の保存の可否
 
@@ -364,7 +366,8 @@ Privacy-21: クラッシュレポートの送信の可否
     AppEnableCrashReport=false
 
     MCD:
-    lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
+    lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
+    lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
 
 Privacy-22: Firefox Syncの利用の可否
 
@@ -500,7 +503,10 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
 
     :3: ディスクキャッシュを使用しない
 
-    lockPref("browser.cache.disk.enable", false); lockPref("browser.cache.disk.smart_size.enabled", false); lockPref("browser.cache.disk.capacity", 0); lockPref("browser.cache.disk.max_entry_size", 0);
+    lockPref("browser.cache.disk.enable", false);
+    lockPref("browser.cache.disk.smart_size.enabled", false);
+    lockPref("browser.cache.disk.capacity", 0);
+    lockPref("browser.cache.disk.max_entry_size", 0);
 
 Privacy-31: [廃止] Firefoxのユーザー評価の送信の可否
 
@@ -659,7 +665,8 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :3: プライベートウィンドウのみ送出
 
-    lockPref("privacy.trackingprotection.pbmode.enabled", true);lockPref("privacy.donottrackheader.enabled", false);
+    lockPref("privacy.trackingprotection.pbmode.enabled", true);
+    lockPref("privacy.donottrackheader.enabled", false);
 
     :4: 送出しない
 
@@ -675,15 +682,15 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
 
     lockPref("network.http.referer.defaultPolicy", 0);
 
-    :2: ・オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
+    :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     lockPref("network.http.referer.defaultPolicy", 1);
 
-    :3: ・オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
+    :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
     lockPref("network.http.referer.defaultPolicy", 2);
 
-    :4: ・セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
+    :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     lockPref("network.http.referer.defaultPolicy", 3);
 
@@ -693,15 +700,15 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
 
     lockPref("network.http.referer.defaultPolicy.pbmode", 0);
 
-    :2: ・オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
+    :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     lockPref("network.http.referer.defaultPolicy.pbmode", 1);
 
-    :3: ・オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
+    :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     lockPref("network.http.referer.defaultPolicy.pbmode", 2);
 
-    :4: ・セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
+    :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     lockPref("network.http.referer.defaultPolicy.pbmode", 3);
 
