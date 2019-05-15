@@ -21,7 +21,7 @@
 - デスクトップのショートカットは `{{desktop_shortcut_path}}` に作成するものとする。
 - スタートメニューのショートカットは `{{start_menu_shortcut_path}}` に作成するものとする。
 
-{{#Admin-1-2 || Network-2-3 || Security-4-5}}
+{{#Admin-1-2 || Network-2-3 || Network-2-8 || Security-4-5}}
 ## 検証の準備
 
 {{#is_upgrade_from_uncontrolled}}
@@ -30,9 +30,9 @@
 {{#Admin-1-2}}
 * リモート設定ファイルを参照できない環境で検証する場合、MCD用設定ファイルの「Admin-1-2」に対応する設定をコメントアウトし、ローカル設定ファイルのみを使用するように設定する。
 {{/Admin-1-2}}
-{{#Network-2-3}}
-* プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
-{{/Network-2-3}}
+{{#Network-2-3 || Network-2-8}}
+* プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
+{{/Network-2-3 || Network-2-8}}
 {{#Security-4-5}}
 * ポップアップの許可対象サイトを参照できない環境で検証する場合、ポップアップの許可対象サイト一覧に `example.com` を加えるよう設定する。
 {{/Security-4-5}}
@@ -41,7 +41,7 @@
 
         https://github.com/clear-code/firefox-support-common/
 
-{{/Admin-1-2 || Network-2-3 || Security-4-5}}
+{{/Admin-1-2 || Network-2-3 || Network-2-8 || Security-4-5}}
 
 <!--======================================================================-->
 
@@ -2412,24 +2412,24 @@
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」→「ネットワークプロキシ」→「接続設定」を開く。
     - 確認項目
-{{#Network-2-1}}
-        1. 「プロキシを使用しない」が選択されている。(Network-2-1)
-{{/Network-2-1}}
-{{#Network-2-2}}
-        1. 「手動でプロキシを設定する」が選択されている。(Network-2-2)
-        1. 各プロキシが指定通りに設定されている。(Network-2-2)
-{{/Network-2-2}}
-{{#Network-2-3}}
-        1. 「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3)
-        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。(Network-2-3)  
+{{#Network-2-1 || Network-2-6}}
+        1. 「プロキシを使用しない」が選択されている。(Network-2-1/6)
+{{/Network-2-1 || Network-2-6}}
+{{#Network-2-2 || Network-2-7}}
+        1. 「手動でプロキシを設定する」が選択されている。(Network-2-2/7)
+        1. 各プロキシが指定通りに設定されている。(Network-2-2/7)
+{{/Network-2-2 || Network-2-7}}
+{{#Network-2-3 || Network-2-8}}
+        1. 「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3/8)
+        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。(Network-2-3/8)  
            （`{{pac_url}}` または `data:application/javascript,`）
-{{/Network-2-3}}
-{{#Network-2-4}}
-        1. 「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4)
-{{/Network-2-4}}
-{{#Network-2-5}}
-        1. 「システムのプロキシ設定を利用する」が選択されている。(Network-2-5)
-{{/Network-2-5}}
+{{/Network-2-3 || Network-2-8}}
+{{#Network-2-4 || Network-2-9}}
+        1. 「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4/9)
+{{/Network-2-4 || Network-2-9}}
+{{#Network-2-5 || Network-2-10}}
+        1. 「システムのプロキシ設定を利用する」が選択されている。(Network-2-5/10)
+{{/Network-2-5 || Network-2-10}}
 
 {{/Network-2}}
 
