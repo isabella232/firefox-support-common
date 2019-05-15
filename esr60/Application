@@ -6,6 +6,7 @@ Application-1: デスクトップのショートカット
 
     :2: 作成しない
 
+    Firefox-setup.ini/Thunderbird-setup.ini:
     [Install]
     DesktopShortcut=false
 
@@ -35,6 +36,7 @@ Application-2: スタートメニューのショートカット
 
     :2: 作成しない
 
+    Firefox-setup.ini/Thunderbird-setup.ini:
     [Install]
     StartMenuShortcuts=false
 
@@ -64,6 +66,7 @@ Application-3: クイック起動のショートカット
 
     :2: 作成しない
 
+    Firefox-setup.ini/Thunderbird-setup.ini:
     [Install]
     QuickLaunchShortcut=false
 
@@ -98,6 +101,7 @@ Application-6: プロファイルの位置
 
     以下は設定例。作成するショートカットの数、位置、プロファイルの設置場所についてはその都度指定が必要。
 
+    fainstall.ini:
     [fainstall]
     Shortcuts=desktop-shortcut
 
