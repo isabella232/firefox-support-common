@@ -822,7 +822,7 @@
           "type": "string"
         }
       },
-      "required": ["Title", "URL"],
+      "required": ["Title", "URL"]
     },
 
     "WebsiteFilter": {
