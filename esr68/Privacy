@@ -586,12 +586,20 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
     lockPref("privacy.trackingprotection.fingerprinting.enabled", true);
     // 通知メッセージの表示に関してはPrivacy-41にて制御の必要あり。
 
-    :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシーで設定）
+    :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシー設定を併用）
 
+    policies.json:
     "EnableTrackingProtection": {
       "Value": true,
       "Locked": true
+    },
+    "Cookies": {
+      "Default": false
     }
+
+    MCD:
+    lockPref("privacy.trackingprotection.cryptomining.enabled", true);
+    lockPref("privacy.trackingprotection.fingerprinting.enabled", true);
 
     :3: ブロックリストを取得せず、トラッキングを遮断しない
 
