@@ -2536,10 +2536,9 @@
 
 ### 確認する項目
 
-{{#Update-1-3}} - Update-1-3 {{/Update-1-3}}
+{{#Update-1-4}} - Update-1-4 {{/Update-1-4}}
 {{#Update-2-2}} - Update-2-2 {{/Update-2-2}}
 {{#Update-3-2}} - Update-3-2 {{/Update-3-2}}
-{{#Update-5-2}} - Update-5-2 {{/Update-5-2}}
 
 ### 準備
 
@@ -2552,26 +2551,19 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-{{#Update-1-3}}
+{{#Update-1-4}}
 1.  「ヘルプ」→「Firefoxについて」を開く。
     - 確認項目
-        1. 「ソフトウェアの更新を確認」が表示されない。(Update-1-3)
-{{/Update-1-3}}
+        1. 「ソフトウェアの更新を確認」が表示されない。(Update-1-4)
+{{/Update-1-4}}
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-{{#Update-1-3}}
-        1. `app.update.enabled` の値が`false`である。(Update-1-3)
-        1. `app.update.mode` の値が`0`である。(Update-1-3)
-{{/Update-1-3}}
 {{#Update-2-2}}
         1. `extensions.update.enabled` の値が`false`である。(Update-2-2)
 {{/Update-2-2}}
 {{#Update-3-2}}
         1. `browser.search.update` の値が`false`である。(Update-3-2)
 {{/Update-3-2}}
-{{#Update-5-2}}
-        1. `lightweightThemes.update.enabled` の値が`false`である。(Update-5-2)
-{{/Update-5-2}}
 
 {{#Security-9-3}}
 ### 後始末
