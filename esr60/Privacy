@@ -290,6 +290,10 @@ Privacy-16: DNSの先読みの可否
     lockPref("network.dns.disablePrefetch", true);
     lockPref("network.dns.disablePrefetchFromHTTPS", true);
 
+    :3: 禁止する（ポリシーで設定）
+
+    "NetworkPrediction": false,
+
 Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :1: 許可する（既定）

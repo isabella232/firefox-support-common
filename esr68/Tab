@@ -76,6 +76,10 @@ Tab-5: 新しいタブの内容
     lockPref("browser.newtabpage.directory.ping","");
     lockPref("browser.newtabpage.directory.source","about:blank");
 
+    :4: アドオンを使わず空白ページを表示する（ポリシーで設定）
+
+    "NewTabPage": false,
+
 Tab-6: Webページによって開かれる新規ウィンドウを、代わりにタブで開く
 
     :1: 許可する（既定）
@@ -140,10 +144,24 @@ Tab-10: 検索バーの表示
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.showSearch", true);
 
+    :4: 常に表示する（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Search": true,
+      "Locked": true
+    }
+
     :3: 常に非表示にする
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.showSearch", false);
+
+    :5: 常に非表示にする（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Search": false,
+      "Locked": true
+    }
 
 Tab-11: トップサイトの表示
 
@@ -162,10 +180,24 @@ Tab-11: トップサイトの表示
     lockPref("browser.newtabpage.activity-stream.showTopSites", true);
     lockPref("browser.newtabpage.activity-stream.topSitesRows", 2)
 
+    :5: 常に表示する（ポリシーで設定）
+
+    "FirefoxHome": {
+      "TopSites": true,
+      "Locked": true
+    }
+
     :4: 常に非表示にする
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.showTopSites", false);
+
+    :6: 常に非表示にする（ポリシーで設定）
+
+    "FirefoxHome": {
+      "TopSites": false,
+      "Locked": true
+    }
 
 Tab-12: ハイライトの表示
 
@@ -178,10 +210,24 @@ Tab-12: ハイライトの表示
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
 
+    :4: 常に表示する（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Highlights": true,
+      "Locked": true
+    }
+
     :3: 常に非表示にする
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+
+    :5: 常に非表示にする（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Highlights": false,
+      "Locked": true
+    }
 
 Tab-13: スニペットの表示
 
@@ -194,10 +240,24 @@ Tab-13: スニペットの表示
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.feeds.snippets", true);
 
+    :4: 常に表示する（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Snippets": true,
+      "Locked": true
+    }
+
     :3: 常に非表示にする
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.feeds.snippets", false);
+
+    :5: 常に非表示にする（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Snippets": false,
+      "Locked": true
+    }
 
 Tab-14: インポートボタンの表示
 
@@ -209,6 +269,10 @@ Tab-14: インポートボタンの表示
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.migrationExpired", true);
+
+    :3: 表示しない（ポリシーで設定）
+
+    "DisableProfileImport": true,
 
 Tab-15: 新機能のツアーの表示
 
@@ -251,4 +315,17 @@ Tab-18:タブの複数選択
     :2: 禁止する
 
     lockPref("browser.tabs.multiselect", false);
+
+Tab-19: ハイライトにPocketの項目を表示するかどうか
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない（ポリシーで設定）
+
+    "FirefoxHome": {
+      "Pocket": false,
+      "Locked": true
+    }
 

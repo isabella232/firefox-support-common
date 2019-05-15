@@ -88,7 +88,9 @@ Security-4: 広告などのポップアップの表示の可否
 
     :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
 
-    "Popups": { "Allow": ["(origin1)", "(origin2)", …] }
+    "PopupBlocking": {
+      "Allow": ["(origin1)", "(origin2)", …]
+    }
 
     :5: 特定サイトのみ初期状態で確認無しで許可する
 
@@ -104,11 +106,25 @@ Security-4: 広告などのポップアップの表示の可否
 
     lockPref("dom.disable_open_during_load", false);
 
+    :7: すべて確認無しで許可する（ポリシーで設定）
+
+    "PopupBlocking": {
+      "Default": false,
+      "Locked": true
+    }
+
     :4: 禁止する
 
     MCDで
     lockPref("dom.disable_open_during_load", true);
     と設定した上で、「UI・キーボードショートカット無効化項目一覧」に従いUIを無効化
+
+    :8: 禁止する（ポリシーで設定）
+
+    "PopupBlocking": {
+      "Default": true,
+      "Locked": true
+    }
 
 Security-5: 攻撃サイトに対する警告の可否
 
@@ -635,3 +651,15 @@ Security-37: セキュリティ警告の回避
       "SafeBrowsing": true
     },
 
+Security-38: セキュリティデバイスの登録
+
+    :1: 登録しない（既定）
+
+    -
+
+    :2: 登録する（ポリシーで設定）
+
+    "SecurityDevices": {
+      "デバイス名1": "C:\\Path\\To\\Library.dll",
+      ...
+    }

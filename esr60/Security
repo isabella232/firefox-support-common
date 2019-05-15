@@ -217,6 +217,14 @@ Security-13: ローカルファイルの読み込みの可否
     lockPref("capability.policy.trusted.sites", "http://example.com http://example.net");
     lockPref("capability.policy.trusted.checkloaduri.enabled", "allAccess");
 
+    :3: 特定サイトのみ許可する（ポリシーで設定）
+
+    "LocalFileLinks": [
+      "http://example.com",
+      "http://example.net",
+      ...
+    ]
+
     :2: 禁止する（既定）
 
     -
@@ -261,6 +269,7 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     * Firefoxアカウント (Privacy-24)
     * トラッキング防止 (Privacy-33)
     * Gecko Media Pluginの利用の可否 (Plugin-8)
+    * 初回起動時のみの特別なスタートページ(Startup-12)
 
     上記に加え、以下の設定を行う。
 
@@ -318,9 +327,6 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     // トラッキング防止の案内
     lockPref("privacy.trackingprotection.introURL", "");
     // Firefox Sync
-    // 初回起動時のみのスタートページ
-    lockPref("startup.homepage_welcome_url", "");
-    lockPref("startup.homepage_welcome_url.additional", "");
     // クラッシュレポーターの関連情報
     lockPref("toolkit.crashreporter.infoURL", "");
     // アドオンの署名義務化に関するメッセージ

@@ -79,3 +79,7 @@ Download-3: ファイルのダウンロード先ディレクトリの制御
 
     lockPref("browser.download.useDownloadDir", false);
 
+    :4: ダウンロード先を固定せず、常にユーザに選択させる（ポリシーで設定）
+
+    "PromptForDownloadLocation": true,
+

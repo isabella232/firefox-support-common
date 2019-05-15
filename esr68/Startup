@@ -71,7 +71,11 @@ Startup-5: 初期状態のブックマーク
     lockPref("browser.bookmarks.autoExportHTML", false);
     defaultPref("browser.bookmarks.restore_default_bookmarks", false);
 
-    :3: 管理者が指定したブックマークを追加する
+    :4: 空にする（ポリシーで設定）
+
+    "NoDefaultBookmarks": true,
+
+    :3: 管理者が指定したブックマークを追加する（ポリシーで設定）
 
     // ブックマークのアップデートは起動ごとに行われる。
     // JSONの定義から削除したサイトは次回起動時に自動的に削除される。

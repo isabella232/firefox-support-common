@@ -325,6 +325,10 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
     lockPref("browser.search.suggest.enabled", false);
     lockPref("browser.urlbar.suggest.searches", false);
 
+    :3: 禁止する（ポリシーで設定）
+
+    "SearchSuggestEnabled": false,
+
 Privacy-18: 利用状況の統計の保存および送信の可否
 
     :1: 許可する（既定）
@@ -881,14 +885,4 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 3);
-
-Privacy-51: 他のブラウザからのブックマーク等のインポート操作
-
-    :1: 許可する（既定）
-
-    -
-
-    :2: 禁止する（ポリシーで設定）
-
-    "DisableProfileImport": true,
 
