@@ -1164,6 +1164,9 @@
 {{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
 {{#Privacy-46}} - Privacy-46-\* {{/Privacy-46}}
 {{#Privacy-47}} - Privacy-47-\* {{/Privacy-47}}
+{{#Privacy-48}} - Privacy-48-\* {{/Privacy-48}}
+{{#Privacy-49}} - Privacy-49-\* {{/Privacy-49}}
+{{#Privacy-50}} - Privacy-50-\* {{/Privacy-50}}
 
 ### 準備
 
@@ -1171,9 +1174,9 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}
+{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47}}{{/Security-9-3}}
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
@@ -1354,12 +1357,21 @@
 {{#Privacy-42-2}}
         1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。(Privacy-42-1){{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。(Privacy-42-2){{/Privacy-42-2}}
 {{/Privacy-42-2}}
+{{#Privacy-48}}
+        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。(Privacy-48-3){{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。(Privacy-48-2){{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。(Privacy-48-1){{/Privacy-48-1}}
+{{/Privacy-48}}
 {{#Privacy-44}}
         1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。(Privacy-44-1){{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。(Privacy-44-2){{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。(Privacy-44-3){{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。(Privacy-44-4){{/Privacy-44-4}}
 {{/Privacy-44}}
 {{#Privacy-45}}
         1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。(Privacy-45-1){{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。(Privacy-45-2){{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。(Privacy-45-3){{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。(Privacy-45-4){{/Privacy-45-4}}
 {{/Privacy-45}}
+{{#Privacy-49}}
+        1. `network.http.referer.defaultPolicy.trackers` の値が{{#Privacy-49-1}}`0`である。(Privacy-49-1){{/Privacy-49-1}}{{#Privacy-49-2}}`1`である。(Privacy-49-2){{/Privacy-49-2}}{{#Privacy-49-3}}`2`である。(Privacy-49-3){{/Privacy-49-3}}{{#Privacy-49-4}}`3`である。(Privacy-49-4){{/Privacy-49-4}}
+{{/Privacy-49}}
+{{#Privacy-50}}
+        1. `network.http.referer.defaultPolicy.trackers.pbmode` の値が{{#Privacy-50-1}}`0`である。(Privacy-50-1){{/Privacy-50-1}}{{#Privacy-50-2}}`1`である。(Privacy-50-2){{/Privacy-50-2}}{{#Privacy-50-3}}`2`である。(Privacy-50-3){{/Privacy-50-3}}{{#Privacy-50-4}}`3`である。(Privacy-50-4){{/Privacy-50-4}}
+{{/Privacy-50}}
 {{#Privacy-46}}
         1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。(Privacy-46-1){{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。(Privacy-46-2){{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。(Privacy-46-3){{/Privacy-46-3}}
 {{/Privacy-46}}
