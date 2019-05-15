@@ -46,7 +46,8 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
     :2: 禁止する
 
-    Firefox-setup.ini:
+    Firefox-setup.ini/Thunderbird-setup.ini:
+    [Install]
     MaintenanceService=false
 
     MCD:

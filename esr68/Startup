@@ -6,6 +6,7 @@ Startup-1: 初回起動時の設定移行ウィザード
 
     :2: 表示しない
 
+    override.ini:
     [XRE]
     EnableProfileMigrator=0
 
@@ -17,6 +18,7 @@ Startup-2: 起動時のホームページの指定
 
     :2: 管理者が指定し、変更を許可
 
+    distribution.ini:
     [Global]
     id=（導入先ID）
     version=（バージョン）
