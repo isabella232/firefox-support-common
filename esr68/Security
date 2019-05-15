@@ -324,6 +324,13 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     lockPref("toolkit.crashreporter.infoURL", "");
     // アドオンの署名義務化に関するメッセージ
     lockPref("xpinstall.signatures.devInfoURL", "");
+    // IPv4, IPv6の疎通確認
+    lockPref("network.connectivity-service.enabled", false);
+    lockPref("network.connectivity-service.IPv4.url", "");
+    lockPref("network.connectivity-service.IPv6.url", "");
+    // DNSの疎通確認
+    lockPref("network.connectivity-service.DNSv4.domain", "");
+    lockPref("network.connectivity-service.DNSv6.domain", "");
 
 Security-16: フルスクリーン表示の可否
 
