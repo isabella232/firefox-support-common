@@ -4,6 +4,17 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     廃止
 
+    :4: 導入する（ポリシーで設定）
+
+    （「%AppData%\Mozilla\Certificates」または「%LocalAppData%\Mozilla\Certificates」に証明書ファイルを設置した上で）
+    "Certificates": {
+      "Install": [
+        "ファイル名1",
+        "ファイル名2",
+        ...
+      ]
+    }
+
     :2: 導入しない（既定）
 
     -
@@ -73,9 +84,7 @@ Security-4: 広告などのポップアップの表示の可否
 
     :2: [廃止] 特定サイトのみ常に確認無しで許可する
 
-    // アドオンを使わない場合はSecurity-4-5で代替する
-    lockPref("extensions.autopermission.sites.(site)", "popup=1");
-    clearPref("extensions.autopermission.sites.(site).lastValue");
+    廃止
 
     :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
 
@@ -266,21 +275,14 @@ Security-15: その他、バックグラウンドで行われる外部への通�
 
     // プラグインのブロック時などの詳細説明のURL
     lockPref("app.support.baseURL", "");
-    // e10s（プロセス分離）の詳細説明のURL
-    lockPref("app.support.e10sAccessibilityUrl", "");
     // Webサイトの互換性情報のURL
     lockPref("breakpad.reportURL", "");
     // about:homeに表示するアドバイス情報の取得元URL
     lockPref("browser.aboutHomeSnippets.updateUrl", "");
-    // ツールバーカスタマイズの方法を説明するページへの誘導の無効化
-    lockPref("browser.customizemode.tip0.learnMoreUrl", "");
     // オートコレクト用辞書の取得先URL
     lockPref("browser.dictionaries.download.url", "");
     // 位置情報サービスの説明用URL
     lockPref("browser.geolocation.warning.infoURL", "");
-    // 新規タブを開いた時のページにおけるタイル情報の取得、統計情報収集用通信の無効化
-    lockPref("browser.newtabpage.directory.ping","");
-    lockPref("browser.newtabpage.directory.source","about:blank");
     // 地域ごとのデフォルトの検索サービス切り替え
     lockPref("browser.search.geoSpecificDefaults", false);
     lockPref("browser.search.geoSpecificDefaults.url", "");
@@ -297,10 +299,7 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     lockPref("devtools.gcli.jquerySrc", "");
     lockPref("devtools.gcli.lodashSrc", "");
     lockPref("devtools.gcli.underscoreSrc", "");
-    lockPref("devtools.webide.adaptersAddonURL", "");
     lockPref("devtools.webide.adbAddonURL", "");
-    lockPref("devtools.webide.addonsURL", "");
-    lockPref("devtools.webide.simulatorAddonsURL", "");
     lockPref("devtools.webide.templatesURL", "");
     // 実験的機能の案内の無効化
     lockPref("experiments.manifest.uri", "");
@@ -378,21 +377,9 @@ Security-20: [廃止] パーミッション設定変更の可否
 
     :2: [廃止] 変更を禁止する
 
-    @-moz-document url-prefix("chrome://browser/content/browser.xul") {
-      #identity-popup-permissions-content {
-        visibility: collapse !important;
-        -moz-user-focus: ignore !important;
-      }
-    }
-    @-moz-document url-prefix("chrome://browser/content/pageinfo/pageInfo.xul") {
-      #permTab,
-      #permPanel {
-        visibility: collapse !important;
-        -moz-user-focus: ignore !important;
-      }
-    }
+    廃止
 
-Security-21: 危険なアドオンのとプラグインのブロックの可否
+Security-21: 危険なアドオンとプラグインのブロックの可否
 
     :1: ブロックする（既定）
 
@@ -506,12 +493,6 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
     pref("gecko.handlerService.schemes.webcal.2.uriTemplate", "");
     pref("gecko.handlerService.schemes.webcal.3.name", "");
     pref("gecko.handlerService.schemes.webcal.3.uriTemplate", "");
-    // ウェブフィードをプレビュー表示(設定から変更は可能)
-    lockPref("browser.audioFeeds.handler", "ask");
-    // ビデオポッドキャストをプレビュー表示(設定から変更は可能)
-    lockPref("browser.videoFeeds.handler", "ask");
-    // ポッドキャストをプレビュー表示(設定から変更は可能)
-    lockPref("browser.audioFeeds.handler", "ask");
 
 Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
 
@@ -545,15 +526,15 @@ Security-28: 認証が必要なWiFiアクセスポイントを検出した時に
 
     lockPref("network.captive-portal-service.enabled", false);
 
-Security-29: SSL/TLSでないページでの「secure」属性付きCookieの読み書き(HTTPSなページで設定したCookieの値をHTTPなページから読み書きする)
+Security-29: [廃止] SSL/TLSでないページでの「secure」属性付きCookieの読み書き(HTTPSなページで設定したCookieの値をHTTPなページから読み書きする)
 
     :1: 許可する
 
-    lockPref("network.cookie.leave-secure-alone", false);
+    廃止
 
     :2: 禁止する（既定）
 
-    -
+    廃止
 
 Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの実行
 
