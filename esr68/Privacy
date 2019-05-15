@@ -145,6 +145,15 @@ Privacy-9: 日数ベースでの履歴の自動削除
 
     Flexible Expire History by Days の background.js において、browser.storage.local.get()で値を取得している箇所で定義されている「days」の既定値を変更する。
     また、Managed Storageで「frequency」の既定値を指定する。
+    
+    policies.json:
+    "3rdparty": {
+      "Extensions": {
+        "flexible-expire-history-by-days@clear-code.com": {
+          "frequency": "value",
+        },
+      },
+    }
 
 Privacy-10: セッション情報の保存の可否
 
