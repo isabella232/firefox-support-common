@@ -106,6 +106,10 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     lockPref("browser.disableResetPrompt", true);
 
+    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）
+
+    "DisableProfileRefresh": true,
+
 Startup-8: [廃止] UIの変更点を解説するツアーの表示の可否
 
     :1: [廃止] ツアーを表示する（既定）

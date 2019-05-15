@@ -73,3 +73,13 @@ Update-6: システムアドオンの自動更新の可否
 
     "DisableSystemAddonUpdate": true,
 
+Update-7: アプリケーションの自動更新情報取得先
+
+    :1: Mozillaのサーバー（既定）
+
+    -
+
+    :2: 任意のサーバー（ポリシーで設定）
+
+    "AppUpdateURL": "（URL）",
+

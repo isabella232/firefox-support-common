@@ -333,7 +333,6 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :2: 禁止する
 
-    MCD:
     lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
     lockPref("toolkit.telemetry.enabled", false);
     lockPref("toolkit.telemetry.infoURL", "");
@@ -341,6 +340,10 @@ Privacy-18: 利用状況の統計の保存および送信の可否
     lockPref("datareporting.healthreport.service.enabled", false);
     lockPref("datareporting.healthreport.uploadEnabled", false);
     lockPref("datareporting.policy.dataSubmissionEnabled", false);
+
+    :3: 禁止する（ポリシーで設定）
+
+    "DisableTelemetry": true,
 
 Privacy-19: セキュリティエラーレポートの送信の可否
 
@@ -457,15 +460,15 @@ Privacy-25: [廃止] Firefox Helloの利用の可否
 
     -（Firefox 52で廃止）
 
-Privacy-26: [廃止] 「忘れる」ボタンの利用の可否
+Privacy-26: 「忘れる」ボタンの利用の可否
 
-    :1: [廃止] 許可する（既定）
+    :1: 許可する（既定）
 
     -
 
-    :2: [廃止] 禁止する
+    :2: 禁止する（ポリシーで設定）
 
-    廃止
+    "DisableForgetButton": true,
 
 Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
@@ -566,6 +569,13 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
     lockPref("privacy.trackingprotection.fingerprinting.enabled", true);
     // 通知メッセージの表示に関してはPrivacy-41にて制御の必要あり。
 
+    :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシーで設定）
+
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": true
+    }
+
     :3: ブロックリストを取得せず、トラッキングを遮断しない
 
     Security-5-2も併せて設定する。
@@ -576,6 +586,13 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
     // lockPref("network.cookie.cookieBehavior", 0);
     // lockPref("privacy.trackingprotection.cryptomining.enabled", false);
     // lockPref("privacy.trackingprotection.fingerprinting.enabled", false);
+
+    :5: ブロックリストを取得せず、トラッキングを遮断しない（ポリシーで設定）
+
+    "EnableTrackingProtection": {
+      "Value": false,
+      "Locked": true
+    }
 
 Privacy-34: フォームへのユーザー入力値のセッション情報への保存の可否
 
@@ -864,3 +881,14 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 3);
+
+Privacy-51: 他のブラウザからのブックマーク等のインポート操作
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する（ポリシーで設定）
+
+    "DisableProfileImport": true,
+

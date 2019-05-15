@@ -533,6 +533,10 @@ Security-28: 認証が必要なWiFiアクセスポイントを検出した時に
 
     lockPref("network.captive-portal-service.enabled", false);
 
+    :3: 何もしない（ポリシーで設定）
+
+    "CaptivePortal": false,
+
 Security-29: [廃止] SSL/TLSでないページでの「secure」属性付きCookieの読み書き(HTTPSなページで設定したCookieの値をHTTPなページから読み書きする)
 
     :1: 許可する
@@ -602,4 +606,32 @@ Security-35: about:supportの使用
     :2: 禁止する
 
     "BlockAboutSupport": true,
+
+Security-36: DNS over HTTPSの使用
+
+    :1: 使用しない（既定）
+
+    -
+
+    :2: 使用する（ポリシーで設定）
+
+    "DNSOverHTTPS": {
+      "Enabled": true,
+      "ProviderURL": "https://mozilla.cloudflare-dns.com/dns-query".
+      "Locked": true
+    }
+
+Security-37: セキュリティ警告の回避
+
+    :1: 制限しない（既定）
+
+    -
+
+    :2: 警告の回避を禁止する（ポリシーで設定）
+
+    // 証明書の例外登録、詐欺サイトの強制表示を禁止
+    "DisableSecurityBypass": {
+      "InvalidCertificate": true,
+      "SafeBrowsing": true
+    },
 

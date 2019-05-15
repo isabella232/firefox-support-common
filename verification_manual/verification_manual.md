@@ -382,6 +382,9 @@
 {{#Security-9-3}}{{#Startup-4-2 || Startup-10-2}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
 {{/Startup-4-2 || Startup-10-2}}{{/Security-9-3}}
+{{#Security-35-2}}{{#Startup-7-3}}
+1. Policy Engineでのabout:support無効化設定を解除し、一時的に有効化しておく。
+{{/Startup-7-3}}{{/Security-35-2}}
 
 ### 検証
 
@@ -451,7 +454,7 @@
 {{#Startup-7}}
 1. システムの時計を1年先の日付に進め、Firefoxを再起動する。
     - 確認項目
-        1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}表示されない。（Startup-7-2）{{/Startup-7-2}}
+        1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2 || Startup-7-3}}表示されない。（Startup-7-2/3）{{/Startup-7-2 || Startup-7-3}}
 1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
     - 確認項目
   {{#Startup-7-1}}
@@ -460,14 +463,17 @@
   {{#Startup-7-2}}
         1. `browser.disableResetPrompt`の値が`true`である (Startup-7-2)
   {{/Startup-7-2}}
+1. ロケーションバーに`about:support`と入力して確定する
+    - 確認項目
+        1. 「Firefoxをリフレッシュ」ボタンが無効化されている (Startup-7-3)
 {{/Startup-7}}
 
 ### 後始末
 
 1. 検証用に導入したアドオンを削除する。
-{{#Security-9-3}}{{#Startup-4-2 || Startup-10-2}}
+{{#Security-9-3 || Security-35-2}}{{#Startup-4-2 || Startup-10-2 || Startup-7-3}}
 1. Policy Engineに加えた変更を元に戻す。
-{{/Startup-4-2 || Startup-10-2}}{{/Security-9-3}}
+{{/Startup-4-2 || Startup-10-2 || Startup-7-3}}{{/Security-9-3 || Security-35-2}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
@@ -804,7 +810,7 @@
 {{#Security-28-2}}   - Security-28-2 {{/Security-28-2}}
 {{#Security-31-2}}   - Security-31-2 {{/Security-31-2}}
 {{#Privacy-15-2}}   - Privacy-15-2 {{/Privacy-15-2}}
-{{#Privacy-18-2}}   - Privacy-18-2 {{/Privacy-18-2}}
+{{#Privacy-18-2 || Privacy-18-3}}   - Privacy-18-2/3 {{/Privacy-18-2 || Privacy-18-3}}
 {{#Privacy-19-2}}   - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-22-2}}   - Privacy-22-2 {{/Privacy-22-2}}
 {{#Privacy-24-2}}   - Privacy-24-2 {{/Privacy-24-2}}
@@ -1073,7 +1079,7 @@
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Security-28}}
-        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2}}`false`である。(Security-28-2){{/Security-28-2}}
+        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2 || Security-28-3}}`false`である。(Security-28-2/3){{/Security-28-2 || Security-28-3}}
 {{/Security-28}}
 {{#Security-31}}
         1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
@@ -1144,22 +1150,22 @@
 {{#Privacy-15-2}} - Privacy-15-2 {{/Privacy-15-2}}
 {{#Privacy-16}} - Privacy-16-\* {{/Privacy-16}}
 {{#Privacy-17}} - Privacy-17-\* {{/Privacy-17}}
-{{#Privacy-18-2}} - Privacy-18-2 {{/Privacy-18-2}}
+{{#Privacy-18-2 || Privacy-18-3}} - Privacy-18-2/3 {{/Privacy-18-2 || Privacy-18-3}}
 {{#Privacy-19-2}} - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-21-2}} - Privacy-21-2 {{/Privacy-21-2}}
 {{#Privacy-32}} - Privacy-32-\* {{/Privacy-32}}
-{{#Privacy-33-2 || Privacy-33-3}} - Privacy-33-2/3 {{/Privacy-33-2 || Privacy-33-3}}
+{{#Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}} - Privacy-33-2/3/4/5 {{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
 {{#Privacy-35}} - Privacy-35-\* {{/Privacy-35}}
 {{#Privacy-36}} - Privacy-36-\* {{/Privacy-36}}
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
 {{#Privacy-38}} - Privacy-38-\* {{/Privacy-38}}
 {{#Privacy-39}} - Privacy-39-\* {{/Privacy-39}}
 {{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}
-{{#Privacy-33-2}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2}}
-{{^Privacy-33-2}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2}}
+{{#Privacy-33-2 || Privacy-33-4}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2 || Privacy-33-4}}
+{{^Privacy-33-2 || Privacy-33-4}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2 || Privacy-33-4}}
 {{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
 {{#Privacy-43-2}} - Privacy-43-2{{/Privacy-43-2}}
-{{#Privacy-33-3 && Privacy-43-4}} - Privacy-43-4{{/Privacy-33-3 && Privacy-43-4}}
+{{#Privacy-33-3 || Privacy-33-5 && Privacy-43-4}} - Privacy-43-4{{/Privacy-33-3 || Privacy-33-5 && Privacy-43-4}}
 {{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
 {{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
 {{#Privacy-46}} - Privacy-46-\* {{/Privacy-46}}
@@ -1174,9 +1180,9 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
+{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
 1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
@@ -1202,11 +1208,11 @@
     - 確認項目
         1. サムネイル画像が{{#Privacy-36-1}}保存される。（Privacy-36-1）{{/Privacy-36-1}}{{#Privacy-36-2}}保存されない。（Privacy-36-2）{{/Privacy-36-2}}
 {{/Privacy-36}}
-{{#Privacy-33-2 && Privacy-41}}
+{{#Privacy-33-2 || Privacy-33-4 && Privacy-41}}
 1. ブラウザウィンドウで `http://www.kantei.go.jp/` を開く。
     - 確認項目
         1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。(Privacy-41-1){{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。(Privacy-41-2){{/Privacy-41-2}}
-{{/Privacy-33-2 && Privacy-41}}
+{{/Privacy-33-2 || Privacy-33-4 && Privacy-41}}
 {{#Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1240,9 +1246,9 @@
         1. 「ブロックリストを変更」ボタンを押して表示されるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
 {{/Privacy-35}}
 {{#Privacy-43}}
-{{#Privacy-33-3 && Privacy-43-4}}
+{{#Privacy-33-3 || Privacy-33-5 && Privacy-43-4}}
         1. 「トラッキング防止」の項目で「ブロックしない」が選択されている。
-{{/Privacy-33-3 && Privacy-43-4}}
+{{/Privacy-33-3 || Privacy-33-5 && Privacy-43-4}}
         1. 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が{{#Privacy-43-2}}選択されている。(Privacy-43-2){{/Privacy-43-2}}
         {{^Privacy-43-2}}選択されていない。(Privacy-43-1/3/4){{/Privacy-43-2}}
 {{/Privacy-43}}
@@ -1265,9 +1271,9 @@
 <!--GROUP-->
 1. オプション画面の「プライバシーとセキュリティ」を開く。
     - 確認項目
-{{#Privacy-18-2}}
-        1. 「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。(Privacy-18-2)
-{{/Privacy-18-2}}
+{{#Privacy-18-2 || Privacy-18-3}}
+        1. 「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。(Privacy-18-2/3)
+{{/Privacy-18-2 || Privacy-18-3}}
 {{#Privacy-21-2}}
         1. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。(Privacy-21-2)
 {{/Privacy-21-2}}
@@ -1350,10 +1356,11 @@
         1. `security.ssl.errorReporting.enabled` の値が`false`である。(Privacy-19-2)
         1. `security.ssl.errorReporting.url` の値が空文字である。(Privacy-19-2)
 {{/Privacy-19-2}}
-{{#Privacy-33-2 || Privacy-33-3}}
-        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
-        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2}}`true`である。(Privacy-33-2){{/Privacy-33-2}}{{#Privacy-33-3}}`false`である。(Privacy-33-3){{/Privacy-33-3}}
-{{/Privacy-33-2 || Privacy-33-3}}
+{{#Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
+        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。(Privacy-33-2/4){{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。(Privacy-33-3/5){{/Privacy-33-3 || Privacy-33-5}}
+{{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
+        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。(Privacy-33-2/4){{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。(Privacy-33-3/5){{/Privacy-33-3 || Privacy-33-5}}
+{{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
 {{#Privacy-42-2}}
         1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。(Privacy-42-1){{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。(Privacy-42-2){{/Privacy-42-2}}
 {{/Privacy-42-2}}
@@ -1805,7 +1812,7 @@
 1. 再ダウンロードのリンクを右クリックし、メニューから「名前を付けてリンク先を保存」を選択する。
 {{#Download-2}}
     - 確認項目
-        1. {{#Download-2-1 || Download-2-2}}ダウンロード先として`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2){{/Download-2-1 || Download-2-2}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
+        1. {{#Download-2-1 || Download-2-2 || Download-2-4 || Download-2-5}}ダウンロード先として`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2/4/5){{/Download-2-1 || Download-2-2 || Download-2-4 || Download-2-5}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
 {{/Download-2}}
 {{/Download-2 || Download-3-1 || Download-3-2}}
 {{#Download-3-1 || Download-3-2}}
@@ -2080,7 +2087,7 @@
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プログラム」を開く。
     - 確認項目
-        1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」、「PDFファイル」となっている場合もあるため注意）の取り扱い方法{{#Ui-1-1}}が「Firefoxでプレビュー表示」となっている。(Ui-1-1){{/Ui-1-1}}{{#Ui-1-2}}の選択肢に「Firefoxでプレビュー表示」が存在しない。(Ui-1-2){{/Ui-1-2}}
+        1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」、「PDFファイル」となっている場合もあるため注意）の取り扱い方法{{#Ui-1-1}}が「Firefoxでプレビュー表示」となっている。(Ui-1-1){{/Ui-1-1}}{{#Ui-1-2 || Ui-1-3}}の選択肢に「Firefoxでプレビュー表示」が存在しない。(Ui-1-2/3){{/Ui-1-2 || Ui-1-3}}
 {{/Ui-1}}
 
 

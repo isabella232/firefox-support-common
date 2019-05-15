@@ -9,6 +9,10 @@ Ui-1: Firefox組み込みのPDFビューアの使用可否
 
     lockPref("pdfjs.disabled", true);
 
+    :3: 禁止する（ポリシーで設定）
+
+    "DisableBuiltinPDFViewer": true,
+
 Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
     :1: 許可する（既定）

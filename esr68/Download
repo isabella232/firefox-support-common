@@ -44,7 +44,16 @@ Download-2: ファイルの既定のダウンロード先
     :1: 指定する：任意
 
     defaultPref("browser.open.lastDir", "（ディレクトリのパス）");
+    defaultPref("browser.download.dir", "（ディレクトリのパス）");
     defaultPref("browser.download.lastDir", "（ディレクトリのパス）");
+
+    :4: 指定する：任意（ポリシーで設定）
+
+    "DefaultDownloadDirectory": "（ディレクトリのパス）",
+
+    :5: 指定する：任意の場所に固定（ポリシーで設定）
+
+    "DownloadDirectory": "（ディレクトリのパス）",
 
     :2: 指定する：デスクトップ
 
