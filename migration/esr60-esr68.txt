@@ -1,8 +1,32 @@
 ESR60からESR68の変更点
 ======================
 
-変更ログ
+トピック
 --------
+
+法人向けの主な変更
+
+ * Firefoxの自動更新の無効化にPolicy Engineが必須になった
+ * Symantec発行の証明書がすべて無効化された (GeoTrust/RapidSSL/Thawte/Verisign)
+ * AutoConfigがサンドボックスで実行されるようになった (`general.config.sandbox_enabled`)
+
+機能の変更
+
+ * RSSフィード機能が削除された
+ * ロケーションバーの「...」メニューに「共有」が追加された (macOS/Windows)
+ * Windowsの再起動時に自動的に起動する機能が追加された
+ * ブックマークの「説明」フィールドが削除された
+ * Ctrl-Tabのタブ切替が「更新順」から「最終アクセス順」に変更。
+ * Ctrl-Tabのタブ切替時にサムネイルが表示されるようになった。
+
+Webページの互換性
+
+ * トラッキングスクリプトがブロックされるようになった。
+ * Webページの音声の自動再生がブロックされるようになった。
+ * Webページのスクリプトから同時に複数のポップアップが開かれる場面について、2つ目以降を自動的にブロックするようになった。
+
+変更点
+------
 
 ### Firefox 61
 
@@ -10,10 +34,10 @@ ESR60からESR68の変更点
 
  * HTTP(S)ページからftp://のサブリソースを参照できなくなった
  * ロケーションバーの「...」メニューに「検索エンジンを追加」が追加された
- * ロケーションバーの「...」メニューに「共有」が追加された (Windows/OSXのみ)
+ * ロケーションバーの「...」メニューに「共有」が追加された (macOSのみ)
  * Windowsの再起動時に自動的に起動する機能が追加された
 
-機能改善
+改善・変更
 
  * TLS 1.3の最新仕様に追従 (Draft 28対応)
  * ブックマークの同期処理の機能改善
@@ -41,14 +65,14 @@ Links
  * AutoConfigがサンドボックスで実行されるようになった (`general.config.sandbox_enabled`)
  * ブックマーク情報から「説明」フィールドが削除された
  * `security.pki.name_matching_mode`の初期値が3に変更された
- * Adobe Flashのサンドボックスの制約強化 (Mac OSXのみ)
+ * Adobe Flashのサンドボックスの制約強化 (macOSのみ)
 
-機能改善
+改善・変更
 
  * タブのコンテキストメニューに「コンテナーを開き直す」が追加された (Multi-Account Container導入時のみ)
- * 新規タブページの「ハイライト」欄が 4x2 マスに変更された
+ * 新規タブページの「ハイライト」欄が4列に拡張された
  * CSSの最新仕様に対応 (CSS Shapes + Variable fonts)
- * Mac OSXがダークモードの時はFirefoxのテーマもダークとする (10.14以降のみ)
+ * macOSがダークモードの時はFirefoxのテーマもダークとする (10.14以降のみ)
  * WebRTCでの画面共有時、画面を共有するウィンドウは最前面に移動するようになった
 
 Links
@@ -59,44 +83,93 @@ Links
 
 ### Firefox 63
 
+主な変更
+
+ * Firefoxの自動更新の無効化にPolicy Engineが必須になった
+ * Ctrl-Tabのタブ切替が「更新順」から「最終アクセス順」に変更。
+ * Ctrl-Tabのタブ切替時にサムネイルが表示されるようになった。
+
+改善・変更
+
  * Windows 10のOS自体の配色設定（「規定のアプリ モード」の「白」「黒」）に配色を合わせるようになった。
  * コンテンツブロッキングの機能が改善され、トラッキングCookieの制御などを統一されたUIで行えるようになった。
- * シマンテックの証明書がすべて無効化された。 security.pki.distrust_ca_policy = 0 と設定すると従来の挙動に戻せる。
- * 複数のウィンドウやタブを開いた状態での終了時に、次回起動時にセッションを復元するかどうかの訊ね方が変わった。
+ * 複数のウィンドウ・タブを開いた状態で、終了時に警告が表示されるようになった (`browser.warnOnQuit`)
+ * 終了時の「開いているタブを保存して次回起動時に復元」機能が削除された (`browser.showQuitWarning`)
  * OSのアクセシビリティ設定に従ってアニメーション効果を抑制するようになった。
  * ブックマークされたページをサイドバーで開く機能を削除。
- * 設定画面から自動更新を無効化できなくなった。（Policy EngineでDisableAppUpdateを設定することで代貸）
- * Ctrl-Tabの既定の挙動が、タブの並び順ではなく最終アクセス順での切り替えに変わった。（設定変更で元の挙動に戻せる）
  * Web Componentsのカスタム要素とシャドーDOMに対応。
+
+Bugs
+
  * セキュリティ対策ソフトのQuick HealがWindows用32bit版のFirefoxでクラッシュする。
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/63.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=63%2B
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=1438499
 
 ### Firefox 64
 
+主な変更
+
+ * ロケーションバーの「...」メニューに「共有」が追加された (Windows)
+ * Symantec発行の証明書がすべて無効化された (GeoTrust/RapidSSL/Thawte/Verisign)
+ * RSSフィード対応（ライブブックマーク機能）が削除された
+
+改善・変更
+
  * タブの複数選択操作に対応。
  * about:performance でタブごと・アドオンごとのリソース消費状況を確認できるようになった。
- * アドオンのツールバーボタンの右クリックメニューからアドオンをアンインストールできるようになった。
- * macOSでconfiguration profilesを使ってポリシー設定を制御できるようになった。
- * ライブブックマークのプレビュー表示に対応しなくなった。
- * Symantecの証明書が完全に無効化された。
- * macOSで入力中の内容の前後に「www.」と「.com」を付与するキーボードショートカットをCtrl-EnterからCommand-Enterに変更した。
+ * ツールバーのコンテキストメニューに「拡張機能を削除」が追加された
+ * Configuration Profilesを使ってポリシー設定を制御できるようになった (macOSのみ)
+ * 「www.」「.com」の自動補完ショートカットがCommand-Enterに変更 (macOSのみ)
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/64.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=64%2B
+ * https://www.fxsitecompat.com/en-CA/docs/2018/symantec-geotrust-rapidssl-thawte-verisign-certificates-will-all-be-distrusted-in-october-2018/
 
 ### Firefox 65
 
- * トラッキング保護のUIが整理された。
- * 複数の言語パックを切り替えられるようになった。
+主な変更
+
+ * Webページのスクリプトから同時に複数のポップアップが開かれる場面について、2つ目以降を自動的にブロックするようになった。
+ * トラッキングスクリプトがブロックされるようになった。
+
+改善・変更
+
+ * Firefoxの言語パックを設定画面から切り替えられるようになった。
  * macOSのHandoff機能に対応。閲覧中のタブを別のiOSデバイスで開けるようになった。
  * セッション復元機能を有効にしている場合でも、Firefoxを終了して良いかどうか訊ねるようになった。
  * about:performance でアドオンやタブごとのメモリ使用状況を確認できるようになった。
- * Webページのスクリプトから同時に複数のポップアップが開かれる場面について、2つ目以降を自動的にブロックするようになった。
  * 32bit版・64bit版のMSI形式インストーラの提供が始まった。
+ * 新しい動画・画像フォーマットに対応した (AV1/WebP)
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/65.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=65%2B
 
 ### Firefox 66
 
- * 音声の自動再生がブロックされるようになった。
- * タブが多すぎる時に溢れた文が表示されるメニューから、開かれているタブだけを対象に検索できるようになった。
+主な変更
+
+ * Webページの音声の自動再生がブロックされるようになった。
  * アドオンの固有の設定の保存先がJSONからIndexed DBに変更された。
+
+改善・変更
+
+ * タブのオーバーフローメニューに「タブを検索」メニューが追加された
  * アドオンマネージャから各アドオンのショートカットを変更できるようになった。
+ * プライベートウィンドウのデザインが変更された
  * 証明書エラーのページの内容が、よりエラーの詳細が分かるような内容となった。
  * macOSのTouch Barに対応した。
  * コンテントプロセス数を4から8に増やした。
  * Windows 10のWindows Hello（生体認証）に対応した。
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/66.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=66%2B
