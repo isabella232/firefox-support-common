@@ -467,7 +467,7 @@
 1. ロケーションバーに`about:support`と入力して確定する
     - 確認項目
         1. 「Firefoxをリフレッシュ」ボタンが無効化されている (Startup-7-3)
-1. ロケーションバーに `"https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` と入力して確定する
+1. ロケーションバーに `https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` と入力して確定する
     - 確認項目
         1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない (Startup-7-3)
 {{/Startup-7-3}}
