@@ -367,6 +367,7 @@
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
+{{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 
 ### 準備
 
@@ -402,6 +403,9 @@
 {{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。(Startup-2-2/3)
 {{/Startup-2-2 || Startup-2-3}}
+{{#Appearance-7-2}}
+        1. UIの表示言語が指定の通りになっている。(Appearance-7-2)
+{{/Appearance-7-2}}
 {{#Admin-2-1}}
         1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されている。(Admin-2-1)
 {{/Admin-2-1}}
@@ -1771,12 +1775,14 @@
 {{/Websearch-1-1 || Websearch-1-3 || Websearch-2}}
 
 
-{{#Location-1}}
+{{#Location-1 || Location-2 || Location-3}}
 ## ロケーションバーの表示の制御
 
 ### 確認する項目
 
-- Location-1-\*
+{{#Locatio-1}} - Location-1-\* {{/Locatio-1}}
+{{#Locatio-2}} - Location-2-\* {{/Locatio-2}}
+{{#Locatio-3}} - Location-3-\* {{/Locatio-3}}
 
 ### 準備
 
@@ -1786,10 +1792,22 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `http://www.clear-code.com/` のように `http://` で始まるURLを入力し、ページを開く。
+{{#Locatio-1}}
+1. ロケーションバーに `http://example.com/` のように `http://` で始まるURLを入力し、ページを開く。
     - 確認項目
         1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
-{{/Location-1}}
+{{/Locatio-1}}
+{{#Locatio-2}}
+1. ロケーションバーに `https://日本語.jp/` のように日本語ドメインのURLを入力し、ページを開く。
+    - 確認項目
+        1. ロケーションバーのURLが{{#Location-2-1}}日本語で表示されている。(Location-2-1){{/Location-2-1}}{{#Location-2-2}}punycode形式で表示されている。(Location-2-2){{/Location-2-2}}
+{{/Locatio-2}}
+{{#Locatio-3}}
+1. ロケーションバーに `localhost` のように一単語の（名前解決可能な）ホスト名を入力し、ページを開く。
+    - 確認項目
+        1. {{#Location-3-1}}ホスト名を単語とした検索結果が表示される。(Location-3-1){{/Location-3-1}}{{#Location-3-2}}そのホストが名前解決され、ページが表示される。(Location-3-2){{/Location-3-2}}
+{{/Locatio-3}}
+{{/Location-1 || Location-2 || Location-3}}
 
 
 ## ダウンロードに関する機能の制御
@@ -2946,6 +2964,7 @@
 
 ### 確認する項目
 
+{{#Appearance-8-2}} - Appearance-8-2 {{/Appearance-8-2}}
 {{#MenuShortcut-35}} - MenuShortcut-35 {{/MenuShortcut-35}}
 {{#MenuShortcut-36}} - MenuShortcut-36 {{/MenuShortcut-36}}
 {{#MenuShortcut-37}} - MenuShortcut-37 {{/MenuShortcut-37}}
@@ -2964,6 +2983,7 @@
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
+{{#Appearance-8-2}}        1. 指定のサポート情報ページ用の項目が表示されている。(Appearance-8-2){{/Appearance-8-2}}
 {{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。(MenuShortcut-35){{/MenuShortcut-35}}
 {{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。(MenuShortcut-37){{/MenuShortcut-37}}
