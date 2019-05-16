@@ -172,3 +172,13 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     "OverrideFirstRunPage": "",
 
+Startup-13: Windows 10の再起動後の自動起動
+
+    :1: 自動起動する（既定）
+
+    -
+
+    :2: 自動起動しない
+
+    lockPref("toolkit.winRegisterApplicationRestart", false);
+
