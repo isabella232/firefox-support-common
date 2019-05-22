@@ -213,3 +213,17 @@ Links
 
  * https://www.mozilla.org/en-US/firefox/67.0/releasenotes/
  * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=67%2B
+
+### Firefox 68
+
+主な変更
+
+* データ流出を通知する「Firefox Monitor」機能が追加された
+  (`extensions.fxmonitor.enabled`)
+* メモリの空きに応じてインアクティブなタブを解放するようになった
+  (`browser.tabs.unloadOnLowMemory`)
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/68.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=68%2B
