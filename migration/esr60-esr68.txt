@@ -182,7 +182,9 @@ Links
 
  * スクリーンショットのアップロード機能が削除された
  * ツールバーのボタンにタブフォーカスが当たるようになった
+   * `browser.toolbars.keyboard_navigation`
  * ツールバーに「Firefox Account」アイコンが追加された
+   * `identity.fxaccounts.toolbar.enabled`
  * プライベートウィンドウでは、許可されたアドオン以外は実行されなくなった
  * FIrefoxのインストール毎に別個のプロファイルが作成されるようになった
 
