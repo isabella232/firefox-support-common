@@ -18,9 +18,11 @@ ESR60からESR68の変更点
  * ブックマークの「説明」フィールドが削除された
  * Ctrl-Tabのタブ切替が「更新順」から「最終アクセス順」に変更。
  * Ctrl-Tabのタブ切替時にサムネイルが表示されるようになった。
+ * アドオンの固有の設定の保存先がJSONからIndexed DBに変更された。
 
 Webページの互換性
 
+ * HTTP(S)ページからftp://のサブリソースを参照できなくなった
  * トラッキングスクリプトがブロックされるようになった。
  * Webページの音声の自動再生がブロックされるようになった。
  * Webページのスクリプトから同時に複数のポップアップが開かれる場面について、2つ目以降を自動的にブロックするようになった。
@@ -173,3 +175,39 @@ Links
 
  * https://www.mozilla.org/en-US/firefox/66.0/releasenotes/
  * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=66%2B
+
+### Firefox 67
+
+主な変更
+
+ * スクリーンショットのアップロード機能が削除された
+ * ツールバーのボタンにタブフォーカスが当たるようになった
+ * ツールバーに「Firefox Account」アイコンが追加された
+ * プライベートウィンドウでは、許可されたアドオン以外は実行されなくなった
+ * FIrefoxのインストール毎に別個のプロファイルが作成されるようになった
+
+改善・変更
+
+ * 元号の「令和」対応
+ * 設定画面のブロック項目に「暗号通貨マイニング」と「フィンガープリント採取」が追加された
+ * ページアクションメニューに「タブをピン留め」が追加された
+ * FIDO U2F API が標準で有効化されるようになった
+ * 30boxes.comでwebcal:リンクが利用不能になった
+ * iframeで"mailto:"や"ircs:"などのプロトコルを読み込めなくなった。
+
+令和対応について
+
+```
+# Firefox 66
+>>> Intl.DateTimeFormat("ja-u-ca-japanese",{era:"long"}).format(new Date(2019,4,1))
+"平成31年5月1日"
+
+# Firefox 67
+>>> Intl.DateTimeFormat("ja-u-ca-japanese",{era:"long"}).format(new Date(2019,4,1))
+"令和1年5月1日"
+```
+
+Links
+
+ * https://www.mozilla.org/en-US/firefox/67.0/releasenotes/
+ * https://bugzilla.mozilla.org/buglist.cgi?f1=cf_tracking_firefox_relnote&o1=equals&v1=67%2B
