@@ -721,4 +721,13 @@ Security-41: 複数のポップアップを一度に開く操作
 
     -
 
+Security-42: 過去にデータ流出事故を起こしたWebサービスでの警告の表示
+
+    :1: 警告を表示する（既定）
+
+    -
+
+    :2: 警告を表示しない
+
+    lockPref("extensions.fxmonitor.enabled", false);
 
