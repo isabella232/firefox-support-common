@@ -274,15 +274,15 @@ Tab-14: インポートボタンの表示
 
     "DisableProfileImport": true,
 
-Tab-15: 新機能のツアーの表示
+Tab-15: [廃止] 新機能のツアーの表示
 
     :1: 表示する（既定）
 
-    -
+    Firefox 64で廃止
 
     :2: 表示しない
 
-    lockPref("browser.onboarding.newtour", "");
+    Firefox 64で廃止
 
 Tab-16: トップサイトに表示されるウェブサイト
 
