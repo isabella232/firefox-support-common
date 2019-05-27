@@ -711,4 +711,14 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
       }
     }
 
+Security-41: 複数のポップアップを一度に開く操作
+
+    :1: 許可する
+
+    lockPref("dom.block_multiple_popups", false);
+
+    :2: 禁止する（既定）
+
+    -
+
 
