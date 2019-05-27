@@ -100,7 +100,7 @@ Script-7: 音声の自動再生の可否
     :1: 許可する
 
     lockPref("media.autoplay.default", 0);
-    lockPref("media.autoplay.enabled.user-gestures-needed", false);
+    lockPref("media.autoplay.enabled.user-gestures-needed", true);
 
     :2: 禁止する
 
