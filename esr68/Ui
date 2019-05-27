@@ -87,3 +87,13 @@ Ui-8: [廃止] アドレスバーの拡大・縮小ボタンの表示
 
     廃止
 
+Ui-9: Tabキーでのツールバーボタンへのフォーカス移動
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    lockPref("browser.toolbars.keyboard_navigation", false);
+
