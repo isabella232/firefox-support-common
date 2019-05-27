@@ -104,3 +104,13 @@ Appearance-8: ヘルプメニュー配下に登録する独自のサポートペ
       "AccessKey": "H"
     },
 
+Appearance-9: 「Firefoxアカウント」ボタンの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    lockPref("identity.fxaccounts.toolbar.enabled", false);
+
