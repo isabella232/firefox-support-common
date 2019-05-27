@@ -2429,12 +2429,12 @@
 1. Policy Engineに加えた変更を元に戻す。
 {{/Performance-1 || Performance-2}}{{/Security-9-3}}
 
-{{#Script-6}}
+{{#Script-7}}
 ## 音声の自動再生の制御
 
 ### 確認する項目
 
-- Script-6-\*
+- Script-7-\*
 
 ### 準備
 
@@ -2446,13 +2446,14 @@
 
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-        1. `media.autoplay.default` の値が {{#Script-6-1}}`0` である。(Script-6-1){{/Script-6-1}}{{#Script-6-2}}`1` である。(Script-6-2){{/Script-6-2}}
+        1. `media.autoplay.default` の値が {{#Script-7-1}}`0` である。(Script-7-1){{/Script-7-1}}{{#Script-7-2 || Script-7-3}}`1` である。(Script-7-2/3){{/Script-7-2 || Script-7-3}}
+        1. `media.autoplay.enabled.user-gestures-needed` の値が {{#Script-7-1 || Script-7-3}}`true` である。(Script-7-1/3){{/Script-7-1 || Script-7-3}}{{#Script-7-2}}`1` である。(Script-7-2){{/Script-7-2}}
 
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
 
-{{/Script-6}}
+{{/Script-7}}
 
 <!--======================================================================-->
 
