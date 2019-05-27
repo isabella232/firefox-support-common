@@ -18,3 +18,13 @@ Performance-2: コンテンツの再描画間隔
 
     lockPref("content.notify.interval", （整数値、単位：マイクロ秒）);
 
+Performance-3: 空きメモリが逼迫した時にバックグラウンドのタブを自動的にアンロードするかどうか
+
+    :1: タブをアンロードして空きメモリを増やす（既定）
+
+    -
+
+    :2: タブをアンロードしない
+
+    lockPref("browser.tabs.unloadOnLowMemory", false);
+
