@@ -69,6 +69,11 @@ def load_as_dict(path):
             res[opt['opt_id']] = opt['conf']
     return res
 
+def check_conf(conf, opt_id):
+    if opt_id not in conf:
+        return ('', '')
+    return ('y', conf[opt_id])
+
 def setup_conditional_format(sheet, formats):
     countif = 'COUNTIFS($A$2:$A$9999,"",$B$2:$B$9999,$B2)<>COUNTIF($B$2:$B$9999,$B2)'
 
@@ -122,8 +127,17 @@ def setup_conditional_format(sheet, formats):
     })
 
 
-def main():
+def main(args):
     wb = xlsxwriter.Workbook(OUT_FILE)
+
+    conf_new = {}
+    conf_old = {}
+
+    for arg in args:
+        if ESR_CURRENT in arg:
+            conf_new = load_as_dict(arg)
+        if ESR_PREVIOUS in arg:
+            conf_old = load_as_dict(arg)
 
     formats = {
         'default':    wb.add_format(DEFAULT_FORMAT),
@@ -154,9 +168,9 @@ def main():
         sheet.set_column(3, 3, 5)
         sheet.set_column(4, 4, 20)
         sheet.set_column(5, 5, 40)
-        sheet.set_column(6, 6, 20)
+        sheet.set_column(6, 6, 40)
         sheet.set_column(7, 7, 40)
-        sheet.set_column(8, 8, 20)
+        sheet.set_column(8, 8, 40)
 
         row = 1
         for fn in files:
@@ -169,19 +183,21 @@ def main():
                     sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
 
                 for d in data['opts']:
-                    sheet.write(row, 0, "", formats['default'])
+                    mark, conf = check_conf(conf_new, d['opt_id'])
+
+                    sheet.write(row, 0, mark, formats['default'])
                     sheet.write(row, 1, data['item_id'])
                     sheet.write(row, 2, data['item_title'])
                     sheet.write(row, 3, d['opt_no'])
                     sheet.write(row, 4, d['opt_title'])
                     sheet.write(row, 5, d['conf'].strip())
-                    sheet.write(row, 6, "", formats['default'])
+                    sheet.write(row, 6, conf, formats['default'])
                     sheet.write(row, 7, prev.get(d['opt_id'], ""), formats['default'])
-                    sheet.write(row, 8, "", formats['default'])
+                    sheet.write(row, 8, conf_old.get(d['opt_id'], ""), formats['default'])
                     row += 1
 
     wb.close()
     print('Generated:', OUT_FILE)
 
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))
