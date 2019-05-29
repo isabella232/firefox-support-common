@@ -3,7 +3,7 @@
 import re
 import sys
 import glob
-import os.path
+import os
 import adlib
 try:
     import xlsxwriter
@@ -57,22 +57,8 @@ DEFAULT_FORMAT = {
     'text_wrap': 1
 }
 
-def load_as_dict(path):
-    try:
-        data = adlib.load(path)
-    except IOError:
-        return {}
-
-    res = {}
-    for item in data:
-        for opt in item['opts']:
-            res[opt['opt_id']] = opt['conf']
-    return res
-
-def check_conf(conf, opt_id):
-    if opt_id not in conf:
-        return ('', '')
-    return ('y', conf[opt_id])
+#
+# Main
 
 def setup_conditional_format(sheet, formats):
     countif = 'COUNTIFS($A$2:$A$9999,"",$B$2:$B$9999,$B2)<>COUNTIF($B$2:$B$9999,$B2)'
@@ -135,9 +121,9 @@ def main(args):
 
     for arg in args:
         if ESR_CURRENT in arg:
-            conf_new = load_as_dict(arg)
+            conf_new = adlib.load_as_dict(arg)
         if ESR_PREVIOUS in arg:
-            conf_old = load_as_dict(arg)
+            conf_old = adlib.load_as_dict(arg)
 
     formats = {
         'default':    wb.add_format(DEFAULT_FORMAT),
@@ -175,7 +161,7 @@ def main(args):
         row = 1
         for fn in files:
             curr = adlib.load(os.path.join(ESR_CURRENT, fn))
-            prev = load_as_dict(os.path.join(ESR_PREVIOUS, fn))
+            prev = adlib.load_as_dict(os.path.join(ESR_PREVIOUS, fn))
 
             for data in curr:
                 if len(data['opts']) > 1:
@@ -183,7 +169,10 @@ def main(args):
                     sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
 
                 for d in data['opts']:
-                    mark, conf = check_conf(conf_new, d['opt_id'])
+                    mark, conf = '', ''
+
+                    if d['opt_id'] in conf_new:
+                        mark, conf = 'y', conf_new[d['opt_id']]
 
                     sheet.write(row, 0, mark, formats['default'])
                     sheet.write(row, 1, data['item_id'])

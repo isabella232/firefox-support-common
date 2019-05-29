@@ -80,3 +80,15 @@ def load(path):
     loader.flush()
 
     return loader.data
+
+def load_as_dict(path):
+    try:
+        data = load(path)
+    except IOError:
+        return {}
+
+    res = {}
+    for item in data:
+        for opt in item['opts']:
+            res[opt['opt_id']] = opt['conf']
+    return res
