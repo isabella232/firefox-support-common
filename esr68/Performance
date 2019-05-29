@@ -28,3 +28,12 @@ Performance-3: 空きメモリが逼迫した時にバックグラウンドの�
 
     lockPref("browser.tabs.unloadOnLowMemory", false);
 
+Performance-4: パフォーマンスに悪影響を与えうるアクセシビリティサービス
+
+    :1: アクセシビリティを優先して有効にする（既定）
+
+    -
+
+    :2: パフォーマンスを優先して無効化する
+
+    lockPref("accessibility.force_disabled", 1);
