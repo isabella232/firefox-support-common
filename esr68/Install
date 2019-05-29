@@ -76,7 +76,13 @@ Install-7: Firefox/Thunderbirdの同梱
 
     :2: 指定バージョンを同梱する
 
-    -
+    fainstall.ini:
+    [fainstall]
+    AppMinVersion=68.0
+    AppMaxVersion=68.99
+    AppIsESR=true
+    AppIs64bit=true
+    ;AppIsDevEdition=true
 
 Install-8: Firefox/Thunderbirdのインストール先
 
