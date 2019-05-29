@@ -4,6 +4,10 @@ import re
 import sys
 import glob
 import os
+
+BASEDIR = os.path.dirname(__file__)
+sys.path.append(BASEDIR)
+
 import adlib
 try:
     import xlsxwriter
@@ -121,8 +125,10 @@ def main(args):
 
     for arg in args:
         if ESR_CURRENT in arg:
+            print('%s -> %s' % (ESR_CURRENT, arg))
             conf_new = adlib.load_as_dict(arg)
         if ESR_PREVIOUS in arg:
+            print('%s -> %s' % (ESR_PREVIOUS, arg))
             conf_old = adlib.load_as_dict(arg)
 
     formats = {
@@ -160,8 +166,8 @@ def main(args):
 
         row = 1
         for fn in files:
-            curr = adlib.load(os.path.join(ESR_CURRENT, fn))
-            prev = adlib.load_as_dict(os.path.join(ESR_PREVIOUS, fn))
+            curr = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, fn))
+            prev = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, fn))
 
             for data in curr:
                 if len(data['opts']) > 1:
