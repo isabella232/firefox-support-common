@@ -917,3 +917,13 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     lockPref("extensions.allowPrivateBrowsingByDefault", true);
 
+Privacy-52: プライバシーに関する通知タブの表示の可否
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    lockPref("datareporting.policy.firstRunURL", "");
+
