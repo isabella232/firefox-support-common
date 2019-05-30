@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import csv
+import sys
+import textwrap
+
+try:
+    import xlrd
+except ImportError:
+    print("ERROR: Install xlrd to run this script\n")
+    print("  $ sudo apt install python3-xlrd\n")
+    sys.exit(1)
+
+#
+# Global Configuration
+
+MAP_NEW = {
+  'item_id'   : 1,
+  'item_title': 2,
+  'opt_id'    : 3,
+  'opt_title' : 4,
+  'conf'      : 6,
+}
+
+MAP_OLD = {
+  'item_id'   : 3,
+  'item_title': 6,
+  'opt_id'    : 4,
+  'opt_title' : 8,
+  'conf'      : 11
+}
+
+TEMPLATE = """\
+%(item_id)s: %(item_title)s
+
+    :%(opt_id)s: %(opt_title)s
+
+%(conf)s
+"""
+
+#
+# Main
+
+def map(row, m):
+    res = {}
+    for k, v in m.items():
+        if row[v].ctype == 2:
+            res[k] = int(row[v].value)
+        else:
+            res[k] = row[v].value
+    return res
+
+def main():
+    if len(sys.argv[1:]) < 1:
+        print('Usage: choke-xlsx config.xlsx')
+        sys.exit()
+
+    wb = xlrd.open_workbook(sys.argv[1])
+
+    if wb.sheets()[0].name == '表紙':
+        sheet = wb.sheets()[1]
+    else:
+        sheet = wb.sheets()[0]
+
+    if sheet.name == '基本設定':
+        MAP = MAP_NEW
+    else:
+        MAP = MAP_OLD
+
+    for xi in range(1, sheet.nrows):
+        row = sheet.row(xi)
+        dic = map(row, MAP)
+
+        if dic['item_title']:
+            item_title = dic['item_title']
+        else:
+            dic['item_title'] = item_title
+
+        dic['conf'] = textwrap.indent(dic['conf'], '    ')
+
+        if str(row[0].value):
+            print(TEMPLATE % dic)
+
+if __name__ == '__main__':
+    main()
