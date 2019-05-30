@@ -20,7 +20,12 @@ Websearch-2: 初期設定から取り除く検索エンジン
 
     -
 
-    :2: 一部の検索エンジンを取り除く（ポリシーで設定）
+    :2: 限定する
+
+    lockPref("extensions.disablesearchengines@clear-code.com.disabled", "取り除くエンジン名");
+    // https://github.com/clear-code/disablesearchengines/blob/master/autoconfig-disablesearchengines.js を併用
+
+    :3: 一部の検索エンジンを取り除く（ポリシーで設定）
 
     "SearchEngines": {
       "Remove": ["初期状態で取り除く検索エンジン名", ...]
