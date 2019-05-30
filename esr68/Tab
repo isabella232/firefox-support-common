@@ -306,7 +306,7 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
     // 新規導入環境で必要。ESR60からの移行時は不要。
     lockPref("browser.ctrlTab.recentlyUsedOrde", false);
 
-Tab-18:タブの複数選択
+Tab-18: タブの複数選択
 
     :1: 許可する（既定）
 
