@@ -19,7 +19,7 @@ except ImportError:
 #
 # Global settings
 
-OUT_FILE = 'configurations.xlsx'
+OUT_FILE = 'config.xlsx'
 
 ESR_PREVIOUS = 'esr60'
 ESR_CURRENT = 'esr68'
