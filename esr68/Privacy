@@ -167,6 +167,12 @@ Privacy-9: 日数ベースでの履歴の自動削除
         },
       },
     }
+    
+    fainstall.ini:
+    [flexible-expire-history-by-days.xpi]
+    AddonId=flexible-expire-history-by-days@clear-code.com
+    TargetLocation=%AppDir%/browser/extensions
+    Unpack=false
 
 Privacy-10: セッション情報の保存の可否
 
