@@ -116,6 +116,19 @@ def setup_conditional_format(sheet, formats):
         'format':   formats['selected']
     })
 
+def add_verify_targets(wb):
+    sheet = wb.add_worksheet('verify-targets')
+    pad = -1
+
+    for title, _ in WORKBOOK_DEF:
+        for row in range(2, 1000):
+            formula = '=IF(%(A)s="", "", CONCATENATE(%(B)s, "-", %(D)s))' % {
+                'A': "'%s'!A%s" % (title, row),
+                'B': "'%s'!B%s" % (title, row),
+                'D': "'%s'!D%s" % (title, row)
+            }
+            sheet.write_formula(row + pad, 0, formula, None, "")
+        pad += row
 
 def main(args):
     wb = xlsxwriter.Workbook(OUT_FILE)
@@ -190,6 +203,8 @@ def main(args):
                     sheet.write(row, 7, prev.get(d['opt_id'], ""), formats['default'])
                     sheet.write(row, 8, conf_old.get(d['opt_id'], ""), formats['default'])
                     row += 1
+
+    add_verify_targets(wb)
 
     wb.close()
     print('Generated:', OUT_FILE)
