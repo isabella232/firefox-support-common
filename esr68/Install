@@ -145,7 +145,7 @@ Install-12: 管理者権限の確認
 
     :1: 確認する（既定）
 
-
+    -
 
     :2: 確認しない
 
@@ -158,4 +158,18 @@ Install-12: 管理者権限の確認
     Firefox-setup.ini/Thunderbird-setup.ini:
     [Install]
     AdminPrivilegeCheckDirectory=C:\Program Files (x86)\
+
+Install-13: インストール前のクリーンアップ処理
+
+    :1: 何もしない
+
+    -
+
+    :2: 旧バージョンのFirefoxを強制的に削除する
+
+    AppCleanupDirs=%ProgramFiles32%/Mozilla Firefox|%ProgramFiles64%/Mozilla Firefox
+
+    :3: 特定のフォルダを消去してから同梱のアプリケーションをインストールする
+
+    AppCleanupDirs=（消去したいフォルダのパス）
 
