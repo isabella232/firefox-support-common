@@ -108,13 +108,12 @@ Performance-6: 同時に開けるタブの個数を制限する
     TargetLocation=%AppDir%/browser/extensions
     Unpack=false
     
-    lean_tab_limiter_advanced-x.x-fx.xpi.ManagedStorage:
-    {
-      "name": "lean-tab-limiter-advanced@clear-code.com",
-      "description": "Managed storage manifest for lean-tab-limiter-advanced",
-      "type": "storage",
-      "data": {
-        "tab-limit": 10
+    policies.json
+    "3rdparty": {
+      "Extensions": {
+        "lean-tab-limiter-advanced@clear-code.com": {
+          "tab-limit": 10
+        }
       }
     }
 
