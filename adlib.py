@@ -1,42 +1,58 @@
-"""
-HOW TO USE
-----------
-
->>> import adlib
->>> adlib.load('esr60/Install')
-
-DATA SCHEMA
------------
-
-  {
-    'item_id': 'Privacy-2',
-    'item_title': 'フォームの入力履歴の保存の可否',
-    'opts': [{'conf': '"DisableFormHistory": true',
-              'opt_id': 'Privacy-2-3',
-              'opt_no': '3',
-              'opt_title': '保存しない（ポリシーで設定）'}]
-  }
-"""
+#
+# ADLIB - The Arcane Document Library
+#
+# Copyright (C) Clear Code, Inc. 2019
+#
+# HOW TO USE
+# ----------
+#
+# >>> import adlib
+# >>> adlib.load('esr60/Install')
+#
+# DATA SCHEMA
+# -----------
+#
+#   {
+#     'item_id': 'Privacy-2',
+#     'item_title': 'フォームの入力履歴の保存の可否',
+#     'opts': [{'conf': '"DisableFormHistory": true',
+#               'opt_id': 'Privacy-2-3',
+#               'opt_no': '3',
+#               'opt_title': '保存しない（ポリシーで設定）'}]
+#   }
 
 import re
 import textwrap
+
+# Our configuration database is just a collection of text files.
+# Each text file is written in own custom format, which looks like:
+#
+# Install-1: インストーラの表示名
+#
+#    :1: 任意の名前
+#
+#    !define PRODUCT_FULL_NAME  "（名前）"
+#
+# PAT_ITEM detects the main title line, and PAT_OPT detects the
+# option title.
+
+PAT_ITEM = re.compile('^(\S+): (.+)')
+PAT_OPT  = re.compile('^ +:(\d+): (.+)')
 
 class Loader:
 
     def __init__(self):
         self.data = []
         self.conf = ''
-        self.re_item = re.compile('^(\S+): (.+)')
-        self.re_opt = re.compile('^ +:(\d+): (.+)')
 
     def feed(self, line):
         line = line.rstrip()
 
-        m = re.match(self.re_item, line)
+        m = re.match(PAT_ITEM, line)
         if m:
             return self.new_item(m.group(1), m.group(2))
 
-        m = re.match(self.re_opt, line)
+        m = re.match(PAT_OPT, line)
         if m:
             return self.new_opt(m.group(1), m.group(2))
 
