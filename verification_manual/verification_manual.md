@@ -2398,16 +2398,11 @@
 {{#Script-1}} - Script-1-\* {{/Script-1}}
 {{#Script-4}} - Script-4-\* {{/Script-4}}
 {{#Script-5}} - Script-5-\* {{/Script-5}}
-{{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
-{{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}{{#Performance-1 || Performance-2}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
-{{/Performance-1 || Performance-2}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
@@ -2470,7 +2465,31 @@
 {{/Script-5-2}}
 {{/Script-5}}
 {{/Script-4 || Script-5}}
-<!--GROUP-->
+
+
+## パフォーマンスに関わるカスタマイズ
+
+### 確認する項目
+
+{{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
+{{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
+{{#Performance-3-2}} - Performance-3-2 {{/Performance-3-2}}
+{{#Performance-4-2}} - Performance-4-2 {{/Performance-4-2}}
+{{#Performance-5-1}} - Performance-5-1 {{/Performance-5-1}}
+{{#Performance-6-2}} - Performance-6-2 {{/Performance-6-2}}
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-9-3}}
+1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+{{/Security-9-3}}
+
+
+### 検証
+
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Performance-1-2}}
@@ -2479,13 +2498,26 @@
 {{#Performance-2-2}}
         1. `content.notify.interval` の値が指定値の通りである。(Performance-2-2)
 {{/Performance-2-2}}
-<!--/GROUP-->
+{{#Performance-3-2}}
+        1. `browser.tabs.unloadOnLowMemory` の値が `false` である。(Performance-3-2)
+{{/Performance-3-2}}
+{{#Performance-4-2}}
+        1. `accessibility.force_disabled` の値が `1` である。(Performance-4-2)
+{{/Performance-4-2}}
+{{#Performance-5-1}}
+        1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。(Performance-5-1)
+{{/Performance-5-1}}
+{{#Performance-6-2}}
+1. 上限として設定した数より多くタブを開く操作を行う。
+    - 確認項目
+        1. 上限を超えて開いた分のタブが自動的に閉じられる。(Performance-6-2)
+{{/Performance-6-2}}
 
-{{#Security-9-3}}{{#Performance-1 || Performance-2}}
+{{#Security-9-3}}
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
-{{/Performance-1 || Performance-2}}{{/Security-9-3}}
+{{/Security-9-3}}
 
 {{#Script-7}}
 ## 音声の自動再生の制御
