@@ -120,6 +120,8 @@
 {{#Install-9}} - Install-9-\* {{/Install-9}}
 {{#Install-10-2 || Install-10-3}} - Install-10-2/3 {{/Install-10-2 || Install-10-3}}
 {{#Install-11}} - Install-11-\* {{/Install-11}}
+{{#Install-12-3}} - Install-12-3 {{/Install-12-3}}
+{{#Install-13-2 || Install-13-3}} - Install-13-2/3 {{/Install-13-2 || Install-13-3}}
 {{#Application-1}} - Application-1-\* {{/Application-1}}
 {{#Application-2}} - Application-2-\* {{/Application-2}}
 {{#Application-3}} - Application-3-\* {{/Application-3}}
@@ -139,10 +141,19 @@
     1. `C:\Program Files (x86)\ClearCode Inc`
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+{{#Install-12-3}}
+1. 管理者でない検証用ユーザーを用意し、権限確認用のフォルダに書き込み権限を与える。
+{{/Install-12-3}}
+{{#Install-13-2}}
+1. `{{install_path}}` の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+{{/Install-13-2}}
+{{#Install-13-3}}
+1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+{{/Install-13-3}}
 
 ### 検証
 
-1. `{{meta_installer_file_name}}\*.exe` を実行する。
+1. {{#Install-12-3}}検証用ユーザーとして {{/Install-12-3}}`{{meta_installer_file_name}}\*.exe` を実行する。
 <!--GROUP-->
     - 確認項目
 {{#Install-3-2}}
@@ -173,9 +184,12 @@
 <!--GROUP-->
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
-{{#Install-8}}
-        1. `{{install_path}}\firefox.exe` が存在する。(Install-8-\*)
-{{/Install-8}}
+{{#Install-8 || Install-12-3}}
+        1. `{{install_path}}\firefox.exe` が存在する。{{#Install-8}}(Install-8-\*){{/Install-8}}{{#Install-12-3}}(Install-12-3){{/Install-12-3}}
+{{/Install-8 || Install-12-3}}
+{{#Install-13-2}}
+       1. `{{install_path}}\must-be-removed.txt` が存在しない。(Install-13-2)
+{{/Install-13-2}}
 {{#Admin-1}}
         1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-\*)
 {{/Admin-1}}
@@ -209,6 +223,10 @@
 {{#Update-4}}
         1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。(Update-4-1){{/Update-4-1}}{{#Update-4-2}}いない。(Update-4-2){{/Update-4-2}}
 {{/Update-4}}
+{{#Install-13-3}}
+        1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。(Install-13-3)
+{{/Install-13-3}}
+
 <!--/GROUP-->
 
 ## 専用ユーザープロファイルの作成と使用
