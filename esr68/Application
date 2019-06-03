@@ -2,7 +2,9 @@ Application-1: デスクトップのショートカット
 
     :1: 既定の内容で作成（既定）
 
-    -
+    Firefox-setup.ini/Thunderbird-setup.ini:
+    [Install]
+    DesktopShortcut=true
 
     :2: 作成しない
 
@@ -32,7 +34,10 @@ Application-2: スタートメニューのショートカット
 
     :1: 既定の内容で作成（既定）
 
-    -
+    Firefox-setup.ini/Thunderbird-setup.ini:
+    [Install]
+    StartMenuShortcuts=true
+    StartMenuDirectoryName=Mozilla Firefox
 
     :2: 作成しない
 

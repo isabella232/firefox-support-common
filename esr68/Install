@@ -88,7 +88,10 @@ Install-8: Firefox/Thunderbirdのインストール先
 
     :1: 既定のインストール先（既定）
 
-    -
+    Firefox-setup.ini/Thunderbird-setup.ini:
+    [Install]
+    InstallDirectoryName=Mozilla Firefox
+    InstallDirectoryPath=
 
     :2: 任意のインストール先
 
