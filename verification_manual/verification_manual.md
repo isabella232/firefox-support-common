@@ -2294,7 +2294,7 @@
 {{/Security-9-3 || disable_devtools}}
 {{/Appearance-1-2 || Appearance-1-3}}
 
-{{#Appearance-2-2 || Appearance-3-2 || Appearance-5-1 || Appearance-6-1}}
+
 ## ツールバーの項目
 
 ### 確認する項目
@@ -2303,6 +2303,7 @@
 {{#Appearance-3-2}} - Appearance-3-2 {{/Appearance-3-2}}
 {{#Appearance-5-1}} - Appearance-5-1 {{/Appearance-5-1}}
 {{#Appearance-6-1}} - Appearance-6-1 {{/Appearance-6-1}}
+{{#Appearance-9-2}} - Appearance-9-2 {{/Appearance-9-2}}
 
 ### 準備
 
@@ -2322,6 +2323,9 @@
 {{#Appearance-6-1}}
         1. メニューバーが表示されている。（Appearance-6-1）
 {{/Appearance-6-1}}
+{{#Appearance-9-2}}
+        1. 「Firefoxアカウント」ボタンが表示されていない。（Appearance-9-2）
+{{/Appearance-9-2}}
 {{#Appearance-2-2}}
 2. ツールバーカスタマイズで、ツールバーおよびパネルメニューの内容を変更する。
 3. Firefoxを再起動する。
@@ -2333,7 +2337,7 @@
     - 確認項目
         1. ロケーションバーと検索バーが統合されていない (Appearance-3-2)
 {{/Appearance-3-2}}
-{{/Appearance-2-2 || Appearance-3-2 || Appearance-5-1 || Appearance-6-1}}
+
 
 {{#Appearance-4-1}}
 ## Windows 7におけるウィンドウコントロールの不具合の回避
