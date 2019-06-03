@@ -487,6 +487,37 @@
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
 
+{{#Admin-4}}
+## アドオンの署名確認の無効化
+
+### 確認する項目
+
+- Admin-4-*
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+2. アドオンの未署名のインストールパッケージとして、テストケースの以下のファイルを用意する。
+   `unsigned-sample-addon@clear-code.com.xpi`
+
+### 検証
+
+1. 用意したインストールパッケージを以下の位置に置く。
+   `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+1. `{{desktop_shortcut_path}}` がある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+{{#Admin-2-1}}
+1. アドオンを有効化した上で、Firefoxを再起動する。
+{{/Admin-2-1}}
+    - 確認項目
+        1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されいる。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}表示されない。(Admin-4-2){{/Admin-4-2}}
+
+### 後始末
+
+1. 以下の位置に設置したファイルを削除する。
+   `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+{{/Admin-4}}
+
 ## 起動方法の制御
 
 ### 確認する項目
