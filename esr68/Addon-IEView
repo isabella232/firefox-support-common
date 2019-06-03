@@ -117,7 +117,7 @@ Addon-IEView-6: IEで開かない例外サイト
       }
     }
 
-Addon-IEView-7: IEで開くページのの検出対象
+Addon-IEView-7: IEで開くページの検出対象
 
     :1: トップレベルのフレームへの読み込みのみ
 
