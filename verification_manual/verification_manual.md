@@ -2771,14 +2771,22 @@
 
 ### 確認する項目
 
-{{#Addon-IEView-1-2 || Addon-IEView-1-3 || Addon-IEView-1-4 || Addon-IEView-1-5}} - Addon-IEView-1-2/3/4/5 {{/Addon-IEView-1-2 || Addon-IEView-1-3 || Addon-IEView-1-4 || Addon-IEView-1-5}}
-{{#Addon-IEView-2-1 || Addon-IEView-2-2}} - Addon-IEView-2-1/2 {{/Addon-IEView-2-1 || Addon-IEView-2-2}}
+{{#Addon-IEView-1}}{{^Addon-IEView-1-1}} - Addon-IEView-1-2/3/4/5 {{/Addon-IEView-1-1}}{{/Addon-IEView-1}}
+{{#Addon-IEView-2}} - Addon-IEView-2-* {{/Addon-IEView-2}}
 {{#Addon-IEView-3-2}} - Addon-IEView-3-2 {{/Addon-IEView-3-2}}
+{{#Addon-IEView-4}} - Addon-IEView-4-1 {{/Addon-IEView-4}}
+{{#Addon-IEView-5-2}} - Addon-IEView-5-2 {{/Addon-IEView-5-2}}
+{{#Addon-IEView-6-2}} - Addon-IEView-6-2 {{/Addon-IEView-6-2}}
+{{#Addon-IEView-7}} - Addon-IEView-7-* {{/Addon-IEView-7}}
+{{#Addon-IEView-8}} - Addon-IEView-8-* {{/Addon-IEView-8}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-35-2}}
+1. Policy Engineでの `about:support` 無効化を解除し、一時的に有効化しておく。
+{{/Security-35-2}}
 {{#disable_devtools}}
 1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
 {{/disable_devtools}}
@@ -2786,6 +2794,17 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければfirefox.exeをダブルクリックしてFirefoxを起動する。
+{{#Addon-IEView-4}}
+1. `about:support` を開く。
+    - 確認項目
+        1. IE View WEがインストール済みになっている。（Addon-IEView-4-1）
+{{/Addon-IEView-4}}
+{{#Addon-IEView-5－2}}
+1. `http://example.com/` を開く。
+1. ページ上で右クリックする。
+    - 確認項目
+        1. IE View WEのコンテキストメニュー項目が表示される。（Addon-IEView-5-2）
+{{/Addon-IEView-5-2}}
 <!--GROUP-->
 1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクから新しいタブを開く。
     - 確認項目
@@ -2799,6 +2818,21 @@
         1. 指定したパスのIEが起動しており、指定したオプションも反映されている。（Addon-IEView-2-1/2）
 {{/Addon-IEView-2-1 || Addon-IEView-2-2}}
 <!--/GROUP-->
+{{#Addon-IEView-6-2}}
+1. 自動的にIEを起動するよう設定されたページで、且つ、IEで開かない例外に登録されているページへのリンクがあるページを開き、リンクから新しいタブを開く。
+    - 確認項目
+        1. IEが起動する。（Addon-IEView-6-2）
+{{/Addon-IEView-6-2}}
+{{#Addon-IEView-7}}
+1. 自動的にIEを起動するよう設定されたページをインラインフレームで読み込むページを開く。
+    - 確認項目
+        1. {{#Addon-IEView-7-1}}IEが起動しない。（Addon-IEView-7-1）{{/Addon-IEView-7-1}}{{#Addon-IEView-7-2}}IEが起動する。（Addon-IEView-7-2）{{/Addon-IEView-7-2}}
+{{/Addon-IEView-7}}
+{{#Addon-IEView-8}}
+1. URLのパラメータ部分だけが自動的にIEを起動するルールにマッチするページへのリンクがあるページを開き、リンクから新しいタブを開く。
+    - 確認項目
+        1. {{#Addon-IEView-8-1}}IEが起動しない。（Addon-IEView-8-1）{{/Addon-IEView-8-1}}{{#Addon-IEView-8-2}}IEが起動する。（Addon-IEView-8-2）{{/Addon-IEView-8-2}}
+{{/Addon-IEView-8}}
 {{#Addon-IEView-3-2}}
 1. 自動的にIEを起動するよう設定されたページ以外のページを開く。
 1. パネルメニューの「開発ツール」（またはメニューバーの「Web開発」）をクリックし、サブメニューの「インスペクター」をクリックする。
@@ -2807,11 +2841,11 @@
         1. 「見つかりませんでした。」と表示される。（Addon-IEView-3-2）
 {{/Addon-IEView-3-2}}
 
-{{#disable_devtools}}
+{{#disable_devtools || Security-35-2}}
 ### 後始末
 
 1. Policy Engineに加えた変更を元に戻す。
-{{/disable_devtools}}
+{{/disable_devtools || Security-35-2}}
 
 
 <!--======================================================================-->
