@@ -33,6 +33,7 @@ VARIABLES = {
   start_with_no_remote:           false,
   home_page:                      "http://?????",
   window_title:                   "Mozilla Firefox",
+  exe_name:                       "firefox",
   disabled_about_pages:           "about:robots",
   history_expiration_max_pages:   "???",
   expire_history_by_days_version: "Flexible Expire History by Days",
