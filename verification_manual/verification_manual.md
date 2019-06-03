@@ -401,10 +401,10 @@
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
 {{#Security-9-3}}{{#Startup-4-2 || Startup-10-2}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Startup-4-2 || Startup-10-2}}{{/Security-9-3}}
 {{#Security-35-2}}{{#Startup-7-3}}
-1. Policy Engineでのabout:support無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Startup-7-3}}{{/Security-35-2}}
 
 ### 検証
@@ -504,7 +504,7 @@
 
 1. 検証用に導入したアドオンを削除する。
 {{#Security-9-3 || Security-35-2}}{{#Startup-4-2 || Startup-10-2 || Startup-7-3}}
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Startup-4-2 || Startup-10-2 || Startup-7-3}}{{/Security-9-3 || Security-35-2}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
@@ -657,12 +657,17 @@
 1. `C:\Users\Public\nss.log-*` を全て削除する。
 {{/Security-1-3}}
 
-{{#Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6 || Security-3-7}}
+{{#Security-3 || Privacy-51-2}}
 ## アドオンの利用制限
 
 ### 確認する項目
 
+{{#Security-3}}{{^Security-3-1 || Security-3-2}}
 - Security-3-3/4/5/6
+{{/Security-3-1 || Security-3-2}}{{/Security-3}}
+{{#Privacy-51-2}}
+- Privacy-51-2
+{{/Privacy-51-2}}
 
 ### 準備
 
@@ -671,6 +676,9 @@
 {{#Security-3-3 || Security-3-4 || Security-3-7}}
 1. テストケースリストの「{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi」リンクから署名済みアドオンをダウンロードしておく。
 {{/Security-3-3 || Security-3-4 || Security-3-7}}
+{{#Privacy-51-2}}{{#MenuShortcut-3}}
+1. ポリシー設定から`DisablePrivateBrowsing`の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
+{{/MenuShortcut-3}}{{/Privacy-51-2}}
 
 ### 検証
 
@@ -690,21 +698,32 @@
         1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。(Security-3-3/4/7)
 {{/Security-3-3 || Security-3-4 || Security-3-7}}
 <!--/GROUP-->
-{{#Security-3-4 || Security-3-7}}
+{{#Security-3-3}}
+1. ロケーションバーに`about:addons`と入力して確定する。
+    - 確認項目
+        1. `about:addons`への遷移がブロックされる (Security-3-3)
+{{/Security-3-3}}
+{{#Security-3-4 || Security-3-7 || Privacy-51-2}}
+{{#Security-3-3}}
+1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化する。
+{{/Security-3-3}}
 1. アドオンマネージャを開く。
     - 確認項目
+{{#Security-3-4 || Security-3-7}}
         1. 「アドオン入手」が表示されない。(Security-3-4/7)
         1. 歯車アイコンが表示されている場合、そのポップアップメニュー内に「ファイルからアドオンをインストール」が含まれない。(Security-3-4/7)
         1. 「拡張機能」タブが選択された状態で、アドオンマネージャ上にアドオンのインストールパッケージをドラッグ&ドロップして、アドオンがインストールされない。(Security-3-4/7)
         1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4/7)
 {{/Security-3-4 || Security-3-7}}
+{{#Privacy-51-2}}
+        1. アドオンがすべてプライベートウィンドウでも有効になっている。 (Privacy-51-2)
+{{/Privacy-51-2}}
 {{#Security-3-3}}
-1. （Policy Engineを利用している場合のみ）ロケーションバーに`about:addons`と入力して確定する。
-    - 確認項目
-        1. `about:addons`への遷移がブロックされる (Security-3-3)
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-3-3}}
+{{/Security-3-4 || Security-3-7 || Privacy-51-2}}
 
-{{/Security-3-3 || Security-3-4 || Security-3-5 || Security-3-6 || Security-3-7}}
+{{/Security-3 || Privacy-51-2}}
 
 {{#Security-4}}
 ## 広告などのポップアップのブロック
@@ -888,7 +907,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 {{#disable_devtools}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定での開発ツール無効化設定を解除し、一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -913,7 +932,7 @@
 {{#disable_devtools}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/disable_devtools}}
 {{/Security-15-2}}
 
@@ -930,7 +949,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -956,7 +975,7 @@
 {{#disable_devtools}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/disable_devtools}}
 
 
@@ -993,7 +1012,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -1006,7 +1025,7 @@
 {{#disable_devtools}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/disable_devtools}}
 {{/Security-21}}
 
@@ -1022,7 +1041,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
@@ -1036,7 +1055,7 @@
 {{#Security-9-3}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-9-3}}
 
 {{/Security-23}}
@@ -1133,7 +1152,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Security-28 || Security-31 || Security-32}}{{/Security-9-3}}
 
 ### 検証
@@ -1186,7 +1205,7 @@
 {{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-28 || Security-31 || Security-32}}{{/Security-9-3}}
 
 <!--======================================================================-->
@@ -1244,10 +1263,10 @@
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
 {{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 {{#Privacy-1 && MenuShortcut-3}}
 1. MenuShortcut-3によるプライベートブラウジングの無効化設定を解除し、一時的に有効化しておく。
@@ -1537,7 +1556,7 @@
     1. `devtools.chrome.enabled` （真偽型）
 {{/Privacy-7 || Privacy-16}}
 {{#Security-9-3 || disable_devtools}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/disable_devtools || Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}{{/Security-9-3 || disable_devtools}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
@@ -1559,10 +1578,10 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-3-3}}
-1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
+1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
 {{/Security-3-3}}
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Security-9-3}}
 1. 十分な日数分の履歴項目を以下の手順で用意する。
     1. システムの日付と時刻について、インターネット経由での調整を無効にする。例えばWindowsであれば、タスクバーの時計を右クリックして「日付と時刻の調整」を選択し、「日付と時刻」ダイアログの「インターネット時刻」タブで「設定の変更」ボタンをクリックし、「インターネット時刻サーバーと同期する」のチェックを外す。（※要：管理者権限）
@@ -1599,7 +1618,7 @@
 
 1. システムの日付と時刻について、インターネット経由での調整を有効に戻す。
 {{#Security-3-3 || Security-9-3}}
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-3-3 || Security-9-3}}
 {{/Privacy-9-1}}
 
@@ -1703,7 +1722,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -1730,7 +1749,7 @@
 {{#disable_devtools}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/disable_devtools}}
 {{/Privacy-29-2}}
 
@@ -1983,7 +2002,7 @@
 1. テストケース `links.html` を用意する。
 {{/Tab-3}}
 {{#Security-9-3}}{{#Tab-2-3 || Tab-9-2}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Tab-2-3 || Tab-9-2}}{{/Security-9-3}}
 
 ### 検証
@@ -2044,7 +2063,7 @@
 {{#Security-9-3}}{{#Tab-2-3 || Tab-9-2}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Tab-2-3 || Tab-9-2}}{{/Security-9-3}}
 
 
@@ -2225,7 +2244,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
@@ -2260,7 +2279,7 @@
 {{#Security-9-3}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-9-3}}
 
 {{#Stability-1}}
@@ -2326,10 +2345,10 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Security-9-3}}
 {{#disable_devtools}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -2357,7 +2376,7 @@
     2. `font.name.sans-serif.ja`（文字列型）
     3. `font.name.monospace.ja`（文字列型）
 {{#Security-9-3 || disable_devtools}}
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-9-3 || disable_devtools}}
 {{/Appearance-1-2 || Appearance-1-3}}
 
@@ -2448,7 +2467,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく
+1. ポリシー設定での開発ツール無効化設定を解除し、一時的に有効化しておく
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 
 
@@ -2527,7 +2546,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/Security-9-3}}
 
 
@@ -2560,7 +2579,7 @@
 {{#Security-9-3}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-9-3}}
 
 {{#Script-7}}
@@ -2574,7 +2593,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 
 ### 検証
 
@@ -2585,7 +2604,7 @@
 
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 
 {{/Script-7}}
 
@@ -2657,7 +2676,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}{{/Security-9-3}}
 {{#Network-12}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
@@ -2735,7 +2754,7 @@
 {{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}{{/Security-9-3}}
 
 <!--======================================================================-->
@@ -2755,7 +2774,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-9-3}}
-1. Policy Engineでのabout:config無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Security-9-3}}
 
 ### 検証
@@ -2778,7 +2797,7 @@
 {{#Security-9-3}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-9-3}}
 
 <!--======================================================================-->
@@ -2798,7 +2817,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. NPAPIプラグインを何種類かインストールしておく。
 {{#Security-3-3}}
-1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
+1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
 {{/Security-3-3}}
 
 ### 検証
@@ -2811,7 +2830,7 @@
 ### 後始末
 
 {{#Security-3-3}}
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Security-3-3}}
 1. 各プラグインの制御が可能であるかどうか自体を検証した場合、{{mcd_local_file}}に加えた変更を元に戻す。
 {{/Plugin-10}}
@@ -2839,7 +2858,7 @@
 {{/Plugin-2 || Security-24 || Security-33}}
 {{#Security-3-3}}
 {{#Plugin-2 || Plugin-8}}
-1. Policy Engineでのアドオンマネージャ無効化設定を解除し、一時的に有効化しておく
+1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
 {{/Plugin-2 || Plugin-8}}
 {{/Security-3-3}}
 
@@ -2873,7 +2892,7 @@
 {{#Plugin-2 || Plugin-8}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/Plugin-2 || Plugin-8}}
 {{/Security-3-3}}
 
@@ -2924,10 +2943,10 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Security-35-2}}
-1. Policy Engineでの `about:support` 無効化を解除し、一時的に有効化しておく。
+1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Security-35-2}}
 {{#disable_devtools}}
-1. Policy Engineでの開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -2983,7 +3002,7 @@
 {{#disable_devtools || Security-35-2}}
 ### 後始末
 
-1. Policy Engineに加えた変更を元に戻す。
+1. ポリシー設定に加えた変更を元に戻す。
 {{/disable_devtools || Security-35-2}}
 
 
