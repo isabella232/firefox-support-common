@@ -2573,6 +2573,7 @@
 {{#Network-12}} - Network-12-\* {{/Network-12}}
 {{#Network-13}} - Network-13-\* {{/Network-13}}
 {{#Network-14}} - Network-14-\* {{/Network-14}}
+{{#Network-16}} - Network-16-\* {{/Network-16}}
 {{#Network-17}} - Network-17-\* {{/Network-17}}
 
 ### 準備
@@ -2628,6 +2629,10 @@
 {{#Network-13}}
         1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。(Network-13-1){{/Network-13-1}}{{#Network-13-2 || Network-13-3}}`3`以下である。(Network-13-2/3){{/Network-13-2 || Network-13-3}}
 {{/Network-13}}
+{{#Network-16}}
+        1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}(Network-16-1){{/Network-16-1}}{{#Network-16-2}}(Network-16-2){{/Network-16-2}}
+        1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}(Network-16-1){{/Network-16-1}}{{#Network-16-2}}(Network-16-2){{/Network-16-2}}
+{{/Network-16}}
 {{#Network-17}}
         1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。(Network-17-1){{/Network-17-1}}{{#Network-17-2}}`2`以上である。(Network-17-2){{/Network-17-2}}
 {{/Network-17}}
