@@ -77,48 +77,48 @@ def setup_conditional_format(sheet, formats):
         'format':   formats['deprecated']
     })
 
-    sheet.conditional_format('D2:I9999', {
+    sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': 'ISNUMBER(FIND("廃止",$E2))',
+        'criteria': 'ISNUMBER(FIND("廃止",$F2))',
         'format':   formats['deprecated']
     })
 
     # QUESTION
-    sheet.conditional_format('D2:I9999', {
+    sheet.conditional_format('D2:J9999', {
         'type':     'formula',
         'criteria': '$A2 = "?"',
         'format':   formats['question']
     })
 
     # SELECTED (NEW)
-    sheet.conditional_format('D2:I9999', {
+    sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': 'AND($H2 = "", $A2 <> "")',
+        'criteria': 'AND($I2 = "", $A2 <> "")',
         'format':   formats['new']
     })
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
-        'criteria': 'AND($H2 = "", %s)'  % countif,
+        'criteria': 'AND($I2 = "", %s)'  % countif,
         'format':   formats['new']
     })
 
     # SELECTED (CHANGED)
-    sheet.conditional_format('D2:I9999', {
+    sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': 'AND($I2 <> $G2, $A2 <> "")',
+        'criteria': 'AND($J2 <> $H2, $A2 <> "")',
         'format':   formats['changed']
     })
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
-        'criteria': 'AND($I2 <> $G2, %s)'  % countif,
+        'criteria': 'AND($J2 <> $H2, %s)'  % countif,
         'format':   formats['changed']
     })
 
 
     # SELECTED
-    sheet.conditional_format('D2:I9999', {
+    sheet.conditional_format('D2:J9999', {
         'type':     'formula',
         'criteria': '$A2 <> ""',
         'format':   formats['selected']
@@ -174,23 +174,25 @@ def main(args):
         sheet.write(0, 0, '選択')
         sheet.write(0, 1, '項目番号')
         sheet.write(0, 2, '項目名')
-        sheet.write(0, 3, '選択番号')
-        sheet.write(0, 4, '選択肢')
-        sheet.write(0, 5, '標準設定 (%s)' % ESR_CURRENT)
-        sheet.write(0, 6, '導入設定 (%s)' % ESR_CURRENT)
-        sheet.write(0, 7, '標準設定 (%s)' % ESR_PREVIOUS)
-        sheet.write(0, 8, '導入設定 (%s)' % ESR_PREVIOUS)
+        sheet.write(0, 3, '状態')
+        sheet.write(0, 4, '選択番号')
+        sheet.write(0, 5, '選択肢')
+        sheet.write(0, 6, '標準設定 (%s)' % ESR_CURRENT)
+        sheet.write(0, 7, '導入設定 (%s)' % ESR_CURRENT)
+        sheet.write(0, 8, '標準設定 (%s)' % ESR_PREVIOUS)
+        sheet.write(0, 9, '導入設定 (%s)' % ESR_PREVIOUS)
 
-        sheet.set_column(0, 8, None, formats['default'])
+        sheet.set_column(0, 9, None, formats['default'])
         sheet.set_column(0, 0, 3)
         sheet.set_column(1, 1, 12)
         sheet.set_column(2, 2, 30)
         sheet.set_column(3, 3, 5)
-        sheet.set_column(4, 4, 20)
-        sheet.set_column(5, 5, 40)
+        sheet.set_column(4, 4, 5)
+        sheet.set_column(5, 5, 20)
         sheet.set_column(6, 6, 40)
         sheet.set_column(7, 7, 40)
         sheet.set_column(8, 8, 40)
+        sheet.set_column(9, 9, 40)
 
         row = 1
         for fn in files:
@@ -208,15 +210,19 @@ def main(args):
                     if d['opt_id'] in conf_new:
                         mark, conf = 'y', conf_new[d['opt_id']]
 
+                    label = '_xlfn.IFS(A#="","",ISNUMBER(FIND("廃止",F#)),"廃止",I#="","新規",H#<>J#,"変更",TRUE,"")'
+                    label = label.replace('#', str(row+1))
+
                     sheet.write(row, 0, mark, formats['default'])
                     sheet.write(row, 1, data['item_id'])
                     sheet.write(row, 2, data['item_title'])
-                    sheet.write(row, 3, d['opt_no'])
-                    sheet.write(row, 4, d['opt_title'])
-                    sheet.write(row, 5, d['conf'].strip())
-                    sheet.write(row, 6, conf, formats['default'])
-                    sheet.write(row, 7, prev.get(d['opt_id'], ""), formats['default'])
-                    sheet.write(row, 8, conf_old.get(d['opt_id'], ""), formats['default'])
+                    sheet.write_formula(row, 3, label, None, "")
+                    sheet.write(row, 4, d['opt_no'])
+                    sheet.write(row, 5, d['opt_title'])
+                    sheet.write(row, 6, d['conf'].strip())
+                    sheet.write(row, 7, conf, formats['default'])
+                    sheet.write(row, 8, prev.get(d['opt_id'], ""), formats['default'])
+                    sheet.write(row, 9, conf_old.get(d['opt_id'], ""), formats['default'])
                     row += 1
 
     add_verify_targets(wb)
