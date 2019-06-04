@@ -176,3 +176,25 @@ Install-13: インストール前のクリーンアップ処理
 
     AppCleanupDirs=（消去したいフォルダのパス）
 
+Install-14: Internet Explorerのコンテキストメニューにコマンドを追加登録する
+
+    :1: 登録しない
+
+    -
+
+    :2: 登録する
+
+    menu-command.reg:
+    Windows Registry Editor Version 5.00
+    
+    [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\MenuExt]
+    
+    [HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\MenuExt\コマンド名]
+    @="file:///C:/Program Files/Mozilla Firefox/chrome/menu-command.html"
+    
+    fainstall.ini:
+    [fainstall]
+    ExtraFiles=menu-command.html
+    
+    [menu-command.html]
+    TargetLocation=%AppDir%/chrome/
