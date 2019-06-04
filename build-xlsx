@@ -163,8 +163,8 @@ def main(args):
         'deprecated': wb.add_format({'bg_color': '#CCCCCC', 'border': 1}),
         'selected':   wb.add_format({'bg_color': '#ffd700', 'border': 1}),
         'question':   wb.add_format({'bg_color': '#90ee90', 'border': 1}),
-        'new':        wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
-        'changed':    wb.add_format({'bg_color': '#ff8b5d', 'border': 1}),
+        'new':        wb.add_format({'bg_color': '#ffb6c1', 'border': 1}),
+        'changed':    wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
     }
 
     for title, files in WORKBOOK_DEF:
