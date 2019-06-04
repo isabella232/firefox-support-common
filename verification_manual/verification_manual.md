@@ -2640,7 +2640,7 @@
 {{/Script-4 || Script-5}}
 
 
-## パフォーマンスに関わるカスタマイズ
+## パフォーマンス、安定性に関わるカスタマイズ
 
 ### 確認する項目
 
@@ -2650,6 +2650,7 @@
 {{#Performance-4-2}} - Performance-4-2 {{/Performance-4-2}}
 {{#Performance-5-1}} - Performance-5-1 {{/Performance-5-1}}
 {{#Performance-6-2}} - Performance-6-2 {{/Performance-6-2}}
+{{#Stability-3-2}} - Stability-3-2 {{/Stability-3-2}}
 
 ### 準備
 
@@ -2680,6 +2681,9 @@
 {{#Performance-5-1}}
         1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。(Performance-5-1)
 {{/Performance-5-1}}
+{{#Stability-3-2}}
+        1. `security.sandbox.content.level` の値が `2` である。(Stability-3-2)
+{{/Stability-3-2}}
 {{#Performance-6-2}}
 1. 上限として設定した数より多くタブを開く操作を行う。
     - 確認項目
