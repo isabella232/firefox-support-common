@@ -681,7 +681,7 @@
 1. `C:\Users\Public\nss.log-*` を全て削除する。
 {{/Security-1-3}}
 
-{{#Security-3 || Privacy-51-2}}
+{{#Security-3 || Privacy-51-2 || Security-40-2}}
 ## アドオンの利用制限
 
 ### 確認する項目
@@ -692,6 +692,9 @@
 {{#Privacy-51-2}}
 - Privacy-51-2
 {{/Privacy-51-2}}
+{{#Security-40-2}}
+- Security-40-2
+{{/Security-40-2}}
 
 ### 準備
 
@@ -716,12 +719,17 @@
 {{/Security-3-5 || Security-3-6}}
 <!--/GROUP-->
 <!--GROUP-->
-1. Firefoxのウィンドウに署名済みアドオンのファイルをドラッグ&ドロップする。
+1. 署名済みアドオンのファイルをFirefoxのウィンドウにドラッグ&ドロップする。
     - 確認項目
 {{#Security-3-3 || Security-3-4 || Security-3-7}}
         1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。(Security-3-3/4/7)
 {{/Security-3-3 || Security-3-4 || Security-3-7}}
 <!--/GROUP-->
+{{#Security-40-2}}
+1. 特別なメッセージを設定済みのアドオンのファイルをFirefoxのウィンドウにドラッグ&ドロップする。
+    - 確認項目
+        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」の代わりに、指定したメッセージが表示されて、アドオンがインストールされない。(Security-40-2)
+{{/Security-40-2}}
 {{#Security-3-3}}
 1. ロケーションバーに`about:addons`と入力して確定する。
     - 確認項目
@@ -747,7 +755,7 @@
 {{/Security-3-3}}
 {{/Security-3-4 || Security-3-7 || Privacy-51-2}}
 
-{{/Security-3 || Privacy-51-2}}
+{{/Security-3 || Privacy-51-2 || Security-40-2}}
 
 {{#Security-4}}
 ## 広告などのポップアップのブロック
