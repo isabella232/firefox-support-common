@@ -5,7 +5,7 @@ import sys
 import glob
 import os
 
-BASEDIR = os.path.dirname(__file__)
+BASEDIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(BASEDIR)
 
 import adlib
