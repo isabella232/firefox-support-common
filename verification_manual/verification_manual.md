@@ -397,6 +397,7 @@
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Application-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
+{{#Privacy-52-2}} - Privacy-52-2 {{/Privacy-52-2}}
 
 ### 準備
 
@@ -444,6 +445,9 @@
 {{#Application-7-2}}
         1. ブラウズウィンドウのタスクバー上でのジャンプリスト項目のタイトルが「{{window_title}}」で終わっている。 (Application-7-2)
 {{/Application-7-2}}
+{{#Privacy-52-2}}
+        1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。(Privacy-52-2)
+{{/Privacy-52-2}}
 <!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
