@@ -1150,6 +1150,40 @@
 {{/Security-27}}
 
 
+{{#Security-36}}
+
+## DNS over HTTPSの設定
+
+### 確認する項目
+
+- Security-36-\*
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#disable_devtools}}
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+{{/disable_devtools}}
+
+### 検証
+
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+1. 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
+1. 「URLでフィルタリング」欄に「dns-query」と入力する。
+1. www.clear-code.com を開く。
+    - 確認項目
+        1. 「ファイル」欄が `dns-query` となっているリクエストが{{#Security-36-1}}記録されていない。(Security-36-1){{/Security-36-1}}{{#Security-36-2}}記録されている。(Security-36-2){{/Security-36-2}}
+
+{{#disable_devtools}}
+### 後始末
+
+1. ポリシー設定に加えた変更を元に戻す。
+{{/disable_devtools}}
+
+{{/Security-36}}
+
+
 ## その他のセキュリティに関わる設定
 
 ### 確認する項目
