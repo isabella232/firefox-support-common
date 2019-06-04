@@ -1250,6 +1250,7 @@
 {{#Security-30}} - Security-30-\* {{/Security-30}}
 {{#Security-31}} - Security-31-\* {{/Security-31}}
 {{#Security-32}} - Security-32-\* {{/Security-32}}
+{{#Security-42-2}} - Security-42-2 {{/Security-42-2}}
 
 ### 準備
 
@@ -1286,6 +1287,11 @@
     - 確認項目
         1. {{#Security-29-1}}`secure=false` という結果が出力される。（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`secure=true` という結果が出力される。（Security-29-2）{{/Security-29-2}}
 {{/Security-29}}
+{{#Security-42-2}}
+1. `http://verifications.io/` を開く。
+    - 確認項目
+        1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。(Security-42-2)
+{{/Security-42-2}}
 
 1. テストケースの `block_script_with_wrong_mime.py` を実行し誤ったMIMEタイプを返すHTTPサーバーを起動する。
 1. Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
