@@ -766,12 +766,13 @@
 {{/Security-4-5 || Security-4-6}}
 {{/Security-4}}
 
-## 攻撃サイトに対する警告
+## 攻撃サイト、不正なサイトに対する警告
 
 ### 確認する項目
 
 {{#Security-5}} - Security-5-\* {{/Security-5}}
 {{#Security-6}} - Security-6-\* {{/Security-6}}
+{{#Security-37-2}} - Security-37-2 {{/Security-37-2}}
 
 ### 準備
 
@@ -793,6 +794,11 @@
     - 確認項目
         1. 詐欺サイトとしてブロック{{#Security-6-1}}される。(Security-6-1){{/Security-6-1}}{{#Security-6-2}}されない。(Security-6-2){{/Security-6-2}}
 {{/Security-6}}
+{{#Security-37-2}}
+1. テストケースリストのリンクから `https://expired.badssl.com/` を開く。
+    - 確認項目
+        1. 警告画面の「詳細」ボタンを押した後の画面で、「危険性を承知で続行」ボタンが表示されないか、またはクリックできない状態になっている。(Security-37-2)
+{{/Security-37-2}}
 
 ## about:ページの利用制限
 
