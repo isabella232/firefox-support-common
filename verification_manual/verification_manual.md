@@ -610,12 +610,13 @@
 
 # セキュリティに関わるカスタマイズ
 
-## 証明書の自動インポート
+## {{#Security-1-3 || Security-1-4}}証明書の自動インポート{{#Security-38-2}}と{{#/Security-38-2}}{{/Security-1-3 || Security-1-4}}{{#Security-38-2}}セキュリティデバイスの登録{{#/Security-38-2}}
 
 ### 確認する項目
 
 {{#Security-1-3}} - Security-1-3 {{/Security-1-3}}
 {{#Security-1-4}} - Security-1-4 {{/Security-1-4}}
+{{#Security-38-2}} - Security-38-2 {{/Security-38-2}}
 
 ### 準備
 
@@ -645,6 +646,9 @@
     - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\nss.log");`
 1. `C:\Users\Public\nss.log-*` を全て削除しておく。
 {{/Security-1-3}}
+{{#Security-38-2}}
+1. 登録済みのセキュリティデバイスを削除しておく。
+{{/Security-38-2}}
 
 ### 検証
 
@@ -654,13 +658,20 @@
     - 確認項目
         1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。(Security-1-3)
 {{/Security-1-3}}
-{{#Security-1-4}}
+{{#Security-1-4 || Security-38-2}}
 1. オプション画面の「プライバシーとセキュリティ」を開く。
-1. 「証明書」セクションの「証明書を表示」ボタンをクリックして証明書マネージャを開く。
+{{#Security-1-4}}
+1. 「証明書」セクションの「証明書を表示」ボタンをクリックして証明書マネージャーを開く。
 1. 「認証局証明書」の一覧を表示する。
     - 確認項目
         1. インポートするよう指定した証明書が一覧に登録されている。(Security-1-4)
 {{/Security-1-4}}
+{{#Security-38-2}}
+1. 「証明書」セクションの「セキュリティデバイス」ボタンをクリックしてデバイスマネージャーを開く。
+    - 確認項目
+        1. 登録するよう指定したセキュリティデバイスがすべて登録されている。(Security-38-2)
+{{/Security-38-2}}
+{{/Security-1-4 || Security-38-2}}
 
 {{#Security-1-3}}
 ### 後始末
