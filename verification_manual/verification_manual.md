@@ -757,12 +757,13 @@
 
 {{/Security-3 || Privacy-51-2 || Security-40-2}}
 
-{{#Security-4}}
+{{#Security-4 || Security-41-2}}
 ## 広告などのポップアップのブロック
 
 ### 確認する項目
 
-- Security-4-\*
+{{#Security-4}} - Security-4-\* {{/Security-4}}
+{{#Security-41-1}} - Security-41-1 {{/Security-41-1}}
 
 ### 準備：
 
@@ -772,18 +773,23 @@
 ### 検証：
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-<!--GROUP-->
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
+{{#Security-4}}
         1. ポップアップブロックの通知が{{^Security-4-3 || Security-4-7}}表示される。(Security-4-1/4/5/6/8){{/Security-4-3 || Security-4-7}}{{#Security-4-3 || Security-4-7}}表示されずに、タブまたはウィンドウが開かれる。(Security-4-3/7){{/Security-4-3 || Security-4-7}}
-<!--/GROUP-->
+{{/Security-4}}
+{{#Security-41-1}}
+        1. 2つ目以降のポップアップがブロックされず、複数のタブが一度に開かれる。(Security-41-1)
+{{/Security-41-1}}
 {{#Security-4-5 || Security-4-6}}
 1. ポップアップの許可対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
         1. 「サイト別設定」タブで「ポップアップウィンドウを開く」において「許可」にチェックが入っている。(Security-4-5/6)
         1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「ポップアップウィンドウを開く」において{{#Security-4-6}}「許可」にチェックが入っている。(Security-4-6){{/Security-4-6}}{{#Security-4-5}}「ブロック」にチェックが入っている。(Security-4-5){{/Security-4-5}}
 {{/Security-4-5 || Security-4-6}}
-{{/Security-4}}
+
+{{/Security-4 || Security-41-2}}
+
 
 ## 攻撃サイト、不正なサイトに対する警告
 
