@@ -394,6 +394,8 @@
 {{#Startup-5-2 || Startup-5-4}} - Startup-5-2/4 {{/Startup-5-2 || Startup-5-4}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
+{{#Startup-12-2 || Startup-12-3}} - Startup-12-2/3 {{/Startup-12-2 || Startup-12-3}}
+{{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Application-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
@@ -433,6 +435,12 @@
 {{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。(Startup-2-2/3)
 {{/Startup-2-2 || Startup-2-3}}
+{{#Startup-12-2}}
+        1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。(Startup-12-2)
+{{/Startup-12-2}}
+{{#Startup-12-3}}
+        1. 起動直後にホームページ（または空白）以外のタブが開かれていない。(Startup-12-3)
+{{/Startup-12-3}}
 {{#Appearance-7-2}}
         1. UIの表示言語が指定の通りになっている。(Appearance-7-2)
 {{/Appearance-7-2}}
@@ -492,9 +500,19 @@
         1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
 {{/Startup-10-2}}
 {{#Startup-7}}
-1. システムの時計を1年先の日付に進め、Firefoxを再起動する。
+1. システムの時計を1年先の日付に進める。
+{{/Startup-7}}
+{{#Startup-7 || Startup-12-2}}
+1. Firefoxを再起動する。
     - 確認項目
+{{#Startup-7}}
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2 || Startup-7-3}}表示されない。（Startup-7-2/3）{{/Startup-7-2 || Startup-7-3}}
+{{/Startup-7}}
+{{#Startup-12-2}}
+        1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示されない。(Startup-12-2)
+{{/Startup-12-2}}
+{{/Startup-7 || Startup-12-2}}
+{{#Startup-7}}
 1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
     - 確認項目
   {{#Startup-7-1}}
@@ -511,7 +529,14 @@
     - 確認項目
         1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない (Startup-7-3)
 {{/Startup-7-3}}
+1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
+{{#Startup-13-2}}
+1. Firefoxを終了させずに、そのままWindowsを再起動する（または、ログオフする）。
+1. 再度Windowsにログインする。
+    - 確認項目
+        1. Firefoxが自動的には起動しない。 (Startup-3-2)
+{{/Startup-13-2}}
 
 ### 後始末
 
@@ -519,9 +544,6 @@
 {{#Security-9-3 || Security-35-2}}{{#Startup-4-2 || Startup-10-2 || Startup-7-3}}
 1. ポリシー設定に加えた変更を元に戻す。
 {{/Startup-4-2 || Startup-10-2 || Startup-7-3}}{{/Security-9-3 || Security-35-2}}
-{{#Startup-7}}
-1. 1年進めたシステムの時計を元に戻す。
-{{/Startup-7}}
 
 {{#Admin-4}}
 ## アドオンの署名確認の無効化
