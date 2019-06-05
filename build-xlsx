@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
+#
+# build-xlsx - Generate a spread sheet from files
+#
+# USAGE
+#
+# (1) Output an empty sheet
+#
+#　   $ build-xlsx
+#
+# (2) Generate a filled sheet
+#
+#     $ build-xlsx esr60.txt esr68.txt
 
 import re
 import sys
