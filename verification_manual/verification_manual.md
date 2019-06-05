@@ -486,6 +486,16 @@
     - 確認項目
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。(Update-4-2)
 {{/Update-4-2}}
+{{#Update-6-2 || Update-7-2}}
+1. `about:policies` を開く。
+    - 確認項目
+{{#Update-6-2}}
+        1. `DisableSystemAddonUpdate` が `true` に設定されている。(Update-6-2)
+{{/Update-6-2}}
+{{#Update-7-2}}
+        1. `AppUpdateURL` が空文字に設定されている。(Update-7-2)
+{{/Update-7-2}}
+{{/Update-6-2 || Update-7-2}}
 {{#Admin-5}}
 1. 「オプション」を開く
     - 確認項目
@@ -1988,13 +1998,14 @@
 
 # Webブラウズ機能に関するカスタマイズ
 
-{{#Websearch-1-1 || Websearch-1-3 || Websearch-2}}
+{{#Websearch-1-1 || Websearch-1-3 || Websearch-2 || Websearch-3}}
 ## 検索エンジンの制限
 
 ### 確認する項目
 
 {{#Websearch-1-1 || Websearch-1-3}} - Websearch-1-1/3 {{/Websearch-1-1 || Websearch-1-3}}
 {{#Websearch-2-2}} - Websearch-2-2 {{/Websearch-2-2}}
+{{#Websearch-3-1}} - Websearch-3-1 {{/Websearch-3-1}}
 
 ### 準備
 
@@ -2014,6 +2025,9 @@
 {{#Websearch-2-2}}
         1. パネル上に、無効にした検索エンジンが表れていない（ないし有効にした検索エンジンのみが表示される）。(Websearch-2-2)
 {{/Websearch-2-2}}
+{{#Websearch-3-1}}
+        1. パネル上に、追加するように設定した検索エンジンが表示されている。(Websearch-3-1)
+{{/Websearch-3-1}}
 {{#Websearch-2-2}}
 1. パネル下部の「検索設定を変更」をクリックする。(Websearch-2-2)
     - 確認項目
@@ -2021,7 +2035,7 @@
         1. 「ワンクリック検索エンジン」のリストに、無効にした検索エンジンが表れていない。(Websearch-2-2)
 {{/Websearch-2-2}}
 
-{{/Websearch-1-1 || Websearch-1-3 || Websearch-2}}
+{{/Websearch-1-1 || Websearch-1-3 || Websearch-2 || Websearch-3}}
 
 
 {{#Location-1 || Location-2 || Location-3}}
