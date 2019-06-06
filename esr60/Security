@@ -113,16 +113,16 @@ Security-5: 攻撃サイトに対する警告の可否
     MCD:
     lockPref("browser.safebrowsing.malware.enabled", false);
     lockPref("browser.safebrowsing.downloads.remote.url", "");
-    lockPref("browser.safebrowsing.provider.google.advisoryURL","");
+    lockPref("browser.safebrowsing.provider.google.advisoryURL", "");
     lockPref("browser.safebrowsing.provider.google.gethashURL", "");
-    lockPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL","");
-    lockPref("browser.safebrowsing.provider.google.reportPhishMistakeURL","");
+    lockPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+    lockPref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
     lockPref("browser.safebrowsing.provider.google.reportURL", "");
     lockPref("browser.safebrowsing.provider.google.updateURL", "");
-    lockPref("browser.safebrowsing.provider.google4.advisoryURL","");
+    lockPref("browser.safebrowsing.provider.google4.advisoryURL", "");
     lockPref("browser.safebrowsing.provider.google4.gethashURL", "");
-    lockPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL","");
-    lockPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL","");
+    lockPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+    lockPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
     lockPref("browser.safebrowsing.provider.google4.reportURL", "");
     lockPref("browser.safebrowsing.provider.google4.updateURL", "");
     lockPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
@@ -279,15 +279,15 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     // 位置情報サービスの説明用URL
     lockPref("browser.geolocation.warning.infoURL", "");
     // 新規タブを開いた時のページにおけるタイル情報の取得、統計情報収集用通信の無効化
-    lockPref("browser.newtabpage.directory.ping","");
-    lockPref("browser.newtabpage.directory.source","about:blank");
+    lockPref("browser.newtabpage.directory.ping", "");
+    lockPref("browser.newtabpage.directory.source", "about:blank");
     // 地域ごとのデフォルトの検索サービス切り替え
     lockPref("browser.search.geoSpecificDefaults", false);
     lockPref("browser.search.geoSpecificDefaults.url", "");
     // 検索プロバイダ（検索エンジン）の取得元URL
     lockPref("browser.search.searchEnginesURL", "");
     // 接続の状態（接続が制限されているかどうかなど）を判定するためのアクセス先
-    lockPref("captivedetect.canonicalURL","");
+    lockPref("captivedetect.canonicalURL", "");
     // Developer Editionの説明
     lockPref("devtools.devedition.promo.url", "");
     // 開発ツールで使用するデバイス

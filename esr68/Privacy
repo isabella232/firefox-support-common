@@ -468,10 +468,10 @@ Privacy-24: Firefoxアカウントの利用の可否
     lockPref("identity.fxaccounts.auth.uri", "");
     lockPref("identity.fxaccounts.enabled", false);
     lockPref("identity.fxaccounts.commands.enabled", false);
-    lockPref("identity.fxaccounts.remote.oauth.uri","");
-    lockPref("identity.fxaccounts.remote.pairing.uri","");
-    lockPref("identity.fxaccounts.remote.profile.uri","");
-    lockPref("identity.fxaccounts.remote.root","");
+    lockPref("identity.fxaccounts.remote.oauth.uri", "");
+    lockPref("identity.fxaccounts.remote.pairing.uri", "");
+    lockPref("identity.fxaccounts.remote.profile.uri", "");
+    lockPref("identity.fxaccounts.remote.root", "");
 
     :3: 禁止する（ポリシーで設定）
 

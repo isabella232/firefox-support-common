@@ -422,17 +422,17 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     lockPref("identity.fxaccounts.auth.uri", "");
     lockPref("identity.fxaccounts.enabled", false);
-    lockPref("identity.fxaccounts.remote.force_auth.uri","");
-    lockPref("identity.fxaccounts.remote.oauth.uri","");
-    lockPref("identity.fxaccounts.remote.profile.uri","");
-    lockPref("identity.fxaccounts.remote.signin.uri","");
-    lockPref("identity.fxaccounts.remote.signup.uri","");
+    lockPref("identity.fxaccounts.remote.force_auth.uri", "");
+    lockPref("identity.fxaccounts.remote.oauth.uri", "");
+    lockPref("identity.fxaccounts.remote.profile.uri", "");
+    lockPref("identity.fxaccounts.remote.signin.uri", "");
+    lockPref("identity.fxaccounts.remote.signup.uri", "");
     lockPref("identity.fxaccounts.remote.webchannel.uri", "about:blank");
-    lockPref("identity.fxaccounts.remote.root","");
-    lockPref("identity.fxaccounts.remote.connectdevice.uri","");
-    lockPref("identity.fxaccounts.remote.email.uri","");
+    lockPref("identity.fxaccounts.remote.root", "");
+    lockPref("identity.fxaccounts.remote.connectdevice.uri", "");
+    lockPref("identity.fxaccounts.remote.email.uri", "");
     lockPref("identity.fxaccounts.settings.devices.uri", "");
-    lockPref("identity.fxaccounts.settings.uri","");
+    lockPref("identity.fxaccounts.settings.uri", "");
 
     :3: 禁止する（ポリシーで設定）
 
@@ -675,7 +675,6 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
     :4: 送出しない
 
     Privacy-33-3も併せて設定する。
-
     lockPref("privacy.donottrackheader.enabled", false);
     lockPref("privacy.trackingprotection.enabled", false);
     lockPref("privacy.trackingprotection.pbmode.enabled", false);

@@ -73,8 +73,8 @@ Tab-5: 新しいタブの内容
 
     lockPref("browser.newtabpage.enabled",false);
     lockPref("browser.newtabpage.enhanced",false);
-    lockPref("browser.newtabpage.directory.ping","");
-    lockPref("browser.newtabpage.directory.source","about:blank");
+    lockPref("browser.newtabpage.directory.ping", "");
+    lockPref("browser.newtabpage.directory.source", "about:blank");
 
     :4: アドオンを使わず空白ページを表示する（ポリシーで設定）
 

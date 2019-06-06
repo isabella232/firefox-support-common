@@ -164,7 +164,7 @@ Plugin-8: Gecko Media Pluginの利用の可否
     lockPref("media.gmp-gmpopenh264.autoupdate",false);
     lockPref("media.gmp-widevinecdm.enabled",false);
     lockPref("media.gmp-widevinecdm.autoupdate",false);
-    lockPref("media.gmp-manager.url","about:blank");
+    lockPref("media.gmp-manager.url", "about:blank");
     lockPref("media.gmp-provider.enabled",false);
 
 Plugin-9: [廃止] IcedTeaプラグインの有効・無効の制御
