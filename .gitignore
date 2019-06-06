@@ -1,3 +1,5 @@
 configurations/*.xls
 testcases/unsigned-addon/sha1hash.txt
 testcases/unsigned-addon/*.xpi
+*.xlsx
+__pycache__
