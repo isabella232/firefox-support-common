@@ -76,6 +76,12 @@ Tab-5: 新しいタブの内容
     lockPref("browser.newtabpage.directory.ping", "");
     lockPref("browser.newtabpage.directory.source", "about:blank");
 
+    :5: スポンサーコンテンツを非表示にする
+
+    lockPref("browser.newtabpage.enhanced",false);
+    lockPref("browser.newtabpage.directory.ping", "");
+    lockPref("browser.newtabpage.directory.source", "about:blank");
+
 Tab-6: Webページによって開かれる新規ウィンドウを、代わりにタブで開く
 
     :1: 許可する（既定）
