@@ -94,7 +94,13 @@ Security-4: 広告などのポップアップの表示の可否
     :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
 
     "PopupBlocking": {
-      "Allow": ["(origin1)", "(origin2)", …]
+      "Default": true,
+      "Locked": true,
+      "Allow": [
+        "(origin1)",
+        "(origin2)",
+        …
+      ]
     }
 
     :5: 特定サイトのみ初期状態で確認無しで許可する
