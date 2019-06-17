@@ -604,8 +604,8 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
       "Locked": true
     },
     "Cookies": {
-      "Default": false
-    }
+      "RejectTracker": true
+    },
 
     MCD:
     lockPref("privacy.trackingprotection.cryptomining.enabled", true);
@@ -642,23 +642,21 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
 
 Privacy-35: トラッキングの遮断に使用するブロックリストの指定
 
-    :1: 簡易ブロックを初期設定とし、変更を許可（既定）
+    :1: レベル1（基本）ブロックを初期設定とし、変更を許可（既定）
 
     defaultPref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256");
 
-    :2: 広範ブロックを初期設定とし、変更を許可
+    :2: レベル2（厳格）ブロックを初期設定とし、変更を許可
 
     defaultPref("urlclassifier.trackingTable", "test-track-simple,,base-track-digest256,content-track-digest256");
 
-    :3: 簡易ブロックで固定
+    :3: レベル1（基本）ブロックで固定
 
     lockPref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256");
-    lockPref("pref.privacy.disable_button.change_blocklist", true);
 
-    :4: 広範ブロックで固定
+    :4: レベル2（厳格）ブロックで固定
 
     lockPref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256,content-track-digest256");
-    lockPref("pref.privacy.disable_button.change_blocklist", true);
 
 Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上へのキャッシュ
 
