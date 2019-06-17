@@ -727,7 +727,7 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :2: 参加しない
 
-    "DisableFirefoxStudies": false
+    "DisableFirefoxStudies": true
 
 Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
