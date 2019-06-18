@@ -17,9 +17,15 @@
 
 - メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
 - メタインストーラの表示バージョンは{{meta_installer_version}}とする。
-- Firefoxのインストール先は `{{install_path}}` とする。
-- デスクトップのショートカットは `{{desktop_shortcut_path}}` に作成するものとする。
-- スタートメニューのショートカットは `{{start_menu_shortcut_path}}` に作成するものとする。
+- Firefoxのインストール先は  
+  `{{install_path}}`  
+  とする。
+- デスクトップのショートカットは  
+  `{{desktop_shortcut_path}}`  
+  に作成するものとする。
+- スタートメニューのショートカットは  
+  `{{start_menu_shortcut_path}}`  
+  に作成するものとする。
 
 {{#Admin-1-2 || Network-2-3 || Network-2-8 || Security-4-5}}
 ## 検証の準備
