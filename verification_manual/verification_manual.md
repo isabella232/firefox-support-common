@@ -68,7 +68,7 @@
         1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。(Install-2-\*)
 {{/Install-2}}
 1. 不要なファイルを削除する。
-    - `{{meta_installer_file_name}}\*.exe`
+    - `{{meta_installer_file_name}}*.exe`
 1. fainstall.iniを開き、検証環境に合わせて内容を修正する。
     - フルパスが指定されている箇所で当該パスのドライブが存在しない場合、検証用としてファイル中の `（ドライブレター）:\` の指定をすべて `C:\（ドライブレター）\ `に置換する。
       以下、ファイルの作成先はすべて置換後のパスで読み替える。
@@ -94,12 +94,12 @@
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. `{{meta_installer_file_name}}\*.exe` が作成済みの状態にする。
+    1. `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
 1. 現行バージョンのFirefoxがセットアップ済みの状態にしておく。
 
 ### 検証
 
-1. `{{meta_installer_file_name}}\*.exe` を実行する。
+1. `{{meta_installer_file_name}}*.exe` を実行する。
 1. インストールされた環境が想定通りか確認する。
     - 確認項目
 {{#Install-7-2}}
@@ -139,7 +139,7 @@
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. `{{meta_installer_file_name}}\*.exe` が作成済みの状態にする。
+    1. `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
 1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
     1. Mozilla Firefox
@@ -164,7 +164,7 @@
 
 ### 検証
 
-1. {{#Install-12-3}}検証用ユーザーとして {{/Install-12-3}}`{{meta_installer_file_name}}\*.exe` を実行する。
+1. {{#Install-12-3}}検証用ユーザーとして {{/Install-12-3}}`{{meta_installer_file_name}}*.exe` を実行する。
 <!--GROUP-->
     - 確認項目
 {{#Install-3-2}}
