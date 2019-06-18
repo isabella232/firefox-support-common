@@ -153,7 +153,7 @@
 1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
 {{/Install-13-3}}
 {{#Install-14-2}}
-1. コマンドプロンプトで `reg.exe delete /va /f "HKCU\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名" を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
+1. コマンドプロンプトで `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"` を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
 {{/Install-14-2}}
 
 ### 検証
