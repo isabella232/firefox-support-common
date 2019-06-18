@@ -148,10 +148,10 @@ def add_verify_targets(wb):
 
     for title, _ in WORKBOOK_DEF:
         for row in range(2, 1000):
-            formula = '=IF(%(A)s="", "", CONCATENATE(%(B)s, "-", %(D)s))' % {
+            formula = '=IF(%(A)s="", "", CONCATENATE(%(B)s, "-", %(E)s))' % {
                 'A': "'%s'!A%s" % (title, row),
                 'B': "'%s'!B%s" % (title, row),
-                'D': "'%s'!D%s" % (title, row)
+                'E': "'%s'!E%s" % (title, row)
             }
             sheet.write_formula(row + pad, 0, formula, None, "")
         pad += row
