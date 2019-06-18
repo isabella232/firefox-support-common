@@ -398,7 +398,7 @@
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
-{{#Application-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
+{{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Privacy-52-2}} - Privacy-52-2 {{/Privacy-52-2}}
 
 ### 準備
@@ -642,7 +642,7 @@
 
 # セキュリティに関わるカスタマイズ
 
-## {{#Security-1-3 || Security-1-4}}証明書の自動インポート{{#Security-38-2}}と{{#/Security-38-2}}{{/Security-1-3 || Security-1-4}}{{#Security-38-2}}セキュリティデバイスの登録{{#/Security-38-2}}
+## {{#Security-1-3 || Security-1-4}}証明書の自動インポート{{#Security-38-2}}と{{/Security-38-2}}{{/Security-1-3 || Security-1-4}}{{#Security-38-2}}セキュリティデバイスの登録{{/Security-38-2}}
 
 ### 確認する項目
 
@@ -1582,14 +1582,13 @@
 {{/Privacy-19-2}}
 {{#Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
         1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。(Privacy-33-2/4){{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。(Privacy-33-3/5){{/Privacy-33-3 || Privacy-33-5}}
-{{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
         1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。(Privacy-33-2/4){{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。(Privacy-33-3/5){{/Privacy-33-3 || Privacy-33-5}}
 {{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
 {{#Privacy-42-2}}
         1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。(Privacy-42-1){{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。(Privacy-42-2){{/Privacy-42-2}}
 {{/Privacy-42-2}}
 {{#Privacy-48}}
-        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。(Privacy-48-3){{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。(Privacy-48-2){{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。(Privacy-48-1){{/Privacy-48-1}}
+        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。(Privacy-48-3){{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。(Privacy-48-2){{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。(Privacy-48-1){{/Privacy-48-3}}
 {{/Privacy-48}}
 {{#Privacy-44}}
         1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。(Privacy-44-1){{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。(Privacy-44-2){{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。(Privacy-44-3){{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。(Privacy-44-4){{/Privacy-44-4}}
@@ -3120,7 +3119,7 @@
     - 確認項目
         1. IE View WEがインストール済みになっている。（Addon-IEView-4-1）
 {{/Addon-IEView-4}}
-{{#Addon-IEView-5－2}}
+{{#Addon-IEView-5-2}}
 1. `http://example.com/` を開く。
 1. ページ上で右クリックする。
     - 確認項目
