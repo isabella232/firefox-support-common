@@ -12,6 +12,8 @@
 
     sudo apt-get install -y pandoc ruby ruby-bundler rake texlive-luatex texlive-lang-japanese texlive-latex-extra gnumeric
 
+And any running X server is required for `ssconvert` (a part of `gnumeric`). If you are using WSL, install VcXsrv, Xmig, or something, and add a line `export DIPSPLAY=:0` to `~/.bashrc`.
+
 ## Install gems
 
     bundle install
