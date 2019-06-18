@@ -64,6 +64,10 @@ WORKBOOK_DEF = [
         'MenuShortcut',
     ]),
 ]
+TITLE_JA_TO_EN = {
+  '基本設定': 'basic',
+  '機能無効化': 'menu-shortcut'
+}
 
 DEFAULT_FORMAT = {
     'valign': 'top',
@@ -142,11 +146,13 @@ def setup_conditional_format(sheet, formats):
         'format':   formats['selected']
     })
 
-def add_verify_targets(wb):
+def add_verify_targets(wb, use_en_title):
     sheet = wb.add_worksheet('verify-targets')
     pad = -1
 
     for title, _ in WORKBOOK_DEF:
+        if use_en_title:
+            title = TITLE_JA_TO_EN[title]
         for row in range(2, 1000):
             formula = '=IF(%(A)s="", "", CONCATENATE(%(B)s, "-", %(E)s))' % {
                 'A': "'%s'!A%s" % (title, row),
@@ -161,6 +167,7 @@ def main(args):
 
     conf_new = {}
     conf_old = {}
+    use_en_title = False
 
     for arg in args:
         if ESR_CURRENT in arg:
@@ -169,6 +176,8 @@ def main(args):
         if ESR_PREVIOUS in arg:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
             conf_old = adlib.load_as_dict(arg)
+        if arg == 'en':
+            use_en_title = True
 
     formats = {
         'default':    wb.add_format(DEFAULT_FORMAT),
@@ -180,6 +189,8 @@ def main(args):
     }
 
     for title, files in WORKBOOK_DEF:
+        if use_en_title:
+            title = TITLE_JA_TO_EN[title]
         sheet = wb.add_worksheet(title)
         setup_conditional_format(sheet, formats)
 
@@ -237,7 +248,7 @@ def main(args):
                     sheet.write(row, 9, conf_old.get(d['opt_id'], ""), formats['default'])
                     row += 1
 
-    add_verify_targets(wb)
+    add_verify_targets(wb, use_en_title)
 
     wb.close()
     print('Generated:', OUT_FILE)
