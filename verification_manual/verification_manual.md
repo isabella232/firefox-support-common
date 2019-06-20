@@ -1398,8 +1398,7 @@
 {{#Privacy-33-2 || Privacy-33-4}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2 || Privacy-33-4}}
 {{^Privacy-33-2 || Privacy-33-4}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2 || Privacy-33-4}}
 {{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
-{{#Privacy-43-2}} - Privacy-43-2{{/Privacy-43-2}}
-{{#Privacy-33-3 || Privacy-33-5 && Privacy-43-4}} - Privacy-43-4{{/Privacy-33-3 || Privacy-33-5 && Privacy-43-4}}
+{{#Privacy-43}} - Privacy-43-\*{{/Privacy-43}}
 {{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
 {{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
 {{#Privacy-46}} - Privacy-46-\* {{/Privacy-46}}
@@ -1480,9 +1479,6 @@
         1. 「ブロックリストを変更」ボタンを押して表示されるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
 {{/Privacy-35}}
 {{#Privacy-43}}
-{{#Privacy-33-3 || Privacy-33-5 && Privacy-43-4}}
-        1. 「トラッキング防止」の項目で「ブロックしない」が選択されている。
-{{/Privacy-33-3 || Privacy-33-5 && Privacy-43-4}}
         1. 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が{{#Privacy-43-2}}選択されている。(Privacy-43-2){{/Privacy-43-2}}
         {{^Privacy-43-2}}選択されていない。(Privacy-43-1/3/4){{/Privacy-43-2}}
 {{/Privacy-43}}
