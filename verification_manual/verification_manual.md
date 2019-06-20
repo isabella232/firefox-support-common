@@ -396,7 +396,7 @@
 {{#Startup-1}} - Startup-1-\* {{/Startup-1}}
 {{#Startup-2}} - Startup-2-\* {{/Startup-2}}
 {{#Startup-3}} - Startup-3-\* {{/Startup-3}}
-{{#Startup-4-2}} - Startup-4-2 {{/Startup-4-2}}
+{{#Startup-4-2 || Startup-4-3 || Startup-4-4}} - Startup-4-2/3/4 {{/Startup-4-2 || Startup-4-3 || Startup-4-4}}
 {{#Startup-5-2 || Startup-5-4}} - Startup-5-2/4 {{/Startup-5-2 || Startup-5-4}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
@@ -418,9 +418,9 @@
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
-{{#Security-9-3}}{{#Startup-4-2 || Startup-10-2}}
+{{#Security-9-3}}{{#Startup-4-2 || Startup-4-4 || Startup-10-2}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Startup-4-2 || Startup-10-2}}{{/Security-9-3}}
+{{/Startup-4-2 || Startup-4-4 || Startup-10-2}}{{/Security-9-3}}
 {{#Security-35-2}}{{#Startup-7-3}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Startup-7-3}}{{/Security-35-2}}
@@ -512,6 +512,9 @@
 {{#Startup-4-2}}
         1. `browser.startup.homepage_override.mstone` の値が `ignore` である。(Startup-4-2)
 {{/Startup-4-2}}
+{{#Startup-4-4}}
+        1. `startup.homepage_override_url` の値が空文字である。(Startup-4-4)
+{{/Startup-4-4}}
 {{#Startup-10-2}}
         1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
 {{/Startup-10-2}}
