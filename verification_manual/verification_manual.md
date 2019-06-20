@@ -2051,9 +2051,9 @@
 
 ### 確認する項目
 
-{{#Locatio-1}} - Location-1-\* {{/Locatio-1}}
-{{#Locatio-2}} - Location-2-\* {{/Locatio-2}}
-{{#Locatio-3}} - Location-3-\* {{/Locatio-3}}
+{{#Location-1}} - Location-1-\* {{/Location-1}}
+{{#Location-2}} - Location-2-\* {{/Location-2}}
+{{#Location-3}} - Location-3-\* {{/Location-3}}
 
 ### 準備
 
@@ -2063,21 +2063,21 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-{{#Locatio-1}}
+{{#Location-1}}
 1. ロケーションバーに `http://example.com/` のように `http://` で始まるURLを入力し、ページを開く。
     - 確認項目
         1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
-{{/Locatio-1}}
-{{#Locatio-2}}
+{{/Location-1}}
+{{#Location-2}}
 1. ロケーションバーに `https://日本語.jp/` のように日本語ドメインのURLを入力し、ページを開く。
     - 確認項目
         1. ロケーションバーのURLが{{#Location-2-1}}日本語で表示されている。(Location-2-1){{/Location-2-1}}{{#Location-2-2}}punycode形式で表示されている。(Location-2-2){{/Location-2-2}}
-{{/Locatio-2}}
-{{#Locatio-3}}
+{{/Location-2}}
+{{#Location-3}}
 1. ロケーションバーに `localhost` のように一単語の（名前解決可能な）ホスト名を入力し、ページを開く。
     - 確認項目
         1. {{#Location-3-1}}ホスト名を単語とした検索結果が表示される。(Location-3-1){{/Location-3-1}}{{#Location-3-2}}そのホストが名前解決され、ページが表示される。(Location-3-2){{/Location-3-2}}
-{{/Locatio-3}}
+{{/Location-3}}
 {{/Location-1 || Location-2 || Location-3}}
 
 
