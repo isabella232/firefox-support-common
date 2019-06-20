@@ -65,7 +65,7 @@
 1. メタインストーラ作成キット一式を用意する。
     - 確認項目
 {{#Install-2}}
-        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。（Install-2-\*）
+        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。（Install-2-\*)
 {{/Install-2}}
 1. 不要なファイルを削除する。
     - `{{meta_installer_file_name}}*.exe`
@@ -433,10 +433,10 @@
         1. Firefoxが起動した時に「設定移行ウィザード」が{{#Startup-1-1}}表示される。（Startup-1-1）{{/Startup-1-1}}{{#Startup-1-2}}表示されない。（Startup-1-2）{{/Startup-1-2}}
 {{/Startup-1}}
 {{#Startup-3}}
-        1. Firefoxを既定のブラウザにするか{{#Startup-3-1}}尋ねられる。（Startup-3-1）{{/Startup-3-1}}{{#Startup-3-2}}尋ねられない。（Startup-3-2）{{/Startup-3-2}}
+        1. Firefoxを既定のブラウザにするか{{#Startup-3-1}}尋ねられる。（Startup-3-1）{{/Startup-3-1}}{{#Startup-3-2 || Startup-3-3}}尋ねられない。（Startup-3-2/3）{{/Startup-3-2 || Startup-3-3}}
 {{/Startup-3}}
 {{#Startup-2-1}}
-        1. 起動直後にFirefox既定のホーム画面が表示される。（Startup-2-1）
+        1. 起動直後にFirefox既定のホーム画面または初回起動画面が表示される。（Startup-2-1）
 {{/Startup-2-1}}
 {{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。（Startup-2-2/3）
@@ -481,17 +481,6 @@
     - 確認項目
         1. ブックマークツールバー上に既定の項目が作成されていない。（Startup-5-2/4）
 {{/Startup-5-2 || Startup-5-4}}
-1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-{{#Startup-3-2}}
-1. オプション画面の「一般」を開く。
-    - 確認項目
-        1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックが外れていて、無効化されている。（Startup-3-2）
-{{/Startup-3-2}}
-{{#Update-4-2}}
-1. オプション画面の「一般」を開く。
-    - 確認項目
-        1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。（Update-4-2）
-{{/Update-4-2}}
 {{#Update-6-2 || Update-7-2}}
 1. `about:policies` を開く。
     - 確認項目
@@ -502,11 +491,24 @@
         1. `AppUpdateURL` が空文字に設定されている。（Update-7-2）
 {{/Update-7-2}}
 {{/Update-6-2 || Update-7-2}}
+{{#Admin-5 || Startup-3-2 || Update-4-2}}
+1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 {{#Admin-5}}
-1. 「オプション」を開く
     - 確認項目
        1. ページ上部に「あなたの所属組織が一部のオプションの変更を制限しています。」というメッセージが{{#Admin-5-1}}表示されている。（Admin-5-1）{{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。（Admin-5-2）{{/Admin-5-2}}
 {{/Admin-5}}
+{{#Startup-3-2}}
+1. オプション画面の「一般」を開く。
+    - 確認項目
+        1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックが外れていて、無効化されている。（Startup-3-2）
+{{/Startup-3-2}}
+{{#Update-4-2}}
+1. オプション画面の「一般」を開く。
+    - 確認項目
+        1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。（Update-4-2）
+{{/Update-4-2}}
+{{/Admin-5 || Startup-3-2 || Update-4-2}}
+{{#Startup-4-2 || Startup-4-4 || Startup-10-2}}
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Startup-4-2}}
@@ -518,6 +520,7 @@
 {{#Startup-10-2}}
         1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。（Startup-10-2）
 {{/Startup-10-2}}
+{{/Startup-4-2 || Startup-4-4 || Startup-10-2}}
 {{#Startup-7}}
 1. システムの時計を1年先の日付に進める。
 {{/Startup-7}}
