@@ -535,6 +535,7 @@
 {{/Startup-12-2}}
 {{/Startup-7 || Startup-12-2}}
 {{#Startup-7}}
+{{#Startup-7-1 || Startup-7-2}}
 1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
     - 確認項目
   {{#Startup-7-1}}
@@ -543,6 +544,7 @@
   {{#Startup-7-2}}
         1. `browser.disableResetPrompt`の値が`true`である （Startup-7-2）
   {{/Startup-7-2}}
+{{/Startup-7-1 || Startup-7-2}}
 {{#Startup-7-3}}
 1. ロケーションバーに`about:support`と入力して確定する
     - 確認項目
