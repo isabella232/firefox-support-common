@@ -534,7 +534,6 @@
         1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示されない。（Startup-12-2）
 {{/Startup-12-2}}
 {{/Startup-7 || Startup-12-2}}
-{{#Startup-7}}
 {{#Startup-7-1 || Startup-7-2}}
 1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
     - 確認項目
@@ -546,18 +545,19 @@
   {{/Startup-7-2}}
 {{/Startup-7-1 || Startup-7-2}}
 {{#Startup-7-3}}
-1. ロケーションバーに`about:support`と入力して確定する
+1. ロケーションバーに`about:support`と入力して確定する。
     - 確認項目
-        1. 「Firefoxをリフレッシュ」ボタンが無効化されている （Startup-7-3）
-1. ロケーションバーに `https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` と入力して確定する
+        1. 「Firefoxをリフレッシュ」ボタンが無効化されている、または表示されていない。 （Startup-7-3）
+1. ロケーションバーに `https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` と入力して確定する。
     - 確認項目
-        1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない （Startup-7-3）
+        1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない。 （Startup-7-3）
 {{/Startup-7-3}}
+{{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
 {{#Startup-13-2}}
-1. Firefoxを終了させずに、そのままWindowsを再起動する（または、ログオフする）。
-1. 再度Windowsにログインする。
+1. （Windows 10での検証のみ）Firefoxを終了させずに、そのままWindows 10を再起動する（または、ログオフする）。
+1. （Windows 10での検証のみ）再度Windows 10にログオンする。
     - 確認項目
         1. Firefoxが自動的には起動しない。 （Startup-3-2）
 {{/Startup-13-2}}
