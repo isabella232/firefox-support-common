@@ -1066,7 +1066,7 @@
         1. 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。{{#Security-15-2}}（Security-15-2）{{/Security-15-2}}（Security-18-2）
 {{/Security-18-2}}
 {{#Security-19-2}}
-        1. 「テーマ」内の「おすすめ」に何も項目が表示されない。{{#Security-15-2}}（Security-15-2）{{/Security-15-2}}（Security-19-2）
+        1. 「テーマ」内に「おすすめ」セクションが表示されない、またはセクションに何も項目が表示されない。{{#Security-15-2}}（Security-15-2）{{/Security-15-2}}（Security-19-2）
 {{/Security-19-2}}
 <!--/GROUP-->
 {{#Security-15-2}}

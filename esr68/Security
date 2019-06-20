@@ -335,7 +335,7 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     lockPref("devtools.gcli.jquerySrc", "");
     lockPref("devtools.gcli.lodashSrc", "");
     lockPref("devtools.gcli.underscoreSrc", "");
-    lockPref("devtools.webide.adbAddonURL", "");
+    lockPref("devtools.remote.adb.extensionURL", "");
     lockPref("devtools.webide.templatesURL", "");
     // 実験的機能の案内の無効化
     lockPref("experiments.manifest.uri", "");
