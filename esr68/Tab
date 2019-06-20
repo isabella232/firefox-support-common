@@ -178,12 +178,12 @@ Tab-11: トップサイトの表示
     :2: 常に表示する
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.showTopSites", true);
+    lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
 
     :3: 常に表示する（2段組）
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.showTopSites", true);
+    lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
     lockPref("browser.newtabpage.activity-stream.topSitesRows", 2)
 
     :5: 常に表示する（ポリシーで設定）
@@ -196,7 +196,7 @@ Tab-11: トップサイトの表示
     :4: 常に非表示にする
 
     lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.showTopSites", false);
+    lockPref("browser.newtabpage.activity-stream.feeds.topsites", false);
 
     :6: 常に非表示にする（ポリシーで設定）
 
