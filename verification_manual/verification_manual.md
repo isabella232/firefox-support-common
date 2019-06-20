@@ -804,11 +804,12 @@
 {{/Security-3 || Privacy-51-2 || Security-40-2}}
 
 {{#Security-4 || Security-41}}
-## 広告などのポップアップのブロック
+## 広告などのポップアップのブロック{{#Security-12-1}}と、JavaScriptの実行制限{{/Security-12-1}}
 
 ### 確認する項目
 
 {{#Security-4}} - Security-4-\* {{/Security-4}}
+{{#Security-12-1}} - Security-12-1 {{/Security-12-1}}
 {{#Security-41}} - Security-41-\* {{/Security-41}}
 
 ### 準備：
@@ -822,7 +823,7 @@
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
 {{#Security-4}}
-        1. ポップアップブロックの通知が{{^Security-4-3 || Security-4-7}}表示される。（Security-4-1/4/5/6/8）{{/Security-4-3 || Security-4-7}}{{#Security-4-3 || Security-4-7}}表示されずに、タブまたはウィンドウが開かれる。（Security-4-3/7）{{/Security-4-3 || Security-4-7}}
+        1. ポップアップブロックの通知が{{^Security-4-3 || Security-4-7}}表示される。（Security-4-1/4/5/6/8）{{/Security-4-3 || Security-4-7}}{{#Security-4-3 || Security-4-7}}表示されずに、タブまたはウィンドウが開かれる。（Security-4-3/7）{{/Security-4-3 || Security-4-7}}{{#Security-12-1}}（Security-12-1）{{/Security-12-1}}
 {{/Security-4}}
 {{#Security-41}}
 1. ページ内の「Open」ボタンをクリックする。
@@ -915,7 +916,7 @@
         1. `about:support`への遷移がブロックされる （Security-35-2）
 {{/Security-35-2}}
 
-{{#Security-12}}
+{{#Security-12}}{{^Security-4}}
 ## JavaScriptの実行制限
 
 ### 確認する項目
@@ -938,7 +939,7 @@
 {{#Security-12-3}}
         1. 何も起こらない。ポップアップブロックの通知も表示されない。（Security-12-3）
 {{/Security-12-3}}
-{{/Security-12}}
+{{/Security-4}}{{/Security-12}}
 
 ## ローカルファイルの読み込みの制限
 
