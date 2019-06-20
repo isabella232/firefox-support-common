@@ -65,7 +65,7 @@
 1. メタインストーラ作成キット一式を用意する。
     - 確認項目
 {{#Install-2}}
-        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。(Install-2-\*)
+        1. メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。（Install-2-\*）
 {{/Install-2}}
 1. 不要なファイルを削除する。
     - `{{meta_installer_file_name}}*.exe`
@@ -76,10 +76,10 @@
 {{#Install-9}}
     - 確認項目
 {{#Install-9-1}}
-        1. `{{meta_installer_file_name}}.exe` が作成される。(Install-9-1)
+        1. `{{meta_installer_file_name}}.exe` が作成される。（Install-9-1）
 {{/Install-9-1}}
 {{#Install-9-2}}
-        1. `{{meta_installer_file_name}}-{{meta_installer_version}}.exe` が作成される。(Install-9-2)
+        1. `{{meta_installer_file_name}}-{{meta_installer_version}}.exe` が作成される。（Install-9-2）
 {{/Install-9-2}}
 {{/Install-9}}
 
@@ -103,11 +103,11 @@
 1. インストールされた環境が想定通りか確認する。
     - 確認項目
 {{#Install-7-2}}
-        1. `{{install_path}}\distribution` 内にファイルが設置されていた場合、それらがすべてFirefoxのインストーラにより削除されている。(Install-7-2)
+        1. `{{install_path}}\distribution` 内にファイルが設置されていた場合、それらがすべてFirefoxのインストーラにより削除されている。（Install-7-2）
 {{/Install-7-2}}
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\*.cfg` の位置にあったファイルが、`{{install_path}}\*.cfg.backup.*`にリネームされている。(Admin-1-1/2)
-        1. `{{install_path}}\defaults\pref\*.js` の位置にあったファイルが、`{{install_path}}\defaults\pref\*.js.backup.*`にリネームされている。(Admin-1-1/2)
+        1. `{{install_path}}\*.cfg` の位置にあったファイルが、`{{install_path}}\*.cfg.backup.*`にリネームされている。（Admin-1-1/2）
+        1. `{{install_path}}\defaults\pref\*.js` の位置にあったファイルが、`{{install_path}}\defaults\pref\*.js.backup.*`にリネームされている。（Admin-1-1/2）
 {{/Admin-1-1 || Admin-1-2}}
 {{/is_upgrade_from_uncontrolled}}
 
@@ -168,79 +168,79 @@
 <!--GROUP-->
     - 確認項目
 {{#Install-3-2}}
-        1. メタインストーラのウィザードが表示される。(Install-3-2)
+        1. メタインストーラのウィザードが表示される。（Install-3-2）
 {{/Install-3-2}}
 {{#Install-3-3}}
-        1. メタインストーラのウィザードが表示されない。(Install-3-3)
+        1. メタインストーラのウィザードが表示されない。（Install-3-3）
 {{/Install-3-3}}
 {{#Install-6-1}}
-        1. ウィザードが日本語表示になっている。(Install-6-1)
+        1. ウィザードが日本語表示になっている。（Install-6-1）
 {{/Install-6-1}}
 {{#Install-6-2}}
-        1. ウィザードが英語表示になっている。(Install-6-2)
+        1. ウィザードが英語表示になっている。（Install-6-2）
 {{/Install-6-2}}
 {{#Install-4-1}}
-        1. インストール完了後に完了を示すメッセージが表示されない。(Install-4-1)
+        1. インストール完了後に完了を示すメッセージが表示されない。（Install-4-1）
 {{/Install-4-1}}
 {{#Install-4-2}}
-        1. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。(Install-4-2)
+        1. インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。（Install-4-2）
 {{/Install-4-2}}
 {{#Install-5-1}}
-        1. インストール完了後に再起動を求めるメッセージが表示されない。(Install-5-1)
+        1. インストール完了後に再起動を求めるメッセージが表示されない。（Install-5-1）
 {{/Install-5-1}}
 {{#Install-5-2}}
-        1. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。(Install-5-2)
+        1. インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。（Install-5-2）
 {{/Install-5-2}}
 <!--/GROUP-->
 <!--GROUP-->
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
 {{#Install-8 || Install-12-3 || Application-7-3}}
-        1. `{{install_path}}\{{exe_name}}.exe` が存在する。{{#Install-8}}(Install-8-\*){{/Install-8}}{{#Install-12-3}}(Install-12-3){{/Install-12-3}}{{#Application-7-3}}(Application-7-3){{/Application-7-3}}
+        1. `{{install_path}}\{{exe_name}}.exe` が存在する。{{#Install-8}}（Install-8-\*）{{/Install-8}}{{#Install-12-3}}（Install-12-3）{{/Install-12-3}}{{#Application-7-3}}（Application-7-3）{{/Application-7-3}}
 {{/Install-8 || Install-12-3 || Application-7-3}}
 {{#Install-13-2}}
-       1. `{{install_path}}\must-be-removed.txt` が存在しない。(Install-13-2)
+       1. `{{install_path}}\must-be-removed.txt` が存在しない。（Install-13-2）
 {{/Install-13-2}}
 {{#Admin-1}}
-        1. `{{install_path}}\{{mcd_local_file}}` が存在する。(Admin-1-\*)
+        1. `{{install_path}}\{{mcd_local_file}}` が存在する。（Admin-1-\*）
 {{/Admin-1}}
 {{#Application-1}}
-        1. デスクトップのショートカットが{{#Application-1-1 || Application-1-3}}存在する。(Application-1-1/3){{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 (Application-1-2){{/Application-1-2}}
+        1. デスクトップのショートカットが{{#Application-1-1 || Application-1-3}}存在する。（Application-1-1/3）{{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 （Application-1-2）{{/Application-1-2}}
 {{/Application-1}}
 {{#Application-2}}
-        1. スタートメニューのショートカットが{{#Application-2-1 || Application-2-3}}存在する。(Application-2-1/3){{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない (Application-2-2){{/Application-2-2}}
+        1. スタートメニューのショートカットが{{#Application-2-1 || Application-2-3}}存在する。（Application-2-1/3）{{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない （Application-2-2）{{/Application-2-2}}
 {{/Application-2}}
 {{#Application-3}}
-        1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが{{#Application-3-1}}存在する。(Application-3-1){{/Application-3-1}}{{#Application-3-2}}存在しない。(Application-3-2){{/Application-3-2}}
+        1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが{{#Application-3-1}}存在する。（Application-3-1）{{/Application-3-1}}{{#Application-3-2}}存在しない。（Application-3-2）{{/Application-3-2}}
 {{/Application-3}}
 {{#Install-10-2}}
-        1. スタートメニュー上部のMozilla Firefoxのショートカットが更新されている。(Install-10-2)
+        1. スタートメニュー上部のMozilla Firefoxのショートカットが更新されている。（Install-10-2）
 {{/Install-10-2}}
 {{#Install-10-3}}
-        1. スタートメニュー上部のMozilla Firefoxのショートカットが存在しない。(Install-10-3)
+        1. スタートメニュー上部のMozilla Firefoxのショートカットが存在しない。（Install-10-3）
 {{/Install-10-3}}
 {{#Install-11}}
-        1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが{{#Install-11-1}}存在する。(Install-11-1){{/Install-11-1}}{{#Install-11-2}}存在しない。(Install-11-2){{/Install-11-2}}
+        1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが{{#Install-11-1}}存在する。（Install-11-1）{{/Install-11-1}}{{#Install-11-2}}存在しない。（Install-11-2）{{/Install-11-2}}
 {{/Install-11}}
 {{#Install-7}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）(Install-7-\*)
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
 {{/Install-7}}
 {{#Install-1}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」がインストールされている。(Install-1-\*)
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」がインストールされている。（Install-1-\*）
 {{/Install-1}}
 {{#Install-9-2}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。(Install-9-2)
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。（Install-9-2）
 {{/Install-9-2}}
 {{#Update-4}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。(Update-4-1){{/Update-4-1}}{{#Update-4-2}}いない。(Update-4-2){{/Update-4-2}}
+        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
 {{/Update-4}}
 {{#Install-13-3}}
-        1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。(Install-13-3)
+        1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。（Install-13-3）
 {{/Install-13-3}}
 {{#Install-14-2}}
 1. IEを起動し、Webページ上でコンテキストメニューを開く。
     - 確認項目
-        1. 追加したコンテキストメニュー項目が表示されている。(Install-24-2)
+        1. 追加したコンテキストメニュー項目が表示されている。（Install-24-2）
 {{/Install-14-2}}
 
 <!--/GROUP-->
@@ -266,26 +266,26 @@
 {{#Application-6-2}}
 1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
     - 確認項目
-        1. `{{special_profile_name}}` フォルダが存在する。(Application-6-2)
-        2. フォルダの内容は空である。(Application-6-2)
+        1. `{{special_profile_name}}` フォルダが存在する。（Application-6-2）
+        2. フォルダの内容は空である。（Application-6-2）
 {{/Application-6-2}}
 {{#Application-1-3}}
 1. デスクトップのショートカットのプロパティを開く。
     - 確認項目
-        1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。(Application-1-3)
-        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-1-3)
+        1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。（Application-1-3）
+        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）（Application-1-3）
 {{/Application-1-3}}
 {{#Application-2-3}}
 1. スタートメニューのショートカットのプロパティを開く。
     - 確認項目
-        1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。(Application-2-3)
-        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）(Application-2-3)
+        1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。（Application-2-3）
+        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）（Application-2-3）
 {{/Application-2-3}}
 {{#Application-6-2}}
 1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
 1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
     - 確認項目
-        1. Firefoxの起動後、4で開いたフォルダに `prefs.js` などのファイルが作成される。(Application-6-2)
+        1. Firefoxの起動後、4で開いたフォルダに `prefs.js` などのファイルが作成される。（Application-6-2）
 {{/Application-6-2}}
 
 {{#Application-1-3 || Application-2-3 || Application-6}}
@@ -348,17 +348,17 @@
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
-        1. Firefoxのバージョンが{{firefox_version}}であると表示される。(Install-7-2){{/Install-7-2}}
-1. 旧バージョンで変更した設定が{{#use_separate_profile}}初期状態になっている。{{/use_separate_profile}}{{^use_separate_profile}}維持されている。{{/use_separate_profile}}{{#Application-1}}(Application-1-3){{/Application-1}}{{#Application-2}}(Application-2-3){{/Application-2}}{{#Application-6}}(Application-6-\*){{/Application-6}}
+        1. Firefoxのバージョンが{{firefox_version}}であると表示される。（Install-7-2）{{/Install-7-2}}
+1. 旧バージョンで変更した設定が{{#use_separate_profile}}初期状態になっている。{{/use_separate_profile}}{{^use_separate_profile}}維持されている。{{/use_separate_profile}}{{#Application-1}}（Application-1-3）{{/Application-1}}{{#Application-2}}（Application-2-3）{{/Application-2}}{{#Application-6}}（Application-6-\*）{{/Application-6}}
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
         1. オプション画面の「検索」を開く。
-        1. 「既定の検索エンジン」として{{#use_separate_profile}}「Google」が選択されている。{{/use_separate_profile}}{{^use_separate_profile}}「Yahoo！JAPAN」が選択されている。{{/use_separate_profile}}(Application-6-\*)
+        1. 「既定の検索エンジン」として{{#use_separate_profile}}「Google」が選択されている。{{/use_separate_profile}}{{^use_separate_profile}}「Yahoo！JAPAN」が選択されている。{{/use_separate_profile}}（Application-6-\*）
 1. Firefoxを終了する。
 {{#Install-10-2}}
 1. スタートメニュー最上部に、ボーダーラインで区切られた状態で存在しているショートカットを右クリックして「プロパティ」を選択し、ショートカットのプロパティを開く。
     - 確認項目
-        1. ショートカットのリンク先が新バージョンの実行ファイルの位置である。(Install-10-2){{/Install-10-2}}
+        1. ショートカットのリンク先が新バージョンの実行ファイルの位置である。（Install-10-2）{{/Install-10-2}}
 1. 旧バージョンのメタインストーラを実行する。
     - 確認項目
         1. `（旧バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
@@ -371,11 +371,11 @@
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
-1. 旧バージョンで設定した設定が維持されている。(Application-1-3)(Application-2-3)(Application-6-\*)
+1. 旧バージョンで設定した設定が維持されている。（Application-1-3）（Application-2-3）（Application-6-\*）
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
         1. オプション画面の「検索」を開く。
-        1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。(Application-6-\*)
+        1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。（Application-6-\*）
 
 ### 後始末
 
@@ -430,93 +430,93 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1}}
     - 確認項目
 {{#Startup-1}}
-        1. Firefoxが起動した時に「設定移行ウィザード」が{{#Startup-1-1}}表示される。(Startup-1-1){{/Startup-1-1}}{{#Startup-1-2}}表示されない。(Startup-1-2){{/Startup-1-2}}
+        1. Firefoxが起動した時に「設定移行ウィザード」が{{#Startup-1-1}}表示される。（Startup-1-1）{{/Startup-1-1}}{{#Startup-1-2}}表示されない。（Startup-1-2）{{/Startup-1-2}}
 {{/Startup-1}}
 {{#Startup-3}}
-        1. Firefoxを既定のブラウザにするか{{#Startup-3-1}}尋ねられる。(Startup-3-1){{/Startup-3-1}}{{#Startup-3-2}}尋ねられない。(Startup-3-2){{/Startup-3-2}}
+        1. Firefoxを既定のブラウザにするか{{#Startup-3-1}}尋ねられる。（Startup-3-1）{{/Startup-3-1}}{{#Startup-3-2}}尋ねられない。（Startup-3-2）{{/Startup-3-2}}
 {{/Startup-3}}
 {{#Startup-2-1}}
-        1. 起動直後にFirefox既定のホーム画面が表示される。(Startup-2-1)
+        1. 起動直後にFirefox既定のホーム画面が表示される。（Startup-2-1）
 {{/Startup-2-1}}
 {{#Startup-2-2 || Startup-2-3}}
-        1. 起動直後に{{home_page}}が表示される。(Startup-2-2/3)
+        1. 起動直後に{{home_page}}が表示される。（Startup-2-2/3）
 {{/Startup-2-2 || Startup-2-3}}
 {{#Startup-12-2}}
-        1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。(Startup-12-2)
+        1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。（Startup-12-2）
 {{/Startup-12-2}}
 {{#Startup-12-3}}
-        1. 起動直後にホームページ（または空白）以外のタブが開かれていない。(Startup-12-3)
+        1. 起動直後にホームページ（または空白）以外のタブが開かれていない。（Startup-12-3）
 {{/Startup-12-3}}
 {{#Appearance-7-2}}
-        1. UIの表示言語が指定の通りになっている。(Appearance-7-2)
+        1. UIの表示言語が指定の通りになっている。（Appearance-7-2）
 {{/Appearance-7-2}}
 {{#Admin-2-1}}
-        1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されている。(Admin-2-1)
+        1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されている。（Admin-2-1）
 {{/Admin-2-1}}
 {{#Admin-2-2}}
-        1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されていない。(Admin-2-2)
+        1. パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されていない。（Admin-2-2）
 {{/Admin-2-2}}
 {{#Application-7-2}}
-        1. ブラウズウィンドウのタスクバー上でのジャンプリスト項目のタイトルが「{{window_title}}」で終わっている。 (Application-7-2)
+        1. ブラウズウィンドウのタスクバー上でのジャンプリスト項目のタイトルが「{{window_title}}」で終わっている。 （Application-7-2）
 {{/Application-7-2}}
 {{#Privacy-52-2}}
-        1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。(Privacy-52-2)
+        1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。（Privacy-52-2）
 {{/Privacy-52-2}}
 <!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
     - 確認項目
 {{#Startup-2-2}}
-        1. 「このWebページまたはファイルを新しいホームページに設定します。よろしいですか？」と問われ、「はい」を選択した後でツールバー上の「ホーム」ボタンをクリックすると、ドラッグ&ドロップしたリンク先のページが開かれる。(Startup-2-2)
+        1. 「このWebページまたはファイルを新しいホームページに設定します。よろしいですか？」と問われ、「はい」を選択した後でツールバー上の「ホーム」ボタンをクリックすると、ドラッグ&ドロップしたリンク先のページが開かれる。（Startup-2-2）
 {{/Startup-2-2}}
 {{#Startup-2-3}}
-        1. 「ホーム」ボタンへのドロップが不可能である。(Startup-2-3)
+        1. 「ホーム」ボタンへのドロップが不可能である。（Startup-2-3）
 {{/Startup-2-3}}
 <!--/GROUP-->
 {{#Startup-5-2 || Startup-5-4}}
 1. メニューバーの「ブックマーク」を開く。
     - 確認項目
-        1. 既定の項目が作成されていない。(Startup-5-2/4)
+        1. 既定の項目が作成されていない。（Startup-5-2/4）
 1. Firefoxのウィンドウのツールバー上で右クリックし、「ブックマークツールバー」を選択する。
     - 確認項目
-        1. ブックマークツールバー上に既定の項目が作成されていない。(Startup-5-2/4)
+        1. ブックマークツールバー上に既定の項目が作成されていない。（Startup-5-2/4）
 {{/Startup-5-2 || Startup-5-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 {{#Startup-3-2}}
 1. オプション画面の「一般」を開く。
     - 確認項目
-        1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックが外れていて、無効化されている。(Startup-3-2)
+        1. 既定のブラウザの項目内の「起動時にFirefoxが既定のブラウザであるか確認する」のチェックが外れていて、無効化されている。（Startup-3-2）
 {{/Startup-3-2}}
 {{#Update-4-2}}
 1. オプション画面の「一般」を開く。
     - 確認項目
-        1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。(Update-4-2)
+        1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。（Update-4-2）
 {{/Update-4-2}}
 {{#Update-6-2 || Update-7-2}}
 1. `about:policies` を開く。
     - 確認項目
 {{#Update-6-2}}
-        1. `DisableSystemAddonUpdate` が `true` に設定されている。(Update-6-2)
+        1. `DisableSystemAddonUpdate` が `true` に設定されている。（Update-6-2）
 {{/Update-6-2}}
 {{#Update-7-2}}
-        1. `AppUpdateURL` が空文字に設定されている。(Update-7-2)
+        1. `AppUpdateURL` が空文字に設定されている。（Update-7-2）
 {{/Update-7-2}}
 {{/Update-6-2 || Update-7-2}}
 {{#Admin-5}}
 1. 「オプション」を開く
     - 確認項目
-       1. ページ上部に「あなたの所属組織が一部のオプションの変更を制限しています。」というメッセージが{{#Admin-5-1}}表示されている。(Admin-5-1){{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。(Admin-5-2){{/Admin-5-2}}
+       1. ページ上部に「あなたの所属組織が一部のオプションの変更を制限しています。」というメッセージが{{#Admin-5-1}}表示されている。（Admin-5-1）{{/Admin-5-1}}{{#Admin-5-2}}と表示されていない。（Admin-5-2）{{/Admin-5-2}}
 {{/Admin-5}}
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Startup-4-2}}
-        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。(Startup-4-2)
+        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。（Startup-4-2）
 {{/Startup-4-2}}
 {{#Startup-4-4}}
-        1. `startup.homepage_override_url` の値が空文字である。(Startup-4-4)
+        1. `startup.homepage_override_url` の値が空文字である。（Startup-4-4）
 {{/Startup-4-4}}
 {{#Startup-10-2}}
-        1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。(Startup-10-2)
+        1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。（Startup-10-2）
 {{/Startup-10-2}}
 {{#Startup-7}}
 1. システムの時計を1年先の日付に進める。
@@ -528,25 +528,25 @@
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2 || Startup-7-3}}表示されない。（Startup-7-2/3）{{/Startup-7-2 || Startup-7-3}}
 {{/Startup-7}}
 {{#Startup-12-2}}
-        1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示されない。(Startup-12-2)
+        1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示されない。（Startup-12-2）
 {{/Startup-12-2}}
 {{/Startup-7 || Startup-12-2}}
 {{#Startup-7}}
 1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
     - 確認項目
   {{#Startup-7-1}}
-        1. `browser.disableResetPrompt`の値が`false`である (Startup-7-1)
+        1. `browser.disableResetPrompt`の値が`false`である （Startup-7-1）
   {{/Startup-7-1}}
   {{#Startup-7-2}}
-        1. `browser.disableResetPrompt`の値が`true`である (Startup-7-2)
+        1. `browser.disableResetPrompt`の値が`true`である （Startup-7-2）
   {{/Startup-7-2}}
 {{#Startup-7-3}}
 1. ロケーションバーに`about:support`と入力して確定する
     - 確認項目
-        1. 「Firefoxをリフレッシュ」ボタンが無効化されている (Startup-7-3)
+        1. 「Firefoxをリフレッシュ」ボタンが無効化されている （Startup-7-3）
 1. ロケーションバーに `https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` と入力して確定する
     - 確認項目
-        1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない (Startup-7-3)
+        1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない （Startup-7-3）
 {{/Startup-7-3}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
@@ -554,7 +554,7 @@
 1. Firefoxを終了させずに、そのままWindowsを再起動する（または、ログオフする）。
 1. 再度Windowsにログインする。
     - 確認項目
-        1. Firefoxが自動的には起動しない。 (Startup-3-2)
+        1. Firefoxが自動的には起動しない。 （Startup-3-2）
 {{/Startup-13-2}}
 
 ### 後始末
@@ -587,7 +587,7 @@
 1. アドオンを有効化した上で、Firefoxを再起動する。
 {{/Admin-2-1}}
     - 確認項目
-        1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されいる。(Admin-4-1){{/Admin-4-1}}{{#Admin-4-2}}表示されない。(Admin-4-2){{/Admin-4-2}}
+        1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されいる。（Admin-4-1）{{/Admin-4-1}}{{#Admin-4-2}}表示されない。（Admin-4-2）{{/Admin-4-2}}
 
 ### 後始末
 
@@ -613,14 +613,14 @@
 {{#Application-1}}
 1. その状態のまま、デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxの追加起動を試みる。
     - 確認項目
-        1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-1-1/3)
+        1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}（Application-1-1/3）
 1. Firefoxを終了する。
 {{/Application-1}}
 {{#Application-2}}
 1. スタートメニューのショートカットをクリックしてFirefoxを起動する。
 1. その状態のまま、スタートメニューのショートカットをクリックしてFirefoxの多重起動を試みる。
     - 確認項目
-        1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}(Application-2-1/3)
+        1. {{^start_with_no_remote}}Firefoxの新しいウィンドウが開かれる。{{/start_with_no_remote}}{{#start_with_no_remote}}「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。{{/start_with_no_remote}}（Application-2-1/3）
 {{/Application-2}}
 
 {{#Application-5}}
@@ -640,10 +640,10 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. タスクバー上に表示された項目にポインタを載せ、ジャンプリストを表示させる。
     - 確認項目
-        1. タスクバー上の項目、もしくはジャンプリストの項目に指定のアイコンが表示されている。(Application-5-\*)
+        1. タスクバー上の項目、もしくはジャンプリストの項目に指定のアイコンが表示されている。（Application-5-\*）
 1. 前項で項目のタイトルを確認できない場合、Ctrl-Shift-ESCを押下し、タスクマネージャを起動して、「アプリケーション」タブを選択する。
     - 確認項目
-        1. 項目に指定のアイコンが表示されている。(Application-5-\*)
+        1. 項目に指定のアイコンが表示されている。（Application-5-\*）
 
 {{/Application-5}}
 
@@ -697,7 +697,7 @@
 {{#Security-1-3}}
 1. `C:\Users\Public\nss.log-*` の位置に出力されたログファイルを開く。
     - 確認項目
-        1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。(Security-1-3)
+        1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。（Security-1-3）
 {{/Security-1-3}}
 {{#Security-1-4 || Security-38-2}}
 1. オプション画面の「プライバシーとセキュリティ」を開く。
@@ -705,12 +705,12 @@
 1. 「証明書」セクションの「証明書を表示」ボタンをクリックして証明書マネージャーを開く。
 1. 「認証局証明書」の一覧を表示する。
     - 確認項目
-        1. インポートするよう指定した証明書が一覧に登録されている。(Security-1-4)
+        1. インポートするよう指定した証明書が一覧に登録されている。（Security-1-4）
 {{/Security-1-4}}
 {{#Security-38-2}}
 1. 「証明書」セクションの「セキュリティデバイス」ボタンをクリックしてデバイスマネージャーを開く。
     - 確認項目
-        1. 登録するよう指定したセキュリティデバイスがすべて登録されている。(Security-38-2)
+        1. 登録するよう指定したセキュリティデバイスがすべて登録されている。（Security-38-2）
 {{/Security-38-2}}
 {{/Security-1-4 || Security-38-2}}
 
@@ -755,26 +755,26 @@
 1. アドオンのインストールを許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
 {{#Security-3-5 || Security-3-6}}
-        1. 「サイト別設定」タブで「アドオンのインストール」において「許可」にチェックが入っている。(Security-3-5/6)
-        1. 「アドオンのインストール」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「アドオンのインストール」において{{#Security-3-6}}「許可」にチェックが入っている。(Security-3-6){{/Security-3-6}}{{#Security-3-5}}「ブロック」にチェックが入っている。(Security-3-5){{/Security-3-5}}
+        1. 「サイト別設定」タブで「アドオンのインストール」において「許可」にチェックが入っている。（Security-3-5/6）
+        1. 「アドオンのインストール」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「アドオンのインストール」において{{#Security-3-6}}「許可」にチェックが入っている。（Security-3-6）{{/Security-3-6}}{{#Security-3-5}}「ブロック」にチェックが入っている。（Security-3-5）{{/Security-3-5}}
 {{/Security-3-5 || Security-3-6}}
 <!--/GROUP-->
 <!--GROUP-->
 1. 署名済みアドオンのファイルをFirefoxのウィンドウにドラッグ&ドロップする。
     - 確認項目
 {{#Security-3-3 || Security-3-4 || Security-3-7}}
-        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。(Security-3-3/4/7)
+        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」と表示され、アドオンがインストールされない。（Security-3-3/4/7）
 {{/Security-3-3 || Security-3-4 || Security-3-7}}
 <!--/GROUP-->
 {{#Security-40-2}}
 1. 特別なメッセージを設定済みのアドオンのファイルをFirefoxのウィンドウにドラッグ&ドロップする。
     - 確認項目
-        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」の代わりに、指定したメッセージが表示されて、アドオンがインストールされない。(Security-40-2)
+        1. 「ソフトウェアのインストールはシステム管理者により無効化されています。」の代わりに、指定したメッセージが表示されて、アドオンがインストールされない。（Security-40-2）
 {{/Security-40-2}}
 {{#Security-3-3}}
 1. ロケーションバーに`about:addons`と入力して確定する。
     - 確認項目
-        1. `about:addons`への遷移がブロックされる (Security-3-3)
+        1. `about:addons`への遷移がブロックされる （Security-3-3）
 {{/Security-3-3}}
 {{#Security-3-4 || Security-3-7 || Privacy-51-2}}
 {{#Security-3-3}}
@@ -783,13 +783,13 @@
 1. アドオンマネージャを開く。
     - 確認項目
 {{#Security-3-4 || Security-3-7}}
-        1. 「アドオン入手」が表示されない。(Security-3-4/7)
-        1. 歯車アイコンが表示されている場合、そのポップアップメニュー内に「ファイルからアドオンをインストール」が含まれない。(Security-3-4/7)
-        1. 「拡張機能」タブが選択された状態で、アドオンマネージャ上にアドオンのインストールパッケージをドラッグ&ドロップして、アドオンがインストールされない。(Security-3-4/7)
-        1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。(Security-3-4/7)
+        1. 「アドオン入手」が表示されない。（Security-3-4/7）
+        1. 歯車アイコンが表示されている場合、そのポップアップメニュー内に「ファイルからアドオンをインストール」が含まれない。（Security-3-4/7）
+        1. 「拡張機能」タブが選択された状態で、アドオンマネージャ上にアドオンのインストールパッケージをドラッグ&ドロップして、アドオンがインストールされない。（Security-3-4/7）
+        1. 「アドオンを検索」欄に「Tab」と入力してEnterすると、「利用可能なアドオン」の検索結果が何も表示されない。（Security-3-4/7）
 {{/Security-3-4 || Security-3-7}}
 {{#Privacy-51-2}}
-        1. アドオンがすべてプライベートウィンドウでも有効になっている。 (Privacy-51-2)
+        1. アドオンがすべてプライベートウィンドウでも有効になっている。 （Privacy-51-2）
 {{/Privacy-51-2}}
 {{#Security-3-3}}
 1. ポリシー設定に加えた変更を元に戻す。
@@ -817,19 +817,19 @@
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
 {{#Security-4}}
-        1. ポップアップブロックの通知が{{^Security-4-3 || Security-4-7}}表示される。(Security-4-1/4/5/6/8){{/Security-4-3 || Security-4-7}}{{#Security-4-3 || Security-4-7}}表示されずに、タブまたはウィンドウが開かれる。(Security-4-3/7){{/Security-4-3 || Security-4-7}}
+        1. ポップアップブロックの通知が{{^Security-4-3 || Security-4-7}}表示される。（Security-4-1/4/5/6/8）{{/Security-4-3 || Security-4-7}}{{#Security-4-3 || Security-4-7}}表示されずに、タブまたはウィンドウが開かれる。（Security-4-3/7）{{/Security-4-3 || Security-4-7}}
 {{/Security-4}}
 {{#Security-41-1}}
-        1. 2つ目以降のポップアップがブロックされず、複数のタブが一度に開かれる。(Security-41-1)
+        1. 2つ目以降のポップアップがブロックされず、複数のタブが一度に開かれる。（Security-41-1）
 {{/Security-41-1}}
 {{#Security-41-2}}
-        1. 2つ目以降のポップアップがブロックされ、タブが1つだけ開かれる。(Security-41-2)
+        1. 2つ目以降のポップアップがブロックされ、タブが1つだけ開かれる。（Security-41-2）
 {{/Security-41-2}}
 {{#Security-4-5 || Security-4-6}}
 1. ポップアップの許可対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
-        1. 「サイト別設定」タブで「ポップアップウィンドウを開く」において「許可」にチェックが入っている。(Security-4-5/6)
-        1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「ポップアップウィンドウを開く」において{{#Security-4-6}}「許可」にチェックが入っている。(Security-4-6){{/Security-4-6}}{{#Security-4-5}}「ブロック」にチェックが入っている。(Security-4-5){{/Security-4-5}}
+        1. 「サイト別設定」タブで「ポップアップウィンドウを開く」において「許可」にチェックが入っている。（Security-4-5/6）
+        1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、「ポップアップウィンドウを開く」において{{#Security-4-6}}「許可」にチェックが入っている。（Security-4-6）{{/Security-4-6}}{{#Security-4-5}}「ブロック」にチェックが入っている。（Security-4-5）{{/Security-4-5}}
 {{/Security-4-5 || Security-4-6}}
 
 {{/Security-4 || Security-41}}
@@ -853,20 +853,20 @@
 {{#Security-5}}
 1. テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - 確認項目
-        1. 攻撃サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
+        1. 攻撃サイトとしてブロック{{#Security-5-1}}される。（Security-5-1）{{/Security-5-1}}{{#Security-5-2}}されない。（Security-5-2）{{/Security-5-2}}
 1. テストケースリストのリンクから`https://itisatrap.org/firefox/unwanted.html` を開く。
     - 確認項目
-        1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。(Security-5-1){{/Security-5-1}}{{#Security-5-2}}されない。(Security-5-2){{/Security-5-2}}
+        1. 望ましくないソフトウェアの提供サイトとしてブロック{{#Security-5-1}}される。（Security-5-1）{{/Security-5-1}}{{#Security-5-2}}されない。（Security-5-2）{{/Security-5-2}}
 {{/Security-5}}
 {{#Security-6}}
 1. テストケースリストのリンクから `https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - 確認項目
-        1. 詐欺サイトとしてブロック{{#Security-6-1}}される。(Security-6-1){{/Security-6-1}}{{#Security-6-2}}されない。(Security-6-2){{/Security-6-2}}
+        1. 詐欺サイトとしてブロック{{#Security-6-1}}される。（Security-6-1）{{/Security-6-1}}{{#Security-6-2}}されない。（Security-6-2）{{/Security-6-2}}
 {{/Security-6}}
 {{#Security-37-2}}
 1. テストケースリストのリンクから `https://expired.badssl.com/` を開く。
     - 確認項目
-        1. 警告画面の「詳細」ボタンを押した後の画面で、「危険性を承知で続行」ボタンが表示されないか、またはクリックできない状態になっている。(Security-37-2)
+        1. 警告画面の「詳細」ボタンを押した後の画面で、「危険性を承知で続行」ボタンが表示されないか、またはクリックできない状態になっている。（Security-37-2）
 {{/Security-37-2}}
 
 ## about:ページの利用制限
@@ -888,17 +888,17 @@
 {{#Security-9-3}}
 1. ロケーションバーに`about:config`と入力して確定する
     - 確認項目
-        1. `about:config`への遷移がブロックされる (Security-9-3)
+        1. `about:config`への遷移がブロックされる （Security-9-3）
 {{/Security-9-3}}
 {{#Security-34-2}}
 1. ロケーションバーに`about:profiles`と入力して確定する
     - 確認項目
-        1. `about:profiles`への遷移がブロックされる (Security-34-2)
+        1. `about:profiles`への遷移がブロックされる （Security-34-2）
 {{/Security-34-2}}
 {{#Security-35-2}}
 1. ロケーションバーに`about:support`と入力して確定する
     - 確認項目
-        1. `about:support`への遷移がブロックされる (Security-35-2)
+        1. `about:support`への遷移がブロックされる （Security-35-2）
 {{/Security-35-2}}
 
 {{#Security-12}}
@@ -919,10 +919,10 @@
 1. テストケースの `popupblock.html` を開く。
     - 確認項目
 {{#Security-12-1}}
-        1. ポップアップが開かれるか、またはポップアップブロックの通知が表示される。(Security-12-1)
+        1. ポップアップが開かれるか、またはポップアップブロックの通知が表示される。（Security-12-1）
 {{/Security-12-1}}
 {{#Security-12-3}}
-        1. 何も起こらない。ポップアップブロックの通知も表示されない。(Security-12-3)
+        1. 何も起こらない。ポップアップブロックの通知も表示されない。（Security-12-3）
 {{/Security-12-3}}
 {{/Security-12}}
 
@@ -946,20 +946,20 @@
    （例： `http://www.clear-code.com/temp/local-file-link.html` ）{{/Security-13-2}}
     - 確認項目
 {{#Security-13-1 || Security-13-3}}
-        1. `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。(Security-13-1/3)
+        1. `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。（Security-13-1/3）
 {{/Security-13-1 || Security-13-3}}
 {{#Security-13-2}}
-        1. 何も起こらない（読み込みがブロックされる）。(Security-13-2)
+        1. 何も起こらない（読み込みがブロックされる）。（Security-13-2）
 {{/Security-13-2}}
 {{/Security-13}}
 {{#Security-14}}
 1. テストケースの `cross-directory.html` について、`../configuration-sheets/constumize-item-list.csv` の位置にファイルがある事を確認した上で、ファイルを開く。
     - 確認項目
 {{#Security-14-1}}
-        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が `200` と表示される。(Security-14-1)
+        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が `200` と表示される。（Security-14-1）
 {{/Security-14-1}}
 {{#Security-14-2}}
-        1. `./cross-directory.html` の結果は `200` 、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。(Security-14-2)
+        1. `./cross-directory.html` の結果は `200` 、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。（Security-14-2）
 {{/Security-14-2}}
 {{/Security-14}}
 
@@ -1011,10 +1011,10 @@
 9. そのまま10分放置する。
     - 確認項目
 {{#Update-1-1}}
-        1. (Update-1-1)を除いて、一切のネットワーク通信が記録されない。(Security-15-2)
+        1. （Update-1-1）を除いて、一切のネットワーク通信が記録されない。（Security-15-2）
 {{/Update-1-1}}
 {{^Update-1-1}}
-        1. 一切のネットワーク通信が記録されない。(Security-15-2)
+        1. 一切のネットワーク通信が記録されない。（Security-15-2）
 {{/Update-1-1}}
 
 {{#disable_devtools}}
@@ -1047,17 +1047,17 @@
 1. パネルメニューからツールバーのカスタマイズ画面を開く。
     - 確認項目
 {{#Security-18-2}}
-        1. 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。{{#Security-15-2}}(Security-15-2){{/Security-15-2}}(Security-18-2)
+        1. 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。{{#Security-15-2}}（Security-15-2）{{/Security-15-2}}（Security-18-2）
 {{/Security-18-2}}
 {{#Security-19-2}}
-        1. 「テーマ」内の「おすすめ」に何も項目が表示されない。{{#Security-15-2}}(Security-15-2){{/Security-15-2}}(Security-19-2)
+        1. 「テーマ」内の「おすすめ」に何も項目が表示されない。{{#Security-15-2}}（Security-15-2）{{/Security-15-2}}（Security-19-2）
 {{/Security-19-2}}
 <!--/GROUP-->
 {{#Security-15-2}}
 1. パネルメニューの「開発ツール」（またはメニューバーの「Web開発」）→「WebIDE」でWebIDEを開く。
 1. メニューの「プロジェクト」→「追加のコンポーネントを管理」を開く。
     - 確認項目
-        1. 無反応である、もしくはADB Helperアドオンが準備中になっている。(Security-15-2)
+        1. 無反応である、もしくはADB Helperアドオンが準備中になっている。（Security-15-2）
 {{/Security-15-2}}
 
 {{#disable_devtools}}
@@ -1108,7 +1108,7 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. `about:debugging` を開き、テストケースから `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
     - 確認項目
-        1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。(Security-21-1){{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。(Security-21-2){{/Security-21-2}}
+        1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。（Security-21-1）{{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。（Security-21-2）{{/Security-21-2}}
 
 {{#disable_devtools}}
 ### 後始末
@@ -1137,8 +1137,8 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-        1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。(Security-23-1/2){{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。(Security-23-3){{/Security-23-3}}
-        1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。(Security-23-1){{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。(Security-23-2/3){{/Security-23-2 || Security-23-3}}
+        1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。（Security-23-1/2）{{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。（Security-23-3）{{/Security-23-3}}
+        1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。（Security-23-1）{{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。（Security-23-2/3）{{/Security-23-2 || Security-23-3}}
 
 {{#Security-9-3}}
 ### 後始末
@@ -1166,7 +1166,7 @@
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「一般」を開く。
     - 確認項目
-        1. ファイルの種類「irc」「ircs」「mailto」「webcal」のそれぞれについて、選択肢として{{#Security-25-1}}Webアプリケーション名が表示される。（Security-25-1）{{/Security-25-1}}{{#Security-25-2}}「毎回確認する」と「他のプログラムを選択する...」の2つだけ(Windowsの既定のアプリケーション設定により追加されたアプリケーションは除く)が表示される。（Security-25-2）{{/Security-25-2}}
+        1. ファイルの種類「irc」「ircs」「mailto」「webcal」のそれぞれについて、選択肢として{{#Security-25-1}}Webアプリケーション名が表示される。（Security-25-1）{{/Security-25-1}}{{#Security-25-2}}「毎回確認する」と「他のプログラムを選択する...」の2つだけ（Windowsの既定のアプリケーション設定により追加されたアプリケーションは除く）が表示される。（Security-25-2）{{/Security-25-2}}
 {{/Security-25}}
 
 ## ダウンロードしたファイルの保護
@@ -1184,7 +1184,7 @@
 <!--
 {{#Security-26}}
 1. 検証用にHTTPで端末から `http://download.safebrowsingtest.com/download` としてアクセス可能なサーバーを用意する
-    1. 端末の hosts ファイルにアクセス先のサーバーのアドレスとホスト名を追記する。( 例: `127.0.0.1 download.safebrowsingtest.com` を `%SYSTEMROOT%\System32\drivers\etc\hosts` に追記し、名前解決できるようにする。)
+    1. 端末の hosts ファイルにアクセス先のサーバーのアドレスとホスト名を追記する。（ 例: `127.0.0.1 download.safebrowsingtest.com` を `%SYSTEMROOT%\System32\drivers\etc\hosts` に追記し、名前解決できるようにする。）
     1. サーバーにて `mkdir -p /tmp/download && echo "TEST" > /tmp/download/test` などとして `/tmp/download` 以下に `test` というファイルを用意する。
     1. サーバーにて `sudo ruby -run -e httpd /tmp -p 80` などとして /tmp をHTTP経由でアクセスできる状態にする。
 {{/Security-26}}
@@ -1218,10 +1218,10 @@
 1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
 {{#Security-26}}
-        1. `browser.safebrowsing.downloads.enabled` が{{#Security-26-1}} `true` である。(Security-26-1){{/Security-26-1}}{{#Security-26-2}} `false` である。(Security-26-2){{/Security-26-2}}
+        1. `browser.safebrowsing.downloads.enabled` が{{#Security-26-1}} `true` である。（Security-26-1）{{/Security-26-1}}{{#Security-26-2}} `false` である。（Security-26-2）{{/Security-26-2}}
 {{/Security-26}}
 {{#Security-27}}
-        1. `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Security-27-1}} `true` である。(Security-27-1){{/Security-27-1}}{{#Security-27-2}} `false` である。(Security-27-2){{/Security-27-2}}
+        1. `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Security-27-1}} `true` である。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}} `false` である。（Security-27-2）{{/Security-27-2}}
 {{/Security-27}}
 
 
@@ -1248,7 +1248,7 @@
 1. 「URLでフィルタリング」欄に「dns-query」と入力する。
 1. www.clear-code.com を開く。
     - 確認項目
-        1. 「ファイル」欄が `dns-query` となっているリクエストが{{#Security-36-1}}記録されていない。(Security-36-1){{/Security-36-1}}{{#Security-36-2}}記録されている。(Security-36-2){{/Security-36-2}}
+        1. 「ファイル」欄が `dns-query` となっているリクエストが{{#Security-36-1}}記録されていない。（Security-36-1）{{/Security-36-1}}{{#Security-36-2}}記録されている。（Security-36-2）{{/Security-36-2}}
 
 {{#disable_devtools}}
 ### 後始末
@@ -1277,10 +1277,10 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 2. フィルタリング対象に設定されているパターンにマッチし、且つ、例外に設定されているパターンにマッチしないURLのWebページを開く。
     - 確認項目
-        1. 読み込みがブロックされる。(Security-39-2)
+        1. 読み込みがブロックされる。（Security-39-2）
 3. （例外パターンが設定されている場合）フィルタリング対象に設定されているパターン、例外に設定されているパターンの両方にマッチするURLのWebページを開く。
     - 確認項目
-        1. 読み込みがブロックされないる。(Security-39-2)
+        1. 読み込みがブロックされないる。（Security-39-2）
 
 {{/Security-39-2}}
 
@@ -1310,22 +1310,22 @@
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Security-28}}
-        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。(Security-28-1){{/Security-28-1}}{{#Security-28-2 || Security-28-3}}`false`である。(Security-28-2/3){{/Security-28-2 || Security-28-3}}
+        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。（Security-28-1）{{/Security-28-1}}{{#Security-28-2 || Security-28-3}}`false`である。（Security-28-2/3）{{/Security-28-2 || Security-28-3}}
 {{/Security-28}}
 {{#Security-31}}
-        1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。(Security-31-1){{/Security-31-1}}{{#Security-31-2}}`true`である。(Security-31-2){{/Security-31-2}}
+        1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。（Security-31-1）{{/Security-31-1}}{{#Security-31-2}}`true`である。（Security-31-2）{{/Security-31-2}}
 {{/Security-31}}
 {{#Security-32}}
-        1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。(Security-32-1){{/Security-32-1}}{{#Security-32-2}}`false`である。(Security-32-2){{/Security-32-2}}
+        1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。（Security-32-1）{{/Security-32-1}}{{#Security-32-2}}`false`である。（Security-32-2）{{/Security-32-2}}
 {{/Security-32}}
 {{#Security-30}}
 
 {{#Security-29}}
 1. `https://piro.sakura.ne.jp` を開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=true; Secure'` を実行する。
-1. `document.cookie` を実行する。(`secure=true` という結果が出力される。)
+1. `document.cookie` を実行する。（`secure=true` という結果が出力される。）
 1. `http://piro.sakura.ne.jp` を新しいタブで開き、Ctrl-Shift-KでWebコンソールを開く。
-1. `document.cookie = 'secure=false; Secure'` を実行する。(HTTPSで設定したCookieの値をHTTPなページから書き換える)
+1. `document.cookie = 'secure=false; Secure'` を実行する。（HTTPSで設定したCookieの値をHTTPなページから書き換える）
 1. `https://piro.sakura.ne.jp` のタブに戻り、ページを再読み込みする。
 1. `document.cookie` を実行する。
     - 確認項目
@@ -1334,25 +1334,25 @@
 {{#Security-42-2}}
 1. `http://verifications.io/` を開く。
     - 確認項目
-        1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。(Security-42-2)
+        1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。（Security-42-2）
 {{/Security-42-2}}
 
 1. テストケースの `block_script_with_wrong_mime.py` を実行し誤ったMIMEタイプを返すHTTPサーバーを起動する。
 1. Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - 確認項目
 {{#Security-30-1}}
-        1. アラートダイアログに`3`が表示され、スクリプトがブロックされていない。(Security-30-1)
+        1. アラートダイアログに`3`が表示され、スクリプトがブロックされていない。（Security-30-1）
 {{/Security-30-1}}
 {{#Security-30-2}}
-        1. アラートダイアログが表示されず、スクリプトがブロックされている。(Security-30-2)
+        1. アラートダイアログが表示されず、スクリプトがブロックされている。（Security-30-2）
 {{/Security-30-2}}
 1. Pythonの実行環境がない場合、about:configを開いて次の設定値を確認する。
     - 確認項目
 {{#Security-30-1}}
-        1. `security.block_script_with_wrong_mime`の値が`false`である (Security-30-1)
+        1. `security.block_script_with_wrong_mime`の値が`false`である （Security-30-1）
 {{/Security-30-1}}
 {{#Security-30-2}}
-        1. `security.block_script_with_wrong_mime`の値が`true`である (Security-30-2)
+        1. `security.block_script_with_wrong_mime`の値が`true`である （Security-30-2）
 {{/Security-30-2}}
 {{/Security-30}}
 
@@ -1447,7 +1447,7 @@
 {{#Privacy-33-2 || Privacy-33-4 && Privacy-41}}
 1. ブラウザウィンドウで `http://www.kantei.go.jp/` を開く。
     - 確認項目
-        1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。(Privacy-41-1){{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。(Privacy-41-2){{/Privacy-41-2}}
+        1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。（Privacy-41-1）{{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。（Privacy-41-2）{{/Privacy-41-2}}
 {{/Privacy-33-2 || Privacy-33-4 && Privacy-41}}
 {{#Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
@@ -1463,52 +1463,52 @@
     - 確認項目
 {{#Privacy-1}}
 {{#Privacy-1-2 || Privacy-1-5}}
-        1. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。(Privacy-1-2/5)
+        1. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。（Privacy-1-2/5）
 {{/Privacy-1-2 || Privacy-1-5}}
 {{#Privacy-1-3}}
-        1. 「履歴」で「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。(Privacy-1-3) 
+        1. 「履歴」で「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。（Privacy-1-3） 
 {{/Privacy-1-3}}
 {{#Privacy-1-2 || Privacy-1-3}}
-        1. 「履歴」→「記憶させる履歴を詳細設定する」が選択されており、「Firefoxの終了時に履歴を消去する」の{{#Privacy-1-2 || Privacy-1-3}}項目が存在しないか、チェックが外れていて選択不可になっている。(Privacy-1-2/3){{/Privacy-1-2 || Privacy-1-3}}
+        1. 「履歴」→「記憶させる履歴を詳細設定する」が選択されており、「Firefoxの終了時に履歴を消去する」の{{#Privacy-1-2 || Privacy-1-3}}項目が存在しないか、チェックが外れていて選択不可になっている。（Privacy-1-2/3）{{/Privacy-1-2 || Privacy-1-3}}
 {{/Privacy-1-2 || Privacy-1-3}}
 {{#Privacy-1-4 || Privacy-1-6}}
-        1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入っていて選択不可になっている。(Privacy-1-4/6)
+        1. 「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが入っていて選択不可になっている。（Privacy-1-4/6）
 {{/Privacy-1-4 || Privacy-1-6}}
 {{#Privacy-1-5}}
-        1. （一部の履歴の削除を禁止する設定を導入した場合のみ）「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが外れていて選択不可になっている。(Privacy-1-5)
+        1. （一部の履歴の削除を禁止する設定を導入した場合のみ）「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが外れていて選択不可になっている。（Privacy-1-5）
 {{/Privacy-1-5}}
 {{/Privacy-1}}
 {{#Privacy-35}}
         1. 「ブロックリストを変更」ボタンを押して表示されるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
 {{/Privacy-35}}
 {{#Privacy-43}}
-        1. 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が{{#Privacy-43-2}}選択されている。(Privacy-43-2){{/Privacy-43-2}}
-        {{^Privacy-43-2}}選択されていない。(Privacy-43-1/3/4){{/Privacy-43-2}}
+        1. 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が{{#Privacy-43-2}}選択されている。（Privacy-43-2）{{/Privacy-43-2}}
+        {{^Privacy-43-2}}選択されていない。（Privacy-43-1/3/4）{{/Privacy-43-2}}
 {{/Privacy-43}}
 {{#Privacy-46-3 || Privacy-46-4}}
-        1. 「許可設定」→「カメラ」→「設定」で「カメラへのアクセスの要求をブロック」{{#Privacy-46-3}}がチェックされていない。(Privacy-46-3){{/Privacy-46-3}}{{#Privacy-46-4}}がチェック済みである。(Privacy-46-4){{/Privacy-46-4}}
+        1. 「許可設定」→「カメラ」→「設定」で「カメラへのアクセスの要求をブロック」{{#Privacy-46-3}}がチェックされていない。（Privacy-46-3）{{/Privacy-46-3}}{{#Privacy-46-4}}がチェック済みである。（Privacy-46-4）{{/Privacy-46-4}}
 {{/Privacy-46-3 || Privacy-46-4}}
 {{#Privacy-47-3 || Privacy-47-4}}
-        1. 「許可設定」→「マイク」→「設定」で「マイクへのアクセスの要求をブロック」{{#Privacy-47-3}}がチェックされていない。(Privacy-47-3){{/Privacy-47-3}}{{#Privacy-47-4}}がチェック済みである。(Privacy-47-4){{/Privacy-47-4}}
+        1. 「許可設定」→「マイク」→「設定」で「マイクへのアクセスの要求をブロック」{{#Privacy-47-3}}がチェックされていない。（Privacy-47-3）{{/Privacy-47-3}}{{#Privacy-47-4}}がチェック済みである。（Privacy-47-4）{{/Privacy-47-4}}
 {{/Privacy-47-3 || Privacy-47-4}}
 {{#Script-2-6}}
-        1. 「許可設定」→「通知」→「設定」で「通知の許可の要求をブロック」がチェック済みである。(Script-2-6)
+        1. 「許可設定」→「通知」→「設定」で「通知の許可の要求をブロック」がチェック済みである。（Script-2-6）
 {{/Script-2-6}}
 <!--GROUP-->
 1. オプション画面の「詳細」→「ネットワーク」を開く。
     - 確認項目
 {{#Privacy-6-4}}
-        1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。(Privacy-6-4)
+        1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。（Privacy-6-4）
 {{/Privacy-6-4}}
 <!--/GROUP-->
 <!--GROUP-->
 1. オプション画面の「プライバシーとセキュリティ」を開く。
     - 確認項目
 {{#Privacy-18-2 || Privacy-18-3}}
-        1. 「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。(Privacy-18-2/3)
+        1. 「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。（Privacy-18-2/3）
 {{/Privacy-18-2 || Privacy-18-3}}
 {{#Privacy-21-2}}
-        1. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。(Privacy-21-2)
+        1. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。（Privacy-21-2）
 {{/Privacy-21-2}}
 <!--/GROUP-->
 {{#Privacy-35-3 || Privacy-35-4}}
@@ -1524,11 +1524,11 @@
     - 確認項目
 {{#Privacy-2-2 || Privacy-2-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4}}
 {{#Privacy-5-2 || Privacy-5-3 || Privacy-5-4}}
-        1. パスワードの保存を尋ねられない。(Privacy-5-2/3/4)
-        1. ファイルを再読み込みしてもパスワードが自動入力されない。(Privacy-5-2/3/4)
+        1. パスワードの保存を尋ねられない。（Privacy-5-2/3/4）
+        1. ファイルを再読み込みしてもパスワードが自動入力されない。（Privacy-5-2/3/4）
 {{/Privacy-5-2 || Privacy-5-3 || Privacy-5-4}}
 {{#Privacy-2-2 || Privacy-2-3}}
-        1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。(Privacy-2-2/3)
+        1. ユーザID入力欄をダブルクリックしても入力履歴が表示されない。（Privacy-2-2/3）
 {{/Privacy-2-2 || Privacy-2-3}}
 {{/Privacy-2-2 || Privacy-2-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4}}
 {{^Privacy-5-2}}{{^Privacy-5-3}}{{^Privacy-5-4}}
@@ -1543,86 +1543,86 @@
 {{#Privacy-3-2}}
 1. ファイルに名前を付けて保存し、Firefoxを再起動する。
     - 確認項目
-        1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在しない。(Privacy-3-2)
+        1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在しない。（Privacy-3-2）
 {{/Privacy-3-2}}
 {{#Privacy-4-2 || Privacy-4-3}}
 1. ロケーションバーに `password` と入力する。
     - 確認項目
-        1. ロケーションバーのオートコンプリートの項目として履歴が表示されない。(Privacy-4-2/3)
+        1. ロケーションバーのオートコンプリートの項目として履歴が表示されない。（Privacy-4-2/3）
 {{/Privacy-4-2 || Privacy-4-3}}
 {{#Privacy-39}}
 1. テストケースの `insecure-password.html` を開く。
 1. パスワードの入力欄にフォーカスを移す。
     - 確認項目
-        1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。(Privacy-39-1){{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
+        1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。（Privacy-39-1）{{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
 {{#Privacy-12}}
 1. テストケースの「browser.html」を開き「localStorage」の欄を確認する
     - 確認項目
-        1. {{#Privacy-12-1}}`enabled` と出力される。(Privacy-12-1){{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。(Privacy-12-2){{/Privacy-12-2}}
+        1. {{#Privacy-12-1}}`enabled` と出力される。（Privacy-12-1）{{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。（Privacy-12-2）{{/Privacy-12-2}}
 {{/Privacy-12}}
 {{#Privacy-13}}
 1. テストケースの「browser.html」を開き「indexedDB」の欄を確認する
     - 確認項目
-        1. {{#Privacy-13-1}}`enabled` と出力される。(Privacy-13-1){{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。(Privacy-13-3){{/Privacy-13-3}}
+        1. {{#Privacy-13-1}}`enabled` と出力される。（Privacy-13-1）{{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。（Privacy-13-3）{{/Privacy-13-3}}
 {{/Privacy-13}}
 {{#Privacy-38}}
 1. テストケースの「browser.html」を開き「beacon」の欄を確認する
     - 確認項目
-        1. {{#Privacy-38-1}}`enabled` と表示される。(Privacy-38-1){{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。(Privacy-38-2){{/Privacy-38-2}}
+        1. {{#Privacy-38-1}}`enabled` と表示される。（Privacy-38-1）{{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。（Privacy-38-2）{{/Privacy-38-2}}
 {{/Privacy-38}}
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
 <!--GROUP-->
 1. 各設定値を確認する。
     - 確認項目
 {{#Privacy-6-3}}
-        1. `offline.cache.enabled`の値が`false`、または`offline.cache.capacity`の値が`1`である。(Privacy-6-3)
+        1. `offline.cache.enabled`の値が`false`、または`offline.cache.capacity`の値が`1`である。（Privacy-6-3）
 {{/Privacy-6-3}}
 {{#Privacy-8-2}}
-        1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。(Privacy-8-2)
+        1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。（Privacy-8-2）
 {{/Privacy-8-2}}
 {{#Privacy-15-2}}
-        1. `browser.search.geoip.url` の値が空文字である。(Privacy-15-2)
+        1. `browser.search.geoip.url` の値が空文字である。（Privacy-15-2）
 {{/Privacy-15-2}}
 {{#Privacy-19-2}}
-        1. `security.ssl.errorReporting.automatic` の値が`false`である。(Privacy-19-2)
-        1. `security.ssl.errorReporting.enabled` の値が`false`である。(Privacy-19-2)
-        1. `security.ssl.errorReporting.url` の値が空文字である。(Privacy-19-2)
+        1. `security.ssl.errorReporting.automatic` の値が`false`である。（Privacy-19-2）
+        1. `security.ssl.errorReporting.enabled` の値が`false`である。（Privacy-19-2）
+        1. `security.ssl.errorReporting.url` の値が空文字である。（Privacy-19-2）
 {{/Privacy-19-2}}
 {{#Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
-        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。(Privacy-33-2/4){{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。(Privacy-33-3/5){{/Privacy-33-3 || Privacy-33-5}}
-        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。(Privacy-33-2/4){{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。(Privacy-33-3/5){{/Privacy-33-3 || Privacy-33-5}}
+        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
+        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
 {{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
 {{#Privacy-42-2}}
-        1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。(Privacy-42-1){{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。(Privacy-42-2){{/Privacy-42-2}}
+        1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。（Privacy-42-1）{{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。（Privacy-42-2）{{/Privacy-42-2}}
 {{/Privacy-42-2}}
 {{#Privacy-48}}
-        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。(Privacy-48-3){{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。(Privacy-48-2){{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。(Privacy-48-1){{/Privacy-48-3}}
+        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。（Privacy-48-1）{{/Privacy-48-3}}
 {{/Privacy-48}}
 {{#Privacy-44}}
-        1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。(Privacy-44-1){{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。(Privacy-44-2){{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。(Privacy-44-3){{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。(Privacy-44-4){{/Privacy-44-4}}
+        1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。（Privacy-44-1）{{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。（Privacy-44-2）{{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。（Privacy-44-3）{{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。（Privacy-44-4）{{/Privacy-44-4}}
 {{/Privacy-44}}
 {{#Privacy-45}}
-        1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。(Privacy-45-1){{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。(Privacy-45-2){{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。(Privacy-45-3){{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。(Privacy-45-4){{/Privacy-45-4}}
+        1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。（Privacy-45-1）{{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。（Privacy-45-2）{{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。（Privacy-45-3）{{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。（Privacy-45-4）{{/Privacy-45-4}}
 {{/Privacy-45}}
 {{#Privacy-49}}
-        1. `network.http.referer.defaultPolicy.trackers` の値が{{#Privacy-49-1}}`0`である。(Privacy-49-1){{/Privacy-49-1}}{{#Privacy-49-2}}`1`である。(Privacy-49-2){{/Privacy-49-2}}{{#Privacy-49-3}}`2`である。(Privacy-49-3){{/Privacy-49-3}}{{#Privacy-49-4}}`3`である。(Privacy-49-4){{/Privacy-49-4}}
+        1. `network.http.referer.defaultPolicy.trackers` の値が{{#Privacy-49-1}}`0`である。（Privacy-49-1）{{/Privacy-49-1}}{{#Privacy-49-2}}`1`である。（Privacy-49-2）{{/Privacy-49-2}}{{#Privacy-49-3}}`2`である。（Privacy-49-3）{{/Privacy-49-3}}{{#Privacy-49-4}}`3`である。（Privacy-49-4）{{/Privacy-49-4}}
 {{/Privacy-49}}
 {{#Privacy-50}}
-        1. `network.http.referer.defaultPolicy.trackers.pbmode` の値が{{#Privacy-50-1}}`0`である。(Privacy-50-1){{/Privacy-50-1}}{{#Privacy-50-2}}`1`である。(Privacy-50-2){{/Privacy-50-2}}{{#Privacy-50-3}}`2`である。(Privacy-50-3){{/Privacy-50-3}}{{#Privacy-50-4}}`3`である。(Privacy-50-4){{/Privacy-50-4}}
+        1. `network.http.referer.defaultPolicy.trackers.pbmode` の値が{{#Privacy-50-1}}`0`である。（Privacy-50-1）{{/Privacy-50-1}}{{#Privacy-50-2}}`1`である。（Privacy-50-2）{{/Privacy-50-2}}{{#Privacy-50-3}}`2`である。（Privacy-50-3）{{/Privacy-50-3}}{{#Privacy-50-4}}`3`である。（Privacy-50-4）{{/Privacy-50-4}}
 {{/Privacy-50}}
 {{#Privacy-46}}
-        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。(Privacy-46-1){{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。(Privacy-46-2){{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。(Privacy-46-3){{/Privacy-46-3}}
+        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。（Privacy-46-1）{{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。（Privacy-46-2）{{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。（Privacy-46-3）{{/Privacy-46-3}}
 {{/Privacy-46}}
 {{#Privacy-47}}
-        1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。(Privacy-47-1){{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。(Privacy-47-2){{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。(Privacy-47-3){{/Privacy-47-3}}
+        1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。（Privacy-47-1）{{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。（Privacy-47-2）{{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。（Privacy-47-3）{{/Privacy-47-3}}
 {{/Privacy-47}}
 {{#Privacy-5-2 || Privacy-5-3}}
   {{#Privacy-40-1}}
-        1. `signon.rememberSignons.visibilityToggle` の値が`true`である (Privacy-40-1)
+        1. `signon.rememberSignons.visibilityToggle` の値が`true`である （Privacy-40-1）
   {{/Privacy-40-1}}
   {{#Privacy-40-2}}
-        1. `signon.rememberSignons.visibilityToggle` の値が`false`である (Privacy-40-2)
+        1. `signon.rememberSignons.visibilityToggle` の値が`false`である （Privacy-40-2）
   {{/Privacy-40-2}}
 {{/Privacy-5-3 || Privacy-5-2}}
 
@@ -1642,12 +1642,12 @@
 {{#Privacy-7}}
 1. ブラウザウィンドウで `http://www.clear-code.com/blog/2016/5/10.html` を開く。
     - 確認項目
-        1. `GET http://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに{{#Privacy-7-1}}出力される。(Privacy-7-1){{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。(Privacy-7-2){{/Privacy-7-2}}
+        1. `GET http://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに{{#Privacy-7-1}}出力される。（Privacy-7-1）{{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。（Privacy-7-2）{{/Privacy-7-2}}
 {{/Privacy-7}}
 {{#Privacy-16}}
 1. ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - 確認項目
-        1. `dns-resolution-request: dns-prefetch.example.com` というログがブラウザコンソールに{{#Privacy-16-1}}出力される。(Privacy-16-1){{/Privacy-16-1}}{{#Privacy-16-2 || Privacy-16-3}}出力されない。(Privacy-16-2/3){{/Privacy-16-2 || Privacy-16-3}}
+        1. `dns-resolution-request: dns-prefetch.example.com` というログがブラウザコンソールに{{#Privacy-16-1}}出力される。（Privacy-16-1）{{/Privacy-16-1}}{{#Privacy-16-2 || Privacy-16-3}}出力されない。（Privacy-16-2/3）{{/Privacy-16-2 || Privacy-16-3}}
 {{/Privacy-16}}
 1. ブラウザコンソールを閉じる。
 {{/Privacy-7 || Privacy-16}}
@@ -1656,25 +1656,25 @@
 1. 新しいブラウザウィンドウを開いてロケーションバーに `about:` と入力し、ページの読み込みが完了したらウィンドウを閉じる。 これを2回繰り返す。
 1. 「履歴」メニューを開く。
     - 確認項目
-        1. 「最近閉じたタブ」それ自体もしくはその配下の項目が表示されない。(Privacy-10-2)
-        1. 「最近閉じたウィンドウ」配下にウィンドウの項目が1つだけ表示される。(Privacy-10-2)
+        1. 「最近閉じたタブ」それ自体もしくはその配下の項目が表示されない。（Privacy-10-2）
+        1. 「最近閉じたウィンドウ」配下にウィンドウの項目が1つだけ表示される。（Privacy-10-2）
 1. Firefoxを再起動する。
 1. 「履歴」メニューを開く。
     - 確認項目
-        1. 「最近閉じたウィンドウ」それ自体もしくはその配下の項目が表示されない。(Privacy-10-2)
+        1. 「最近閉じたウィンドウ」それ自体もしくはその配下の項目が表示されない。（Privacy-10-2）
 {{/Privacy-10-2}}
 {{#Privacy-17}}
 1. ツールバー上の検索窓にフォーカスし `a` と入力する。
     - 確認項目
-        1. `a` の補完候補が{{#Privacy-17-1}}表示される。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}表示されない。(Privacy-17-2/3){{/Privacy-17-2 || Privacy-17-3}}
+        1. `a` の補完候補が{{#Privacy-17-1}}表示される。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}表示されない。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
 1. ツールバー上のロケーションバーにフォーカスし「新しい検索語句」等、履歴やブックマーク等からの候補が表示され得ないテキストを入力する。
     - 確認項目
-        1. 補完候補が{{#Privacy-17-1}}表示される。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}表示されない。(Privacy-17-2/3){{/Privacy-17-2 || Privacy-17-3}}
+        1. 補完候補が{{#Privacy-17-1}}表示される。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}表示されない。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
 1. ツールバー上の検索窓の虫眼鏡のアイコンをクリックし、ポップアップ表示されたパネルの最下部の「検索設定を変更」をクリックする。
 1. 開かれた設定画面の「既定の検索エンジン」欄を見る。
     - 確認項目
-        1. 「検索候補を使用する」{{#Privacy-17-1}}にチェックが入っていて選択不可になっている。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}のチェックが外れていて選択不可になっている。(Privacy-17-2/3){{/Privacy-17-2 || Privacy-17-3}}
-        1. 「アドレスバーに検索候補を表示する」{{#Privacy-17-1}}にチェックが入っていて選択不可になっている。(Privacy-17-1){{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}のチェックが外れていて選択不可になっている。(Privacy-17-2/3){{/Privacy-17-2 || Privacy-17-3}}
+        1. 「検索候補を使用する」{{#Privacy-17-1}}にチェックが入っていて選択不可になっている。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}のチェックが外れていて選択不可になっている。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
+        1. 「アドレスバーに検索候補を表示する」{{#Privacy-17-1}}にチェックが入っていて選択不可になっている。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}のチェックが外れていて選択不可になっている。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
 {{/Privacy-17}}
 1. Firefoxを終了する。
 {{#Privacy-32 || Privacy-37}}
@@ -1689,10 +1689,10 @@
 1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
 {{#Privacy-32}}
-        1. `network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。(Privacy-32-1){{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。(Privacy-32-2){{/Privacy-32-2}}
+        1. `network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。（Privacy-32-2）{{/Privacy-32-2}}
 {{/Privacy-32}}
 {{#Privacy-37}}
-        1. `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。(Privacy-37-1){{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。(Privacy-37-2){{/Privacy-37-2}}
+        1. `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。（Privacy-37-2）{{/Privacy-37-2}}
 {{/Privacy-37}}
 {{/Privacy-32 || Privacy-37}}
 
@@ -1745,11 +1745,11 @@
 2. パネルメニューを開き、「アドオン」をクリックする。
 3. アドオンマネージャ内の「拡張機能」をクリックする。
     - 確認項目
-        1. 拡張機能の一覧に「Flexible Expire History by Days」が表示されており、有効になっている。(Privacy-9-1)
+        1. 拡張機能の一覧に「Flexible Expire History by Days」が表示されており、有効になっている。（Privacy-9-1）
 4. {{expire_history_by_days_version}}の設定画面を開く。
     - 確認項目
-        1. 「Expire visits older than these days」の値が`5`である。(Privacy-9-1)
-        2. 「Frequency of expiration」で「On the first idle time per a day」が選択されている。(Privacy-9-1)
+        1. 「Expire visits older than these days」の値が`5`である。（Privacy-9-1）
+        2. 「Frequency of expiration」で「On the first idle time per a day」が選択されている。（Privacy-9-1）
 5. Firefoxのロケーションバーに`about:config`と入力し、ページを開く。
 6.  「検索」欄に `idle.lastDailyNotification` と入力し、Enterを押下する。
 7. 項目が見つかった場合、項目を右クリックしてメニューから「リセット」を選択する。
@@ -1762,7 +1762,7 @@
         1. 当日までの日付の履歴項目が並んでいる。
 13. マウスとキーボードから手を離し、4分以上、何も操作せずに放置する。
     - 確認項目
-        1. 前日を含めて過去5日間の履歴が残っており、それよりも古い履歴項目が残っていない。(Privacy-9-1)
+        1. 前日を含めて過去5日間の履歴が残っており、それよりも古い履歴項目が残っていない。（Privacy-9-1）
 
 ### 後始末
 
@@ -1790,20 +1790,20 @@
 1. テストケースの「browser.html」を開き「geolocation」の欄を確認する
     - 確認項目
 {{#Privacy-14-3 || Privacy-14-6}}
-        1. `disabled`と表示されている (Privacy-14-3)
+        1. `disabled`と表示されている （Privacy-14-3）
 {{/Privacy-14-3 || Privacy-14-6}}
 {{#Privacy-14-1 || Privacy-14-4 }}
-        1. `enabled`と表示されている (Privacy-14-1/4)
+        1. `enabled`と表示されている （Privacy-14-1/4）
         1. 「exec」をクリックすると「このサイトに位置情報の共有を許可しますか？」と尋ねられる。
 {{/Privacy-14-1 || Privacy-14-4 }}
 {{#Privacy-14-4 || Privacy-14-6}}
 1. 確認無しでの位置情報の取得を許可するサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
-        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-4}}「許可」が選択されている。(Privacy-14-4){{/Privacy-14-4}}{{#Privacy-14-6}}「ブロック」が選択されている。(Privacy-14-6){{/Privacy-14-6}}
+        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-4}}「許可」が選択されている。（Privacy-14-4）{{/Privacy-14-4}}{{#Privacy-14-6}}「ブロック」が選択されている。（Privacy-14-6）{{/Privacy-14-6}}
 1. 「位置情報の送信」で、「{{#Privacy-14-4}}ブロック{{/Privacy-14-4}}{{#Privacy-14-6}}許可{{/Privacy-14-6}}」を選択してFirefoxを再起動する。
 1. 確認無しでの位置情報の取得を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
-        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-4}}「ブロック」が選択されている。(Privacy-14-4){{/Privacy-14-4}}{{#Privacy-14-6}}「許可」が選択されている。(Privacy-14-6){{/Privacy-14-6}}
+        1. 「位置情報の送信」で、「標準設定を使用する」のチェックが外れており、{{#Privacy-14-4}}「ブロック」が選択されている。（Privacy-14-4）{{/Privacy-14-4}}{{#Privacy-14-6}}「許可」が選択されている。（Privacy-14-6）{{/Privacy-14-6}}
 {{/Privacy-14-4 || Privacy-14-6}}
 
 {{/Privacy-14}}
@@ -1826,14 +1826,14 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開く。
     - 確認項目
-        1. 「Syncにログイン」の項目が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
+        1. 「Syncにログイン」の項目が存在しない。{{#Privacy-22-2 || Privacy-22-3}}（Privacy-22-2/3）{{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}（Privacy-24-2/3）{{/Privacy-24-2 || Privacy-24-3}}
 1. 「ツール」メニューを開く。
     - 確認項目
-        1. 「Syncにログイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
+        1. 「Syncにログイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}（Privacy-22-2/3）{{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}（Privacy-24-2/3）{{/Privacy-24-2 || Privacy-24-3}}
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
-        1. 「Sync」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
-        2. 「Syncにサインイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}(Privacy-22-2/3){{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}(Privacy-24-2/3){{/Privacy-24-2 || Privacy-24-3}}
+        1. 「Sync」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}（Privacy-22-2/3）{{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}（Privacy-24-2/3）{{/Privacy-24-2 || Privacy-24-3}}
+        2. 「Syncにサインイン」が存在しない。{{#Privacy-22-2 || Privacy-22-3}}（Privacy-22-2/3）{{/Privacy-22-2 || Privacy-22-3}}{{#Privacy-24-2 || Privacy-24-3}}（Privacy-24-2/3）{{/Privacy-24-2 || Privacy-24-3}}
 
 {{/Privacy-22-2 || Privacy-22-3 || Privacy-24-2 || Privacy-24-3}}
 
@@ -1854,10 +1854,10 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
-        1. 「Pocket」が存在しない。(Privacy-27-2)
+        1. 「Pocket」が存在しない。（Privacy-27-2）
 1. Webページ中の任意のリンクを右クリックしてコンテキストメニューを開く。
     - 確認項目
-        1. 「リンクをPocketに保存」が存在しない。(Privacy-27-2)
+        1. 「リンクをPocketに保存」が存在しない。（Privacy-27-2）
 {{/Privacy-27-2 || Privacy-27-3}}
 
 {{#Privacy-29-2}}
@@ -1890,11 +1890,11 @@
 8. キーボード、マウスから手を離し、4分以上待つ。
 9. ブラウザコンソールの内容を確認する。
     - 確認項目
-        1. 以下のメッセージがすべて出力される。(Privacy-29-2)
+        1. 以下のメッセージがすべて出力される。（Privacy-29-2）
             1. `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
             2. `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
             3. `Array [ ... ]`
-        2. `Array [ ... ]` と表示されたメッセージの中に、`> Vacuum` という内容が含まれている。(Privacy-29-2)
+        2. `Array [ ... ]` と表示されたメッセージの中に、`> Vacuum` という内容が含まれている。（Privacy-29-2）
 
 {{#disable_devtools}}
 ### 後始末
@@ -1931,19 +1931,19 @@
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「詳細」→「ネットワーク」を開く。
     - 確認項目
-        1. 「キャッシュサイズを変更する」に{{#Privacy-30-1}}チェックが入っておらず、選択不可になっている。(Privacy-30-1){{/Privacy-30-1}}{{#Privacy-30-2}}チェックが入っていて、選択不可になっている。(Privacy-30-2){{/Privacy-30-2}}
+        1. 「キャッシュサイズを変更する」に{{#Privacy-30-1}}チェックが入っておらず、選択不可になっている。（Privacy-30-1）{{/Privacy-30-1}}{{#Privacy-30-2}}チェックが入っていて、選択不可になっている。（Privacy-30-2）{{/Privacy-30-2}}
 {{#Privacy-30-2}}
-        1. 「ページキャッシュとして{{max_cache_size_in_megabytes}}MBまで使用する」と表示されている。(Privacy-30-2)
+        1. 「ページキャッシュとして{{max_cache_size_in_megabytes}}MBまで使用する」と表示されている。（Privacy-30-2）
 {{/Privacy-30-2}}
 {{/Privacy-30-1 || Privacy-30-2}}
 {{#Privacy-30-3}}
 1. `http://www.clear-code.com/` などいくつかのWebページを閲覧する。
 1. ロケーションバーに `about:cache` と入力し、ページを開く。
     - 確認項目
-        1. 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。(Privacy-30-3)
+        1. 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。（Privacy-30-3）
 1. `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\cache2` を開き、その中の `entries` フォルダを開く。
     - 確認項目
-        1. フォルダが空である。(Privacy-30-3)
+        1. フォルダが空である。（Privacy-30-3）
 {{/Privacy-30-3}}
 {{/Privacy-30}}
 
@@ -2027,20 +2027,20 @@
 1. Web検索バーのアイコンをクリックする。
     - 確認項目
 {{#Websearch-1}}
-        1. Web検索バーのアイコンに「+」のバッジが{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-3}}表示されない。(Websearch-1-3){{/Websearch-1-3}}
-        1. パネル上に「”Firefoxアドオン”を追加」という項目が{{#Websearch-1-1}}表示される。(Websearch-1-1){{/Websearch-1-1}}{{#Websearch-1-3}}表示されない。(Websearch-1-3){{/Websearch-1-3}}
+        1. Web検索バーのアイコンに「+」のバッジが{{#Websearch-1-1}}表示される。（Websearch-1-1）{{/Websearch-1-1}}{{#Websearch-1-3}}表示されない。（Websearch-1-3）{{/Websearch-1-3}}
+        1. パネル上に「”Firefoxアドオン”を追加」という項目が{{#Websearch-1-1}}表示される。（Websearch-1-1）{{/Websearch-1-1}}{{#Websearch-1-3}}表示されない。（Websearch-1-3）{{/Websearch-1-3}}
 {{/Websearch-1}}
 {{#Websearch-2-2}}
-        1. パネル上に、無効にした検索エンジンが表れていない（ないし有効にした検索エンジンのみが表示される）。(Websearch-2-2)
+        1. パネル上に、無効にした検索エンジンが表れていない（ないし有効にした検索エンジンのみが表示される）。（Websearch-2-2）
 {{/Websearch-2-2}}
 {{#Websearch-3-1}}
-        1. パネル上に、追加するように設定した検索エンジンが表示されている。(Websearch-3-1)
+        1. パネル上に、追加するように設定した検索エンジンが表示されている。（Websearch-3-1）
 {{/Websearch-3-1}}
 {{#Websearch-2-2}}
-1. パネル下部の「検索設定を変更」をクリックする。(Websearch-2-2)
+1. パネル下部の「検索設定を変更」をクリックする。（Websearch-2-2）
     - 確認項目
-    -   1. 「既定の検索エンジン」のドロップダウンリストに、無効にした検索エンジンが表れていない。(Websearch-2-2)
-        1. 「ワンクリック検索エンジン」のリストに、無効にした検索エンジンが表れていない。(Websearch-2-2)
+    -   1. 「既定の検索エンジン」のドロップダウンリストに、無効にした検索エンジンが表れていない。（Websearch-2-2）
+        1. 「ワンクリック検索エンジン」のリストに、無効にした検索エンジンが表れていない。（Websearch-2-2）
 {{/Websearch-2-2}}
 
 {{/Websearch-1-1 || Websearch-1-3 || Websearch-2 || Websearch-3}}
@@ -2066,17 +2066,17 @@
 {{#Location-1}}
 1. ロケーションバーに `http://example.com/` のように `http://` で始まるURLを入力し、ページを開く。
     - 確認項目
-        1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。(Location-1-2){{/Location-1-2}}{{#Location-1-1}}含まれていない。(Location-1-1){{/Location-1-1}}
+        1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。（Location-1-2）{{/Location-1-2}}{{#Location-1-1}}含まれていない。（Location-1-1）{{/Location-1-1}}
 {{/Location-1}}
 {{#Location-2}}
 1. ロケーションバーに `https://日本語.jp/` のように日本語ドメインのURLを入力し、ページを開く。
     - 確認項目
-        1. ロケーションバーのURLが{{#Location-2-1}}日本語で表示されている。(Location-2-1){{/Location-2-1}}{{#Location-2-2}}punycode形式で表示されている。(Location-2-2){{/Location-2-2}}
+        1. ロケーションバーのURLが{{#Location-2-1}}日本語で表示されている。（Location-2-1）{{/Location-2-1}}{{#Location-2-2}}punycode形式で表示されている。（Location-2-2）{{/Location-2-2}}
 {{/Location-2}}
 {{#Location-3}}
 1. ロケーションバーに `localhost` のように一単語の（名前解決可能な）ホスト名を入力し、ページを開く。
     - 確認項目
-        1. {{#Location-3-1}}ホスト名を単語とした検索結果が表示される。(Location-3-1){{/Location-3-1}}{{#Location-3-2}}そのホストが名前解決され、ページが表示される。(Location-3-2){{/Location-3-2}}
+        1. {{#Location-3-1}}ホスト名を単語とした検索結果が表示される。（Location-3-1）{{/Location-3-1}}{{#Location-3-2}}そのホストが名前解決され、ページが表示される。（Location-3-2）{{/Location-3-2}}
 {{/Location-3}}
 {{/Location-1 || Location-2 || Location-3}}
 
@@ -2106,14 +2106,14 @@
 1. 再ダウンロードのリンクを右クリックし、メニューから「名前を付けてリンク先を保存」を選択する。
 {{#Download-2}}
     - 確認項目
-        1. {{#Download-2-1 || Download-2-2 || Download-2-4 || Download-2-5}}ダウンロード先として`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-2-1/2/4/5){{/Download-2-1 || Download-2-2 || Download-2-4 || Download-2-5}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。(Download-2-3) {{/Download-2-3}}
+        1. {{#Download-2-1 || Download-2-2 || Download-2-4 || Download-2-5}}ダウンロード先として`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。（Download-2-1/2/4/5）{{/Download-2-1 || Download-2-2 || Download-2-4 || Download-2-5}}{{#Download-2-3}}ホームディレクトリ内の「ダウンロード」が選択された状態でファイル選択ダイアログが開かれる。（Download-2-3） {{/Download-2-3}}
 {{/Download-2}}
 {{/Download-2 || Download-3-1 || Download-3-2}}
 {{#Download-3-1 || Download-3-2}}
 1. `subfolder` という名前でフォルダを作成し、そのフォルダを選択してダウンロードを開始する。
 {{#Download-1}}
     - 確認項目
-        1. ダウンロードの進行状況を示すポップアップが{{#Download-1-1}}表示される。(Download-1-1){{/Download-1-1}}{{#Download-1-2}}表示されない。(Download-1-2){{/Download-1-2}}
+        1. ダウンロードの進行状況を示すポップアップが{{#Download-1-1}}表示される。（Download-1-1）{{/Download-1-1}}{{#Download-1-2}}表示されない。（Download-1-2）{{/Download-1-2}}
 {{/Download-1}}
 {{/Download-3-1 || Download-3-2}}
 {{#Download-3}}
@@ -2127,13 +2127,13 @@
 1. ロケーションバーに `http://www.mozilla.org/` と入力し、ページを開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
     - 確認項目
-        1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。(Download-3-2){{/Download-3-2}}
+        1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。（Download-3-1）{{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。（Download-3-2）{{/Download-3-2}}
 {{^Download-1-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「一般」を開く。
     - 確認項目
-        1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。(Download-3-\*)
-        1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の `subfolder` が表示されている。(Download-3-1){{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が表示されている。(Download-3-2){{/Download-3-2}}
+        1. 「ダウンロード」は「次のフォルダに保存する」が選択されている。（Download-3-\*）
+        1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の `subfolder` が表示されている。（Download-3-1）{{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が表示されている。（Download-3-2）{{/Download-3-2}}
 {{/Download-1-2}}
 {{/Download-3-1 || Download-3-2}}
 {{/Download-3}}
@@ -2171,21 +2171,21 @@
 {{#Tab-17}}
 1. Ctrlキーを押しながらTabキーを押す。
     - 確認項目
-        1. フォーカス切り替え対象のタブのサムネイル一覧が{{#Tab-17-1}}表示される。(Tab-17-1){{/Tab-17-1}}{{#Tab-17-2}}表示されない。(Tab-17-2){{/Tab-17-2}}
+        1. フォーカス切り替え対象のタブのサムネイル一覧が{{#Tab-17-1}}表示される。（Tab-17-1）{{/Tab-17-1}}{{#Tab-17-2}}表示されない。（Tab-17-2）{{/Tab-17-2}}
 {{/Tab-17}}
 {{#Tab-18}}
 1. Ctrlキーを押しながらアクティブでないタブをクリックする。
     - 確認項目
-        1. {{#Tab-18-1}}タブのフォーカスが切り替わらずに、クリックされたタブの色が変わり複数選択状態になる。(Tab-18-1){{/Tab-18-1}}{{#Tab-18-2}}クリックされたタブが複数選択状態にならず、タブのフォーカスが切り替わる。(Tab-18-2){{/Tab-18-2}}
+        1. {{#Tab-18-1}}タブのフォーカスが切り替わらずに、クリックされたタブの色が変わり複数選択状態になる。（Tab-18-1）{{/Tab-18-1}}{{#Tab-18-2}}クリックされたタブが複数選択状態にならず、タブのフォーカスが切り替わる。（Tab-18-2）{{/Tab-18-2}}
 {{/Tab-18}}
 1. ウィンドウを閉じる操作を行う。
     - 確認項目
-        1. 複数のタブを閉じてよいかどうか{{#Tab-1-1}}確認される。(Tab-1-1){{/Tab-1-1}}{{#Tab-1-2 || Tab-1-3}}確認されない。(Tab-1-2/3){{/Tab-1-2 || Tab-1-3}}
+        1. 複数のタブを閉じてよいかどうか{{#Tab-1-1}}確認される。（Tab-1-1）{{/Tab-1-1}}{{#Tab-1-2 || Tab-1-3}}確認されない。（Tab-1-2/3）{{/Tab-1-2 || Tab-1-3}}
 {{/Tab-1}}
 {{#Tab-2}}
 1. タブを1つ選択し、右クリックして「他のタブをすべて閉じる」を選択する。
     - 確認項目
-        1. 複数のタブを閉じてよいかどうか{{#Tab-2-1}}確認される。(Tab-2-1){{/Tab-2-1}}{{#Tab-2-2 || Tab-2-3}}確認されない。(Tab-2-2/3){{/Tab-2-2 || Tab-2-3}}
+        1. 複数のタブを閉じてよいかどうか{{#Tab-2-1}}確認される。（Tab-2-1）{{/Tab-2-1}}{{#Tab-2-2 || Tab-2-3}}確認されない。（Tab-2-2/3）{{/Tab-2-2 || Tab-2-3}}
 {{/Tab-2}}
 {{#Tab-3 || Tab-6-2}}
 1. テストケースの `links.html` を開く。
@@ -2193,7 +2193,7 @@
 {{#Tab-6-2}}
 1. 「window.open（サイズ指定あり）」のリンクをクリックする。
     - 確認項目
-        1. ウィンドウではなくタブが開かれる。(Tab-6-2)
+        1. ウィンドウではなくタブが開かれる。（Tab-6-2）
 {{/Tab-6-2}}
 {{#Tab-3}}
 1. リンクからタブを開き、15以上のタブが開かれた状態にする。
@@ -2201,16 +2201,16 @@
 1. フォルダ名を任意に指定し、ブックマークフォルダとして保存する。
 1. メニューバーの「ブックマーク」から前の操作で作成されたブックマークフォルダを選択し、最下部の「タブですべて開く」を選択する。
     - 確認項目
-        1. 一度に複数のタブを開いてよいかどうか{{#Tab-3-1}}確認される。(Tab-3-1){{/Tab-3-1}}{{#Tab-3-2 || Tab-3-3}}確認されない。(Tab-3-2/3){{/Tab-3-2 || Tab-3-3}}
+        1. 一度に複数のタブを開いてよいかどうか{{#Tab-3-1}}確認される。（Tab-3-1）{{/Tab-3-1}}{{#Tab-3-2 || Tab-3-3}}確認されない。（Tab-3-2/3）{{/Tab-3-2 || Tab-3-3}}
 {{/Tab-3}}
 {{#Tab-5}}
 1. タブバー上の「+」ボタンをクリックして新しいタブを開く。またはパネルメニューを開き、パネルメニュー内の「新しいウィンドウ」をクリックする。
     - 確認項目
 {{#Tab-5-1}}
-        1. 右上に歯車アイコンのある空白ページが表示される。(Tab-5-1)
+        1. 右上に歯車アイコンのある空白ページが表示される。（Tab-5-1）
 {{/Tab-5-1}}
 {{#Tab-5-3 || Tab-5-4}}
-        1. 右上に歯車アイコンのない空白ページが表示される。{{#Tab-5-3 || Tab-5-4}}(Tab-5-3/4){{/Tab-5-3 || Tab-5-4}}
+        1. 右上に歯車アイコンのない空白ページが表示される。{{#Tab-5-3 || Tab-5-4}}（Tab-5-3/4）{{/Tab-5-3 || Tab-5-4}}
 {{/Tab-5-3 || Tab-5-4}}
 {{/Tab-5}}
 <!--GROUP-->
@@ -2218,20 +2218,20 @@
 1. オプション画面の「一般」を開く。
     - 確認項目
 {{#Tab-1-3}}
-        1. 「タブグループ」配下に「同時に複数のタブを閉じるときは確認する」のチェックボックスがOFFの状態で表示されている。(Tab-1-3)
+        1. 「タブグループ」配下に「同時に複数のタブを閉じるときは確認する」のチェックボックスがOFFの状態で表示されている。（Tab-1-3）
 {{/Tab-1-3}}
 {{#Tab-3-3}}
-        1. 「タブグループ」配下に「同時に複数のタブを開いて Firefoxの動作が遅くなるときは確認する」のチェックボックスがOFFの状態で表示されている。(Tab-3-3)
+        1. 「タブグループ」配下に「同時に複数のタブを開いて Firefoxの動作が遅くなるときは確認する」のチェックボックスがOFFの状態で表示されている。（Tab-3-3）
 {{/Tab-3-3}}
 <!--/GROUP-->
 <!--GROUP-->
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Tab-2-3}}
-        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`である。(Tab-2-3)
+        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`である。（Tab-2-3）
 {{/Tab-2-3}}
 {{#Tab-9-2}}
-        1. `browser.newtab.preload` の値がユーザー設定値の`false`である。(Tab-9-2)
+        1. `browser.newtab.preload` の値がユーザー設定値の`false`である。（Tab-9-2）
 {{/Tab-9-2}}
 <!--/GROUP-->
 
@@ -2268,97 +2268,97 @@
 {{#Tab-10}}
 1. 検索バーの表示を確認する
 {{#Tab-10-1}}
-    - 画面上に検索バーが表示されている (Tab-10-1)
+    - 画面上に検索バーが表示されている （Tab-10-1）
 {{/Tab-10-1}}
 {{#Tab-10-2 || Tab-10-4}}
     - 画面上に検索バーが表示されている
-    - 右上の歯車メニューで「検索」のチェックが固定されている (Tab-10-2/4)
+    - 右上の歯車メニューで「検索」のチェックが固定されている （Tab-10-2/4）
 {{/Tab-10-2 || Tab-10-4}}
 {{#Tab-10-3 || Tab-10-5}}
     - 画面上に検索バーが表示されていない
-    - 右上の歯車メニューで「検索」のチェックが固定されている (Tab-10-3/5)
+    - 右上の歯車メニューで「検索」のチェックが固定されている （Tab-10-3/5）
 {{/Tab-10-3 || Tab-10-5}}
 {{/Tab-10}}
 
 {{#Tab-11}}
 1. トップサイトの表示を確認する
 {{#Tab-11-1}}
-    - 画面上にトップサイトが表示されている (Tab-11-1)
+    - 画面上にトップサイトが表示されている （Tab-11-1）
 {{/Tab-11-1}}
 {{#Tab-11-2 || Tab-11-5}}
     - 画面上にトップサイトが表示されている
-    - 右上の歯車メニューで「トップサイト」のチェックが固定されている (Tab-11-2/5)
+    - 右上の歯車メニューで「トップサイト」のチェックが固定されている （Tab-11-2/5）
 {{/Tab-11-2 || Tab-11-5}}
 {{#Tab-11-3}}
     - 画面上にトップサイトが表示されている
     - 右上の歯車メニューで「トップサイト」のチェックが固定されている
-    - 右上の歯車メニューで「2行で表示」のチェックが固定されている (Tab-11-3)
+    - 右上の歯車メニューで「2行で表示」のチェックが固定されている （Tab-11-3）
 {{/Tab-11-3}}
 {{#Tab-11-4 || Tab-11-6}}
     - 画面上にトップサイトが表示されていない
-    - 右上の歯車メニューで「トップサイト」のチェックが固定されている (Tab-11-4/6)
+    - 右上の歯車メニューで「トップサイト」のチェックが固定されている （Tab-11-4/6）
 {{/Tab-11-4 || Tab-11-6}}
 {{/Tab-11}}
 
 {{#Tab-16-2}}
 1. トップサイトの一覧を確認する
-    - 一覧に表示されているサイトが指定の通りになっている (Tab-16-2)
+    - 一覧に表示されているサイトが指定の通りになっている （Tab-16-2）
 {{/Tab-16-2}}
 
 {{#Tab-12}}
 1. ハイライトの表示を確認する
 {{#Tab-12-1}}
-    - 画面上にハイライトが表示されている (Tab-12-1)
+    - 画面上にハイライトが表示されている （Tab-12-1）
 {{/Tab-12-1}}
 {{#Tab-12-2 || Tab-12-4}}
     - 画面上にハイライトが表示されている
-    - 右上の歯車メニューで「ハイライト」のチェックが固定されている (Tab-12-2/4)
+    - 右上の歯車メニューで「ハイライト」のチェックが固定されている （Tab-12-2/4）
 {{/Tab-12-2 || Tab-12-4}}
 {{#Tab-12-3 || Tab-12-5}}
     - 画面上にハイライトが表示されていない
-    - 右上の歯車メニューで「ハイライト」のチェックが固定されている (Tab-12-3/5)
+    - 右上の歯車メニューで「ハイライト」のチェックが固定されている （Tab-12-3/5）
 {{/Tab-12-3 || Tab-12-5}}
 {{/Tab-12}}
 
 {{#Tab-13}}
 1. スニペットの表示を確認する
 {{#Tab-13-1}}
-    - 画面上にスニペットが表示されている (Tab-13-1)
-    - 右上の歯車メニューで「スニペット」のチェックが入っている (Tab-13-1)
+    - 画面上にスニペットが表示されている （Tab-13-1）
+    - 右上の歯車メニューで「スニペット」のチェックが入っている （Tab-13-1）
 {{/Tab-13-1}}
 {{#Tab-13-2 || Tab-13-4}}
     - 画面上にスニペットが表示されている
-    - 右上の歯車メニューで「スニペット」のチェックが固定されている (Tab-13-2/4)
+    - 右上の歯車メニューで「スニペット」のチェックが固定されている （Tab-13-2/4）
 {{/Tab-13-2 || Tab-13-4}}
 {{#Tab-13-3 || Tab-13-5}}
     - 画面上にスニペットが表示されていない
-    - 右上の歯車メニューで「スニペット」のチェックが固定されている (Tab-13-3/5)
+    - 右上の歯車メニューで「スニペット」のチェックが固定されている （Tab-13-3/5）
 {{/Tab-13-3 || Tab-13-5}}
 {{/Tab-13}}
 
 {{#Tab-14}}
 1. インポートボタンの表示を確認する
 {{#Tab-14-1}}
-    - 画面上にインポートボタンが表示されている (Tab-14-1)
+    - 画面上にインポートボタンが表示されている （Tab-14-1）
 {{/Tab-14-1}}
 {{#Tab-14-2 || Tab-14-3}}
-    - 画面上にインポートボタンが表示されていない (Tab-14-2/3)
+    - 画面上にインポートボタンが表示されていない （Tab-14-2/3）
 {{/Tab-14-2 || Tab-14-3}}
 {{/Tab-14}}
 
 {{#Tab-15}}
 1. 新機能ツアーの表示を確認する
 {{#Tab-15-1}}
-    - 画面左上にFirefoxのアイコンが色付きで表示されている (Tab-15-1)
+    - 画面左上にFirefoxのアイコンが色付きで表示されている （Tab-15-1）
 {{/Tab-15-1}}
 {{#Tab-15-2}}
-    - 画面左上にFirefoxのアイコンが表示されていない、またはグレーで表示されている (Tab-15-2)
+    - 画面左上にFirefoxのアイコンが表示されていない、またはグレーで表示されている （Tab-15-2）
 {{/Tab-15-2}}
 {{/Tab-15}}
 
 {{#Tab-19-2}}
 1. オプション画面を開き、「ホーム」を選択する。
-    - 「Firefox Homeコンテンツ」セクションの「ハイライト」配下の「Pocketに保存されたページ」のチェックが外れている。(Tab-19-2)
+    - 「Firefox Homeコンテンツ」セクションの「ハイライト」配下の「Pocketに保存されたページ」のチェックが外れている。（Tab-19-2）
 {{/Tab-19-2}}
 
 
@@ -2376,12 +2376,12 @@
 {{#Tab-17}}
 1. キーボードショートカットのCtrl-Tabを入力する。
     - 確認項目
-        1. {{#Tab-17-1}}タブのサムネイルが横一列に表示され、最近表示した順にタブが切り替わる。(Tab-17-1){{/Tab-17-1}}{{#Tab-17-2}}タブが画面上の順番通りに切り替わる。(Tab-17-2){{/Tab-17-2}}
+        1. {{#Tab-17-1}}タブのサムネイルが横一列に表示され、最近表示した順にタブが切り替わる。（Tab-17-1）{{/Tab-17-1}}{{#Tab-17-2}}タブが画面上の順番通りに切り替わる。（Tab-17-2）{{/Tab-17-2}}
 {{/Tab-17}}
 {{#Tab-18}}
 1. Ctrlキーを押しながら、アクティブでないタブをクリックする。
     - 確認項目
-        1. {{#Tab-18-1}}クリックされたタブの色が変わり、複数のタブがハイライトされた状態になる。(Tab-18-1){{/Tab-18-1}}{{#Tab-18-2}}クリックされたタブがフォーカスされる。(Tab-18-2){{/Tab-18-2}}
+        1. {{#Tab-18-1}}クリックされたタブの色が変わり、複数のタブがハイライトされた状態になる。（Tab-18-1）{{/Tab-18-1}}{{#Tab-18-2}}クリックされたタブがフォーカスされる。（Tab-18-2）{{/Tab-18-2}}
 {{/Tab-18}}
 
 
@@ -2406,7 +2406,7 @@
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プログラム」を開く。
     - 確認項目
-        1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」、「PDFファイル」となっている場合もあるため注意）の取り扱い方法{{#Ui-1-1}}が「Firefoxでプレビュー表示」となっている。(Ui-1-1){{/Ui-1-1}}{{#Ui-1-2 || Ui-1-3}}の選択肢に「Firefoxでプレビュー表示」が存在しない。(Ui-1-2/3){{/Ui-1-2 || Ui-1-3}}
+        1. ファイルの種類「PDF文書（PDF）」（「Adobe Acrobat Document」、「PDFファイル」となっている場合もあるため注意）の取り扱い方法{{#Ui-1-1}}が「Firefoxでプレビュー表示」となっている。（Ui-1-1）{{/Ui-1-1}}{{#Ui-1-2 || Ui-1-3}}の選択肢に「Firefoxでプレビュー表示」が存在しない。（Ui-1-2/3）{{/Ui-1-2 || Ui-1-3}}
 {{/Ui-1}}
 
 
@@ -2432,27 +2432,27 @@
 {{#Script-2-3}}
 1. テストケースリストから `https://labs.othersight.jp/webpushtest/` のリンクをクリックする。
     - 確認項目
-        1. ページ内に「Service Worker not available」と表示されている。(Script-2-3)
+        1. ページ内に「Service Worker not available」と表示されている。（Script-2-3）
 {{/Script-2-3}}
 <!--GROUP-->
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Script-2}}
-        1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。(Script-2-1){{/Script-2-1}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
-        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1}}`true`である。(Script-2-1){{/Script-2-1}}{{#Script-2-3}}`false`である。(Script-2-3){{/Script-2-3}}
+        1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
+        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
 {{/Script-2}}
 {{#Script-3}}
-        1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。(Script-3-1){{/Script-3-1}}{{#Script-3-2}}`false`である。(Script-3-2){{/Script-3-2}}
+        1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。（Script-3-1）{{/Script-3-1}}{{#Script-3-2}}`false`である。（Script-3-2）{{/Script-3-2}}
 {{/Script-3}}
 <!--/GROUP-->
 {{#Script-2-4 || Script-2-6}}
 1. 確認なしでpush通知を許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
-        1. 「サイト別設定」タブで「通知を受信する」において{{#Script-2-4}}「許可」にチェックが入っている。(Script-2-4){{/Script-2-4}}{{#Script-2-6}}「ブロック」にチェックが入っている。(Script-2-6){{/Script-2-6}}
+        1. 「サイト別設定」タブで「通知を受信する」において{{#Script-2-4}}「許可」にチェックが入っている。（Script-2-4）{{/Script-2-4}}{{#Script-2-6}}「ブロック」にチェックが入っている。（Script-2-6）{{/Script-2-6}}
 1. 「通知を受信する」で、「{{#Script-2-4}}ブロック{{/Script-2-4}}{{#Script-2-6}}許可{{/Script-2-6}}」を選択してFirefoxを再起動する。
 1. 確認なしでpush通知を許可するよう設定していたサイトのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
     - 確認項目
-        1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-4}}「ブロック」が選択されている。(Script-2-4){{/Script-2-4}}{{#Script-2-6}}「許可」にチェックが入っている。(Script-2-6){{/Script-2-6}}
+        1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-4}}「ブロック」が選択されている。（Script-2-4）{{/Script-2-4}}{{#Script-2-6}}「許可」にチェックが入っている。（Script-2-6）{{/Script-2-6}}
 {{/Script-2-4 || Script-2-6}}
 
 {{#Security-9-3}}
@@ -2480,7 +2480,7 @@
 1. オプション画面の「一般」を開く。
 1. 「推奨のパフォーマンス設定を利用する」のチェックを外す。
     - 確認項目
-        1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。(Stability-1-1){{/Stability-1-1}}{{#Stability-1-2}}チェックが入っていない。(Stability-1-2){{/Stability-1-2}}
+        1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。（Stability-1-1）{{/Stability-1-1}}{{#Stability-1-2}}チェックが入っていない。（Stability-1-2）{{/Stability-1-2}}
 {{/Stability-1}}
 1. 「推奨のパフォーマンス設定を利用する」のチェックを元に戻す。
 
@@ -2509,7 +2509,7 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. about:supportを開く
     - 確認項目
-       1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。(Stability-2-2){{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。(Stability-2-3){{/Stability-2-3}}
+       1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。（Stability-2-2）{{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。（Stability-2-3）{{/Stability-2-3}}
 {{/Stability-2-2 || Stability-2-3}}
 
 {{#Appearance-1-2 || Appearance-1-3}}
@@ -2600,7 +2600,7 @@
 {{#Appearance-3-2}}
 1. ロケーションバーの表示を確認する
     - 確認項目
-        1. ロケーションバーと検索バーが統合されていない (Appearance-3-2)
+        1. ロケーションバーと検索バーが統合されていない （Appearance-3-2）
 {{/Appearance-3-2}}
 
 
@@ -2625,7 +2625,7 @@
 4. ページ内の「toolbar」というリンクをクリックする。
 5. ポップアップがブロックされた場合は、ブロック通知からポップアップを開き直す。
     - 確認項目
-        1. 開かれたポップアップウィンドウのウィンドウコントロール（最小化、最大化、閉じる）がクリック可能で、動作する。(Appearance-4-1)
+        1. 開かれたポップアップウィンドウのウィンドウコントロール（最小化、最大化、閉じる）がクリック可能で、動作する。（Appearance-4-1）
 {{/Appearance-4-1}}
 
 ## Webブラウズ操作のその他のカスタマイズ
@@ -2661,7 +2661,7 @@
 {{#Ui-9}}
 1. ロケーションバーにフォーカスした状態でTabキーを押す。
    - 確認項目
-       1. ロケーションバーの右側にあるツールバーボタンにフォーカスが{{#Ui-9-1}}移動する。(Ui-9-1){{/Ui-9-1}}{{#Ui-9-2}}移動しない（Ui-9-2）{{/Ui-9-2}}
+       1. ロケーションバーの右側にあるツールバーボタンにフォーカスが{{#Ui-9-1}}移動する。（Ui-9-1）{{/Ui-9-1}}{{#Ui-9-2}}移動しない。（Ui-9-2）{{/Ui-9-2}}
 {{/Ui-9}}
 1. ロケーションバーに `http://www.clear-code.com/blog/` と入力し、ページを開く。
 {{#Ui-5}}
@@ -2736,27 +2736,27 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Performance-1-2}}
-        1. `browser.cache.memory.capacity` の値が指定値の通りである。(Performance-1-2)
+        1. `browser.cache.memory.capacity` の値が指定値の通りである。（Performance-1-2）
 {{/Performance-1-2}}
 {{#Performance-2-2}}
-        1. `content.notify.interval` の値が指定値の通りである。(Performance-2-2)
+        1. `content.notify.interval` の値が指定値の通りである。（Performance-2-2）
 {{/Performance-2-2}}
 {{#Performance-3-2}}
-        1. `browser.tabs.unloadOnLowMemory` の値が `false` である。(Performance-3-2)
+        1. `browser.tabs.unloadOnLowMemory` の値が `false` である。（Performance-3-2）
 {{/Performance-3-2}}
 {{#Performance-4-2}}
-        1. `accessibility.force_disabled` の値が `1` である。(Performance-4-2)
+        1. `accessibility.force_disabled` の値が `1` である。（Performance-4-2）
 {{/Performance-4-2}}
 {{#Performance-5-1}}
-        1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。(Performance-5-1)
+        1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。（Performance-5-1）
 {{/Performance-5-1}}
 {{#Stability-3-2}}
-        1. `security.sandbox.content.level` の値が `2` である。(Stability-3-2)
+        1. `security.sandbox.content.level` の値が `2` である。（Stability-3-2）
 {{/Stability-3-2}}
 {{#Performance-6-2}}
 1. 上限として設定した数より多くタブを開く操作を行う。
     - 確認項目
-        1. 上限を超えて開いた分のタブが自動的に閉じられる。(Performance-6-2)
+        1. 上限を超えて開いた分のタブが自動的に閉じられる。（Performance-6-2）
 {{/Performance-6-2}}
 
 {{#Security-9-3}}
@@ -2782,8 +2782,8 @@
 
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
-        1. `media.autoplay.default` の値が {{#Script-7-1}}`0` である。(Script-7-1){{/Script-7-1}}{{#Script-7-2 || Script-7-3}}`1` である。(Script-7-2/3){{/Script-7-2 || Script-7-3}}
-        1. `media.autoplay.enabled.user-gestures-needed` の値が {{#Script-7-1 || Script-7-3}}`true` である。(Script-7-1/3){{/Script-7-1 || Script-7-3}}{{#Script-7-2}}`1` である。(Script-7-2){{/Script-7-2}}
+        1. `media.autoplay.default` の値が {{#Script-7-1}}`0` である。（Script-7-1）{{/Script-7-1}}{{#Script-7-2 || Script-7-3}}`1` である。（Script-7-2/3）{{/Script-7-2 || Script-7-3}}
+        1. `media.autoplay.enabled.user-gestures-needed` の値が {{#Script-7-1 || Script-7-3}}`true` である。（Script-7-1/3）{{/Script-7-1 || Script-7-3}}{{#Script-7-2}}`1` である。（Script-7-2）{{/Script-7-2}}
 
 ### 後始末
 
@@ -2816,22 +2816,22 @@
 1. オプション画面の「一般」→「ネットワークプロキシ」→「接続設定」を開く。
     - 確認項目
 {{#Network-2-1 || Network-2-6}}
-        1. 「プロキシを使用しない」が選択されている。(Network-2-1/6)
+        1. 「プロキシを使用しない」が選択されている。（Network-2-1/6）
 {{/Network-2-1 || Network-2-6}}
 {{#Network-2-2 || Network-2-7}}
-        1. 「手動でプロキシを設定する」が選択されている。(Network-2-2/7)
-        1. 各プロキシが指定通りに設定されている。(Network-2-2/7)
+        1. 「手動でプロキシを設定する」が選択されている。（Network-2-2/7）
+        1. 各プロキシが指定通りに設定されている。（Network-2-2/7）
 {{/Network-2-2 || Network-2-7}}
 {{#Network-2-3 || Network-2-8}}
-        1. 「自動プロキシ設定スクリプトURL」が選択されている。(Network-2-3/8)
-        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。(Network-2-3/8)  
+        1. 「自動プロキシ設定スクリプトURL」が選択されている。（Network-2-3/8）
+        1. 「自動プロキシ設定スクリプトURL」の欄に、予め指定しておいたURLが入力されている。（Network-2-3/8）  
            （`{{pac_url}}` または `data:application/javascript,`）
 {{/Network-2-3 || Network-2-8}}
 {{#Network-2-4 || Network-2-9}}
-        1. 「このネットワークのプロキシ設定を自動検出する」が選択されている。(Network-2-4/9)
+        1. 「このネットワークのプロキシ設定を自動検出する」が選択されている。（Network-2-4/9）
 {{/Network-2-4 || Network-2-9}}
 {{#Network-2-5 || Network-2-10}}
-        1. 「システムのプロキシ設定を利用する」が選択されている。(Network-2-5/10)
+        1. 「システムのプロキシ設定を利用する」が選択されている。（Network-2-5/10）
 {{/Network-2-5 || Network-2-10}}
 
 {{/Network-2}}
@@ -2873,55 +2873,55 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Network-1-1}}
-        1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。(Network-1-1)
+        1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。（Network-1-1）
 {{/Network-1-1}}
 {{#Network-4-1}}
-        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。(Network-4-1)
+        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。（Network-4-1）
 {{/Network-4-1}}
 {{#Network-5-2}}
 {{#max_connections}}
-        1. `network.http.max-connections` の値が{{max_connections}}である。(Network-5-2)
+        1. `network.http.max-connections` の値が{{max_connections}}である。（Network-5-2）
 {{/max_connections}}
 {{#max_persistent_connections_per_server}}
-        1. `network.http.max-persistent-connections-per-server` の値が{{max_persistent_connections_per_server}}である。(Network-5-2)
+        1. `network.http.max-persistent-connections-per-server` の値が{{max_persistent_connections_per_server}}である。（Network-5-2）
 {{/max_persistent_connections_per_server}}
 {{#max_persistent_connections_per_proxy}}
-        1. `network.http.max-persistent-connections-per-proxy` の値が{{max_persistent_connections_per_proxy}}である。(Network-5-2)
+        1. `network.http.max-persistent-connections-per-proxy` の値が{{max_persistent_connections_per_proxy}}である。（Network-5-2）
 {{/max_persistent_connections_per_proxy}}
 {{/Network-5-2}}
 {{#Network-6}}
-        1. `network.http.spdy.enabled` の値が{{#Network-6-1}}`true`である。(Network-6-1){{/Network-6-1}}{{#Network-6-2}}`false`である。(Network-6-2){{/Network-6-2}}
+        1. `network.http.spdy.enabled` の値が{{#Network-6-1}}`true`である。（Network-6-1）{{/Network-6-1}}{{#Network-6-2}}`false`である。（Network-6-2）{{/Network-6-2}}
 {{/Network-6}}
 {{#Network-7}}
-        1. `security.tls.insecure_fallback_hosts`の値が{{#Network-7-1}}未設定または空文字である。(Network-7-1){{/Network-7-1}}{{#Network-7-2}}`{{ntlm_single_signon_hosts}}`である。(Network-7-2){{/Network-7-2}}
+        1. `security.tls.insecure_fallback_hosts`の値が{{#Network-7-1}}未設定または空文字である。（Network-7-1）{{/Network-7-1}}{{#Network-7-2}}`{{ntlm_single_signon_hosts}}`である。（Network-7-2）{{/Network-7-2}}
 {{/Network-7}}
 {{#Network-8}}
-        1. `network.dns.disableIPv6` の値が{{#Network-8-1}}`false`である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}`true`である。(Network-8-2){{/Network-8-2}}
+        1. `network.dns.disableIPv6` の値が{{#Network-8-1}}`false`である。（Network-8-1）{{/Network-8-1}}{{#Network-8-2}}`true`である。（Network-8-2）{{/Network-8-2}}
 {{#dns_disable_prefetch}}
-        1. `network.dns.disablePrefetch` の値が{{#Network-8-1}}`false`である。(Network-8-1){{/Network-8-1}}{{#Network-8-2}}`true`である。(Network-8-2){{/Network-8-2}}
+        1. `network.dns.disablePrefetch` の値が{{#Network-8-1}}`false`である。（Network-8-1）{{/Network-8-1}}{{#Network-8-2}}`true`である。（Network-8-2）{{/Network-8-2}}
 {{/dns_disable_prefetch}}
 {{/Network-8}}
 {{#Network-10}}
-        1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。(Network-10-1){{/Network-10-1}}{{#Network-10-2}}`true`である。(Network-10-2){{/Network-10-2}}
+        1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。（Network-10-1）{{/Network-10-1}}{{#Network-10-2}}`true`である。（Network-10-2）{{/Network-10-2}}
 {{/Network-10}}
 {{#Network-13}}
-        1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。(Network-13-1){{/Network-13-1}}{{#Network-13-2 || Network-13-3}}`3`以下である。(Network-13-2/3){{/Network-13-2 || Network-13-3}}
+        1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。（Network-13-1）{{/Network-13-1}}{{#Network-13-2 || Network-13-3}}`3`以下である。（Network-13-2/3）{{/Network-13-2 || Network-13-3}}
 {{/Network-13}}
 {{#Network-16}}
-        1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}(Network-16-1){{/Network-16-1}}{{#Network-16-2}}(Network-16-2){{/Network-16-2}}
-        1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}(Network-16-1){{/Network-16-1}}{{#Network-16-2}}(Network-16-2){{/Network-16-2}}
+        1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
+        1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
 {{/Network-16}}
 {{#Network-17}}
-        1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。(Network-17-1){{/Network-17-1}}{{#Network-17-2}}`2`以上である。(Network-17-2){{/Network-17-2}}
+        1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。（Network-17-1）{{/Network-17-1}}{{#Network-17-2}}`2`以上である。（Network-17-2）{{/Network-17-2}}
 {{/Network-17}}
 {{#Network-14}}
-        1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。(Network-14-1){{/Network-14-1}}{{#Network-14-2}}`1`である。(Network-14-2){{/Network-14-2}}{{#Network-14-3}}`2`である。(Network-14-3){{/Network-14-3}}{{#Network-14-4}}`3`である。(Network-14-4){{/Network-14-4}}{{#Network-14-5}}`4`である。(Network-14-5){{/Network-14-5}}
+        1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。（Network-14-1）{{/Network-14-1}}{{#Network-14-2}}`1`である。（Network-14-2）{{/Network-14-2}}{{#Network-14-3}}`2`である。（Network-14-3）{{/Network-14-3}}{{#Network-14-4}}`3`である。（Network-14-4）{{/Network-14-4}}{{#Network-14-5}}`4`である。（Network-14-5）{{/Network-14-5}}
 {{/Network-14}}
 <!--/GROUP-->
 {{#Network-11-2}}
 1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
-        1. 「User Agent」の値が「{{user_agent_name}}」である。(Network-11-2)
+        1. 「User Agent」の値が「{{user_agent_name}}」である。（Network-11-2）
 {{/Network-11-2}}
 {{#Network-12}}
 1. ロケーションバーに `jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt` と入力し、開く。
@@ -2966,15 +2966,15 @@
 {{#Update-1-4}}
 1.  「ヘルプ」→「Firefoxについて」を開く。
     - 確認項目
-        1. 「ソフトウェアの更新を確認」が表示されない。(Update-1-4)
+        1. 「ソフトウェアの更新を確認」が表示されない。（Update-1-4）
 {{/Update-1-4}}
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Update-2-2 || Update-2-3}}
-        1. `extensions.update.enabled` の値が`false`である。(Update-2-2/3)
+        1. `extensions.update.enabled` の値が`false`である。（Update-2-2/3）
 {{/Update-2-2 || Update-2-3}}
 {{#Update-3-2}}
-        1. `browser.search.update` の値が`false`である。(Update-3-2)
+        1. `browser.search.update` の値が`false`である。（Update-3-2）
 {{/Update-3-2}}
 
 {{#Security-9-3}}
@@ -3008,7 +3008,7 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
-        1. 個別の制御を行っていないNPAPIプラグインが既定の状態で{{#Plugin-10-1}}無効化されている。（Plugin-10-1）{{/Plugin-10-1}}{{#Plugin-10-2}}有効化されている。（Plugin-10-2）{{/Plugin-10-2}}{{#Plugin-10-3}}「実行時に確認する」が選択されている。(Plugin-10-3){{/Plugin-10-3}}
+        1. 個別の制御を行っていないNPAPIプラグインが既定の状態で{{#Plugin-10-1}}無効化されている。（Plugin-10-1）{{/Plugin-10-1}}{{#Plugin-10-2}}有効化されている。（Plugin-10-2）{{/Plugin-10-2}}{{#Plugin-10-3}}「実行時に確認する」が選択されている。（Plugin-10-3）{{/Plugin-10-3}}
 
 ### 後始末
 
@@ -3052,12 +3052,12 @@
 1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
 {{#Plugin-2}}
-        1. Adobe Flashプラグインの項目が表示されており、{{#Plugin-2-1 || Plugin-2-4}}「無効化する」が選択されている。(Plugin-2-1/4){{/Plugin-2-1 || Plugin-2-4}}{{#Plugin-2-2 || Plugin-2-5}}「常に有効化する」が選択されている。(Plugin-2-2/5){{/Plugin-2-2 || Plugin-2-5}}{{#Plugin-2-3}}「実行時に確認する」が選択されている。(Plugin-2-3){{/Plugin-2-3}}
+        1. Adobe Flashプラグインの項目が表示されており、{{#Plugin-2-1 || Plugin-2-4}}「無効化する」が選択されている。（Plugin-2-1/4）{{/Plugin-2-1 || Plugin-2-4}}{{#Plugin-2-2 || Plugin-2-5}}「常に有効化する」が選択されている。（Plugin-2-2/5）{{/Plugin-2-2 || Plugin-2-5}}{{#Plugin-2-3}}「実行時に確認する」が選択されている。（Plugin-2-3）{{/Plugin-2-3}}
 {{/Plugin-2}}
 {{#Plugin-8}}
-        1. OpenH264のプラグインが{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
-        1. 「Primetime Content Decryption Module」が{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
-        1. 「Widevine Content Decryption Module」が{{#Plugin-8-1}}表示される。(Plugin-8-1){{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。(Plugin-8-2){{/Plugin-8-2}}
+        1. OpenH264のプラグインが{{#Plugin-8-1}}表示される。（Plugin-8-1）{{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。（Plugin-8-2）{{/Plugin-8-2}}
+        1. 「Primetime Content Decryption Module」が{{#Plugin-8-1}}表示される。（Plugin-8-1）{{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。（Plugin-8-2）{{/Plugin-8-2}}
+        1. 「Widevine Content Decryption Module」が{{#Plugin-8-1}}表示される。（Plugin-8-1）{{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。（Plugin-8-2）{{/Plugin-8-2}}
 {{/Plugin-8}}
 {{#Security-24 || Security-33}}
 1. Flashプラグインの「設定」ボタンをクリックする。
@@ -3101,11 +3101,11 @@
 1. 「次のファイルを開こうとしています」のダイアログが表示されたら、起動する外部アプリケーションを選択して「OK」をクリックする。
 1. テンポラリフォルダの内容を確認する。
     - 確認項目
-        1. ダウンロードしたファイルがテンポラリフォルダに保存されている。(External-1-1/2)
-        1. テンポラリファイルのプロパティにおいて、「読み取り専用」が{{#External-1-1}}チェックありもしくは半チェック（四角形の塗りつぶし、または半透明のチェックマーク）の状態である。(External-1-1){{/External-1-1}}{{#External-1-2}}チェック無しの状態である。(External-1-2){{/External-1-2}}
+        1. ダウンロードしたファイルがテンポラリフォルダに保存されている。（External-1-1/2）
+        1. テンポラリファイルのプロパティにおいて、「読み取り専用」が{{#External-1-1}}チェックありもしくは半チェック（四角形の塗りつぶし、または半透明のチェックマーク）の状態である。（External-1-1）{{/External-1-1}}{{#External-1-2}}チェック無しの状態である。（External-1-2）{{/External-1-2}}
 1. 外部アプリケーションを終了しFirefoxも終了して、テンポラリフォルダの内容を確認する。
     - 確認項目
-        1. ダウンロードしたファイルが{{#External-1-1}}テンポラリフォルダから消えている。(External-1-1){{/External-1-1}}{{#External-1-2}}テンポラリフォルダに残っている。(External-1-2){{/External-1-2}}
+        1. ダウンロードしたファイルが{{#External-1-1}}テンポラリフォルダから消えている。（External-1-1）{{/External-1-1}}{{#External-1-2}}テンポラリフォルダに残っている。（External-1-2）{{/External-1-2}}
 {{/External-1}}
 
 ## IE Viewの制御
@@ -3211,31 +3211,31 @@
 <!--GROUP-->
     - 確認項目
 {{#MenuShortcut-3}}
-        1. 「Ctrl-Shift-P」を押して、新しいプライベートウィンドウが開かれない。(MenuShortcut-3)
+        1. 「Ctrl-Shift-P」を押して、新しいプライベートウィンドウが開かれない。（MenuShortcut-3）
 {{/MenuShortcut-3}}
 <!--/GROUP-->
 <!--GROUP-->
 1. 「ファイル」メニューを開く。
     - 確認項目
 {{#MenuShortcut-3}}
-        1. 「新しいプライベートウィンドウを開く」が存在しない。(MenuShortcut-3)
+        1. 「新しいプライベートウィンドウを開く」が存在しない。（MenuShortcut-3）
 {{/MenuShortcut-3}}
 <!--/GROUP-->
 {{#MenuShortcut-10}}
 1. 「ツール」メニューを開く。
     - 確認項目
-        1. 「ウェブ開発」が存在しない。(MenuShortcut-10)
+        1. 「ウェブ開発」が存在しない。（MenuShortcut-10）
 {{/MenuShortcut-10}}
 1. パネルメニューを開く。
 {{#MenuShortcut-3}}
     - 確認項目
-        1. 「新しいプライベートウィンドウ」が存在しない。(MenuShortcut-3)
+        1. 「新しいプライベートウィンドウ」が存在しない。（MenuShortcut-3）
 {{/MenuShortcut-3}}
 <!--GROUP-->
 1. パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - 確認項目
 {{#MenuShortcut-10}}
-        1. 「開発ツール」が存在しない。(MenuShortcut-10)
+        1. 「開発ツール」が存在しない。（MenuShortcut-10）
 {{/MenuShortcut-10}}
 <!--/GROUP-->
 
@@ -3273,45 +3273,45 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
 {{#MenuShortcut-11}}
-        1. 「Ctrl-Shift-I」を押して、開発ツールが開かれない。(MenuShortcut-11)
-        1. 「F12」を押して、開発ツールが開かれない。(MenuShortcut-11)
+        1. 「Ctrl-Shift-I」を押して、開発ツールが開かれない。（MenuShortcut-11）
+        1. 「F12」を押して、開発ツールが開かれない。（MenuShortcut-11）
 {{/MenuShortcut-11}}
-{{#MenuShortcut-12}}        1. 「Ctrl-Shift-C」を押して、インスペクタが開かれない。(MenuShortcut-12){{/MenuShortcut-12}}
-{{#MenuShortcut-13}}        1. 「Ctrl-Shift-K」を押して、Webコンソールが開かれない。(MenuShortcut-13){{/MenuShortcut-13}}
-{{#MenuShortcut-14}}        1. 「Ctrl-Shift-S」を押して、デバッガが開かれない。(MenuShortcut-14){{/MenuShortcut-14}}
-{{#MenuShortcut-15}}        1. 「Shift-F7」を押して、スタイルエディタが開かれない。(MenuShortcut-15){{/MenuShortcut-15}}
-{{#MenuShortcut-16}}        1. 「Shift-F5」を押して、プロファイラが開かれない。(MenuShortcut-16){{/MenuShortcut-16}}
-{{#MenuShortcut-17}}        1. 「Ctrl-Shift-E」を押して、ネットワークモニターが開かれない。(MenuShortcut-17){{/MenuShortcut-17}}
-{{#MenuShortcut-18}}        1. 「Shitf-F2」を押して、開発ツールバーが開かれない。(MenuShortcut-18){{/MenuShortcut-18}}
-{{#MenuShortcut-20}}        1. 「Shift-F8」を押して、WebIDEが開かれない。(MenuShortcut-20){{/MenuShortcut-20}}
-{{#MenuShortcut-21}}        1. 「Ctrl-Shift-Alt-I」を押して、ブラウザツールボックスが開かれない。(MenuShortcut-21){{/MenuShortcut-21}}
-{{#MenuShortcut-22}}        1. 「Ctrl-Shift-J」を押して、ブラウザコンソールが開かれない。(MenuShortcut-22){{/MenuShortcut-22}}
-{{#MenuShortcut-23}}        1. 「Ctrl-Shift-M」を押して、レスポンシブデザインビューが開かれない。(MenuShortcut-23){{/MenuShortcut-23}}
-{{#MenuShortcut-25}}        1. 「Shift-F4」を押してスクラッチパッド、が開かれない。(MenuShortcut-25){{/MenuShortcut-25}}
+{{#MenuShortcut-12}}        1. 「Ctrl-Shift-C」を押して、インスペクタが開かれない。（MenuShortcut-12）{{/MenuShortcut-12}}
+{{#MenuShortcut-13}}        1. 「Ctrl-Shift-K」を押して、Webコンソールが開かれない。（MenuShortcut-13）{{/MenuShortcut-13}}
+{{#MenuShortcut-14}}        1. 「Ctrl-Shift-S」を押して、デバッガが開かれない。（MenuShortcut-14）{{/MenuShortcut-14}}
+{{#MenuShortcut-15}}        1. 「Shift-F7」を押して、スタイルエディタが開かれない。（MenuShortcut-15）{{/MenuShortcut-15}}
+{{#MenuShortcut-16}}        1. 「Shift-F5」を押して、プロファイラが開かれない。（MenuShortcut-16）{{/MenuShortcut-16}}
+{{#MenuShortcut-17}}        1. 「Ctrl-Shift-E」を押して、ネットワークモニターが開かれない。（MenuShortcut-17）{{/MenuShortcut-17}}
+{{#MenuShortcut-18}}        1. 「Shitf-F2」を押して、開発ツールバーが開かれない。（MenuShortcut-18）{{/MenuShortcut-18}}
+{{#MenuShortcut-20}}        1. 「Shift-F8」を押して、WebIDEが開かれない。（MenuShortcut-20）{{/MenuShortcut-20}}
+{{#MenuShortcut-21}}        1. 「Ctrl-Shift-Alt-I」を押して、ブラウザツールボックスが開かれない。（MenuShortcut-21）{{/MenuShortcut-21}}
+{{#MenuShortcut-22}}        1. 「Ctrl-Shift-J」を押して、ブラウザコンソールが開かれない。（MenuShortcut-22）{{/MenuShortcut-22}}
+{{#MenuShortcut-23}}        1. 「Ctrl-Shift-M」を押して、レスポンシブデザインビューが開かれない。（MenuShortcut-23）{{/MenuShortcut-23}}
+{{#MenuShortcut-25}}        1. 「Shift-F4」を押してスクラッチパッド、が開かれない。（MenuShortcut-25）{{/MenuShortcut-25}}
 <!--
-{{#MenuShortcut-26}}        1. 「Ctrl-U」を押して、ページのソースが開かれない。(MenuShortcut-26){{/MenuShortcut-26}}
+{{#MenuShortcut-26}}        1. 「Ctrl-U」を押して、ページのソースが開かれない。（MenuShortcut-26）{{/MenuShortcut-26}}
 -->
 <!--GROUP-->
 {{^MenuShortcut-10}}
 1. 「ツール」メニュー内の「ウェブ開発」を開く。
     - 確認項目
-{{#MenuShortcut-11}}        1. 「開発ツールを表示」が存在しない。(MenuShortcut-11){{/MenuShortcut-11}}
-{{#MenuShortcut-12}}        1. 「インスペクタ」が存在しない。(MenuShortcut-12){{/MenuShortcut-12}}
-{{#MenuShortcut-13}}        1. 「Webコンソール」が存在しない。(MenuShortcut-13){{/MenuShortcut-13}}
-{{#MenuShortcut-14}}        1. 「デバッガ」が存在しない。(MenuShortcut-14){{/MenuShortcut-14}}
-{{#MenuShortcut-15}}        1. 「スタイルエディタ」が存在しない。(MenuShortcut-15){{/MenuShortcut-15}}
-{{#MenuShortcut-16}}        1. 「パフォーマンス」が存在しない。(MenuShortcut-16){{/MenuShortcut-16}}
-{{#MenuShortcut-17}}        1. 「ネットワーク」が存在しない。(MenuShortcut-17){{/MenuShortcut-17}}
-{{#MenuShortcut-18}}        1. 「開発ツールバー」が存在しない。(MenuShortcut-18){{/MenuShortcut-18}}
-{{#MenuShortcut-20}}        1. 「WebIDE」が存在しない。(MenuShortcut-20){{/MenuShortcut-20}}
-{{#MenuShortcut-21}}        1. 「ブラウザツールボックス」が存在しない。(MenuShortcut-21){{/MenuShortcut-21}}
-{{#MenuShortcut-22}}        1. 「ブラウザコンソール」が存在しない。(MenuShortcut-22){{/MenuShortcut-22}}
-{{#MenuShortcut-23}}        1. 「レスポンシブデザインビュー」が存在しない。(MenuShortcut-23){{/MenuShortcut-23}}
-{{#MenuShortcut-24}}        1. 「スポイト」が存在しない。(MenuShortcut-24){{/MenuShortcut-24}}
-{{#MenuShortcut-25}}        1. 「スクラッチパッド」が存在しない。(MenuShortcut-25){{/MenuShortcut-25}}
-{{#MenuShortcut-26}}        1. 「ページのソース」が存在しない。(MenuShortcut-26){{/MenuShortcut-26}}
-{{#MenuShortcut-28}}        1. 「接続...」が存在しない。(MenuShortcut-28){{/MenuShortcut-28}}
-{{#MenuShortcut-29}}        1. 「その他のツールを入手」が存在しない。(MenuShortcut-29){{/MenuShortcut-29}}
+{{#MenuShortcut-11}}        1. 「開発ツールを表示」が存在しない。（MenuShortcut-11）{{/MenuShortcut-11}}
+{{#MenuShortcut-12}}        1. 「インスペクタ」が存在しない。（MenuShortcut-12）{{/MenuShortcut-12}}
+{{#MenuShortcut-13}}        1. 「Webコンソール」が存在しない。（MenuShortcut-13）{{/MenuShortcut-13}}
+{{#MenuShortcut-14}}        1. 「デバッガ」が存在しない。（MenuShortcut-14）{{/MenuShortcut-14}}
+{{#MenuShortcut-15}}        1. 「スタイルエディタ」が存在しない。（MenuShortcut-15）{{/MenuShortcut-15}}
+{{#MenuShortcut-16}}        1. 「パフォーマンス」が存在しない。（MenuShortcut-16）{{/MenuShortcut-16}}
+{{#MenuShortcut-17}}        1. 「ネットワーク」が存在しない。（MenuShortcut-17）{{/MenuShortcut-17}}
+{{#MenuShortcut-18}}        1. 「開発ツールバー」が存在しない。（MenuShortcut-18）{{/MenuShortcut-18}}
+{{#MenuShortcut-20}}        1. 「WebIDE」が存在しない。（MenuShortcut-20）{{/MenuShortcut-20}}
+{{#MenuShortcut-21}}        1. 「ブラウザツールボックス」が存在しない。（MenuShortcut-21）{{/MenuShortcut-21}}
+{{#MenuShortcut-22}}        1. 「ブラウザコンソール」が存在しない。（MenuShortcut-22）{{/MenuShortcut-22}}
+{{#MenuShortcut-23}}        1. 「レスポンシブデザインビュー」が存在しない。（MenuShortcut-23）{{/MenuShortcut-23}}
+{{#MenuShortcut-24}}        1. 「スポイト」が存在しない。（MenuShortcut-24）{{/MenuShortcut-24}}
+{{#MenuShortcut-25}}        1. 「スクラッチパッド」が存在しない。（MenuShortcut-25）{{/MenuShortcut-25}}
+{{#MenuShortcut-26}}        1. 「ページのソース」が存在しない。（MenuShortcut-26）{{/MenuShortcut-26}}
+{{#MenuShortcut-28}}        1. 「接続...」が存在しない。（MenuShortcut-28）{{/MenuShortcut-28}}
+{{#MenuShortcut-29}}        1. 「その他のツールを入手」が存在しない。（MenuShortcut-29）{{/MenuShortcut-29}}
 {{#MenuShortcut-64}}        1. 「Service Worker」が存在しない（MenuShortcut-64）{{/MenuShortcut-64}}
 {{#MenuShortcut-65}}        1. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）{{/MenuShortcut-65}}
 {{/MenuShortcut-10}}
@@ -3320,23 +3320,23 @@
 {{^MenuShortcut-10}}
 1. パネルメニューを開き、パネルメニュー内の「開発ツール」をクリックする。
     - 確認項目
-{{#MenuShortcut-11}}        1. 「開発ツールを表示」が存在しない。(MenuShortcut-11){{/MenuShortcut-11}}
-{{#MenuShortcut-12}}        1. 「インスペクタ」が存在しない。(MenuShortcut-12){{/MenuShortcut-12}}
-{{#MenuShortcut-13}}        1. 「Webコンソール」が存在しない。(MenuShortcut-13){{/MenuShortcut-13}}
-{{#MenuShortcut-14}}        1. 「デバッガ」が存在しない。(MenuShortcut-14){{/MenuShortcut-14}}
-{{#MenuShortcut-15}}        1. 「スタイルエディタ」が存在しない。(MenuShortcut-15){{/MenuShortcut-15}}
-{{#MenuShortcut-16}}        1. 「パフォーマンス」が存在しない。(MenuShortcut-16){{/MenuShortcut-16}}
-{{#MenuShortcut-17}}        1. 「ネットワーク」が存在しない。(MenuShortcut-17){{/MenuShortcut-17}}
-{{#MenuShortcut-18}}        1. 「開発ツールバー」が存在しない。(MenuShortcut-18){{/MenuShortcut-18}}
-{{#MenuShortcut-20}}        1. 「WebIDE」が存在しない。(MenuShortcut-20){{/MenuShortcut-20}}
-{{#MenuShortcut-21}}        1. 「ブラウザツールボックス」が存在しない。(MenuShortcut-21){{/MenuShortcut-21}}
-{{#MenuShortcut-22}}        1. 「ブラウザコンソール」が存在しない。(MenuShortcut-22){{/MenuShortcut-22}}
-{{#MenuShortcut-23}}        1. 「レスポンシブデザインビュー」が存在しない。(MenuShortcut-23){{/MenuShortcut-23}}
-{{#MenuShortcut-24}}        1. 「スポイト」が存在しない。(MenuShortcut-24){{/MenuShortcut-24}}
-{{#MenuShortcut-25}}        1. 「スクラッチパッド」が存在しない。(MenuShortcut-25){{/MenuShortcut-25}}
-{{#MenuShortcut-26}}        1. 「ページのソース」が存在しない。(MenuShortcut-26){{/MenuShortcut-26}}
-{{#MenuShortcut-28}}        1. 「接続...」が存在しない。(MenuShortcut-28){{/MenuShortcut-28}}
-{{#MenuShortcut-29}}        1. 「その他のツールを入手」が存在しない。(MenuShortcut-29){{/MenuShortcut-29}}
+{{#MenuShortcut-11}}        1. 「開発ツールを表示」が存在しない。（MenuShortcut-11）{{/MenuShortcut-11}}
+{{#MenuShortcut-12}}        1. 「インスペクタ」が存在しない。（MenuShortcut-12）{{/MenuShortcut-12}}
+{{#MenuShortcut-13}}        1. 「Webコンソール」が存在しない。（MenuShortcut-13）{{/MenuShortcut-13}}
+{{#MenuShortcut-14}}        1. 「デバッガ」が存在しない。（MenuShortcut-14）{{/MenuShortcut-14}}
+{{#MenuShortcut-15}}        1. 「スタイルエディタ」が存在しない。（MenuShortcut-15）{{/MenuShortcut-15}}
+{{#MenuShortcut-16}}        1. 「パフォーマンス」が存在しない。（MenuShortcut-16）{{/MenuShortcut-16}}
+{{#MenuShortcut-17}}        1. 「ネットワーク」が存在しない。（MenuShortcut-17）{{/MenuShortcut-17}}
+{{#MenuShortcut-18}}        1. 「開発ツールバー」が存在しない。（MenuShortcut-18）{{/MenuShortcut-18}}
+{{#MenuShortcut-20}}        1. 「WebIDE」が存在しない。（MenuShortcut-20）{{/MenuShortcut-20}}
+{{#MenuShortcut-21}}        1. 「ブラウザツールボックス」が存在しない。（MenuShortcut-21）{{/MenuShortcut-21}}
+{{#MenuShortcut-22}}        1. 「ブラウザコンソール」が存在しない。（MenuShortcut-22）{{/MenuShortcut-22}}
+{{#MenuShortcut-23}}        1. 「レスポンシブデザインビュー」が存在しない。（MenuShortcut-23）{{/MenuShortcut-23}}
+{{#MenuShortcut-24}}        1. 「スポイト」が存在しない。（MenuShortcut-24）{{/MenuShortcut-24}}
+{{#MenuShortcut-25}}        1. 「スクラッチパッド」が存在しない。（MenuShortcut-25）{{/MenuShortcut-25}}
+{{#MenuShortcut-26}}        1. 「ページのソース」が存在しない。（MenuShortcut-26）{{/MenuShortcut-26}}
+{{#MenuShortcut-28}}        1. 「接続...」が存在しない。（MenuShortcut-28）{{/MenuShortcut-28}}
+{{#MenuShortcut-29}}        1. 「その他のツールを入手」が存在しない。（MenuShortcut-29）{{/MenuShortcut-29}}
 {{#MenuShortcut-64}}        1. 「Service Worker」が存在しない（MenuShortcut-64）{{/MenuShortcut-64}}
 {{#MenuShortcut-65}}        1. 「ブラウザーコンテンツツールボックス」が存在しない（MenuShortcut-65）{{/MenuShortcut-65}}
 {{/MenuShortcut-10}}
@@ -3365,28 +3365,28 @@
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
-{{#Appearance-8-2}}        1. 指定のサポート情報ページ用の項目が表示されている。(Appearance-8-2){{/Appearance-8-2}}
-{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。(MenuShortcut-35){{/MenuShortcut-35}}
-{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
-{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。(MenuShortcut-37){{/MenuShortcut-37}}
-{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
+{{#Appearance-8-2}}        1. 指定のサポート情報ページ用の項目が表示されている。（Appearance-8-2）{{/Appearance-8-2}}
+{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。（MenuShortcut-35）{{/MenuShortcut-35}}
+{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。（MenuShortcut-36）{{/MenuShortcut-36}}
+{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。（MenuShortcut-37）{{/MenuShortcut-37}}
+{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。（MenuShortcut-38）{{/MenuShortcut-38}}
 <!--/GROUP-->
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
-{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。(MenuShortcut-35){{/MenuShortcut-35}}
-{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。(MenuShortcut-36){{/MenuShortcut-36}}
-{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。(MenuShortcut-37){{/MenuShortcut-37}}
-{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。(MenuShortcut-38){{/MenuShortcut-38}}
+{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。（MenuShortcut-35）{{/MenuShortcut-35}}
+{{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。（MenuShortcut-36）{{/MenuShortcut-36}}
+{{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。（MenuShortcut-37）{{/MenuShortcut-37}}
+{{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。（MenuShortcut-38）{{/MenuShortcut-38}}
 <!--/GROUP-->
 {{#MenuShortcut-39}}
 1. `https://itisatrap.org/firefox/its-a-trap.html` を開く。
 1. 「ヘルプ」メニューを開く。
     - 確認項目
-        1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。(MenuShortcut-39)
+        1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。（MenuShortcut-39）
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
-        1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。(MenuShortcut-39)
+        1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。（MenuShortcut-39）
 {{/MenuShortcut-39}}
 
 
@@ -3407,17 +3407,17 @@
 {{#MenuShortcut-44}}
 1. 「ブックマーク」メニューを開く。
     - 確認項目
-        1. 「ブックマークツールバー」が存在しない。(MenuShortcut-44)
-        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。(MenuShortcut-44)
+        1. 「ブックマークツールバー」が存在しない。（MenuShortcut-44）
+        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。（MenuShortcut-44）
 1. ツールバー上のブックマークボタンをクリックし、ブックマーク一覧を開く。
     - 確認項目
-        1. 「ブックマークツールバー」が存在しない。(MenuShortcut-44)
-        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。(MenuShortcut-44)
+        1. 「ブックマークツールバー」が存在しない。（MenuShortcut-44）
+        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。（MenuShortcut-44）
 1. ツールバー上のブックマークボタンの上で右クリックし、「メニューに移動」を選択する。
 1. パネルメニューを開き、パネルメニュー内の「ブックマーク」をクリックする。
     - 確認項目
-        1. 「ブックマークツールバー」が存在しない。(MenuShortcut-44)
-        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。(MenuShortcut-44)
+        1. 「ブックマークツールバー」が存在しない。（MenuShortcut-44）
+        1. メニュー内に、セパレータが単独で2連続表示されている箇所がない。（MenuShortcut-44）
 {{/MenuShortcut-44}}
 
 ## コンテンツ領域のコンテキストメニュー
@@ -3438,11 +3438,11 @@
 <!--GROUP-->
 1. `https://addons.mozilla.org` を開き、何もない所で右クリックする。
     - 確認項目
-{{#MenuShortcut-57}}        1. 「要素を調査」が存在しない。(MenuShortcut-57){{/MenuShortcut-57}}
+{{#MenuShortcut-57}}        1. 「要素を調査」が存在しない。（MenuShortcut-57）{{/MenuShortcut-57}}
 <!--/GROUP-->
 <!--GROUP-->
 1. ページ内に埋め込まれた画像の上で右クリックする。
     - 確認項目
-{{#MenuShortcut-55}}        1. 「デスクトップの背景に設定」が存在しない。(MenuShortcut-55){{/MenuShortcut-55}}
+{{#MenuShortcut-55}}        1. 「デスクトップの背景に設定」が存在しない。（MenuShortcut-55）{{/MenuShortcut-55}}
 <!--/GROUP-->
 
