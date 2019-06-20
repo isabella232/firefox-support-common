@@ -824,12 +824,15 @@
 {{#Security-4}}
         1. ポップアップブロックの通知が{{^Security-4-3 || Security-4-7}}表示される。（Security-4-1/4/5/6/8）{{/Security-4-3 || Security-4-7}}{{#Security-4-3 || Security-4-7}}表示されずに、タブまたはウィンドウが開かれる。（Security-4-3/7）{{/Security-4-3 || Security-4-7}}
 {{/Security-4}}
+{{#Security-41}}
+1. ページ内の「Open」ボタンをクリックする。
 {{#Security-41-1}}
         1. 2つ目以降のポップアップがブロックされず、複数のタブが一度に開かれる。（Security-41-1）
 {{/Security-41-1}}
 {{#Security-41-2}}
         1. 2つ目以降のポップアップがブロックされ、タブが1つだけ開かれる。（Security-41-2）
 {{/Security-41-2}}
+{{/Security-41}}
 {{#Security-4-5 || Security-4-6}}
 1. ポップアップの許可対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
