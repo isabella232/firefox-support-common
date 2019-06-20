@@ -1025,12 +1025,13 @@
 8. ブラウザツールボックス内の「再読み込み」ボタンをクリックする。
 9. そのまま10分放置する。
     - 確認項目
+        1. {{#Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}以下を除いて、{{/Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}一切のネットワーク通信が記録されない。（Security-15-2）
 {{#Update-1-1}}
-        1. （Update-1-1）を除いて、一切のネットワーク通信が記録されない。（Security-15-2）
+           * Firefoxの自動更新のための通信
 {{/Update-1-1}}
-{{^Update-1-1}}
-        1. 一切のネットワーク通信が記録されない。（Security-15-2）
-{{/Update-1-1}}
+{{#Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}
+           * ブロックリスト取得のための通信
+{{/Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}
 
 {{#disable_devtools}}
 ### 後始末
