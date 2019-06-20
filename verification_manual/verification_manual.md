@@ -702,7 +702,7 @@
 {{#Security-1-3}}
 1. `C:\Users\Public\nss.log-*` の位置に出力されたログファイルを開く。
     - 確認項目
-        1. インポート対象の証明書（{{imported_certs}}）のすべてについて、`D/pipnss Imported '（証明書の一般名）'`というログが出力されている。（Security-1-3）
+        1. `imported （1以上の数値） certs from （ROOTまたはCA）`というログが出力されている。（Security-1-3）
 {{/Security-1-3}}
 {{#Security-1-4 || Security-38-2}}
 1. オプション画面の「プライバシーとセキュリティ」を開く。
