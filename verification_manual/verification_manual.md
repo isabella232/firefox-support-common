@@ -2783,7 +2783,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-9-3}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+{{/Security-9-3}}
 
 ### 検証
 
@@ -2792,9 +2794,11 @@
         1. `media.autoplay.default` の値が {{#Script-7-1}}`0` である。（Script-7-1）{{/Script-7-1}}{{#Script-7-2 || Script-7-3}}`1` である。（Script-7-2/3）{{/Script-7-2 || Script-7-3}}
         1. `media.autoplay.enabled.user-gestures-needed` の値が {{#Script-7-1 || Script-7-3}}`true` である。（Script-7-1/3）{{/Script-7-1 || Script-7-3}}{{#Script-7-2}}`1` である。（Script-7-2）{{/Script-7-2}}
 
+{{#Security-9-3}}
 ### 後始末
 
 1. ポリシー設定に加えた変更を元に戻す。
+{{/Security-9-3}}
 
 {{/Script-7}}
 
