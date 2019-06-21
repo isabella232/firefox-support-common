@@ -305,12 +305,12 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
     :1: 最近使ったタブの順で切り替える（ESR68既定）
 
     // ESR60からの移行時のみ必要。新規導入環境では不要。
-    lockPref("browser.ctrlTab.recentlyUsedOrde", true);
+    lockPref("browser.ctrlTab.recentlyUsedOrder", true);
 
     :2: タブバー上の並び順で切り替える（ESR60以前既定）
 
     // 新規導入環境で必要。ESR60からの移行時は不要。
-    lockPref("browser.ctrlTab.recentlyUsedOrde", false);
+    lockPref("browser.ctrlTab.recentlyUsedOrder", false);
 
 Tab-18: タブの複数選択
 
