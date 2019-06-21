@@ -1632,7 +1632,7 @@
 
 <!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
-1. 以下の設定を行う。既存の値がない場合は新規に作成する。
+1. `about:config` で以下の設定を行う。既存の値がない場合は新規に作成する。
 {{#Privacy-16}}
     - `network.dns.notifyResolution`（真偽型）を`true`に設定する。
 {{/Privacy-16}}
