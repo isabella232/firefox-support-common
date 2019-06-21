@@ -1468,11 +1468,6 @@
     - 確認項目
         1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。（Privacy-41-1）{{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。（Privacy-41-2）{{/Privacy-41-2}}
 {{/Privacy-33-2 || Privacy-33-4 && Privacy-41}}
-{{#Privacy-35-3 || Privacy-35-4}}
-1. Firefoxを終了し、MCD用設定ファイルまたはリモート設定ファイル内の以下の行を一時的にコメントアウトする。
-    * `lockPref("pref.privacy.disable_button.change_blocklist", true);`
-1. Firefoxを起動する。
-{{/Privacy-35-3 || Privacy-35-4}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. オプション画面の「プライバシーとセキュリティ」を開く。
     - 確認項目
@@ -1509,6 +1504,12 @@
 {{#Script-2-6}}
         1. 「許可設定」→「通知」→「設定」で「通知の許可の要求をブロック」がチェック済みである。（Script-2-6）
 {{/Script-2-6}}
+{{#Privacy-18-2 || Privacy-18-3}}
+        1. 「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。（Privacy-18-2/3）
+{{/Privacy-18-2 || Privacy-18-3}}
+{{#Privacy-21-2}}
+        1. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。（Privacy-21-2）
+{{/Privacy-21-2}}
 <!--GROUP-->
 1. オプション画面の「詳細」→「ネットワーク」を開く。
     - 確認項目
@@ -1516,21 +1517,6 @@
         1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。（Privacy-6-4）
 {{/Privacy-6-4}}
 <!--/GROUP-->
-<!--GROUP-->
-1. オプション画面の「プライバシーとセキュリティ」を開く。
-    - 確認項目
-{{#Privacy-18-2 || Privacy-18-3}}
-        1. 「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。（Privacy-18-2/3）
-{{/Privacy-18-2 || Privacy-18-3}}
-{{#Privacy-21-2}}
-        1. 「Firefoxに、あなたに代わって未送信のクラッシュレポートを送信するのを許可する」のチェックが外れている。（Privacy-21-2）
-{{/Privacy-21-2}}
-<!--/GROUP-->
-{{#Privacy-35-3 || Privacy-35-4}}
-1. Firefoxを終了し、MCD用設定ファイルまたはリモート設定ファイル内の以下の行をコメントアウト状態から復帰させる。
-    * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
-1. Firefoxを起動する。
-{{/Privacy-35-3 || Privacy-35-4}}
 {{#Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4 || Privacy-40-1 || Privacy-40-2}}
 1. テストケースの `password.html` を開く。
 {{/Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4 || Privacy-40-1 || Privacy-40-2}}
