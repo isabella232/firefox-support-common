@@ -1494,7 +1494,7 @@
 {{/Privacy-1-5}}
 {{/Privacy-1}}
 {{#Privacy-35}}
-        1. 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
+        1. 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「レベル1ブロックリスト」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「レベル2ブロックリスト」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
 {{/Privacy-35}}
 {{#Privacy-43}}
         1. 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が{{#Privacy-43-2}}選択されている。（Privacy-43-2）{{/Privacy-43-2}}
