@@ -1469,11 +1469,7 @@
         1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。（Privacy-41-1）{{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。（Privacy-41-2）{{/Privacy-41-2}}
 {{/Privacy-33-2 || Privacy-33-4 && Privacy-41}}
 {{#Privacy-35-3 || Privacy-35-4}}
-1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-1. オプション画面の「プライバシーとセキュリティ」を開く。
-    - 確認項目
-        1. 「ブロックリストを変更」ボタンが無効化されている。（Privacy-35-3/4）
-1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウトする。（Privacy-35-3/4）
+1. Firefoxを終了し、MCD用設定ファイルまたはリモート設定ファイル内の以下の行を一時的にコメントアウトする。
     * `lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
@@ -1498,7 +1494,7 @@
 {{/Privacy-1-5}}
 {{/Privacy-1}}
 {{#Privacy-35}}
-        1. 「ブロックリストを変更」ボタンを押して表示されるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
+        1. 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、{{#Privacy-35-1 || Privacy-35-3}}「簡易ブロック」が選択されている。（Privacy-35-1/3）{{/Privacy-35-1 || Privacy-35-3}}{{#Privacy-35-2 || Privacy-35-4}}「広範ブロック」が選択されている。（Privacy-35-2/4）{{/Privacy-35-2 || Privacy-35-4}}
 {{/Privacy-35}}
 {{#Privacy-43}}
         1. 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が{{#Privacy-43-2}}選択されている。（Privacy-43-2）{{/Privacy-43-2}}
@@ -1531,7 +1527,7 @@
 {{/Privacy-21-2}}
 <!--/GROUP-->
 {{#Privacy-35-3 || Privacy-35-4}}
-1. Firefoxを終了し、MCD用設定ファイル内の以下の行をコメントアウト状態から復帰させる。
+1. Firefoxを終了し、MCD用設定ファイルまたはリモート設定ファイル内の以下の行をコメントアウト状態から復帰させる。
     * `// lockPref("pref.privacy.disable_button.change_blocklist", true);`
 1. Firefoxを起動する。
 {{/Privacy-35-3 || Privacy-35-4}}
