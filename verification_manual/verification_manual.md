@@ -958,7 +958,7 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-13}}
 1. テストケースの `local-file-link.html` を、{{#Security-13-1 || Security-13-3}}ローカルファイルの読み込みを許可するサイト{{/Security-13-1 || Security-13-3}}{{#Security-13-2}}Web上{{/Security-13-2}}に設置してから開き、ページ内のリンクをクリックする。{{#Security-13-2}}  
-   （例： `http://www.clear-code.com/temp/local-file-link.html` ）{{/Security-13-2}}
+   （例： `https://www.clear-code.com/temp/local-file-link.html` ）{{/Security-13-2}}
     - 確認項目
 {{#Security-13-1 || Security-13-3}}
         1. `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。（Security-13-1/3）
@@ -1098,7 +1098,7 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1.  `http://www.w3schools.com/html/html5\_video.asp` を開く。
+1. テストケースリストのリンクから `http://www.w3schools.com/html/html5\_video.asp` を開く。
     - 確認項目
         1. 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されている。（Security-16-1)
            または、表示されていない。（Security-16-3）
@@ -1212,10 +1212,10 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `http://testsafebrowsing.appspot.com/` と入力し、ページを開く。
+1. テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
 {{#Security-26}}
 <!--
-1. ロケーションバーに `http://download.safebrowsingtest.com/download` と入力し、ページを開く。
+1. テストケースリストのリンクから `http://download.safebrowsingtest.com/download` を開く。
 1. 「test」ファイルのリンクをクリックする。
 -->
 1. 「Desktop Download Warnings」セクションの「3. Should show an "dangerous host" warning」のリンクをクリックする。
@@ -1226,7 +1226,7 @@
 {{/Security-26}}
 {{#Security-27}}
 <!--
-1. ロケーションバーに `http://testsafebrowsing.appspot.com/` と入力し、ページを開く。
+1. テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
 -->
 1. 「Desktop Download Warnings」セクションの「4. Should show an "uncommon" warning, for .exe」のリンクをクリックする。
 1. ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
@@ -1340,23 +1340,23 @@
 {{#Security-30}}
 
 {{#Security-29}}
-1. `https://piro.sakura.ne.jp` を開き、Ctrl-Shift-KでWebコンソールを開く。
+1. テストケースリストのリンクから `https://example.com` を開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=true; Secure'` を実行する。
 1. `document.cookie` を実行する。（`secure=true` という結果が出力される。）
-1. `http://piro.sakura.ne.jp` を新しいタブで開き、Ctrl-Shift-KでWebコンソールを開く。
+1. テストケースリストのリンクから `http://example.com` を新しいタブで開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=false; Secure'` を実行する。（HTTPSで設定したCookieの値をHTTPなページから書き換える）
-1. `https://piro.sakura.ne.jp` のタブに戻り、ページを再読み込みする。
+1. `https://example.com` のタブに戻り、ページを再読み込みする。
 1. `document.cookie` を実行する。
     - 確認項目
         1. {{#Security-29-1}}`secure=false` という結果が出力される。（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`secure=true` という結果が出力される。（Security-29-2）{{/Security-29-2}}
 {{/Security-29}}
 {{#Security-42-2}}
-1. `https://everybodyedits.com/` を開く。
+1. テストケースリストのリンクから `https://everybodyedits.com/` を開く。
     - 確認項目
         1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。（Security-42-2）
 {{/Security-42-2}}
 
-1. テストケースの `block_script_with_wrong_mime.py` を実行し誤ったMIMEタイプを返すHTTPサーバーを起動する。
+1. テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動する。
 1. Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - 確認項目
 {{#Security-30-1}}
@@ -1459,12 +1459,12 @@
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Privacy-36}}
-1. テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開いて、`https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
+1. テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開いて、テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
     - 確認項目
         1. サムネイル画像が{{#Privacy-36-1}}保存される。（Privacy-36-1）{{/Privacy-36-1}}{{#Privacy-36-2}}保存されない。（Privacy-36-2）{{/Privacy-36-2}}
 {{/Privacy-36}}
 {{#Privacy-33-2 || Privacy-33-4 && Privacy-41}}
-1. ブラウザウィンドウで `http://www.kantei.go.jp/` を開く。
+1. ブラウザウィンドウでテストケースリストのリンクから `http://www.kantei.go.jp/` を開く。
     - 確認項目
         1. トラッキング保護機能が働いた旨の通知ポップアップが{{#Privacy-41-1}}表示される。（Privacy-41-1）{{/Privacy-41-1}}{{#Privacy-41-2}}表示されない。（Privacy-41-2）{{/Privacy-41-2}}
 {{/Privacy-33-2 || Privacy-33-4 && Privacy-41}}
@@ -1659,9 +1659,9 @@
 {{/Privacy-16}}
 1. コンソール上の「ネットワーク」が選択された状態にする。すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する。
 {{#Privacy-7}}
-1. ブラウザウィンドウで `http://www.clear-code.com/blog/2016/5/10.html` を開く。
+1. ブラウザウィンドウでテストケースリストのリンクから `https://www.clear-code.com/blog/2016/5/10.html` を開く。
     - 確認項目
-        1. `GET http://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに{{#Privacy-7-1}}出力される。（Privacy-7-1）{{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。（Privacy-7-2）{{/Privacy-7-2}}
+        1. `GET https://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに{{#Privacy-7-1}}出力される。（Privacy-7-1）{{/Privacy-7-1}}{{#Privacy-7-2}}出力されない。（Privacy-7-2）{{/Privacy-7-2}}
 {{/Privacy-7}}
 {{#Privacy-16}}
 1. ブラウザウィンドウでテストケースの `prefetching.html` を開く。
@@ -1956,7 +1956,7 @@
 {{/Privacy-30-2}}
 {{/Privacy-30-1 || Privacy-30-2}}
 {{#Privacy-30-3}}
-1. `http://www.clear-code.com/` などいくつかのWebページを閲覧する。
+1. テストケースリストのリンクから `https://www.clear-code.com/` などいくつかのWebページを閲覧する。
 1. ロケーションバーに `about:cache` と入力し、ページを開く。
     - 確認項目
         1. 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。（Privacy-30-3）
@@ -2042,7 +2042,7 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `https://addons.mozilla.org/` と入力し、ページを開く。
+1. テストケースリストのリンクから `https://addons.mozilla.org/` を開く。
 1. Web検索バーのアイコンをクリックする。
     - 確認項目
 {{#Websearch-1}}
@@ -2083,7 +2083,7 @@
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Location-1}}
-1. ロケーションバーに `http://example.com/` のように `http://` で始まるURLを入力し、ページを開く。
+1. テストケースリストのリンクから `http://example.com/` を開く。
     - 確認項目
         1. ロケーションバーのURL表記に `http://` が{{#Location-1-2}}含まれている。（Location-1-2）{{/Location-1-2}}{{#Location-1-1}}含まれていない。（Location-1-1）{{/Location-1-1}}
 {{/Location-1}}
@@ -2119,7 +2119,7 @@
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Download-2 || Download-3-1 || Download-3-2}}
-1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
+1. テストケースリストのリンクから `https://getfirefox.com/` を開く。
 1. 「今すぐダウンロード」のボタン（リンク）をクリックする。
 1. ファイルのダウンロードが開始され、保存方法を尋ねるダイアログが表示されるので、ファイルの保存操作をキャンセルする。
 1. 再ダウンロードのリンクを右クリックし、メニューから「名前を付けてリンク先を保存」を選択する。
@@ -2136,14 +2136,14 @@
 {{/Download-1}}
 {{/Download-3-1 || Download-3-2}}
 {{#Download-3}}
-1. ロケーションバーに `https://getfirefox.com/` と入力し、ページを開く。
+1. テストケースリストのリンクから `https://getfirefox.com/` を開く。
 1. Firefoxのダウンロード用ボタンをクリックする。ファイルのダウンロードが開始され、保存方法を尋ねるダイアログが表示されるので、「ファイルを保存」を選択する。
 {{#Download-3-3 || Download-3-4}}
     - 確認項目
         1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3/4）
 {{/Download-3-3 || Download-3-4}}
 {{#Download-3-1 || Download-3-2}}
-1. ロケーションバーに `http://www.mozilla.org/` と入力し、ページを開く。
+1. テストケースリストのリンクから `http://www.mozilla.org/` を開く。
 1. Webページ中の任意のリンクを右クリックし、「名前を付けてリンク先を保存」を選択する。
     - 確認項目
         1. ダウンロード先として{{#Download-3-1}}`{{download_dir}}`内の「subfolder」が選択された状態でファイル選択ダイアログが開かれる。（Download-3-1）{{/Download-3-1}}{{#Download-3-2}}`{{download_dir}}`が選択された状態でファイル選択ダイアログが開かれる。（Download-3-2）{{/Download-3-2}}
@@ -2682,7 +2682,7 @@
    - 確認項目
        1. ロケーションバーの右側にあるツールバーボタンにフォーカスが{{#Ui-9-1}}移動する。（Ui-9-1）{{/Ui-9-1}}{{#Ui-9-2}}移動しない。（Ui-9-2）{{/Ui-9-2}}
 {{/Ui-9}}
-1. ロケーションバーに `http://www.clear-code.com/blog/` と入力し、ページを開く。
+1. テストケースリストのリンクから `https://www.clear-code.com/blog/` を開く。
 {{#Ui-5}}
     - 確認項目
         1. ロケーションバー内に本または書類形のアイコン（マウスオーバーで「リーダービューに切り替えます」という内容のツールチップが表示される）が{{#Ui-5-1}}表示される。（Ui-5-1）{{/Ui-5-1}}{{#Ui-5-2}}表示されない。（Ui-5-2）{{/Ui-5-2}}
