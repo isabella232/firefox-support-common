@@ -1118,6 +1118,9 @@
 {{#disable_devtools}}
 1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
+{{#Security-3-3}}
+1. ポリシー設定から `InstallAddonsPermission` を削除し、`about:debugging`を一時的に有効化しておく。
+{{/Security-3-3}}
 
 ### 検証
 
@@ -1126,11 +1129,11 @@
     - 確認項目
         1. 読み込ませたアドオンが {{#Security-21-1}}エラーとなり読み込みに失敗する。（Security-21-1）{{/Security-21-1}}{{#Security-21-2}}エラーとなることなく一時的な拡張機能一覧に表示されている。（Security-21-2）{{/Security-21-2}}
 
-{{#disable_devtools}}
+{{#disable_devtools || Security-3-3}}
 ### 後始末
 
 1. ポリシー設定に加えた変更を元に戻す。
-{{/disable_devtools}}
+{{/disable_devtools || Security-3-3}}
 {{/Security-21}}
 
 {{#Security-23}}
