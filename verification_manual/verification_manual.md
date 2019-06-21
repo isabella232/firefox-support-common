@@ -1365,7 +1365,7 @@
 {{#Security-30-2}}
         1. アラートダイアログが表示されず、スクリプトがブロックされている。（Security-30-2）
 {{/Security-30-2}}
-1. Pythonの実行環境がない場合、about:configを開いて次の設定値を確認する。
+1. テストケースリストのリンクを開けず、Pythonの実行環境もない場合、about:configを開いて次の設定値を確認する。
     - 確認項目
 {{#Security-30-1}}
         1. `security.block_script_with_wrong_mime`の値が`false`である （Security-30-1）
