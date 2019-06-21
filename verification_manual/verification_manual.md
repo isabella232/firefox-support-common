@@ -1967,19 +1967,19 @@
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-1. オプション画面の「プライバシーとセキュリティ」を開く。
+1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
+1. 「有効」配下の各設定値を確認する。
     - 確認項目
-        1. 「サイトから送られてきたCookieを保存する」に{{^Privacy-11-4}}チェックが入っている。（Privacy-11-1/2/3/5）{{/Privacy-11-4}}{{#Privacy-11-4}}チェックが入っていない。（Privacy-11-4）{{/Privacy-11-4}}
-        1. 「サードパーティCookieの保存」で{{^Privacy-11-4}}「常に許可」が選択されている。（Privacy-11-1/2/3/5）{{/Privacy-11-4}}{{#Privacy-11-4}}「常に拒否」が選択されている。（Privacy-11-4）{{/Privacy-11-4}}
-{{^Privacy-11-4}}
-        1. 「Cookieを保存する期間」で{{^Privacy-11-3}}「サイトが指定した期限まで」が選択されている。（Privacy-11-1/2/5）{{/Privacy-11-3}}{{#Privacy-11-3}}「Firefoxを終了するまで」が選択されている。（Privacy-11-3）{{/Privacy-11-3}}
-{{/Privacy-11-4}}
-{{#Privacy-11-5 || Privacy-11-6 || Privacy-11-7}}
-1. Cookie保存の許可対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
-    - 確認項目
-        1. 「サイト別設定」タブで「Cookieデータの保存」において「許可」にチェックが入っている。（Privacy-11-5）
-        1. 「ポップアップウィンドウを開く」を「ブロック」に変更してFirefoxを再起動し、再び同じページの「ページの情報」の「サイト別設定」タブを開いた時、{{#Privacy-11-6}}「Cookieデータの保存」において「許可」にチェックが入っている。（Privacy-11-6）{{/Privacy-11-6}}{{#Privacy-11-5 || Privacy-11-7}}「ブロック」にチェックが入っている。（Privacy-11-5/7）{{/Privacy-11-5 || Privacy-11-7}}
-{{/Privacy-11-5 || Privacy-11-6 || Privacy-11-7}}
+        1. `Cookies` の `Default` の値が{{#Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}`true`である。（Privacy-11-1/3/7）{{/Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}{{#Privacy-11-4 || Privacy-11-6}}`false`である。（Privacy-11-4/6）{{/Privacy-11-4 || Privacy-11-6}}
+{{#Privacy-11-3}}
+        1. `Cookies` の `ExpireAtSessionEnd` の値が`true`である。（Privacy-11-3）
+{{/Privacy-11-3}}
+{{#Privacy-11-6}}
+        1. `Cookies` の `Allow` の値として許可サイトが列挙されている。（Privacy-11-6）
+{{/Privacy-11-6}}
+{{#Privacy-11-7}}
+        1. `Cookies` の `Allow` の値として禁止サイトが列挙されている。（Privacy-11-7）
+{{/Privacy-11-7}}
 
 {{/Privacy-11}}
 

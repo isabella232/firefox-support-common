@@ -210,42 +210,49 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :1: 永続的に許可する（既定）
 
-    lockPref("network.cookie.cookieBehavior", 0);
-    lockPref("network.cookie.lifetimePolicy", 0);
+    "Cookies": {
+      "Default": true,
+      "Locked": true
+    },
 
     :2: [廃止] 特定サイトのみ永続的に許可する
 
     廃止
 
-    :6: 特定サイトのみ永続的に許可する（ポリシーで設定）
+    :5: [廃止] 既定では禁止し、特定サイトのみ初期状態で永続的に許可する
 
-    "Cookies": { "Allow": ["(origin1)", "(origin2)", ...] }
+    廃止
 
-    :5: 特定サイトのみ初期状態で永続的に許可する
+    :6: 既定では禁止し、特定サイトのみ永続的に許可する（ポリシーで設定）
 
-    default.permissions:
-    host<\t>cookie<\t>1<\t>http://example.com
-    # または
-    origin<\t>cookie<\t>1<\t>http://example.com
+    "Cookies": {
+      "Default": false,
+      "Locked": true,
+      "Allow": ["(origin1)", "(origin2)", ...]
+    },
 
-    MCD:
-    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
-    lockPref("network.cookie.cookieBehavior", 2);
-    lockPref("network.cookie.lifetimePolicy", 0);
+    :3: セッション中のみ許可する（ポリシーで設定）
 
-    :3: セッション中のみ許可する
+    "Cookies": {
+      "Default": true,
+      "ExpireAtSessionEnd": true,
+      "Locked": true
+    },
 
-    lockPref("network.cookie.cookieBehavior", 0);
-    lockPref("network.cookie.lifetimePolicy", 2);
+    :4: 禁止する（ポリシーで設定）
 
-    :4: 禁止する
+    "Cookies": {
+      "Default": false,
+      "Locked": true
+    },
 
-    lockPref("network.cookie.cookieBehavior", 2);
-    lockPref("network.cookie.lifetimePolicy", 0);
+    :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
 
-    :7: 特定サイトのみ永続的に禁止する（ポリシーで設定）
-
-    "Cookies": { "Block": ["(origin1)", "(origin2)", ...] }
+    "Cookies": {
+      "Default": true,
+      "Locked": true,
+      "Block": ["(origin1)", "(origin2)", ...]
+    },
 
 Privacy-12: DOMストレージの利用の可否
 
