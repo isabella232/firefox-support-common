@@ -1435,9 +1435,9 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
+{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-42-2 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
@@ -1594,9 +1594,6 @@
         1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
         1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
 {{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
-{{#Privacy-42-2}}
-        1. `app.shield.optoutstudies.enabled` の値が{{#Privacy-42-1}}`true`である。（Privacy-42-1）{{/Privacy-42-1}}{{#Privacy-42-2}}`false`である。（Privacy-42-2）{{/Privacy-42-2}}
-{{/Privacy-42-2}}
 {{#Privacy-48}}
         1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。（Privacy-48-1）{{/Privacy-48-3}}
 {{/Privacy-48}}
@@ -1626,6 +1623,12 @@
         1. `signon.rememberSignons.visibilityToggle` の値が`false`である （Privacy-40-2）
   {{/Privacy-40-2}}
 {{/Privacy-5-3 || Privacy-5-2}}
+{{#Privacy-42}}
+1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
+1. 「有効」配下の各設定値を確認する。
+    - 確認項目
+        1. `DisableFirefoxStudies` の値が{{#Privacy-42-1}}`false`である。（Privacy-42-1）{{/Privacy-42-1}}{{#Privacy-42-2}}`true`である。（Privacy-42-2）{{/Privacy-42-2}}
+{{/Privacy-42}}
 
 <!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
