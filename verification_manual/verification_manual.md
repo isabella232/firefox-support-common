@@ -1356,8 +1356,8 @@
         1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。（Security-42-2）
 {{/Security-42-2}}
 
-1. テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動する。
-1. Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
+1. テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
+   または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - 確認項目
 {{#Security-30-1}}
         1. アラートダイアログに`3`が表示され、スクリプトがブロックされていない。（Security-30-1）
