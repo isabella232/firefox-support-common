@@ -862,6 +862,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-9-3}}{{#Security-5-1 || Security-6-1}}
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+{{/Security-5-1 || Security-6-1}}{{/Security-9-3}}
 
 ### 検証
 
@@ -883,6 +886,23 @@
     - 確認項目
         1. 警告画面の「詳細」ボタンを押した後の画面で、「危険性を承知で続行」ボタンが表示されないか、またはクリックできない状態になっている。（Security-37-2）
 {{/Security-37-2}}
+{{#Security-5-1 || Security-6-1}}
+1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く
+1. `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
+1. Firefoxを再起動する。
+1. `about:url-classifier` を訪問する。
+1. 「プロバイダー」欄の「google4」と「mozilla」の各行について、「最終更新日時」が「なし」であるすべての行の「更新」列にある「更新」ボタンをクリックする。
+    - 確認項目
+        1. 「最終更新日時」列の内容が現在時刻に更新される。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{#Security-5-1 && Security-6-1}}, {/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
+        1. 「更新状態」列の内容が「更新できません」にならずに「完了」となる。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{#Security-5-1 && Security-6-1}}, {/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
+{{/Security-5-1 || Security-6-1}}
+
+{{#Security-9-3}}{{#Security-5-1 || Security-6-1}}
+### 後始末
+
+1. ポリシー設定に加えた変更を元に戻す。
+{{/Security-5-1 || Security-6-1}}{{/Security-9-3}}
+
 
 ## about:ページの利用制限
 
