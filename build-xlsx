@@ -181,6 +181,11 @@ def main(args):
 
     for title, files in WORKBOOK_DEF:
         sheet = wb.add_worksheet(title)
+
+    wb.add_worksheet('verify-targets-to-chapters')
+
+    for title, files in WORKBOOK_DEF:
+        sheet = wb.get_worksheet_by_name(title)
         setup_conditional_format(sheet, formats)
 
         sheet.write(0, 0, '選択')
@@ -193,6 +198,7 @@ def main(args):
         sheet.write(0, 7, '導入設定 (%s)' % ESR_CURRENT)
         sheet.write(0, 8, '標準設定 (%s)' % ESR_PREVIOUS)
         sheet.write(0, 9, '導入設定 (%s)' % ESR_PREVIOUS)
+        sheet.write(0, 10, '検証手順書対応番号')
 
         sheet.set_column(0, 9, None, formats['default'])
         sheet.set_column(0, 0, 3)
@@ -205,6 +211,7 @@ def main(args):
         sheet.set_column(7, 7, 40)
         sheet.set_column(8, 8, 40)
         sheet.set_column(9, 9, 40)
+        sheet.set_column(10, 10, 12)
 
         row = 1
         for fn in files:
@@ -222,19 +229,23 @@ def main(args):
                     if d['opt_id'] in conf_new:
                         mark, conf = 'y', conf_new[d['opt_id']]
 
-                    label = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
-                    label = label.replace('#', str(row+1))
+                    status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
+                    status = status.replace('#', str(row+1))
+                    chapter_numbers = '=IFERROR(VLOOKUP(CONCATENATE(B#,"-",E#),\'verify-targets-to-chapters\'!A1:B999,2,0),IF(A#="","","省略"))'
+                    chapter_numbers = chapter_numbers.replace('#', str(row+1))
 
                     sheet.write(row, 0, mark, formats['default'])
                     sheet.write(row, 1, data['item_id'])
                     sheet.write(row, 2, data['item_title'])
-                    sheet.write_formula(row, 3, label, None, "")
+                    sheet.write_formula(row, 3, status, None, "")
                     sheet.write(row, 4, d['opt_no'])
                     sheet.write(row, 5, d['opt_title'])
                     sheet.write(row, 6, d['conf'].strip())
                     sheet.write(row, 7, conf, formats['default'])
                     sheet.write(row, 8, prev.get(d['opt_id'], ""), formats['default'])
                     sheet.write(row, 9, conf_old.get(d['opt_id'], ""), formats['default'])
+                    sheet.write_formula(row, 10, chapter_numbers, None, "")
+
                     row += 1
 
     add_verify_targets(wb)
