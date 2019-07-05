@@ -222,17 +222,18 @@
 {{#Install-11}}
         1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが{{#Install-11-1}}存在する。（Install-11-1）{{/Install-11-1}}{{#Install-11-2}}存在しない。（Install-11-2）{{/Install-11-2}}
 {{/Install-11}}
+
 {{#Install-7}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Firefox {{firefox_version}}」がインストールされている。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
+        1. スタートメニューから「appwiz.cpl」を起動し、「Mozilla Firefox {{firefox_version}}」がインストールされていることを確認する。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
 {{/Install-7}}
 {{#Install-1}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」がインストールされている。（Install-1-\*）
+        1. スタートメニューから「appwiz.cpl」を起動し、「{{meta_installer_name}}」がインストールされていることを確認する。（Install-1-\*）
 {{/Install-1}}
 {{#Install-9-2}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。（Install-9-2）
+        1. スタートメニューから「appwiz.cpl」を起動し、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されていることを確認する。（Install-9-2）
 {{/Install-9-2}}
 {{#Update-4}}
-        1. 「コントロールパネル」→「プログラムと機能」（Windows 10では「設定」→「アプリ」→「アプリと機能」）で、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
+        1. スタートメニューから「appwiz.cpl」を起動し、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いることを確認する。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いないことを確認する。（Update-4-2）{{/Update-4-2}}
 {{/Update-4}}
 {{#Install-13-3}}
         1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。（Install-13-3）
@@ -544,6 +545,9 @@
         1. `browser.disableResetPrompt`の値が`true`である （Startup-7-2）
   {{/Startup-7-2}}
 {{/Startup-7-1 || Startup-7-2}}
+{{#Startup-7}}
+1. 1年進めたシステムの時計を元に戻す。
+{{/Startup-7}}
 {{#Startup-7-3}}
 1. ロケーションバーに`about:support`と入力して確定する。
     - 確認項目
@@ -552,9 +556,6 @@
     - 確認項目
         1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない。 （Startup-7-3）
 {{/Startup-7-3}}
-{{#Startup-7}}
-1. 1年進めたシステムの時計を元に戻す。
-{{/Startup-7}}
 {{#Startup-13-2}}
 1. （Windows 10での検証のみ）Firefoxを終了させずに、そのままWindows 10を再起動する（または、ログオフする）。
 1. （Windows 10での検証のみ）再度Windows 10にログオンする。
@@ -893,8 +894,8 @@
 1. `about:url-classifier` を訪問する。
 1. 「プロバイダー」欄の「google4」と「mozilla」の各行について、「最終更新日時」が「なし」であるすべての行の「更新」列にある「更新」ボタンをクリックする。
     - 確認項目
-        1. 「最終更新日時」列の内容が現在時刻に更新される。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{#Security-5-1 && Security-6-1}}, {/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
-        1. 「更新状態」列の内容が「更新できません」にならずに「完了」となる。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{#Security-5-1 && Security-6-1}}, {/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
+        1. 「最終更新日時」列の内容が現在時刻に更新される。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{{#Security-5-1 && Security-6-1}}, {{/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
+        1. 「更新状態」列の内容が「更新できません」にならずに「完了」となる。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{{#Security-5-1 && Security-6-1}}, {{/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
 {{/Security-5-1 || Security-6-1}}
 
 {{#Security-9-3}}{{#Security-5-1 || Security-6-1}}
@@ -1205,7 +1206,8 @@
 2. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 3. オプション画面の「一般」を開く。
     - 確認項目
-        1. ファイルの種類「irc」「ircs」「mailto」「webcal」のそれぞれについて、選択肢として{{#Security-25-1}}Webアプリケーション名が表示される。（Security-25-1）{{/Security-25-1}}{{#Security-25-2}}「毎回確認する」と「他のプログラムを選択する...」の2つだけ（Windowsの既定のアプリケーション設定により追加されたアプリケーションは除く）が表示される。（Security-25-2）{{/Security-25-2}}
+        1. ファイルの種類「irc」「ircs」「mailto」「webcal」のそれぞれについて、選択肢として{{#Security-25-1}}Webアプリケーション名が表示される。（Security-25-1）{{/Security-25-1}}{{#Security-25-2}}「毎回確認する」と「他のプログラムを選択する...」の2つだけが表示される。（Security-25-2）
+            - ただし、Windowsの既定のアプリケーション設定により追加されたアプリケーション（標準設定と記されている選択肢）は無視する。{{/Security-25-2}}
 {{/Security-25}}
 
 ## ダウンロードしたファイルの保護
@@ -1986,7 +1988,6 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
 1. 「有効」配下の各設定値を確認する。
     - 確認項目
@@ -2393,10 +2394,17 @@
 {{#Tab-17 || Tab-18}}
 ## 複数のタブに関わる機能の制御
 
+### 確認する項目
+
+- Tab-17
+- Tab-18
+
+### 準備
+
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 
-## 検証
+### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. 3つ以上のタブを開く。
@@ -2410,8 +2418,6 @@
     - 確認項目
         1. {{#Tab-18-1}}クリックされたタブの色が変わり、複数のタブがハイライトされた状態になる。（Tab-18-1）{{/Tab-18-1}}{{#Tab-18-2}}クリックされたタブがフォーカスされる。（Tab-18-2）{{/Tab-18-2}}
 {{/Tab-18}}
-
-
 {{/Tab-17 || Tab-18}}
 
 
