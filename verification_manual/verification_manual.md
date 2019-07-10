@@ -3071,7 +3071,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{/Security-24-2}}
 {{#Security-24-2}}
-    1. カスタマイズ済みFirefox(32bit版)のインストールが完了した状態にする。
+    1. カスタマイズ済みFirefox(32bit版)のインストールが完了した状態にする。（64bit版使用時は一部の検証を省略する。）
 {{/Security-24-2}}
 {{#Plugin-2 || Security-24 || Security-33}}
 1. Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
@@ -3097,7 +3097,7 @@
         1. 「Widevine Content Decryption Module」が{{#Plugin-8-1}}表示される。（Plugin-8-1）{{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。（Plugin-8-2）{{/Plugin-8-2}}
 {{/Plugin-8}}
 {{#Security-24 || Security-33}}
-1. Flashプラグインの「設定」ボタンをクリックする。
+1. Flashプラグインの「オプション」を開く。
     - 確認項目
 {{#Security-24}}
         1. 32bit版Firefoxにおいて、「Adobe Flashの保護モードを有効化」に{{#Security-24-1}}チェックが入っている。（Security-24-1）{{/Security-24-1}}{{#Security-24-2}}チェックが入っていない。（Security-24-2）{{/Security-24-2}}
