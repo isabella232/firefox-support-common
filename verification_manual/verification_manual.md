@@ -2256,10 +2256,10 @@
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Tab-2-3}}
-        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`である。（Tab-2-3）
+        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-2-3）
 {{/Tab-2-3}}
 {{#Tab-9-2}}
-        1. `browser.newtab.preload` の値がユーザー設定値の`false`である。（Tab-9-2）
+        1. `browser.newtab.preload` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-9-2）
 {{/Tab-9-2}}
 <!--/GROUP-->
 
