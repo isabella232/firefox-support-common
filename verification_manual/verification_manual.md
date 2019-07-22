@@ -159,7 +159,8 @@
 1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
 {{/Install-13-3}}
 {{#Install-14-2}}
-1. コマンドプロンプトで `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"` を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
+1. IEを起動し、Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
+   * もし項目が存在している場合、コマンドプロンプトで `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"` を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
 {{/Install-14-2}}
 
 ### 検証
@@ -241,7 +242,7 @@
 {{#Install-14-2}}
 1. IEを起動し、Webページ上でコンテキストメニューを開く。
     - 確認項目
-        1. 追加したコンテキストメニュー項目が表示されている。（Install-24-2）
+        1. 追加したコンテキストメニュー項目が表示され、実際に機能する。（Install-24-2）
 {{/Install-14-2}}
 
 <!--/GROUP-->
