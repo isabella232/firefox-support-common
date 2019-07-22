@@ -223,22 +223,25 @@
 {{#Install-11}}
         1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが{{#Install-11-1}}存在する。（Install-11-1）{{/Install-11-1}}{{#Install-11-2}}存在しない。（Install-11-2）{{/Install-11-2}}
 {{/Install-11}}
-
-{{#Install-7}}
-        1. スタートメニューから「appwiz.cpl」を起動し、「Mozilla Firefox {{firefox_version}}」がインストールされていることを確認する。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
-{{/Install-7}}
-{{#Install-1}}
-        1. スタートメニューから「appwiz.cpl」を起動し、「{{meta_installer_name}}」がインストールされていることを確認する。（Install-1-\*）
-{{/Install-1}}
-{{#Install-9-2}}
-        1. スタートメニューから「appwiz.cpl」を起動し、「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されていることを確認する。（Install-9-2）
-{{/Install-9-2}}
-{{#Update-4}}
-        1. スタートメニューから「appwiz.cpl」を起動し、「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いることを確認する。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いないことを確認する。（Update-4-2）{{/Update-4-2}}
-{{/Update-4}}
 {{#Install-13-3}}
         1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。（Install-13-3）
 {{/Install-13-3}}
+{{#Install-1 || Install-7 || Install-9-2 || Update-4}}}
+1. スタートメニューから `appwiz.cpl` を起動する。
+    - 確認項目
+{{#Install-7}}
+        1. 「Mozilla Firefox {{firefox_version}}」がインストールされていることを確認する。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
+{{/Install-7}}
+{{#Install-1}}
+        1.「{{meta_installer_name}}」がインストールされていることを確認する。（Install-1-\*）
+{{/Install-1}}
+{{#Install-9-2}}
+        1.「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されていることを確認する。（Install-9-2）
+{{/Install-9-2}}
+{{#Update-4}}
+        1.「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いることを確認する。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いないことを確認する。（Update-4-2）{{/Update-4-2}}
+{{/Update-4}}
+{{/Install-1 || Install-7 || Install-9-2 || Update-4}}}
 {{#Install-14-2}}
 1. IEを起動し、Webページ上でコンテキストメニューを開く。
     - 確認項目
