@@ -3104,7 +3104,7 @@
 1. アドオンマネージャを開き、「プラグイン」を選択する。
     - 確認項目
 {{#Plugin-2}}
-        1. Adobe Flashプラグインの項目が表示されており、{{#Plugin-2-1 || Plugin-2-4}}「無効化する」が選択されている。（Plugin-2-1/4）{{/Plugin-2-1 || Plugin-2-4}}{{#Plugin-2-2 || Plugin-2-5}}「常に有効化する」が選択されている。（Plugin-2-2/5）{{/Plugin-2-2 || Plugin-2-5}}{{#Plugin-2-3}}「実行時に確認する」が選択されている。（Plugin-2-3）{{/Plugin-2-3}}
+        1. Adobe Flashプラグインの項目（Shockwave Flash）が表示されており、「…」ボタンの配下で{{#Plugin-2-1 || Plugin-2-4}}「無効化する」が選択されている。（Plugin-2-1/4）{{/Plugin-2-1 || Plugin-2-4}}{{#Plugin-2-2 || Plugin-2-5}}「常に有効化する」が選択されている。（Plugin-2-2/5）{{/Plugin-2-2 || Plugin-2-5}}{{#Plugin-2-3}}「実行時に確認する」が選択されている。（Plugin-2-3）{{/Plugin-2-3}}
 {{/Plugin-2}}
 {{#Plugin-8}}
         1. OpenH264のプラグインが{{#Plugin-8-1}}表示される。（Plugin-8-1）{{/Plugin-8-1}}{{#Plugin-8-2}}表示されない。（Plugin-8-2）{{/Plugin-8-2}}
