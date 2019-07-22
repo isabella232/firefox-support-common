@@ -1379,7 +1379,8 @@
         1. {{#Security-29-1}}`secure=false` という結果が出力される。（Security-29-1）{{/Security-29-1}}{{#Security-29-2}}`secure=true` という結果が出力される。（Security-29-2）{{/Security-29-2}}
 {{/Security-29}}
 {{#Security-42-2}}
-1. テストケースリストのリンクから `https://everybodyedits.com/` を開く。
+1. テストケースリストのリンクから `https://monitor.firefox.com/breaches` を開く。
+1. いずれかのサービスの名前でWeb検索し、当該Webサイトを開く。
     - 確認項目
         1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。（Security-42-2）
 {{/Security-42-2}}
