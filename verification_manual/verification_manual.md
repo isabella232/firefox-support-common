@@ -1724,10 +1724,10 @@
 1. `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - 確認項目
 {{#Privacy-32}}
-        1. {{#Privacy-32-1}}「All skipped? false」{{/Privacy-32-1}}{{#Privacy-32-2}}「All skipped? true」{{/Privacy-32-2}}とコンソールに出力される。
+        1. {{#Privacy-32-1}}「All skipped? false」{{/Privacy-32-1}}{{#Privacy-32-2}}「All skipped? true」{{/Privacy-32-2}}とコンソールに出力される。({{#Privacy-32-1}}Privacy-32-1{{/Privacy-32-1}}{{#Privacy-32-2}}Privacy-32-2{{/Privacy-32-2}})
 {{/Privacy-32}}
 {{#Privacy-37}}
-        1. {{#Privacy-37-1}}「All cancelled? false」{{/Privacy-37-1}}{{#Privacy-37-2}}「All cancelled? true」{{/Privacy-37-2}}とコンソールに出力される。
+        1. {{#Privacy-37-1}}「All cancelled? false」{{/Privacy-37-1}}{{#Privacy-37-2}}「All cancelled? true」{{/Privacy-37-2}}とコンソールに出力される。({{#Privacy-37-1}}Privacy-37-1{{/Privacy-37-1}}{{#Privacy-37-2}}Privacy-37-2{{/Privacy-37-2}})
 {{/Privacy-37}}
 1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
     - 確認項目
