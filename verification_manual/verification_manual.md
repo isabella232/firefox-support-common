@@ -563,8 +563,8 @@
         1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない。 （Startup-7-3）
 {{/Startup-7-3}}
 {{#Startup-13-2}}
-1. （Windows 10での検証のみ）Firefoxを終了させずに、そのままWindows 10を再起動する（または、ログオフする）。
-1. （Windows 10での検証のみ）再度Windows 10にログオンする。
+1. （Windows 10での検証のみ）Firefoxを終了させずに、そのままWindows 10を強制的に再起動またはログオフ/サインアウトする。
+1. （Windows 10での検証のみ）再度Windows 10にログオン/サインインする。
     - 確認項目
         1. Firefoxが自動的には起動しない。 （Startup-3-2）
 {{/Startup-13-2}}
