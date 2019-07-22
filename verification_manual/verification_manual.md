@@ -1047,9 +1047,9 @@
 3. パネルメニューまたはメニューバーの「ウェブ開発」→「開発ツールを表示」で開発ツールを表示する。
 4. 開発ツール右上の歯車アイコンをクリックする。
 5. 「ブラウザとアドオンのデバッガを有効」と「リモートデバッガを有効」にチェックを入れる。
-6. パネルメニューまたはメニューバーの「ウェブ開発」→「ブラウザツールボックス」でブラウザツールボックスを開く。途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
-7. ブラウザツールボックスで「ネットワーク」を選択する。
-8. ブラウザツールボックス内の「再読み込み」ボタンをクリックする。
+6. パネルメニューまたはメニューバーの「ウェブ開発」→「ブラウザーツールボックス」でブラウザーツールボックスを開く。途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
+7. ブラウザーツールボックスで「ネットワーク」を選択する。
+8. ブラウザーツールボックス内の「再読み込み」ボタンをクリックする。
 9. そのまま10分放置する。
     - 確認項目
         1. {{#Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}以下を除いて、{{/Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}一切のネットワーク通信が記録されない。（Security-15-2）
@@ -1291,7 +1291,7 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. 「Ctrl-Shift-Alt-I」を押して、ブラウザツールボックスのネットワークモニターを開く。
+1. 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
 1. 「URLでフィルタリング」欄に「dns-query」と入力する。
 1. www.clear-code.com を開く。
     - 確認項目
@@ -1666,7 +1666,7 @@
     - `network.dns.notifyResolution`（真偽型）を`true`に設定する。
 {{/Privacy-16}}
     - `devtools.chrome.enabled`（真偽型）を`true`に設定する。
-1. パネルメニューまたはメニューバーの「ウェブ開発」をクリックして、サブメニューの「ブラウザコンソール」をクリックする。
+1. パネルメニューまたはメニューバーの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
 {{#Privacy-16}}
 1. 以下のコードをコンソール内で実行する。
     - `Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false);`
@@ -1680,9 +1680,9 @@
 {{#Privacy-16}}
 1. ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - 確認項目
-        1. `dns-resolution-request: dns-prefetch.example.com` というログがブラウザコンソールに{{#Privacy-16-1}}出力される。（Privacy-16-1）{{/Privacy-16-1}}{{#Privacy-16-2 || Privacy-16-3}}出力されない。（Privacy-16-2/3）{{/Privacy-16-2 || Privacy-16-3}}
+        1. `dns-resolution-request: dns-prefetch.example.com` というログがブラウザーコンソールに{{#Privacy-16-1}}出力される。（Privacy-16-1）{{/Privacy-16-1}}{{#Privacy-16-2 || Privacy-16-3}}出力されない。（Privacy-16-2/3）{{/Privacy-16-2 || Privacy-16-3}}
 {{/Privacy-16}}
-1. ブラウザコンソールを閉じる。
+1. ブラウザーコンソールを閉じる。
 {{/Privacy-7 || Privacy-16}}
 {{#Privacy-10-2}}
 1. ロケーションバーに `about:about` と入力し、Alt-Enterでタブとして開いてから、タブを閉じる。
@@ -1918,10 +1918,10 @@
 で設定項目を登録する。
 5. Firefoxを終了する。
 6. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-7. パネルメニューまたはメニューバーの「ウェブ開発」をクリックして、サブメニューの「ブラウザコンソール
+7. パネルメニューまたはメニューバーの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール
 」をクリックする。
 8. キーボード、マウスから手を離し、4分以上待つ。
-9. ブラウザコンソールの内容を確認する。
+9. ブラウザーコンソールの内容を確認する。
     - 確認項目
         1. 以下のメッセージがすべて出力される。（Privacy-29-2）
             1. `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
@@ -3328,8 +3328,8 @@
 {{#MenuShortcut-17}}        1. 「Ctrl-Shift-E」を押して、ネットワークモニターが開かれない。（MenuShortcut-17）{{/MenuShortcut-17}}
 {{#MenuShortcut-18}}        1. 「Shitf-F2」を押して、開発ツールバーが開かれない。（MenuShortcut-18）{{/MenuShortcut-18}}
 {{#MenuShortcut-20}}        1. 「Shift-F8」を押して、WebIDEが開かれない。（MenuShortcut-20）{{/MenuShortcut-20}}
-{{#MenuShortcut-21}}        1. 「Ctrl-Shift-Alt-I」を押して、ブラウザツールボックスが開かれない。（MenuShortcut-21）{{/MenuShortcut-21}}
-{{#MenuShortcut-22}}        1. 「Ctrl-Shift-J」を押して、ブラウザコンソールが開かれない。（MenuShortcut-22）{{/MenuShortcut-22}}
+{{#MenuShortcut-21}}        1. 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスが開かれない。（MenuShortcut-21）{{/MenuShortcut-21}}
+{{#MenuShortcut-22}}        1. 「Ctrl-Shift-J」を押して、ブラウザーコンソールが開かれない。（MenuShortcut-22）{{/MenuShortcut-22}}
 {{#MenuShortcut-23}}        1. 「Ctrl-Shift-M」を押して、レスポンシブデザインビューが開かれない。（MenuShortcut-23）{{/MenuShortcut-23}}
 {{#MenuShortcut-25}}        1. 「Shift-F4」を押してスクラッチパッド、が開かれない。（MenuShortcut-25）{{/MenuShortcut-25}}
 <!--
@@ -3348,8 +3348,8 @@
 {{#MenuShortcut-17}}        1. 「ネットワーク」が存在しない。（MenuShortcut-17）{{/MenuShortcut-17}}
 {{#MenuShortcut-18}}        1. 「開発ツールバー」が存在しない。（MenuShortcut-18）{{/MenuShortcut-18}}
 {{#MenuShortcut-20}}        1. 「WebIDE」が存在しない。（MenuShortcut-20）{{/MenuShortcut-20}}
-{{#MenuShortcut-21}}        1. 「ブラウザツールボックス」が存在しない。（MenuShortcut-21）{{/MenuShortcut-21}}
-{{#MenuShortcut-22}}        1. 「ブラウザコンソール」が存在しない。（MenuShortcut-22）{{/MenuShortcut-22}}
+{{#MenuShortcut-21}}        1. 「ブラウザーツールボックス」が存在しない。（MenuShortcut-21）{{/MenuShortcut-21}}
+{{#MenuShortcut-22}}        1. 「ブラウザーコンソール」が存在しない。（MenuShortcut-22）{{/MenuShortcut-22}}
 {{#MenuShortcut-23}}        1. 「レスポンシブデザインビュー」が存在しない。（MenuShortcut-23）{{/MenuShortcut-23}}
 {{#MenuShortcut-24}}        1. 「スポイト」が存在しない。（MenuShortcut-24）{{/MenuShortcut-24}}
 {{#MenuShortcut-25}}        1. 「スクラッチパッド」が存在しない。（MenuShortcut-25）{{/MenuShortcut-25}}
@@ -3373,8 +3373,8 @@
 {{#MenuShortcut-17}}        1. 「ネットワーク」が存在しない。（MenuShortcut-17）{{/MenuShortcut-17}}
 {{#MenuShortcut-18}}        1. 「開発ツールバー」が存在しない。（MenuShortcut-18）{{/MenuShortcut-18}}
 {{#MenuShortcut-20}}        1. 「WebIDE」が存在しない。（MenuShortcut-20）{{/MenuShortcut-20}}
-{{#MenuShortcut-21}}        1. 「ブラウザツールボックス」が存在しない。（MenuShortcut-21）{{/MenuShortcut-21}}
-{{#MenuShortcut-22}}        1. 「ブラウザコンソール」が存在しない。（MenuShortcut-22）{{/MenuShortcut-22}}
+{{#MenuShortcut-21}}        1. 「ブラウザーツールボックス」が存在しない。（MenuShortcut-21）{{/MenuShortcut-21}}
+{{#MenuShortcut-22}}        1. 「ブラウザーコンソール」が存在しない。（MenuShortcut-22）{{/MenuShortcut-22}}
 {{#MenuShortcut-23}}        1. 「レスポンシブデザインビュー」が存在しない。（MenuShortcut-23）{{/MenuShortcut-23}}
 {{#MenuShortcut-24}}        1. 「スポイト」が存在しない。（MenuShortcut-24）{{/MenuShortcut-24}}
 {{#MenuShortcut-25}}        1. 「スクラッチパッド」が存在しない。（MenuShortcut-25）{{/MenuShortcut-25}}
