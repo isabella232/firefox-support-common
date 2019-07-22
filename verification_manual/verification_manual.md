@@ -1058,6 +1058,10 @@
 {{/Update-1-1}}
 {{#Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}
            * ブロックリスト取得のための通信、およびそれに関連するOCSPの通信
+             - `https://firefox.settings.services.mozilla.com/v1/～`
+             - `https://content-signature.cdn.mozilla.net/～`
+             - `https://safebrowsing.googleapis.com/v4/～`
+             - `ocsp.pki.goog`
 {{/Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}
 
 {{#disable_devtools}}
