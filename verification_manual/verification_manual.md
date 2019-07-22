@@ -546,6 +546,11 @@
         1. `browser.disableResetPrompt`の値が`true`である （Startup-7-2）
   {{/Startup-7-2}}
 {{/Startup-7-1 || Startup-7-2}}
+{{#Startup-7-3}}
+1. システムの時計を進めることができない場合は`about:policies`を開いて設定値を確認する。
+    - 確認項目
+        1. `DisableProfileRefresh`の値が`true`である （Startup-7-3）
+{{/Startup-7-3}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
