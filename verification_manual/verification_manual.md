@@ -2130,7 +2130,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 2. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
-3. 既定のダウンロード先（`{{download_dir}}`）を用意しておく。用意できない場合は、Download-2-1の参照先を `C:\` などの実在するパスに変更し、以下の説明も読み替える。
+3. 既定のダウンロード先（ユーザー配下の「ダウンロード」、または`{{download_dir}}`）を用意しておく。用意できない場合は、Download-2-1の参照先を `C:\` などの実在するパスに変更し、以下の説明も読み替える。
 
 ### 検証
 
@@ -2158,6 +2158,9 @@
 {{#Download-3-3 || Download-3-4}}
     - 確認項目
         1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3/4）
+1. ファイルのダウンロードが禁止されている場合、`about:policies`を開く、
+    - 確認項目
+        1. `PromptForDownloadLocation`が`true`である。（Download-3-3/4）
 {{/Download-3-3 || Download-3-4}}
 {{#Download-3-1 || Download-3-2}}
 1. テストケースリストのリンクから `http://www.mozilla.org/` を開く。
@@ -2731,6 +2734,7 @@
 {{#Script-4 || Script-5}}
 1. テストケースの `mouseevent.html` を開く。
 {{#Script-4}}
+1. Ctrl-Shift-KでWebコンソールを開く。
 1. コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - 確認項目
 {{#Script-4-1}}
