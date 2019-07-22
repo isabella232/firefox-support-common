@@ -1054,10 +1054,10 @@
     - 確認項目
         1. {{#Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}以下を除いて、{{/Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}一切のネットワーク通信が記録されない。（Security-15-2）
 {{#Update-1-1}}
-           * Firefoxの自動更新のための通信
+           * Firefoxの自動更新のための通信、およびそれに関連するOCSPの通信
 {{/Update-1-1}}
 {{#Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}
-           * ブロックリスト取得のための通信
+           * ブロックリスト取得のための通信、およびそれに関連するOCSPの通信
 {{/Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}
 
 {{#disable_devtools}}
