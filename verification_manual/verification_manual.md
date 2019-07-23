@@ -411,6 +411,7 @@
 {{#Startup-12-2 || Startup-12-3}} - Startup-12-2/3 {{/Startup-12-2 || Startup-12-3}}
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
+{{#Update-6-2}} - Update-6-2 {{/Update-6-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Privacy-52-2}} - Privacy-52-2 {{/Privacy-52-2}}
