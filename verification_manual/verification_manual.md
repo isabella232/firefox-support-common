@@ -2539,17 +2539,14 @@
 {{/Stability-1}}
 
 
-{{#Stability-2-2 || Stability-2-3}}
+{{#Stability-2-2 || Stability-2-3 || Performance-7-2}}
 ## プロセス分離の制御
 
 ### 確認する項目
 
-{{#Stability-2-2}}
-- Stability-2-2
-{{/Stability-2-2}}
-{{#Stability-2-3}}
-- Stability-2-3
-{{/Stability-2-3}}
+{{#Stability-2-2}}- Stability-2-2{{/Stability-2-2}}
+{{#Stability-2-3}}- Stability-2-3{{/Stability-2-3}}
+{{#Performance-7-2}}- Performance-7-2{{/Performance-7-2}}
 
 ### 準備
 
@@ -2561,10 +2558,18 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. about:supportを開く
+{{#Stability-2-2 || Stability-2-3}}
+1. `about:support` を開く
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。（Stability-2-2）{{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。（Stability-2-3）{{/Stability-2-3}}
 {{/Stability-2-2 || Stability-2-3}}
+{{#Performance-7-2}}
+1. `about:config` を開き、各設定値を確認する。
+    - 確認項目
+       1. `dom.ipc.processCount` の値が指定値の通りである。（Performance-7-2）
+{{/Performance-7-2}}
+
+{{/Stability-2-2 || Stability-2-3 || Performance-7-2}}
 
 {{#Appearance-1-2 || Appearance-1-3}}
 ## 表示フォントの設定
