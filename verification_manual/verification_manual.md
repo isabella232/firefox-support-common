@@ -2905,7 +2905,7 @@
 {{#Network-7}} - Network-7-\* {{/Network-7}}
 {{#Network-8}} - Network-8-\* {{/Network-8}}
 {{#Network-10}} - Network-10-\* {{/Network-10}}
-{{#Network-11-2}} - Network-11-2 {{/Network-11-2}}
+{{#Network-11-1 || Network-11-2}} - Network-11-1/2 {{/Network-11-1 || Network-11-2}}
 {{#Network-12}} - Network-12-\* {{/Network-12}}
 {{#Network-13}} - Network-13-\* {{/Network-13}}
 {{#Network-14}} - Network-14-\* {{/Network-14}}
@@ -2976,11 +2976,11 @@
         1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。（Network-14-1）{{/Network-14-1}}{{#Network-14-2}}`1`である。（Network-14-2）{{/Network-14-2}}{{#Network-14-3}}`2`である。（Network-14-3）{{/Network-14-3}}{{#Network-14-4}}`3`である。（Network-14-4）{{/Network-14-4}}{{#Network-14-5}}`4`である。（Network-14-5）{{/Network-14-5}}
 {{/Network-14}}
 <!--/GROUP-->
-{{#Network-11-2}}
+{{#Network-11-1 || Network-11-2}}
 1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
-        1. 「User Agent」の値が「{{user_agent_name}}」である。（Network-11-2）
-{{/Network-11-2}}
+        1. 「User Agent」の値が{{#Network-11-1}}Firefox既定のUA文字列である。（Network-11-1）{{/Network-11-1}}{{#Network-11-2}}「{{user_agent_name}}」である。（Network-11-2）{{/Network-11-2}}
+{{/Network-11-1 || Network-11-2}}
 {{#Network-12}}
 1. ロケーションバーに `jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt` と入力し、開く。
     - 確認項目
