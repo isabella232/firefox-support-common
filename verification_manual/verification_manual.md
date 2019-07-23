@@ -1431,7 +1431,7 @@
 {{#Privacy-1}} - Privacy-1-\* {{/Privacy-1}}
 {{#Privacy-2-2}} - Privacy-2-2 {{/Privacy-2-2}}
 {{#Privacy-2-3}} - Privacy-2-3 {{/Privacy-2-3}}
-{{#Privacy-3-2}} - Privacy-3-2 {{/Privacy-3-2}}
+{{#Privacy-3-1 || Privacy-3-2}} - Privacy-3-1/2 {{/Privacy-3-1 || Privacy-3-2}}
 {{#Privacy-4-2}} - Privacy-4-2 {{/Privacy-4-2}}
 {{#Privacy-5-2}} - Privacy-5-2 {{/Privacy-5-2}}
 {{#Privacy-5-3}} - Privacy-5-3 {{/Privacy-5-3}}
@@ -1556,9 +1556,9 @@
         1. 「オフライン作業用のデータの保存を許可しているウェブサイト」のリストに、オフラインデータの保存を確認無しで許可するよう指定したサイトが表示されている。（Privacy-6-4）
 {{/Privacy-6-4}}
 <!--/GROUP-->
-{{#Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4 || Privacy-40-1 || Privacy-40-2}}
+{{#Privacy-2-2 || Privacy-2-3 || Privacy-3-1 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4 || Privacy-40-1 || Privacy-40-2}}
 1. テストケースの `password.html` を開く。
-{{/Privacy-2-2 || Privacy-2-3 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4 || Privacy-40-1 || Privacy-40-2}}
+{{/Privacy-2-2 || Privacy-2-3 || Privacy-3-1 || Privacy-3-2 || Privacy-4-2 || Privacy-4-3 || Privacy-5-2 || Privacy-5-3 || Privacy-5-4 || Privacy-40-1 || Privacy-40-2}}
 <!--GROUP-->
 1. ユーザID、パスワードを入力して送信する。
     - 確認項目
@@ -1580,11 +1580,11 @@
 {{/Privacy-40-2}}
 {{/Privacy-5-4}}{{/Privacy-5-3}}{{/Privacy-5-2}}
 <!--/GROUP-->
-{{#Privacy-3-2}}
+{{#Privacy-3-1 || Privacy-3-2}}
 1. ファイルに名前を付けて保存し、Firefoxを再起動する。
     - 確認項目
-        1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が存在しない。（Privacy-3-2）
-{{/Privacy-3-2}}
+        1. 「履歴」→「すべての履歴を表示」で「ダウンロード」の一覧に項目が{{#Privacy-3-1}}存在する。（Privacy-3-1）{{/Privacy-3-1}}{{#Privacy-3-2}}存在しない。（Privacy-3-2）{{/Privacy-3-2}}
+{{/Privacy-3-1 || Privacy-3-2}}
 {{#Privacy-4-2 || Privacy-4-3}}
 1. ロケーションバーに `password` と入力する。
     - 確認項目
