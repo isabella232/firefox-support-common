@@ -237,13 +237,13 @@
         1. 旧バージョンからの更新である場合、旧バージョンの情報がインストール済みアプリケーションの一覧に独立した項目として表示されない。(Install-7-\*)
 {{/Install-7}}
 {{#Install-1}}
-        1.「{{meta_installer_name}}」がインストールされていることを確認する。（Install-1-\*）
+        1. 「{{meta_installer_name}}」がインストールされている。（Install-1-\*）
 {{/Install-1}}
 {{#Install-9-2}}
-        1.「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されていることを確認する。（Install-9-2）
+        1. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。（Install-9-2）
 {{/Install-9-2}}
 {{#Update-4}}
-        1.「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いることを確認する。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いないことを確認する。（Update-4-2）{{/Update-4-2}}
+        1. 「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
 {{/Update-4}}
 {{/Install-1 || Install-7 || Install-9-2 || Update-4}}}
 {{#Install-14-2}}
