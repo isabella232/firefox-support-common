@@ -245,7 +245,7 @@
 {{#Update-4}}
         1. 「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
 {{/Update-4}}
-{{/Install-1 || Install-7 || Install-9-2 || Update-4}}}
+{{/Install-1 || Install-7 || Install-9-2 || Update-4}}
 {{#Install-14-2}}
 1. 検証用ユーザーとして `meta_installer_file_name}}*.exe` を実行する。
 1. IEを起動し、Webページ上でコンテキストメニューを開く。
