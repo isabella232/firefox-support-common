@@ -19,6 +19,9 @@
 - メタインストーラの表示バージョンは{{meta_installer_version}}とする。
 - Firefoxのインストール先は  
   `{{install_path}}`  
+  {{#install_path_32bit}}
+  （32bit環境では `{{install_path_32bit}}`）
+  {{/install_path_32bit}}
   とする。
 - デスクトップのショートカットは  
   `{{desktop_shortcut_path}}`  
@@ -103,11 +106,11 @@
 1. インストールされた環境が想定通りか確認する。
     - 確認項目
 {{#Install-7-2}}
-        1. `{{install_path}}\distribution` 内にファイルが設置されていた場合、それらがすべてFirefoxのインストーラにより削除されている。（Install-7-2）
+        1. `{{install_path}}\distribution` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\distribution`）{{/install_path_32bit}}内にファイルが設置されていた場合、それらがすべてFirefoxのインストーラにより削除されている。（Install-7-2）
 {{/Install-7-2}}
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\*.cfg` の位置にあったファイルが、`{{install_path}}\*.cfg.backup.*`にリネームされている。（Admin-1-1/2）
-        1. `{{install_path}}\defaults\pref\*.js` の位置にあったファイルが、`{{install_path}}\defaults\pref\*.js.backup.*`にリネームされている。（Admin-1-1/2）
+        1. `{{install_path}}\*.cfg` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\*.cfg`）{{/install_path_32bit}}の位置にあったファイルが、`*.cfg.backup.*`にリネームされている。（Admin-1-1/2）
+        1. `{{install_path}}\defaults\pref\*.js` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\defaults\pref\*.js`）{{/install_path_32bit}}の位置にあったファイルが、`*.js.backup.*`にリネームされている。（Admin-1-1/2）
 {{/Admin-1-1 || Admin-1-2}}
 {{/is_upgrade_from_uncontrolled}}
 
@@ -145,7 +148,7 @@
     1. Mozilla Firefox
     1. Mozilla Maintenance Service
 1. 旧バージョンからの更新でない場合、以下のファイル、フォルダを削除する。
-    1. `{{install_path}}`
+    1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. `C:\Program Files (x86)\ClearCode Inc`
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
@@ -153,7 +156,7 @@
 1. 管理者でない検証用ユーザーを用意し、権限確認用のフォルダに書き込み権限を与える。
 {{/Install-12-3}}
 {{#Install-13-2}}
-1. `{{install_path}}` の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
 {{/Install-13-2}}
 {{#Install-13-3}}
 1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
@@ -197,13 +200,13 @@
 6. インストールされた環境が想定通りか確認する。
     - 確認項目
 {{#Install-8 || Install-12-3 || Application-7-3}}
-        1. `{{install_path}}\{{exe_name}}.exe` が存在する。{{#Install-8}}（Install-8-\*）{{/Install-8}}{{#Install-12-3}}（Install-12-3）{{/Install-12-3}}{{#Application-7-3}}（Application-7-3）{{/Application-7-3}}
+        1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。{{#Install-8}}（Install-8-\*）{{/Install-8}}{{#Install-12-3}}（Install-12-3）{{/Install-12-3}}{{#Application-7-3}}（Application-7-3）{{/Application-7-3}}
 {{/Install-8 || Install-12-3 || Application-7-3}}
 {{#Install-13-2}}
-       1. `{{install_path}}\must-be-removed.txt` が存在しない。（Install-13-2）
+       1. `{{install_path}}\must-be-removed.txt` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{{/install_path_32bit}}が存在しない。（Install-13-2）
 {{/Install-13-2}}
 {{#Admin-1}}
-        1. `{{install_path}}\{{mcd_local_file}}` が存在する。（Admin-1-\*）
+        1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。（Admin-1-\*）
 {{/Admin-1}}
 {{#Application-1}}
         1. デスクトップのショートカットが{{#Application-1-1 || Application-1-3}}存在する。（Application-1-1/3）{{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 （Application-1-2）{{/Application-1-2}}
@@ -315,7 +318,8 @@
     3. Mozilla Firefox
     4. Mozilla Maintenance Service
 1. 以下のファイル、フォルダを削除する。
-    1. `{{install_path}}`
+    1. `{{install_path}}` {{#install_path_32bit}}
+       （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. 旧バージョンのメタインストーラによってインストールされたFirefox
     1. `C:\Program Files (x86)\ClearCode Inc`
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
@@ -348,9 +352,9 @@
     - 確認項目
         1. `（旧バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
         1. `（旧バージョンのFirefoxのインストール先）\ {{mcd_local_file}}` が存在する。
-        1. `{{install_path}}\{{exe_name}}.exe` が存在する。
+        1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\{{mcd_local_file}}` が存在する。
+        1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
 {{/Admin-1-1 || Admin-1-2}}
 1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Install-7-2}}
@@ -371,9 +375,9 @@
     - 確認項目
         1. `（旧バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
         1. `（旧バージョンのFirefoxのインストール先）\{{mcd_local_file}}` が存在する。
-        1. `{{install_path}}\{{exe_name}}.exe` が存在する。
+        1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。
 {{#Admin-1-1 || Admin-1-2}}
-        1. `{{install_path}}\{{mcd_local_file}}` が存在する。
+        1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
 {{/Admin-1-1 || Admin-1-2}}
 1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
@@ -422,7 +426,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 {{#Admin-2}}
-1. 導入対象のアドオンがない場合、テストケースリストの「{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`に配置する。
+1. 導入対象のアドオンがない場合、テストケースリストの「{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`）{{/install_path_32bit}}に配置する。
 {{/Admin-2}}
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
@@ -601,6 +605,7 @@
 
 1. 用意したインストールパッケージを以下の位置に置く。
    `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+   {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Admin-2-1}}
 1. アドオンを有効化した上で、Firefoxを再起動する。
@@ -612,6 +617,7 @@
 
 1. 以下の位置に設置したファイルを削除する。
    `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+   {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
 {{/Admin-4}}
 
 ## 起動方法の制御
