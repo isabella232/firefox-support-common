@@ -149,7 +149,7 @@
     1. Mozilla Maintenance Service
 1. 旧バージョンからの更新でない場合、以下のファイル、フォルダを削除する。
     1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
-    1. `C:\Program Files (x86)\ClearCode Inc`
+    1. `C:\Program Files (x86)\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 {{#Install-12-3}}
