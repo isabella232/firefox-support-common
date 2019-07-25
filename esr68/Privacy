@@ -53,17 +53,19 @@ Privacy-3: ダウンロード履歴の保存の可否
 
     :1: 永続的に保存する（既定）
 
+    // Privacy-1-3, Privacy-1-4との共存は不可能
     lockPref("privacy.clearOnShutdown.downloads", false);
+    lockPref("privacy.clearOnShutdown.history", false);
 
     :2: 終了するまで保存する
 
-    //Firefox 31の時点で廃止（通常の閲覧履歴と併せて保存しないようにする設定で代替）
+    // Firefox 31の時点で廃止（通常の閲覧履歴と併せて保存しないようにする設定で代替）
 
     lockPref("places.history.enabled", false);
 
-    :3: [廃止] 保存しない
+    :3: 保存しない
 
-    Firefox 31の時点で廃止
+    // Privacy-1-3, Privacy-1-4選択時は強制的にこの動作となる
 
 Privacy-4: ロケーションバーの入力履歴の表示の可否
 
