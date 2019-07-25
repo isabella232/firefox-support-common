@@ -1050,7 +1050,7 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 {{#disable_devtools}}
-1. ポリシー設定での開発ツール無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -1097,7 +1097,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -1160,7 +1160,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 {{#Security-3-3}}
 1. ポリシー設定から `InstallAddonsPermission` を削除し、`about:debugging`を一時的に有効化しておく。
@@ -1302,7 +1302,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -1485,7 +1485,7 @@
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 {{#Privacy-1 && MenuShortcut-3}}
 1. MenuShortcut-3によるプライベートブラウジングの無効化設定を解除し、一時的に有効化しておく。
@@ -1922,7 +1922,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証
@@ -2711,7 +2711,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
-1. ポリシー設定での開発ツール無効化設定を解除し、一時的に有効化しておく
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 
 
@@ -3199,7 +3199,7 @@
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Security-35-2}}
 {{#disable_devtools}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
 
 ### 検証

@@ -113,6 +113,7 @@ class TemplateResolver
       MenuShortcut-57
       MenuShortcut-64
       MenuShortcut-65
+      Security-9-3
     /.any? do |key|
       @variables.include?(key)
     end
