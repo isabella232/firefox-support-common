@@ -1489,7 +1489,7 @@
 1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
 {{#Privacy-1 && MenuShortcut-3}}
-1. MenuShortcut-3によるプライベートブラウジングの無効化設定を解除し、一時的に有効化しておく。
+1. ポリシー設定から `DisablePrivateBrowsing` を削除し、プライベートブラウジングモードを一時的に有効化しておく。
 {{/Privacy-1 && MenuShortcut-3}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに以下の設定を追加しておく。
