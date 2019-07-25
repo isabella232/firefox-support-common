@@ -31,9 +31,27 @@ Startup-2: 起動時のホームページの指定
 
     lockPref("browser.startup.homepage", "(URL)");
 
+    :5: 管理者が指定し、変更を許可（ポリシーで設定）
+
+    "Homepage": {
+      "URL": "http://example.com",
+      "Locked": false,
+      "Additional": [
+        "https://example.org:8080",
+        ...
+      ]
+    },
+
     :4: 管理者が指定し、変更を禁止（ポリシーで設定）
 
-    "Homepage": { "URL": "http://example.com", "Locked": true/false, "Additional": ["https://example.org:8080", ...] }
+    "Homepage": {
+      "URL": "http://example.com",
+      "Locked": true,
+      "Additional": [
+        "https://example.org:8080",
+        ...
+      ]
+    },
 
 Startup-3: 既定のブラウザでなかった場合の、起動時における既定のブラウザにするかどうかの確認の可否
 
