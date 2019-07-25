@@ -1604,21 +1604,19 @@
     - 確認項目
         1. 安全でないフォームである旨の警告のメッセージが{{#Privacy-39-1}}表示される。（Privacy-39-1）{{/Privacy-39-1}}{{#Privacy-39-2}}表示されない。（Privacy-39-2）{{/Privacy-39-2}}
 {{/Privacy-39}}
-{{#Privacy-12}}
-1. テストケースの「browser.html」を開き「localStorage」の欄を確認する
+<!--GROUP-->
+1. テストケースの「browser.html」を開きの欄を確認する
     - 確認項目
-        1. {{#Privacy-12-1}}`enabled` と出力される。（Privacy-12-1）{{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。（Privacy-12-2）{{/Privacy-12-2}}
+{{#Privacy-12}}
+        1. 「localStorage」欄に {{#Privacy-12-1}}`enabled` と出力される。（Privacy-12-1）{{/Privacy-12-1}}{{#Privacy-12-2}}`disabled` と表示される。（Privacy-12-2）{{/Privacy-12-2}}
 {{/Privacy-12}}
 {{#Privacy-13}}
-1. テストケースの「browser.html」を開き「indexedDB」の欄を確認する
-    - 確認項目
-        1. {{#Privacy-13-1}}`enabled` と出力される。（Privacy-13-1）{{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。（Privacy-13-3）{{/Privacy-13-3}}
+        1. 「indexedDB」欄に {{#Privacy-13-1}}`enabled` と出力される。（Privacy-13-1）{{/Privacy-13-1}}{{#Privacy-13-3}}`disabled` と表示される。（Privacy-13-3）{{/Privacy-13-3}}
 {{/Privacy-13}}
 {{#Privacy-38}}
-1. テストケースの「browser.html」を開き「beacon」の欄を確認する
-    - 確認項目
-        1. {{#Privacy-38-1}}`enabled` と表示される。（Privacy-38-1）{{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。（Privacy-38-2）{{/Privacy-38-2}}
+        1. 「beacon」欄に {{#Privacy-38-1}}`enabled` と表示される。（Privacy-38-1）{{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。（Privacy-38-2）{{/Privacy-38-2}}
 {{/Privacy-38}}
+<!--/GROUP-->
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
 <!--GROUP-->
 1. 各設定値を確認する。
