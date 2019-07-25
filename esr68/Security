@@ -364,6 +364,8 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     // DNSの疎通確認
     lockPref("network.connectivity-service.DNSv4.domain", "");
     lockPref("network.connectivity-service.DNSv6.domain", "");
+    // ブロックリスト等の取得
+    lockPref("services.settings.server", "localhost");
 
 Security-16: フルスクリーン表示の可否
 
