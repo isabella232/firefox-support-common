@@ -1622,7 +1622,7 @@
 1. 各設定値を確認する。
     - 確認項目
 {{#Privacy-6-3}}
-        1. `offline.cache.enabled`の値が`false`、または`offline.cache.capacity`の値が`1`である。（Privacy-6-3）
+        1. `browser.cache.offline.enable`, `browser.cache.offline.insecure.enable`の値が共に`false`である。（Privacy-6-3）
 {{/Privacy-6-3}}
 {{#Privacy-8-2}}
         1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。（Privacy-8-2）
