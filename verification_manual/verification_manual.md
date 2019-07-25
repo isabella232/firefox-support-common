@@ -1372,6 +1372,7 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+<!--GROUP-->
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Security-28}}
@@ -1383,8 +1384,7 @@
 {{#Security-32}}
         1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。（Security-32-1）{{/Security-32-1}}{{#Security-32-2}}`false`である。（Security-32-2）{{/Security-32-2}}
 {{/Security-32}}
-{{#Security-30}}
-
+<!--/GROUP-->
 {{#Security-29}}
 1. テストケースリストのリンクから `https://example.com` を開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=true; Secure'` を実行する。
@@ -1402,7 +1402,7 @@
     - 確認項目
         1. 「このサイトのアカウントをお持ちですか？」という通知が表示されない。（Security-42-2）
 {{/Security-42-2}}
-
+{{#Security-30}}
 1. テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
    または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - 確認項目
