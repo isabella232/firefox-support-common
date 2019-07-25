@@ -230,6 +230,7 @@ MenuShortcut-39: ヘルプ＞誤警告を報告
 
     :1: 無効化する
 
+    // Security-6-2 選択時は指定不要
     "DisableFeedbackCommands": true,
 
 MenuShortcut-40: [廃止] ヘルプ＞Firefoxについて のセパレータ

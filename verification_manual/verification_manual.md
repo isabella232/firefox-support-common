@@ -3444,7 +3444,7 @@
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。（MenuShortcut-37）{{/MenuShortcut-37}}
 {{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。（MenuShortcut-38）{{/MenuShortcut-38}}
 <!--/GROUP-->
-{{#MenuShortcut-39}}
+{{#MenuShortcut-39}}{{^Security-6-2}}
 1. `https://itisatrap.org/firefox/its-a-trap.html` を開く。
 1. 「ヘルプ」メニューを開く。
     - 確認項目
@@ -3452,7 +3452,7 @@
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
         1. 「詐欺サイトの誤警告を指摘」が存在しないか無効化されている。（MenuShortcut-39）
-{{/MenuShortcut-39}}
+{{/Security-6-2}}{{/MenuShortcut-39}}
 
 
 ## 履歴とブックマーク
