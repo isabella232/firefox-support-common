@@ -3431,7 +3431,7 @@
 1. 「ヘルプ」メニューを開く。
     - 確認項目
 {{#Appearance-8-2}}        1. 指定のサポート情報ページ用の項目が表示されている。（Appearance-8-2）{{/Appearance-8-2}}
-{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。（MenuShortcut-35）{{/MenuShortcut-35}}
+{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか、無効化されているか、または遷移先のページの読み込みがブロックされる。（MenuShortcut-35）{{/MenuShortcut-35}}
 {{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。（MenuShortcut-36）{{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。（MenuShortcut-37）{{/MenuShortcut-37}}
 {{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。（MenuShortcut-38）{{/MenuShortcut-38}}
@@ -3439,7 +3439,7 @@
 <!--GROUP-->
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックする。
     - 確認項目
-{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか無効化されている。（MenuShortcut-35）{{/MenuShortcut-35}}
+{{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか、無効化されているか、または遷移先のページの読み込みがブロックされる。（MenuShortcut-35）{{/MenuShortcut-35}}
 {{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。（MenuShortcut-36）{{/MenuShortcut-36}}
 {{#MenuShortcut-37}}        1. 「アドオンを無効にして再起動」が存在しないか無効化されている。（MenuShortcut-37）{{/MenuShortcut-37}}
 {{#MenuShortcut-38}}        1. 「詐欺サイトを報告」が存在しないか無効化されている。（MenuShortcut-38）{{/MenuShortcut-38}}
