@@ -53,7 +53,7 @@ Privacy-3: ダウンロード履歴の保存の可否
 
     :1: 永続的に保存する（既定）
 
-    -
+    lockPref("privacy.clearOnShutdown.downloads", false);
 
     :2: 終了するまで保存する
 
