@@ -2548,6 +2548,10 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. 1回Firefoxを起動し、終了する。
    （初回起動時は必ずプロセス分離が無効化されるため、必ず2回目以降の起動時の状態で検証する。）
+{{#Stability-2-2 || Stability-2-3}}{{#Security-35-2}}
+1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
+{{/Security-35-2}}{{/Stability-2-2 || Stability-2-3}}
+
 
 ### 検証
 
@@ -2919,6 +2923,9 @@
 {{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
 {{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}{{/Security-9-3}}
+{{#Security-35-2}}
+1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
+{{/Security-35-2}}
 {{#Network-12}}
 1. テストケースの `sample.jar` を任意のサーバーに設置し、Content-Type `application/java-archive` を伴って返却されるように設定しておく。
    ファイルの設置先は `{{jar_file_sample_url_base}}/sample.jar` とする。
