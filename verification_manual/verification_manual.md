@@ -913,8 +913,8 @@
 1. `about:url-classifier` を訪問する。
 1. 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
     - 確認項目
-        1. 各行の「最終更新日時」列の内容が現在時刻に更新される。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{{#Security-5-1 && Security-6-1}}, {{/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
-        1. 各行の「更新状態」列の内容が「更新できません」にならずに「完了」となる。（{{#Security-5-1}}Security-5-1{{/Security-5-1}}{{#Security-5-1 && Security-6-1}}, {{/Security-5-1 && Security-6-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
+        1. 各行の「最終更新日時」列の内容が現在時刻に更新される。（{{#Security-5-1}}Security-5-1{{#Security-6-1}}, {{/Security-6-1}}{{/Security-5-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
+        1. 各行の「更新状態」列の内容が「更新できません」にならずに「完了」となる。（{{#Security-5-1}}Security-5-1{{#Security-6-1}}, {{/Security-6-1}}{{/Security-5-1}}{{#Security-6-1}}Security-6-1{{/Security-6-1}}）
 {{/Security-5-1 || Security-6-1}}
 
 {{#Security-9-3}}{{#Security-5-1 || Security-6-1}}
