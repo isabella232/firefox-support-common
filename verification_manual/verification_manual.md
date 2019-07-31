@@ -3191,6 +3191,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+1. IE View WE用のNative Messaging Hostを以下のURLからダウンロードし、インストールしておく。
+   https://github.com/clear-code/ieview-we/releases
+   （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
 {{#Security-35-2}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Security-35-2}}
