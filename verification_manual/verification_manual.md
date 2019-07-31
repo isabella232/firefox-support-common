@@ -2773,7 +2773,7 @@
 
 {{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
 {{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
-{{#Performance-3-2}} - Performance-3-2 {{/Performance-3-2}}
+{{#Performance-3}} - Performance-3-1/2 {{/Performance-3}}
 {{#Performance-4-2}} - Performance-4-2 {{/Performance-4-2}}
 {{#Performance-5-1}} - Performance-5-1 {{/Performance-5-1}}
 {{#Performance-6-2}} - Performance-6-2 {{/Performance-6-2}}
@@ -2799,9 +2799,9 @@
 {{#Performance-2-2}}
         1. `content.notify.interval` の値が指定値の通りである。（Performance-2-2）
 {{/Performance-2-2}}
-{{#Performance-3-2}}
-        1. `browser.tabs.unloadOnLowMemory` の値が `false` である。（Performance-3-2）
-{{/Performance-3-2}}
+{{#Performance-3}}
+        1. `browser.tabs.unloadOnLowMemory` の値が {{#Performance-3-1}}`true` である。（Performance-3-1）{{/Performance-3-1}}{{#Performance-3-2}}`false` である。（Performance-3-2）{{/Performance-3-2}}
+{{/Performance-3}}
 {{#Performance-4-2}}
         1. `accessibility.force_disabled` の値が `1` である。（Performance-4-2）
 {{/Performance-4-2}}
