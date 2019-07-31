@@ -1457,7 +1457,7 @@
 {{#Privacy-19-2}} - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-21-2}} - Privacy-21-2 {{/Privacy-21-2}}
 {{#Privacy-32}} - Privacy-32-\* {{/Privacy-32}}
-{{#Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}} - Privacy-33-2/3/4/5 {{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
+{{#Privacy-33}} - Privacy-33-\* {{/Privacy-33}}
 {{#Privacy-35}} - Privacy-35-\* {{/Privacy-35}}
 {{#Privacy-36}} - Privacy-36-\* {{/Privacy-36}}
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
@@ -1482,9 +1482,9 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
+{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
+{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
@@ -1635,10 +1635,10 @@
         1. `security.ssl.errorReporting.enabled` の値が`false`である。（Privacy-19-2）
         1. `security.ssl.errorReporting.url` の値が空文字である。（Privacy-19-2）
 {{/Privacy-19-2}}
-{{#Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
-        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
-        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
-{{/Privacy-33-2 || Privacy-33-3 || Privacy-33-4 || Privacy-33-5}}
+{{#Privacy-33}}
+        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-1 || Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-1/3/5）{{/Privacy-33-1 || Privacy-33-3 || Privacy-33-5}}
+        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-1/2/4）{{/Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
+{{/Privacy-33}}
 {{#Privacy-48}}
         1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。（Privacy-48-1）{{/Privacy-48-3}}
 {{/Privacy-48}}
@@ -1754,9 +1754,9 @@
 {{/Privacy-16}}
     1. `devtools.chrome.enabled` （真偽型）
 {{/Privacy-7 || Privacy-16}}
-{{#Security-9-3 || disable_devtools}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}
+{{#Security-9-3 || disable_devtools}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}
 1. ポリシー設定に加えた変更を元に戻す。
-{{/disable_devtools || Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33-2 || Privacy-33-3 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}{{/Security-9-3 || disable_devtools}}
+{{/disable_devtools || Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}{{/Security-9-3 || disable_devtools}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
