@@ -38,7 +38,7 @@ Addon-IEView-2: 起動するIEの設定
 
     :1: パスと起動オプションを指定する（MCD）
 
-    lockPref("extensions.ieview.ieapp", "C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe");
+    lockPref("extensions.ieview.ieapp", "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe");
     lockPref("extensions.ieview.ieargs", "");
 
     :2: パスと起動オプションを指定する（ポリシー設定）
@@ -46,7 +46,7 @@ Addon-IEView-2: 起動するIEの設定
     "3rdparty": {
       "Extensions": {
         "ieview-we@clear-code.com": {
-          "ieapp": "C:\\Program Files (x86)\\Internet　Explorer\\iexplore.exe",
+          "ieapp": "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe",
           "ieargs": ""
         }
       }
