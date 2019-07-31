@@ -3194,6 +3194,10 @@
 1. IE View WE用のNative Messaging Hostを以下のURLからダウンロードし、インストールしておく。
    https://github.com/clear-code/ieview-we/releases
    （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+1. IE View WEの起動対象アプリケーションがインストールされていない場合、各パラメータを以下の通り設定する。
+   * `ieapp`: `C:\Program Files (x86)\Internet Explorer\iexplore.exe`
+     （JSON、JavaScriptファイル中では `C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe`）
+   * `ieargs`: 空文字
 {{#Security-35-2}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Security-35-2}}
