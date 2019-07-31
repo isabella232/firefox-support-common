@@ -3182,7 +3182,7 @@
 {{#Addon-IEView-2}} - Addon-IEView-2-* {{/Addon-IEView-2}}
 {{#Addon-IEView-3-2}} - Addon-IEView-3-2 {{/Addon-IEView-3-2}}
 {{#Addon-IEView-4}} - Addon-IEView-4-1 {{/Addon-IEView-4}}
-{{#Addon-IEView-5-2}} - Addon-IEView-5-2 {{/Addon-IEView-5-2}}
+{{#Addon-IEView-5}} - Addon-IEView-5-1/2 {{/Addon-IEView-5}}
 {{#Addon-IEView-6-2}} - Addon-IEView-6-2 {{/Addon-IEView-6-2}}
 {{#Addon-IEView-7}} - Addon-IEView-7-* {{/Addon-IEView-7}}
 {{#Addon-IEView-8}} - Addon-IEView-8-* {{/Addon-IEView-8}}
@@ -3206,12 +3206,12 @@
     - 確認項目
         1. IE View WEがインストール済みになっている。（Addon-IEView-4-1）
 {{/Addon-IEView-4}}
-{{#Addon-IEView-5-2}}
-1. `http://example.com/` を開く。
+{{#Addon-IEView-5}}
+1. `http://example.com/` もしくはIEで開かない対象のサイトを開く。
 1. ページ上で右クリックする。
     - 確認項目
-        1. IE View WEのコンテキストメニュー項目が表示される。（Addon-IEView-5-2）
-{{/Addon-IEView-5-2}}
+        1. IE View WEのコンテキストメニュー項目が表示{{#Addon-IEView-5-1}}される。（Addon-IEView-5-1）{{/Addon-IEView-5-1}}{{#Addon-IEView-5-2}}されない。（Addon-IEView-5-2）{{/Addon-IEView-5-2}}
+{{/Addon-IEView-5}}
 <!--GROUP-->
 1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクから新しいタブを開く。
     - 確認項目
