@@ -3174,7 +3174,7 @@
         1. ダウンロードしたファイルが{{#External-1-1}}テンポラリフォルダから消えている。（External-1-1）{{/External-1-1}}{{#External-1-2}}テンポラリフォルダに残っている。（External-1-2）{{/External-1-2}}
 {{/External-1}}
 
-## IE Viewの制御
+## IE View WEの制御
 
 ### 確認する項目
 
@@ -3191,16 +3191,16 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. IE View WE用のNative Messaging Hostを以下のURLからダウンロードし、インストールしておく。
+1. IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLからダウンロードし、インストールしておく。
    https://github.com/clear-code/ieview-we/releases
    （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
-1. IE View WEの起動対象アプリケーションがインストールされていない場合、各パラメータを以下の通り設定する。
+1. IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
    * `ieapp`: `C:\Program Files (x86)\Internet Explorer\iexplore.exe`
      （JSON、JavaScriptファイル中では `C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe`）
    * `ieargs`: 空文字
-{{#Security-35-2}}
-1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-{{/Security-35-2}}
+{{#Security-3-3}}
+1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+{{/Security-3-3}}
 {{#disable_devtools}}
 1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
@@ -3209,57 +3209,77 @@
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Addon-IEView-4}}
-1. `about:support` を開く。
+1. アドオンマネージャを開く。
     - 確認項目
         1. IE View WEがインストール済みになっている。（Addon-IEView-4-1）
 {{/Addon-IEView-4}}
-{{#Addon-IEView-5}}
-1. `http://example.com/` もしくはIEで開かない対象のサイトを開く。
+<!--GROUP-->
+1. IE View WEの設定画面を開く。
+    - 確認項目
+{{#Addon-IEView-1}}{{^Addon-IEView-1-1}}
+        1. IEで開くサイトとして設定した内容が一覧表示される。（Addon-IEView-1-2/3/4/5）
+{{/Addon-IEView-1-1}}{{/Addon-IEView-1}}
+{{#Addon-IEView-6-2}}
+        1. IEで開かない例外サイトとして設定した内容が一覧表示される。（Addon-IEView-6-2）
+{{/Addon-IEView-6-2}}
+<!--/GROUP-->
+{{#Addon-IEView-1}}{{^Addon-IEView-1-1}}
+1. Firefoxを終了する。
+1. `policies.json` の `forceielist`（自動的にIEで開く対象のサイトのリスト）に `*://examle.com/*,http://example.org/,*foo*,*://www.openstreetmap.org/*` を設定する。
+{{#Addon-IEView-6-2}}
+1. `policies.json` の `sitesOpenedBySelf`（自動的にIEで開かない例外サイトのリスト）に `https://examle.com/` を設定する。
+{{/Addon-IEView-6-2}}
+1. Firefoxを起動する。
+{{/Addon-IEView-1}}{{^Addon-IEView-1-1}}
+1. テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+<!--GROUP-->
 1. ページ上で右クリックする。
     - 確認項目
         1. IE View WEのコンテキストメニュー項目が表示{{#Addon-IEView-5-1}}される。（Addon-IEView-5-1）{{/Addon-IEView-5-1}}{{#Addon-IEView-5-2}}されない。（Addon-IEView-5-2）{{/Addon-IEView-5-2}}
-{{/Addon-IEView-5}}
+<!--/GROUP-->
 <!--GROUP-->
-1. 自動的にIEを起動するよう設定されたページへのリンクがあるページを開き、そのリンクから新しいタブを開く。
+1. 以下のURLのリンクからそれぞれ新しいタブを開く。
     - 確認項目
-{{#Addon-IEView-1}}
-        1. IEが起動する。（Addon-IEView-1-2/3/4/5）
-{{/Addon-IEView-1}}
+{{#Addon-IEView-1}}{{^Addon-IEView-1-1}}
+      1. 以下のURLのリンクでIEが起動する
+         * `http://example.com/`（Addon-IEView-1-2/3/4/5）
+         * `http://example.org/`（Addon-IEView-1-2/3/4/5）
+{{#Addon-IEView-8-2}}
+         * `http://example.net/q?foo=bar`（Addon-IEView-8-2）
+{{/Addon-IEView-8-2}}
+{{#Addon-IEView-6-1}}
+         * `https://example.com/`（Addon-IEView-6-1）
+         * `https://example.org/`（Addon-IEView-6-1）
+{{/Addon-IEView-6-1}}
 {{#Addon-IEView-1-3 || Addon-IEView-1-5}}
-        1. Firefox上のタブが閉じられる。（Addon-IEView-1-3/5）
+      1. Firefox上に開かれたタブが自動的に閉じる。（Addon-IEView-1-3/5）
 {{/Addon-IEView-1-3 || Addon-IEView-1-5}}
 {{#Addon-IEView-2-1 || Addon-IEView-2-2}}
-        1. 指定したパスのIEが起動しており、指定したオプションも反映されている。（Addon-IEView-2-1/2）
+      1. 指定したパスのアプリケーションが起動し、指定したオプションも反映されている。（Addon-IEView-2-1/2）
 {{/Addon-IEView-2-1 || Addon-IEView-2-2}}
-<!--/GROUP-->
+{{/Addon-IEView-1-1}}{{/Addon-IEView-1}}
+{{#Addon-IEView-6-2 || Addon-IEView-8-1}}
+      1. 以下のURLのリンクでIEが起動しない
 {{#Addon-IEView-6-2}}
-1. 自動的にIEを起動するよう設定されたページで、且つ、IEで開かない例外に登録されているページへのリンクがあるページを開き、リンクから新しいタブを開く。
-    - 確認項目
-        1. IEが起動する。（Addon-IEView-6-2）
+         * `https://example.com/`（Addon-IEView-5-2）
+         * `https://example.org/`（Addon-IEView-5-2）
 {{/Addon-IEView-6-2}}
+{{#Addon-IEView-8-1}}
+         * `http://example.net/q?foo=bar`（Addon-IEView-8-1）
+{{/Addon-IEView-8-1}}
+{{/Addon-IEView-6-2 || Addon-IEView-8-1}}
+<!--/GROUP-->
 {{#Addon-IEView-7}}
-1. 自動的にIEを起動するよう設定されたページをインラインフレームで読み込むページを開く。
+1. `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
     - 確認項目
         1. {{#Addon-IEView-7-1}}IEが起動しない。（Addon-IEView-7-1）{{/Addon-IEView-7-1}}{{#Addon-IEView-7-2}}IEが起動する。（Addon-IEView-7-2）{{/Addon-IEView-7-2}}
 {{/Addon-IEView-7}}
-{{#Addon-IEView-8}}
-1. URLのパラメータ部分だけが自動的にIEを起動するルールにマッチするページへのリンクがあるページを開き、リンクから新しいタブを開く。
-    - 確認項目
-        1. {{#Addon-IEView-8-1}}IEが起動しない。（Addon-IEView-8-1）{{/Addon-IEView-8-1}}{{#Addon-IEView-8-2}}IEが起動する。（Addon-IEView-8-2）{{/Addon-IEView-8-2}}
-{{/Addon-IEView-8}}
-{{#Addon-IEView-3-2}}
-1. 自動的にIEを起動するよう設定されたページ以外のページを開く。
-1. パネルメニューまたはメニューバーの「ウェブ開発」をクリックし、サブメニューの「インスペクター」をクリックする。
-1. 「HTMLを検索」欄に「#src_xsale」と入力し、Enterキーを押す。
-    - 確認項目
-        1. 「見つかりませんでした。」と表示される。（Addon-IEView-3-2）
-{{/Addon-IEView-3-2}}
 
-{{#disable_devtools || Security-35-2}}
+{{#disable_devtools || Security-3-3}}
 ### 後始末
 
 1. ポリシー設定に加えた変更を元に戻す。
-{{/disable_devtools || Security-35-2}}
+{{/disable_devtools || Security-3-3}}
 
 
 <!--======================================================================-->
