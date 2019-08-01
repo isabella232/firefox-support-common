@@ -1,0 +1,6 @@
+* [http://example.com/](http://example.com/)
+* [https://example.com/](https://example.com/)
+* [http://example.org/](http://example.org/)
+* [https://example.org/](https://example.org/)
+* [http://example.net/](http://example.net/)
+* [https://example.net/](https://example.net/)
