@@ -3230,7 +3230,7 @@
 1. `policies.json` の `sitesOpenedBySelf`（自動的にIEで開かない例外サイトのリスト）に `https://examle.com/` を設定する。
 {{/Addon-IEView-6-2}}
 1. Firefoxを起動する。
-{{/Addon-IEView-1}}{{^Addon-IEView-1-1}}
+{{/Addon-IEView-1-1}}{{/Addon-IEView-1}}
 1. テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
 <!--GROUP-->
 1. ページ上で右クリックする。
