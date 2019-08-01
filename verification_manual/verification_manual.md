@@ -3191,7 +3191,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLからダウンロードし、インストールしておく。  
+1. IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
    `https://github.com/clear-code/ieview-we/releases`  
    （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
 1. IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
@@ -3271,7 +3271,7 @@
 {{/Addon-IEView-6-2 || Addon-IEView-8-1}}
 <!--/GROUP-->
 {{#Addon-IEView-7}}
-1. `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
+1. テストケースリストのリンクから `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
     - 確認項目
         1. {{#Addon-IEView-7-1}}IEが起動しない。（Addon-IEView-7-1）{{/Addon-IEView-7-1}}{{#Addon-IEView-7-2}}IEが起動する。（Addon-IEView-7-2）{{/Addon-IEView-7-2}}
 {{/Addon-IEView-7}}
