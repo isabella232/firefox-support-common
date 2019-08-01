@@ -3195,9 +3195,9 @@
    `https://github.com/clear-code/ieview-we/releases`  
    （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
 1. IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
-   * `ieapp`: `C:\Program Files (x86)\Internet Explorer\iexplore.exe`  
-     （JSON、JavaScriptファイル中では `C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe`）
-   * `ieargs`: 空文字
+    * `ieapp`: `C:\Program Files (x86)\Internet Explorer\iexplore.exe`  
+      （JSON、JavaScriptファイル中では `C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe`）
+    * `ieargs`: 空文字
 {{#Security-3-3}}
 1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
 {{/Security-3-3}}
@@ -3242,14 +3242,14 @@
     - 確認項目
 {{#Addon-IEView-1}}{{^Addon-IEView-1-1}}
       1. 以下のURLのリンクでIEが起動する
-         * `http://example.com/`（Addon-IEView-1-2/3/4/5）
-         * `http://example.org/`（Addon-IEView-1-2/3/4/5）
+           * `http://example.com/`（Addon-IEView-1-2/3/4/5）
+           * `http://example.org/`（Addon-IEView-1-2/3/4/5）
 {{#Addon-IEView-8-2}}
-         * `http://example.net/q?foo=bar`（Addon-IEView-8-2）
+           * `http://example.net/q?foo=bar`（Addon-IEView-8-2）
 {{/Addon-IEView-8-2}}
 {{#Addon-IEView-6-1}}
-         * `https://example.com/`（Addon-IEView-6-1）
-         * `https://example.org/`（Addon-IEView-6-1）
+           * `https://example.com/`（Addon-IEView-6-1）
+           * `https://example.org/`（Addon-IEView-6-1）
 {{/Addon-IEView-6-1}}
 {{#Addon-IEView-1-3 || Addon-IEView-1-5}}
       1. Firefox上に開かれたタブが自動的に閉じる。（Addon-IEView-1-3/5）
@@ -3261,11 +3261,11 @@
 {{#Addon-IEView-6-2 || Addon-IEView-8-1}}
       1. 以下のURLのリンクでIEが起動しない
 {{#Addon-IEView-6-2}}
-         * `https://example.com/`（Addon-IEView-5-2）
-         * `https://example.org/`（Addon-IEView-5-2）
+           * `https://example.com/`（Addon-IEView-5-2）
+           * `https://example.org/`（Addon-IEView-5-2）
 {{/Addon-IEView-6-2}}
 {{#Addon-IEView-8-1}}
-         * `http://example.net/q?foo=bar`（Addon-IEView-8-1）
+           * `http://example.net/q?foo=bar`（Addon-IEView-8-1）
 {{/Addon-IEView-8-1}}
 {{/Addon-IEView-6-2 || Addon-IEView-8-1}}
 <!--/GROUP-->
