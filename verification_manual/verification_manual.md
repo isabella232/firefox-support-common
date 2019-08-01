@@ -3226,9 +3226,9 @@
 {{#Addon-IEView-1}}{{^Addon-IEView-1-1}}
 1. Firefoxを終了する。
 1. `policies.json` の `forceielist`（自動的にIEで開く対象のサイトのリスト）に以下の内容を設定する。  
-   `*://example.com/*,http://example.org/,*foo*,*://www.openstreetmap.org/*`
+   `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
 {{#Addon-IEView-6-2}}
-1. `policies.json` の `sitesOpenedBySelf`（自動的にIEで開かない例外サイトのリスト）に `https://example.com/` を設定する。
+1. `policies.json` の `sitesOpenedBySelf`（自動的にIEで開かない例外サイトのリスト）に `https://example.com/*` を設定する。
 {{/Addon-IEView-6-2}}
 1. Firefoxを起動する。
 {{/Addon-IEView-1-1}}{{/Addon-IEView-1}}
