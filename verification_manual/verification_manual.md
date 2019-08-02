@@ -136,7 +136,8 @@
 {{#Application-2}} - Application-2-\* {{/Application-2}}
 {{#Application-3}} - Application-3-\* {{/Application-3}}
 {{#Application-7-3}} - Application-7-3 {{/Application-7-3}}
-{{#Admin-1}} - Admin-1-\* {{/Admin-1}}
+{{#Admin-1-1 || Admin-1-2}} - Admin-1-1/2 {{/Admin-1-1 || Admin-1-2}}
+{{#Admin-5-1}} - Admin-5-1 {{/Admin-5-1}}
 {{#Update-4}} - Update-4-\* {{/Update-4}}
 
 ### 準備
@@ -205,9 +206,12 @@
 {{#Install-13-2}}
        1. `{{install_path}}\must-be-removed.txt` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{{/install_path_32bit}}が存在しない。（Install-13-2）
 {{/Install-13-2}}
-{{#Admin-1}}
-        1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。（Admin-1-\*）
-{{/Admin-1}}
+{{#Admin-1-1 || Admin-1-2}}
+        1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。（Admin-1-1/2）
+{{/Admin-1-1 || Admin-1-2}}
+{{#Admin-5-1}}
+        1. `{{install_path}}\distribution\policies.json` （32bit環境では `{{install_path_32bit}}\distribution\policies.json`）が存在する。（Admin-5-1）
+{{/Admin-5-1}}
 {{#Application-1}}
         1. デスクトップのショートカットが{{#Application-1-1 || Application-1-3}}存在する。（Application-1-1/3）{{/Application-1-1 || Application-1-3}}{{#Application-1-2}}存在しない。 （Application-1-2）{{/Application-1-2}}
 {{/Application-1}}
