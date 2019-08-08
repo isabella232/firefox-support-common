@@ -5,6 +5,9 @@ require "csv"
 require "json"
 require "mustache"
 
+# Project root directory
+ROOTDIR = "../.."
+
 #MD_FILES = FileList["*.md"]
 MD_FILES = FileList["verification_manual.md"]
 PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
@@ -13,8 +16,8 @@ ODT_FILES = MD_FILES.map{|file| file.ext(".odt") }
 
 # We need the source configuration file in order to trim off
 # irrelevant steps.
-SOURCE_CONFIG = "../../doc/config-esr68.txt"
-SOURCE_CONFIG_CONVERTER = "../convert-conf"
+SOURCE_CONFIG = "#{ROOTDIR}/doc/config-esr68.txt"
+SOURCE_CONFIG_CONVERTER = "#{ROOTDIR}/firefox-support-common/convert-conf"
 
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 
