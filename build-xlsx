@@ -10,11 +10,12 @@
 #
 # (2) Generate a filled sheet
 #
-#     $ build-xlsx esr60.txt esr68.txt
+#     $ build-xlsx esr60.txt esr68.txt verify-targets-to-chapters.csv
 
 import re
 import sys
 import glob
+import csv
 import os
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
@@ -35,6 +36,7 @@ OUT_FILE = 'config.xlsx'
 
 ESR_PREVIOUS = 'esr60'
 ESR_CURRENT = 'esr68'
+CHAPTERS_CSV = 'verify-targets-to-chapters.csv'
 
 WORKBOOK_DEF = [
     ('基本設定', [
@@ -142,33 +144,26 @@ def setup_conditional_format(sheet, formats):
         'format':   formats['selected']
     })
 
-def add_verify_targets(wb):
-    sheet = wb.add_worksheet('verify-targets')
-    pad = -1
-
-    for title, _ in WORKBOOK_DEF:
-        for row in range(2, 1000):
-            formula = '=IF(%(A)s="", "", CONCATENATE(%(B)s, "-", %(E)s))' % {
-                'A': "'%s'!A%s" % (title, row),
-                'B': "'%s'!B%s" % (title, row),
-                'E': "'%s'!E%s" % (title, row)
-            }
-            sheet.write_formula(row + pad, 0, formula, None, "")
-        pad += row
-
 def main(args):
     wb = xlsxwriter.Workbook(OUT_FILE)
 
     conf_new = {}
     conf_old = {}
+    chapters = {}
 
     for arg in args:
         if ESR_CURRENT in arg:
             print('%s -> %s' % (ESR_CURRENT, arg))
             conf_new = adlib.load_as_dict(arg)
-        if ESR_PREVIOUS in arg:
+        elif ESR_PREVIOUS in arg:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
             conf_old = adlib.load_as_dict(arg)
+        elif CHAPTERS_CSV in arg:
+            print('Loading', os.path.basename(arg))
+            try:
+                chapters = dict(csv.reader(open(arg)))
+            except FileNotFoundError:
+                pass
 
     formats = {
         'default':    wb.add_format(DEFAULT_FORMAT),
@@ -181,8 +176,6 @@ def main(args):
 
     for title, files in WORKBOOK_DEF:
         sheet = wb.add_worksheet(title)
-
-    wb.add_worksheet('verify-targets-to-chapters')
 
     for title, files in WORKBOOK_DEF:
         sheet = wb.get_worksheet_by_name(title)
@@ -200,7 +193,7 @@ def main(args):
         sheet.write(0, 9, '導入設定 (%s)' % ESR_PREVIOUS)
         sheet.write(0, 10, '検証手順書対応番号')
 
-        sheet.set_column(0, 9, None, formats['default'])
+        sheet.set_column(0, 10, None, formats['default'])
         sheet.set_column(0, 0, 3)
         sheet.set_column(1, 1, 12)
         sheet.set_column(2, 2, 30)
@@ -224,15 +217,14 @@ def main(args):
                     sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
 
                 for d in data['opts']:
-                    mark, conf = '', ''
+                    mark, conf, chapter = '', '', ' '
 
                     if d['opt_id'] in conf_new:
                         mark, conf = 'y', conf_new[d['opt_id']]
+                        chapter = chapters.get(d['opt_id'], '省略')
 
                     status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
                     status = status.replace('#', str(row+1))
-                    chapter_numbers = '=IFERROR(VLOOKUP(CONCATENATE(B#,"-",E#),\'verify-targets-to-chapters\'!A1:B999,2,0),IF(A#="","","省略"))'
-                    chapter_numbers = chapter_numbers.replace('#', str(row+1))
 
                     sheet.write(row, 0, mark, formats['default'])
                     sheet.write(row, 1, data['item_id'])
@@ -244,11 +236,10 @@ def main(args):
                     sheet.write(row, 7, conf, formats['default'])
                     sheet.write(row, 8, prev.get(d['opt_id'], ""), formats['default'])
                     sheet.write(row, 9, conf_old.get(d['opt_id'], ""), formats['default'])
-                    sheet.write_formula(row, 10, chapter_numbers, None, "")
+                    sheet.write(row, 10, chapter)
 
                     row += 1
 
-    add_verify_targets(wb)
 
     wb.close()
     print('Generated:', OUT_FILE)
