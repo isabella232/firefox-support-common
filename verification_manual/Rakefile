@@ -10,7 +10,12 @@ MD_FILES = FileList["verification_manual.md"]
 PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
 DOCX_FILES = MD_FILES.map{|file| file.ext(".docx") }
 ODT_FILES = MD_FILES.map{|file| file.ext(".odt") }
-SOURCE_CONFIGS_SPREADHSEET = "../config.xlsx"
+
+# We need the source configuration file in order to trim off
+# irrelevant steps.
+SOURCE_CONFIG = "../../doc/config-esr68.txt"
+SOURCE_CONFIG_CONVERTER = "../convert-conf"
+
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
 
 # Use this JSON file to override the values in VARIABLES.
@@ -141,10 +146,8 @@ class TemplateResolver
   end
 
   def prepare_customizations_variables
-    system("ssconvert", "-S", "--recalc", SOURCE_CONFIGS_SPREADHSEET, "#{SOURCE_CONFIGS_SPREADHSEET}.%s.csv")
-    verify_targets = CSV.read("#{SOURCE_CONFIGS_SPREADHSEET}.verify-targets.csv")
-    verify_targets.each do |key, _|
-      next if key.nil? or key.strip.empty?
+    verify_targets = JSON.load(`#{SOURCE_CONFIG_CONVERTER} #{SOURCE_CONFIG}`)
+    verify_targets.keys.each do |key|
       @verify_targets << key
       @variables[key] = true
       if key.count("-") > 1
