@@ -23,6 +23,7 @@
 
 import re
 import textwrap
+from collections import OrderedDict
 
 # Our configuration database is just a collection of text files.
 # Each text file is written in own custom format, which looks like:
@@ -103,7 +104,7 @@ def load_as_dict(path):
     except IOError:
         return {}
 
-    res = {}
+    res = OrderedDict()
     for item in data:
         for opt in item['opts']:
             res[opt['opt_id']] = opt['conf']
