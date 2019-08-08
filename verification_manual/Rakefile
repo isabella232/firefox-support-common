@@ -1,6 +1,8 @@
+# coding: utf-8
 require "rake/clean"
 require "tempfile"
 require "csv"
+require "json"
 require "mustache"
 
 #MD_FILES = FileList["*.md"]
@@ -10,6 +12,10 @@ DOCX_FILES = MD_FILES.map{|file| file.ext(".docx") }
 ODT_FILES = MD_FILES.map{|file| file.ext(".odt") }
 SOURCE_CONFIGS_SPREADHSEET = "../config.xlsx"
 CHAPTERS_FILE = "verify-targets-to-chapters.csv"
+
+# Use this JSON file to override the values in VARIABLES.
+VARIABLES_JSON = "#{ROOTDIR}/doc/verification.json"
+
 VARIABLES = {
   is_upgrade_from_uncontrolled:   true,
   firefox_version:                "68.0 ESR",
@@ -66,6 +72,10 @@ VARIABLES = {
   silverlight_download_url:       "http://www.microsoft.com/silverlight/resources/install.aspx",
   wmp__download_url:              "http://www.interoperabilitybridges.com/Windows-Media-Player-Firefox-Plugin-Download",
 }
+
+if File.exist?(VARIABLES_JSON)
+  VARIABLES.merge!(JSON.load(open(VARIABLES_JSON)))
+end
 
 CLOBBER.include(PDF_FILES)
 
