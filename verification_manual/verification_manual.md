@@ -418,6 +418,7 @@
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
 {{#Startup-12-2 || Startup-12-3}} - Startup-12-2/3 {{/Startup-12-2 || Startup-12-3}}
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
+{{#Startup-14-2}} - Startup-14-2 {{/Startup-14-2}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Update-6-2}} - Update-6-2 {{/Update-6-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
@@ -435,9 +436,9 @@
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
-{{#Security-9-3}}{{#Startup-4-2 || Startup-4-4 || Startup-10-2}}
+{{#Security-9-3}}{{#Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Startup-4-2 || Startup-4-4 || Startup-10-2}}{{/Security-9-3}}
+{{/Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2}}{{/Security-9-3}}
 {{#Security-35-2}}{{#Startup-7-3}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Startup-7-3}}{{/Security-35-2}}
@@ -525,7 +526,7 @@
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。（Update-4-2）
 {{/Update-4-2}}
 {{/Admin-5 || Startup-3-2 || Update-4-2}}
-{{#Startup-4-2 || Startup-4-4 || Startup-10-2}}
+{{#Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2 }}
 1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
     - 確認項目
 {{#Startup-4-2}}
@@ -537,7 +538,10 @@
 {{#Startup-10-2}}
         1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。（Startup-10-2）
 {{/Startup-10-2}}
-{{/Startup-4-2 || Startup-4-4 || Startup-10-2}}
+{{#Startup-14-2}}
+        1. `browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されている。（Startup-10-2）
+{{/Startup-14-2}}
+{{/Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2 }}
 {{#Startup-7}}
 1. システムの時計を1年先の日付に進める。
 {{/Startup-7}}
