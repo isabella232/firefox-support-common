@@ -1,27 +1,3 @@
 [submodule "testcases/unsigned-addon/makexpi"]
 	path = testcases/unsigned-addon/makexpi
 	url = https://github.com/piroor/makexpi.git
-[submodule "demonstration/fx-meta-installer"]
-	path = demonstration/fx-meta-installer
-	url = https://github.com/clear-code/fx-meta-installer.git
-[submodule "demonstration/disableaddons"]
-	path = demonstration/disableaddons
-	url = https://github.com/clear-code/disableaddons.git
-[submodule "demonstration/autopermission"]
-	path = demonstration/autopermission
-	url = https://github.com/clear-code/autopermission.git
-[submodule "demonstration/disableaboutconfig"]
-	path = demonstration/disableaboutconfig
-	url = https://github.com/clear-code/disableaboutconfig.git
-[submodule "demonstration/globalchromecss"]
-	path = demonstration/globalchromecss
-	url = https://github.com/clear-code/globalchromecss.git
-[submodule "demonstration/disablesync"]
-	path = demonstration/disablesync
-	url = https://github.com/clear-code/disablesync.git
-[submodule "demonstration/disableupdate"]
-	path = demonstration/disableupdate
-	url = https://github.com/clear-code/disableupdate.git
-[submodule "demonstration/ui-text-overrider"]
-	path = demonstration/ui-text-overrider
-	url = https://github.com/clear-code/ui-text-overrider.git

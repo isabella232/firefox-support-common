@@ -427,6 +427,24 @@ Privacy-21: クラッシュレポートの送信の可否
     lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
     lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
 
+    :3: レジストリでグローバルに禁止する
+
+    disable-crash-report-globally-32bit.reg:
+
+    Windows Registry Editor Version 5.00
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\Firefox\Crash Reporter]
+    "SubmitCrashReport"=dword:00000000
+    "Enabled"=dword:00000000
+
+    disable-crash-report-globally-64bit.reg:
+
+    Windows Registry Editor Version 5.00
+
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Mozilla\Firefox\Crash Reporter]
+    "SubmitCrashReport"=dword:00000000
+    "Enabled"=dword:00000000
+
 Privacy-22: Firefox Syncの利用の可否
 
     :1: 許可する（既定）
