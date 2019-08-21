@@ -1,3 +1,5 @@
+VERSION = 1.1
+
 all: config.xlsx
 
 config.xlsx: build-xlsx esr60/*
