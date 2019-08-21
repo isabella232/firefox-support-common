@@ -2,12 +2,9 @@
 #
 # convert-conf - the configuration file converter
 #
-# Copyright (C) Clear Code, Inc. 2019
-#
 # USAGE
 #
-#   $ convert-conf [-t JSON|MCD] config-esr60.txt
-
+#   $ format-config [-t JSON|MCD] config-esr60.txt
 
 import re
 import sys
