@@ -6,15 +6,16 @@
 #
 # (1) Output an empty sheet
 #
-#　   $ build-xlsx
+#　   $ build-xlsx -o config.xlsx
 #
 # (2) Generate a filled sheet
 #
 #     $ build-xlsx esr60.txt esr68.txt verify-targets-to-chapters.csv
-
+#
 import re
 import sys
 import glob
+import getopt
 import csv
 import os
 
@@ -31,8 +32,6 @@ except ImportError:
 
 #
 # Global settings
-
-OUT_FILE = 'config.xlsx'
 
 ESR_PREVIOUS = 'esr60'
 ESR_CURRENT = 'esr68'
@@ -145,11 +144,17 @@ def setup_conditional_format(sheet, formats):
     })
 
 def main(args):
-    wb = xlsxwriter.Workbook(OUT_FILE)
-
     conf_new = {}
     conf_old = {}
     chapters = {}
+    outfile = 'config.xlsx'
+
+    opts, args = getopt.getopt(args, 'o:')
+    for k, v in opts:
+        if k == '-o':
+            outfile = v
+
+    wb = xlsxwriter.Workbook(outfile)
 
     for arg in args:
         if ESR_CURRENT in arg:
@@ -242,7 +247,7 @@ def main(args):
 
 
     wb.close()
-    print('Generated:', OUT_FILE)
+    print('Generated:', wb.filename)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))

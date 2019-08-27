@@ -1,30 +1,33 @@
-# coding: utf-8
-require "rake/clean"
-require "tempfile"
+#!/usr/bin/env ruby
+#
+# cat-manual - Render verification manual templates
+#
+# USAGE
+#
+# (1) Output a verification manual
+#
+#    $ cat-manual --config=config-esr68.txt --json=verification.json manual.md
+#
+# (2) Output a list of chapters (for build-xlsx)
+#
+#    $ cat-manual --config=config-esr68.txt --json=verification.json --output-chapters manual.md
+
 require "csv"
 require "json"
-require "mustache"
+require "optparse"
 
-# Project root directory
-ROOTDIR = "../.."
+begin
+  require "mustache"
+rescue
+  STDERR.puts("ERROR: Please install mustache to run this script\n\n")
+  STDERR.puts("  $ sudo apt install ruby-mustache\n\n")
+  abort()
+end
 
-#MD_FILES = FileList["*.md"]
-MD_FILES = FileList["verification_manual.md"]
-PDF_FILES = MD_FILES.map{|file| file.ext(".pdf") }
-DOCX_FILES = MD_FILES.map{|file| file.ext(".docx") }
-ODT_FILES = MD_FILES.map{|file| file.ext(".odt") }
-
-# We need the source configuration file in order to trim off
-# irrelevant steps.
-SOURCE_CONFIG = "#{ROOTDIR}/doc/config-esr68.txt"
-SOURCE_CONFIG_CONVERTER = "#{ROOTDIR}/firefox-support-common/convert-conf"
-
-CHAPTERS_FILE = "verify-targets-to-chapters.csv"
-
-# Use this JSON file to override the values in VARIABLES.
-VARIABLES_JSON = "#{ROOTDIR}/doc/verification.json"
-
+# This is a set of snippets that are used to fill placeholders in the
+# template. You can override any of them through the '--json' option.
 VARIABLES = {
+  cover:                         nil,
   is_upgrade_from_uncontrolled:   true,
   firefox_version:                "68.0 ESR",
   windows_version:                "Windows 7",
@@ -81,12 +84,6 @@ VARIABLES = {
   wmp__download_url:              "http://www.interoperabilitybridges.com/Windows-Media-Player-Firefox-Plugin-Download",
 }
 
-if File.exist?(VARIABLES_JSON)
-  VARIABLES.merge!(JSON.load(open(VARIABLES_JSON)))
-end
-
-CLOBBER.include(PDF_FILES)
-
 class TemplateResolver
   class << self
     def resolve(contents, variables)
@@ -102,9 +99,9 @@ class TemplateResolver
     @verify_targets = []
   end
 
-  def resolve
+  def resolve(config)
     prepare_firefox_version_variables
-    prepare_customizations_variables
+    prepare_customizations_variables(config) if config
     @variables["TRUE"] = true
     @variables["FALSE"] = false
     resolve_and_conditions
@@ -148,9 +145,8 @@ class TemplateResolver
     end
   end
 
-  def prepare_customizations_variables
-    verify_targets = JSON.load(`#{SOURCE_CONFIG_CONVERTER} #{SOURCE_CONFIG}`)
-    verify_targets.keys.each do |key|
+  def prepare_customizations_variables(config)
+    config.keys.each do |key|
       @verify_targets << key
       @variables[key] = true
       if key.count("-") > 1
@@ -211,6 +207,12 @@ class ContentsCleaner
     introduction, contents = contents.split(/<!-- *VERIFICATIONS ARE FROM HERE *-->/)
     @introduction = introduction
     @contents = contents
+
+    # Allow overriding the cover page via JSON
+    @introduction = VARIABLES["cover"] if VARIABLES["cover"]
+    if @introduction.is_a?(Array)
+        @introduction = @introduction.join("\n")
+    end
   end
 
   def cleanup
@@ -283,7 +285,7 @@ class ContentsCleaner
   end
 end
 
-def output_verify_targets_to_sections_list(contents, verify_targets)
+def output_verify_targets_to_sections_list(path, contents, verify_targets)
   items_to_sections = {}
   contents.split(/^#[^#]/).each_with_index do |chapter, chapter_number|
     next if chapter_number <= 1
@@ -301,90 +303,49 @@ def output_verify_targets_to_sections_list(contents, verify_targets)
     end
   end
 
-  CSV.open(CHAPTERS_FILE, "w") do |rows|
+  CSV($stdout) do |rows|
     verify_targets.each do |target|
       section_ids = items_to_sections[target.sub(/(-[^-]+)-[^-]+\z/, "\\1")]
       if section_ids
         rows << [target, section_ids.join("\n")]
       else
-        puts "  Warning: no verification for #{target}\n"
+        STDERR.puts "  Warning: no verification for #{target}\n"
       end
     end
   end
 end
 
-def prepare_contents(source)
-  contents = File.read(source)
+def main()
+  po = ARGV.getopts('', 'template:', 'config:', 'json:', 'output-chapters')
+  basedir = File.dirname($0)
+  manfile = "#{basedir}/manual.md"
+
+  if ARGV.length > 0
+    manfile = ARGV[0]
+  end
+
+  contents = File.read(manfile)
+
+  if po['json']
+    VARIABLES.merge!(JSON.load(open(po['json'])))
+  end
+
+  if po['config']
+    config = JSON.parse(`#{basedir}/format-config #{po['config']}`)
+  end
+
   resolver = TemplateResolver.new(contents, VARIABLES)
-  contents = resolver.resolve
+  contents = resolver.resolve(config)
   contents = ContentsCleaner.cleanup(contents)
 
-  puts "Generating #{CHAPTERS_FILE}..."
-  output_verify_targets_to_sections_list(contents, resolver.verify_targets)
-
-  contents
-end
-
-task :default => :pdf
-
-desc "Generate PDF"
-task :pdf => PDF_FILES
-rule ".pdf" => [".md", "Rakefile"] do |t|
-  contents = prepare_contents(t.source)
-  puts "Generating #{t.name}..."
-  Tempfile.open("firefox-verification_manual") do |file|
-    file.puts(contents)
-    file.flush
-    sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
-       "--table-of-contents", "--toc-depth=2",
-       "-N",
-       "-V", "documentclass=ltjsarticle",
-       "-V", "classoption=titlepage",
-       "--latex-engine=lualatex", file.path
+  if po['output-chapters']
+      STDERR.puts "Generating #{po['chapter']}..."
+      output_verify_targets_to_sections_list(po['chapter'], contents, resolver.verify_targets)
+  else
+      puts(contents)
   end
 end
 
-desc "Generate DOCX"
-task :docx => DOCX_FILES
-rule ".docx" => [".md", "Rakefile"] do |t|
-  template_params = []
-  if File.exist?("reference.dotx")
-    template_params << "--reference-docx"
-    template_params << "reference.dotx"
-  end
-
-  contents = prepare_contents(t.source)
-  puts "Generating #{t.name}..."
-  Tempfile.open("firefox-verification_manual") do |file|
-    file.puts(contents)
-    file.flush
-    sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
-       "--table-of-contents", "--toc-depth=2",
-       "-N",
-       "-t", "docx",
-       *template_params,
-       file.path
-  end
-end
-
-desc "Generate ODT"
-task :odt => ODT_FILES
-rule ".odt" => [".md", "Rakefile"] do |t|
-  template_params = []
-  if File.exist?("reference.ott")
-    template_params << "--reference-odt"
-    template_params << "reference.ott"
-  end
-
-  contents = prepare_contents(t.source)
-  puts "Generating #{t.name}..."
-  Tempfile.open("firefox-verification_manual") do |file|
-    file.puts(contents)
-    file.flush
-    sh "pandoc", "-f", "markdown+ignore_line_breaks", "-o", t.name,
-       "--table-of-contents", "--toc-depth=2",
-       "-N",
-       *template_params,
-       file.path
-  end
+if __FILE__ == $0
+    main()
 end
