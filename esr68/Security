@@ -735,6 +735,9 @@ Security-42: 過去にデータ流出事故を起こしたWebサービスでの�
     :1: 警告を表示する（既定）
 
     -
+    // Security-15-2の
+    // lockPref("services.settings.server", "localhost");
+    // とは併用不可能
 
     :2: 警告を表示しない
 
