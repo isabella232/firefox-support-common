@@ -1377,6 +1377,8 @@
 {{#Security-31}} - Security-31-\* {{/Security-31}}
 {{#Security-32}} - Security-32-\* {{/Security-32}}
 {{#Security-42-2}} - Security-42-2 {{/Security-42-2}}
+{{#Security-43}} - Security-43-\* {{/Security-43}}
+{{#Security-44}} - Security-44-\* {{/Security-44}}
 
 ### 準備
 
@@ -1401,6 +1403,12 @@
 {{#Security-32}}
         1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。（Security-32-1）{{/Security-32-1}}{{#Security-32-2}}`false`である。（Security-32-2）{{/Security-32-2}}
 {{/Security-32}}
+{{#Security-43}}
+        1. `privacy.file_unique_origin` の値が{{#Security-43-1}}`false`である。（Security-43-1）{{/Security-43-1}}{{#Security-43-2}}`true`である。（Security-43-2）{{/Security-43-2}}
+{{/Security-43}}
+{{#Security-44}}
+        1. `media.getusermedia.insecure.enabled` の値が{{#Security-44-1}}`true`である。（Security-44-1）{{/Security-44-1}}{{#Security-44-2}}`false`である。（Security-44-2）{{/Security-44-2}}
+{{/Security-44}}
 <!--/GROUP-->
 {{#Security-29}}
 1. テストケースリストのリンクから `https://example.com` を開き、Ctrl-Shift-KでWebコンソールを開く。
