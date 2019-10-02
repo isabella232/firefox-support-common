@@ -743,3 +743,23 @@ Security-42: 過去にデータ流出事故を起こしたWebサービスでの�
 
     lockPref("extensions.fxmonitor.enabled", false);
 
+Security-43: ローカルファイルからの同じディレクトリのファイルの参照の可否
+
+    :1: 許可する
+
+    lockPref("privacy.file_unique_origin", false);
+
+    :2: 禁止する（既定）
+
+    lockPref("privacy.file_unique_origin", true);
+
+Security-44: HTTPSでないURLのページでのカメラ・マイクの使用の可否
+
+    :1: 許可する
+
+    lockPref("media.getusermedia.insecure.enabled", true);
+
+    :2: 禁止する（既定）
+
+    lockPref("media.getusermedia.insecure.enabled", false);
+
