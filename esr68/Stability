@@ -54,3 +54,15 @@ Stability-3: RDPでの音声再生の有効化
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1385207
     lockPref("security.sandbox.content.level", 2)
 
+Stability-4: WebRenderの有効化
+
+    :1: Mozillaの判断で有効化する（既定）
+
+    -
+
+    :2: 常に無効化する
+
+    lockPref("gfx.webrender.all", false);
+    lockPref("gfx.webrender.enabled", false);
+    lockPref("gfx.webrender.force-disabled", true);
+

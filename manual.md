@@ -2586,6 +2586,38 @@
 
 {{/Stability-2-2 || Stability-2-3 || Performance-7-2}}
 
+
+{{#Stability-4}}
+## WebRenderの制御
+
+### 確認する項目
+
+- Stability-4-\*
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-35-2}}
+1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
+{{/Security-35-2}}
+
+
+### 検証
+
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+1. `about:support` を開く
+    - 確認項目
+       1. 「グラフィック」の「画像処理」に「WebRender」と{{#Stability-4-1}}表示されている。（Stability-4-1）{{/Stability-4-1}}{{#Stability-4-2}}表示されていない。（Stability-4-2）{{/Stability-4-2}}
+
+{{#Security-35-2}}
+### 後始末
+
+1. ポリシー設定に加えた変更を元に戻す。
+{{/Security-35-2}}
+
+{{/Stability-4}}
+
 {{#Appearance-1-2 || Appearance-1-3}}
 ## 表示フォントの設定
 
