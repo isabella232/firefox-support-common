@@ -112,4 +112,12 @@ Script-7: 音声の自動再生の可否
     lockPref("media.autoplay.default", 1);
     lockPref("media.autoplay.enabled.user-gestures-needed", true);
 
+Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
+    :1: 付与する（既定）
+
+    -
+
+    :2: 付与しない
+
+    lockPref("dom.targetBlankNoOpener.enabled", false);
