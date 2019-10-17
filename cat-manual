@@ -209,7 +209,7 @@ class ContentsCleaner
     @contents = contents
 
     # Allow overriding the cover page via JSON
-    @introduction = VARIABLES["cover"] if VARIABLES["cover"]
+    @introduction = VARIABLES[:cover] if VARIABLES[:cover]
     if @introduction.is_a?(Array)
         @introduction = @introduction.join("\n")
     end
@@ -327,7 +327,7 @@ def main()
   contents = File.read(manfile)
 
   if po['json']
-    VARIABLES.merge!(JSON.load(open(po['json'])))
+    VARIABLES.merge!(JSON.parse(open(po['json']).read(), :symbolize_names => true))
   end
 
   if po['config']
