@@ -1,0 +1,23 @@
+<html>
+<body>
+<pre>
+    +-------------------------------------------------------------------------+
+    | This page checks if `window.opener` is available if the page was        |
+    | opened by a "target=_blank" link.                                       |
+    |                                                                         |
+    | - If available, step 2 shows "window.opener = [object Window]"          |
+    | - if not available, step 2 shows "window.opener = null".                |
+    |                                                                         |
+    | See https://bugzilla.mozilla.org/show_bug.cgi?id=1503681 for details.   |
+    ---------------------------------------------------------------------------
+
+(1) Click <a target="_blank" href="./noopener.html">this link</a>
+
+(2) Result: window.opener = <b id='result'></b>
+</pre>
+<script>
+document.getElementById('result').innerText = window.opener ? "[object Window]" : "null"
+</script>
+</body>
+</html>
+

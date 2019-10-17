@@ -2490,6 +2490,7 @@
 
 {{#Script-2}} - Script-2-\* {{/Script-2}}
 {{#Script-3}} - Script-3-\* {{/Script-3}}
+{{#Script-8}} - Script-8-\* {{/Script-8}}
 
 ### 準備
 
@@ -2527,6 +2528,16 @@
     - 確認項目
         1. 「通知を受信する」で、「標準設定を使用する」のチェックが外れており、{{#Script-2-4}}「ブロック」が選択されている。（Script-2-4）{{/Script-2-4}}{{#Script-2-6}}「許可」にチェックが入っている。（Script-2-6）{{/Script-2-6}}
 {{/Script-2-4 || Script-2-6}}
+{{#Script-8}}
+1. テストケースリストから`noopener.html`を開き、ページ内のリンクをクリックする。
+    - 確認項目
+{{#Script-8-1}}
+        1. テスト結果に`window.opener = null`と出力されている。
+{{/Script-8-1}}
+{{#Script-8-2}}
+        1. テスト結果に`window.opener = [object Window]`と出力されている。
+{{/Script-8-2}}
+{{/Script-8}}
 
 {{#Security-9-3}}
 ### 後始末
