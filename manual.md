@@ -178,12 +178,16 @@
 {{#Install-3-3}}
         1. メタインストーラのウィザードが表示されない。（Install-3-3）
 {{/Install-3-3}}
+
+{{^Install-3-3}}
 {{#Install-6-1}}
         1. ウィザードが日本語表示になっている。（Install-6-1）
 {{/Install-6-1}}
 {{#Install-6-2}}
         1. ウィザードが英語表示になっている。（Install-6-2）
 {{/Install-6-2}}
+{{/Install-3-3}}
+
 {{#Install-4-1}}
         1. インストール完了後に完了を示すメッセージが表示されない。（Install-4-1）
 {{/Install-4-1}}
@@ -238,7 +242,7 @@
     - 確認項目
 {{#Install-7}}
         1. 「Mozilla Firefox {{firefox_version}}」がインストールされていることを確認する。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
-        1. 旧バージョンからの更新である場合、旧バージョンの情報がインストール済みアプリケーションの一覧に独立した項目として表示されない。(Install-7-\*)
+        1. 旧バージョンからの更新である場合（両バージョンを併存させる場合を除く）、旧バージョンの情報がインストール済みアプリケーションの一覧に独立した項目として表示されない。(Install-7-\*)
 {{/Install-7}}
 {{#Install-1}}
         1. 「{{meta_installer_name}}」がインストールされている。（Install-1-\*）
@@ -279,7 +283,7 @@
 ### 検証
 
 {{#Application-6-2}}
-1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
+1. Windowsエクスプローラを開き、アドレスバーに`{{special_profile_path}}` と入力してEnterを押す。
     - 確認項目
         1. `{{special_profile_name}}` フォルダが存在する。（Application-6-2）
         2. フォルダの内容は空である。（Application-6-2）
@@ -288,16 +292,24 @@
 1. デスクトップのショートカットのプロパティを開く。
     - 確認項目
         1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。（Application-1-3）
-        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）（Application-1-3）
+        2. 「リンク先」末尾にプロファイルを指定するオプションが設定されている。（Application-1-3）
+            ```
+            -profile {{special_profile_path}}\{{special_profile_name}}
+            -p {{special_profile_name}}
+            ```
 {{/Application-1-3}}
 {{#Application-2-3}}
 1. スタートメニューのショートカットのプロパティを開く。
     - 確認項目
         1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。（Application-2-3）
-        2. 「リンク先」末尾に `-profile {{special_profile_path}}\{{special_profile_name}}` というオプションが指定されている。（環境変数の参照記法がそのまま含まれている）（Application-2-3）
+        2. 「リンク先」末尾にプロファイルを指定するオプションが設定されている。（Application-2-3）
+            ```
+            -profile {{special_profile_path}}\{{special_profile_name}}
+            -p {{special_profile_name}}
+            ```
 {{/Application-2-3}}
 {{#Application-6-2}}
-1. Windowsエクスプローラ（フォルダウィンドウ）を開き、アドレスバーに `{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
+1. Windowsエクスプローラを開き、アドレスバーに`{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
 1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
     - 確認項目
         1. Firefoxの起動後、4で開いたフォルダに `prefs.js` などのファイルが作成される。（Application-6-2）
