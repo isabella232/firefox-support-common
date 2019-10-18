@@ -18,13 +18,13 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     "HardwareAcceleration": false
 
-Stability-2: プロセス分離（e10s）を有効化するかどうか
+Stability-2: [廃止] プロセス分離（e10s）を有効化するかどうか
 
-    :1: 制御しない（自動的に有効化・無効化が判断される）
+    :1: [廃止] 制御しない（自動的に有効化・無効化が判断される）
 
     -
 
-    :2: 強制的に有効化
+    :2: [廃止] 強制的に有効化
 
     // 基本的な有効化の設定（設定ダイアログにあるチェックボックスに対応）
     lockPref("browser.tabs.remote.autostart", true);
@@ -33,7 +33,7 @@ Stability-2: プロセス分離（e10s）を有効化するかどうか
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1198459
     lockPref("browser.tabs.remote.force-enable", true);
 
-    :3: 強制的に無効化
+    :3: [廃止] 強制的に無効化
 
     lockPref("browser.tabs.remote.autostart", false);
     lockPref("browser.tabs.remote.autostart.2", false);
@@ -65,4 +65,3 @@ Stability-4: WebRenderの有効化
     lockPref("gfx.webrender.all", false);
     lockPref("gfx.webrender.enabled", false);
     lockPref("gfx.webrender.force-disabled", true);
-
