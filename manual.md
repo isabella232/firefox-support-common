@@ -1145,7 +1145,7 @@
 <!--/GROUP-->
 {{#Security-15-2}}
 1. パネルメニューまたはメニューバーの「ウェブ開発」→「WebIDE」でWebIDEを開く。
-1. メニューの「プロジェクト」→「追加のコンポーネントを管理」を開く。
+1. メニューの「プロジェクト」→「追加のコンポーネントを管理」を開く。インストールボタンが表示されている場合は、クリックする。
     - 確認項目
         1. 無反応である、もしくはADB Extensionアドオンが準備中になっている。（Security-15-2）
 {{/Security-15-2}}
@@ -1557,7 +1557,7 @@
     - 確認項目
 {{#Privacy-1}}
 {{#Privacy-1-2 || Privacy-1-5}}
-        1. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっている。（Privacy-1-2/5）
+        1. 「履歴」で「Firefoxに履歴を記憶させる」が選択されているか、「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが外れていて選択不可になっているか項目自体が存在しない。（Privacy-1-2/5）
 {{/Privacy-1-2 || Privacy-1-5}}
 {{#Privacy-1-3}}
         1. 「履歴」で「Firefoxに履歴を一切記憶させない」が選択されているか「記憶させる履歴を詳細設定」で「常にプライベートブラウジングモード」のチェックが入っていて選択不可になっている。（Privacy-1-3） 
@@ -2343,6 +2343,7 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+{{^Tab-5-4}}
 1. タブバーの「＋」ボタンをクリックして新しいタブを開く
 {{#Tab-10}}
 1. 検索バーの表示を確認する
@@ -2415,6 +2416,7 @@
     - 右上の歯車ボタンの遷移先で「スニペット」のチェックが固定されている （Tab-13-3/5）
 {{/Tab-13-3 || Tab-13-5}}
 {{/Tab-13}}
+{{/Tab-5-4}}
 
 {{#Tab-14}}
 1. インポートボタンの表示を確認する
@@ -2576,7 +2578,7 @@
 1. オプション画面の「一般」を開く。
 1. 「推奨のパフォーマンス設定を利用する」のチェックを外す。
     - 確認項目
-        1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1}}チェックが入っている。（Stability-1-1）{{/Stability-1-1}}{{#Stability-1-2 || Stability-1-3}}チェックが入っていない。（Stability-1-2/3）{{/Stability-1-2 || Stability-1-3}}
+        1. 「ハードウェアアクセラレーション機能を使用する」に{{#Stability-1-1 || Stability-1-4}}チェックが入っている。（Stability-1-1）{{/Stability-1-1 || Stability-1-4}}{{#Stability-1-2 || Stability-1-3}}チェックが入っていない。（Stability-1-2/3）{{/Stability-1-2 || Stability-1-3}}
 1. 「推奨のパフォーマンス設定を利用する」のチェックを元に戻す。
 {{/Stability-1}}
 
@@ -3050,7 +3052,7 @@
         1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。（Network-10-1）{{/Network-10-1}}{{#Network-10-2}}`true`である。（Network-10-2）{{/Network-10-2}}
 {{/Network-10}}
 {{#Network-13}}
-        1. `security.tls.version.max` の値が{{#Network-13-1}}`4`である。（Network-13-1）{{/Network-13-1}}{{#Network-13-2 || Network-13-3}}`3`以下である。（Network-13-2/3）{{/Network-13-2 || Network-13-3}}
+        1. `security.tls.version.max` の値が{{#Network-13-1 || Network-13-4}}`4`である。（Network-13-1/4）{{/Network-13-1 || Network-13-4}}{{#Network-13-2 || Network-13-3}}`3`以下である。（Network-13-2/3）{{/Network-13-2 || Network-13-3}}
 {{/Network-13}}
 {{#Network-16}}
         1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
