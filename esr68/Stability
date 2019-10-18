@@ -5,7 +5,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
     lockPref("gfx.direct2d.disabled", false);
     lockPref("layers.acceleration.disabled", false);
 
-    :4: 無効化する（安定性より描画性能を優先する：ポリシーで設定）
+    :4: 有効化する（安定性より描画性能を優先する：ポリシーで設定）
 
     "HardwareAcceleration": true
 
