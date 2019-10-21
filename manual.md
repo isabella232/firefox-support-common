@@ -3068,6 +3068,7 @@
 1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
         1. 「User Agent」の値が{{#Network-11-1}}Firefox既定のUA文字列である。（Network-11-1）{{/Network-11-1}}{{#Network-11-2}}「{{user_agent_name}}」である。（Network-11-2）{{/Network-11-2}}
+        1. なお`appversion`などを上書きしている場合は、代わりにabout:configで該当する設定値 (`general.appversion.override`など) を確認する手順で代替すること。
 {{/Network-11-1 || Network-11-2}}
 {{#Network-12}}
 1. ロケーションバーに `jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt` と入力し、開く。
