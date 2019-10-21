@@ -1979,8 +1979,7 @@
         1. 以下のメッセージがすべて出力される。（Privacy-29-2）
             1. `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
             2. `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
-            3. `Array [ ... ]`
-        2. `Array [ ... ]` と表示されたメッセージの中に、`> Vacuum` という内容が含まれている。（Privacy-29-2）
+            2. `The database has been vacuumed.`
 
 {{#disable_devtools}}
 ### 後始末
