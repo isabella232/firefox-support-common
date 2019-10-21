@@ -1756,8 +1756,7 @@
 1. ツールバー上のロケーションバーにフォーカスし「新しい検索語句」等、履歴やブックマーク等からの候補が表示され得ないテキストを入力する。
     - 確認項目
         1. 補完候補が{{#Privacy-17-1}}表示される。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}表示されない。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
-1. ツールバー上の検索窓の虫眼鏡のアイコンをクリックし、ポップアップ表示されたパネルの最下部の「検索設定を変更」をクリックする。
-1. 開かれた設定画面の「既定の検索エンジン」欄を見る。
+1. 設定画面の「検索」タブから「既定の検索エンジン」欄を確認する。
     - 確認項目
         1. 「検索候補を使用する」{{#Privacy-17-1}}にチェックが入っていて選択不可になっている。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}のチェックが外れていて選択不可になっている。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
         1. 「アドレスバーに検索候補を表示する」{{#Privacy-17-1}}にチェックが入っていて選択不可になっている。（Privacy-17-1）{{/Privacy-17-1}}{{#Privacy-17-2 || Privacy-17-3}}のチェックが外れていて選択不可になっている。（Privacy-17-2/3）{{/Privacy-17-2 || Privacy-17-3}}
@@ -3067,8 +3066,7 @@
 {{#Network-11-1 || Network-11-2}}
 1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
-        1. 「User Agent」の値が{{#Network-11-1}}Firefox既定のUA文字列である。（Network-11-1）{{/Network-11-1}}{{#Network-11-2}}「{{user_agent_name}}」である。（Network-11-2）{{/Network-11-2}}
-        1. なお`appversion`などを上書きしている場合は、代わりにabout:configで該当する設定値 (`general.appversion.override`など) を確認する手順で代替すること。
+        1. 「User Agent」の値が{{#Network-11-1}}Firefox既定のUA文字列である。（Network-11-1）{{/Network-11-1}}{{#Network-11-2}}「{{user_agent_name}}」である（appversionなどの個別の値を上書きしている場合は、代わりに`about:config`で対応する設定の値を確認すること）。（Network-11-2）{{/Network-11-2}}
 {{/Network-11-1 || Network-11-2}}
 {{#Network-12}}
 1. ロケーションバーに `jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt` と入力し、開く。
