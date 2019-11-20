@@ -2,8 +2,8 @@
 
 ;====================== CUSTOMIZABLE SECTION =======================
 
-!define PRODUCT_FULL_NAME   "FxMMetaInstaller"
-!define PRODUCT_NAME        "FxMMetaInstaller"
+!define PRODUCT_FULL_NAME   "FxMetaInstaller"
+!define PRODUCT_NAME        "FxMetaInstaller"
 !define PRODUCT_VERSION     "1.0.0.0"
 !define PRODUCT_YEAR        "2019"
 !define PRODUCT_PUBLISHER   "ClearCode Inc."
