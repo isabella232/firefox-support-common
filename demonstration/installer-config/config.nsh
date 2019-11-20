@@ -14,7 +14,7 @@
 !define PRODUCT_INSTALL_MODE "PASSIVE"
 
 !define APP_NAME            "Firefox"
-!define APP_MIN_VERSION     "68.2"
+!define APP_MIN_VERSION     "68.2.0"
 !define APP_MAX_VERSION     "68.99"
 !define APP_INSTALL_MODE    "QUIET"
 !define APP_IS_64BIT        "false"
