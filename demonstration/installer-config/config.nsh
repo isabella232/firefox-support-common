@@ -17,6 +17,7 @@
 !define APP_MIN_VERSION     "68.2.0"
 !define APP_MAX_VERSION     "68.99"
 !define APP_INSTALL_MODE    "QUIET"
-!define APP_IS_64BIT        "false"
+!define APP_IS_64BIT        "true"
+!define APP_IS_ESR          "true"
 
 ;===================================================================
