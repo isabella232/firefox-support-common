@@ -2,7 +2,7 @@ all: zip
 #all: password-zip
 
 installer: fainstall/make.sh
-	./fx-meta-installer/scripts/make_installer.sh "FxMMetaInstaller" "addon1" "addon2"
+	./fx-meta-installer/scripts/make_installer.sh "FxMMetaInstaller" # "addon1" "addon2"
 
 fainstall/make.sh:
 	git submodule update --init
