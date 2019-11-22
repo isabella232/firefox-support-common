@@ -182,3 +182,13 @@ Plugin-10: [廃止] すべてのプラグインの初期状態
 
     Plugin-2に統合
 
+Plugin-11: 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージ
+
+    :1: 表示する(既定)
+
+    -
+
+    :2: 表示しない
+
+    lockPref("plugin.load_flash_only", false);
+
