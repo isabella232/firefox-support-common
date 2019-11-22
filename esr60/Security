@@ -614,3 +614,133 @@ Security-35: about:supportの使用
 
     "BlockAboutSupport": true,
 
+Security-45: 証明書の例外の自動承認
+
+    :1: 特定のホストの証明書の例外を自動的に承認する
+
+    const autoAcceptExceptionFor = (host, port = 443) => {
+      const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
+      const exceptionURL = port == 443 ? `https://${host}` : `https://${host}:${port}`;
+    
+      const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+      const observer = {
+        observe(aSubject, aTopic, aData) {
+          switch (aTopic) {
+            case 'domwindowopened':
+              if (!aSubject.QueryInterface(Ci.nsIInterfaceRequestor)
+                           .getInterface(Ci.nsIWebNavigation)
+                           .QueryInterface(Ci.nsIDocShell)
+                           .QueryInterface(Ci.nsIDocShellTreeNode || Ci.nsIDocShellTreeItem) // nsIDocShellTreeNode is merged to nsIDocShellTreeItem by https://bugzilla.mozilla.org/show_bug.cgi?id=331376
+                           .QueryInterface(Ci.nsIDocShellTreeItem)
+                           .parent) {
+                const win = aSubject.QueryInterface(Ci.nsIDOMWindow);
+                win.addEventListener('load', () => tryHandleWindow(win), { once: true });
+              }
+              return;
+          }
+        },
+        QueryInterface(aIID) {
+          if (!aIID.equals(Ci.nsIObserver) &&
+              !aIID.equals(Ci.nsISupports)) {
+            throw Components.results.NS_ERROR_NO_INTERFACE;
+          }
+          return this;
+        }
+      };
+    
+      const waitUntilEventOrTimeout = (target, type, timeout) => {
+        return new Promise((resolve, reject) => {
+          const win = (target.ownerDocument || target).defaultView || target;
+          const listener = () => {
+            target.removeEventListener(type, listener);
+            win.clearTimeout(timer);
+            resolve();
+          };
+          const timer = win.setTimeout(listener, timeout);
+          target.addEventListener(type, listener);
+        });
+      };
+    
+      const WW = Cc['@mozilla.org/embedcomp/window-watcher;1'].getService(Ci.nsIWindowWatcher);
+      const teardown = () => {
+        WW.unregisterNotification(observer);
+        //if (tab)
+        //  tab.ownerDocument.defaultView.gBrowser.removeTab(tab);
+      };
+    
+      let tab;
+      const tryHandleWindow = async (win) => {
+        switch (win.location.href.replace(/(\?.*)(#.*)$/, '')) {
+          case 'chrome://browser/content/browser.xul': {
+            await new Promise((resolve, reject) => {
+              win.addEventListener('MozAfterPaint', resolve, { once: true });
+            });
+    
+            const certOverride = Cc['@mozilla.org/security/certoverride;1'].getService(Ci.nsICertOverrideService);
+            const hash = {}, fingerprint = {}, flags = {}, temporary = {};
+            if (!certOverride ||
+                (certOverride.getValidityOverride &&
+                 certOverride.getValidityOverride(host, port, hash, fingerprint, flags, temporary))) {
+              teardown();
+              return;
+            }
+    
+            //win.openNewTabWith(exceptionURL);
+            await new Promise((resolve, reject) => {
+              const listener = (event) => {
+                if (event.detail.changed != 'busy' ||
+                    event.target.getAttribute('busy') == 'true')
+                  return;
+                win.setTimeout(() => {
+                  const uri = event.target.linkedBrowser.lastURI || event.target.linkedBrowser.currentURI;
+                  if (!uri || uri.spec.indexOf(exceptionURL) != 0)
+                    return;
+                  win.document.removeEventListener('TabAttrModified', listener);
+                  tab = event.target;
+                  resolve();
+                }, 100);
+              };
+              win.document.addEventListener('TabAttrModified', listener);
+            });
+    
+            const browser = tab.linkedBrowser;
+            browser.messageManager.loadFrameScript('data:text/javascript,(' + (async (waitUntilEventOrTimeout) => {
+              const doc = docShell.QueryInterface(Components.interfaces.nsIWebNavigation).document;
+              const win = doc.defaultView;
+              await waitUntilEventOrTimeout(doc, 'AboutNetErrorLoad', 500);
+    
+              const advancedButton = doc.getElementById('advancedButton');
+              if (advancedButton) {
+                advancedButton.dispatchEvent(new win.MouseEvent('click', { button: 0 }));
+                const exceptionDialogButton = doc.getElementById('exceptionDialogButton');
+                if (exceptionDialogButton) {
+                  exceptionDialogButton.dispatchEvent(new win.MouseEvent('click', { button: 0 }));
+                  return; /* success case, go to next step: exceptionDialog */
+                }
+              }
+              /* failure case */
+            }).toSource() + ')(' + waitUntilEventOrTimeout.toSource() + ')', false, false);
+          }; break;
+    
+          case 'chrome://pippki/content/exceptionDialog.xul': {
+            if (!tab)
+              return;
+            win.addEventListener('unload', () => {
+              teardown();
+              tab.linkedBrowser.reload();
+            }, { once: true });
+            await waitUntilEventOrTimeout(win, 'load', 200);
+            const timer = win.setInterval(() => {
+              if (!win.gCert || win.gChecking)
+                return;
+              win.clearInterval(timer);
+              win.document.documentElement.getButton('extra1').click();
+            }, 100);
+          }; break;
+        }
+      };
+    
+      WW.registerNotification(observer);
+    };
+    autoAcceptExceptionFor('ホスト名');
+
