@@ -60,6 +60,7 @@ WORKBOOK_DEF = [
         'Performance',
         'Addon-IEView',
         'Addon-FireIE',
+        'Addon-Acrobat',
     ]),
     ('機能無効化', [
         'MenuShortcut',
