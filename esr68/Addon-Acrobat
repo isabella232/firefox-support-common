@@ -59,7 +59,7 @@ Addon-Acrobat-2: 初回起動ページの表示
       extnfte: { name: 'fte' }
     });
 
-Addon-Acrobat-2: 使用状況の送信の可否
+Addon-Acrobat-3: 使用状況の送信の可否
 
     :1: 送信する（既定）
 
