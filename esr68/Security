@@ -825,15 +825,6 @@ Security-45: 証明書の例外の自動承認
               win.addEventListener('MozAfterPaint', resolve, { once: true });
             });
     
-            const certOverride = Cc['@mozilla.org/security/certoverride;1'].getService(Ci.nsICertOverrideService);
-            const hash = {}, fingerprint = {}, flags = {}, temporary = {};
-            if (!certOverride ||
-                (certOverride.getValidityOverride &&
-                 certOverride.getValidityOverride(host, port, hash, fingerprint, flags, temporary))) {
-              teardown();
-              return;
-            }
-    
             //win.openNewTabWith(exceptionURL);
             await new Promise((resolve, reject) => {
               const listener = (event) => {
@@ -863,28 +854,12 @@ Security-45: 証明書の例外の自動承認
                 advancedButton.dispatchEvent(new win.MouseEvent('click', { button: 0 }));
                 const exceptionDialogButton = doc.getElementById('exceptionDialogButton');
                 if (exceptionDialogButton) {
-                  exceptionDialogButton.dispatchEvent(new win.MouseEvent('click', { button: 0 }));
+                  exceptionDialogButton.click();
                   return; /* success case, go to next step: exceptionDialog */
                 }
               }
               /* failure case */
             }).toSource() + ')(' + waitUntilEventOrTimeout.toSource() + ')', false, false);
-          }; break;
-    
-          case 'chrome://pippki/content/exceptionDialog.xul': {
-            if (!tab)
-              return;
-            win.addEventListener('unload', () => {
-              teardown();
-              tab.linkedBrowser.reload();
-            }, { once: true });
-            await waitUntilEventOrTimeout(win, 'load', 200);
-            const timer = win.setInterval(() => {
-              if (!win.gCert || win.gChecking)
-                return;
-              win.clearInterval(timer);
-              win.document.documentElement.getButton('extra1').click();
-            }, 100);
           }; break;
         }
       };
