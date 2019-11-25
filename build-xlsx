@@ -185,7 +185,7 @@ def main(args):
         'selected_new': wb.add_format({'bg_color': '#ffb6c1', 'border': 1}),
         'question':     wb.add_format({'bg_color': '#90ee90', 'border': 1}),
         'changed':      wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
-        'new':          wb.add_format({'bold': True}),
+        'new':          wb.add_format({'bold': True, 'border': 2}),
     }
 
     for title, files in WORKBOOK_DEF:
