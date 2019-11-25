@@ -226,12 +226,11 @@ def main(args):
             prev = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, fn))
 
             for data in curr:
-                if len(data['opts']) > 1:
-                    sheet.merge_range(row, 1, row + len(data['opts']) - 1, 1, '')
-                    sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
-
+                skipped_rows = 0
+                item_row = row
                 for d in data['opts']:
                     if '[廃止]' in d['conf'].strip() and '[廃止]' in prev.get(d['opt_id'], ''):
+                        skipped_rows += 1
                         continue
 
                     mark, conf, chapter = '', '', ' '
@@ -257,6 +256,9 @@ def main(args):
 
                     row += 1
 
+                if len(data['opts']) - skipped_rows > 1:
+                    sheet.merge_range(item_row, 1, item_row + len(data['opts']) - 1 - skipped_rows, 1, '')
+                    sheet.merge_range(item_row, 2, item_row + len(data['opts']) - 1 - skipped_rows, 2, '')
 
     wb.close()
     print('Generated:', wb.filename)
