@@ -190,22 +190,22 @@ def main(args):
                 item_row = row
                 item_format = formats['default']
                 for d in data['opts']:
-                    prev_default = prev.get(d['opt_id'], '')
-                    if '[廃止]' in d['conf'].strip() and '[廃止]' in prev_default:
+                    prev_default_value = prev.get(d['opt_id'], '')
+                    if '[廃止]' in d['conf'].strip() and '[廃止]' in prev_default_value:
                         choices -= 1
                         continue
 
-                    chosen_mark, conf, chapter = '', '', ' '
-                    prev_conf = conf_prev.get(d['opt_id'], '')
+                    chosen_mark, curr_conf_value, chapter = '', '', ' '
+                    prev_conf_value = conf_prev.get(d['opt_id'], '')
                     choice_format = formats['default']
 
                     if d['opt_id'] in conf_curr:
-                        chosen_mark, conf = 'y', conf_curr[d['opt_id']]
+                        chosen_mark, curr_conf_value = 'y', conf_curr[d['opt_id']]
                         chapter = chapters.get(d['opt_id'], '省略')
                         item_format = formats['selected']
-                        if prev_default == '':
+                        if prev_default_value == '':
                             item_format = formats['selected_new']
-                        elif prev_conf != conf:
+                        elif prev_conf_value != curr_conf_value:
                             item_format = formats['selected_changed']
                         choice_format = item_format
 
@@ -219,9 +219,9 @@ def main(args):
                     sheet.write(row, 4, d['opt_no'], choice_format)
                     sheet.write(row, 5, d['opt_title'], choice_format)
                     sheet.write(row, 6, d['conf'].strip(), choice_format)
-                    sheet.write(row, 7, conf, choice_format)
-                    sheet.write(row, 8, prev_default, choice_format)
-                    sheet.write(row, 9, prev_conf, choice_format)
+                    sheet.write(row, 7, curr_conf_value, choice_format)
+                    sheet.write(row, 8, prev_default_value, choice_format)
+                    sheet.write(row, 9, prev_conf_value, choice_format)
                     sheet.write(row, 10, chapter, formats['default'])
 
                     row += 1
