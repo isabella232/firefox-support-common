@@ -195,12 +195,12 @@ def main(args):
                         choices -= 1
                         continue
 
-                    mark, conf, chapter = '', '', ' '
+                    chosen_mark, conf, chapter = '', '', ' '
                     prev_conf = conf_prev.get(d['opt_id'], '')
                     choice_format = formats['default']
 
                     if d['opt_id'] in conf_curr:
-                        mark, conf = 'y', conf_curr[d['opt_id']]
+                        chosen_mark, conf = 'y', conf_curr[d['opt_id']]
                         chapter = chapters.get(d['opt_id'], '省略')
                         item_format = formats['selected']
                         if prev_default == '':
@@ -212,7 +212,7 @@ def main(args):
                     status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
                     status = status.replace('#', str(row+1))
 
-                    sheet.write(row, 0, mark, formats['default'])
+                    sheet.write(row, 0, chosen_mark, formats['default'])
                     sheet.write(row, 1, data['item_id'], choice_format)
                     sheet.write(row, 2, data['item_title'], choice_format)
                     sheet.write_formula(row, 3, status, choice_format, '')
