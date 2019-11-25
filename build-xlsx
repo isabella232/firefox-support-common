@@ -193,7 +193,7 @@ def main(args):
 
                     selected_mark, curr_conf_value, chapter = '', '', ' '
                     prev_conf_value = conf_prev.get(d['opt_id'], '')
-                    choice_format = formats['default']
+                    choice_format = prev_format = formats['default']
 
                     if prev_default_value == '':
                         choice_format = formats['new']
@@ -208,13 +208,21 @@ def main(args):
                         if changed:
                           has_changed = True
 
-                        choice_format = formats['selected']
+                        prev_format = choice_format = formats['selected']
                         if prev_default_value == '':
                             choice_format = formats['selected_all_new']
+                            prev_format = formats['default']
                         elif changed:
                             choice_format = formats['selected_changed']
+                            if prev_conf_value:
+                                prev_format = choice_format
+                            else:
+                                prev_format = formats['default']
 
                         item_format = choice_format
+
+                    elif prev_conf_value:
+                        prev_format = formats['selected_changed']
 
                     status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
                     status = status.replace('#', str(row+1))
@@ -227,8 +235,8 @@ def main(args):
                     sheet.write(row, 5, d['opt_title'], choice_format)
                     sheet.write(row, 6, d['conf'].strip(), choice_format)
                     sheet.write(row, 7, curr_conf_value, choice_format)
-                    sheet.write(row, 8, prev_default_value, choice_format)
-                    sheet.write(row, 9, prev_conf_value, choice_format)
+                    sheet.write(row, 8, prev_default_value, prev_format)
+                    sheet.write(row, 9, prev_conf_value, prev_format)
                     sheet.write(row, 10, chapter, formats['default'])
 
                     row += 1
