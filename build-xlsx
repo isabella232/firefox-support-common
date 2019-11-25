@@ -141,11 +141,11 @@ def main(args):
     formats = {
         'default':          wb.add_format(DEFAULT_FORMAT),
         'deprecated':       wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#CCCCCC'})),
+        'new':              wb.add_format(dict(DEFAULT_FORMAT, **{'bold': True, 'border': 2})),
+        'question':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#90ee90'})),
         'selected':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffd700'})),
         'selected_new':     wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffb6c1'})),
         'selected_changed': wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ff8c00'})),
-        'question':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#90ee90'})),
-        'new':              wb.add_format(dict(DEFAULT_FORMAT, **{'bold': True, 'border': 2})),
     }
 
     for title, files in WORKBOOK_DEF:
