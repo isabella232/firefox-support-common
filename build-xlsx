@@ -108,13 +108,13 @@ def setup_conditional_format(sheet, formats):
     sheet.conditional_format('D2:J9999', {
         'type':     'formula',
         'criteria': 'AND($I2 = "", $A2 <> "")',
-        'format':   formats['new']
+        'format':   formats['selected_new']
     })
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
         'criteria': 'AND($I2 = "", %s)'  % countif,
-        'format':   formats['new']
+        'format':   formats['selected_new']
     })
 
     # SELECTED (CHANGED)
@@ -172,12 +172,12 @@ def main(args):
                 pass
 
     formats = {
-        'default':    wb.add_format(DEFAULT_FORMAT),
-        'deprecated': wb.add_format({'bg_color': '#CCCCCC', 'border': 1}),
-        'selected':   wb.add_format({'bg_color': '#ffd700', 'border': 1}),
-        'question':   wb.add_format({'bg_color': '#90ee90', 'border': 1}),
-        'new':        wb.add_format({'bg_color': '#ffb6c1', 'border': 1}),
-        'changed':    wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
+        'default':      wb.add_format(DEFAULT_FORMAT),
+        'deprecated':   wb.add_format({'bg_color': '#CCCCCC', 'border': 1}),
+        'selected':     wb.add_format({'bg_color': '#ffd700', 'border': 1}),
+        'selected_new': wb.add_format({'bg_color': '#ffb6c1', 'border': 1}),
+        'question':     wb.add_format({'bg_color': '#90ee90', 'border': 1}),
+        'changed':      wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
     }
 
     for title, files in WORKBOOK_DEF:
