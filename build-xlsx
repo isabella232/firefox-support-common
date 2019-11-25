@@ -79,7 +79,7 @@ DEFAULT_FORMAT = {
 # Main
 
 def setup_conditional_format(sheet, formats):
-    countif = 'COUNTIFS($A$2:$A$9999,"",$B$2:$B$9999,$B2)<>COUNTIF($B$2:$B$9999,$B2)'
+    any_selected = 'COUNTIFS($A$2:$A$9999,"",$B$2:$B$9999,$B2)<>COUNTIF($B$2:$B$9999,$B2)'
 
     # THE ORDER OF RULES BELOW IS IMPORTANT. THE EARLIER RULE TAKES
     # PRECEDENCE OVER THE LATER.
@@ -120,7 +120,7 @@ def setup_conditional_format(sheet, formats):
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
-        'criteria': 'AND(ISBLANK($I2), %s)'  % countif,
+        'criteria': 'AND(ISBLANK($I2), %s)'  % any_selected,
         'format':   formats['selected_new']
     })
 
@@ -133,7 +133,7 @@ def setup_conditional_format(sheet, formats):
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
-        'criteria': 'AND($J2 <> $H2, %s)'  % countif,
+        'criteria': 'AND($J2 <> $H2, %s)'  % any_selected,
         'format':   formats['changed']
     })
 
@@ -147,7 +147,7 @@ def setup_conditional_format(sheet, formats):
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
-        'criteria': countif,
+        'criteria': any_selected,
         'format':   formats['selected']
     })
 
