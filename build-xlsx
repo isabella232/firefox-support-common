@@ -84,6 +84,13 @@ def setup_conditional_format(sheet, formats):
     # THE ORDER OF RULES BELOW IS IMPORTANT. THE EARLIER RULE TAKES
     # PRECEDENCE OVER THE LATER.
 
+    # NEW
+    sheet.conditional_format('B2:G9999', {
+        'type':     'formula',
+        'criteria': 'AND(ISBLANK($I2), NOT(ISBLANK($G2)))',
+        'format':   formats['new']
+    })
+
     # DEPRECATED
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
@@ -178,6 +185,7 @@ def main(args):
         'selected_new': wb.add_format({'bg_color': '#ffb6c1', 'border': 1}),
         'question':     wb.add_format({'bg_color': '#90ee90', 'border': 1}),
         'changed':      wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
+        'new':          wb.add_format({'bold': true}),
     }
 
     for title, files in WORKBOOK_DEF:
