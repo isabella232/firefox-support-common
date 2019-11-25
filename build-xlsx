@@ -84,13 +84,6 @@ def setup_conditional_format(sheet, formats):
     # THE ORDER OF RULES BELOW IS IMPORTANT. THE EARLIER RULE TAKES
     # PRECEDENCE OVER THE LATER.
 
-    # NEW
-    sheet.conditional_format('B2:G9999', {
-        'type':     'formula',
-        'criteria': 'AND(ISBLANK($I2), NOT(ISBLANK($G2)))',
-        'format':   formats['new']
-    })
-
     # DEPRECATED
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
@@ -145,6 +138,7 @@ def main(args):
         'question':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#90ee90'})),
         'selected':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffd700'})),
         'selected_new':     wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffb6c1'})),
+        'selected_all_new': wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffb6c1', 'bold': True, 'border': 2})),
         'selected_changed': wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ff8c00'})),
     }
 
@@ -187,32 +181,45 @@ def main(args):
 
             for data in curr:
                 choices = len(data['opts'])
-                item_row = row
+                new_choices = 0
+                has_changed = False
                 item_format = formats['default']
+                item_row = row
                 for d in data['opts']:
                     prev_default_value = prev.get(d['opt_id'], '')
                     if '[廃止]' in d['conf'].strip() and '[廃止]' in prev_default_value:
                         choices -= 1
                         continue
 
-                    chosen_mark, curr_conf_value, chapter = '', '', ' '
+                    selected_mark, curr_conf_value, chapter = '', '', ' '
                     prev_conf_value = conf_prev.get(d['opt_id'], '')
                     choice_format = formats['default']
 
+                    if prev_default_value == '':
+                        choice_format = formats['new']
+                        new_choices += 1
+
                     if d['opt_id'] in conf_curr:
-                        chosen_mark, curr_conf_value = 'y', conf_curr[d['opt_id']]
+                        any_selected = True
+                        selected_mark, curr_conf_value = 'y', conf_curr[d['opt_id']]
                         chapter = chapters.get(d['opt_id'], '省略')
-                        item_format = formats['selected']
+
+                        changed = prev_conf_value != curr_conf_value
+                        if changed:
+                          has_changed = True
+
+                        choice_format = formats['selected']
                         if prev_default_value == '':
-                            item_format = formats['selected_new']
-                        elif prev_conf_value != curr_conf_value:
-                            item_format = formats['selected_changed']
-                        choice_format = item_format
+                            choice_format = formats['selected_all_new']
+                        elif changed:
+                            choice_format = formats['selected_changed']
+
+                        item_format = choice_format
 
                     status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
                     status = status.replace('#', str(row+1))
 
-                    sheet.write(row, 0, chosen_mark, formats['default'])
+                    sheet.write(row, 0, selected_mark, formats['default'])
                     sheet.write(row, 1, data['item_id'], choice_format)
                     sheet.write(row, 2, data['item_title'], choice_format)
                     sheet.write_formula(row, 3, status, choice_format, '')
@@ -225,6 +232,15 @@ def main(args):
                     sheet.write(row, 10, chapter, formats['default'])
 
                     row += 1
+
+                if choices == new_choices:
+                    if item_format != formats['selected_all_new']:
+                        item_format = formats['new']
+                else:
+                    if has_changed:
+                        item_format = formats['selected_changed']
+                    elif item_format == formats['selected_all_new']:
+                        item_format = formats['selected_new']
 
                 if choices > 1:
                     end_row = item_row + choices - 1
