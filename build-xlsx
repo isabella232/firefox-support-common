@@ -107,20 +107,20 @@ def setup_conditional_format(sheet, formats):
     # SELECTED (NEW)
     sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': 'AND($I2 = "", $A2 <> "")',
+        'criteria': 'AND(ISBLANK($I2), NOT(ISBLANK($A2)))',
         'format':   formats['selected_new']
     })
 
     sheet.conditional_format('B2:C9999', {
         'type':     'formula',
-        'criteria': 'AND($I2 = "", %s)'  % countif,
+        'criteria': 'AND(ISBLANK($I2), %s)'  % countif,
         'format':   formats['selected_new']
     })
 
     # SELECTED (CHANGED)
     sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': 'AND($J2 <> $H2, $A2 <> "")',
+        'criteria': 'AND($J2 <> $H2, NOT(ISBLANK($A2)))',
         'format':   formats['changed']
     })
 
@@ -134,7 +134,7 @@ def setup_conditional_format(sheet, formats):
     # SELECTED
     sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': '$A2 <> ""',
+        'criteria': 'NOT(ISBLANK($A2))',
         'format':   formats['selected']
     })
 
