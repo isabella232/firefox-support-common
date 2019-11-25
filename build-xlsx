@@ -112,8 +112,8 @@ def setup_conditional_format(sheet, formats):
     })
 
 def main(args):
-    conf_new = {}
-    conf_old = {}
+    conf_curr = {}
+    conf_prev = {}
     chapters = {}
     outfile = 'config.xlsx'
 
@@ -127,10 +127,10 @@ def main(args):
     for arg in args:
         if ESR_CURRENT in arg:
             print('%s -> %s' % (ESR_CURRENT, arg))
-            conf_new = adlib.load_as_dict(arg)
+            conf_curr = adlib.load_as_dict(arg)
         elif ESR_PREVIOUS in arg:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
-            conf_old = adlib.load_as_dict(arg)
+            conf_prev = adlib.load_as_dict(arg)
         elif CHAPTERS_CSV in arg:
             print('Loading', os.path.basename(arg))
             try:
@@ -196,11 +196,11 @@ def main(args):
                         continue
 
                     mark, conf, chapter = '', '', ' '
-                    prev_conf = conf_old.get(d['opt_id'], '')
+                    prev_conf = conf_prev.get(d['opt_id'], '')
                     row_format = formats['default']
 
-                    if d['opt_id'] in conf_new:
-                        mark, conf = 'y', conf_new[d['opt_id']]
+                    if d['opt_id'] in conf_curr:
+                        mark, conf = 'y', conf_curr[d['opt_id']]
                         chapter = chapters.get(d['opt_id'], '省略')
                         item_format = formats['selected']
                         if prev_default == '':
