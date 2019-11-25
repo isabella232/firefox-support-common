@@ -186,18 +186,18 @@ def main(args):
             prev = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, fn))
 
             for data in curr:
-                skipped_rows = 0
+                choices = len(data['opts'])
                 item_row = row
                 item_format = formats['default']
                 for d in data['opts']:
                     prev_default = prev.get(d['opt_id'], '')
                     if '[廃止]' in d['conf'].strip() and '[廃止]' in prev_default:
-                        skipped_rows += 1
+                        choices -= 1
                         continue
 
                     mark, conf, chapter = '', '', ' '
                     prev_conf = conf_prev.get(d['opt_id'], '')
-                    row_format = formats['default']
+                    choice_format = formats['default']
 
                     if d['opt_id'] in conf_curr:
                         mark, conf = 'y', conf_curr[d['opt_id']]
@@ -207,27 +207,27 @@ def main(args):
                             item_format = formats['selected_new']
                         elif prev_conf != conf:
                             item_format = formats['selected_changed']
-                        row_format = item_format
+                        choice_format = item_format
 
                     status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
                     status = status.replace('#', str(row+1))
 
                     sheet.write(row, 0, mark, formats['default'])
-                    sheet.write(row, 1, data['item_id'], row_format)
-                    sheet.write(row, 2, data['item_title'], row_format)
-                    sheet.write_formula(row, 3, status, row_format, '')
-                    sheet.write(row, 4, d['opt_no'], row_format)
-                    sheet.write(row, 5, d['opt_title'], row_format)
-                    sheet.write(row, 6, d['conf'].strip(), row_format)
-                    sheet.write(row, 7, conf, row_format)
-                    sheet.write(row, 8, prev_default, row_format)
-                    sheet.write(row, 9, prev_conf, row_format)
-                    sheet.write(row, 10, chapter)
+                    sheet.write(row, 1, data['item_id'], choice_format)
+                    sheet.write(row, 2, data['item_title'], choice_format)
+                    sheet.write_formula(row, 3, status, choice_format, '')
+                    sheet.write(row, 4, d['opt_no'], choice_format)
+                    sheet.write(row, 5, d['opt_title'], choice_format)
+                    sheet.write(row, 6, d['conf'].strip(), choice_format)
+                    sheet.write(row, 7, conf, choice_format)
+                    sheet.write(row, 8, prev_default, choice_format)
+                    sheet.write(row, 9, prev_conf, choice_format)
+                    sheet.write(row, 10, chapter, formats['default'])
 
                     row += 1
 
-                if len(data['opts']) - skipped_rows > 1:
-                    end_row = item_row + len(data['opts']) - 1 - skipped_rows
+                if choices > 1:
+                    end_row = item_row + choices - 1
                     sheet.merge_range(item_row, 1, end_row, 1, data['item_id'], item_format)
                     sheet.merge_range(item_row, 2, end_row, 2, data['item_title'], item_format)
                 else:
