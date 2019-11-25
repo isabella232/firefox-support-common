@@ -111,46 +111,6 @@ def setup_conditional_format(sheet, formats):
         'format':   formats['question']
     })
 
-    # SELECTED (NEW)
-    sheet.conditional_format('D2:J9999', {
-        'type':     'formula',
-        'criteria': 'AND(ISBLANK($I2), NOT(ISBLANK($A2)))',
-        'format':   formats['selected_new']
-    })
-
-    sheet.conditional_format('B2:C9999', {
-        'type':     'formula',
-        'criteria': 'AND(ISBLANK($I2), %s)'  % any_selected,
-        'format':   formats['selected_new']
-    })
-
-    # SELECTED (CHANGED)
-    sheet.conditional_format('D2:J9999', {
-        'type':     'formula',
-        'criteria': 'AND($J2 <> $H2, NOT(ISBLANK($A2)))',
-        'format':   formats['changed']
-    })
-
-    sheet.conditional_format('B2:C9999', {
-        'type':     'formula',
-        'criteria': 'AND($J2 <> $H2, %s)'  % any_selected,
-        'format':   formats['changed']
-    })
-
-
-    # SELECTED
-    sheet.conditional_format('D2:J9999', {
-        'type':     'formula',
-        'criteria': 'NOT(ISBLANK($A2))',
-        'format':   formats['selected']
-    })
-
-    sheet.conditional_format('B2:C9999', {
-        'type':     'formula',
-        'criteria': any_selected,
-        'format':   formats['selected']
-    })
-
 def main(args):
     conf_new = {}
     conf_old = {}
@@ -180,12 +140,12 @@ def main(args):
 
     formats = {
         'default':      wb.add_format(DEFAULT_FORMAT),
-        'deprecated':   wb.add_format({'bg_color': '#CCCCCC', 'border': 1}),
-        'selected':     wb.add_format({'bg_color': '#ffd700', 'border': 1}),
-        'selected_new': wb.add_format({'bg_color': '#ffb6c1', 'border': 1}),
-        'question':     wb.add_format({'bg_color': '#90ee90', 'border': 1}),
-        'changed':      wb.add_format({'bg_color': '#ff8c00', 'border': 1}),
-        'new':          wb.add_format({'bold': True, 'border': 2}),
+        'deprecated':   wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#CCCCCC'})),
+        'selected':     wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffd700'})),
+        'selected_new': wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffb6c1'})),
+        'question':     wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#90ee90'})),
+        'changed':      wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ff8c00'})),
+        'new':          wb.add_format(dict(DEFAULT_FORMAT, **{'bold': True, 'border': 2})),
     }
 
     for title, files in WORKBOOK_DEF:
@@ -228,37 +188,51 @@ def main(args):
             for data in curr:
                 skipped_rows = 0
                 item_row = row
+                item_format = formats['default']
                 for d in data['opts']:
-                    if '[廃止]' in d['conf'].strip() and '[廃止]' in prev.get(d['opt_id'], ''):
+                    prev_default = prev.get(d['opt_id'], '')
+                    if '[廃止]' in d['conf'].strip() and '[廃止]' in prev_default:
                         skipped_rows += 1
                         continue
 
                     mark, conf, chapter = '', '', ' '
+                    prev_conf = conf_old.get(d['opt_id'], '')
+                    row_format = formats['default']
 
                     if d['opt_id'] in conf_new:
                         mark, conf = 'y', conf_new[d['opt_id']]
                         chapter = chapters.get(d['opt_id'], '省略')
+                        item_format = formats['selected']
+                        if prev_default == '':
+                            item_format = formats['selected_new']
+                        elif prev_conf != conf:
+                            item_format = formats['changed']
+                        row_format = item_format
 
                     status = 'IF(A#="","",IF(ISNUMBER(FIND("廃止",F#)),"廃止",IF(I#="","新機能",IF(H#<>J#,"変更",""))))'
                     status = status.replace('#', str(row+1))
 
                     sheet.write(row, 0, mark, formats['default'])
-                    sheet.write(row, 1, data['item_id'])
-                    sheet.write(row, 2, data['item_title'])
-                    sheet.write_formula(row, 3, status, None, "")
-                    sheet.write(row, 4, d['opt_no'])
-                    sheet.write(row, 5, d['opt_title'])
-                    sheet.write(row, 6, d['conf'].strip())
-                    sheet.write(row, 7, conf, formats['default'])
-                    sheet.write(row, 8, prev.get(d['opt_id'], ""), formats['default'])
-                    sheet.write(row, 9, conf_old.get(d['opt_id'], ""), formats['default'])
+                    sheet.write(row, 1, data['item_id'], row_format)
+                    sheet.write(row, 2, data['item_title'], row_format)
+                    sheet.write_formula(row, 3, status, row_format, '')
+                    sheet.write(row, 4, d['opt_no'], row_format)
+                    sheet.write(row, 5, d['opt_title'], row_format)
+                    sheet.write(row, 6, d['conf'].strip(), row_format)
+                    sheet.write(row, 7, conf, row_format)
+                    sheet.write(row, 8, prev_default, row_format)
+                    sheet.write(row, 9, prev_conf, row_format)
                     sheet.write(row, 10, chapter)
 
                     row += 1
 
                 if len(data['opts']) - skipped_rows > 1:
-                    sheet.merge_range(item_row, 1, item_row + len(data['opts']) - 1 - skipped_rows, 1, '')
-                    sheet.merge_range(item_row, 2, item_row + len(data['opts']) - 1 - skipped_rows, 2, '')
+                    end_row = item_row + len(data['opts']) - 1 - skipped_rows
+                    sheet.merge_range(item_row, 1, end_row, 1, data['item_id'], item_format)
+                    sheet.merge_range(item_row, 2, end_row, 2, data['item_title'], item_format)
+                else:
+                    sheet.write(item_row, 1, data['item_id'], item_format)
+                    sheet.write(item_row, 2, data['item_title'], item_format)
 
     wb.close()
     print('Generated:', wb.filename)
