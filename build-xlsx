@@ -231,6 +231,9 @@ def main(args):
                     sheet.merge_range(row, 2, row + len(data['opts']) - 1, 2, '')
 
                 for d in data['opts']:
+                    if '[廃止]' in d['conf'].strip() and '[廃止]' in prev.get(d['opt_id'], ''):
+                        continue
+
                     mark, conf, chapter = '', '', ' '
 
                     if d['opt_id'] in conf_new:
