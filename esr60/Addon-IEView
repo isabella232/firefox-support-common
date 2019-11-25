@@ -10,6 +10,7 @@ Addon-IEView-1: IEの起動
 
     :3: [廃止] 特定サイトをIEを自動起動し、Firefox側のタブを閉じる
 
+    [廃止]
     lockPref("extensions.ieview.forceielist", "（半角スペース区切りのURLのリスト）");
     // IE View 1.5.6.1とFirefox 52の組み合わせにおいては以下の機能は動作しない
     lockPref("extensions.ieview.closeReloadPage", true);
