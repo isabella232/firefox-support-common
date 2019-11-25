@@ -100,7 +100,7 @@ def setup_conditional_format(sheet, formats):
 
     sheet.conditional_format('D2:J9999', {
         'type':     'formula',
-        'criteria': 'OR(ISNUMBER(FIND("廃止",$F2)) OR ISNUMBER(FIND("廃止",$G2)))',
+        'criteria': 'IF(ISNUMBER(FIND("廃止",$F2)) OR ISNUMBER(FIND("廃止",$G2)))',
         'format':   formats['deprecated']
     })
 
