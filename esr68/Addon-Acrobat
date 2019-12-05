@@ -54,6 +54,7 @@ Addon-Acrobat-2: 初回起動ページの表示
     :2: 表示しない
 
     MCD:
+    // Addon-Acrobat-1に依存
     setLocalStorageFor('web2pdfextension.17@acrobat.adobe.com', {
       // Do not show https://helpx.adobe.com/acrobat/kb/acrobat-pro-firefox-extension.html on firstrun
       extnfte: { name: 'fte' }
@@ -83,6 +84,7 @@ Addon-Acrobat-3: 使用状況の送信の可否
     TargetLocation=%AppDir%/defaults/chrome/
     
     MCD:
+    // Addon-Acrobat-1に依存
     setLocalStorageFor('web2pdfextension.17@acrobat.adobe.com', {
       analyticspref: { value: false }
     });
