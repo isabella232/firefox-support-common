@@ -429,10 +429,8 @@
 {{#Startup-1}} - Startup-1-\* {{/Startup-1}}
 {{#Startup-2}} - Startup-2-\* {{/Startup-2}}
 {{#Startup-3}} - Startup-3-\* {{/Startup-3}}
-{{#Startup-4-2 || Startup-4-3 || Startup-4-4}} - Startup-4-2/3/4 {{/Startup-4-2 || Startup-4-3 || Startup-4-4}}
 {{#Startup-5-2 || Startup-5-4}} - Startup-5-2/4 {{/Startup-5-2 || Startup-5-4}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
-{{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
 {{#Startup-12}} - Startup-12-\* {{/Startup-12}}
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
 {{#Startup-14}} - Startup-14-\* {{/Startup-14}}
@@ -452,9 +450,6 @@
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
-{{#Security-9-3}}{{#Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14}}{{/Security-9-3}}
 {{#Security-35-2}}{{#Startup-7-3}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Startup-7-3}}{{/Security-35-2}}
@@ -503,7 +498,7 @@
         1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。（Privacy-52-2）
 {{/Privacy-52-2}}
 {{#Startup-14}}
-1. Firefoxをインストールした端末のデスクトップを確認する。
+1. 対象端末にライブブックマークが登録されている場合で、Firefoxをインストールした端末のデスクトップを確認する。
     - 確認項目
 {{#Startup-14-1}}
         1. OPML形式のバックアップファイルが生成されており、Firefox上でサポートページが表示される。（Startup-14-1）
@@ -511,9 +506,6 @@
 {{#Startup-14-2}}
         1. OPML形式のバックアップファイルが生成されておらず、Firefox上でもサポートページが表示されていない。（Startup-14-2）
 {{/Startup-14-2}}
-1. 対象端末にライブブックマークが登録されていない場合は`about:config`を開いて設定値を確認する。
-    - 確認項目
-        1. `browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されて{{#Startup-14-1}}いない。（Startup-14-1）{{/Startup-14-1}}{{#Startup-14-2}}いる。（Startup-14-2）{{/Startup-14-2}}
 {{/Startup-14}}
 <!--GROUP-->
 1. 任意のWebページを開く。
@@ -551,27 +543,11 @@
         1. 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。（Update-4-2）
 {{/Update-4-2}}
 {{/Admin-5 || Startup-3-2 || Update-4-2}}
-{{#Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2 }}
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Startup-4-2}}
-        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。（Startup-4-2）
-{{/Startup-4-2}}
-{{#Startup-4-4}}
-        1. `startup.homepage_override_url` の値が空文字である。（Startup-4-4）
-{{/Startup-4-4}}
-{{#Startup-10-2}}
-        1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。（Startup-10-2）
-{{/Startup-10-2}}
-{{#Startup-14-2}}
-        1. `browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されている。（Startup-10-2）
-{{/Startup-14-2}}
-{{/Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2 }}
 {{#Startup-7}}
-1. システムの時計を1年先の日付に進める。
+1. システムの時計を進めることができる場合、システムの時計を1年先の日付に進める。
 {{/Startup-7}}
 {{#Startup-7 || Startup-12-2}}
-1. Firefoxを再起動する。
+1. システムの時計を進めることができる場合、Firefoxを再起動する。
     - 確認項目
 {{#Startup-7}}
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2 || Startup-7-3}}表示されない。（Startup-7-2/3）{{/Startup-7-2 || Startup-7-3}}
@@ -580,16 +556,6 @@
         1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示されない。（Startup-12-2）
 {{/Startup-12-2}}
 {{/Startup-7 || Startup-12-2}}
-{{#Startup-7-1 || Startup-7-2}}
-1. システムの時計を進めることができない場合は`about:config`を開いて設定値を確認する。
-    - 確認項目
-  {{#Startup-7-1}}
-        1. `browser.disableResetPrompt`の値が`false`である （Startup-7-1）
-  {{/Startup-7-1}}
-  {{#Startup-7-2}}
-        1. `browser.disableResetPrompt`の値が`true`である （Startup-7-2）
-  {{/Startup-7-2}}
-{{/Startup-7-1 || Startup-7-2}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
@@ -611,15 +577,16 @@
 ### 後始末
 
 1. 検証用に導入したアドオンを削除する。
-{{#Security-9-3 || Security-35-2}}{{#Startup-4-2 || Startup-10-2 || Startup-7-3}}
+{{#Security-9-3 || Security-35-2}}{{#Startup-7-3}}
 1. ポリシー設定に加えた変更を元に戻す。
-{{/Startup-4-2 || Startup-10-2 || Startup-7-3}}{{/Security-9-3 || Security-35-2}}
+{{/Startup-7-3}}{{/Security-9-3 || Security-35-2}}
 
 
 ## ポリシー設定の反映
 
 ### 確認する項目
 
+{{#Startup-4-3}}- Startup-4-3 {{/Startup-4-3}}
 {{#Startup-7-3}}- Startup-7-3 {{/Startup-7-3}}
 {{#Security-39-1}}- Security-39-1 {{/Security-39-1}}
 {{#Security-40-1}}- Security-40-1 {{/Security-40-1}}
@@ -641,8 +608,11 @@
 1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
 1. 「有効」配下の各設定値を確認する。
     - 確認項目
+{{#Startup-4-3}}
+        1. `OverridePostUpdatePage` の値が空である。（Startup-4-3）
+{{/Startup-4-3}}
 {{#Startup-7-3}}
-        1. `DisableProfileRefresh`の値が`true`である （Startup-7-3）
+        1. システムの時計を進められない場面で、`DisableProfileRefresh` の値が `true` である （Startup-7-3）
 {{/Startup-7-3}}
 {{#Security-39-1}}
         1. 有効なポリシーの中に `WebsiteFilter` の記載が無い。（Security-39-1）
@@ -677,6 +647,265 @@
 {{#Appearance-7-1}}
         1. 有効なポリシーの中に `RequestedLocales` の記載が無い。（Update-7-1）
 {{/Appearance-7-1}}
+
+
+## 詳細設定の反映
+
+### 確認する項目
+
+{{#Startup-4-1 || Startup-4-2}}- Startup-4-1/2 {{/Startup-4-1 || Startup-4-2}}
+{{#Startup-7}}- Startup-7-\* {{/Startup-7}}
+{{#Startup-10-2}}- Startup-10-2 {{/Startup-10-2}}
+{{#Startup-14}}- Startup-14-\* {{/Startup-14}}
+{{#Security-23}}- Security-23-\* {{/Security-23}}
+{{#Security-26}} -Security-26-\* {{/Security-26}}
+{{#Security-27}} -Security-27-\* {{/Security-27}}
+{{#Security-28}} - Security-28-\* {{/Security-28}}
+{{#Security-30}} - Security-30-\* {{/Security-30}}
+{{#Security-31}} - Security-31-\* {{/Security-31}}
+{{#Security-32}} - Security-32-\* {{/Security-32}}
+{{#Security-43}} - Security-43-\* {{/Security-43}}
+{{#Security-44}} - Security-44-\* {{/Security-44}}
+{{#Privacy-6-3 || Privacy-6-4}} - Privacy-6-3/4 {{/Privacy-6-3 || Privacy-6-4}}
+{{#Privacy-8-2}} - Privacy-8-2 {{/Privacy-8-2}}
+{{#Privacy-15-2}} - Privacy-15-2 {{/Privacy-15-2}}
+{{#Privacy-33}} - Privacy-33-\* {{/Privacy-33}}
+{{#Privacy-5-2 || Privacy-5-3}}{{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}{{/Privacy-5-2 || Privacy-5-3}}
+{{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
+{{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
+{{#Privacy-46-1 || Privacy-46-2 || Privacy-46-3}} - Privacy-46-1/2 {{/Privacy-46-1 || Privacy-46-2 || Privacy-46-3}}
+{{#Privacy-47-1 || Privacy-47-2 || Privacy-47-3}} - Privacy-47-1/2/3 {{/Privacy-47-1 || Privacy-47-2 || Privacy-47-3}}
+{{#Privacy-48}} - Privacy-48-\* {{/Privacy-48}}
+{{#Privacy-49}} - Privacy-49-\* {{/Privacy-49}}
+{{#Privacy-50}} - Privacy-50-\* {{/Privacy-50}}
+{{#Update-2-2 || Update-2-3}} - Update-2-2/3 {{/Update-2-2 || Update-2-3}}
+{{#Update-3-2}} - Update-3-2 {{/Update-3-2}}
+{{#Network-1-1}} - Network-1-1 {{/Network-1-1}}
+{{#Network-4}} - Network-4-\* {{/Network-4}}
+{{#Network-5-2}} - Network-5-2 {{/Network-5-2}}
+{{#Network-6}} - Network-6-\* {{/Network-6}}
+{{#Network-7}} - Network-7-\* {{/Network-7}}
+{{#Network-8}} - Network-8-\* {{/Network-8}}
+{{#Network-10}} - Network-10-\* {{/Network-10}}
+{{#Network-13}} - Network-13-\* {{/Network-13}}
+{{#Network-14}} - Network-14-\* {{/Network-14}}
+{{#Network-16}} - Network-16-\* {{/Network-16}}
+{{#Network-17}} - Network-17-\* {{/Network-17}}
+{{#Script-2}} - Script-2-\* {{/Script-2}}
+{{#Script-3}} - Script-3-\* {{/Script-3}}
+{{#Script-7}} - Script-7-\* {{/Script-7}}
+{{#Tab-2-3}} - Tab-2-3 {{/Tab-2-3}}
+{{#Tab-9-2}} - Tab-9-2 {{/Tab-9-2}}
+{{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
+{{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
+{{#Performance-3}} - Performance-3-1/2 {{/Performance-3}}
+{{#Performance-4}} - Performance-4-\* {{/Performance-4}}
+{{#Performance-5-1}} - Performance-5-1 {{/Performance-5-1}}
+{{#Performance-7}}- Performance-7-\*{{/Performance-7}}
+{{#Stability-3-2}} - Stability-3-2 {{/Stability-3-2}}
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Security-9-3}}
+1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+{{/Security-9-3}}
+
+### 検証
+
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
+    - 確認項目
+{{#Startup-4-2}}
+        1. `browser.startup.homepage_override.mstone` の値が `ignore` である。（Startup-4-2）
+{{/Startup-4-2}}
+{{#Startup-7}}
+        1. システムの時計を進めることができない場合で、`browser.disableResetPrompt` の値が {{#Startup-7-1}}`false` である （Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2}}`true` である （Startup-7-2）{{/Startup-7-2}}
+{{/Startup-7}}
+{{#Startup-10-2}}
+        1. `media.hardware-video-decoding.failed` の値が `true` に設定されている。（Startup-10-2）
+{{/Startup-10-2}}
+{{#Startup-14}}
+        1. 対象端末にライブブックマークが登録されていない場合に、`browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されて{{#Startup-14-1}}いない。（Startup-14-1）{{/Startup-14-1}}{{#Startup-14-2}}いる。（Startup-14-2）{{/Startup-14-2}}
+{{/Startup-14}}
+        1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。（Security-23-1/2）{{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。（Security-23-3）{{/Security-23-3}}
+        1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。（Security-23-1）{{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。（Security-23-2/3）{{/Security-23-2 || Security-23-3}}
+{{#Security-26}}
+        1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合に、`browser.safebrowsing.downloads.enabled` が{{#Security-26-1}} `true` である。（Security-26-1）{{/Security-26-1}}{{#Security-26-2}} `false` である。（Security-26-2）{{/Security-26-2}}
+{{/Security-26}}
+{{#Security-27}}
+        1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合に、`browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Security-27-1}} `true` である。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}} `false` である。（Security-27-2）{{/Security-27-2}}
+{{/Security-27}}
+{{#Security-28}}
+        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。（Security-28-1）{{/Security-28-1}}{{#Security-28-2 || Security-28-3}}`false`である。（Security-28-2/3）{{/Security-28-2 || Security-28-3}}
+{{/Security-28}}
+{{#Security-30-1}}
+        1. `https://www.clear-code.com/` にアクセスできず、且つPythonの実行環境がない場合に、`security.block_script_with_wrong_mime`の値が`false`である （Security-30-1）
+{{/Security-30-1}}
+{{#Security-30-2}}
+        1. `https://www.clear-code.com/` にアクセスできず、且つPythonの実行環境がない場合に、`security.block_script_with_wrong_mime`の値が`true`である （Security-30-2）
+{{/Security-30-2}}
+{{#Security-31}}
+        1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。（Security-31-1）{{/Security-31-1}}{{#Security-31-2}}`true`である。（Security-31-2）{{/Security-31-2}}
+{{/Security-31}}
+{{#Security-32}}
+        1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。（Security-32-1）{{/Security-32-1}}{{#Security-32-2}}`false`である。（Security-32-2）{{/Security-32-2}}
+{{/Security-32}}
+{{#Security-43}}
+        1. `privacy.file_unique_origin` の値が{{#Security-43-1}}`false`である。（Security-43-1）{{/Security-43-1}}{{#Security-43-2}}`true`である。（Security-43-2）{{/Security-43-2}}
+{{/Security-43}}
+{{#Security-44}}
+        1. `media.getusermedia.insecure.enabled` の値が{{#Security-44-1}}`true`である。（Security-44-1）{{/Security-44-1}}{{#Security-44-2}}`false`である。（Security-44-2）{{/Security-44-2}}
+{{/Security-44}}
+{{#Privacy-6-3}}
+        1. `browser.cache.offline.enable`, `browser.cache.offline.insecure.enable`の値が共に`false`である。（Privacy-6-3）
+{{/Privacy-6-3}}
+{{#Privacy-8-2}}
+        1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。（Privacy-8-2）
+{{/Privacy-8-2}}
+{{#Privacy-15-2}}
+        1. `browser.search.geoip.url` の値が空文字である。（Privacy-15-2）
+{{/Privacy-15-2}}
+{{#Privacy-19-2}}
+        1. `security.ssl.errorReporting.automatic` の値が`false`である。（Privacy-19-2）
+        1. `security.ssl.errorReporting.enabled` の値が`false`である。（Privacy-19-2）
+        1. `security.ssl.errorReporting.url` の値が空文字である。（Privacy-19-2）
+{{/Privacy-19-2}}
+{{#Privacy-32}}
+        1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境で、`network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。（Privacy-32-2）{{/Privacy-32-2}}
+{{/Privacy-32}}
+{{#Privacy-33}}
+        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-1 || Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-1/3/5）{{/Privacy-33-1 || Privacy-33-3 || Privacy-33-5}}
+        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-1/2/4）{{/Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
+{{/Privacy-33}}
+{{#Privacy-37}}
+        1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境で、`network.predictor.enabled` が{{#Privacy-37-1}} `true` である。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。（Privacy-37-2）{{/Privacy-37-2}}
+{{/Privacy-37}}
+{{#Privacy-5-2 || Privacy-5-3}}
+{{#Privacy-40-1}}
+        1. `signon.rememberSignons.visibilityToggle` の値が`true`である （Privacy-40-1）
+{{/Privacy-40-1}}
+{{#Privacy-40-2}}
+        1. `signon.rememberSignons.visibilityToggle` の値が`false`である （Privacy-40-2）
+{{/Privacy-40-2}}
+{{/Privacy-5-3 || Privacy-5-2}}
+{{#Privacy-44}}
+        1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。（Privacy-44-1）{{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。（Privacy-44-2）{{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。（Privacy-44-3）{{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。（Privacy-44-4）{{/Privacy-44-4}}
+{{/Privacy-44}}
+{{#Privacy-45}}
+        1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。（Privacy-45-1）{{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。（Privacy-45-2）{{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。（Privacy-45-3）{{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。（Privacy-45-4）{{/Privacy-45-4}}
+{{/Privacy-45}}
+{{#Privacy-46-1 || Privacy-46-2 || Privacy-46-3}}
+        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。（Privacy-46-1）{{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。（Privacy-46-2）{{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。（Privacy-46-3）{{/Privacy-46-3}}
+{{/Privacy-46-1 || Privacy-46-2 || Privacy-46-3}}
+{{#Privacy-47}}
+        1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。（Privacy-47-1）{{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。（Privacy-47-2）{{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。（Privacy-47-3）{{/Privacy-47-3}}
+{{/Privacy-47}}
+{{#Privacy-48}}
+        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。（Privacy-48-1）{{/Privacy-48-3}}
+{{/Privacy-48}}
+{{#Privacy-49}}
+        1. `network.http.referer.defaultPolicy.trackers` の値が{{#Privacy-49-1}}`0`である。（Privacy-49-1）{{/Privacy-49-1}}{{#Privacy-49-2}}`1`である。（Privacy-49-2）{{/Privacy-49-2}}{{#Privacy-49-3}}`2`である。（Privacy-49-3）{{/Privacy-49-3}}{{#Privacy-49-4}}`3`である。（Privacy-49-4）{{/Privacy-49-4}}
+{{/Privacy-49}}
+{{#Privacy-50}}
+        1. `network.http.referer.defaultPolicy.trackers.pbmode` の値が{{#Privacy-50-1}}`0`である。（Privacy-50-1）{{/Privacy-50-1}}{{#Privacy-50-2}}`1`である。（Privacy-50-2）{{/Privacy-50-2}}{{#Privacy-50-3}}`2`である。（Privacy-50-3）{{/Privacy-50-3}}{{#Privacy-50-4}}`3`である。（Privacy-50-4）{{/Privacy-50-4}}
+{{/Privacy-50}}
+{{#Update-2-2 || Update-2-3}}
+        1. `extensions.update.enabled` の値が`false`である。（Update-2-2/3）
+{{/Update-2-2 || Update-2-3}}
+{{#Update-3-2}}
+        1. `browser.search.update` の値が`false`である。（Update-3-2）
+{{/Update-3-2}}
+{{#Network-1-1}}
+        1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。（Network-1-1）
+{{/Network-1-1}}
+{{#Network-4}}
+        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。（Network-4-1/2）
+{{/Network-4}}
+{{#Network-5-2}}
+{{#max_connections}}
+        1. `network.http.max-connections` の値が{{max_connections}}である。（Network-5-2）
+{{/max_connections}}
+{{#max_persistent_connections_per_server}}
+        1. `network.http.max-persistent-connections-per-server` の値が{{max_persistent_connections_per_server}}である。（Network-5-2）
+{{/max_persistent_connections_per_server}}
+{{#max_persistent_connections_per_proxy}}
+        1. `network.http.max-persistent-connections-per-proxy` の値が{{max_persistent_connections_per_proxy}}である。（Network-5-2）
+{{/max_persistent_connections_per_proxy}}
+{{/Network-5-2}}
+{{#Network-6}}
+        1. `network.http.spdy.enabled` の値が{{#Network-6-1}}`true`である。（Network-6-1）{{/Network-6-1}}{{#Network-6-2}}`false`である。（Network-6-2）{{/Network-6-2}}
+{{/Network-6}}
+{{#Network-7}}
+        1. `security.tls.insecure_fallback_hosts`の値が{{#Network-7-1}}未設定または空文字である。（Network-7-1）{{/Network-7-1}}{{#Network-7-2}}`{{ntlm_single_signon_hosts}}`である。（Network-7-2）{{/Network-7-2}}
+{{/Network-7}}
+{{#Network-8}}
+        1. `network.dns.disableIPv6` の値が{{#Network-8-1}}`false`である。（Network-8-1）{{/Network-8-1}}{{#Network-8-2}}`true`である。（Network-8-2）{{/Network-8-2}}
+{{#dns_disable_prefetch}}
+        1. `network.dns.disablePrefetch` の値が{{#Network-8-1}}`false`である。（Network-8-1）{{/Network-8-1}}{{#Network-8-2}}`true`である。（Network-8-2）{{/Network-8-2}}
+{{/dns_disable_prefetch}}
+{{/Network-8}}
+{{#Network-10}}
+        1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。（Network-10-1）{{/Network-10-1}}{{#Network-10-2}}`true`である。（Network-10-2）{{/Network-10-2}}
+{{/Network-10}}
+{{#Network-13}}
+        1. `security.tls.version.max` の値が{{#Network-13-1 || Network-13-4}}`4`である。（Network-13-1/4）{{/Network-13-1 || Network-13-4}}{{#Network-13-2 || Network-13-3}}`3`以下である。（Network-13-2/3）{{/Network-13-2 || Network-13-3}}
+{{/Network-13}}
+{{#Network-14}}
+        1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。（Network-14-1）{{/Network-14-1}}{{#Network-14-2}}`1`である。（Network-14-2）{{/Network-14-2}}{{#Network-14-3}}`2`である。（Network-14-3）{{/Network-14-3}}{{#Network-14-4}}`3`である。（Network-14-4）{{/Network-14-4}}{{#Network-14-5}}`4`である。（Network-14-5）{{/Network-14-5}}
+{{/Network-14}}
+{{#Network-16}}
+        1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
+        1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
+{{/Network-16}}
+{{#Network-17}}
+        1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。（Network-17-1）{{/Network-17-1}}{{#Network-17-2}}`2`以上である。（Network-17-2）{{/Network-17-2}}
+{{/Network-17}}
+{{#Script-2}}
+        1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
+        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
+{{/Script-2}}
+{{#Script-3}}
+        1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。（Script-3-1）{{/Script-3-1}}{{#Script-3-2}}`false`である。（Script-3-2）{{/Script-3-2}}
+{{/Script-3}}
+{{#Script-7}}
+        1. `media.autoplay.default` の値が {{#Script-7-1}}`0` である。（Script-7-1）{{/Script-7-1}}{{#Script-7-2 || Script-7-3}}`1` である。（Script-7-2/3）{{/Script-7-2 || Script-7-3}}
+        1. `media.autoplay.enabled.user-gestures-needed` の値が {{#Script-7-1 || Script-7-3}}`true` である。（Script-7-1/3）{{/Script-7-1 || Script-7-3}}{{#Script-7-2}}`1` である。（Script-7-2）{{/Script-7-2}}
+{{/Script-7}}
+{{#Tab-2-3}}
+        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-2-3）
+{{/Tab-2-3}}
+{{#Tab-9-2}}
+        1. `browser.newtab.preload` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-9-2）
+{{/Tab-9-2}}
+{{#Performance-1-2}}
+        1. `browser.cache.memory.capacity` の値が指定値の通りである。（Performance-1-2）
+{{/Performance-1-2}}
+{{#Performance-2-2}}
+        1. `content.notify.interval` の値が指定値の通りである。（Performance-2-2）
+{{/Performance-2-2}}
+{{#Performance-3}}
+        1. `browser.tabs.unloadOnLowMemory` の値が {{#Performance-3-1}}`true` である。（Performance-3-1）{{/Performance-3-1}}{{#Performance-3-2}}`false` である。（Performance-3-2）{{/Performance-3-2}}
+{{/Performance-3}}
+{{#Performance-4}}
+        1. `accessibility.force_disabled` の値が {{#Performance-4-1}}`0` である。（Performance-4-1）{{/Performance-4-1}}{{#Performance-4-2}}`1` である。（Performance-4-2）{{/Performance-4-2}}
+{{/Performance-4}}
+{{#Performance-5-1}}
+        1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。（Performance-5-1）
+{{/Performance-5-1}}
+{{#Performance-7}}
+       1. `dom.ipc.processCount` の値が{{#Performance-7-1}} `8` である。（Performance-7-1）{{/Performance-7-1}}{{#Performance-7-2}}指定値の通りである。（Performance-7-2）{{/Performance-7-2}}
+{{/Performance-7}}
+{{#Stability-3-2}}
+        1. `security.sandbox.content.level` の値が `2` である。（Stability-3-2）
+{{/Stability-3-2}}
+
+{{#Security-9-3}}
+### 後始末
+
+1. ポリシー設定に加えた変更を元に戻す。
+{{/Security-9-3}}
 
 
 {{#Admin-4}}
@@ -1279,36 +1508,6 @@
 {{/disable_devtools || Security-3-3}}
 {{/Security-21}}
 
-{{#Security-23}}
-## プラグインのサンドボックス内実行
-
-### 確認する項目
-
-- Security-23-\*
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Security-9-3}}
-
-### 検証
-
-1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-        1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。（Security-23-1/2）{{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。（Security-23-3）{{/Security-23-3}}
-        1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。（Security-23-1）{{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。（Security-23-2/3）{{/Security-23-2 || Security-23-3}}
-
-{{#Security-9-3}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Security-9-3}}
-
-{{/Security-23}}
 
 {{#Security-25}}
 ## プロトコルごとの外部Webアプリケーションへの連携
@@ -1343,7 +1542,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合は実際の動作での検証が不可能なため、安全でない実行ファイルのダウンロードが可能な状態にしておく。
+1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない状態としておく。（そのようにできない場合はこの節の検証は省略する。）
 <!--
 {{#Security-26}}
 1. 検証用にHTTPで端末から `http://download.safebrowsingtest.com/download` としてアクセス可能なサーバーを用意する
@@ -1377,14 +1576,6 @@
 1. ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
     - 確認項目
         1. ダウンロード一覧の一番上の項目に{{#Security-27-1}}「このファイルを開くのは危険です。」という警告のメッセージが表示される。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}}特に警告のメッセージは表示されない。（Security-27-2）{{/Security-27-2}}
-{{/Security-27}}
-1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合、実際の挙動での検証が不可能のため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
-    - 確認項目
-{{#Security-26}}
-        1. `browser.safebrowsing.downloads.enabled` が{{#Security-26-1}} `true` である。（Security-26-1）{{/Security-26-1}}{{#Security-26-2}} `false` である。（Security-26-2）{{/Security-26-2}}
-{{/Security-26}}
-{{#Security-27}}
-        1. `browser.safebrowsing.downloads.remote.block_potentially_unwanted` と  `browser.safebrowsing.downloads.remote.block_uncommon` がどちらも{{#Security-27-1}} `true` である。（Security-27-1）{{/Security-27-1}}{{#Security-27-2}} `false` である。（Security-27-2）{{/Security-27-2}}
 {{/Security-27}}
 
 
@@ -1474,45 +1665,21 @@
 
 ### 確認する項目
 
-{{#Security-28}} - Security-28-\* {{/Security-28}}
 {{#Security-29}} - Security-29-\* {{/Security-29}}
 {{#Security-30}} - Security-30-\* {{/Security-30}}
-{{#Security-31}} - Security-31-\* {{/Security-31}}
-{{#Security-32}} - Security-32-\* {{/Security-32}}
 {{#Security-42-2}} - Security-42-2 {{/Security-42-2}}
-{{#Security-43}} - Security-43-\* {{/Security-43}}
-{{#Security-44}} - Security-44-\* {{/Security-44}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Security-28 || Security-31 || Security-32}}{{/Security-9-3}}
+{{#Security-30}}
+1. Pythonの実行環境を整えておく。
+{{/Security-30}}
 
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-<!--GROUP-->
-1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Security-28}}
-        1. `network.captive-portal-service.enabled` の値が{{#Security-28-1}}`true`である。（Security-28-1）{{/Security-28-1}}{{#Security-28-2 || Security-28-3}}`false`である。（Security-28-2/3）{{/Security-28-2 || Security-28-3}}
-{{/Security-28}}
-{{#Security-31}}
-        1. `browser.safebrowsing.blockedURIs.enabled` の値が{{#Security-31-1}}`false`である。（Security-31-1）{{/Security-31-1}}{{#Security-31-2}}`true`である。（Security-31-2）{{/Security-31-2}}
-{{/Security-31}}
-{{#Security-32}}
-        1. `xpinstall.whitelist.required` の値が{{#Security-32-1}}`true`である。（Security-32-1）{{/Security-32-1}}{{#Security-32-2}}`false`である。（Security-32-2）{{/Security-32-2}}
-{{/Security-32}}
-{{#Security-43}}
-        1. `privacy.file_unique_origin` の値が{{#Security-43-1}}`false`である。（Security-43-1）{{/Security-43-1}}{{#Security-43-2}}`true`である。（Security-43-2）{{/Security-43-2}}
-{{/Security-43}}
-{{#Security-44}}
-        1. `media.getusermedia.insecure.enabled` の値が{{#Security-44-1}}`true`である。（Security-44-1）{{/Security-44-1}}{{#Security-44-2}}`false`である。（Security-44-2）{{/Security-44-2}}
-{{/Security-44}}
-<!--/GROUP-->
 {{#Security-29}}
 1. テストケースリストのリンクから `https://example.com` を開き、Ctrl-Shift-KでWebコンソールを開く。
 1. `document.cookie = 'secure=true; Secure'` を実行する。
@@ -1540,21 +1707,8 @@
 {{#Security-30-2}}
         1. アラートダイアログが表示されず、スクリプトがブロックされている。（Security-30-2）
 {{/Security-30-2}}
-1. テストケースリストのリンクを開けず、Pythonの実行環境もない場合、about:configを開いて次の設定値を確認する。
-    - 確認項目
-{{#Security-30-1}}
-        1. `security.block_script_with_wrong_mime`の値が`false`である （Security-30-1）
-{{/Security-30-1}}
-{{#Security-30-2}}
-        1. `security.block_script_with_wrong_mime`の値が`true`である （Security-30-2）
-{{/Security-30-2}}
 {{/Security-30}}
 
-{{#Security-9-3}}{{#Security-28 || Security-31 || Security-32}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Security-28 || Security-31 || Security-32}}{{/Security-9-3}}
 
 <!--======================================================================-->
 
@@ -1572,20 +1726,16 @@
 {{#Privacy-5-2}} - Privacy-5-2 {{/Privacy-5-2}}
 {{#Privacy-5-3}} - Privacy-5-3 {{/Privacy-5-3}}
 {{#Privacy-5-4}} - Privacy-5-4 {{/Privacy-5-4}}
-{{#Privacy-6-3 || Privacy-6-4}} - Privacy-6-3/4 {{/Privacy-6-3 || Privacy-6-4}}
 {{#Privacy-7}} - Privacy-7-\* {{/Privacy-7}}
-{{#Privacy-8-2}} - Privacy-8-2 {{/Privacy-8-2}}
 {{#Privacy-10-2}} - Privacy-10-2 {{/Privacy-10-2}}
 {{#Privacy-12}} - Privacy-12-\* {{/Privacy-12}}
 {{#Privacy-13}} - Privacy-13-\* {{/Privacy-13}}
-{{#Privacy-15-2}} - Privacy-15-2 {{/Privacy-15-2}}
 {{#Privacy-16}} - Privacy-16-\* {{/Privacy-16}}
 {{#Privacy-17}} - Privacy-17-\* {{/Privacy-17}}
 {{#Privacy-18-2 || Privacy-18-3}} - Privacy-18-2/3 {{/Privacy-18-2 || Privacy-18-3}}
 {{#Privacy-19-2}} - Privacy-19-2 {{/Privacy-19-2}}
 {{#Privacy-21-2}} - Privacy-21-2 {{/Privacy-21-2}}
 {{#Privacy-32}} - Privacy-32-\* {{/Privacy-32}}
-{{#Privacy-33}} - Privacy-33-\* {{/Privacy-33}}
 {{#Privacy-35}} - Privacy-35-\* {{/Privacy-35}}
 {{#Privacy-36}} - Privacy-36-\* {{/Privacy-36}}
 {{#Privacy-37}} - Privacy-37-\* {{/Privacy-37}}
@@ -1596,13 +1746,8 @@
 {{^Privacy-33-2 || Privacy-33-4}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2 || Privacy-33-4}}
 {{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
 {{#Privacy-43}} - Privacy-43-\*{{/Privacy-43}}
-{{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
-{{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
-{{#Privacy-46}} - Privacy-46-\* {{/Privacy-46}}
-{{#Privacy-47}} - Privacy-47-\* {{/Privacy-47}}
-{{#Privacy-48}} - Privacy-48-\* {{/Privacy-48}}
-{{#Privacy-49}} - Privacy-49-\* {{/Privacy-49}}
-{{#Privacy-50}} - Privacy-50-\* {{/Privacy-50}}
+{{#Privacy-46-3 || Privacy-46-4}} - Privacy-46-3/4 {{/Privacy-46-3 || Privacy-46-4}}
+{{#Privacy-47-3 || Privacy-47-4}} - Privacy-47-3/4 {{/Privacy-47-3 || Privacy-47-4}}
 
 ### 準備
 
@@ -1610,9 +1755,6 @@
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
-{{#Security-9-3}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-44 || Privacy-45 || Privacy-46 || Privacy-47 || Privacy-48 || Privacy-49 || Privacy-50}}{{/Security-9-3}}
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}{{/disable_devtools}}
@@ -1627,7 +1769,7 @@
     - `lockPref("logging.config.add_timestamp", true);`
     - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
 1. `C:\Users\Public\http.log-*` を全て削除しておく。
-1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
+1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。もしくは、本節での先読みに関する検証を省略する。
 {{/Privacy-32 || Privacy-37}}
 
 ### 検証
@@ -1746,58 +1888,6 @@
 {{/Privacy-38}}
 <!--/GROUP-->
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
-<!--GROUP-->
-1. 各設定値を確認する。
-    - 確認項目
-{{#Privacy-6-3}}
-        1. `browser.cache.offline.enable`, `browser.cache.offline.insecure.enable`の値が共に`false`である。（Privacy-6-3）
-{{/Privacy-6-3}}
-{{#Privacy-8-2}}
-        1. `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。（Privacy-8-2）
-{{/Privacy-8-2}}
-{{#Privacy-15-2}}
-        1. `browser.search.geoip.url` の値が空文字である。（Privacy-15-2）
-{{/Privacy-15-2}}
-{{#Privacy-19-2}}
-        1. `security.ssl.errorReporting.automatic` の値が`false`である。（Privacy-19-2）
-        1. `security.ssl.errorReporting.enabled` の値が`false`である。（Privacy-19-2）
-        1. `security.ssl.errorReporting.url` の値が空文字である。（Privacy-19-2）
-{{/Privacy-19-2}}
-{{#Privacy-33}}
-        1. `privacy.trackingprotection.enabled` の値が{{#Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-2/4）{{/Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-1 || Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-1/3/5）{{/Privacy-33-1 || Privacy-33-3 || Privacy-33-5}}
-        1. `privacy.trackingprotection.pbmode.enabled` の値が{{#Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}`true`である。（Privacy-33-1/2/4）{{/Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}{{#Privacy-33-3 || Privacy-33-5}}`false`である。（Privacy-33-3/5）{{/Privacy-33-3 || Privacy-33-5}}
-{{/Privacy-33}}
-{{#Privacy-48}}
-        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。（Privacy-48-1）{{/Privacy-48-3}}
-{{/Privacy-48}}
-{{#Privacy-44}}
-        1. `network.http.referer.defaultPolicy` の値が{{#Privacy-44-1}}`0`である。（Privacy-44-1）{{/Privacy-44-1}}{{#Privacy-44-2}}`1`である。（Privacy-44-2）{{/Privacy-44-2}}{{#Privacy-44-3}}`2`である。（Privacy-44-3）{{/Privacy-44-3}}{{#Privacy-44-4}}`3`である。（Privacy-44-4）{{/Privacy-44-4}}
-{{/Privacy-44}}
-{{#Privacy-45}}
-        1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。（Privacy-45-1）{{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。（Privacy-45-2）{{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。（Privacy-45-3）{{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。（Privacy-45-4）{{/Privacy-45-4}}
-{{/Privacy-45}}
-{{#Privacy-49}}
-        1. `network.http.referer.defaultPolicy.trackers` の値が{{#Privacy-49-1}}`0`である。（Privacy-49-1）{{/Privacy-49-1}}{{#Privacy-49-2}}`1`である。（Privacy-49-2）{{/Privacy-49-2}}{{#Privacy-49-3}}`2`である。（Privacy-49-3）{{/Privacy-49-3}}{{#Privacy-49-4}}`3`である。（Privacy-49-4）{{/Privacy-49-4}}
-{{/Privacy-49}}
-{{#Privacy-50}}
-        1. `network.http.referer.defaultPolicy.trackers.pbmode` の値が{{#Privacy-50-1}}`0`である。（Privacy-50-1）{{/Privacy-50-1}}{{#Privacy-50-2}}`1`である。（Privacy-50-2）{{/Privacy-50-2}}{{#Privacy-50-3}}`2`である。（Privacy-50-3）{{/Privacy-50-3}}{{#Privacy-50-4}}`3`である。（Privacy-50-4）{{/Privacy-50-4}}
-{{/Privacy-50}}
-{{#Privacy-46}}
-        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。（Privacy-46-1）{{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。（Privacy-46-2）{{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。（Privacy-46-3）{{/Privacy-46-3}}
-{{/Privacy-46}}
-{{#Privacy-47}}
-        1. `permissions.default.microphone` の値が{{#Privacy-47-1}}`0`である。（Privacy-47-1）{{/Privacy-47-1}}{{#Privacy-47-2}}`1`である。（Privacy-47-2）{{/Privacy-47-2}}{{#Privacy-47-3}}`2`である。（Privacy-47-3）{{/Privacy-47-3}}
-{{/Privacy-47}}
-{{#Privacy-5-2 || Privacy-5-3}}
-  {{#Privacy-40-1}}
-        1. `signon.rememberSignons.visibilityToggle` の値が`true`である （Privacy-40-1）
-  {{/Privacy-40-1}}
-  {{#Privacy-40-2}}
-        1. `signon.rememberSignons.visibilityToggle` の値が`false`である （Privacy-40-2）
-  {{/Privacy-40-2}}
-{{/Privacy-5-3 || Privacy-5-2}}
-
-<!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
 1. `about:config` で以下の設定を行う。設定値が既に指定の通りであればそのままとする。また、既存の値がない場合は新規に作成する。
 {{#Privacy-16}}
@@ -1856,14 +1946,6 @@
 {{#Privacy-37}}
         1. {{#Privacy-37-1}}「All cancelled? false」{{/Privacy-37-1}}{{#Privacy-37-2}}「All cancelled? true」{{/Privacy-37-2}}とコンソールに出力される。{{#Privacy-37-1}}（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}}（Privacy-37-2）{{/Privacy-37-2}}
 {{/Privacy-37}}
-1. 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用しないことからログに必要な情報が記録されず、上記手順での検証は不可能なため、`about:config` もしくは `about:support` で以下の設定の反映状況のみ確認する。
-    - 確認項目
-{{#Privacy-32}}
-        1. `network.http.speculative-parallel-limit` が{{#Privacy-32-1}} `1` またはそれ以上である。（Privacy-32-1）{{/Privacy-32-1}}{{#Privacy-32-2}} `0` である。（Privacy-32-2）{{/Privacy-32-2}}
-{{/Privacy-32}}
-{{#Privacy-37}}
-        1. `network.predictor.enabled` が{{#Privacy-37-1}} `true` である。（Privacy-37-1）{{/Privacy-37-1}}{{#Privacy-37-2}} `false` である。（Privacy-37-2）{{/Privacy-37-2}}
-{{/Privacy-37}}
 {{/Privacy-32 || Privacy-37}}
 
 ### 後始末
@@ -1875,9 +1957,9 @@
 {{/Privacy-16}}
     1. `devtools.chrome.enabled` （真偽型）
 {{/Privacy-7 || Privacy-16}}
-{{#Security-9-3 || disable_devtools}}{{#Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}
+{{#Security-9-3 || disable_devtools}}{{#Privacy-42-2 || disable_devtools}}
 1. ポリシー設定に加えた変更を元に戻す。
-{{/disable_devtools || Privacy-8-2 || Privacy-15-2 || Privacy-19-2 || Privacy-33 || Privacy-42-2 || Privacy-44 || Privacy-45 || disable_devtools}}{{/Security-9-3 || disable_devtools}}
+{{/Privacy-42-2 || disable_devtools}}{{/Security-9-3 || disable_devtools}}
 {{#Privacy-32 || Privacy-37}}
 1. MCD設定ファイルに追加した設定を全て削除する
 1. `C:\Users\Public\http.log-*` を全て削除する。
@@ -2284,7 +2366,6 @@
 {{#Tab-3}} - Tab-3-\* {{/Tab-3}}
 {{#Tab-5}} - Tab-5-\* {{/Tab-5}}
 {{#Tab-6-2}} - Tab-6-2 {{/Tab-6-2}}
-{{#Tab-9}} - Tab-9-\* {{/Tab-9}}
 
 ### 準備
 
@@ -2293,9 +2374,6 @@
 {{#Tab-3}}
 1. テストケース `links.html` を用意する。
 {{/Tab-3}}
-{{#Security-9-3}}{{#Tab-2-3 || Tab-9-2}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Tab-2-3 || Tab-9-2}}{{/Security-9-3}}
 
 ### 検証
 
@@ -2352,22 +2430,6 @@
         1. 「タブグループ」配下に「同時に複数のタブを開いて Firefoxの動作が遅くなるときは確認する」のチェックボックスがOFFの状態で表示されている。（Tab-3-3）
 {{/Tab-3-3}}
 <!--/GROUP-->
-<!--GROUP-->
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Tab-2-3}}
-        1. `browser.tabs.warnOnCloseOtherTabs` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-2-3）
-{{/Tab-2-3}}
-{{#Tab-9-2}}
-        1. `browser.newtab.preload` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-9-2）
-{{/Tab-9-2}}
-<!--/GROUP-->
-
-{{#Security-9-3}}{{#Tab-2-3 || Tab-9-2}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Tab-2-3 || Tab-9-2}}{{/Security-9-3}}
 
 
 
@@ -2552,16 +2614,12 @@
 ### 確認する項目
 
 {{#Script-2}} - Script-2-\* {{/Script-2}}
-{{#Script-3}} - Script-3-\* {{/Script-3}}
 {{#Script-8}} - Script-8-\* {{/Script-8}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Security-9-3}}
 
 ### 検証
 
@@ -2571,17 +2629,6 @@
     - 確認項目
         1. ページ内に「Service Worker not available」と表示されている。（Script-2-3）
 {{/Script-2-3}}
-<!--GROUP-->
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Script-2}}
-        1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
-        1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
-{{/Script-2}}
-{{#Script-3}}
-        1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。（Script-3-1）{{/Script-3-1}}{{#Script-3-2}}`false`である。（Script-3-2）{{/Script-3-2}}
-{{/Script-3}}
-<!--/GROUP-->
 {{#Script-2-4 || Script-2-6}}
 1. 確認なしでpush通知を許可する対象のサイトを開き、ページのコンテキストメニューから「ページの情報を表示」を選択して、「ページの情報」ダイアログを開く。
     - 確認項目
@@ -2638,7 +2685,6 @@
 
 {{#Stability-2-2}}- Stability-2-2{{/Stability-2-2}}
 {{#Stability-2-3}}- Stability-2-3{{/Stability-2-3}}
-{{#Performance-7}}- Performance-7-\*{{/Performance-7}}
 
 ### 準備
 
@@ -2659,11 +2705,6 @@
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。（Stability-2-2）{{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。（Stability-2-3）{{/Stability-2-3}}
 {{/Stability-2-2 || Stability-2-3}}
-{{#Performance-7}}
-1. `about:config` を開き、各設定値を確認する。
-    - 確認項目
-       1. `dom.ipc.processCount` の値が{{#Performance-7-1}} `8` である。（Performance-7-1）{{/Performance-7-1}}{{#Performance-7-2}}指定値の通りである。（Performance-7-2）{{/Performance-7-2}}
-{{/Performance-7}}
 
 
 
@@ -2900,87 +2941,23 @@
 
 ### 確認する項目
 
-{{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
-{{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
-{{#Performance-3}} - Performance-3-1/2 {{/Performance-3}}
-{{#Performance-4}} - Performance-4-\* {{/Performance-4}}
-{{#Performance-5-1}} - Performance-5-1 {{/Performance-5-1}}
 {{#Performance-6-2}} - Performance-6-2 {{/Performance-6-2}}
-{{#Stability-3-2}} - Stability-3-2 {{/Stability-3-2}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-{{/Security-9-3}}
 
 
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Performance-1-2}}
-        1. `browser.cache.memory.capacity` の値が指定値の通りである。（Performance-1-2）
-{{/Performance-1-2}}
-{{#Performance-2-2}}
-        1. `content.notify.interval` の値が指定値の通りである。（Performance-2-2）
-{{/Performance-2-2}}
-{{#Performance-3}}
-        1. `browser.tabs.unloadOnLowMemory` の値が {{#Performance-3-1}}`true` である。（Performance-3-1）{{/Performance-3-1}}{{#Performance-3-2}}`false` である。（Performance-3-2）{{/Performance-3-2}}
-{{/Performance-3}}
-{{#Performance-4}}
-        1. `accessibility.force_disabled` の値が {{#Performance-4-1}}`0` である。（Performance-4-1）{{/Performance-4-1}}{{#Performance-4-2}}`1` である。（Performance-4-2）{{/Performance-4-2}}
-{{/Performance-4}}
-{{#Performance-5-1}}
-        1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。（Performance-5-1）
-{{/Performance-5-1}}
-{{#Stability-3-2}}
-        1. `security.sandbox.content.level` の値が `2` である。（Stability-3-2）
-{{/Stability-3-2}}
 {{#Performance-6-2}}
 1. 上限として設定した数より多くタブを開く操作を行う。
     - 確認項目
         1. 上限を超えて開いた分のタブが自動的に閉じられる。（Performance-6-2）
 {{/Performance-6-2}}
 
-{{#Security-9-3}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Security-9-3}}
-
-{{#Script-7}}
-## 音声の自動再生の制御
-
-### 確認する項目
-
-- Script-7-\*
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Security-9-3}}
-
-### 検証
-
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-        1. `media.autoplay.default` の値が {{#Script-7-1}}`0` である。（Script-7-1）{{/Script-7-1}}{{#Script-7-2 || Script-7-3}}`1` である。（Script-7-2/3）{{/Script-7-2 || Script-7-3}}
-        1. `media.autoplay.enabled.user-gestures-needed` の値が {{#Script-7-1 || Script-7-3}}`true` である。（Script-7-1/3）{{/Script-7-1 || Script-7-3}}{{#Script-7-2}}`1` である。（Script-7-2）{{/Script-7-2}}
-
-{{#Security-9-3}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Security-9-3}}
-
-{{/Script-7}}
 
 <!--======================================================================-->
 
@@ -3031,27 +3008,13 @@
 
 ### 確認する項目
 
-{{#Network-1-1}} - Network-1-1 {{/Network-1-1}}
-{{#Network-4}} - Network-4-\* {{/Network-4}}
-{{#Network-5-2}} - Network-5-2 {{/Network-5-2}}
-{{#Network-6}} - Network-6-\* {{/Network-6}}
-{{#Network-7}} - Network-7-\* {{/Network-7}}
-{{#Network-8}} - Network-8-\* {{/Network-8}}
-{{#Network-10}} - Network-10-\* {{/Network-10}}
 {{#Network-11-1 || Network-11-2}} - Network-11-1/2 {{/Network-11-1 || Network-11-2}}
 {{#Network-12}} - Network-12-\* {{/Network-12}}
-{{#Network-13}} - Network-13-\* {{/Network-13}}
-{{#Network-14}} - Network-14-\* {{/Network-14}}
-{{#Network-16}} - Network-16-\* {{/Network-16}}
-{{#Network-17}} - Network-17-\* {{/Network-17}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}{{#Network-1-1 || Network-4 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Network-1-1 || Network-4 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}{{/Security-9-3}}
 {{#Security-35-2}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Security-35-2}}
@@ -3063,59 +3026,10 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-<!--GROUP-->
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Network-1-1}}
-        1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。（Network-1-1）
-{{/Network-1-1}}
-{{#Network-4}}
-        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。（Network-4-1/2）
-{{/Network-4}}
-{{#Network-5-2}}
-{{#max_connections}}
-        1. `network.http.max-connections` の値が{{max_connections}}である。（Network-5-2）
-{{/max_connections}}
-{{#max_persistent_connections_per_server}}
-        1. `network.http.max-persistent-connections-per-server` の値が{{max_persistent_connections_per_server}}である。（Network-5-2）
-{{/max_persistent_connections_per_server}}
-{{#max_persistent_connections_per_proxy}}
-        1. `network.http.max-persistent-connections-per-proxy` の値が{{max_persistent_connections_per_proxy}}である。（Network-5-2）
-{{/max_persistent_connections_per_proxy}}
-{{/Network-5-2}}
-{{#Network-6}}
-        1. `network.http.spdy.enabled` の値が{{#Network-6-1}}`true`である。（Network-6-1）{{/Network-6-1}}{{#Network-6-2}}`false`である。（Network-6-2）{{/Network-6-2}}
-{{/Network-6}}
-{{#Network-7}}
-        1. `security.tls.insecure_fallback_hosts`の値が{{#Network-7-1}}未設定または空文字である。（Network-7-1）{{/Network-7-1}}{{#Network-7-2}}`{{ntlm_single_signon_hosts}}`である。（Network-7-2）{{/Network-7-2}}
-{{/Network-7}}
-{{#Network-8}}
-        1. `network.dns.disableIPv6` の値が{{#Network-8-1}}`false`である。（Network-8-1）{{/Network-8-1}}{{#Network-8-2}}`true`である。（Network-8-2）{{/Network-8-2}}
-{{#dns_disable_prefetch}}
-        1. `network.dns.disablePrefetch` の値が{{#Network-8-1}}`false`である。（Network-8-1）{{/Network-8-1}}{{#Network-8-2}}`true`である。（Network-8-2）{{/Network-8-2}}
-{{/dns_disable_prefetch}}
-{{/Network-8}}
-{{#Network-10}}
-        1. `network.dns.blockDotOnion` の値が{{#Network-10-1}}`false`である。（Network-10-1）{{/Network-10-1}}{{#Network-10-2}}`true`である。（Network-10-2）{{/Network-10-2}}
-{{/Network-10}}
-{{#Network-13}}
-        1. `security.tls.version.max` の値が{{#Network-13-1 || Network-13-4}}`4`である。（Network-13-1/4）{{/Network-13-1 || Network-13-4}}{{#Network-13-2 || Network-13-3}}`3`以下である。（Network-13-2/3）{{/Network-13-2 || Network-13-3}}
-{{/Network-13}}
-{{#Network-16}}
-        1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
-        1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
-{{/Network-16}}
-{{#Network-17}}
-        1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。（Network-17-1）{{/Network-17-1}}{{#Network-17-2}}`2`以上である。（Network-17-2）{{/Network-17-2}}
-{{/Network-17}}
-{{#Network-14}}
-        1. `security.pki.sha1_enforcement_level` の値が{{#Network-14-1}}`0`である。（Network-14-1）{{/Network-14-1}}{{#Network-14-2}}`1`である。（Network-14-2）{{/Network-14-2}}{{#Network-14-3}}`2`である。（Network-14-3）{{/Network-14-3}}{{#Network-14-4}}`3`である。（Network-14-4）{{/Network-14-4}}{{#Network-14-5}}`4`である。（Network-14-5）{{/Network-14-5}}
-{{/Network-14}}
-<!--/GROUP-->
 {{#Network-11-1 || Network-11-2}}
 1. ロケーションバーに `about:support` と入力し、トラブルシューティング情報の一覧を表示する。
     - 確認項目
-        1. 「User Agent」の値が{{#Network-11-1}}Firefox既定のUA文字列である。（Network-11-1）{{/Network-11-1}}{{#Network-11-2}}「{{user_agent_name}}」である（appversionなどの個別の値を上書きしている場合は、代わりに`about:config`で対応する設定の値を確認すること）。（Network-11-2）{{/Network-11-2}}
+        1. 「User Agent」の値が{{#Network-11-1}}Firefox既定のUA文字列である。（Network-11-1）{{/Network-11-1}}{{#Network-11-2}}「{{user_agent_name}}」である。（Network-11-2）{{/Network-11-2}}
 {{/Network-11-1 || Network-11-2}}
 {{#Network-12}}
 1. ロケーションバーに `jar:{{jar_file_sample_url_base}}/sample.jar!/sample.txt` と入力し、開く。
@@ -3128,31 +3042,20 @@
 {{/Network-12-2}}
 {{/Network-12}}
 
-{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14}}{{/Security-9-3}}
-
 <!--======================================================================-->
 
 # 自動更新のカスタマイズ
 
-## Firefoxおよびアドオンの自動更新の制限
+## Firefoxの自動更新の制限
 
 ### 確認する項目
 
 {{#Update-1-4}} - Update-1-4 {{/Update-1-4}}
-{{#Update-2-2 || Update-2-3}} - Update-2-2/3 {{/Update-2-2 || Update-2-3}}
-{{#Update-3-2}} - Update-3-2 {{/Update-3-2}}
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}
-1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Security-9-3}}
 
 ### 検証
 
@@ -3162,20 +3065,7 @@
     - 確認項目
         1. 「ソフトウェアの更新を確認」が表示されない。（Update-1-4）
 {{/Update-1-4}}
-1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開いて、各設定値を確認する。
-    - 確認項目
-{{#Update-2-2 || Update-2-3}}
-        1. `extensions.update.enabled` の値が`false`である。（Update-2-2/3）
-{{/Update-2-2 || Update-2-3}}
-{{#Update-3-2}}
-        1. `browser.search.update` の値が`false`である。（Update-3-2）
-{{/Update-3-2}}
 
-{{#Security-9-3}}
-### 後始末
-
-1. ポリシー設定に加えた変更を元に戻す。
-{{/Security-9-3}}
 
 <!--======================================================================-->
 
