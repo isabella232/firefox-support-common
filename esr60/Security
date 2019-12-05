@@ -34,7 +34,7 @@ Security-3: アドオンのインストールの可否
 
     :6: 特定サイトのみ常に許可する（ポリシーとして設定）
 
-    "InstallAddonsPermission": { "Allow": ["(origin1)", "(origin2)", …] }
+    "InstallAddonsPermission": { "Allow": ["(origin1)", "(origin2)", …] },
 
     :5: 特定サイトのみ初期状態で許可する
 
@@ -49,7 +49,7 @@ Security-3: アドオンのインストールの可否
     :3: 禁止する（ポリシー設定を併用）
 
     ポリシー：
-    "BlockAboutAddons": true
+    "BlockAboutAddons": true,
 
     MCD：
     lockPref("xpinstall.enabled", false);
@@ -80,7 +80,7 @@ Security-4: 広告などのポップアップの表示の可否
 
     :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
 
-    "Popups": { "Allow": ["(origin1)", "(origin2)", …] }
+    "Popups": { "Allow": ["(origin1)", "(origin2)", …] },
 
     :5: 特定サイトのみ初期状態で確認無しで許可する
 
@@ -178,7 +178,7 @@ Security-9: about:configの利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    "BlockAboutConfig": true
+    "BlockAboutConfig": true,
 
 Security-10: [廃止] エラーコンソールの利用の可否
 

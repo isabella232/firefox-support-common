@@ -42,7 +42,7 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :3: 保存しない（ポリシーで設定）
 
-    "DisableFormHistory": true
+    "DisableFormHistory": true,
 
 Privacy-3: ダウンロード履歴の保存の可否
 
@@ -188,7 +188,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :6: 特定サイトのみ永続的に許可する（ポリシーで設定）
 
-    "Cookies": { "Allow": ["(origin1)", "(origin2)", ...] }
+    "Cookies": { "Allow": ["(origin1)", "(origin2)", ...] },
 
     :5: 特定サイトのみ初期状態で永続的に許可する
 
@@ -214,7 +214,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :7: 特定サイトのみ永続的に禁止する（ポリシーで設定）
 
-    "Cookies": { "Block": ["(origin1)", "(origin2)", ...] }
+    "Cookies": { "Block": ["(origin1)", "(origin2)", ...] },
 
 Privacy-12: DOMストレージの利用の可否
 
@@ -672,7 +672,7 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :2: 参加しない
 
-    "DisableFirefoxStudies": true
+    "DisableFirefoxStudies": true,
 
 Privacy-43: 「Do Not Track」ヘッダの送出の可否
 

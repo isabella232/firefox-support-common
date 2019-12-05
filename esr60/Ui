@@ -72,7 +72,7 @@ Ui-7: FirefoxScreenshots機能の使用
 
     :3: 使用しない（ポリシーで設定）
 
-    "DisableFirefoxScreenshots": true
+    "DisableFirefoxScreenshots": true,
 
 Ui-8: [廃止] アドレスバーの拡大・縮小ボタンの表示
 
