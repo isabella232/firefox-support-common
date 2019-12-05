@@ -2753,7 +2753,7 @@
 {{#Appearance-2-2}} - Appearance-2-2 {{/Appearance-2-2}}
 {{#Appearance-3-2}} - Appearance-3-2 {{/Appearance-3-2}}
 {{#Appearance-5}} - Appearance-5-\* {{/Appearance-5}}
-{{#Appearance-6-1}} - Appearance-6-1 {{/Appearance-6-1}}
+{{#Appearance-6}} - Appearance-6-\* {{/Appearance-6}}
 {{#Appearance-9-2}} - Appearance-9-2 {{/Appearance-9-2}}
 
 ### 準備
