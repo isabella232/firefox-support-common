@@ -439,7 +439,6 @@
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Update-6-2}} - Update-6-2 {{/Update-6-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
-{{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Privacy-52}} - Privacy-52-\* {{/Privacy-52}}
 
 ### 準備
@@ -629,6 +628,7 @@
 {{#Update-6-2}}- Update-6-2 {{/Update-6-2}}
 {{#Update-7-2}}- Update-7-2 {{/Update-7-2}}
 {{#Download-3-3 || Download-3-4}}- Download-3-3/4 {{/Download-3-3 || Download-3-4}}
+{{#Appearance-7-1}}- Appearance-7-1 {{/Appearance-7-1}}
 
 ### 準備
 
@@ -674,6 +674,9 @@
 {{#Download-3-3 || Download-3-4}}
         1. `PromptForDownloadLocation`が`true`である。（Download-3-3/4）
 {{/Download-3-3 || Download-3-4}}
+{{#Appearance-7-1}}
+        1. 有効なポリシーの中に `RequestedLocales` の記載が無い。（Update-7-1）
+{{/Appearance-7-1}}
 
 
 {{#Admin-4}}
@@ -2629,14 +2632,13 @@
 {{/Stability-1}}
 
 
-{{#Stability-2-2 || Stability-2-3 || Performance-7-2}}
 ## プロセス分離の制御
 
 ### 確認する項目
 
 {{#Stability-2-2}}- Stability-2-2{{/Stability-2-2}}
 {{#Stability-2-3}}- Stability-2-3{{/Stability-2-3}}
-{{#Performance-7-2}}- Performance-7-2{{/Performance-7-2}}
+{{#Performance-7}}- Performance-7-\*{{/Performance-7}}
 
 ### 準備
 
@@ -2657,13 +2659,12 @@
     - 確認項目
        1. 「アプリケーション基本情報」の「マルチプロセスウィンドウ」に{{#Stability-2-2}}「有効」と表示されている。（Stability-2-2）{{/Stability-2-2}}{{#Stability-2-3}}「無効」と表示されている。（Stability-2-3）{{/Stability-2-3}}
 {{/Stability-2-2 || Stability-2-3}}
-{{#Performance-7-2}}
+{{#Performance-7}}
 1. `about:config` を開き、各設定値を確認する。
     - 確認項目
-       1. `dom.ipc.processCount` の値が指定値の通りである。（Performance-7-2）
-{{/Performance-7-2}}
+       1. `dom.ipc.processCount` の値が{{#Performance-7-1}} `8` である。（Performance-7-1）{{/Performance-7-1}}{{#Performance-7-2}}指定値の通りである。（Performance-7-2）{{/Performance-7-2}}
+{{/Performance-7}}
 
-{{/Stability-2-2 || Stability-2-3 || Performance-7-2}}
 
 
 {{#Stability-4}}
@@ -2751,7 +2752,7 @@
 
 {{#Appearance-2-2}} - Appearance-2-2 {{/Appearance-2-2}}
 {{#Appearance-3-2}} - Appearance-3-2 {{/Appearance-3-2}}
-{{#Appearance-5-1}} - Appearance-5-1 {{/Appearance-5-1}}
+{{#Appearance-5}} - Appearance-5-\* {{/Appearance-5}}
 {{#Appearance-6-1}} - Appearance-6-1 {{/Appearance-6-1}}
 {{#Appearance-9-2}} - Appearance-9-2 {{/Appearance-9-2}}
 
@@ -2767,12 +2768,12 @@
 {{#Appearance-2-2}}
         1. ツールバーに表示されている項目が、指定の通りとなっている。（Appearance-2-2）
 {{/Appearance-2-2}}
-{{#Appearance-5-1}}
-        1. ブックマークツールバーが表示されている。（Appearance-5-1）
-{{/Appearance-5-1}}
-{{#Appearance-6-1}}
-        1. メニューバーが表示されている。（Appearance-6-1）
-{{/Appearance-6-1}}
+{{#Appearance-5}}
+        1. ブックマークツールバーが表示されて{{#Appearance-5-1}}いる。（Appearance-5-1）{{/Appearance-5-1}}{{#Appearance-5-2}}いない。（Appearance-5-2）{{/Appearance-5-2}}
+{{/Appearance-5}}
+{{#Appearance-6}}
+        1. メニューバーが表示されて{{#Appearance-6-1}}いる。（Appearance-6-1）{{/Appearance-6-1}}{{#Appearance-6-2}}いない。（Appearance-6-2）{{/Appearance-6-2}}
+{{/Appearance-6}}
 {{#Appearance-9-2}}
         1. 「Firefoxアカウント」ボタンが表示されていない。（Appearance-9-2）
 {{/Appearance-9-2}}
@@ -2902,7 +2903,7 @@
 {{#Performance-1-2}} - Performance-1-2 {{/Performance-1-2}}
 {{#Performance-2-2}} - Performance-2-2 {{/Performance-2-2}}
 {{#Performance-3}} - Performance-3-1/2 {{/Performance-3}}
-{{#Performance-4-2}} - Performance-4-2 {{/Performance-4-2}}
+{{#Performance-4}} - Performance-4-\* {{/Performance-4}}
 {{#Performance-5-1}} - Performance-5-1 {{/Performance-5-1}}
 {{#Performance-6-2}} - Performance-6-2 {{/Performance-6-2}}
 {{#Stability-3-2}} - Stability-3-2 {{/Stability-3-2}}
@@ -2930,9 +2931,9 @@
 {{#Performance-3}}
         1. `browser.tabs.unloadOnLowMemory` の値が {{#Performance-3-1}}`true` である。（Performance-3-1）{{/Performance-3-1}}{{#Performance-3-2}}`false` である。（Performance-3-2）{{/Performance-3-2}}
 {{/Performance-3}}
-{{#Performance-4-2}}
-        1. `accessibility.force_disabled` の値が `1` である。（Performance-4-2）
-{{/Performance-4-2}}
+{{#Performance-4}}
+        1. `accessibility.force_disabled` の値が {{#Performance-4-1}}`0` である。（Performance-4-1）{{/Performance-4-1}}{{#Performance-4-2}}`1` である。（Performance-4-2）{{/Performance-4-2}}
+{{/Performance-4}}
 {{#Performance-5-1}}
         1. `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。（Performance-5-1）
 {{/Performance-5-1}}
@@ -3572,7 +3573,7 @@
 
 ### 確認する項目
 
-{{#Appearance-8-2}} - Appearance-8-2 {{/Appearance-8-2}}
+{{#Appearance-8}} - Appearance-8-\* {{/Appearance-8}}
 {{#MenuShortcut-35}} - MenuShortcut-35 {{/MenuShortcut-35}}
 {{#MenuShortcut-36}} - MenuShortcut-36 {{/MenuShortcut-36}}
 {{#MenuShortcut-37}} - MenuShortcut-37 {{/MenuShortcut-37}}
@@ -3591,6 +3592,7 @@
 <!--GROUP-->
 1. 「ヘルプ」メニューを開く。
     - 確認項目
+{{#Appearance-8-1}}        1. 既定のメニュー項目以外の余計な項目が表示されていない。（Appearance-8-1）{{/Appearance-8-1}}
 {{#Appearance-8-2}}        1. 指定のサポート情報ページ用の項目が表示されている。（Appearance-8-2）{{/Appearance-8-2}}
 {{#MenuShortcut-35}}        1. 「トラブルシューティング情報」が存在しないか、無効化されているか、または遷移先のページの読み込みがブロックされる。（MenuShortcut-35）{{/MenuShortcut-35}}
 {{#MenuShortcut-36}}        1. 「フィードバックを送信」が存在しないか無効化されている。（MenuShortcut-36）{{/MenuShortcut-36}}
