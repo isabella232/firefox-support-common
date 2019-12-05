@@ -7,7 +7,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :4: 有効化する（安定性より描画性能を優先する：ポリシーで設定）
 
-    "HardwareAcceleration": true
+    "HardwareAcceleration": true,
 
     :2: 無効化する（描画性能より安定性を優先する）
 
@@ -16,7 +16,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :3: 無効化する（描画性能より安定性を優先する：ポリシーで設定）
 
-    "HardwareAcceleration": false
+    "HardwareAcceleration": false,
 
 Stability-2: [廃止] プロセス分離（e10s）を有効化するかどうか
 

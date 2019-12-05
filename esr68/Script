@@ -43,7 +43,7 @@ Script-2: プッシュ通知の可否
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
-    }
+    },
 
     :3: 禁止する（ESR版・既定）
 

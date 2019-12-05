@@ -14,7 +14,7 @@ Update-1: Firefoxの自動更新の可否
 
     :4: 禁止する（ポリシーで設定）
 
-    "DisableAppUpdate": true
+    "DisableAppUpdate": true,
 
 Update-2: アドオンの自動更新の可否
 

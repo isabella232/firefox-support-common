@@ -33,7 +33,7 @@ Privacy-1: 履歴の保存の可否
 
     :6: 終了時に消去する（ポリシーで設定）
 
-    "SanitizeOnShutdown": true
+    "SanitizeOnShutdown": true,
 
 Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）
 
@@ -47,7 +47,7 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :3: 保存しない（ポリシーで設定）
 
-    "DisableFormHistory": true
+    "DisableFormHistory": true,
 
 Privacy-3: ダウンロード履歴の保存の可否
 
@@ -323,7 +323,7 @@ Privacy-14: 位置情報の利用の可否
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
-    }
+    },
 
     :3: 禁止する
 
@@ -669,7 +669,7 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
     "EnableTrackingProtection": {
       "Value": false,
       "Locked": true
-    }
+    },
 
 Privacy-34: フォームへのユーザー入力値のセッション情報への保存の可否
 
@@ -855,7 +855,7 @@ Privacy-46: カメラの利用の可否
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
-    }
+    },
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
@@ -891,7 +891,7 @@ Privacy-47: マイクの利用の可否
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
-    }
+    },
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 

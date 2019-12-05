@@ -43,7 +43,7 @@ Appearance-3: ロケーションバーと検索バーの統合
     :2: 統合しない
 
     // PolicyEngineで設定する
-    "SearchBar": "separate"
+    "SearchBar": "separate",
 
 
 Appearance-4: [廃止] ウィンドウコントロールの不具合の回避（Bug 1521692）
@@ -89,7 +89,7 @@ Appearance-7: アプリケーションのUIに使用する言語
       "en-US",
       "ja",
       ...
-    ]
+    ],
 
 Appearance-8: ヘルプメニュー配下に登録する独自のサポートページの情報
 

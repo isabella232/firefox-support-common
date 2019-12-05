@@ -164,7 +164,7 @@ Tab-10: 検索バーの表示
     "FirefoxHome": {
       "Search": true,
       "Locked": true
-    }
+    },
 
     :3: 常に非表示にする
 
@@ -176,7 +176,7 @@ Tab-10: 検索バーの表示
     "FirefoxHome": {
       "Search": false,
       "Locked": true
-    }
+    },
 
 Tab-11: トップサイトの表示
 
@@ -200,7 +200,7 @@ Tab-11: トップサイトの表示
     "FirefoxHome": {
       "TopSites": true,
       "Locked": true
-    }
+    },
 
     :4: 常に非表示にする
 
@@ -212,7 +212,7 @@ Tab-11: トップサイトの表示
     "FirefoxHome": {
       "TopSites": false,
       "Locked": true
-    }
+    },
 
 Tab-12: ハイライトの表示
 
@@ -230,7 +230,7 @@ Tab-12: ハイライトの表示
     "FirefoxHome": {
       "Highlights": true,
       "Locked": true
-    }
+    },
 
     :3: 常に非表示にする
 
@@ -242,7 +242,7 @@ Tab-12: ハイライトの表示
     "FirefoxHome": {
       "Highlights": false,
       "Locked": true
-    }
+    },
 
 Tab-13: スニペットの表示
 
@@ -260,7 +260,7 @@ Tab-13: スニペットの表示
     "FirefoxHome": {
       "Snippets": true,
       "Locked": true
-    }
+    },
 
     :3: 常に非表示にする
 
@@ -272,7 +272,7 @@ Tab-13: スニペットの表示
     "FirefoxHome": {
       "Snippets": false,
       "Locked": true
-    }
+    },
 
 Tab-14: インポートボタンの表示
 
@@ -357,5 +357,5 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
     "FirefoxHome": {
       "Pocket": false,
       "Locked": true
-    }
+    },
 
