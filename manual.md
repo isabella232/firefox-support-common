@@ -131,7 +131,7 @@
 {{#Install-11}} - Install-11-\* {{/Install-11}}
 {{#Install-12-3}} - Install-12-3 {{/Install-12-3}}
 {{#Install-13-2 || Install-13-3}} - Install-13-2/3 {{/Install-13-2 || Install-13-3}}
-{{#Install-14-2}} - Install-14-2 {{/Install-14-2}}
+{{#Install-14}} - Install-14-\* {{/Install-14}}
 {{#Application-1}} - Application-1-\* {{/Application-1}}
 {{#Application-2}} - Application-2-\* {{/Application-2}}
 {{#Application-3}} - Application-3-\* {{/Application-3}}
@@ -162,10 +162,10 @@
 {{#Install-13-3}}
 1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
 {{/Install-13-3}}
-{{#Install-14-2}}
+{{#Install-14}}
 1. IEを起動し、Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
    * もし項目が存在している場合、コマンドプロンプトで `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"` を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
-{{/Install-14-2}}
+{{/Install-14}}
 
 ### 検証
 
@@ -254,13 +254,18 @@
         1. 「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
 {{/Update-4}}
 {{/Install-1 || Install-7 || Install-9-2 || Update-4}}
-{{#Install-14-2}}
+{{#Install-14}}
 1. 検証用ユーザーとして `meta_installer_file_name}}*.exe` を実行する。
 1. IEを起動し、Webページ上でコンテキストメニューを開く。
     - 確認項目
+{{#Install-14-1}}
+        1. 既定のコンテキストメニュー項目以外表示されない。（Install-14-1）
+{{/Install-14-1}}
+{{#Install-14-2}}
         1. 追加したコンテキストメニュー項目が表示され、実際に機能する。（Install-14-2）
         1. 追加したコンテキストメニュー項目が多重に表示されていない。（Install-14-2）
 {{/Install-14-2}}
+{{/Install-14}}
 
 <!--/GROUP-->
 
@@ -519,16 +524,6 @@
     - 確認項目
         1. ブックマークツールバー上に既定の項目が作成されていない。（Startup-5-2/4）
 {{/Startup-5-2 || Startup-5-4}}
-{{#Update-6-2 || Update-7-2}}
-1. `about:policies` を開く。
-    - 確認項目
-{{#Update-6-2}}
-        1. `DisableSystemAddonUpdate` が `true` に設定されている。（Update-6-2）
-{{/Update-6-2}}
-{{#Update-7-2}}
-        1. `AppUpdateURL` が空文字に設定されている。（Update-7-2）
-{{/Update-7-2}}
-{{/Update-6-2 || Update-7-2}}
 {{#Admin-5 || Startup-3-2 || Update-4-2}}
 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
 {{#Admin-5}}
@@ -585,11 +580,6 @@
         1. `browser.disableResetPrompt`の値が`true`である （Startup-7-2）
   {{/Startup-7-2}}
 {{/Startup-7-1 || Startup-7-2}}
-{{#Startup-7-3}}
-1. システムの時計を進めることができない場合は`about:policies`を開いて設定値を確認する。
-    - 確認項目
-        1. `DisableProfileRefresh`の値が`true`である （Startup-7-3）
-{{/Startup-7-3}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
 {{/Startup-7}}
@@ -614,6 +604,58 @@
 {{#Security-9-3 || Security-35-2}}{{#Startup-4-2 || Startup-10-2 || Startup-7-3}}
 1. ポリシー設定に加えた変更を元に戻す。
 {{/Startup-4-2 || Startup-10-2 || Startup-7-3}}{{/Security-9-3 || Security-35-2}}
+
+
+## ポリシー設定の反映
+
+### 確認する項目
+
+{{#Startup-7-3}}- Startup-7-3 {{/Startup-7-3}}
+{{#Privacy-11}}- Privacy-11-\* {{/Privacy-11}}
+{{#Privacy-42}}- Privacy-42-\* {{/Privacy-42}}
+{{#Update-6-2}}- Update-6-2 {{/Update-6-2}}
+{{#Update-7-2}}- Update-7-2 {{/Update-7-2}}
+{{#Download-3-3 || Download-3-4}}- Download-3-3/4 {{/Download-3-3 || Download-3-4}}
+
+### 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+
+### 検証
+
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
+1. 「有効」配下の各設定値を確認する。
+    - 確認項目
+{{#Startup-7-3}}
+        1. `DisableProfileRefresh`の値が`true`である （Startup-7-3）
+{{/Startup-7-3}}
+{{#Privacy-11}}
+        1. `Cookies` の `Default` の値が{{#Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}`true`である。（Privacy-11-1/3/7）{{/Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}{{#Privacy-11-4 || Privacy-11-6}}`false`である。（Privacy-11-4/6）{{/Privacy-11-4 || Privacy-11-6}}
+{{#Privacy-11-3}}
+        1. `Cookies` の `ExpireAtSessionEnd` の値が`true`である。（Privacy-11-3）
+{{/Privacy-11-3}}
+{{#Privacy-11-6}}
+        1. `Cookies` の `Allow` の値として許可サイトが列挙されている。（Privacy-11-6）
+{{/Privacy-11-6}}
+{{#Privacy-11-7}}
+        1. `Cookies` の `Allow` の値として禁止サイトが列挙されている。（Privacy-11-7）
+{{/Privacy-11-7}}
+{{/Privacy-11}}
+{{#Privacy-42}}
+        1. `DisableFirefoxStudies` の値が{{#Privacy-42-1}}`false`である。（Privacy-42-1）{{/Privacy-42-1}}{{#Privacy-42-2}}`true`である。（Privacy-42-2）{{/Privacy-42-2}}
+{{/Privacy-42}}
+{{#Update-6-2}}
+        1. `DisableSystemAddonUpdate` が `true` に設定されている。（Update-6-2）
+{{/Update-6-2}}
+{{#Update-7-2}}
+        1. `AppUpdateURL` が空文字に設定されている。（Update-7-2）
+{{/Update-7-2}}
+{{#Download-3-3 || Download-3-4}}
+        1. `PromptForDownloadLocation`が`true`である。（Download-3-3/4）
+{{/Download-3-3 || Download-3-4}}
+
 
 {{#Admin-4}}
 ## アドオンの署名確認の無効化
@@ -704,13 +746,13 @@
 
 # セキュリティに関わるカスタマイズ
 
-## {{#Security-1-3 || Security-1-4}}証明書の自動インポート{{#Security-38-2}}と{{/Security-38-2}}{{/Security-1-3 || Security-1-4}}{{#Security-38-2}}セキュリティデバイスの登録{{/Security-38-2}}
+## {{#Security-1-3 || Security-1-4}}証明書の自動インポート{{#Security-38}}と{{/Security-38}}{{/Security-1-3 || Security-1-4}}{{#Security-38}}セキュリティデバイスの登録{{/Security-38}}
 
 ### 確認する項目
 
 {{#Security-1-3}} - Security-1-3 {{/Security-1-3}}
 {{#Security-1-4}} - Security-1-4 {{/Security-1-4}}
-{{#Security-38-2}} - Security-38-2 {{/Security-38-2}}
+{{#Security-38}} - Security-38-\* {{/Security-38}}
 
 ### 準備
 
@@ -740,9 +782,9 @@
     - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\nss.log");`
 1. `C:\Users\Public\nss.log-*` を全て削除しておく。
 {{/Security-1-3}}
-{{#Security-38-2}}
+{{#Security-38}}
 1. 登録済みのセキュリティデバイスを削除しておく。
-{{/Security-38-2}}
+{{/Security-38}}
 
 ### 検証
 
@@ -752,7 +794,7 @@
     - 確認項目
         1. `imported （1以上の数値） certs from （ROOTまたはCA）`というログが出力されている。（Security-1-3）
 {{/Security-1-3}}
-{{#Security-1-4 || Security-38-2}}
+{{#Security-1-4 || Security-38}}
 1. オプション画面の「プライバシーとセキュリティ」を開く。
 {{#Security-1-4}}
 1. 「証明書」セクションの「証明書を表示」ボタンをクリックして証明書マネージャーを開く。
@@ -760,12 +802,17 @@
     - 確認項目
         1. インポートするよう指定した証明書が一覧に登録されている。（Security-1-4）
 {{/Security-1-4}}
-{{#Security-38-2}}
+{{#Security-38}}
 1. 「証明書」セクションの「セキュリティデバイス」ボタンをクリックしてデバイスマネージャーを開く。
     - 確認項目
+{{#Security-38-1}}
+        1. 既定のセキュリティデバイス以外登録されていない。（Security-38-1）
+{{/Security-38-1}}
+{{#Security-38-2}}
         1. 登録するよう指定したセキュリティデバイスがすべて登録されている。（Security-38-2）
 {{/Security-38-2}}
-{{/Security-1-4 || Security-38-2}}
+{{/Security-38}}
+{{/Security-1-4 || Security-38}}
 
 {{#Security-1-3}}
 ### 後始末
@@ -904,7 +951,7 @@
 
 {{#Security-5}} - Security-5-\* {{/Security-5}}
 {{#Security-6}} - Security-6-\* {{/Security-6}}
-{{#Security-37-2}} - Security-37-2 {{/Security-37-2}}
+{{#Security-37}} - Security-37-\* {{/Security-37}}
 
 ### 準備
 
@@ -929,11 +976,11 @@
     - 確認項目
         1. 詐欺サイトとしてブロック{{#Security-6-1}}される。（Security-6-1）{{/Security-6-1}}{{#Security-6-2}}されない。（Security-6-2）{{/Security-6-2}}
 {{/Security-6}}
-{{#Security-37-2}}
+{{#Security-37}}
 1. テストケースリストのリンクから `https://expired.badssl.com/` を開く。
     - 確認項目
-        1. 警告画面の「詳細」ボタンを押した後の画面で、「危険性を承知で続行」ボタンが表示されないか、またはクリックできない状態になっている。（Security-37-2）
-{{/Security-37-2}}
+        1. 警告画面の「詳細」ボタンを押した後の画面で、「危険性を承知で続行」ボタンが{{#Security-37-1}}表示されており、クリックできる状態である。（Security-37-1）{{/Security-37-1}}{{#Security-37-2}}表示されないか、またはクリックできない状態である。（Security-37-2）{{/Security-37-2}}
+{{/Security-37}}
 {{#Security-5-1 || Security-6-1}}
 1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く
 1. `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
@@ -1353,13 +1400,13 @@
 {{/Security-36}}
 
 
-{{#Security-39-2}}
+{{#Security-39}}
 
 ## URLによるアクセスフィルタ
 
 ### 確認する項目
 
-{{#Security-39-2}} - Security-39-2 {{/Security-39-2}}
+{{#Security-39}} - Security-39-\* {{/Security-39}}
 
 ## 準備
 
@@ -1369,14 +1416,18 @@
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-2. フィルタリング対象に設定されているパターンにマッチし、且つ、例外に設定されているパターンにマッチしないURLのWebページを開く。
+{{#Security-39-1}}
+{{/Security-39-1}}
+{{#Security-39-2}}
+1. フィルタリング対象に設定されているパターンにマッチし、且つ、例外に設定されているパターンにマッチしないURLのWebページを開く。
     - 確認項目
         1. 読み込みがブロックされる。（Security-39-2）
-3. （例外パターンが設定されている場合）フィルタリング対象に設定されているパターン、例外に設定されているパターンの両方にマッチするURLのWebページを開く。
+1. （例外パターンが設定されている場合）フィルタリング対象に設定されているパターン、例外に設定されているパターンの両方にマッチするURLのWebページを開く。
     - 確認項目
         1. 読み込みがブロックされないる。（Security-39-2）
-
 {{/Security-39-2}}
+
+{{/Security-39}}
 
 
 ## その他のセキュリティに関わる設定
@@ -1705,12 +1756,6 @@
         1. `signon.rememberSignons.visibilityToggle` の値が`false`である （Privacy-40-2）
   {{/Privacy-40-2}}
 {{/Privacy-5-3 || Privacy-5-2}}
-{{#Privacy-42}}
-1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
-1. 「有効」配下の各設定値を確認する。
-    - 確認項目
-        1. `DisableFirefoxStudies` の値が{{#Privacy-42-1}}`false`である。（Privacy-42-1）{{/Privacy-42-1}}{{#Privacy-42-2}}`true`である。（Privacy-42-2）{{/Privacy-42-2}}
-{{/Privacy-42}}
 
 <!--/GROUP-->
 {{#Privacy-7 || Privacy-16}}
@@ -2031,37 +2076,6 @@
 {{/Privacy-30-3}}
 {{/Privacy-30}}
 
-{{#Privacy-11}}
-## Cookie、IndexedDB、Web Storage、およびService Worker用Cacheの保存ポリシー
-
-### 確認する項目
-
-- Privacy-11-\*
-
-### 準備
-
-1. 前項に引き続き検証するか、または以下の状態を整えておく。
-    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-
-### 検証
-
-1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
-1. ロケーションバーに`about:policies`と入力し、ポリシー設定一覧を開く。
-1. 「有効」配下の各設定値を確認する。
-    - 確認項目
-        1. `Cookies` の `Default` の値が{{#Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}`true`である。（Privacy-11-1/3/7）{{/Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}{{#Privacy-11-4 || Privacy-11-6}}`false`である。（Privacy-11-4/6）{{/Privacy-11-4 || Privacy-11-6}}
-{{#Privacy-11-3}}
-        1. `Cookies` の `ExpireAtSessionEnd` の値が`true`である。（Privacy-11-3）
-{{/Privacy-11-3}}
-{{#Privacy-11-6}}
-        1. `Cookies` の `Allow` の値として許可サイトが列挙されている。（Privacy-11-6）
-{{/Privacy-11-6}}
-{{#Privacy-11-7}}
-        1. `Cookies` の `Allow` の値として禁止サイトが列挙されている。（Privacy-11-7）
-{{/Privacy-11-7}}
-
-{{/Privacy-11}}
-
 {{#Privacy-34}}
 ## フォームへのユーザー入力値のセッション情報への保存の可否
 
@@ -2201,13 +2215,10 @@
 {{/Download-3-1 || Download-3-2}}
 {{#Download-3}}
 1. テストケースリストのリンクから `https://getfirefox.com/` を開く。
-1. Firefoxのダウンロード用ボタンをクリックする。ファイルのダウンロードが開始され、保存方法を尋ねるダイアログが表示されるので、「ファイルを保存」を選択する。
+1. ファイルのダウンロードが禁止されていない場合、Firefoxのダウンロード用ボタンをクリックする。ファイルのダウンロードが開始され、保存方法を尋ねるダイアログが表示されるので、「ファイルを保存」を選択する。
 {{#Download-3-3 || Download-3-4}}
     - 確認項目
         1. ダウンロード先ディレクトリを選択するダイアログが開かれる。（Download-3-3/4）
-1. ファイルのダウンロードが禁止されている場合、`about:policies`を開く、
-    - 確認項目
-        1. `PromptForDownloadLocation`が`true`である。（Download-3-3/4）
 {{/Download-3-3 || Download-3-4}}
 {{#Download-3-1 || Download-3-2}}
 1. テストケースリストのリンクから `http://www.mozilla.org/` を開く。
