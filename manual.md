@@ -433,14 +433,14 @@
 {{#Startup-5-2 || Startup-5-4}} - Startup-5-2/4 {{/Startup-5-2 || Startup-5-4}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
 {{#Startup-10-2}} - Startup-10-2 {{/Startup-10-2}}
-{{#Startup-12-2 || Startup-12-3}} - Startup-12-2/3 {{/Startup-12-2 || Startup-12-3}}
+{{#Startup-12}} - Startup-12-\* {{/Startup-12}}
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
-{{#Startup-14-2}} - Startup-14-2 {{/Startup-14-2}}
+{{#Startup-14}} - Startup-14-\* {{/Startup-14}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Update-6-2}} - Update-6-2 {{/Update-6-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
-{{#Privacy-52-2}} - Privacy-52-2 {{/Privacy-52-2}}
+{{#Privacy-52}} - Privacy-52-\* {{/Privacy-52}}
 
 ### 準備
 
@@ -453,9 +453,9 @@
 {{#Startup-3}}
 1. システムの「既定のブラウザ」を別のブラウザに設定する（例えばIEであれば「インターネットオプション」から既定のブラウザに設定可能）。
 {{/Startup-3}}
-{{#Security-9-3}}{{#Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2}}
+{{#Security-9-3}}{{#Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14-2}}{{/Security-9-3}}
+{{/Startup-4-2 || Startup-4-4 || Startup-10-2 || Startup-14}}{{/Security-9-3}}
 {{#Security-35-2}}{{#Startup-7-3}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Startup-7-3}}{{/Security-35-2}}
@@ -476,6 +476,9 @@
 {{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。（Startup-2-2/3）
 {{/Startup-2-2 || Startup-2-3}}
+{{#Startup-12-1}}
+        1. 起動直後に既定の初回起動用ページが表示される。（Startup-12-1）
+{{/Startup-12-1}}
 {{#Startup-12-2}}
         1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。（Startup-12-2）
 {{/Startup-12-2}}
@@ -494,17 +497,25 @@
 {{#Application-7-2}}
         1. ブラウズウィンドウのタスクバー上でのジャンプリスト項目のタイトルが「{{window_title}}」で終わっている。 （Application-7-2）
 {{/Application-7-2}}
+{{#Privacy-52-1}}
+        1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。（Privacy-52-1）
+{{/Privacy-52-1}}
 {{#Privacy-52-2}}
         1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。（Privacy-52-2）
 {{/Privacy-52-2}}
-{{#Startup-14-2}}
+{{#Startup-14}}
 1. Firefoxをインストールした端末のデスクトップを確認する。
     - 確認項目
+{{#Startup-14-1}}
+        1. OPML形式のバックアップファイルが生成されており、Firefox上でサポートページが表示される。（Startup-14-1）
+{{/Startup-14-1}}
+{{#Startup-14-2}}
         1. OPML形式のバックアップファイルが生成されておらず、Firefox上でもサポートページが表示されていない。（Startup-14-2）
+{{/Startup-14-2}}
 1. 対象端末にライブブックマークが登録されていない場合は`about:config`を開いて設定値を確認する。
     - 確認項目
-        1. `browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されている。（Startup-14-2）
-{{/Startup-14-2}}
+        1. `browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されて{{#Startup-14-1}}いない。（Startup-14-1）{{/Startup-14-1}}{{#Startup-14-2}}いる。（Startup-14-2）{{/Startup-14-2}}
+{{/Startup-14}}
 <!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
@@ -611,6 +622,8 @@
 ### 確認する項目
 
 {{#Startup-7-3}}- Startup-7-3 {{/Startup-7-3}}
+{{#Security-39-1}}- Security-39-1 {{/Security-39-1}}
+{{#Security-40-1}}- Security-40-1 {{/Security-40-1}}
 {{#Privacy-11}}- Privacy-11-\* {{/Privacy-11}}
 {{#Privacy-42}}- Privacy-42-\* {{/Privacy-42}}
 {{#Update-6-2}}- Update-6-2 {{/Update-6-2}}
@@ -631,6 +644,12 @@
 {{#Startup-7-3}}
         1. `DisableProfileRefresh`の値が`true`である （Startup-7-3）
 {{/Startup-7-3}}
+{{#Security-39-1}}
+        1. 有効なポリシーの中に `WebsiteFilter` の記載が無い。（Security-39-1）
+{{/Security-39-1}}
+{{#Security-40-1}}
+        1. 有効なポリシーの中に `ExtensionSettings` の記載が無い。（Security-40-1）
+{{/Security-40-1}}
 {{#Privacy-11}}
         1. `Cookies` の `Default` の値が{{#Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}`true`である。（Privacy-11-1/3/7）{{/Privacy-11-1 || Privacy-11-3 || Privacy-11-7}}{{#Privacy-11-4 || Privacy-11-6}}`false`である。（Privacy-11-4/6）{{/Privacy-11-4 || Privacy-11-6}}
 {{#Privacy-11-3}}
@@ -1422,6 +1441,30 @@
     - 確認項目
         1. 読み込みがブロックされないる。（Security-39-2）
 {{/Security-39-2}}
+
+
+{{#Security-45-1}}
+## 証明書の例外の自動承認
+
+### 確認する項目
+
+- Security-45-1
+
+## 準備
+
+1. 前項に引き続き検証するか、または以下の状態を整えておく。
+    1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+1. 例外を自動承認するホストにアクセスできる状態にしておく。
+   当該ホストにアクセスできない場合、代わりに `expired.badssl.com` の例外を承認するよう設定を修正する。
+1. 証明書マネージャを開き、保存済みの例外を全て削除しておく。
+
+### 検証
+
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+1. 例外を自動承認するホストのページを開く。当該ホストにアクセスできない場合、代わりに `https://expired.badssl.com` を開く。
+    - 確認項目
+        1. 例外が自動的に承認され、ページの内容が表示される。（Security-45-1）
+{{/Security-45-1}}
 
 
 ## その他のセキュリティに関わる設定
@@ -2988,7 +3031,7 @@
 ### 確認する項目
 
 {{#Network-1-1}} - Network-1-1 {{/Network-1-1}}
-{{#Network-4-1}} - Network-4-1 {{/Network-4-1}}
+{{#Network-4}} - Network-4-\* {{/Network-4}}
 {{#Network-5-2}} - Network-5-2 {{/Network-5-2}}
 {{#Network-6}} - Network-6-\* {{/Network-6}}
 {{#Network-7}} - Network-7-\* {{/Network-7}}
@@ -3005,9 +3048,9 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Security-9-3}}{{#Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}
+{{#Security-9-3}}{{#Network-1-1 || Network-4 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}
 1. ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-{{/Network-1-1 || Network-4-1 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}{{/Security-9-3}}
+{{/Network-1-1 || Network-4 || Network-5-2 || Network-6 || Network-7 || Network-8 || Network-10 || Network-13 || Network-14 || Network-17}}{{/Security-9-3}}
 {{#Security-35-2}}
 1. ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
 {{/Security-35-2}}
@@ -3025,9 +3068,9 @@
 {{#Network-1-1}}
         1. `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。（Network-1-1）
 {{/Network-1-1}}
-{{#Network-4-1}}
-        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。（Network-4-1）
-{{/Network-4-1}}
+{{#Network-4}}
+        1. `network.automatic-ntlm-auth.trusted-uris` の値が「{{ntlm_single_signon_hosts}}」である。（Network-4-1/2）
+{{/Network-4}}
 {{#Network-5-2}}
 {{#max_connections}}
         1. `network.http.max-connections` の値が{{max_connections}}である。（Network-5-2）
