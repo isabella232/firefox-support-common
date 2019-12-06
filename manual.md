@@ -441,7 +441,7 @@
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
 {{#Update-6-2}} - Update-6-2 {{/Update-6-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
-{{#Privacy-52}} - Privacy-52-\* {{/Privacy-52}}
+{{#Privacy-52}}{{^Privacy-18-3}} - Privacy-52-\* {{/Privacy-18-3}}{{/Privacy-52}}
 
 ### 準備
 
@@ -497,12 +497,14 @@
 {{#Application-7-2}}
         1. ブラウズウィンドウのタスクバー上でのジャンプリスト項目のタイトルが「{{window_title}}」で終わっている。 （Application-7-2）
 {{/Application-7-2}}
+{{^Privacy-18-3}}
 {{#Privacy-52-1}}
         1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。（Privacy-52-1）
 {{/Privacy-52-1}}
 {{#Privacy-52-2}}
         1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。（Privacy-52-2）
 {{/Privacy-52-2}}
+{{/Privacy-18-3}}
 {{#Startup-14}}
 1. 対象端末にライブブックマークが登録されている場合で、Firefoxをインストールした端末のデスクトップを確認する。
     - 確認項目
