@@ -435,7 +435,7 @@
 {{#Startup-3}} - Startup-3-\* {{/Startup-3}}
 {{#Startup-5-2 || Startup-5-4}} - Startup-5-2/4 {{/Startup-5-2 || Startup-5-4}}
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
-{{#Startup-12}} - Startup-12-\* {{/Startup-12}}
+{{#Startup-12}}{{^Startup-4-2}} - Startup-12-\* {{/Startup-4-2}}{{/Startup-12}}
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
 {{#Startup-14}} - Startup-14-\* {{/Startup-14}}
 {{#Update-4-2}} - Update-4-2 {{/Update-4-2}}
@@ -474,6 +474,7 @@
 {{#Startup-2-2 || Startup-2-3}}
         1. 起動直後に{{home_page}}が表示される。（Startup-2-2/3）
 {{/Startup-2-2 || Startup-2-3}}
+{{^Startup-4-2}}
 {{#Startup-12-1}}
         1. 起動直後に既定の初回起動用ページが表示される。（Startup-12-1）
 {{/Startup-12-1}}
@@ -483,6 +484,7 @@
 {{#Startup-12-3}}
         1. 起動直後にホームページ（または空白）以外のタブが開かれていない。（Startup-12-3）
 {{/Startup-12-3}}
+{{/Startup-4-2}}
 {{#Appearance-7-2}}
         1. UIの表示言語が指定の通りになっている。（Appearance-7-2）
 {{/Appearance-7-2}}
@@ -556,9 +558,9 @@
 {{#Startup-7}}
         1. 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが{{#Startup-7-1}}表示される。（Startup-7-1）{{/Startup-7-1}}{{#Startup-7-2 || Startup-7-3}}表示されない。（Startup-7-2/3）{{/Startup-7-2 || Startup-7-3}}
 {{/Startup-7}}
-{{#Startup-12-2}}
+{{#Startup-12-2}}{{^Startup-4-2}}
         1. 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示されない。（Startup-12-2）
-{{/Startup-12-2}}
+{{/Startup-4-2}}{{/Startup-12-2}}
 {{/Startup-7 || Startup-12-2}}
 {{#Startup-7}}
 1. 1年進めたシステムの時計を元に戻す。
@@ -592,6 +594,7 @@
 
 {{#Startup-4-3}}- Startup-4-3 {{/Startup-4-3}}
 {{#Startup-7-3}}- Startup-7-3 {{/Startup-7-3}}
+{{#Startup-12}}{{Startup-4-2}} - Startup-12-2 {{/Startup-4-2}}{{/Startup-12}}
 {{#Security-39-1}}- Security-39-1 {{/Security-39-1}}
 {{#Security-40-1}}- Security-40-1 {{/Security-40-1}}
 {{#Privacy-11}}- Privacy-11-\* {{/Privacy-11}}
@@ -618,6 +621,17 @@
 {{#Startup-7-3}}
         1. システムの時計を進められない場面で、`DisableProfileRefresh` の値が `true` である （Startup-7-3）
 {{/Startup-7-3}}
+{{#Startup-4-2}}
+{{#Startup-12-1}}
+        1. 有効なポリシーの中に `OverrideFirstRunPage` の記載が無い。（Startup-12-1）
+{{/Startup-12-1}}
+{{#Startup-12-2}}
+        1. `OverrideFirstRunPage` の値に指定のURLが反映されている。（Startup-12-2）
+{{/Startup-12-2}}
+{{#Startup-12-3}}
+        1. `OverrideFirstRunPage` が空文字に設定されている。（Startup-12-3）
+{{/Startup-12-3}}
+{{/Startup-4-2}}
 {{#Security-39-1}}
         1. 有効なポリシーの中に `WebsiteFilter` の記載が無い。（Security-39-1）
 {{/Security-39-1}}
