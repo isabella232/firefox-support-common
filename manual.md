@@ -594,7 +594,7 @@
 
 {{#Startup-4-3}}- Startup-4-3 {{/Startup-4-3}}
 {{#Startup-7-3}}- Startup-7-3 {{/Startup-7-3}}
-{{#Startup-12}}{{Startup-4-2}} - Startup-12-2 {{/Startup-4-2}}{{/Startup-12}}
+{{#Startup-12}}{{#Startup-4-2}} - Startup-12-2 {{/Startup-4-2}}{{/Startup-12}}
 {{#Security-39-1}}- Security-39-1 {{/Security-39-1}}
 {{#Security-40-1}}- Security-40-1 {{/Security-40-1}}
 {{#Privacy-11}}- Privacy-11-\* {{/Privacy-11}}
