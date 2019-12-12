@@ -1121,7 +1121,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、以下の位置に置く。
+1. アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、以下の位置に置く。  
    `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
    {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
 {{#Security-3-3}}
@@ -1140,7 +1140,7 @@
 
 ### 後始末
 
-1. 以下の位置に設置したファイルを削除する。
+1. 以下の位置に設置したファイルを削除する。  
    `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
    {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
 {{#Security-3-3}}
