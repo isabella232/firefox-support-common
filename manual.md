@@ -1129,7 +1129,7 @@
 1. アドオンを有効化した上で、Firefoxを再起動する。
 {{/Admin-2-1}}
     - 確認項目
-        1. Firefoxのウィンドウ下部に白背景・青色文字で「hello, world!」というメッセージが{{#Admin-4-1}}表示されいる。（Admin-4-1）{{/Admin-4-1}}{{#Admin-4-2}}表示されない。（Admin-4-2）{{/Admin-4-2}}
+        1. Firefoxのツールバー上に「Unsigned Sample Addon」という名前のボタンが{{#Admin-4-1}}表示される。（Admin-4-1）{{/Admin-4-1}}{{#Admin-4-2}}表示されない。（Admin-4-2）{{/Admin-4-2}}
 
 ### 後始末
 
