@@ -157,6 +157,15 @@
     1. `C:\Program Files (x86)\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+{{#Application-1}}
+    1. デスクトップ上のショートカット
+{{/Application-1}}
+{{#Application-2}}
+    1. スタートメニュー内のショートカット
+{{/Application-2}}
+{{#Application-3}}
+    1. Windows Vista以前のクイック起動バー内のショートカット
+{{/Application-3}}
 {{#Install-12-3}}
 1. 管理者でない検証用ユーザーを用意し、権限確認用のフォルダに書き込み権限を与える。
 {{/Install-12-3}}
