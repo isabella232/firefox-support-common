@@ -1076,6 +1076,9 @@
 {{#Tab-9-2}}
         1. `browser.newtab.preload` の値がユーザー設定値の`false`であるか、`false`にロックされている。（Tab-9-2）
 {{/Tab-9-2}}
+{{#Location-3}}
+        1. `browser.fixup.dns_first_for_single_words` の値が {{#Location-3-1}}`false` である。（Location-3-1）{{/Location-3-1}}{{#Location-3-2}}`true` である。（Location-3-2）{{/Location-3-2}}
+{{/Location-31}}
 {{#Performance-1-2}}
         1. `browser.cache.memory.capacity` の値が指定値の通りである。（Performance-1-2）
 {{/Performance-1-2}}
@@ -2362,7 +2365,7 @@
         1. ロケーションバーのURLが{{#Location-2-1}}日本語で表示されている。（Location-2-1）{{/Location-2-1}}{{#Location-2-2}}punycode形式で表示されている。（Location-2-2）{{/Location-2-2}}
 {{/Location-2}}
 {{#Location-3}}
-1. ロケーションバーに `localhost` のように一単語の（名前解決可能な）ホスト名を入力し、ページを開く。
+1. ロケーションバーに `localhost` 以外で `.` を含まない一単語の名前解決可能なホスト名のホストがある場合、そのホスト名を入力し、ページを開く。
     - 確認項目
         1. {{#Location-3-1}}ホスト名を単語とした検索結果が表示される。（Location-3-1）{{/Location-3-1}}{{#Location-3-2}}そのホストが名前解決され、ページが表示される。（Location-3-2）{{/Location-3-2}}
 {{/Location-3}}
