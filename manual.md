@@ -1057,7 +1057,7 @@
         1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
 {{/Network-16}}
 {{#Network-17}}
-        1. `security.tls.version.max` の値が{{#Network-17-1}}`1`である。（Network-17-1）{{/Network-17-1}}{{#Network-17-2}}`2`以上である。（Network-17-2）{{/Network-17-2}}
+        1. `security.tls.version.min` の値が{{#Network-17-1}}`1`である。（Network-17-1）{{/Network-17-1}}{{#Network-17-2}}`2`以上である。（Network-17-2）{{/Network-17-2}}
 {{/Network-17}}
 {{#Script-2}}
         1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
