@@ -1078,7 +1078,7 @@
 {{/Tab-9-2}}
 {{#Location-3}}
         1. `browser.fixup.dns_first_for_single_words` の値が {{#Location-3-1}}`false` である。（Location-3-1）{{/Location-3-1}}{{#Location-3-2}}`true` である。（Location-3-2）{{/Location-3-2}}
-{{/Location-31}}
+{{/Location-3}}
 {{#Performance-1-2}}
         1. `browser.cache.memory.capacity` の値が指定値の通りである。（Performance-1-2）
 {{/Performance-1-2}}
