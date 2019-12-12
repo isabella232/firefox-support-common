@@ -1000,7 +1000,7 @@
         1. `permissions.default.microphone` の値が{{#Privacy-47-1 || Privacy-47-2 || Privacy-47-5}}`0`である。（Privacy-47-1/2/5）{{/Privacy-47-1 || Privacy-47-2 || Privacy-47-5}}{{#Privacy-47-3}}`1`である。（Privacy-47-3）{{/Privacy-47-3}}{{#Privacy-47-4}}`2`である。（Privacy-47-4）{{/Privacy-47-4}}
 {{/Privacy-47}}
 {{#Privacy-48}}
-        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-3}}`2`である。（Privacy-48-1）{{/Privacy-48-3}}
+        1. `network.http.sendRefererHeader` の値が{{#Privacy-48-3}}`0`である。（Privacy-48-3）{{/Privacy-48-3}}{{#Privacy-48-2}}`1`である。（Privacy-48-2）{{/Privacy-48-2}}{{#Privacy-48-1}}`2`である。（Privacy-48-1）{{/Privacy-48-1}}
 {{/Privacy-48}}
 {{#Privacy-49}}
         1. `network.http.referer.defaultPolicy.trackers` の値が{{#Privacy-49-1}}`0`である。（Privacy-49-1）{{/Privacy-49-1}}{{#Privacy-49-2}}`1`である。（Privacy-49-2）{{/Privacy-49-2}}{{#Privacy-49-3}}`2`である。（Privacy-49-3）{{/Privacy-49-3}}{{#Privacy-49-4}}`3`である。（Privacy-49-4）{{/Privacy-49-4}}
