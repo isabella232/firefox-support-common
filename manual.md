@@ -40,6 +40,9 @@
 {{#is_upgrade_from_uncontrolled}}
 * 現行バージョンのFirefoxのセットアップ手順を確認し、現行環境を復元できる用意を整えておく。
 {{/is_upgrade_from_uncontrolled}}
+{{#Startup-14}}
+* Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
+{{/Startup-14}}
 {{#Admin-1-2}}
 * リモート設定ファイルを参照できない環境で検証する場合、MCD用設定ファイルの「Admin-1-2」に対応する設定をコメントアウトし、ローカル設定ファイルのみを使用するように設定する。
 {{/Admin-1-2}}
@@ -136,6 +139,7 @@
 {{#Install-12-3}} - Install-12-3 {{/Install-12-3}}
 {{#Install-13-2 || Install-13-3}} - Install-13-2/3 {{/Install-13-2 || Install-13-3}}
 {{#Install-14}} - Install-14-\* {{/Install-14}}
+{{#Startup-14}} - Startup-14-\* {{/Startup-14}}
 {{#Application-1}} - Application-1-\* {{/Application-1}}
 {{#Application-2}} - Application-2-\* {{/Application-2}}
 {{#Application-3}} - Application-3-\* {{/Application-3}}
@@ -250,6 +254,12 @@
 {{#Install-13-3}}
         1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。（Install-13-3）
 {{/Install-13-3}}
+{{#Startup-14-1}}
+        1. デスクトップ上にOPML形式のバックアップファイルが生成されている。（Startup-14-1）
+{{/Startup-14-1}}
+{{#Startup-14-2}}
+        1. デスクトップ上にOPML形式のバックアップファイルが生成されていない。（Startup-14-2）
+{{/Startup-14-2}}
 {{#Install-1 || Install-7 || Install-9-2 || Update-4}}
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - 確認項目
@@ -445,7 +455,6 @@
 {{#Startup-7}} - Startup-7-\* {{/Startup-7}}
 {{#Startup-12}}{{^Startup-4-2}} - Startup-12-\* {{/Startup-4-2}}{{/Startup-12}}
 {{#Startup-13-2}} - Startup-13-2 {{/Startup-13-2}}
-{{#Startup-14}} - Startup-14-\* {{/Startup-14}}
 {{#Update-6-2}} - Update-6-2 {{/Update-6-2}}
 {{#Appearance-7-2}} - Appearance-7-2 {{/Appearance-7-2}}
 {{#Privacy-52}}{{^Privacy-18-3}} - Privacy-52-\* {{/Privacy-18-3}}{{/Privacy-52}}
@@ -512,16 +521,6 @@
         1. プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。（Privacy-52-2）
 {{/Privacy-52-2}}
 {{/Privacy-18-3}}
-{{#Startup-14}}
-1. 対象端末にライブブックマークが登録されている場合で、Firefoxをインストールした端末のデスクトップを確認する。
-    - 確認項目
-{{#Startup-14-1}}
-        1. OPML形式のバックアップファイルが生成されており、Firefox上でサポートページが表示される。（Startup-14-1）
-{{/Startup-14-1}}
-{{#Startup-14-2}}
-        1. OPML形式のバックアップファイルが生成されておらず、Firefox上でもサポートページが表示されていない。（Startup-14-2）
-{{/Startup-14-2}}
-{{/Startup-14}}
 <!--GROUP-->
 1. 任意のWebページを開く。
 1. Webページ内のリンクをドラッグし、ツールバー上の「ホーム」ボタンにドロップする。
