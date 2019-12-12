@@ -253,12 +253,6 @@
 {{#Install-13-3}}
         1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。（Install-13-3）
 {{/Install-13-3}}
-{{#Startup-14-1}}
-        1. デスクトップ上にOPML形式のバックアップファイルが生成されている。（Startup-14-1）
-{{/Startup-14-1}}
-{{#Startup-14-2}}
-        1. デスクトップ上にOPML形式のバックアップファイルが生成されていない。（Startup-14-2）
-{{/Startup-14-2}}
 {{#Install-1 || Install-7 || Install-9-2 || Update-4}}
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - 確認項目
@@ -276,6 +270,11 @@
         1. 「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
 {{/Update-4}}
 {{/Install-1 || Install-7 || Install-9-2 || Update-4}}
+{{#Startup-14}}
+1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
+    - 確認項目
+        1. デスクトップ上にOPML形式のバックアップファイルが{{#Startup-14-1}}生成されている。（Startup-14-1）{{/Startup-14-1}}{{#Startup-14-2}}生成されていない。（Startup-14-2）{{/Startup-14-2}}
+{{/Startup-14}}
 {{#Install-14}}
 1. 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
 1. IEを起動し、Webページ上でコンテキストメニューを開く。
@@ -306,6 +305,11 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
+{{#Application-6-2}}
+1. 以下のファイル、フォルダを削除する。
+    1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
+    1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+{{/Application-6-2}}
 
 ### 検証
 
