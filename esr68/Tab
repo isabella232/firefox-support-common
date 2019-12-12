@@ -352,10 +352,14 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
 
     -
 
-    :2: 表示しない（ポリシーで設定）
+    :2: 表示しない（ポリシー＋MCDで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Pocket": false,
       "Locked": true
     },
+
+    MCD:
+    lockPref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 
