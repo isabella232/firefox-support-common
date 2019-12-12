@@ -924,8 +924,10 @@
 {{#Startup-14}}
         1. 対象端末にライブブックマークが登録されていない場合に、`browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されて{{#Startup-14-1}}いない。（Startup-14-1）{{/Startup-14-1}}{{#Startup-14-2}}いる。（Startup-14-2）{{/Startup-14-2}}
 {{/Startup-14}}
+{{#Security-23}}
         1. `dom.ipc.plugins.sandbox-level.default` の値が{{#Security-23-1 || Security-23-2}}`0`である。（Security-23-1/2）{{/Security-23-1 || Security-23-2}}{{#Security-23-3}}`1`である。（Security-23-3）{{/Security-23-3}}
         1. `dom.ipc.plugins.sandbox-level.flash` の値が{{#Security-23-1}}`0`である。（Security-23-1）{{/Security-23-1}}{{#Security-23-2 || Security-23-3}}`1`である。（Security-23-2/3）{{/Security-23-2 || Security-23-3}}
+{{/Security-23}}
 {{#Security-26}}
         1. フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合に、`browser.safebrowsing.downloads.enabled` が{{#Security-26-1}} `true` である。（Security-26-1）{{/Security-26-1}}{{#Security-26-2}} `false` である。（Security-26-2）{{/Security-26-2}}
 {{/Security-26}}
