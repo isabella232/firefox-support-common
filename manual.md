@@ -1886,7 +1886,6 @@
 {{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}
 {{#Privacy-33-2 || Privacy-33-4}}{{#Privacy-41}} - Privacy-41-\* {{/Privacy-41}}{{/Privacy-33-2 || Privacy-33-4}}
 {{^Privacy-33-2 || Privacy-33-4}}{{#Privacy-41-2}} - Privacy-41-2 {{/Privacy-41-2}}{{/Privacy-33-2 || Privacy-33-4}}
-{{#Privacy-42}} - Privacy-42-\* {{/Privacy-42}}
 
 ### 準備
 
@@ -1977,8 +1976,8 @@
         1. 「beacon」欄に {{#Privacy-38-1}}`enabled` と表示される。（Privacy-38-1）{{/Privacy-38-1}}{{#Privacy-38-2}}`disabled` と表示される。（Privacy-38-2）{{/Privacy-38-2}}
 {{/Privacy-38}}
 <!--/GROUP-->
-1. ロケーションバーに`about:config`と入力し、詳細設定一覧を開く。
 {{#Privacy-7 || Privacy-16}}
+1. ロケーションバーに `about:config` と入力し、詳細設定一覧を開く。
 1. `about:config` で以下の設定を行う。設定値が既に指定の通りであればそのままとする。また、既存の値がない場合は新規に作成する。
 {{#Privacy-16}}
     - `network.dns.notifyResolution`（真偽型）を`true`に設定する。
