@@ -1111,12 +1111,11 @@
 {{/Security-9-3}}
 
 
-{{#Admin-4}}
 ## アドオンの署名確認の無効化
 
 ### 確認する項目
 
-- Admin-4-*
+{{#Admin-4}}- Admin-4-*{{/Admin-4}}
 
 ### 準備
 
@@ -1144,7 +1143,10 @@
 1. 以下の位置に設置したファイルを削除する。
    `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
    {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
-{{/Admin-4}}
+{{#Security-3-3}}
+1. ポリシー設定に加えた変更を元に戻す。
+{{/Security-3-3}}
+
 
 ## 起動方法の制御
 
