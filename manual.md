@@ -45,7 +45,7 @@
 * 現行バージョンのFirefoxのセットアップ手順を確認し、現行環境を復元できる用意を整えておく。
 {{/is_upgrade_from_uncontrolled}}
 {{#Startup-14}}
-* Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
+* 以前のバージョンのメタインストーラを用いて、Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
 {{/Startup-14}}
 {{#Admin-1-2}}
 * リモート設定ファイルを参照できない環境で検証する場合、MCD用設定ファイルの「Admin-1-2」に対応する設定をコメントアウトし、ローカル設定ファイルのみを使用するように設定する。
