@@ -1122,20 +1122,22 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. アドオンの未署名のインストールパッケージとして、テストケースの以下のファイルを用意する。
-   `unsigned-sample-addon@clear-code.com.xpi`
+1. アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、以下の位置に置く。
+   `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+   {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
+{{#Security-3-3}}
+1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+{{/Security-3-3}}
 
 ### 検証
 
-1. 用意したインストールパッケージを以下の位置に置く。
-   `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
-   {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
 1. `{{desktop_shortcut_path}}` がある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Admin-2-1}}
 1. アドオンを有効化した上で、Firefoxを再起動する。
 {{/Admin-2-1}}
+1. アドオンマネージャを開く。
     - 確認項目
-        1. Firefoxのツールバー上に「Unsigned Sample Addon」という名前のボタンが{{#Admin-4-1}}表示される。（Admin-4-1）{{/Admin-4-1}}{{#Admin-4-2}}表示されない。（Admin-4-2）{{/Admin-4-2}}
+        1. アドオン「Unsigned Sample Addon」が{{#Admin-4-1}}有効になっている。（Admin-4-1）{{/Admin-4-1}}{{#Admin-4-2}}無効になっている。（Admin-4-2）{{/Admin-4-2}}
 
 ### 後始末
 
