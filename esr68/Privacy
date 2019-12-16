@@ -171,9 +171,9 @@ Privacy-9: 日数ベースでの履歴の自動削除
         "flexible-expire-history-by-days@clear-code.com": {
           "frequency": 0, // 0=アイドル時に毎回チェック, 1=1日に1回チェック, 2=起動中に1回だけチェック
           "days":      30
-        },
-      },
-    }
+        }
+      }
+    },
     
     fainstall.ini:
     [flexible-expire-history-by-days.xpi]
