@@ -163,14 +163,14 @@ Privacy-9: 日数ベースでの履歴の自動削除
 
     :1: 日数ベースで履歴を自動削除する
 
-    Flexible Expire History by Days の background.js において、browser.storage.local.get()で値を取得している箇所で定義されている「days」の既定値を変更する。
-    また、Managed Storageで「frequency」の既定値を指定する。
+    Flexible Expire History by Daysを使用し、Managed Storageで「days」「frequency」の既定値を指定する。
     
     policies.json:
     "3rdparty": {
       "Extensions": {
         "flexible-expire-history-by-days@clear-code.com": {
-          "frequency": "value",
+          "frequency": 0, // 0=アイドル時に毎回チェック, 1=1日に1回チェック, 2=起動中に1回だけチェック
+          "days":      30
         },
       },
     }
