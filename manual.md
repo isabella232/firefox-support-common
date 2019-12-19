@@ -1220,40 +1220,23 @@
     - `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\Root\Certificates`
     - `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root\Certificates`
     - `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates\Root\Certificates`
-1. インポート済みの証明書がない場合、次の手順でダミーの証明書をインポートする。
-    - スタートメニューから「mmc.exe」を実行する
-    - 「ファイル > スナップインの追加と削除」を選ぶ
-    - 「証明書」を選び、「コンピューターアカウント」を選択する。
-    ｰ 「ローカル コンピューター」を選択する。
-    - 「完了」をクリックしてウィザードを終了する。
-    - 画面左のツリーから「コンソール ルート」→「証明書（ローカル コンピューター）」と展開していく。
-    - 「証明書（ローカル コンピューター）」配下の「信頼されたルート証明機関」を右クリックし、メニューから「すべてのタスク > インポート」を選択する。
-    - ファイルとしてテストケースの「dummy.crt」を選択する。また、配置先証明書ストアは「証明書をすべて次のストアに配置する」→「信頼されたルート証明機関」を選択する。
-    - ウィザードの完了後、「信頼されたルート証明書」→「証明書」の一覧に「dummy.clear-code.com」という証明書が表示されることを確認する。
-1. MCD設定ファイルに以下の設定を追加しておく。
-    - `lockPref("logging.pipnss", 5);`
-    - `lockPref("logging.config.sync", true);`
-    - `lockPref("logging.config.add_timestamp", true);`
-    - `lockPref("logging.config.clear_on_startup", true);`
-    - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\nss.log");`
-1. `C:\Users\Public\nss.log-*` を全て削除しておく。
+1. インポート済みの証明書がない場合、テストケースの `add-badssl-com-enterprise-root.reg` を使用してBadSSL.comのルート証明書をインポート済みの状態にする。
 {{/Security-1-3}}
 
 ### 検証
 
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 {{#Security-1-3}}
-1. `C:\Users\Public\nss.log-*` の位置に出力されたログファイルを開く。
+1. インポートされることが期待される証明書によって発行された証明書を使用しているWebサイトを開く。
+   BadSSL.comのルート証明書を使用する場合は、 `https://untrusted-root.badssl.com/` を訪問する。
     - 確認項目
-        1. `imported （1以上の数値） certs from （ROOTまたはCA）`というログが出力されている。（Security-1-3）
+        1. 証明書のエラーが表示されず、Webサイトの内容をそのまま閲覧できる。（Security-1-3）
 {{/Security-1-3}}
 
 {{#Security-1-3}}
 ### 後始末
 
-1. Windowsの証明書データベースに検証用に追加した証明書があれば、全て削除する。
-1. MCD設定ファイルに追加した設定を全て削除する
-1. `C:\Users\Public\nss.log-*` を全て削除する。
+1. テストケースの `add-badssl-com-enterprise-root.reg` を使用した場合、`remove-badssl-com-enterprise-root.reg` を使用してBadSSL.comのルート証明書を削除する。
 {{/Security-1-3}}
 
 {{#Security-3 || Privacy-51-2 || Security-40-2}}
