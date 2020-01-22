@@ -43,11 +43,13 @@ Admin-3: [廃止] Firefoxバージョンアップ時のアドオン更新確認�
 
     :1: [廃止] 確認する（既定）
 
+    [廃止]
     lockPref("extensions.shownSelectionUI", false);
     lockPref("extensions.showMismatchUI", true);
 
     :2: [廃止] 確認しない
 
+    [廃止]
     lockPref("extensions.shownSelectionUI", true);
     lockPref("extensions.showMismatchUI", false);
 

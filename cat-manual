@@ -292,7 +292,12 @@ def output_verify_targets_to_sections_list(path, contents, verify_targets)
     chapter.split(/^##[^#]/).each_with_index do |section, section_number|
       next if section_number.zero?
       section_id = "#{chapter_number}.#{section_number}"
-      items = section.match(/^### *確認する項目\s*([^#]+)\n#/)[1]
+      items = section.match(/^### *確認する項目\s*([^#]+)\n#/)
+      if items.nil?
+        STDERR.puts  "Error: no verification target in: #{section}"
+        next
+      end
+      items = items[1]
       items.each_line do |item|
         item.gsub!(/\A\s*-\s*|\s*\n?\z/, "")
         item.sub!(/(-[^-]+)-[^-]+\z/, "\\1")

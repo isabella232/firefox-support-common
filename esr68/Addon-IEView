@@ -16,7 +16,7 @@ Addon-IEView-1: IEの起動
           "forceielist": "（半角スペース区切りのURLのリスト）"
         }
       }
-    }
+    },
 
     :3: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（MCD）
 
@@ -32,7 +32,7 @@ Addon-IEView-1: IEの起動
           "closeReloadPage": true
         }
       }
-    }
+    },
 
 Addon-IEView-2: 起動するIEの設定
 
@@ -50,17 +50,18 @@ Addon-IEView-2: 起動するIEの設定
           "ieargs": ""
         }
       }
-    }
+    },
 
 Addon-IEView-3: [廃止] 閲覧中のページへの広告の埋め込み（アドウェアとしての動作）
 
     :1: 許可する（既定）
 
+    [廃止]
     -
 
     :2: 禁止する
 
-    廃止
+    [廃止]
 
 Addon-IEView-4: IE View WEの使用
 
@@ -74,7 +75,7 @@ Addon-IEView-4: IE View WEの使用
           "disableForce": false
         }
       }
-    }
+    },
     
     fainstall.ini:
     [ieview-we@clear-code.com.xpi]
@@ -97,7 +98,7 @@ Addon-IEView-5: IE View WEのコンテキストメニュー
           "contextMenu": false
         }
       }
-    }
+    },
 
 Addon-IEView-6: IEで開かない例外サイト
 
@@ -115,7 +116,7 @@ Addon-IEView-6: IEで開かない例外サイト
           "sitesOpenedBySelf": "http://...\r\nhttp://...\r\n"
         }
       }
-    }
+    },
 
 Addon-IEView-7: IEで開くページの検出対象
 
@@ -128,7 +129,7 @@ Addon-IEView-7: IEで開くページの検出対象
           "onlyMainFrame": true
         }
       }
-    }
+    },
 
     :2: すべてのフレームの読み込み
 
@@ -139,7 +140,7 @@ Addon-IEView-7: IEで開くページの検出対象
           "onlyMainFrame": false
         }
       }
-    }
+    },
 
 Addon-IEView-8: URLのマッチング時にクエリ文字列を無視するかどうか
 
@@ -152,7 +153,7 @@ Addon-IEView-8: URLのマッチング時にクエリ文字列を無視するか�
           "ignoreQueryString": true
         }
       }
-    }
+    },
 
     :2: 無視しない
 
@@ -163,5 +164,5 @@ Addon-IEView-8: URLのマッチング時にクエリ文字列を無視するか�
           "ignoreQueryString": false
         }
       }
-    }
+    },
 

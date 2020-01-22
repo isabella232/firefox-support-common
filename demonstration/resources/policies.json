@@ -1,0 +1,43 @@
+{
+  "policies": {
+    "// Update-1-4": "",
+    "DisableAppUpdate": true,
+    "// Update-2-3": "",
+    "ExtensionUpdate": false,
+    "// Update-6-2": "",
+    "DisableSystemAddonUpdate": true,
+    "// Security-28-3": "",
+    "CaptivePortal": false,
+    "// Privacy-18-3": "",
+    "DisableTelemetry": true,
+    "// Privacy-22-2": "",
+    "DisableFirefoxAccounts": true,
+    "// Privacy-24-3": "",
+    "DisableFirefoxAccounts": true,
+    "// Privacy-27-2": "",
+    "DisablePocket": true,
+    "// Privacy-33-4": "",
+    "EnableTrackingProtection": {
+      "Value": true,
+      "Locked": true
+    },
+    "Cookies": {
+      "RejectTracker": true
+    },
+    "// Privacy-42-2": "",
+    "DisableFirefoxStudies": true,
+    "// Startup-4-3": "",
+    "OverridePostUpdatePage": "",
+    "// Startup-12-3": "",
+    "OverrideFirstRunPage": "",
+    "// Ui-7-3": "",
+    "DisableFirefoxScreenshots": true,
+    "// Tab-5-4": "",
+    "NewTabPage": false,
+    "// Tab-11-6": "",
+    "FirefoxHome": {
+      "TopSites": false,
+      "Locked": true
+    }
+  }
+}

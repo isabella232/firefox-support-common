@@ -2,7 +2,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     :1: [廃止] 導入する
 
-    廃止
+    [廃止]
 
     :4: 導入する（ポリシーで設定）
 
@@ -13,7 +13,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
         "ファイル名2",
         ...
       ]
-    }
+    },
 
     :2: 導入しない（既定）
 
@@ -27,11 +27,11 @@ Security-2: [廃止] 独自のルート証明書の自動再登録の可否
 
     :1: [廃止] 自動的に再登録する
 
-    廃止
+    [廃止]
 
     :2: [廃止] 自動的に再登録しない（既定）
 
-    廃止
+    [廃止]
 
 Security-3: アドオンのインストールの可否
 
@@ -41,11 +41,11 @@ Security-3: アドオンのインストールの可否
 
     :2: [廃止] 特定サイトのみ常に許可する
 
-    廃止
+    [廃止]
 
     :6: 特定サイトのみ常に許可する（ポリシーとして設定）
 
-    "InstallAddonsPermission": { "Allow": ["(origin1)", "(origin2)", …] }
+    "InstallAddonsPermission": { "Allow": ["(origin1)", "(origin2)", …] },
 
     :5: 特定サイトのみ初期状態で許可する
 
@@ -62,7 +62,7 @@ Security-3: アドオンのインストールの可否
     "BlockAboutAddons": true,
     "InstallAddonsPermission": {
       "Default": false
-    }
+    },
 
     :4: 禁止するが、設定の変更は許可する
 
@@ -79,7 +79,7 @@ Security-3: アドオンのインストールの可否
 
     "InstallAddonsPermission": {
       "Default": false
-    }
+    },
 
 Security-4: 広告などのポップアップの表示の可否
 
@@ -89,7 +89,7 @@ Security-4: 広告などのポップアップの表示の可否
 
     :2: [廃止] 特定サイトのみ常に確認無しで許可する
 
-    廃止
+    [廃止]
 
     :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
 
@@ -101,7 +101,7 @@ Security-4: 広告などのポップアップの表示の可否
         "(origin2)",
         …
       ]
-    }
+    },
 
     :5: 特定サイトのみ初期状態で確認無しで許可する
 
@@ -122,7 +122,7 @@ Security-4: 広告などのポップアップの表示の可否
     "PopupBlocking": {
       "Default": false,
       "Locked": true
-    }
+    },
 
     :4: 禁止する
 
@@ -135,7 +135,7 @@ Security-4: 広告などのポップアップの表示の可否
     "PopupBlocking": {
       "Default": true,
       "Locked": true
-    }
+    },
 
 Security-5: 攻撃サイトに対する警告の可否
 
@@ -181,21 +181,24 @@ Security-7: [廃止] プラグインのインストールの可否
 
     :1: [廃止] 許可する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 一切禁止する
 
+    [廃止]
     -（Firefox 38で廃止）
 
 Security-8: [廃止] about:***の利用の可否
 
     :1: [廃止] 許可する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 禁止する
 
-    廃止
+    [廃止]
 
 Security-9: about:configの利用の可否
 
@@ -205,30 +208,35 @@ Security-9: about:configの利用の可否
 
     :2: [廃止] 禁止する
 
+    [廃止]
     -
 
     :3: 禁止する（ポリシーで設定）
 
-    "BlockAboutConfig": true
+    "BlockAboutConfig": true,
 
 Security-10: [廃止] エラーコンソールの利用の可否
 
     :1: [廃止] 許可する
 
+    [廃止]
     -（Firefox 48で廃止）
 
     :2: [廃止] 禁止する（既定）
 
+    [廃止]
     -
 
 Security-11: [廃止] SNS連携機能の利用の可否
 
     :1: [廃止] 許可する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 禁止する
 
+    [廃止]
     -（Firefox 57で廃止）
 
 Security-12: JavaScriptの実行の可否
@@ -239,6 +247,7 @@ Security-12: JavaScriptの実行の可否
 
     :2: [廃止] 特定サイトのみ許可する
 
+    [廃止]
     -（Firefox 29〜52の間で廃止）
 
     :3: 禁止する
@@ -259,7 +268,7 @@ Security-13: ローカルファイルの読み込みの可否
       "http://example.com",
       "http://example.net",
       ...
-    ]
+    ],
 
     :2: 禁止する（既定）
 
@@ -375,6 +384,7 @@ Security-16: フルスクリーン表示の可否
 
     :2: [廃止] 特定サイトのみ確認なしで許可する
 
+    [廃止]
     Firefox 45で廃止
 
     :3: 禁止する
@@ -385,10 +395,12 @@ Security-17: [廃止] about:homeからマーケットプレイスへの遷移の
 
     :1: [廃止] 許可する（既定）
 
+    [廃止]
     Firefox 45で廃止
 
     :2: [廃止] 禁止する
 
+    [廃止]
     Firefox 45で廃止
 
 Security-18: ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否
@@ -415,10 +427,12 @@ Security-20: [廃止] パーミッション設定変更の可否
 
     :1: [廃止] 変更を許可する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 変更を禁止する
 
+    [廃止]
     廃止
 
 Security-21: 危険なアドオンとプラグインのブロックの可否
@@ -438,10 +452,12 @@ Security-22: [廃止] Webアプリケーションのインストールの可否
 
     :1: [廃止] marketplace.firefox.comからのインストールのみ許可（既定）
 
+    [廃止]
     -（Firefox 52で削除）
 
     :2: [廃止] 禁止する
 
+    [廃止]
     -（Firefox 52で削除）
 
 Security-23: プラグインのサンドボックス内実行
@@ -477,6 +493,9 @@ Security-24: Flashプラグインの保護モード
 
     :2: 使用しない
 
+    // 32bit版でのみ使用される設定。
+    // 64bit版では設定項目が表示されず使用されないため、
+    // 設定ファイルの共通化の際にはそのまま残しても問題無い。
     lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
 
 Security-25: プロトコルごとの外部Webアプリケーションへの連携
@@ -576,11 +595,11 @@ Security-29: [廃止] SSL/TLSでないページでの「secure」属性付きCoo
 
     :1: [廃止] 許可する
 
-    廃止
+    [廃止]
 
     :2: [廃止] 禁止する（既定）
 
-    廃止
+    [廃止]
 
 Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの実行
 
@@ -654,7 +673,7 @@ Security-36: DNS over HTTPSの使用
       "Enabled": true,
       "ProviderURL": "https://mozilla.cloudflare-dns.com/dns-query".
       "Locked": true
-    }
+    },
 
 Security-37: セキュリティ警告の回避
 
@@ -681,7 +700,7 @@ Security-38: セキュリティデバイスの登録
     "SecurityDevices": {
       "デバイス名1": "C:\\Path\\To\\Library.dll",
       ...
-    }
+    },
 
 Security-39: 特定のWebサイトへのアクセスの遮断
 
@@ -704,7 +723,7 @@ Security-39: 特定のWebサイトへのアクセスの遮断
         "https://twitter.com/about",
         ...
       ]
-    }
+    },
 
 Security-40: アドオンのインストールを遮断した際の追加のメッセージ
 
@@ -718,7 +737,7 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
       "example@example.com": { // アドオンのID
         "blocked_install_message": "このアドオンは使用禁止です"
       }
-    }
+    },
 
 Security-41: 複数のポップアップを一度に開く操作
 
@@ -762,4 +781,109 @@ Security-44: HTTPSでないURLのページでのカメラ・マイクの使用�
     :2: 禁止する（既定）
 
     lockPref("media.getusermedia.insecure.enabled", false);
+
+Security-45: 証明書の例外の自動承認
+
+    :1: 特定のホストの証明書の例外を自動的に承認する
+
+    const autoAcceptExceptionFor = (host, port = 443) => {
+      const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
+      const exceptionURL = port == 443 ? `https://${host}` : `https://${host}:${port}`;
+    
+      const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+      const observer = {
+        observe(aSubject, aTopic, aData) {
+          switch (aTopic) {
+            case 'domwindowopened':
+              if (!aSubject.QueryInterface(Ci.nsIInterfaceRequestor)
+                           .getInterface(Ci.nsIWebNavigation)
+                           .QueryInterface(Ci.nsIDocShell)
+                           .QueryInterface(Ci.nsIDocShellTreeNode || Ci.nsIDocShellTreeItem) // nsIDocShellTreeNode is merged to nsIDocShellTreeItem by https://bugzilla.mozilla.org/show_bug.cgi?id=331376
+                           .QueryInterface(Ci.nsIDocShellTreeItem)
+                           .parent) {
+                const win = aSubject.QueryInterface(Ci.nsIDOMWindow);
+                win.addEventListener('load', () => tryHandleWindow(win), { once: true });
+              }
+              return;
+          }
+        },
+        QueryInterface(aIID) {
+          if (!aIID.equals(Ci.nsIObserver) &&
+              !aIID.equals(Ci.nsISupports)) {
+            throw Components.results.NS_ERROR_NO_INTERFACE;
+          }
+          return this;
+        }
+      };
+    
+      const waitUntilEventOrTimeout = (target, type, timeout) => {
+        return new Promise((resolve, reject) => {
+          const win = (target.ownerDocument || target).defaultView || target;
+          const listener = () => {
+            target.removeEventListener(type, listener);
+            win.clearTimeout(timer);
+            resolve();
+          };
+          const timer = win.setTimeout(listener, timeout);
+          target.addEventListener(type, listener);
+        });
+      };
+    
+      const WW = Cc['@mozilla.org/embedcomp/window-watcher;1'].getService(Ci.nsIWindowWatcher);
+      const teardown = () => {
+        WW.unregisterNotification(observer);
+        //if (tab)
+        //  tab.ownerDocument.defaultView.gBrowser.removeTab(tab);
+      };
+    
+      let tab;
+      const tryHandleWindow = async (win) => {
+        switch (win.location.href.replace(/(\?.*)(#.*)$/, '')) {
+          case 'chrome://browser/content/browser.xul': {
+            await new Promise((resolve, reject) => {
+              win.addEventListener('MozAfterPaint', resolve, { once: true });
+            });
+    
+            //win.openNewTabWith(exceptionURL);
+            await new Promise((resolve, reject) => {
+              const listener = (event) => {
+                if (event.detail.changed != 'busy' ||
+                    event.target.getAttribute('busy') == 'true')
+                  return;
+                win.setTimeout(() => {
+                  const uri = event.target.linkedBrowser.lastURI || event.target.linkedBrowser.currentURI;
+                  if (!uri || uri.spec.indexOf(exceptionURL) != 0)
+                    return;
+                  win.document.removeEventListener('TabAttrModified', listener);
+                  tab = event.target;
+                  resolve();
+                }, 100);
+              };
+              win.document.addEventListener('TabAttrModified', listener);
+            });
+    
+            const browser = tab.linkedBrowser;
+            browser.messageManager.loadFrameScript('data:text/javascript,(' + (async (waitUntilEventOrTimeout) => {
+              const doc = docShell.QueryInterface(Components.interfaces.nsIWebNavigation).document;
+              const win = doc.defaultView;
+              await waitUntilEventOrTimeout(doc, 'AboutNetErrorLoad', 500);
+    
+              const advancedButton = doc.getElementById('advancedButton');
+              if (advancedButton) {
+                advancedButton.dispatchEvent(new win.MouseEvent('click', { button: 0 }));
+                const exceptionDialogButton = doc.getElementById('exceptionDialogButton');
+                if (exceptionDialogButton) {
+                  exceptionDialogButton.click();
+                  return; /* success case, go to next step: exceptionDialog */
+                }
+              }
+              /* failure case */
+            }).toSource() + ')(' + waitUntilEventOrTimeout.toSource() + ')', false, false);
+          }; break;
+        }
+      };
+    
+      WW.registerNotification(observer);
+    };
+    autoAcceptExceptionFor('ホスト名');
 

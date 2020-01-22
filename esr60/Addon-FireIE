@@ -2,54 +2,63 @@ Addon-FireIE-1: [廃止] 動作モード
 
     :1: [廃止] IE7互換モード（既定）
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie7mode");
 
     :2: [廃止] IE8互換モード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie8mode");
 
     :3: [廃止] IE8標準準拠モード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie8forced");
 
     :4: [廃止] IE9互換モード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie9mode");
 
     :5: [廃止] IE9標準準拠モード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie9forced");
 
     :6: [廃止] IE10互換モード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie10mode");
 
     :7: [廃止] IE10標準準拠モード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie10forced");
 
     :8: [廃止] IE11 Edgeモード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie11edge");
 
     :9: [廃止] IE11 強制Edgeモード
 
+    [廃止]
     // Fire IE 0.4.6.2とFirefox 52の組み合わせにおいてはこの機能は動作しない。
     lockPref("plugin.load_flash_only", false);
     lockPref("extensions.fireie.compatMode", "ie11forcededge");
@@ -58,10 +67,12 @@ Addon-FireIE-2: [廃止] モード表示
 
     :1: [廃止] 表示する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 表示しない
 
+    [廃止]
     lockPref("extensions.fireie.showUrlBarLabel", false);
     lockPref("extensions.fireie.hideUrlBarButton", true);
 
@@ -69,10 +80,12 @@ Addon-FireIE-3: [廃止] 定義ファイルの自動更新
 
     :1: [廃止] 自動更新する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 自動更新しない
 
+    [廃止]
     lockPref("extensions.fireie.subscriptions_autoupdate", false);
     lockPref("extensions.fireie.subscriptions_defaultAdded", false);
 
@@ -80,24 +93,29 @@ Addon-FireIE-4: [廃止] ルールに当てはまらないサイトの取り扱�
 
     :1: [廃止] 何もしない（既定）
 
+    [廃止]
     -
 
     :2: [廃止] Firefoxで開く
 
+    [廃止]
     lockPref("extensions.fireie.autoSwitchOnRuleMiss", "fx");
 
     :2: [廃止] IEで開く
 
+    [廃止]
     lockPref("extensions.fireie.autoSwitchOnRuleMiss", "ie");
 
 Addon-FireIE-5: [廃止] その他のバックグラウンドでの通信
 
     :1: [廃止] 許可する（既定）
 
+    [廃止]
     -
 
     :2: [廃止] 禁止する
 
+    [廃止]
     lockPref("extensions.fireie.subscriptions_fallbackurl", "");
     lockPref("extensions.fireie.subscriptions_listurl", "");
     lockPref("extensions.fireie.documentation_link", "");

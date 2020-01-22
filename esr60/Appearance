@@ -44,7 +44,7 @@ Appearance-3: ロケーションバーと検索バーの統合
     :2: 統合しない
 
     // PolicyEngineで設定する
-    "SearchBar": "separate"
+    "SearchBar": "separate",
 
 
 Appearance-4: ウィンドウコントロールの不具合の回避（Bug 1521692）

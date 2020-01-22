@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Unsigned Sample Addon",
+  "version": "0.2",
+  "description": "An example of unsigned addon.",
+  "browser_action": {
+    "default_title": "Unsigned Sample Addon"
+  },
+  "applications": {
+    "gecko": {
+      "id": "unsigned-sample-addon@clear-code.com",
+      "strict_min_version": "52.0"
+    }
+  }
+}

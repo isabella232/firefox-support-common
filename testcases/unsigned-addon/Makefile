@@ -1,17 +1,11 @@
 PACKAGE_NAME = unsigned-sample-addon
 
-.PHONY: all xpi signed clean
+.PHONY: all xpi clean
 
 all: xpi
 
-xpi: makexpi/makexpi.sh
-	makexpi/makexpi.sh -n $(PACKAGE_NAME) -o
-
-makexpi/makexpi.sh:
-	git submodule update --init
-
-signed: xpi
-	makexpi/sign_xpi.sh -k $(JWT_KEY) -s $(JWT_SECRET) -p ./$(PACKAGE_NAME)_noupdate.xpi
+xpi: clean
+	zip -r -9 $(PACKAGE_NAME)@clear-code.com.xpi manifest.json -x '*/.*'
 
 clean:
-	rm $(PACKAGE_NAME).xpi $(PACKAGE_NAME)_noupdate.xpi sha1hash.txt
+	rm -f *.xpi

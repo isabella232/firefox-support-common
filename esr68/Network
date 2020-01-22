@@ -19,7 +19,7 @@ Network-2: プロキシの利用
     "Proxy": {
       "Mode": "none",
       "Locked": true
-    }
+    },
 
     :2: 固定のプロキシを利用する
 
@@ -35,7 +35,7 @@ Network-2: プロキシの利用
       "HTTPProxy": "（ホスト名）:（ポート番号）",
       "UseHTTPProxyForAllProtocols": true,
       "Locked": true
-    }
+    },
 
     :3: プロキシ自動設定スクリプトを利用する
 
@@ -60,7 +60,7 @@ Network-2: プロキシの利用
       "Mode": "autoConfig",
       "AutoConfigURL": "（ファイルのURL）",
       "Locked": true
-    }
+    },
 
     :4: WPADでネットワークのプロキシ設定を自動検出する
 
@@ -71,7 +71,7 @@ Network-2: プロキシの利用
     "Proxy": {
       "Mode": "autoDetect",
       "Locked": true
-    }
+    },
 
     :5: システムの設定を利用する（既定）
 
@@ -82,16 +82,18 @@ Network-2: プロキシの利用
     "Proxy": {
       "Mode": "system",
       "Locked": true
-    }
+    },
 
 Network-3: [廃止] SSL3.0の利用の可否
 
     :1: [廃止] 許可する
 
+    [廃止]
     Firefox 39時点で廃止
 
     :2: [廃止] 禁止する（既定）
 
+    [廃止]
     Firefox 39時点で廃止
 
 Network-4: NTLM認証によるシングルサインオンの許可
@@ -111,7 +113,7 @@ Network-4: NTLM認証によるシングルサインオンの許可
       "SPNEGO": ["https://example.com/"],
       "Delegated": ["https://example.com/"],
       "NTLM": ["https://example.com/"]
-    }
+    },
 
 Network-5: HTTPの同時接続数
 
@@ -165,10 +167,11 @@ Network-9: [廃止] HTTP Pipeliningの使用
 
     :1: [廃止] 許可する
 
-    廃止
+    [廃止]
 
     :2: [廃止] 禁止する（既定）
 
+    [廃止]
     -
 
 Network-10: onionドメインの名前解決
@@ -195,11 +198,11 @@ Network-12: [廃止] リモートファイルに対するjarプロトコルの�
 
     :1: 許可する（既定）
 
-    廃止
+    [廃止]
 
     :2: 禁止する
 
-    廃止
+    [廃止]
 
 Network-13: TLS 1.3の使用
 
@@ -213,7 +216,7 @@ Network-13: TLS 1.3の使用
 
     :4: 許可する（ポリシーで設定）
 
-    "SSLVersionMax": "tls1.3"
+    "SSLVersionMax": "tls1.3",
 
     :3: 禁止する（ポリシーで設定）
 
@@ -245,11 +248,11 @@ Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
 
     :1: [廃止] パフォーマンスを優先（既定）
 
-    廃止
+    [廃止]
 
     :2: [廃止] トラフィックを抑える事を優先
 
-    廃止
+    [廃止]
 
 Network-16: FQDN形式でない（ドットを含まない）ホスト名でのシングルサインオンの許可
 
@@ -268,7 +271,7 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
         "SPNEGO": true,
         "NTLM": true
       }
-    }
+    },
 
 Network-17: TLS 1.xの使用
 
