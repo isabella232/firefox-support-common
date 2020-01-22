@@ -267,17 +267,17 @@ Tab-13: スニペットの表示
 
 Tab-14: インポートボタンの表示
 
-    :1: 表示する（既定）
+    :1: [廃止] 表示する（既定）
 
     -
 
-    :2: 表示しない
+    :2: [廃止] 表示しない
 
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.migrationExpired", true);
+    -
 
     :3: 表示しない（ポリシーで設定）
 
+    新規タブの画面にはボタンが存在しなくなっているが、「ブラウジングライブラリー」からのインポート操作には影響する。
     "DisableProfileImport": true,
 
 Tab-15: [廃止] 新機能のツアーの表示

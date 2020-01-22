@@ -379,6 +379,7 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :3: 禁止する（ポリシーで設定）
 
+    // Privacy-52 よりも優先される
     "DisableTelemetry": true,
 
 Privacy-19: セキュリティエラーレポートの送信の可否
@@ -956,9 +957,11 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
 
     :1: 表示する（既定）
 
+    // Privacy-18-3 との両立は不可能
     -
 
     :2: 表示しない
 
+    // Privacy-18-3 選択時は常にこちらと同等の結果になる
     lockPref("datareporting.policy.firstRunURL", "");
 
