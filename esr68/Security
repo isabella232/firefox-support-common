@@ -493,6 +493,9 @@ Security-24: Flashプラグインの保護モード
 
     :2: 使用しない
 
+    // 32bit版でのみ使用される設定。
+    // 64bit版では設定項目が表示されず使用されないため、
+    // 設定ファイルの共通化の際にはそのまま残しても問題無い。
     lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
 
 Security-25: プロトコルごとの外部Webアプリケーションへの連携
