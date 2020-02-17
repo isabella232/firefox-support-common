@@ -78,6 +78,20 @@ DEFAULT_FORMAT = {
 #
 # Main
 
+def create_format(wb):
+    def new_format(**kwargs):
+        return wb.add_format(dict(DEFAULT_FORMAT, **kwargs))
+    return {
+        'default':          new_format(),
+        'deprecated':       new_format(bg_color='#cccccc'),
+        'new':              new_format(bold=True, border=2),
+        'question':         new_format(bg_color='#90ee90'),
+        'selected':         new_format(bg_color='#ffffcc'),
+        'selected_new':     new_format(bg_color='#ffeecc'),
+        'selected_all_new': new_format(bg_color='#ffeecc', bold=True, border=2),
+        'selected_changed': new_format(bg_color='#ffeecc'),
+    }
+
 def setup_conditional_format(sheet, formats):
     any_selected = 'COUNTIFS($A$2:$A$9999,"",$B$2:$B$9999,$B2)<>COUNTIF($B$2:$B$9999,$B2)'
 
@@ -104,6 +118,9 @@ def setup_conditional_format(sheet, formats):
         'format':   formats['question']
     })
 
+def is_deprecated(x):
+    return '廃止' in x
+
 def main(args):
     conf_curr = {}
     conf_prev = {}
@@ -116,6 +133,7 @@ def main(args):
             outfile = v
 
     wb = xlsxwriter.Workbook(outfile)
+    formats = create_format(wb)
 
     for arg in args:
         if ESR_CURRENT in arg:
@@ -130,17 +148,6 @@ def main(args):
                 chapters = dict(csv.reader(open(arg)))
             except FileNotFoundError:
                 pass
-
-    formats = {
-        'default':          wb.add_format(DEFAULT_FORMAT),
-        'deprecated':       wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#CCCCCC'})),
-        'new':              wb.add_format(dict(DEFAULT_FORMAT, **{'bold': True, 'border': 2})),
-        'question':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#90ee90'})),
-        'selected':         wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffd700'})),
-        'selected_new':     wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffb6c1'})),
-        'selected_all_new': wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ffb6c1', 'bold': True, 'border': 2})),
-        'selected_changed': wb.add_format(dict(DEFAULT_FORMAT, **{'bg_color': '#ff8c00'})),
-    }
 
     for title, files in WORKBOOK_DEF:
         sheet = wb.add_worksheet(title)
@@ -187,13 +194,19 @@ def main(args):
                 item_row = row
                 for d in data['opts']:
                     prev_default_value = prev.get(d['opt_id'], '')
-                    if '[廃止]' in d['conf'].strip() and '[廃止]' in prev_default_value:
+                    prev_conf_value = conf_prev.get(d['opt_id'], '')
+
+                    # Skip if being deprecated for a long time
+                    if is_deprecated(d['conf']) and is_deprecated(prev_default_value):
                         choices -= 1
                         continue
 
-                    selected_mark, curr_conf_value, chapter = '', '', ' '
-                    prev_conf_value = conf_prev.get(d['opt_id'], '')
-                    choice_format = prev_format = formats['default']
+                    selected_mark = ''
+                    curr_conf_value = ''
+                    chapter = ''
+
+                    choice_format = formats['default']
+                    prev_format = formats['default']
 
                     if prev_default_value == '':
                         choice_format = formats['new']
