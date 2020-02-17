@@ -298,6 +298,10 @@ Privacy-14: 位置情報の利用の可否
 
     lockPref("permissions.default.geo", 2);
 
+    :7: すべてのサイトについて初期状態で確認無しで許可する
+
+    lockPref("permissions.default.geo", 1);
+
     :2: [廃止] 特定サイトのみ確認なしで許可する
 
     [廃止]
