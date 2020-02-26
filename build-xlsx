@@ -26,8 +26,8 @@ import adlib
 try:
     import xlsxwriter
 except ImportError:
-    print("ERROR: Please install xlswriter to run this script\n")
-    print("  $ sudo apt install python3-xlsxwriter\n")
+    print('ERROR: Please install xlswriter to run this script\n')
+    print('  $ sudo apt install python3-xlsxwriter\n')
     sys.exit(1)
 
 #
@@ -164,29 +164,26 @@ def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
 
                 for opt in item['opts']:
                     selected = ''
-                    conf = ''
-                    chapter = ''
                     status = ''
+                    chapter = ''
                     fmt = formats['default']
                     item_fmt = formats['default']
+                    opt_id = opt['opt_id']
 
                     if is_deprecated(item['item_title']):
                         item_fmt = formats['deprecated']
                         fmt = formats['deprecated']
                     elif is_deprecated(opt['opt_title']):
                         fmt = formats['deprecated']
-                    elif opt['opt_id'] in conf_curr:
+                    elif opt_id in conf_curr:
                         selected = 'y'
-                        conf = conf_curr[opt['opt_id']]
-                        chapter = chapters.get(opt['opt_id'], '省略')
-                        fmt = formats['selected']
-
-                        if opt['opt_id'] not in conf_prev:
-                            status = '新規'
-                            fmt = formats['selected_changed']
-                        elif conf_prev[opt['opt_id']] != conf_curr[opt['opt_id']]:
-                            status = '変更あり'
-                            fmt = formats['selected_changed']
+                        chapter = chapters.get(opt_id, '省略')
+                        if opt_id not in conf_prev:
+                            fmt, status = formats['selected_changed'], '新規'
+                        elif conf_prev[opt_id] != conf_curr[opt_id]:
+                            fmt, status = formats['selected_changed'], '変更あり'
+                        else:
+                            fmt, status = formats['selected'], ''
 
                     sheet.write(row, 0, fn, formats['default'])
                     sheet.write(row, 1, int(item['item_no']), item_fmt)
@@ -195,12 +192,12 @@ def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
                     sheet.write(row, 4, int(opt['opt_no']), fmt)
                     sheet.write(row, 5, opt['opt_title'], fmt)
                     sheet.write(row, 6, opt['conf'].strip(), fmt)
-                    sheet.write(row, 7, conf, fmt)
+                    sheet.write(row, 7, conf_curr.get(opt_id, ''), fmt)
                     sheet.write(row, 8, status, fmt)
                     sheet.write(row, 9, chapter, formats['default'])
                     sheet.write(row, 10, '', formats['noborder'])
-                    sheet.write(row, 11, prev.get(opt['opt_id'], ""), fmt)
-                    sheet.write(row, 12, conf_prev.get(opt['opt_id'], ""), fmt)
+                    sheet.write(row, 11, prev.get(opt_id, ''), fmt)
+                    sheet.write(row, 12, conf_prev.get(opt_id, ''), fmt)
                     row += 1
         write_legend(sheet, formats, row+1)
 
@@ -226,7 +223,7 @@ def main(args):
         if k == '-o':
             outfile = v
         elif k == '-x':
-            excludes = v.split(",")
+            excludes = v.split(',')
 
     for arg in args:
         if ESR_CURRENT in arg:
