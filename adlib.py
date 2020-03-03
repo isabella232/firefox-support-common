@@ -67,6 +67,7 @@ class Loader:
         self.flush()
 
         item = {'item_id': item_id,
+                'item_no': item_id.rsplit('-', 1)[1],
                 'item_title': item_title,
                 'opts': []}
         self.data.append(item)
