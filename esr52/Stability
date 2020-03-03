@@ -1,3 +1,7 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
 Stability-1: ハードウェアアクセラレーションを有効化するかどうか
 
     :1: 有効化する（安定性より描画性能を優先する）

@@ -1,3 +1,9 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
 % Firefoxカスタマイズ内容の検証手順
 % 株式会社クリアコード
 % 20XX年X月X日
