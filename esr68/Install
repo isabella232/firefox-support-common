@@ -202,3 +202,16 @@ Install-14: Internet Explorerのコンテキストメニューにコマンドを
     
     [menu-command.html]
     TargetLocation=%AppDir%/chrome/
+
+Install-15: 元々インストールされていたFirefoxとの共存
+
+    :1: インストールしたバージョンをFirefoxの最新版として登録する
+
+    -
+
+    :2: 元々インストールされていたFirefoxをFirefoxの最新版として維持する
+
+    fainstall.ini:
+    [fainstall]
+    KeepOriginalInstall=true
+
