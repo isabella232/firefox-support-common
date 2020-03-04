@@ -453,7 +453,7 @@
 
 ### 確認する項目
 
-{{#Install-15}} - Install-15-\* {{/Install-15}}
+ - Install-15-\*
 
 ### 準備
 
