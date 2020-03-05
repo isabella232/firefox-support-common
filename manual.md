@@ -494,11 +494,11 @@
       - 確認項目
           1. `{{original_version_install_path}}` 配下のFirefoxがアンインストールされる。
           1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}} 配下のFirefoxがそのまま残っている。
-   * レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが64bit版であれば
-     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`
-     を、32bit版であれば
-     `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`
-     を開いく。
+   * レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが64bit版であれば  
+     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`  
+     を、32bit版であれば  
+     `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`  
+     を開く。
       - 確認項目
           1. 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
 
