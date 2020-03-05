@@ -454,12 +454,12 @@
 {{/Application-1-3 || Application-2-3 || Application-6}}
 
 
-{{#Install-15}}
+{{#Install-15-2}}
 ## 元々インストールされていたFirefoxとの共存
 
 ### 確認する項目
 
- - Install-15-\*
+ - Install-15-2
 
 ### 準備
 
@@ -489,12 +489,20 @@
 1. `firefox.exe` と入力し、実行する。
     - 確認項目
         1. `{{original_version_install_path}}` 配下のFirefoxが起動する。
-1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、`{{original_version_install_path}}` 配下にあるFirefoxのバージョンに対応する項目を指定して、Firefoxをアンインストールする。
-    - 確認項目
-        1. `{{original_version_install_path}}` 配下のFirefoxがアンインストールされる。
-        1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}} 配下のFirefoxがそのまま残っている。
+1. 以下のいずれかの方法で、Firefoxのアンインストール情報がメタインストーラによって変更されていないことを確認する。
+   * スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、`{{original_version_install_path}}` 配下にあるFirefoxのバージョンに対応する項目を指定して、Firefoxをアンインストールする。
+      - 確認項目
+          1. `{{original_version_install_path}}` 配下のFirefoxがアンインストールされる。
+          1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}} 配下のFirefoxがそのまま残っている。
+   * レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが64bit版であれば
+     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`
+     を、32bit版であれば
+     `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`
+     を開いく。
+      - 確認項目
+          1. 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
 
-{{/Install-15}}
+{{/Install-15-2}}
 
 
 <!--======================================================================-->
