@@ -342,8 +342,8 @@ def main()
     config = JSON.parse(`#{basedir}/format-config #{po['config']}`)
   end
 
-  if VARIABLES["install_path_32bit"] == VARIABLES["install_path"]
-    VARIABLES.delete("install_path_32bit")
+  if VARIABLES[:install_path_32bit] == VARIABLES[:install_path]
+    VARIABLES.delete(:install_path_32bit)
   end
 
   resolver = TemplateResolver.new(contents, VARIABLES)
