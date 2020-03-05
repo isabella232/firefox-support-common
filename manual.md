@@ -459,17 +459,18 @@
 
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
-    2. 旧バージョンのメタインストーラ
-    3. Mozilla Firefox
-    4. Mozilla Maintenance Service
-1. 以下のファイル、フォルダを削除する。
-    1. `{{install_path}}` {{#install_path_32bit}}
+    2. メタインストーラ
+    3. メタインストーラによってインストールされたMozilla Firefox
+    4. メタインストーラによってインストールされたMozilla Maintenance Service
+1. 以下のファイル、フォルダが残留していれば削除する。
+    1. メタインストーラによってインストールされたFirefoxが配置されていた
+       `{{install_path}}` {{#install_path_32bit}}
        （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. `C:\Program Files (x86)\ClearCode Inc`
-    1. デスクトップのショートカット
-    1. スタートメニューのショートカット
-    1. クイック起動、タスクバー、およびスタートメニュー内に作成されたショートカット
-1. 「元々インストールされていたFirefox」として、導入対象と同じバージョンのFirefoxを`{{original_version_install_path}}`の位置にインストールする。
+    1. メタインストーラによって作成されたデスクトップのショートカット
+    1. メタインストーラによって作成されたスタートメニューのショートカット
+    1. クイック起動、タスクバー、およびスタートメニュー内にメタインストーラによって作成された作成されたショートカット
+1. `{{original_version_install_path}}` 配下に「元々インストールされていたFirefox」が存在しない場合、導入対象と同じバージョンのFirefoxをその位置にインストールしておく。
 1. メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
 
 ### 検証
@@ -482,7 +483,7 @@
 1. `firefox.exe` と入力し、実行する。
     - 確認項目
         1. `{{original_version_install_path}}` 配下のFirefoxが起動する。
-1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、Firefoxをアンインストールする。
+1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、`{{original_version_install_path}}` 配下にあるFirefoxのバージョンに対応する項目を指定して、Firefoxをアンインストールする。
     - 確認項目
         1. `{{original_version_install_path}}` 配下のFirefoxがアンインストールされる。
         1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}} 配下のFirefoxがそのまま残っている。
