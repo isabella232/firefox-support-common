@@ -164,9 +164,7 @@
 1. 旧バージョンからの更新でない場合、以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. `C:\Program Files (x86)\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
-{{^Install-15}}
 1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
-{{/Install-15}}
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 {{#Application-1}}
@@ -318,7 +316,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Application-6-2}}
-1. {{^Install-15}}既にインストール済みのFirefoxとの併用でない場合、{{/Install-15}}以下のファイル、フォルダを削除する。
+1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダを削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 {{/Application-6-2}}
@@ -384,9 +382,7 @@
     1. メタインストーラによってインストールされたデスクトップのショートカット
     1. メタインストーラによってインストールされたスタートメニューのショートカット
     1. クイック起動、タスクバー、およびスタートメニュー内にメタインストーラによってインストールされた作成されたショートカット
-{{^Install-15}}
 1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
-{{/Install-15}}
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 1. 旧バージョン、新バージョンの各メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
