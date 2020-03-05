@@ -157,23 +157,26 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-1. 旧バージョンからの更新でない場合、スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
+1. 旧バージョンからの更新でない場合、スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
     1. {{meta_installer_name}}
-    1. Mozilla Firefox
-    1. Mozilla Maintenance Service
-1. 旧バージョンからの更新でない場合、以下のファイル、フォルダを削除する。
+    1. メタインストーラによってインストールされたMozilla Firefox
+    1. メタインストーラによってインストールされたMozilla Maintenance Service
+1. 旧バージョンからの更新でない場合、以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. `C:\Program Files (x86)\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
+{{^Install-15}}
+1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
+{{/Install-15}}
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 {{#Application-1}}
-    1. デスクトップ上のショートカット
+    1. メタインストーラによってインストールされたデスクトップ上のショートカット
 {{/Application-1}}
 {{#Application-2}}
-    1. スタートメニュー内のショートカット
+    1. メタインストーラによってインストールされたスタートメニュー内のショートカット
 {{/Application-2}}
 {{#Application-3}}
-    1. Windows Vista以前のクイック起動バー内のショートカット
+    1. Windows Vista以前のクイック起動バー内にメタインストーラによってインストールされたショートカット
 {{/Application-3}}
 {{#Install-12-3}}
 1. 管理者でない検証用ユーザーを用意し、権限確認用のフォルダに書き込み権限を与える。
@@ -262,20 +265,23 @@
 {{#Install-1 || Install-7 || Install-9-2 || Update-4}}
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - 確認項目
-{{#Install-7}}
+{{^Install-15}}{{#Install-7}}
         1. 「Mozilla Firefox {{firefox_version}}」がインストールされていることを確認する。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
         1. 旧バージョンからの更新である場合（両バージョンを併存させる場合を除く）、旧バージョンの情報がインストール済みアプリケーションの一覧に独立した項目として表示されない。(Install-7-\*)
-{{/Install-7}}
+{{/Install-7}}{{/Install-15}}
 {{#Install-1}}
         1. 「{{meta_installer_name}}」がインストールされている。（Install-1-\*）
 {{/Install-1}}
 {{#Install-9-2}}
         1. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。（Install-9-2）
 {{/Install-9-2}}
-{{#Update-4}}
+{{^Install-15}}{{#Update-4}}
         1. 「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
-{{/Update-4}}
+{{/Update-4}}{{/Install-15}}
 {{/Install-1 || Install-7 || Install-9-2 || Update-4}}
+{{#Install-15}}{{#Install-7}}
+1. `{{install_path}}\application.ini` を開き、Firefoxのバージョンが {{firefox_version}} であることを確認する。（Install-7-\*）
+{{/Install-7}}{{/Install-15}}
 {{#Startup-14}}
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
@@ -312,7 +318,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#Application-6-2}}
-1. 以下のファイル、フォルダを削除する。
+1. {{^Install-15}}既にインストール済みのFirefoxとの併用でない場合、{{/Install-15}}以下のファイル、フォルダを削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 {{/Application-6-2}}
@@ -320,7 +326,7 @@
 ### 検証
 
 {{#Application-6-2}}
-1. Windowsエクスプローラを開き、アドレスバーに`{{special_profile_path}}` と入力してEnterを押す。
+1. Windowsエクスプローラを開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
     - 確認項目
         1. `{{special_profile_name}}` フォルダが存在する。（Application-6-2）
         2. フォルダの内容は空である。（Application-6-2）
@@ -368,19 +374,22 @@
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
     2. 旧バージョンのメタインストーラ
-    3. Mozilla Firefox
-    4. Mozilla Maintenance Service
-1. 以下のファイル、フォルダを削除する。
+    3. メタインストーラによってインストールされたMozilla Firefox
+    4. メタインストーラによってインストールされたMozilla Maintenance Service
+1. 以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}
        （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. 旧バージョンのメタインストーラによってインストールされたFirefox
     1. `C:\Program Files (x86)\ClearCode Inc`
+    1. メタインストーラによってインストールされたデスクトップのショートカット
+    1. メタインストーラによってインストールされたスタートメニューのショートカット
+    1. クイック起動、タスクバー、およびスタートメニュー内にメタインストーラによってインストールされた作成されたショートカット
+{{^Install-15}}
+1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
+{{/Install-15}}
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
-    1. デスクトップのショートカット
-    1. スタートメニューのショートカット
-    1. クイック起動、タスクバー、およびスタートメニュー内に作成されたショートカット
-3. 旧バージョン、新バージョンの各メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
+1. 旧バージョン、新バージョンの各メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
 
 ### 検証
 

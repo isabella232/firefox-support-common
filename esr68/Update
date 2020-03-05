@@ -50,7 +50,8 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
     :1: 許可する（既定）
 
-    -
+    Install-15-2との併用は不可能。
+    Install-15-2選択時は常にUpdate-4-2を選択する必要がある。
 
     :2: 禁止する
 
