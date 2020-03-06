@@ -174,9 +174,9 @@
 {{#Application-2}}
     1. メタインストーラによってインストールされたスタートメニュー内のショートカット
 {{/Application-2}}
-{{#Application-3}}
+{{#Application-3}}{{#windows_vista_or_older}}
     1. Windows Vista以前のクイック起動バー内にメタインストーラによってインストールされたショートカット
-{{/Application-3}}
+{{/windows_vista_or_older}}{{/Application-3}}
 {{#Install-12-3}}
 1. 管理者でない検証用ユーザーを用意し、権限確認用のフォルダに書き込み権限を与える。
 {{/Install-12-3}}
@@ -246,18 +246,18 @@
 {{#Application-2}}
         1. スタートメニューのショートカットが{{#Application-2-1 || Application-2-3}}存在する。（Application-2-1/3）{{/Application-2-1 || Application-2-3}}{{#Application-2-2}}存在しない （Application-2-2）{{/Application-2-2}}
 {{/Application-2}}
-{{#Application-3}}
+{{#Application-3}}{{#windows_vista_or_older}}
         1. Windows Vista以前のクイック起動バーにMozilla Firefoxのショートカットが{{#Application-3-1}}存在する。（Application-3-1）{{/Application-3-1}}{{#Application-3-2}}存在しない。（Application-3-2）{{/Application-3-2}}
-{{/Application-3}}
+{{/windows_vista_or_older}}{{/Application-3}}
 {{#Install-10-2}}
         1. スタートメニュー上部のMozilla Firefoxのショートカットが更新されている。（Install-10-2）
 {{/Install-10-2}}
 {{#Install-10-3}}
         1. スタートメニュー上部のMozilla Firefoxのショートカットが存在しない。（Install-10-3）
 {{/Install-10-3}}
-{{#Install-11}}
+{{#Install-11}}{{#windows_vista_or_older}}
         1. Windows Vista以降のタスクバーにMozilla Firefoxのショートカットが{{#Install-11-1}}存在する。（Install-11-1）{{/Install-11-1}}{{#Install-11-2}}存在しない。（Install-11-2）{{/Install-11-2}}
-{{/Install-11}}
+{{/windows_vista_or_older}}{{/Install-11}}
 {{#Install-13-3}}
         1. インストール時のクリーンアップ対象に設定したパスの位置にフォルダが存在しない。（Install-13-3）
 {{/Install-13-3}}
@@ -630,12 +630,12 @@
     - 確認項目
         1. 「Firefoxをリフレッシュ」ボタンを押しても何も起こらない。 （Startup-7-3）
 {{/Startup-7-3}}
-{{#Startup-13-2}}
+{{#Startup-13-2}}{{#windows_10_or_later}}
 1. （Windows 10での検証のみ）Firefoxを終了させずに、そのままWindows 10を強制的に再起動またはログオフ/サインアウトする。
 1. （Windows 10での検証のみ）再度Windows 10にログオン/サインインする。
     - 確認項目
         1. Firefoxが自動的には起動しない。 （Startup-3-2）
-{{/Startup-13-2}}
+{{/windows_10_or_later}}{{/Startup-13-2}}
 
 ### 後始末
 

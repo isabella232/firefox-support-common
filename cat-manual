@@ -34,6 +34,8 @@ VARIABLES = {
   is_upgrade_from_uncontrolled:   true,
   firefox_version:                "68.0 ESR",
   windows_version:                "Windows 7",
+  windows_vista_or_older:         false,
+  windows_10_or_later:            true,
   configuration_sheet_name:       "config.xlsx",
   meta_installer_name:            "Fx Meta Installer",
   meta_installer_file_name:       "FxMetaInstaller",
