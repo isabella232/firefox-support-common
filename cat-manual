@@ -40,6 +40,7 @@ VARIABLES = {
   meta_installer_name:            "Fx Meta Installer",
   meta_installer_file_name:       "FxMetaInstaller",
   meta_installer_version:         "60.0",
+  default_install_path_base:      "C:\\Program Files (x86)",
   install_path:                   "C:\\Program Files (x86)\\Mozilla Firefox",
   install_path_32bit:             "C:\\Program Files\\Mozilla Firefox", # インストール先を固定しておらず、32bit環境と64bit環境でインストール先が変わる場合
   desktop_shortcut_path:          "C:\\Users\\Public\\Desktop\\Firefox.lnk",

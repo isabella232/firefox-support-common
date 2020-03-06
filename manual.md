@@ -163,7 +163,7 @@
     1. メタインストーラによってインストールされたMozilla Maintenance Service
 1. 旧バージョンからの更新でない場合、以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
-    1. `C:\Program Files (x86)\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
+    1. `{{default_install_path_base}}:\Program Files (x86)\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
 1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
@@ -379,7 +379,7 @@
     1. `{{install_path}}` {{#install_path_32bit}}
        （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. 旧バージョンのメタインストーラによってインストールされたFirefox
-    1. `C:\Program Files (x86)\ClearCode Inc`
+    1. `{{default_install_path_base}}\ClearCode Inc`
     1. メタインストーラによってインストールされたデスクトップのショートカット
     1. メタインストーラによってインストールされたスタートメニューのショートカット
     1. クイック起動、タスクバー、およびスタートメニュー内にメタインストーラによってインストールされた作成されたショートカット
@@ -472,7 +472,7 @@
     1. メタインストーラによってインストールされたFirefoxが配置されていた
        `{{install_path}}` {{#install_path_32bit}}
        （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
-    1. `C:\Program Files (x86)\ClearCode Inc`
+    1. `{{default_install_path_base}}\ClearCode Inc`
     1. メタインストーラによって作成されたデスクトップのショートカット
     1. メタインストーラによって作成されたスタートメニューのショートカット
     1. クイック起動、タスクバー、およびスタートメニュー内にメタインストーラによって作成された作成されたショートカット
@@ -3248,8 +3248,8 @@
    `https://github.com/clear-code/ieview-we/releases`  
    （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
 1. IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
-    * `ieapp`: `C:\Program Files (x86)\Internet Explorer\iexplore.exe`  
-      （JSON、JavaScriptファイル中では `C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe`）
+    * `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+      （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
     * `ieargs`: 空文字
 {{#Security-3-3}}
 1. ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
