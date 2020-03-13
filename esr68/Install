@@ -22,19 +22,23 @@ Install-2: インストーラのファイル名
 
     !define PRODUCT_NAME  "（名前）"
 
-Install-3: インストーラのウィザード
+Install-3: インストーラの動作モード
 
-    :1: 表示し、操作確認を求める
+    :1: ウィザードを表示し、操作確認を求める
 
     !define PRODUCT_INSTALL_MODE "NORMAL"
 
-    :2: 表示し、操作確認を求めない（既定）
+    :2: ウィザードを表示し、操作確認を求めない（既定）
 
     !define PRODUCT_INSTALL_MODE "PASSIVE"
 
-    :3: 一切表示しない
+    :3: ウィザードを一切表示しない
 
     !define PRODUCT_INSTALL_MODE "QUIET"
+
+    :4: インストーラを使用せずファイルの展開のみして、元々インストールされていたFirefoxをFirefoxの最新版として維持する
+
+    !define PRODUCT_INSTALL_MODE "EXTRACT"
 
 Install-4: インストール完了後のメッセージ
 
@@ -202,16 +206,4 @@ Install-14: Internet Explorerのコンテキストメニューにコマンドを
     
     [menu-command.html]
     TargetLocation=%AppDir%/chrome/
-
-Install-15: 元々インストールされていたFirefoxとの共存
-
-    :1: インストールしたバージョンをFirefoxの最新版として登録する
-
-    -
-
-    :2: 元々インストールされていたFirefoxをFirefoxの最新版として維持する
-
-    fainstall.ini:
-    [fainstall]
-    KeepOriginalInstall=true
 
