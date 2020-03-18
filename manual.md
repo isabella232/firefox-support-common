@@ -266,23 +266,23 @@
 {{#Install-1 || Install-7 || Install-9-2 || Update-4}}
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - 確認項目
-{{^Install-3-4}}{{#Install-7}}
+{{^Install-15-2}}{{#Install-7}}
         1. 「Mozilla Firefox {{firefox_version}}」がインストールされていることを確認する。（ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）（Install-7-\*）
         1. 旧バージョンからの更新である場合（両バージョンを併存させる場合を除く）、旧バージョンの情報がインストール済みアプリケーションの一覧に独立した項目として表示されない。(Install-7-\*)
-{{/Install-7}}{{/Install-3-4}}
+{{/Install-7}}{{/Install-15-2}}
 {{#Install-1}}
         1. 「{{meta_installer_name}}」がインストールされている。（Install-1-\*）
 {{/Install-1}}
 {{#Install-9-2}}
         1. 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。（Install-9-2）
 {{/Install-9-2}}
-{{^Install-3-4}}{{#Update-4}}
+{{^Install-15-2}}{{#Update-4}}
         1. 「Mozilla Maintenance Service」がインストールされて{{#Update-4-1}}いる。（Update-4-1）{{/Update-4-1}}{{#Update-4-2}}いない。（Update-4-2）{{/Update-4-2}}
-{{/Update-4}}{{/Install-3-4}}
+{{/Update-4}}{{/Install-15-2}}
 {{/Install-1 || Install-7 || Install-9-2 || Update-4}}
-{{#Install-3-4}}{{#Install-7}}
+{{#Install-15-2}}{{#Install-7}}
 1. `{{install_path}}\application.ini` を開き、Firefoxのバージョンが {{firefox_version}} であることを確認する。（Install-7-\*）
-{{/Install-7}}{{/Install-3-4}}
+{{/Install-7}}{{/Install-15-2}}
 {{#Startup-14}}
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
     - 確認項目
@@ -466,12 +466,12 @@
 {{/Application-1-3 || Application-2-3 || Application-6}}
 
 
-{{#Install-3-4}}
+{{#Install-15-2}}
 ## 元々インストールされていたFirefoxとの共存
 
 ### 確認する項目
 
- - Install-3-4
+ - Install-15-2
 
 ### 準備
 
@@ -514,7 +514,7 @@
       - 確認項目
           1. 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
 
-{{/Install-3-4}}
+{{/Install-15-2}}
 
 
 <!--======================================================================-->

@@ -36,10 +36,6 @@ Install-3: インストーラの動作モード
 
     !define PRODUCT_INSTALL_MODE "QUIET"
 
-    :4: インストーラを使用せずファイルの展開のみして、元々インストールされていたFirefoxをFirefoxの最新版として維持する
-
-    !define PRODUCT_INSTALL_MODE "EXTRACT"
-
 Install-4: インストール完了後のメッセージ
 
     :1: 表示しない（既定）
@@ -206,4 +202,14 @@ Install-14: Internet Explorerのコンテキストメニューにコマンドを
     
     [menu-command.html]
     TargetLocation=%AppDir%/chrome/
+
+Install-15: Firefoxのインストーラの動作モード
+
+    :1: Firefoxのインストーラをキックする（既定）
+
+    -
+
+    :2: Firefoxのインストーラをキックせず、ファイルの展開と配置のみ行い、元々インストールされていたFirefoxをFirefoxの最新版として維持する
+
+    !define APP_INSTALL_MODE "EXTRACT"
 
