@@ -117,6 +117,7 @@ Application-6: プロファイルの位置
     Shortcuts=desktop-shortcut
 
     [profile]
+    TargetUser=all
     Name=NameOfProfile
     RootPath=X:\Path\To\RootDir
 
