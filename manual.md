@@ -471,9 +471,11 @@
                 1. オプション画面の「検索」を開く。
                 1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-17-2}}（Install-17-2）{{/Install-17-2}}
 
+{{^Install-16-2}}
 ### 後始末
 
 1. 今バージョンのメタインストーラを実行し、今バージョンのFirefoxが有効な状態に戻す。
+{{/Install-16-2}}
 {{/Application-6-2 || Install-17-2}}
 
 
