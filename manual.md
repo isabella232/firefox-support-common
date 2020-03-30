@@ -166,7 +166,7 @@
 1. 旧バージョンからの更新でない場合、以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
     1. `{{default_install_path_base}}\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
-1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
+1. 既存のFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 1. 以下のファイル、フォルダがあれば削除する。
@@ -319,7 +319,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダを削除する。
+1. 既存のFirefoxとの併用でない場合、以下のファイル、フォルダを削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
 
@@ -460,7 +460,7 @@
 
 
 {{#Install-15-2}}
-## 既存Firefoxのインストール情報を維持したままでのFirefoxのインストール
+## 既存のFirefoxのインストール情報を維持したままでのFirefoxのインストール
 
 ### 確認する項目
 
