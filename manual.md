@@ -453,8 +453,8 @@
         1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
-{{/Install-16-2}}
 {{/Admin-1-1 || Admin-1-2}}
+{{/Install-16-2}}
 1. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
