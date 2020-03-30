@@ -213,3 +213,13 @@ Install-15: Firefoxのインストーラの動作モード
 
     !define APP_INSTALL_MODE "EXTRACT"
 
+Install-16: 既存Firefoxとの共存
+
+    :1: その環境で唯一のFirefoxとして使用する（既定）
+
+    -
+
+    :2: その環境に既存のFirefoxと併用する
+
+    -
+

@@ -303,6 +303,7 @@
 
 <!--/GROUP-->
 
+{{#Application-6-2}}
 ## 専用ユーザープロファイルの作成と使用
 
 - 専用ユーザープロファイルの作成先は `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}とする。
@@ -312,31 +313,26 @@
 
 {{#Application-1-3}} - Application-1-3 {{/Application-1-3}}
 {{#Application-2-3}} - Application-2-3 {{/Application-2-3}}
-{{#Application-6-2}} - Application-6-2 {{/Application-6-2}}
+ - Application-6-2
 
 ### 準備
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-{{#Application-6-2}}
 1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダを削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
-{{/Application-6-2}}
 
 ### 検証
 
-{{#Application-6-2}}
 1. Windowsエクスプローラを開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
     - 確認項目
         1. `{{special_profile_name}}` フォルダが存在する。（Application-6-2）
         2. フォルダの内容は空である。（Application-6-2）
-{{/Application-6-2}}
 {{#Application-1-3}}
 1. デスクトップのショートカットのプロパティを開く。
     - 確認項目
         1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。（Application-1-3）
-{{#Application-6-2}}
         2. 「リンク先」末尾にプロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。（Application-6-2）
             ```
             -p {{special_profile_name}}
@@ -345,13 +341,11 @@
             ```
             -profile {{special_profile_path}}\{{special_profile_name}}
             ```
-{{/Application-6-2}}
 {{/Application-1-3}}
 {{#Application-2-3}}
 1. スタートメニューのショートカットのプロパティを開く。
     - 確認項目
         1. 作業フォルダが `"（Firefoxの実行ファイルがあるフォルダパス）"` である。（Application-2-3）
-{{#Application-6-2}}
         2. 「リンク先」末尾にプロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。（Application-6-2）
             ```
             -p {{special_profile_name}}
@@ -360,114 +354,113 @@
             ```
             -profile {{special_profile_path}}\{{special_profile_name}}
             ```
-{{/Application-6-2}}
 {{/Application-2-3}}
-{{#Application-6-2}}
 1. Windowsエクスプローラを開き、アドレスバーに`{{special_profile_path}}\{{special_profile_name}}` と入力してEnterを押す。
 1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
     - 確認項目
         1. Firefoxの起動後、4で開いたフォルダに `prefs.js` などのファイルが作成される。（Application-6-2）
 {{/Application-6-2}}
 
-{{#Application-1-3 || Application-2-3 || Application-6}}
-## 旧バージョンとの共存
+
+{{#Application-6-2 || Install-16-2}}
+## 既存のFirefoxとの共存
 
 ### 確認する項目
 
 {{#Install-7-2}} - Install-7-2 {{/Install-7-2}}
 {{#Install-10-2}} - Install-10-2 {{/Install-10-2}}
-{{#Application-1-3}} - Application-1-3 {{/Application-1-3}}
-{{#Application-2-3}} - Application-2-3 {{/Application-2-3}}
-{{#Application-6}} - Application-6-\* {{/Application-6}}
+{{#Application-6-2}} - Application-6-2 {{/Application-6-2}}
+{{#Install-16-2}} - Install-16-2 {{/Install-16-2}}
 
 ### 準備
 
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
-    2. 旧バージョンのメタインストーラ
-    3. メタインストーラによってインストールされたMozilla Firefox
-    4. メタインストーラによってインストールされたMozilla Maintenance Service
+    2. 既存のFirefoxがメタインストーラによってインストールされた場合、既存のFirefoxのメタインストーラ
+{{^Install-15-2}}
+    3. 今バージョンのメタインストーラによってインストールされたMozilla Firefox
+    4. 今バージョンのメタインストーラによってインストールされたMozilla Maintenance Service
+{{/Install-15-2}}
 1. 以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}
        （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
-    1. 旧バージョンのメタインストーラによってインストールされたFirefox
+    1. 既存のFirefoxがメタインストーラによってインストールされた場合、そのFirefox
     1. `{{default_install_path_base}}\ClearCode Inc`
-    1. メタインストーラによってインストールされたデスクトップのショートカット
-    1. メタインストーラによってインストールされたスタートメニューのショートカット
-    1. クイック起動、タスクバー、およびスタートメニュー内にメタインストーラによってインストールされた作成されたショートカット
-1. 既にインストール済みのFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
-    1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
-    1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
-1. 旧バージョン、新バージョンの各メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
+    1. 今バージョンのメタインストーラによってインストールされたデスクトップのショートカット
+    1. 今バージョンのメタインストーラによってインストールされたスタートメニューのショートカット
+    1. 今バージョンのメタインストーラによってクイック起動、タスクバー、およびスタートメニュー内に作成されたショートカット
+1. 既存のFirefoxがメタインストーラによってインストールされた場合、既存バージョン用のメタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
+1. 今バージョンのメタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
 
 ### 検証
 
-1. 旧バージョンのメタインストーラを実行する。
-1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
-1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
-    - 確認項目
-        1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
-1. ユーザが変更可能な何らかの設定を変更する。
+1. 既存のFirefoxがメタインストーラによってインストールされていた場合、以下の手順を実行する。
+   1. 既存バージョンのメタインストーラを実行する。
+   2. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
+   3. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
+       - 確認項目
+           1. Firefoxのバージョンが既存バージョンのメタインストーラに同梱されたバージョンであると表示される。
+1. 既存バージョンのFirefoxを起動し、ユーザが変更可能な何らかの設定を変更する。
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
         1. オプション画面の「検索」を開く。
         1. 「既定の検索エンジン」を「Google」から「Yahoo！JAPAN」に変更する。
 1. Firefoxを終了する。
 {{#Install-10-2}}
-1. 旧バージョン起動用のショートカットをスタートメニューのよく使うアプリケーション一覧の上にドラッグし、「スタート メニューに表示する」の表示が出たらドロップする。
+1. 既存バージョン起動用のショートカットをスタートメニューのよく使うアプリケーション一覧の上にドラッグし、「スタート メニューに表示する」の表示が出たらドロップする。
     - 確認項目
-        1. スタートメニュー最上部に、ボーダーラインで区切られた状態で旧バージョン起動用のショートカットが表示される。
-        1. 追加されたショートカットを右クリックして「プロパティ」を選択して開かれたショートカットのプロパティにおいて、ショートカットのリンク先が旧バージョンの実行ファイルの位置である。
+        1. スタートメニュー最上部に、ボーダーラインで区切られた状態で既存バージョン起動用のショートカットが表示される。
+        1. 追加されたショートカットを右クリックして「プロパティ」を選択して開かれたショートカットのプロパティにおいて、ショートカットのリンク先が既存バージョンの実行ファイルの位置である。
 {{/Install-10-2}}
-1. 新バージョンのメタインストーラを実行する。
+1. 今バージョンのメタインストーラを実行する。
     - 確認項目
-        1. `（旧バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
-        1. `（旧バージョンのFirefoxのインストール先）\ {{mcd_local_file}}` が存在する。
+        1. `（既存バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
+        1. `（既存バージョンのFirefoxのインストール先）\{{mcd_local_file}}` が存在する。
         1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
 {{/Admin-1-1 || Admin-1-2}}
-1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
+1. 今バージョンのメタインストーラによって作成されたデスクトップのショートカットをダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
 {{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが{{firefox_version}}であると表示される。（Install-7-2）{{/Install-7-2}}
-1. 旧バージョンで変更した設定が{{#use_separate_profile}}初期状態になっている。{{/use_separate_profile}}{{^use_separate_profile}}維持されている。{{/use_separate_profile}}{{#Application-1}}（Application-1-3）{{/Application-1}}{{#Application-2}}（Application-2-3）{{/Application-2}}{{#Application-6}}（Application-6-\*）{{/Application-6}}
-    - 例：
-        1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-        1. オプション画面の「検索」を開く。
-        1. 「既定の検索エンジン」として{{#use_separate_profile}}「Google」が選択されている。{{/use_separate_profile}}{{^use_separate_profile}}「Yahoo！JAPAN」が選択されている。{{/use_separate_profile}}（Application-6-\*）
+        1. 既存バージョンで変更した設定が{{#use_separate_profile || Install-16-2}}初期状態になっている。{{/use_separate_profile || Install-16-2}}{{^use_separate_profile}}{{^Install-16-2}}維持されている。{{/Install-16-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
+            - 例：
+                1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
+                1. オプション画面の「検索」を開く。
+                1. 「既定の検索エンジン」として{{#use_separate_profile || Install-16-2}}「Google」が選択されている。{{/use_separate_profile || Install-16-2}}{{^use_separate_profile}}{{^Install-16-2}}「Yahoo！JAPAN」が選択されている。{{/Install-16-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
 1. Firefoxを終了する。
 {{#Install-10-2}}
 1. スタートメニュー最上部に、ボーダーラインで区切られた状態で存在しているショートカットを右クリックして「プロパティ」を選択し、ショートカットのプロパティを開く。
     - 確認項目
-        1. ショートカットのリンク先が新バージョンの実行ファイルの位置である。（Install-10-2）{{/Install-10-2}}
-1. 旧バージョンのメタインストーラを実行する。
+        1. ショートカットのリンク先が今バージョンの実行ファイルの位置である。（Install-10-2）{{/Install-10-2}}
+1. 既存バージョンのメタインストーラを実行する。
     - 確認項目
-        1. `（旧バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
-        1. `（旧バージョンのFirefoxのインストール先）\{{mcd_local_file}}` が存在する。
+        1. `（既存バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
+        1. `（既存バージョンのFirefoxのインストール先）\{{mcd_local_file}}` が存在する。
         1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
 {{/Admin-1-1 || Admin-1-2}}
-1. デスクトップのショートカットをダブルクリックし、Firefoxを起動する。
+1. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
-        1. Firefoxのバージョンが旧バージョンのメタインストーラに同梱されたバージョンであると表示される。
-1. 旧バージョンで設定した設定が維持されている。（Application-1-3）（Application-2-3）（Application-6-\*）
-    - 例：
-        1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
-        1. オプション画面の「検索」を開く。
-        1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。（Application-6-\*）
+        1. Firefoxのバージョンが既存バージョンのメタインストーラに同梱されたバージョンであると表示される。
+        1. 既存バージョンで設定した設定が維持されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
+            - 例：
+                1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
+                1. オプション画面の「検索」を開く。
+                1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
 
 ### 後始末
 
-1. 新バージョンのメタインストーラを実行し、新バージョンのFirefoxが有効な状態に戻す。
-{{/Application-1-3 || Application-2-3 || Application-6}}
+1. 今バージョンのメタインストーラを実行し、今バージョンのFirefoxが有効な状態に戻す。
+{{/Application-6-2 || Install-16-2}}
 
 
 {{#Install-15-2}}
-## 元々インストールされていたFirefoxとの共存
+## 既存Firefoxのインストール情報を維持したままでのFirefoxのインストール
 
 ### 確認する項目
 
