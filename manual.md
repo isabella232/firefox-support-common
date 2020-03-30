@@ -445,6 +445,7 @@
 1. スタートメニュー最上部に、ボーダーラインで区切られた状態で存在しているショートカットを右クリックして「プロパティ」を選択し、ショートカットのプロパティを開く。
     - 確認項目
         1. ショートカットのリンク先が今バージョンの実行ファイルの位置である。（Install-10-2）{{/Install-10-2}}
+{{^Install-16-2}}
 1. 既存バージョンのメタインストーラを実行する。
     - 確認項目
         1. `（既存バージョンのFirefoxのインストール先）\{{exe_name}}.exe` が存在する。
@@ -452,6 +453,7 @@
         1. `{{install_path}}\{{exe_name}}.exe` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}が存在する。
 {{#Admin-1-1 || Admin-1-2}}
         1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
+{{/Install-16-2}}
 {{/Admin-1-1 || Admin-1-2}}
 1. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
