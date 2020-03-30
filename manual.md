@@ -1727,8 +1727,7 @@
 1. デスクトップのショートカットがある場合はそれを、なければ{{exe_name}}.exeをダブルクリックしてFirefoxを起動する。
 1. テストケースリストのリンクから `http://www.w3schools.com/html/html5\_video.asp` を開く。
     - 確認項目
-        1. 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されている。（Security-16-1)
-           または、表示されていない。（Security-16-3）
+        1. 動画のコントロール内にフルスクリーン表示切り替え用ボタンが{{#Security-16-1}}表示されている。（Security-16-1){{/Security-16-1}}{{#Security-16-3}}表示されていない。（Security-16-3）{{/Security-16-3}}
 {{/Security-16}}
 
 {{#Security-21}}
