@@ -981,7 +981,7 @@
 {{#Network-14}} - Network-14-\* {{/Network-14}}
 {{#Network-16}} - Network-16-\* {{/Network-16}}
 {{#Network-17}} - Network-17-\* {{/Network-17}}
-{{#Script-2}} - Script-2-\* {{/Script-2}}
+{{#Script-2-1 || Script-2-3}} - Script-2-1/3 {{/Script-2-1 || Script-2-3}}
 {{#Script-3}} - Script-3-\* {{/Script-3}}
 {{#Script-7}} - Script-7-\* {{/Script-7}}
 {{#Tab-2-3}} - Tab-2-3 {{/Tab-2-3}}
@@ -1154,10 +1154,10 @@
         1. `network.negotiate-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
         1. `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。{{#Network-16-1}}（Network-16-1）{{/Network-16-1}}{{#Network-16-2}}（Network-16-2）{{/Network-16-2}}
 {{/Network-16}}
-{{#Script-2}}
+{{#Script-2-1 || Script-2-3}}
         1. `dom.push.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
         1. `dom.serviceWorkers.enabled` の値が{{#Script-2-1}}`true`である。（Script-2-1）{{/Script-2-1}}{{#Script-2-3}}`false`である。（Script-2-3）{{/Script-2-3}}
-{{/Script-2}}
+{{/Script-2-1 || Script-2-3}}
 {{#Script-3}}
         1. `dom.gamepad.enabled` の値が{{#Script-3-1}}`true`である。（Script-3-1）{{/Script-3-1}}{{#Script-3-2}}`false`である。（Script-3-2）{{/Script-3-2}}
 {{/Script-3}}
