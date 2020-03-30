@@ -362,7 +362,7 @@
 {{/Application-6-2}}
 
 
-{{#Application-6-2 || Install-16-2}}
+{{#Application-6-2 || Install-17-2}}
 ## 既存のFirefoxとの共存
 
 ### 確認する項目
@@ -370,13 +370,15 @@
 {{#Install-7-2}} - Install-7-2 {{/Install-7-2}}
 {{#Install-10-2}} - Install-10-2 {{/Install-10-2}}
 {{#Application-6-2}} - Application-6-2 {{/Application-6-2}}
-{{#Install-16-2}} - Install-16-2 {{/Install-16-2}}
+{{#Install-17-2}} - Install-17-2 {{/Install-17-2}}
 
 ### 準備
 
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
+{{^Install-16-2}}
     2. 既存のFirefoxがメタインストーラによってインストールされた場合、既存のFirefoxのメタインストーラ
+{{/Install-16-2}}
 {{^Install-15-2}}
     3. 今バージョンのメタインストーラによってインストールされたMozilla Firefox
     4. 今バージョンのメタインストーラによってインストールされたMozilla Maintenance Service
@@ -384,23 +386,28 @@
 1. 以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}
        （32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
-    1. 既存のFirefoxがメタインストーラによってインストールされた場合、そのFirefox
+{{^Install-16-2}}
+    1. 既存のFirefox
+{{/Install-16-2}}
     1. `{{default_install_path_base}}\ClearCode Inc`
     1. 今バージョンのメタインストーラによってインストールされたデスクトップのショートカット
     1. 今バージョンのメタインストーラによってインストールされたスタートメニューのショートカット
     1. 今バージョンのメタインストーラによってクイック起動、タスクバー、およびスタートメニュー内に作成されたショートカット
-1. 既存のFirefoxがメタインストーラによってインストールされた場合、既存バージョン用のメタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
+{{^Install-16-2}}
+1. 既存バージョン用のメタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
+{{/Install-16-2}}
 1. 今バージョンのメタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
 
 ### 検証
 
-1. 既存のFirefoxがメタインストーラによってインストールされていた場合、以下の手順を実行する。
-   1. 既存バージョンのメタインストーラを実行する。
-   2. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
-   3. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
-       - 確認項目
-           1. Firefoxのバージョンが既存バージョンのメタインストーラに同梱されたバージョンであると表示される。
-1. 既存バージョンのFirefoxを起動し、ユーザが変更可能な何らかの設定を変更する。
+{{^Install-16-2}}
+1. 既存バージョンのメタインストーラを実行する。
+1. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
+1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
+    - 確認項目
+        1. Firefoxのバージョンが既存バージョンのメタインストーラに同梱されたバージョンであると表示される。
+{{/Install-16-2}}
+1. {{Install-16-2}}既存バージョンのFirefoxを起動し、{{/Install-16-2}}Firefox上でユーザが変更可能な何らかの設定を変更する。
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
         1. オプション画面の「検索」を開く。
@@ -425,11 +432,11 @@
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
         1. Firefoxのバージョンが{{firefox_version}}であると表示される。（Install-7-2）{{/Install-7-2}}
-        1. 既存バージョンで変更した設定が{{#use_separate_profile || Install-16-2}}初期状態になっている。{{/use_separate_profile || Install-16-2}}{{^use_separate_profile}}{{^Install-16-2}}維持されている。{{/Install-16-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
+        1. 既存バージョンで変更した設定が{{#use_separate_profile || Install-17-2}}初期状態になっている。{{/use_separate_profile || Install-17-2}}{{^use_separate_profile}}{{^Install-17-2}}維持されている。{{/Install-17-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-17-2}}（Install-17-2）{{/Install-17-2}}
             - 例：
                 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
                 1. オプション画面の「検索」を開く。
-                1. 「既定の検索エンジン」として{{#use_separate_profile || Install-16-2}}「Google」が選択されている。{{/use_separate_profile || Install-16-2}}{{^use_separate_profile}}{{^Install-16-2}}「Yahoo！JAPAN」が選択されている。{{/Install-16-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
+                1. 「既定の検索エンジン」として{{#use_separate_profile || Install-17-2}}「Google」が選択されている。{{/use_separate_profile || Install-17-2}}{{^use_separate_profile}}{{^Install-17-2}}「Yahoo！JAPAN」が選択されている。{{/Install-17-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-17-2}}（Install-17-2）{{/Install-17-2}}
 1. Firefoxを終了する。
 {{#Install-10-2}}
 1. スタートメニュー最上部に、ボーダーラインで区切られた状態で存在しているショートカットを右クリックして「プロパティ」を選択し、ショートカットのプロパティを開く。
@@ -446,17 +453,19 @@
 1. デスクトップのショートカットをダブルクリックし、既存バージョンのFirefoxを起動する。
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
+{{^Install-16-2}}
         1. Firefoxのバージョンが既存バージョンのメタインストーラに同梱されたバージョンであると表示される。
-        1. 既存バージョンで設定した設定が維持されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
+{{/Install-16-2}}
+        1. 既存バージョンで設定した設定が維持されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-17-2}}（Install-17-2）{{/Install-17-2}}
             - 例：
                 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
                 1. オプション画面の「検索」を開く。
-                1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-16-2}}（Install-16-2）{{/Install-16-2}}
+                1. 「既定の検索エンジン」として「Yahoo！JAPAN」が選択されている。{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-17-2}}（Install-17-2）{{/Install-17-2}}
 
 ### 後始末
 
 1. 今バージョンのメタインストーラを実行し、今バージョンのFirefoxが有効な状態に戻す。
-{{/Application-6-2 || Install-16-2}}
+{{/Application-6-2 || Install-17-2}}
 
 
 {{#Install-15-2}}
