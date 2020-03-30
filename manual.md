@@ -1645,6 +1645,9 @@
 9. そのまま10分放置する。
     - 確認項目
         1. localhostへのリクエスト{{#Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}と、以下{{/Update-1-1 || Security-5-1 || Security-6-1 || Privacy-33-1 || Privacy-33-2 || Privacy-33-4}}を除いて、一切のネットワーク通信が記録されない。（Security-15-2）
+{{#Network-2-3 || Network-2-8}}
+           * 「自動プロキシー設定スクリプトURL」に設定したURL（Network-2-3/8）
+{{/Network-2-3 || Network-2-8}}
 {{#Update-1-1}}
            * Firefoxの自動更新のための通信、およびそれに関連するOCSPの通信
 {{/Update-1-1}}
