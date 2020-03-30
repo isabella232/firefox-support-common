@@ -1627,7 +1627,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
+1. 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル{{#Application-6-2}} `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}{{/Application-6-2}}を削除する。
 {{#disable_devtools}}
 1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools}}
@@ -1976,7 +1976,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
+1. 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル{{#Application-6-2}} `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}{{/Application-6-2}}を削除する。
 1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）を削除する。
 {{#disable_devtools}}{{#Privacy-7 || Privacy-16 || Privacy-32 || Privacy-37}}
 1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
@@ -2363,7 +2363,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
+1. 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル{{#Application-6-2}} `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}{{/Application-6-2}}を削除する。
 
 ### 検証
 
@@ -2466,8 +2466,8 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-2. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
-3. 既定のダウンロード先（ユーザー配下の「ダウンロード」、または`{{download_dir}}`）を用意しておく。用意できない場合は、Download-2-1の参照先を `C:\` などの実在するパスに変更し、以下の説明も読み替える。
+1. 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル{{#Application-6-2}} `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}{{/Application-6-2}}を削除する。
+1. 既定のダウンロード先（ユーザー配下の「ダウンロード」、または`{{download_dir}}`）を用意しておく。用意できない場合は、Download-2-1の参照先を `C:\` などの実在するパスに変更し、以下の説明も読み替える。
 
 ### 検証
 
