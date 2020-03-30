@@ -515,16 +515,16 @@
         1. `{{original_version_install_path}}` 配下のFirefoxが起動する。
 1. 以下のいずれかの方法で、Firefoxのアンインストール情報がメタインストーラによって変更されていないことを確認する。
     * スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、`{{original_version_install_path}}` 配下にあるFirefoxのバージョンに対応する項目を指定して、Firefoxをアンインストールする。
-       - 確認項目
-           1. `{{original_version_install_path}}` 配下のFirefoxがアンインストールされる。
-           1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}} 配下のFirefoxがそのまま残っている。
+        - 確認項目
+            1. `{{original_version_install_path}}` 配下のFirefoxがアンインストールされる。
+            1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}} 配下のFirefoxがそのまま残っている。
     * レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが64bit版であれば  
       `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`  
       を、32bit版であれば  
       `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`  
       を開く。
-       - 確認項目
-           1. 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
+        - 確認項目
+            1. 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
 
 {{/Install-15-2}}
 
