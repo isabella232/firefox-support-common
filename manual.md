@@ -2076,7 +2076,7 @@
 1. パネルメニューまたはメニューバーの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
 {{#Privacy-16}}
 1. 以下のコードをコンソール内で実行する。
-    - `Services.obs.addObserver(function(aSubject, aTopic, aData) { console.log(aTopic+': '+aData); }, 'dns-resolution-request', false);`
+    - `Services.obs.addObserver((s,t,d)=>console.log(t+': '+d),'dns-resolution-request',false);`
 {{/Privacy-16}}
 1. コンソール上の「要求」が選択された状態にする。すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する。
 {{#Privacy-7}}
