@@ -691,7 +691,7 @@
 {{#Privacy-21-2}}- Privacy-21-2 {{/Privacy-21-2}}
 {{#Privacy-35}}- Privacy-35-\* {{/Privacy-35}}
 {{#Privacy-43}}- Privacy-43-\*{{/Privacy-43}}
-{{#Privacy-46-3 || Privacy-46-4}}- Privacy-46-3/4 {{/Privacy-46-3 || Privacy-46-4}}
+{{#Privacy-46-2 || Privacy-46-3 || Privacy-46-4}}- Privacy-46-2/3/4 {{/Privacy-46-2 || Privacy-46-3 || Privacy-46-4}}
 {{#Privacy-47-3 || Privacy-47-4}}- Privacy-47-3/4 {{/Privacy-47-3 || Privacy-47-4}}
 {{#Download-3-1 || Download-3-2}}{{^Download-1-2}}- Download-3-1/2 {{/Download-1-2}}{{/Download-3-1 || Download-3-2}}
 {{#Script-2-6}}- Script-2-6 {{/Script-2-6}}
@@ -805,6 +805,9 @@
         1. （一部の履歴の削除を禁止する設定を導入した場合のみ）「Firefoxの終了時に履歴を消去する」の「設定」で、指定した項目にチェックが外れていて選択不可になっている。（Privacy-1-5）
 {{/Privacy-1-5}}
 {{/Privacy-1}}
+{{#Privacy-46-2}}
+        1. 「許可設定」→「カメラ」→「設定」で、default.permissions1を設定したサイトが許可サイトとして、2を設定したサイトが禁止サイトとして表示される。（Privacy-46-2）
+{{/Privacy-46-2}}
 {{#Privacy-46-3 || Privacy-46-4}}
         1. 「許可設定」→「カメラ」→「設定」で「カメラへのアクセスの要求をブロック」{{#Privacy-46-3}}がチェックされていない。（Privacy-46-3）{{/Privacy-46-3}}{{#Privacy-46-4}}がチェック済みである。（Privacy-46-4）{{/Privacy-46-4}}
 {{/Privacy-46-3 || Privacy-46-4}}
@@ -960,7 +963,7 @@
 {{#Privacy-5-2 || Privacy-5-3}}{{#Privacy-40}} - Privacy-40-\* {{/Privacy-40}}{{/Privacy-5-2 || Privacy-5-3}}
 {{#Privacy-44}} - Privacy-44-\* {{/Privacy-44}}
 {{#Privacy-45}} - Privacy-45-\* {{/Privacy-45}}
-{{#Privacy-46-1 || Privacy-46-2 || Privacy-46-3}} - Privacy-46-1/2 {{/Privacy-46-1 || Privacy-46-2 || Privacy-46-3}}
+{{#Privacy-46-1 || Privacy-46-3}} - Privacy-46-1/3 {{/Privacy-46-1 || Privacy-46-3}}
 {{#Privacy-47-1 || Privacy-47-2 || Privacy-47-3}} - Privacy-47-1/2/3 {{/Privacy-47-1 || Privacy-47-2 || Privacy-47-3}}
 {{#Privacy-48}} - Privacy-48-\* {{/Privacy-48}}
 {{#Privacy-49}} - Privacy-49-\* {{/Privacy-49}}
@@ -1085,9 +1088,9 @@
 {{#Privacy-45}}
         1. `network.http.referer.defaultPolicy.pbmode` の値が{{#Privacy-45-1}}`0`である。（Privacy-45-1）{{/Privacy-45-1}}{{#Privacy-45-2}}`1`である。（Privacy-45-2）{{/Privacy-45-2}}{{#Privacy-45-3}}`2`である。（Privacy-45-3）{{/Privacy-45-3}}{{#Privacy-45-4}}`3`である。（Privacy-45-4）{{/Privacy-45-4}}
 {{/Privacy-45}}
-{{#Privacy-46-1 || Privacy-46-2 || Privacy-46-3}}
-        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。（Privacy-46-1）{{/Privacy-46-1}}{{#Privacy-46-2}}`1`である。（Privacy-46-2）{{/Privacy-46-2}}{{#Privacy-46-3}}`2`である。（Privacy-46-3）{{/Privacy-46-3}}
-{{/Privacy-46-1 || Privacy-46-2 || Privacy-46-3}}
+{{#Privacy-46-1 || Privacy-46-3}}
+        1. `permissions.default.camera` の値が{{#Privacy-46-1}}`0`である。（Privacy-46-1）{{/Privacy-46-1}}{{#Privacy-46-3}}`1`である。（Privacy-46-3）{{/Privacy-46-3}}
+{{/Privacy-46-1 || Privacy-46-3}}
 {{#Privacy-47}}
         1. `permissions.default.microphone` の値が{{#Privacy-47-1 || Privacy-47-2 || Privacy-47-5}}`0`である。（Privacy-47-1/2/5）{{/Privacy-47-1 || Privacy-47-2 || Privacy-47-5}}{{#Privacy-47-3}}`1`である。（Privacy-47-3）{{/Privacy-47-3}}{{#Privacy-47-4}}`2`である。（Privacy-47-4）{{/Privacy-47-4}}
 {{/Privacy-47}}
