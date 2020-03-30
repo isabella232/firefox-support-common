@@ -407,7 +407,7 @@
     - 確認項目
         1. Firefoxのバージョンが既存バージョンのメタインストーラに同梱されたバージョンであると表示される。
 {{/Install-16-2}}
-1. {{Install-16-2}}既存バージョンのFirefoxを起動し、{{/Install-16-2}}Firefox上でユーザが変更可能な何らかの設定を変更する。
+1. {{#Install-16-2}}既存バージョンのFirefoxを起動し、{{/Install-16-2}}Firefox上でユーザが変更可能な何らかの設定を変更する。
     - 例：
         1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
         1. オプション画面の「検索」を開く。
@@ -428,10 +428,11 @@
         1. `{{install_path}}\{{mcd_local_file}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}が存在する。
 {{/Admin-1-1 || Admin-1-2}}
 1. 今バージョンのメタインストーラによって作成されたデスクトップのショートカットをダブルクリックし、Firefoxを起動する。{{^Startup-1-2}}「設定移行ウィザード」が表示されたら、設定をインポートせずにウィザードを終了する。{{/Startup-1-2}}
-{{#Install-7-2}}
 1. パネルメニューを開き、パネルメニュー内の「？」をクリックして、サブメニューから「Firefoxについて」を選択する。
     - 確認項目
-        1. Firefoxのバージョンが{{firefox_version}}であると表示される。（Install-7-2）{{/Install-7-2}}
+{{#Install-7-2}}
+        1. Firefoxのバージョンが{{firefox_version}}であると表示される。（Install-7-2）
+{{/Install-7-2}}
         1. 既存バージョンで変更した設定が{{#use_separate_profile || Install-17-2}}初期状態になっている。{{/use_separate_profile || Install-17-2}}{{^use_separate_profile}}{{^Install-17-2}}維持されている。{{/Install-17-2}}{{/use_separate_profile}}{{#Application-6-2}}（Application-6-2）{{/Application-6-2}}{{#Install-17-2}}（Install-17-2）{{/Install-17-2}}
             - 例：
                 1. パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
