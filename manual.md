@@ -2224,8 +2224,8 @@
         1. `disabled`と表示されている （Privacy-14-3）
 {{/Privacy-14-3}}
 {{#Privacy-14-1 || Privacy-14-4 || Privacy-14-6 || Privacy-14-7}}
-        1. `enabled`と表示されている （Privacy-14-1/4/6）
-        1. 「exec」をクリックすると{{#Privacy-14-1 || Privacy-14-4 || Privacy-14-7}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。（Privacy-14-1/4/7）{{/Privacy-14-1 || Privacy-14-4 || Privacy-14-7}}{{#Privacy-14-6}}「fail: cannot fetch your location」というエラーが表示される。（Privacy-14-6）{{/Privacy-14-6}}
+        1. `enabled`と表示されている （Privacy-14-1/4/6/7）
+        1. 「exec」をクリックすると{{#Privacy-14-1 || Privacy-14-4}}「このサイトに位置情報の共有を許可しますか？」と尋ねられる。（Privacy-14-1/4/7）{{/Privacy-14-1 || Privacy-14-4}}{{#Privacy-14-6}}「fail: cannot fetch your location」というエラーが表示される。（Privacy-14-6）{{/Privacy-14-6}}{{#Privacy-14-7}}確認なしで取得された座標が表示される。（Privacy-14-7）{{/Privacy-14-7}}
 {{/Privacy-14-1 || Privacy-14-4 || Privacy-14-6 || Privacy-14-7}}
 {{#Privacy-14-4 || Privacy-14-6}}
 1. 確認無しでの位置情報の取得を許可するサイトが定義されている場合、そのページを開き、「ページの情報」を開いて「サイト別設定」タブを選択する。
