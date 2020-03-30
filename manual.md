@@ -1680,7 +1680,7 @@
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
 {{#disable_devtools || MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-64 || MenuShortcut-65}}
-1. ポリシー設定から `DisableDeveloperTools` {{#Security-9-3}}と `BlockAboutConfig` {{/Security-9-3}}を削除し、開発ツールを一時的に有効化しておく。
+1. ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
 {{/disable_devtools || MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-64 || MenuShortcut-65}}
 
 ### 検証
@@ -1703,11 +1703,11 @@
         1. 無反応である、もしくはADB Extensionアドオンが準備中になっている。（Security-15-2）
 {{/Security-15-2}}
 
-{{#disable_devtools}}
+{{#disable_devtools || MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-64 || MenuShortcut-65}}
 ### 後始末
 
 1. ポリシー設定に加えた変更を元に戻す。
-{{/disable_devtools}}
+{{/disable_devtools || MenuShortcut-10 || MenuShortcut-11 || MenuShortcut-12 || MenuShortcut-13 || MenuShortcut-14 || MenuShortcut-15 || MenuShortcut-16 || MenuShortcut-17 || MenuShortcut-18 || MenuShortcut-20 || MenuShortcut-21 || MenuShortcut-22 || MenuShortcut-23 || MenuShortcut-24 || MenuShortcut-25 || MenuShortcut-26 || MenuShortcut-28 || MenuShortcut-29 || MenuShortcut-64 || MenuShortcut-65}}
 
 
 {{#Security-16}}
