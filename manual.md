@@ -165,7 +165,7 @@
     1. メタインストーラによってインストールされたMozilla Maintenance Service
 1. 旧バージョンからの更新でない場合、以下のファイル、フォルダがあれば削除する。
     1. `{{install_path}}` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
-    1. `{{default_install_path_base}}\ClearCode Inc`（32bit環境では `C:\Program Files\ClearCode Inc`）
+    1. `{{default_install_path_base}}\ClearCode Inc`
 1. 既存のFirefoxとの併用でない場合、以下のファイル、フォルダがあれば削除する。
     1. Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
     1. Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
