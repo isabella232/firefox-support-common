@@ -553,7 +553,7 @@
 
 1. 前項に引き続き検証するか、または以下の状態を整えておく。
     1. カスタマイズ済みFirefoxのインストールが完了した状態にする。
-1. Firefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}を削除する。
+1. 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル{{#Application-6-2}} `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}}{{/Application-6-2}}を削除する。
 {{#Admin-2}}
 1. 導入対象のアドオンがない場合、テストケースリストの「{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi」リンクからアドオンをダウンロードして、`{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`）{{/install_path_32bit}}に配置する。
 {{/Admin-2}}
@@ -663,7 +663,9 @@
 
 ### 後始末
 
+{{#Admin-2}}
 1. 検証用に導入したアドオンを削除する。
+{{/Admin-2}}
 {{#Security-9-3 || Security-35-2}}{{#Startup-7-3}}
 1. ポリシー設定に加えた変更を元に戻す。
 {{/Startup-7-3}}{{/Security-9-3 || Security-35-2}}
