@@ -490,9 +490,8 @@
 
 1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
     1. {{meta_installer_name}}
-    2. メタインストーラ
-    3. メタインストーラによってインストールされたMozilla Firefox
-    4. メタインストーラによってインストールされたMozilla Maintenance Service
+    1. メタインストーラによってインストールされたMozilla Firefox
+    1. メタインストーラによってインストールされたMozilla Maintenance Service
 1. 以下のファイル、フォルダが残留していれば削除する。
     1. メタインストーラによってインストールされたFirefoxが配置されていた
        `{{install_path}}` {{#install_path_32bit}}
