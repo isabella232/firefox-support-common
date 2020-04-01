@@ -1104,7 +1104,7 @@
 {{#Privacy-50}}
         1. `network.http.referer.defaultPolicy.trackers.pbmode` の値が{{#Privacy-50-1}}`0`である。（Privacy-50-1）{{/Privacy-50-1}}{{#Privacy-50-2}}`1`である。（Privacy-50-2）{{/Privacy-50-2}}{{#Privacy-50-3}}`2`である。（Privacy-50-3）{{/Privacy-50-3}}{{#Privacy-50-4}}`3`である。（Privacy-50-4）{{/Privacy-50-4}}
 {{/Privacy-50}}
-{{/Privacy-18-3}}
+{{#Privacy-18-3}}
 {{#Privacy-52-1 || Privacy-52-2}}
         1. `datareporting.policy.firstRunURL` の値が空文字である。{{#Privacy-52-1}}（Privacy-52-1）{{/Privacy-52-1}}{{#Privacy-52-2}}（Privacy-52-2）{{/Privacy-52-2}}
 {{/Privacy-52-1 || Privacy-52-2}}
