@@ -233,3 +233,20 @@ Install-17: 既存Firefoxとの共存
 
     -
 
+Install-18: BrowserSelectorのインストール
+
+    :1: インストールしない（既定）
+
+    -
+
+    :2: INIファイルと併せてインストールする
+
+    BrowserSelectorSetup.msiとBrowserSelector.iniを同梱する。
+    
+    BrowserSelector.ini:
+    [Common]
+    ...
+    
+    fainstall.ini:
+    [BrowserSelector.ini]
+    TargetLocation=%ProgramFiles32%/ClearCode/BrowserSelector

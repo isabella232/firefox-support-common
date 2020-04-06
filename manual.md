@@ -529,6 +529,32 @@
 {{/Install-15-2}}
 
 
+{{#Install-18-2}}
+## BrowserSelectorの同梱
+
+### 確認する項目
+
+{{#Install-18-2}} - Install-18-2 {{/Install-18-2}}
+
+### 準備
+
+1. スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下がインストールされているならばアンインストールする。
+    1. {{meta_installer_name}}
+    2. BrowserSelector
+1. 以下のファイル、フォルダがあれば削除する。
+    1. `{{default_install_path_base}}\ClearCode Inc`
+    1. `{{default_install_path_base}}\ClearCode`
+1. メタインストーラ作成キット内のバッチファイルを実行し、インストーラの実行ファイルを作成しておく。
+
+### 検証
+
+1. メタインストーラを実行する。
+    - 確認項目
+        1. `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe` が存在する。（Install-18-2）
+        1. `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini` が存在する。（Install-18-2）
+{{/Install-18-2}}
+
+
 <!--======================================================================-->
 
 # 起動時の状態に関するカスタマイズ
