@@ -793,3 +793,173 @@ Application-6: プロファイルの位置
     - **確認**
         - `{{special_profile_path}}\{{special_profile_name}}` に `prefs.js` などのファイルが作成される。
 
+
+
+Admin-1: 管理者による設定の制御
+
+    :1: ローカルのファイルで設定する
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path_base}}\Mozilla Firefox`
+          {{#install_path_base_32bit}}（32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{{/install_path_base_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{mcd_local_file}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}
+          が存在する。
+        - `{{install_path}}\defaults\pref\*.js`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\defaults\pref\*.js`）{{/install_path_32bit}}
+          の位置に、`{{mcd_local_file}}` を読み込ませる指定を含むファイルが存在する。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{mcd_local_file}}.backup.1`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}.backup.1`）{{/install_path_32bit}}
+          が存在する。
+        - `{{install_path}}\defaults\pref\*.js.backup.1`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\defaults\pref\*.js.backup.1`）{{/install_path_32bit}}
+          が存在する。
+
+    :2: リモートのファイルで設定する
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path_base}}\Mozilla Firefox`
+          {{#install_path_base_32bit}}（32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{{/install_path_base_32bit}}
+    - リモート設定ファイルを参照できない環境で検証する場合、`{{mcd_local_file}}` の `autoadmin.global_config_url` の参照先URLを `file:///c:/users/public/autoconfig.jsc` または類似のローカルファイルのURLに変更し、当該位置にファイルを設置する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{mcd_local_file}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{{/install_path_32bit}}
+          が存在する。
+        - `{{install_path}}\defaults\pref\*.js`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\defaults\pref\*.js`）{{/install_path_32bit}}
+          の位置に、`{{mcd_local_file}}` を読み込ませる指定を含むファイルが存在する。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{mcd_local_file}}.backup.1`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}.backup.1`）{{/install_path_32bit}}
+          が存在する。
+        - `{{install_path}}\defaults\pref\*.js.backup.1`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\defaults\pref\*.js.backup.1`）{{/install_path_32bit}}
+          が存在する。
+    - メタインストーラによって導入されたFirefoxを起動する。
+    - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
+    - Firefoxを終了する。
+    - **確認**
+        - ユーザープロファイルフォルダ無いに `failover.jsc` が存在する。
+        - `failover.jsc` の内容が `autoadmin.global_config_url` の参照先の内容と等しい。
+
+    :3: 設定しない（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path_base}}\Mozilla Firefox`
+          {{#install_path_base_32bit}}（32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{{/install_path_base_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\*.cfg`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\*.cfg`）{{/install_path_32bit}}
+          が存在しない。
+
+Admin-2: 初回起動時のアドオン導入警告の可否
+
+    :1: 警告する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 導入対象のアドオンがない場合、テストケースリストの `{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` リンクからファイルをダウンロードして、
+      `{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`）{{/install_path_32bit}}
+      に配置する。
+    - Firefoxを起動する。
+    - **確認**
+        - パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されている。
+
+    :2: 警告しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 導入対象のアドオンがない場合、テストケースリストの `{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` リンクからファイルをダウンロードして、
+      `{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`）{{/install_path_32bit}}
+      に配置する。
+    - Firefoxを起動する。
+    - **確認**
+        - パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されていない。
+
+Admin-4: Mozillaにより署名されていないアドオンのインストールパッケージの使用の可否
+
+    :1: 許可する
+
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、
+      `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
+      の位置に置く。
+    - Firefoxを起動する。
+    - アドオンマネージャを開く。
+    - **確認**
+        - アドオン「Unsigned Sample Addon」が有効になっているか、または、無効の状態から有効化できる。
+    - ポリシー設定から `BlockAboutAddons` を削除した場合、設定を元に戻す。
+
+    :2: 禁止する（既定）
+
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、
+      `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{{/install_path_32bit}}
+      の位置に置く。
+    - Firefoxを起動する。
+    - アドオンマネージャを開く。
+    - **確認**
+        - アドオン「Unsigned Sample Addon」が無効になっており、有効化できない。
+    - ポリシー設定から `BlockAboutAddons` を削除した場合、設定を元に戻す。
+
+Admin-5: ポリシー設定の使用の可否
+
+    :1: 使用する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
+    - **確認**
+        - ページ上部に「ご使用のブラウザーはあなたの所属組織に管理されています。」というメッセージが表示される。
+    - ロケーションバーに `about:policies` と入力し、Enterキーを押す。
+    - **確認**
+        - 「エンタープライズポリシーサービスが有効です。」と表示される。
+
+    :2: 使用しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
+    - **確認**
+        - ページ上部に「ご使用のブラウザーはあなたの所属組織に管理されています。」というメッセージが表示されない。
+
