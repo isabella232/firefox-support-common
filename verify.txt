@@ -500,15 +500,27 @@ Install-15: Firefoxのインストーラの動作モード
     - 以下のファイル、フォルダがあれば削除する。
         - `{{install_path}}`
           {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - Firefoxのインストーラを使用し、Firefoxを `{{original_version_install_path}}` 配下にインストールする。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
-        - 「Mozilla Firefox {{firefox_version}}」がインストールされていない。
         - `{{install_path}}\{{exe_name}}.exe`
           {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
           が存在する。
+        - `{{original_version_install_path}}` 配下にFirefoxが存在する。
+        - `{{original_version_install_path}}` 配下にカスタマイズ用のファイルが設置されていない。
+    - Windowsキーを押しながら「R」を押し、「ファイル名を指定して実行」ダイアログを開く。
+    - `firefox.exe` と入力し、実行する。
+    - **確認**
+        - `{{original_version_install_path}}` 配下のFirefoxが起動する。
+    - レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが32bit版で且つWindowsが64bit版であれば  
+      `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`  
+      を、そうでなければ  
+      `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`  
+      を開く。
+    - **確認**
+        - 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
 
 Install-17: 既存Firefoxとの共存
 
