@@ -1211,25 +1211,113 @@ Security-5: 攻撃サイトに対する警告の可否
 
     :1: 警告する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
+    - **確認**
+        - 攻撃サイトとしてブロックされる。
+    - テストケースリストのリンクから`https://itisatrap.org/firefox/unwanted.html` を開く。
+    - **確認**
+        - 望ましくないソフトウェアの提供サイトとしてブロックされる。
+    - `about:config` を開く。
+    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
+    - Firefoxを再起動する。
+    - `about:url-classifier` を開く。
+    - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
+    - **確認**
+        - 各行の「最終更新日時」列の内容が現在時刻に更新される。
+        - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
+
     :2: 警告しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
+    - **確認**
+        - 攻撃サイトとしてブロックされない。
+    - テストケースリストのリンクから`https://itisatrap.org/firefox/unwanted.html` を開く。
+    - **確認**
+        - 望ましくないソフトウェアの提供サイトとしてブロックされない。
 
 Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから`https://itisatrap.org/firefox/its-a-trap.html` を開く。
+    - **確認**
+        - 詐欺サイトとしてブロックされる。
+    - `about:config` を開く。
+    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
+    - Firefoxを再起動する。
+    - `about:url-classifier` を開く。
+    - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
+    - **確認**
+        - 各行の「最終更新日時」列の内容が現在時刻に更新される。
+        - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
+
     :2: 警告しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから`https://itisatrap.org/firefox/its-a-trap.html` を開く。
+    - **確認**
+        - 詐欺サイトとしてブロックされない。
 
 Security-9: about:configの利用の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:config` と入力して確定する。
+    - **確認**
+        - `about:config`への遷移がブロックされない。
+
     :3: 禁止する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:config` と入力して確定する。
+    - **確認**
+        - `about:config`への遷移がブロックされる。
 
 Security-12: JavaScriptの実行の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `popupblock.html` を開く。
+    - **確認**
+        - ポップアップが開かれるか、またはポップアップブロックの通知が表示される。
+
     :3: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `popupblock.html` を開く。
+    - **確認**
+        - 何も起こらない。ポップアップブロックの通知も表示されない。
 
 Security-13: ローカルファイルの読み込みの可否
 
