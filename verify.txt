@@ -1321,41 +1321,199 @@ Security-12: JavaScriptの実行の可否
 
 Security-13: ローカルファイルの読み込みの可否
 
-    :1: 特定サイトのみ許可する
-
     :2: 禁止する（既定）
 
+    - テストケースの `local-file-link.html` を、Webサイト上に設置する。
+      （例： `https://www.clear-code.com/temp/local-file-link.html` ）
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - Webサイト上に設置した `local-file-link.html` を開き、ページ内のリンクをクリックする。
+    - **確認**
+        - 何も起こらない（読み込みがブロックされる）。
+
+    :1: 特定サイトのみ許可する
+
+    - テストケースの `local-file-link.html` を、ローカルファイルの読み込みを許可するWebサイト上に設置する。
+      （例： `https://www.clear-code.com/temp/local-file-link.html` ）
+    - `C:\file.txt` の位置にファイルを設置する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - Webサイト上に設置した `local-file-link.html` を開き、ページ内のリンクをクリックする。
+    - **確認**
+        - `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。
+
     :3: 特定サイトのみ許可する（ポリシーで設定）
+
+    - テストケースの `local-file-link.html` を、ローカルファイルの読み込みを許可するWebサイト上に設置する。
+      （例： `https://www.clear-code.com/temp/local-file-link.html` ）
+    - `C:\file.txt` の位置にファイルを設置する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - Webサイト上に設置した `local-file-link.html` を開き、ページ内のリンクをクリックする。
+    - **確認**
+        - `C:\file.txt` の位置に置いたファイルの内容が読み込まれる。
 
 Security-14: ローカルファイルからの他ディレクトリの参照の可否
 
     :1: 許可する
 
+    - テストケースの `cross-directory.html` から見て `../configuration-sheets/constumize-item-list.csv` の位置にファイルを設置する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `cross-directory.html` を開く。
+    - **確認**
+        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が `200` と表示される。
+
     :2: 禁止する（既定）
+
+    - テストケースの `cross-directory.html` から見て `../configuration-sheets/constumize-item-list.csv` の位置にファイルを設置する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `cross-directory.html` を開く。
+    - **確認**
+        1. `./cross-directory.html` の結果は `200` 、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。
 
 Security-15: その他、バックグラウンドで行われる外部への通信の可否
 
     :1: 許可する（既定）
 
+    - ポリシー設定から `DisableDeveloperTools` と `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    - プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:blank` と入力し、空のページを開く。
+    - パネルメニューまたはメニューバーの「ウェブ開発」→「開発ツールを表示」で開発ツールを表示する。
+    - 開発ツール右上の歯車アイコンをクリックする。
+    - 「ブラウザとアドオンのデバッガを有効」と「リモートデバッガを有効」にチェックを入れる。
+    - パネルメニューまたはメニューバーの「ウェブ開発」→「ブラウザーツールボックス」でブラウザーツールボックスを開く。
+      途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
+    - ブラウザーツールボックスで「ネットワーク」を選択する。
+    - ブラウザーツールボックス内の「再読み込み」ボタンをクリックする。
+    - そのまま10分放置する。
+    - **確認**
+        - ネットワーク通信が記録される。
+
     :2: 禁止する
+
+    - ポリシー設定から `DisableDeveloperTools` と `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    - プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:blank` と入力し、空のページを開く。
+    - パネルメニューまたはメニューバーの「ウェブ開発」→「開発ツールを表示」で開発ツールを表示する。
+    - 開発ツール右上の歯車アイコンをクリックする。
+    - 「ブラウザとアドオンのデバッガを有効」と「リモートデバッガを有効」にチェックを入れる。
+    - パネルメニューまたはメニューバーの「ウェブ開発」→「ブラウザーツールボックス」でブラウザーツールボックスを開く。
+      途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
+    - ブラウザーツールボックスで「ネットワーク」を選択する。
+    - ブラウザーツールボックス内の「再読み込み」ボタンをクリックする。
+    - そのまま10分放置する。
+    - **確認**
+        - localhostへのリクエストと、以下の例外を除いて、一切のネットワーク通信が記録されない。
+           - 「Network-2-3」または「Network-2-8」が選択されている場合、「自動プロキシー設定スクリプトURL」に設定したURL。
+           - 「Update-1-1」が選択されている場合、Firefoxの自動更新のための通信、およびそれに関連するOCSPの通信。
+           - 「Security-5-1」、「Security-6-1」、「Privacy-33-1」、「Privacy-33-2」、または「Privacy-33-4」が選択されている場合、ブロックリスト取得のための通信、およびそれに関連するOCSPの通信
+               - `https://firefox.settings.services.mozilla.com/v1/～`
+               - `https://content-signature.cdn.mozilla.net/～`
+               - `https://safebrowsing.googleapis.com/v4/～`
+               - `https://shaver.services.mozila.com/～`
+               - `ocsp.pki.goog`
+    - パネルメニューからツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。
+        - 「テーマ」内に「おすすめ」セクションが表示されない、またはセクションに何も項目が表示されない。
+    - パネルメニューまたはメニューバーの「ウェブ開発」→「WebIDE」でWebIDEを開く。
+    - メニューの「プロジェクト」→「追加のコンポーネントを管理」を開く。インストールボタンが表示されている場合は、クリックする。
+    - **確認**
+        - 無反応である、もしくはADB Extensionアドオンが準備中になっている。
 
 Security-16: フルスクリーン表示の可否
 
     :1: 確認の上で許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `http://www.w3schools.com/html/html5\_video.asp` を開く。
+    - **確認**
+        - 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されている。
+
     :3: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `http://www.w3schools.com/html/html5\_video.asp` を開く。
+    - **確認**
+        - 動画のコントロール内にフルスクリーン表示切り替え用ボタンが表示されない。
 
 Security-18: ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否
 
     :1: 許可する（既定）
 
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「テーマ」内の「その他のテーマを入手」をクリックするとテーマの配布ページが開かれる。
+
     :2: 禁止する
+
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。
 
 Security-19: ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否
 
     :1: 許可する（既定）
 
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからツールバーのカスタマイズ画面を開く。
+    - 「テーマ」内の「管理」をクリックする。
+    - **確認**
+        - 「おすすめ」に項目が表示される。
+
     :2: 禁止する
+
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「テーマ」内に「おすすめ」セクションが表示されない、またはセクションに何も項目が表示されない。
+    - 「テーマ」内の「管理」をクリックする。
+    - **確認**
+        - 「おすすめ」に項目が表示されない。
 
 Security-21: 危険なアドオンとプラグインのブロックの可否
 
