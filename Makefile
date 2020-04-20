@@ -4,6 +4,23 @@
 
 VERSION = 1.1
 
+DATE=$(shell date +%Y%m%d)
+UPDATES_PDF = "Firefox_$(DATE).pdf"
+BASE=$(shell pwd)
+
+PANDOC_OPT_PDF= -N --toc-depth=2 --table-of-contents \
+                -f markdown+ignore_line_breaks \
+                -V documentclass=ltjsarticle \
+                -V classoption=titlepage \
+                --latex-engine=lualatex
+PANDOC_OPT_DOCX= -N --toc-depth=2 --table-of-contents \
+                 -f markdown+ignore_line_breaks \
+                 -V documentclass=ltjsarticle \
+                 -V classoption=titlepage \
+                 -t docx \
+                 --reference-doc="$(BASE)/template.docx"
+
+
 all: config.xlsx
 
 config.xlsx: build-xlsx esr60/*
@@ -19,7 +36,11 @@ list-untracked-policies:
 list-unverified-configs:
 	bash -c 'grep -r -E -v  "^ " esr* | cut -d : -f 2- | sort | cut -d : -f 1 | uniq | grep -v -f <(grep -r -E -v  "^ " esr* | grep 廃止 | cut -d : -f 2 | sort | uniq) | while read key; do grep -E "$${key}[^0-9]" manual.md >/dev/null 2>&1 || echo "$${key}"; done'
 
+updates:
+	cd esr78/updates && cat updates.md | pandoc ${PANDOC_OPT_DOCX} -o "updates-esr78-$(DATE).docx" && mv *.docx ../../
+#	cd esr78/updates && cat updates.md | pandoc ${PANDOC_OPT_PDF} -o "updates-esr78-$(DATE).pdf" && mv *.pdf ../../
+
 clean:
-	rm -f config.xlsx
+	rm -f config.xlsx updates-*.docx updates-*.pdf
 
 .PHONY: fetch-policies-schema list-untracked-policies clean all
