@@ -15,7 +15,7 @@
 
 * プライバシー保護の状況のレポートを表示できるようになりました。（Firefox 70）
   レポートはロケーションバーの盾アイコンをクリックして表示できます。（Firefox 71）
-  ![esr78/](tracking-block-report.png)
+  ![](esr78/tracking-block-report.png)
 * 暗号通貨採掘をブロックしたときに通知が表示されるようになりました。（Firefox 71）
 
 
