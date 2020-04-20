@@ -67,13 +67,17 @@
 ## UIの変更
 
 * US地域の英語版ユーザーに対して、Pocketのおすすめコンテンツを新規タブに表示するようになりました。 (Firefox 69)
-* パネルメニュー内に単独の「Firefoxアカウント」メニューが追加されました。 (Firefox 70)
+* パネルメニュー内の「Syncにログイン」が「Firefoxアカウント」用のメニューに置き換えられました。 (Firefox 70)
+  ![](esr78/firefox-account-menu.png)
 * パネルメニュー内に「新着情報」が追加されました。 (Firefox 70)
+  ![](esr78/whatsnew-menu.png)
 * Firefoxのタブ内コンテンツがシステムの暗い配色モードに対応しました。 (Firefox 70)
-* フルスクリーン表示においてタイトルバーが表示されないようになりました (Firefox 70)
+  ![](esr78/dark-content.png)
 * 設定画面とabout:configがHTMLで置き換えられました。 （Firefox 71）
 * ロケーションバーのデザインが変更され、特に何も入力していなくても、ロケーションバーにフォーカスしただけで、よく見るサイトの一覧が表示されるようになりました。（Firefox 75）
+  ![](esr78/megabar.png)
 * ロケーションバーにおいて、[一般的なFirefoxの問題に対する解決策を含む項目が候補に表れるようになりました。](https://support.mozilla.org/ja/kb/search-web-firefox#w_firefox-solution-cualch)現時点では英語版のみ機能します。（Firefox 75）
+  ![](esr78/hint-in-urlbar.png)
 
 ## Webページに関わる変更
 
