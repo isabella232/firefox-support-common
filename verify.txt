@@ -1519,67 +1519,376 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
 
     :1: ブロックする（既定）
 
+    - ポリシー設定から `BlockAboutAddons` および `InstallAddonsPermission` を削除し、アドオンのインストールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:debugging` を開く。
+    - テストケースの `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
+    - **確認**
+        - エラーとなり、アドオンの読み込みに失敗する。
+
     :2: ブロックしない
+
+    - ポリシー設定から `BlockAboutAddons` および `InstallAddonsPermission` を削除し、アドオンのインストールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:debugging` を開く。
+    - テストケースの `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
+    - **確認**
+        - 読み込まれたアドオンが一時的な拡張機能の一覧に表示されている。
 
 Security-23: プラグインのサンドボックス内実行
 
     :1: サンドボックス内で実行しない（既定）
 
-    :2: Flashプラグインのみサンドボックス内で実行
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `dom.ipc.plugins.sandbox-level.default` の値が `0` である。
+        - `dom.ipc.plugins.sandbox-level.flash` の値が `0` である。
 
     :3: すべてサンドボックス内で実行
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `dom.ipc.plugins.sandbox-level.default` の値が `1` である。
+        - `dom.ipc.plugins.sandbox-level.flash` の値が `1` である。
+
+    :2: Flashプラグインのみサンドボックス内で実行
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `dom.ipc.plugins.sandbox-level.default` の値が `0` である。
+        - `dom.ipc.plugins.sandbox-level.flash` の値が `1` である。
+
     :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `dom.ipc.plugins.sandbox-level.default` の値が `0` である。
+        - `dom.ipc.plugins.sandbox-level.flash` の値が `2` である。
 
 Security-24: Flashプラグインの保護モード
 
     :1: 使用する（既定）
 
+    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - 「プラグイン」を選択する。
+    - Flashプラグインの「オプション」を開く。
+    - **確認**
+        - 32bit版Firefoxにおいて、「Adobe Flashの保護モードを有効化」にチェックが入っている。
+          （64bit版Firefoxにおいては機能が存在しないため確認を省略する。）
+
     :2: 使用しない
+
+    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - 「プラグイン」を選択する。
+    - Flashプラグインの「オプション」を開く。
+    - **確認**
+        - 32bit版Firefoxにおいて、「Adobe Flashの保護モードを有効化」にチェックが入っていない。
+          （64bit版Firefoxにおいては機能が存在しないため確認を省略する。）
 
 Security-25: プロトコルごとの外部Webアプリケーションへの連携
 
     :1: 使用する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「一般」を開く。
+    - **確認**
+        - 「ファイルとプログラム」配下の「プログラム」でファイルの種類「irc」「ircs」「mailto」「webcal」のそれぞれについて、選択肢としてWebアプリケーション名が表示される。
+
     :2: 使用しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「一般」を開く。
+    - **確認**
+        - 「ファイルとプログラム」配下の「プログラム」でファイルの種類「irc」「ircs」「mailto」「webcal」のそれぞれについて、選択肢として「毎回確認する」と「他のプログラムを選択する...」の2つだけが表示される。（Security-25-2）
+            - ただし、Windowsの既定のアプリケーション設定により追加されたアプリケーション（標準設定と記されている選択肢）は例外として無視する。
 
 Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
 
     :1: ブロックする（既定）
 
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合：
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.safebrowsing.downloads.enabled` の値が `true` である。
+
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合：
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
+    - 「Desktop Download Warnings」セクションの「3. Should show an "dangerous host" warning」のリンクをクリックする。
+    - ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
+    - ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
+    - **確認**
+        - ダウンロード一覧の一番上の項目に「このファイルはウイルスやマルウェアが含まれています。」という警告のメッセージが表示される。
+
     :2: ブロックしない
+
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合：
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.safebrowsing.downloads.enabled` の値が `false` である。
+
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合：
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
+    - 「Desktop Download Warnings」セクションの「3. Should show an "dangerous host" warning」のリンクをクリックする。
+    - ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
+    - ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
+    - **確認**
+        - ダウンロード一覧の一番上の項目に特に警告のメッセージが表示されない
 
 Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
 
     :1: 警告する（既定）
 
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合：
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.safebrowsing.downloads.remote.block_potentially_unwanted` の値が `true` である。
+        - `browser.safebrowsing.downloads.remote.block_uncommon` の値が `true` である。
+
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合：
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
+    - 「Desktop Download Warnings」セクションの「4. Should show an "uncommon" warning, for .exe」のリンクをクリックする。
+    - ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
+    - ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
+    - **確認**
+        - ダウンロード一覧の一番上の項目に「このファイルを開くのは危険です。」という警告のメッセージが表示される。
+
     :2: 警告しない
+
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合：
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.safebrowsing.downloads.remote.block_potentially_unwanted` の値が `false` である。
+        - `browser.safebrowsing.downloads.remote.block_uncommon` の値が `false` である。
+
+    フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合：
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
+    - 「Desktop Download Warnings」セクションの「4. Should show an "uncommon" warning, for .exe」のリンクをクリックする。
+    - ファイルの取り扱いを尋ねられるので、ファイルとして保存するよう指示し、ダウンロード完了を待つ。
+    - ダウンロードボタンをクリックし、ダウンロードの一覧を開く。
+    - **確認**
+        - ダウンロード一覧の一番上の項目に特に警告のメッセージが表示されない
 
 Security-28: 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く
 
     :1: タブを開く（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.captive-portal-service.enabled` の値が `true` である。
+
     :2: 何もしない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.captive-portal-service.enabled` の値が `false` である。
+
     :3: 何もしない（ポリシーで設定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.captive-portal-service.enabled` の値が `false` である。
 
 Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの実行
 
     :1: 許可する
 
+    `https://www.clear-code.com/` にアクセスできず、且つPythonの実行環境がない場合：
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `security.block_script_with_wrong_mime` の値が `false` である。
+
+    `https://www.clear-code.com/` にアクセスできるか、またはPythonの実行環境がある場合：
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
+      または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
+    - **確認**
+        - スクリプトがブロックされず、アラートダイアログに`3`と表示される。
+
     :2: 禁止する（既定）
+
+    `https://www.clear-code.com/` にアクセスできず、且つPythonの実行環境がない場合：
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `security.block_script_with_wrong_mime` の値が `true` である。
+
+    `https://www.clear-code.com/` にアクセスできるか、またはPythonの実行環境がある場合：
+
+    - Pythonの実行環境を整えておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
+      または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
+    - **確認**
+        - スクリプトがブロックされ、アラートダイアログが表示されない。
 
 Security-31: 危険なFlashコンテンツの読み込み
 
     :1: 許可する
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.safebrowsing.blockedURIs.enabled` の値が `true` である。
+
     :2: ブロックする（既定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.safebrowsing.blockedURIs.enabled` の値が `false` である。
 
 Security-32: アドオンのインストール時の警告
 
     :1: 警告する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `xpinstall.whitelist.required` の値が `true` である。
+
     :2: 警告しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `xpinstall.whitelist.required` の値が `false` である。
 
 Security-33: 危険ででしゃばりなFlashコンテンツをブロック
 
@@ -1613,19 +1922,73 @@ Security-34: about:profilesの使用
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:profiles` と入力して確定する。
+    - **確認**
+        - `about:profiles` への遷移がブロックされない。
+
     :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:profiles` と入力して確定する。
+    - **確認**
+        - `about:profiles` への遷移がブロックされる。
 
 Security-35: about:supportの使用
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:support` と入力して確定する。
+    - **確認**
+        - `about:support` への遷移がブロックされない。
+
     :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ロケーションバーに `about:support` と入力して確定する。
+    - **確認**
+        - `about:support` への遷移がブロックされる。
 
 Security-36: DNS over HTTPSの使用
 
     :1: 使用しない（既定）
 
+    - ポリシー設定から `DisableDeveloperTools` および `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
+    - 「URLでフィルタリング」欄に `dns-query` と入力する。
+    - `www.clear-code.com` を開く。
+    - **確認**
+        - 「ファイル」欄が `dns-query` となっているリクエストが記録されていない。
+
     :2: 使用する（ポリシーで設定）
+
+    - ポリシー設定から `DisableDeveloperTools` および `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
+    - 「URLでフィルタリング」欄に `dns-query` と入力する。
+    - `www.clear-code.com` を開く。
+    - **確認**
+        - 「ファイル」欄が `dns-query` となっているリクエストが記録されている。
 
 Security-37: セキュリティ警告の回避
 
