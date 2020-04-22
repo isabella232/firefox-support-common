@@ -12,7 +12,7 @@ Privacy-1: 履歴の保存の可否
 
     lockPref("browser.privatebrowsing.autostart", false);
 
-    :2: 保存を強制する
+    :7: 保存を強制する
 
     lockPref("browser.privatebrowsing.autostart", false);
     lockPref("privacy.sanitize.sanitizeOnShutdown", false);
