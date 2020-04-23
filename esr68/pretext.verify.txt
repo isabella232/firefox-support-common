@@ -1,0 +1,43 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+PRETEXT-1: 前提条件
+
+    :1: 環境
+
+    - 対象のFirefoxのバージョンは {{firefox_version}} とする。
+    - 検証環境は {{windows_version}} とする。
+    - 参照する設定資料は {{configuration_sheet_name}} とする。
+
+    :2: 基本の設定
+
+    - メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
+    - メタインストーラの表示バージョンは {{meta_installer_version}} とする。
+    - Firefoxのインストール先は  
+      `{{install_path}}`  
+      {{#install_path_32bit}}
+      （32bit環境では `{{install_path_32bit}}`）
+      {{/install_path_32bit}}
+      とする。
+    - デスクトップのショートカットは  
+      `{{desktop_shortcut_path}}`  {{#desktop_shortcut_path_32bit}}
+      （32bit環境では `{{desktop_shortcut_path_32bit}}`）  {{/desktop_shortcut_path_32bit}}
+      に作成するものとする。
+    - スタートメニューのショートカットは  
+      `{{start_menu_shortcut_path}}`  {{#start_menu_shortcut_path_32bit}}
+      （32bit環境では `{{start_menu_shortcut_path_32bit}}`）  {{/start_menu_shortcut_path_32bit}}
+      に作成するものとする。
+    - 検証環境が新規に用意した環境である場合、検証環境のWindowsは以下の状態を整えておく。
+        - ワークグループ名： `ワークグループ`（日本語名）
+        - ローカル管理者アカウント： `管理者`（日本語名、パスワードは `administrator`）
+        - ローカル一般アカウント： `ユーザー`（日本語名、パスワードは `user`）（検証作業で主に使用するログオンユーザー）
+
+    :3: 検証の準備
+    - 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部    の検証を実施できない場合がある。
+    - 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく（テストケースリストは `testcases/index.html` に存在する）。
+    
+            https://github.com/clear-code/firefox-support-common/
+    

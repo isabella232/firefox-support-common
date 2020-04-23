@@ -1,0 +1,586 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+Install-1: インストーラの表示名
+
+    :1: Fx Meta Installer（既定）
+
+    - `FxMetaInstaller*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - Fx Meta Installer
+    - 検証用ユーザーとして `FxMetaInstaller*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「Fx Meta Installer」がインストールされている。
+
+    :2: 任意の名前
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+
+Install-2: インストーラのファイル名
+
+    :1: FxMetaInstaller
+
+    - メタインストーラ作成キット一式を用意する。
+    - **確認**
+        - メタインストーラ作成キット一式の格納フォルダ名が `FxMetaInstaller` で始まる。
+
+    :2: 任意の名前
+
+    - メタインストーラ作成キット一式を用意する。
+    - **確認**
+        - メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。
+
+Install-3: インストーラの動作モード
+
+    :1: ウィザードを表示し、操作確認を求める
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - メタインストーラのウィザードが表示され、操作確認が求められない。
+
+    :2: ウィザードを表示し、操作確認を求めない（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - メタインストーラのウィザードが表示され、操作なしにインストールが完了する。
+
+    :3: ウィザードを一切表示しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - メタインストーラのウィザードが表示されない。
+
+Install-4: インストール完了後のメッセージ
+
+    :1: 表示しない（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - インストール完了後に完了を示すメッセージが表示されない。
+
+    :2: 表示する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - インストール完了後に「{{finish_title}}」のタイトルで「{{finish_message}}」のメッセージが表示される。
+
+Install-5: インストール完了後の再起動要求
+
+    :1: 表示しない（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - インストール完了後に再起動を求めるメッセージが表示されない。
+
+    :2: 表示する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - インストール完了後に「{{restart_title}}」のタイトルで「{{restart_message}}」のメッセージが表示される。
+
+Install-6: インストーラのウィザードの表示言語
+
+    :1: 日本語（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - メタインストーラのウィザードが日本語表示になっている。
+
+    :2: 英語
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - メタインストーラのウィザードが英語表示になっている。
+
+Install-7: Firefox/Thunderbirdの同梱
+
+    :1: 同梱しない（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\firefox.exe`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit\firefox.exe}}`）{{/install_path_32bit}}
+          が存在しない。
+
+    :2: 指定バージョンを同梱する
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{exe_name}}.exe`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
+          が存在する。
+        - `{{exe_name}}.exe` と同じ位置にある `application.ini` に記載されているFirefoxのバージョンが {{firefox_version}} である。
+
+Install-8: Firefox/Thunderbirdのインストール先
+
+    :1: 既定のインストール先（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path_base}}\Mozilla Firefox`
+          {{#install_path_base_32bit}}（32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{{/install_path_base_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path_base}}\Mozilla Firefox\{{exe_name}}.exe`
+          {{#install_path_base_32bit}}（32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox\{{exe_name}}.exe`）{{/install_path_base_32bit}}
+          が存在する。
+
+    :2: 任意のインストール先
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{exe_name}}.exe`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
+          が存在する。
+
+Install-9: メタインストーラの表示バージョン
+
+    :1: 更新しない（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」のバージョンが空である。
+
+    :2: 指定する
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。
+
+Install-10: スタートメニュー、タスクバー上のショートカットの更新
+
+    :1: 更新しない（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
+    - `{{install_path}}\{{exe_name}}.exe`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
+      のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+    - インストールされたFirefoxを起動する。
+    - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - **確認**
+        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されている。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - **確認**
+        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されている。
+
+    :2: 更新する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
+    - `{{install_path}}\{{exe_name}}.exe`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
+      のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+    - インストールされたFirefoxを起動する。
+    - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - **確認**
+        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されていない。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - `Firefox` のショートカットを右クリックし、プロパティを開く。
+    - **確認**
+        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されていない。
+
+    :3: 削除のみする
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
+    - `{{install_path}}\{{exe_name}}.exe`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
+      のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
+    - インストールされたFirefoxを起動する。
+    - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
+    - **確認**
+        - `Firefox` のショートカットが存在しない。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - **確認**
+        - `Firefox` のショートカットが存在しない。
+
+Install-11: タスクバー上へのピン留め用ショートカットの作成
+
+    :1: 作成する（既定）
+
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - `Firefox` のショートカットがあれば削除する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - **確認**
+        - `Firefox` のショートカットが存在する。
+
+    :2: 作成しない
+
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - `Firefox` のショートカットがあれば削除する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - **確認**
+        - `Firefox` のショートカットが存在しない。
+
+Install-12: 管理者権限の確認
+
+    :1: 確認する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+    - **確認**
+        - 管理者権限を要求される。
+    - `管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+
+    :2: 確認しない
+
+    - 検証用ユーザーに対し、権限確認用のフォルダに書き込み権限を与える。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+    - **確認**
+        - 管理者権限を要求されない。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+
+    :3: 特定のフォルダで書き込み可否を判断する
+
+    - 検証用ユーザーに対し、権限確認用のフォルダに書き込み権限を与える。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+    - **確認**
+        - 管理者権限を要求されない。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+
+Install-13: インストール前のクリーンアップ処理
+
+    :1: 何もしない
+
+    - `{{install_path}}`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+      の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+        - `{{install_path}}\must-be-removed.txt`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{{/install_path_32bit}}
+          が存在する。
+
+    :2: 旧バージョンのFirefoxを強制的に削除する
+
+    - `{{install_path}}`
+      {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+      の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+        - `{{install_path}}\must-be-removed.txt`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{{/install_path_32bit}}
+          が存在しない。
+
+    :3: 特定のフォルダを消去してから同梱のアプリケーションをインストールする
+
+    AppCleanupDirs=（消去したいフォルダのパス）
+    - インストール時のクリーンアップ対象に指定した位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「{{meta_installer_name}}」がインストールされている。
+        - インストール時のクリーンアップ対象に指定した位置に `must-be-removed.txt` が存在しない。
+
+Install-14: Internet Explorerのコンテキストメニューにコマンドを追加登録する
+
+    :1: 登録しない
+
+    - IEを起動し、Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
+        -  もし項目が存在している場合、コマンドプロンプトで
+           `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"`
+           を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IEを起動し、Webページ上でコンテキストメニューを開く。
+    - **確認**
+        - 既定のコンテキストメニュー項目以外表示されない。
+
+    :2: 登録する
+
+    - IEを起動し、Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
+        -  もし項目が存在している場合、コマンドプロンプトで
+           `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"`
+           を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IEを起動し、Webページ上でコンテキストメニューを開く。
+    - **確認**
+        - 追加したコンテキストメニュー項目が表示され、実際に機能する。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IEを起動し、Webページ上でコンテキストメニューを開く。
+    - **確認**
+        - 追加したコンテキストメニュー項目が多重に表示されていない。
+
+Install-15: Firefoxのインストーラの動作モード
+
+    :1: Firefoxのインストーラをキックする（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「Mozilla Firefox {{firefox_version}}」がインストールされている。
+          （ベータ版を用いた検証の場合、バージョン表記は「beta」を除いた数字が期待される。）
+        - 旧バージョンからの更新で、両バージョンを併存させない場合、旧バージョンの情報がインストール済みアプリケーションの一覧に独立した項目として表示されない。
+
+    :2: Firefoxのインストーラをキックせず、ファイルの展開と配置のみ行い、元々インストールされていたFirefoxをFirefoxの最新版として維持する
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - Firefoxのインストーラを使用し、Firefoxを `{{original_version_install_path}}` 配下にインストールする。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{install_path}}\{{exe_name}}.exe`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{{/install_path_32bit}}
+          が存在する。
+        - `{{original_version_install_path}}` 配下にFirefoxが存在する。
+        - `{{original_version_install_path}}` 配下にカスタマイズ用のファイルが設置されていない。
+    - Windowsキーを押しながら「R」を押し、「ファイル名を指定して実行」ダイアログを開く。
+    - `firefox.exe` と入力し、実行する。
+    - **確認**
+        - `{{original_version_install_path}}` 配下のFirefoxが起動する。
+    - レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが32bit版で且つWindowsが64bit版であれば  
+      `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`  
+      を、そうでなければ  
+      `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`  
+      を開く。
+    - **確認**
+        - 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
+
+Install-17: 既存Firefoxとの共存
+
+    :1: その環境で唯一のFirefoxとして使用する（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - メタインストーラを使用せず、Firefoxのインストーラを直接起動し、既定のインストール先にインストールする。
+    - Firefoxを起動する。
+    - Firefoxを起動し、Firefox上でユーザが変更可能な何らかの設定を変更する。例：
+        - パネルメニューからオプションを開く。
+        - オプション画面の「検索」を開く。
+        - 「既定の検索エンジン」を「Google」から「Yahoo！JAPAN」に変更する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - メタインストーラによってインストールされたFirefoxを起動する。
+    - **確認**
+        - 先ほど起動したFirefoxで変更した設定が維持されている。例：
+            - パネルメニューからオプションを開く。
+            - オプション画面の「検索」を開く。
+            - 「既定の検索エンジン」が「Yahoo！JAPAN」になっている。
+
+    :2: その環境に既存のFirefoxと併用する
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - メタインストーラによってインストールされたMozilla Firefox
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{install_path}}`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit}}`）{{/install_path_32bit}}
+    - 旧バージョンのメタインストーラもしくはFirefoxのインストーラを使用し、Firefoxを既定のインストール先にインストールする。
+    - Firefoxを起動する。
+    - Firefoxを起動し、Firefox上でユーザが変更可能な何らかの設定を変更する。例：
+        - パネルメニューからオプションを開く。
+        - オプション画面の「検索」を開く。
+        - 「既定の検索エンジン」を「Google」から「Yahoo！JAPAN」に変更する。
+    - 今バージョンのメタインストーラ `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして今バージョンのメタインストーラ `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 今バージョンのメタインストーラによってインストールされたFirefoxを起動する。
+    - **確認**
+        - 旧バージョンのメタインストーラもしくはFirefoxのインストーラによってインストールされたFirefoxで変更した設定が初期状態になっている。例：
+            - パネルメニューからオプションを開く。
+            - オプション画面の「検索」を開く。
+            - 「既定の検索エンジン」が「Google」になっている。
+    - Firefoxを終了する。
+    - 旧バージョンのメタインストーラもしくはFirefoxのインストーラによってインストールされたFirefoxを起動する。
+    - **確認**
+        - 旧バージョンのメタインストーラもしくはFirefoxのインストーラによってインストールされたFirefoxで変更した設定が維持されている。例：
+            - パネルメニューからオプションを開く。
+            - オプション画面の「検索」を開く。
+            - 「既定の検索エンジン」が「Yahoo！JAPAN」になっている。
+
+Install-18: BrowserSelectorのインストール
+
+    :1: インストールしない（既定）
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - BrowserSelector
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{default_install_path_base}}\ClearCode Inc`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode Inc`）{{/install_path_32bit}}
+        - `{{default_install_path_base}}\ClearCode`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode`）{{/install_path_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`）{{/install_path_32bit}}
+          が存在しない。
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`）{{/install_path_32bit}}
+          が存在しない。
+
+
+    :2: INIファイルと併せてインストールする
+
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - {{meta_installer_name}}
+        - BrowserSelector
+    - 以下のファイル、フォルダがあれば削除する。
+        - `{{default_install_path_base}}\ClearCode Inc`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode Inc`）{{/install_path_32bit}}
+        - `{{default_install_path_base}}\ClearCode`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode`）{{/install_path_32bit}}
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`）{{/install_path_32bit}}
+          が存在する。
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`
+          {{#install_path_32bit}}（32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`）{{/install_path_32bit}}
+          が存在する。

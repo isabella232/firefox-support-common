@@ -1,0 +1,173 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+Application-1: デスクトップのショートカット
+
+    :1: 既定の内容で作成（既定）
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - デスクトップ上のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - デスクトップ上にFirefox起動用ショートカットが作成されている。
+    - ショートカットからFirefoxを起動する。
+    - ショートカットからFirefoxの追加起動を試みる。
+    - **確認**
+        - Firefoxの新しいウィンドウが開かれる。
+
+    :2: 作成しない
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - デスクトップ上のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - デスクトップ上にFirefox起動用ショートカットが作成されていない。
+
+    :3: 任意の内容で作成
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - デスクトップ上のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - デスクトップ上にFirefox起動用ショートカットが作成されている。
+      - ショートカットのアイコンが `fainstall.ini` での指定通りになっている。
+    - デスクトップ上のFirefox起動用ショートカットのプロパティを開く。
+    - **確認**
+      - ショートカットのリンク先が `fainstall.ini` での指定通りになっている。
+        （オプションの指定が反映されている）
+      - ショートカットの作業フォルダが、リンク先のFirefoxの実行ファイルがあるフォルダのパスになっている。
+    - ショートカットからFirefoxを起動する。
+    - ショートカットからFirefoxの追加起動を試みる。
+    - **確認**
+        - オプションに `-no-remote` が含まれる場合、「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。
+          オプションに `-no-remote` が含まれない場合、Firefoxの新しいウィンドウが開かれる。
+
+Application-2: スタートメニューのショートカット
+
+    :1: 既定の内容で作成（既定）
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - スタートメニュー内のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - スタートメニュー内にFirefox起動用ショートカットが作成されている。
+    - ショートカットからFirefoxを起動する。
+    - ショートカットからFirefoxの追加起動を試みる。
+    - **確認**
+        - Firefoxの新しいウィンドウが開かれる。
+
+    :2: 作成しない
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - スタートメニュー内のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - スタートメニュー内にFirefox起動用ショートカットが作成されていない。
+
+    :3: 任意の内容で作成
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - スタートメニュー内のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - スタートメニュー内にFirefox起動用ショートカットが作成されている。
+      - ショートカットのアイコンが `fainstall.ini` での指定通りになっている。
+    - スタートメニュー内のFirefox起動用ショートカットのプロパティを開く。
+    - **確認**
+      - ショートカットのリンク先が `fainstall.ini` での指定通りになっている。
+        （オプションの指定が反映されている）
+      - ショートカットの作業フォルダが、リンク先のFirefoxの実行ファイルがあるフォルダのパスになっている。
+    - ショートカットからFirefoxを起動する。
+    - ショートカットからFirefoxの追加起動を試みる。
+    - **確認**
+        - オプションに `-no-remote` が含まれる場合、「Firefoxは起動していますが応答しません。」というメッセージが出て、Firefoxの新しいウィンドウが開かれない。
+          オプションに `-no-remote` が含まれない場合、Firefoxの新しいウィンドウが開かれる。
+
+Application-3: クイック起動のショートカット
+
+    :1: 既定の内容で作成（既定）
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - Windows Vista以前のクイック起動内のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - Windows Vista以前のクイック起動内にFirefox起動用ショートカットが作成されている。
+
+    :2: 作成しない
+
+    - 以下のファイル、フォルダがあれば削除する。
+      - Windows Vista以前のクイック起動内のFirefox起動用ショートカット
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - **確認**
+      - Windows Vista以前のクイック起動内にFirefox起動用ショートカットが作成されていない。
+
+Application-6: プロファイルの位置
+
+    :1: %AppData%内（既定）
+
+    - 以下のファイル、フォルダがあれば削除する。
+        - Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
+        - Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Windowsエクスプローラを開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
+    - **確認**
+        - フォルダが見つからない（存在しない）。
+
+    :2: 任意の位置
+
+    - 以下のファイル、フォルダがあれば削除する。
+        - Firefoxのユーザープロファイル（`%AppData%\Mozilla`）
+        - Firefoxのテンポラリファイルおよびキャッシュファイル（`%LocalAppData%\Mozilla`）
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - デスクトップ上にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
+    - **確認**
+        - 「リンク先」末尾に、プロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。
+          ```
+          -p {{special_profile_name}}
+          ```
+          または
+          ```
+          -profile {{special_profile_path}}\{{special_profile_name}}
+          ```
+    - スタートメニュー内にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
+    - **確認**
+        - 「リンク先」末尾に、プロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。
+          ```
+          -p {{special_profile_name}}
+          ```
+          または
+          ```
+          -profile {{special_profile_path}}\{{special_profile_name}}
+          ```
+    - Windowsエクスプローラを開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
+    - **確認**
+        - `{{special_profile_name}}` フォルダが存在する。
+        - フォルダの内容は空である。ｃ
+    - デスクトップ上またはスタートメニュー内にFirefox起動用ショートカットが作成された場合、そのいずれかを使用してFirefoxを起動する。
+      ショートカットが作成されなかった場合、firefox.exeを実行してFirefoxを起動する。
+    - デスクトップ上にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
+    - **確認**
+        - `{{special_profile_path}}\{{special_profile_name}}` に `prefs.js` などのファイルが作成される。
