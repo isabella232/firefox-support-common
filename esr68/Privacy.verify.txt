@@ -342,53 +342,259 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :1: 永続的に許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - **確認**
+        - `Cookies` の `Default` の値が `true` である。
+
     :6: 既定では禁止し、特定サイトのみ永続的に許可する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - **確認**
+        - `Cookies` の `Default` の値が `false` である。
+        - `Cookies` の `Allow` の値として許可サイトが列挙されている。
 
     :3: セッション中のみ許可する（ポリシーで設定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - **確認**
+        - `Cookies` の `ExpireAtSessionEnd` の値が `true` である。
+
     :4: 禁止する（ポリシーで設定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - **確認**
+        - `Cookies` の `Default` の値が `false` である。
+
     :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - **確認**
+        - `Cookies` の `Default` の値が `true` である。
+        - `Cookies` の `Allow` の値として禁止サイトが列挙されている。
 
 Privacy-12: DOMストレージの利用の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「localStorage」欄に `enabled` と出力される。
+
     :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「localStorage」欄に `disabled` と出力される。
 
 Privacy-13: Indexed DBの利用の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「indexedDB」欄に `enabled` と出力される。
+
     :3: 禁止する
 
-    lockPref("dom.indexedDB.enabled", false);
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「indexedDB」欄に `disabled` と出力される。
 
 Privacy-14: 位置情報の利用の可否
 
     :1: 確認の上で許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「geolocation」欄に `enabled` と出力される。
+        - 「geolocation」欄の「exec」をクリックすると「このサイトに位置情報の共有を許可しますか？」と尋ねられる。
+
     :6: すべてのサイトについて初期状態で確認無しで禁止する（「位置情報へのアクセスの要求をブロック」にチェック）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「geolocation」欄に `enabled` と出力される。
+        - 「geolocation」欄の「exec」をクリックすると「fail: cannot fetch your location」というエラーが表示される。
+    - 確認無しでの位置情報の取得を許可するサイトが定義されている場合、以下の検証も行う。
+      - 許可サイトを開き、ロケーションバー左端のアイコン部分をクリックする。
+          - **確認**
+              - 「サイト別設定」欄に、「位置情報の送信」が「ブロック」と表示される。
+      - 「位置情報の送信」で「許可」を選択する。
+      - Firefoxを再起動する
+      - そのページを開き、ロケーションバー左端のアイコン部分をクリックする。
+          - **確認**
+              - 「サイト別設定」欄に、「位置情報の送信」が「許可」と表示される。
 
     :7: すべてのサイトについて初期状態で確認無しで許可する
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「geolocation」欄に `enabled` と出力される。
+        - 「geolocation」欄の「exec」をクリックすると確認なしで取得された座標が表示される。
+
     :4: 特定サイトのみ初期状態で確認なしで許可/禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「geolocation」欄に `enabled` と出力される。
+        - 「geolocation」欄の「exec」をクリックすると「このサイトに位置情報の共有を許可しますか？」と尋ねられる。
+    - 確認無しでの位置情報の取得を許可するサイトが定義されている場合、以下の検証も行う。
+      - 許可サイトを開き、ロケーションバー左端のアイコン部分をクリックする。
+          - **確認**
+              - 「サイト別設定」欄に、「位置情報の送信」が「許可」と表示される。
+      - 「位置情報の送信」で「ブロック」を選択する。
+      - Firefoxを再起動する
+      - そのページを開き、ロケーションバー左端のアイコン部分をクリックする。
+          - **確認**
+              - 「サイト別設定」欄に、「位置情報の送信」が「ブロック」と表示される。
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「geolocation」欄に `enabled` と出力される。
+        - 「geolocation」欄の「exec」をクリックすると「このサイトに位置情報の共有を許可しますか？」と尋ねられる。
+    - 確認無しでの位置情報の取得を許可するサイトが定義されている場合、以下の検証も行う。
+      - 許可サイトを開き、ロケーションバー左端のアイコン部分をクリックする。
+          - **確認**
+              - 「サイト別設定」欄に、「位置情報の送信」が「許可」と表示される。
+      - 「位置情報の送信」で「ブロック」を選択する。
+      - Firefoxを再起動する
+      - そのページを開き、ロケーションバー左端のアイコン部分をクリックする。
+          - **確認**
+              - 「サイト別設定」欄に、「位置情報の送信」が「ブロック」と表示される。
+
     :3: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「geolocation」欄に `disabled` と出力される。
 
 Privacy-15: 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否
 
     :1: 許可する（既定）
 
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.search.geoip.url` の値が未定義や空でない。
+
     :2: 禁止する
+
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.search.geoip.url` の値が空文字である。
 
 Privacy-16: DNSの先読みの可否
 
     :1: 許可する（既定）
 
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
+        - `network.dns.notifyResolution`（真偽型）：`true`
+        - `devtools.chrome.enabled`（真偽型）：`true`
+    - パネルメニューで「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
+    - 以下のコードをコンソール内で実行する。
+        - `Services.obs.addObserver({observe:(s,t,d)=>console.log(t+': '+d)},'dns-resolution-request',false);`
+    - コンソール上の「要求」が選択された状態にする（すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する）。
+    - ブラウザウィンドウでテストケースの `prefetching.html` を開く。
+    - **確認**
+        - `dns-resolution-request: dns-prefetch.example.com` というログがブラウザーコンソールに出力される。
+
     :2: 禁止する
+
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
+        - `network.dns.notifyResolution`（真偽型）：`true`
+        - `devtools.chrome.enabled`（真偽型）：`true`
+    - パネルメニューで「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
+    - 以下のコードをコンソール内で実行する。
+        - `Services.obs.addObserver({observe:(s,t,d)=>console.log(t+': '+d)},'dns-resolution-request',false);`
+    - コンソール上の「要求」が選択された状態にする（すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する）。
+    - ブラウザウィンドウでテストケースの `prefetching.html` を開く。
+    - **確認**
+        - `dns-resolution-request: dns-prefetch.example.com` というログがブラウザーコンソールに出力されない。
 
 Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
