@@ -116,32 +116,23 @@ Privacy-5: パスワードの保存の可否
     "DisableMasterPasswordCreation": true,
     "OfferToSaveLogins": false,
 
-Privacy-6: Webアプリのオフラインキャッシュの利用の可否
+Privacy-6: [廃止] Webアプリのオフラインキャッシュの利用の可否
 
-    :1: 確認の上で許可する（既定）
+    :1: [廃止] 確認の上で許可する（既定）
 
-    lockPref("offline-apps.allow_by_default", false);
+    [廃止]
 
     :2: [廃止] 特定サイトのみ確認なしで許可する
 
     [廃止]
 
-    :4: 特定サイトのみ初期状態で確認無しで許可する
+    :4: [廃止] 特定サイトのみ初期状態で確認無しで許可する
 
-    default.permissions:
-    host<\t>offline-app<\t>1<\t>http://example.com
-    # または
-    origin<\t>offline-app<\t>1<\t>http://example.com
+    [廃止]
 
-    MCD:
-    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+    :3: [廃止] 禁止する
 
-    :3: 禁止する
-
-    lockPref("browser.offline-apps.notify", false);
-    lockPref("offline-apps.allow_by_default", false);
-    lockPref("browser.cache.offline.enable", false);
-    lockPref("browser.cache.offline.insecure.enable", false);
+    [廃止]
 
 Privacy-7: リンク先の先読みの可否
 
