@@ -761,53 +761,297 @@ Privacy-22: Firefox Syncの利用の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在する。
+    - メニューバーの「ツール」メニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Sync」が存在する。
+        - 「Syncにサインイン」が存在する。
+
     :2: 禁止する（ポリシーで設定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - メニューバーの「ツール」メニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Sync」が存在しない。
+        - 「Syncにサインイン」が存在しない。
+
     :3: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - メニューバーの「ツール」メニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Sync」が存在しない。
+        - 「Syncにサインイン」が存在しない。
 
 Privacy-24: Firefoxアカウントの利用の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在する。
+    - メニューバーの「ツール」メニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Sync」が存在する。
+        - 「Syncにサインイン」が存在する。
+
     :2: 禁止する
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - メニューバーの「ツール」メニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Sync」が存在しない。
+        - 「Syncにサインイン」が存在しない。
+
     :3: 禁止する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - メニューバーの「ツール」メニューを開く。
+    - **確認**
+        - 「Syncにログイン」の項目が存在しない。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Sync」が存在しない。
+        - 「Syncにサインイン」が存在しない。
 
 Privacy-26: 「忘れる」ボタンの利用の可否
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「忘れる」が存在する。
+
     :2: 禁止する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「忘れる」が存在しない。
 
 Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :1: 許可する
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Pocket」が存在する。
+    - Webページ中の任意のリンクを右クリックしてコンテキストメニューを開く。
+    - **確認**
+        - 「リンクをPocketに保存」が存在する。
+
     :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Pocket」が存在しない。
+    - Webページ中の任意のリンクを右クリックしてコンテキストメニューを開く。
+    - **確認**
+        - 「リンクをPocketに保存」が存在しない。
 
     :3: 禁止する（ポリシーで設定）
 
-    "DisablePocket": true,
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
+    - **確認**
+        - 「Pocket」が存在しない。
+    - Webページ中の任意のリンクを右クリックしてコンテキストメニューを開く。
+    - **確認**
+        - 「リンクをPocketに保存」が存在しない。
 
 Privacy-29: 履歴・ブックマーク用データベースの自動最適化
 
     :1: 1週間に1回、最低限の最適化のみ行う（既定）
 
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
+        - `idle.lastDailyNotification`（整数型）：`0`
+        - `places.database.lastMaintenance`（整数型）：`0`
+    - Firefoxを再起動する。
+    - パネルメニューの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
+    - キーボード、マウスから手を離し、4分以上待つ。
+    - **確認**
+        - ブラウザーコンソールに以下のメッセージが1つも表示されない。
+            - `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
+            - `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
+            - `The database has been vacuumed.`
+
     :2: 1週間に1回、VACUUMも含めて行う
+
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
+        - `idle.lastDailyNotification`（整数型）：`0`
+        - `places.database.lastMaintenance`（整数型）：`0`
+    - Firefoxを再起動する。
+    - パネルメニューの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
+    - キーボード、マウスから手を離し、4分以上待つ。
+    - **確認**
+        - ブラウザーコンソールに以下のメッセージがすべて出力される。
+            - `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
+            - `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
+            - `The database has been vacuumed.`
 
 Privacy-30: ディスクキャッシュの最大サイズ制限
 
     :1: 制限しない（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:cache` を開く。
+    - **確認**
+        - 「disk」欄の「Maximum storage size」の値が `1048576` などの自動算出された値になっている。
+
     :2: 制限する
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:cache` を開く。
+    - **確認**
+        - 「disk」欄の「Maximum storage size」の値が指定値と一致している。
+
     :3: ディスクキャッシュを使用しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:cache` を開く。
+    - **確認**
+        - 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。
+    - `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\cache2` を開き、その中の `entries` フォルダを開く。
+    - **確認**
+        - フォルダが空である。
 
 Privacy-32: リンクのhoverによるリンク先の先読みの可否
 
     :1: 許可する（既定）
 
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - MCD設定ファイルに以下の設定を追加しておく。
+        - `lockPref("logging.nsHttp", 5);`
+        - `lockPref("logging.NetworkPredictor", 5);`
+        - `lockPref("logging.config.sync", true);`
+        - `lockPref("logging.config.add_timestamp", true);`
+        - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
+    - `C:\Users\Public\http.log-*` を全て削除しておく。
+    - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
+      もしくは、本節での先読みに関する検証を省略する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境で、`network.http.speculative-parallel-limit` が `1` またはそれ以上である。
+    - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
+    - **確認**
+        - 「All skipped? false」とコンソールに出力される。
+
     :2: 禁止する
+
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - MCD設定ファイルに以下の設定を追加しておく。
+        - `lockPref("logging.nsHttp", 5);`
+        - `lockPref("logging.NetworkPredictor", 5);`
+        - `lockPref("logging.config.sync", true);`
+        - `lockPref("logging.config.add_timestamp", true);`
+        - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
+    - `C:\Users\Public\http.log-*` を全て削除しておく。
+    - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
+      もしくは、本節での先読みに関する検証を省略する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境で、`network.http.speculative-parallel-limit` が `0` である。
+    - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
+    - **確認**
+        - 「All skipped? true」とコンソールに出力される。
 
 Privacy-33: Webサービスによる行動履歴の収集（トラッキング）の遮断の可否
 
