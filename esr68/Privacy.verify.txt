@@ -248,6 +248,7 @@ Privacy-7: リンク先の先読みの可否
     :1: 許可する（既定）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -264,6 +265,7 @@ Privacy-7: リンク先の先読みの可否
     :2: 禁止する
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -282,6 +284,7 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
     :1: 指定しない（既定）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -293,6 +296,7 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
     :2: 指定する
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -535,6 +539,7 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
     :1: 許可する（既定）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -546,6 +551,7 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
     :2: 禁止する
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -559,7 +565,7 @@ Privacy-16: DNSの先読みの可否
     :1: 許可する（既定）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -579,7 +585,7 @@ Privacy-16: DNSの先読みの可否
     :2: 禁止する
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
