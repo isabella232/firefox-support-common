@@ -429,6 +429,7 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
 
     :1: 実行する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - （以前のバージョンのメタインストーラがある場合はそれを用いて）Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
@@ -436,9 +437,13 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
     - Firefoxを起動する。
     - **確認**
         - デスクトップ上にOPML形式のバックアップファイルが生成されている。
+    - `about:config` を開く。
+    - **確認**
+        - 対象端末にライブブックマークが登録されていない場合に、`browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されていない。
 
     :2: 実行しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - （以前のバージョンのメタインストーラがある場合はそれを用いて）Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
@@ -446,3 +451,6 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
     - Firefoxを起動する。
     - **確認**
         - デスクトップ上にOPML形式のバックアップファイルが生成されていない。
+    - `about:config` を開く。
+    - **確認**
+        - 対象端末にライブブックマークが登録されていない場合に、`browser.livebookmarks.migrationAttemptsLeft` の値が `0` で固定されている。

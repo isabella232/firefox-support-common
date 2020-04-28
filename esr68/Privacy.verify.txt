@@ -1057,29 +1057,132 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :1: ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `privacy.trackingprotection.enabled` が `false` である。
+        - `privacy.trackingprotection.pbmode.enabled` が `true` である。
+
     :2: ブロックリストを取得して、トラッキングを常に遮断する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `privacy.trackingprotection.enabled` が `true` である。
+        - `privacy.trackingprotection.pbmode.enabled` が `true` である。
 
     :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシー設定を併用）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `privacy.trackingprotection.enabled` が `true` である。
+        - `privacy.trackingprotection.pbmode.enabled` が `true` である。
+
     :3: ブロックリストを取得せず、トラッキングを遮断しない
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `privacy.trackingprotection.enabled` が `false` である。
+        - `privacy.trackingprotection.pbmode.enabled` が `false` である。
+
     :5: ブロックリストを取得せず、トラッキングを遮断しない（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `privacy.trackingprotection.enabled` が `false` である。
+        - `privacy.trackingprotection.pbmode.enabled` が `false` である。
 
 Privacy-34: フォームへのユーザー入力値のセッション情報への保存の可否
 
     :1: 許可する（既定）
 
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を削除する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - テストケースの `password.html` を開く。
+    - ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
+    - ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` の内容を確認する。
+      例えば、ファイルをLinux環境にコピーして、 `sudo npm install -g mozlz4a` で必要なコマンドをインストールした後、`mozlz4a-decompress recovery.jsonlz4  | jq . | grep "ユーザ入力値"` を実行して、行が見つかるかどうかを調べる。
+    - **確認**
+        - ファイル内に「ユーザ入力値」という文字列が含まれている。
+
     :2: 一切禁止する
+
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を削除する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - テストケースの `password.html` を開く。
+    - ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
+    - ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` の内容を確認する。
+      例えば、ファイルをLinux環境にコピーして、 `sudo npm install -g mozlz4a` で必要なコマンドをインストールした後、`mozlz4a-decompress recovery.jsonlz4  | jq . | grep "ユーザ入力値"` を実行して、行が見つかるかどうかを調べる。
+    - **確認**
+        - ファイル内に「ユーザ入力値」という文字列が含まれていない。
 
 Privacy-35: トラッキングの遮断に使用するブロックリストの指定
 
     :1: レベル1（基本）ブロックを初期設定とし、変更を許可（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル1ブロックリスト」が選択されている。
+
     :2: レベル2（厳格）ブロックを初期設定とし、変更を許可
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル2ブロックリスト」が選択されている。
 
     :3: レベル1（基本）ブロックで固定
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル1ブロックリスト」が選択されている。
+
     :4: レベル2（厳格）ブロックで固定
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル2ブロックリスト」が選択されている。
 
 Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上へのキャッシュ
 
