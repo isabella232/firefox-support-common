@@ -1,0 +1,164 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+Update-1: Firefoxの自動更新の可否
+
+    :1: 許可する（既定）（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - 「ヘルプ」→「Firefoxについて」を開く。
+    - **確認**
+        - 「ソフトウェアの更新を確認」が表示されるか、「Firefoxは最新バージョンです」と表示される。
+
+    :4: 禁止する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - 「ヘルプ」→「Firefoxについて」を開く。
+    - **確認**
+        - 「ソフトウェアの更新を確認」が表示されない。
+
+Update-2: アドオンの自動更新の可否
+
+    :1: 許可する（既定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `extensions.update.enabled` の値が `true` である。
+
+    :2: 禁止する
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `extensions.update.enabled` の値が `false` である。
+
+    :3: 禁止する（ポリシーで設定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `extensions.update.enabled` の値が `false` である。
+
+Update-3: 検索エンジンの自動更新の可否
+
+    :1: 許可する（既定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.search.update` の値が `true` である。
+
+    :2: 禁止する
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `browser.search.update` の値が `false` である。
+
+Update-4: 「Mozilla Maintenance Service」のインストールの可否
+
+    :1: 許可する（既定）
+
+    - Install-15-2との併用は不可能のため、Install-15-2選択時は検証を省略する。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - Mozilla Maintenance Service
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「Mozilla Maintenance Service」がインストールされている。
+
+    :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
+        - Mozilla Maintenance Service
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
+    - **確認**
+        - 「Mozilla Maintenance Service」がインストールされていない。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「一般」を開く。
+    - **確認**
+        - 「更新のインストールにバックグラウンドサービスを使用する」のチェックが存在しないか、チェックが外れており無効化されている。
+
+Update-6: システムアドオンの自動更新の可否
+
+    :1: 許可する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - 「有効」配下の各設定値を確認する。
+    - **確認**
+        - `DisableSystemAddonUpdate` が存在しない。
+
+    :2: 禁止する（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - 「有効」配下の各設定値を確認する。
+    - **確認**
+        - `DisableSystemAddonUpdate` が `true` に設定されている。
+
+Update-7: アプリケーションの自動更新情報取得先
+
+    :1: Mozillaのサーバー（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - 「有効」配下の各設定値を確認する。
+    - **確認**
+        - `AppUpdateURL` が存在しない。
+
+    :2: 任意のサーバー（ポリシーで設定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - 「有効」配下の各設定値を確認する。
+    - **確認**
+        - `AppUpdateURL` が空文字に設定されている。
