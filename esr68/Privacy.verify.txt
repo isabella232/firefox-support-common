@@ -1212,37 +1212,197 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     :1: 先読みを許可する（既定）
 
+    - 先読み対象となるページのホスト名がグローバルIPアドレスに解決される環境では、以下の手順を実施する。
+        - MCD設定ファイルに以下の設定を追加しておく。
+            - `lockPref("logging.nsHttp", 5);`
+            - `lockPref("logging.NetworkPredictor", 5);`
+            - `lockPref("logging.config.sync", true);`
+            - `lockPref("logging.config.add_timestamp", true);`
+            - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
+        - `C:\Users\Public\http.log-*` を全て削除しておく。
+        - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - `https://www.clear-code.com/blog/` を開く。
+        - 記事の個別ページを10ページほど訪問する。
+        - Firefoxを終了する。
+        - MCD設定ファイルに追加した設定を削除または無効化する。
+        - Firefoxを起動する。
+        - テストケースの `httplog.html` を開き、スクリプトをコピーする。
+        - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をFirefoxで開く。
+        - 「Ctrl-Shift-K」でコンソールを開く。
+        - コピーしたスクリプトを貼り付けて、実行する。
+        - **確認**
+            - コンソールに「All cancelled? false」と出力される。
+    - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境では、以下の手順を実施する。
+        - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - `about:config` を開く。
+        - **確認**
+            - `network.predictor.enabled` の値が `true` である。
+
     :2: 先読みを禁止する
+
+    - 先読み対象となるページのホスト名がグローバルIPアドレスに解決される環境では、以下の手順を実施する。
+        - MCD設定ファイルに以下の設定を追加しておく。
+            - `lockPref("logging.nsHttp", 5);`
+            - `lockPref("logging.NetworkPredictor", 5);`
+            - `lockPref("logging.config.sync", true);`
+            - `lockPref("logging.config.add_timestamp", true);`
+            - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
+        - `C:\Users\Public\http.log-*` を全て削除しておく。
+        - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - `https://www.clear-code.com/blog/` を開く。
+        - 記事の個別ページを10ページほど訪問する。
+        - Firefoxを終了する。
+        - MCD設定ファイルに追加した設定を削除または無効化する。
+        - Firefoxを起動する。
+        - テストケースの `httplog.html` を開き、スクリプトをコピーする。
+        - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をFirefoxで開く。
+        - 「Ctrl-Shift-K」でコンソールを開く。
+        - コピーしたスクリプトを貼り付けて、実行する。
+        - **確認**
+            - コンソールに「All cancelled? true」と出力される。
+    - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境では、以下の手順を実施する。
+        - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - `about:config` を開く。
+        - **確認**
+            - `network.predictor.enabled` の値が `false` である。
 
 Privacy-38: Webビーコンの送信
 
     :1: 許可する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「beacon」欄に `enabled` と表示される。
+
     :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「beacon」欄に `disabled` と表示される。
 
 Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
 
     :1: 警告する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `insecure-password.html` を開く。
+    - パスワードの入力欄にフォーカスを移す。
+    - **確認**
+        - 安全でないフォームである旨の警告のメッセージが表示される。
+
     :2: 警告しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `insecure-password.html` を開く。
+    - パスワードの入力欄にフォーカスを移す。
+    - **確認**
+        - 安全でないフォームである旨の警告のメッセージが表示されない。
 
 Privacy-40: パスワード保存ポップアップにおける、パスワードを平文表示するチェックボックスの表示の可否
 
     :1: 表示する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `signon.rememberSignons.visibilityToggle` の値が `true` である。
+    - テストケースの `password.html` を開く。
+    - ユーザID、パスワードを入力して送信する。
+    - **確認**
+        - パスワードの保存を提案するポップアップが表示され、その中に「パスワードを開示」チェックボックスが表示される。
+
     :2: 表示しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `signon.rememberSignons.visibilityToggle` の値が `false` である。
+    - テストケースの `password.html` を開く。
+    - ユーザID、パスワードを入力して送信する。
+    - **確認**
+        - パスワードの保存を提案するポップアップが表示され、その中に「パスワードを開示」チェックボックスが表示されない。
 
 Privacy-41: トラッキング保護機能の通知メッセージの表示
 
     :1: 20回まで表示する（既定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ストケースリストのリンクから `http://www.kantei.go.jp/` を開く。
+        - トラッキング保護機能が働いた旨の通知ポップアップが表示される。
+
     :2: 表示しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - ストケースリストのリンクから `http://www.kantei.go.jp/` を開く。
+        - トラッキング保護機能が働いた旨の通知ポップアップが表示されない。
 
 Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :1: 参加する
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - 「有効」配下の各設定値を確認する。
+    - **確認**
+        - `DisableFirefoxStudies` の値が `false` である。
+
     :2: 参加しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:policies` を開く。
+    - 「有効」配下の各設定値を確認する。
+    - **確認**
+        - `DisableFirefoxStudies` の値が `true` である。
 
 Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
