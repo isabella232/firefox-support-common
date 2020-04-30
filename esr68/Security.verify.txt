@@ -32,6 +32,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     :4: 導入する（ポリシーで設定）
 
+    - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
