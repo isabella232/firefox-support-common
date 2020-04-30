@@ -1408,92 +1408,463 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :1: トラッキング防止の使用時のみ(既定)
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が選択されていない。
+
     :2: 常に送る
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が選択されている。
 
     :3: プライベートウィンドウのみ送出
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が選択されていない。
+
     :4: 送出しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - **確認**
+        - 「ウェブサイトに"Do Not Track"信号を送り、追跡されたくないことを知らせます」の項目で「常に送る」が選択されていない。
 
 Privacy-44: 通常モードでのリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy` の値が `0` である。
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy` の値が `2` である。
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy` の値が `3` である。
 
 Privacy-45: プライベートブラウジングモードでのリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.pbmode` の値が `0` である。
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.pbmode` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.pbmode` の値が `2` である。
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.pbmode` の値が `3` である。
 
 Privacy-46: カメラの利用の可否
 
     :1: 確認の上で許可する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.camera` の値が `0` である。
+
     :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - 「許可設定」→「カメラ」→「設定」を開く。
+    - **確認**
+        - `default.permissions` で `1` を設定したサイトが許可サイトとして、`2` を設定したサイトが禁止サイトとして表示される。
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - 「許可設定」→「カメラ」→「設定」を開く。
+    - **確認**
+        - `default.permissions` で `1` を設定したサイトが許可サイトとして、`2` を設定したサイトが禁止サイトとして表示される。
+
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - 「許可設定」→「カメラ」→「設定」を開く。
+    - **確認**
+        - 「カメラへのアクセスの要求をブロック」がチェックされていない。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.camera` の値が `1` である。
+
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「カメラへのアクセスの要求をブロック」にチェック）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - 「許可設定」→「カメラ」→「設定」を開く。
+    - **確認**
+        - 「カメラへのアクセスの要求をブロック」がチェック済みである。
 
 Privacy-47: マイクの利用の可否
 
     :1: 確認の上で許可する（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.microphone` の値が `0` である。
+
     :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.microphone` の値が `0` である。
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.microphone` の値が `0` である。
+
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - 「許可設定」→「マイク」→「設定」を開く。
+    - **確認**
+        - 「マイクへのアクセスの要求をブロック」がチェックされていない。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.microphone` の値が `1` である。
+
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「マイクへのアクセスの要求をブロック」にチェック）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからオプションを開く。
+    - オプション画面の「プライバシーとセキュリティ」を開く。
+    - 「許可設定」→「マイク」→「設定」を開く。
+    - **確認**
+        - 「マイクへのアクセスの要求をブロック」がチェック済みである。
+    - `about:config` を開く。
+    - **確認**
+        - `permissions.default.microphone` の値が `4` である。
 
 Privacy-48: リファラの通知の有無
 
     :1: リンクの遷移、埋め込み画像の取得時に通知（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.sendRefererHeader` の値が `2` である。
+
     :2: リンクの遷移時にのみ通知
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.sendRefererHeader` の値が `1` である。
+
     :3: 一切通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.sendRefererHeader` の値が `0` である。
 
 Privacy-49: 通常モードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers` の値が `0` である。
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers` の値が `2` である。
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers` の値が `3` である。
 
 Privacy-50: プライベートブラウジングモードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `0` である。
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `2` である。
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `3` である。
 
 Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     :1: 原則として禁止し、個別に許可する（既定）
 
+    - ポリシー設定から `DisablePrivateBrowsing` の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開く。
+    - **確認**
+        - アドオンがすべてプライベートウィンドウでは無効になっている。
+
     :2: 原則として許可する
+
+    - ポリシー設定から `DisablePrivateBrowsing` の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開く。
+    - **確認**
+        - アドオンがすべてプライベートウィンドウでも有効になっている。
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
 
     :1: 表示する（既定）
 
+    - Privacy-18-3が選択されている場合、以下の手順を実施する。
+        - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - `about:config` を開く。
+        - **確認**
+            - `datareporting.policy.firstRunURL` の値が空文字である。
+    - Privacy-18-3が選択されていない場合、以下の手順を実施する。
+        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を空にする。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - **確認**
+            - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。
+
     :2: 表示しない
+
+    - Privacy-18-3が選択されている場合、以下の手順を実施する。
+        - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - `about:config` を開く。
+        - **確認**
+            - `datareporting.policy.firstRunURL` の値が空文字である。
+    - Privacy-18-3が選択されていない場合、以下の手順を実施する。
+        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を空にする。
+        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - Firefoxを起動する。
+        - **確認**
+            - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。
