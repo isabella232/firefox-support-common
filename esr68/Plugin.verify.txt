@@ -1,0 +1,120 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+Plugin-2: Adobe Flashプラグインの有効・無効の制御
+
+    :1: 常に無効化する
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
+        - その項目の「…」ボタンの配下で「無効化する」が選択されている。
+
+    :4: 常に無効化する（ポリシーで設定）
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
+        - その項目の「…」ボタンの配下で「無効化する」が選択されている。
+
+    :2: 常に有効化する
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
+        - その項目の「…」ボタンの配下で「常に有効化する」が選択されている。
+
+    :5: 常に有効化する（ポリシーで設定）
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
+        - その項目の「…」ボタンの配下で「常に有効化する」が選択されている。
+
+    :3: クリックされたら有効にする（既定）
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
+        - その項目の「…」ボタンの配下で「実行時に確認する」が選択されている。
+
+Plugin-8: Gecko Media Pluginの利用の可否
+
+    :1: 許可する（既定）
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - OpenH264のプラグインが表示される。
+        - 「Primetime Content Decryption Module」が表示される。
+        - 「Widevine Content Decryption Module」が表示される。
+
+    :2: 禁止する
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - OpenH264のプラグインが表示されない。
+        - 「Primetime Content Decryption Module」が表示されない。
+        - 「Widevine Content Decryption Module」が表示されない。
+
+Plugin-11: 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージ
+
+    :1: 表示する(既定)
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージが表示される。
+
+    :2: 表示しない
+
+    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - アドオンマネージャを開き、「プラグイン」を選択する。
+    - **確認**
+        - 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージが表示されない。
+
