@@ -1,0 +1,361 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+Addon-IEView-1: IEの起動
+
+    :1: 自動では起動しない（既定）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開くサイトの一覧が空である。
+
+    :2: 特定サイトでIEを自動起動（MCD）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開くサイトとして設定した内容が一覧表示される。
+    - Firefoxを終了する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+
+    :4: 特定サイトでIEを自動起動（ポリシー設定）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開くサイトとして設定した内容が一覧表示される。
+    - Firefoxを終了する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+
+    :3: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（MCD）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開くサイトとして設定した内容が一覧表示される。
+    - Firefoxを終了する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+        - Firefox上に開かれたタブが自動的に閉じる。
+
+    :5: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（ポリシー設定）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開くサイトとして設定した内容が一覧表示される。
+    - Firefoxを終了する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+        - Firefox上に開かれたタブが自動的に閉じる。
+
+Addon-IEView-2: 起動するIEの設定
+
+    :1: パスと起動オプションを指定する（MCD）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - IEで開かれる条件にあてはまるリンクをクリックし、結果を確認する。
+    - **確認**
+        - 指定したパスのアプリケーションが起動し、指定したオプションも反映されている。
+
+    :2: パスと起動オプションを指定する（ポリシー設定）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - IEで開かれる条件にあてはまるリンクをクリックし、結果を確認する。
+    - **確認**
+        - 指定したパスのアプリケーションが起動し、指定したオプションも反映されている。
+
+Addon-IEView-4: IE View WEの使用
+
+    :1: サイドローディング形式でインストールする
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - **確認**
+        - IE View WEがインストール済みになっている。
+
+Addon-IEView-5: IE View WEのコンテキストメニュー
+
+    :1: 使用する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - ページ上で右クリックする。
+    - **確認**
+        - IE View WEのコンテキストメニュー項目が表示される。
+
+    :2: 使用しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - ページ上で右クリックする。
+    - **確認**
+        - IE View WEのコンテキストメニュー項目が表示されない。
+
+Addon-IEView-6: IEで開かない例外サイト
+
+    :1: 指定しない（既定）
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開かない例外サイトとして設定した内容が空である。
+    - Firefoxを終了する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+            - `https://example.com/`
+            - `https://example.org/`
+
+    :2: 指定する
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - IE View WEの設定画面を開く。
+    - **確認**
+        - IEで開かない例外サイトとして設定した内容が一覧表示される。
+    - Firefoxを終了する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - IE View WEの設定パラメータのうち、`sitesOpenedBySelf` `（自動的にIEで開かない例外サイトのリスト）に以下の内容を追加する。  
+      `https://example.com/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+        - 以下のURLのリンクでIEが起動しない。
+            - `https://example.com/`
+            - `https://example.org/`
+
+Addon-IEView-7: IEで開くページの検出対象
+
+    :1: トップレベルのフレームへの読み込みのみ
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
+    - **確認**
+        - IEが起動しない。
+
+    :2: すべてのフレームの読み込み
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
+    - **確認**
+        - IEが起動する。
+
+Addon-IEView-8: URLのマッチング時にクエリ文字列を無視するかどうか
+
+    :1: 無視する
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+        - 以下のURLのリンクでIEが起動しない。
+            - `http://example.net/q?foo=bar`
+
+    :2: 無視しない
+
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
+      `https://github.com/clear-code/ieview-we/releases`  
+      （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
+    - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+          （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
+        - `ieargs`: 空文字
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+      `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - 各リンクをクリックし、結果を確認する。
+    - **確認**
+        - 以下のURLのリンクでIEが起動する。
+            - `http://example.com/`
+            - `http://example.org/`
+            - `http://example.net/q?foo=bar`
+
