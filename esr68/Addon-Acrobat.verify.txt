@@ -1,0 +1,80 @@
+<!--
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+-->
+
+Addon-Acrobat-1: 初期設定を変更するかどうか
+
+    :1: 変更する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - Acrobatアドオンの設定画面を開く。
+    - **確認**
+        - 設定が指定値の通りである。
+
+    :2: 変更しない (既定)
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - Acrobatアドオンの設定画面を開く。
+    - **確認**
+        - 設定が初期値の通りである。
+
+Addon-Acrobat-2: 初回起動ページの表示
+
+    :1: 表示する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - **確認**
+        - Acrobatアドオンの初回起動時案内ページが開かれる。
+
+    :2: 表示しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - **確認**
+        - Acrobatアドオンの初回起動時案内ページが開かれない。
+
+Addon-Acrobat-3: 使用状況の送信の可否
+
+    :1: 送信する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - Acrobatアドオンの設定画面を開く。
+    - **確認**
+        - データ送信のオプションがチェック済みである。
+
+    :2: 送信しない
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - Acrobatアドオンの設定画面を開く。
+    - **確認**
+        - データ送信のオプションが表示されない。
+    - Firefoxを終了する。
+    - 「userContent.css」を「userContent.css_」にリネームする。
+    - Firefoxを起動する。
+    - パネルメニューからアドオンマネージャを開く。
+    - Acrobatアドオンの設定画面を開く。
+    - **確認**
+        - データ送信のオプションがチェックされていない。
