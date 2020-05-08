@@ -17,19 +17,18 @@
 
 ### ブロック対象が拡大されました
 
-* 初期状態で、サードパーティのトラッキングCookieと暗号通貨採掘をブロックするようになりました。（Firefox 69～70）
-* 初期状態ですべてのユーザーに対して、フィンガープリンティングのためのスクリプトをブロックするようになりました。（Firefox 72）
-  （機能の導入自体はFirefox 69から）
-* SNSによるトラッキング（Facebook、Twitter、LinkdIn）がブロックされるようになりました。（Firefox 70）
+* 初期状態ですべてのユーザーに対して、以下のトラッキングをブロックするようになりました。
+  * サードパーティのトラッキングCookie、暗号通貨採掘（Firefox 69～70）
+  * フィンガープリンティングのためのスクリプト（Firefox 72）
+  * SNSによるトラッキング（Facebook、Twitter、LinkdIn）（Firefox 70）
 
 ### UIの変更
 
-* プライバシー保護の状況のレポートを表示できるようになりました。（Firefox 70）
-  * レポートはロケーションバーの盾アイコンをクリックして表示できます。（Firefox 71）
-    ![](esr78/tracking-block-report.png)
-* 暗号通貨採掘のブロック状況が、プライバシー保護状況の一環として通知・表示されるようになりました。（Firefox 71）
+* プライバシー保護の状況のレポートを、ロケーションバーの盾アイコンのクリックで表示できるようになりました。（Firefox 71）
+  ![](esr78/tracking-block-report.png)
+  このUIには、暗号通貨採掘のブロック状況も表示されます。（Firefox 71）
   ![](esr78/cryptomining-blocker.png)
-* Webサイトがユーザーの位置情報を参照しているときは、ロケーションバー内にインジケータを表示するようになりました。（Firefox 70）
+* Webサイトがユーザーの位置情報を参照している事の通知がロケーションバーに表示されるようになりました。（Firefox 70）
   ![](esr78/geolocation-icon.png)
 
 
@@ -45,6 +44,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   ![](esr78/generated-password.png)
 * パスワードを表示する前に、OSのアカウントの再認証を求めるようになりました。（Firefox 76～78）
   ![](esr78/auth-to-expose-password.png)
+  （Webページへの入力やマスターパスワードの使用時には、OSのアカウントの再認証は求められません。）
 * スクリーンリーダーを使用しているユーザーも、パスワード漏洩サイトの警告を利用できるようになりました。 （Firefox 71）
 * 漏洩したパスワードのリストに含まれるパスワードや、他のアカウントですでに使われているパスワードを使い回そうとした時など、脆弱なパスワードに対して警告が表示されるようになりました。（Firefox 76～78）
   ![](esr78/vulnerable-password.png)
@@ -86,6 +86,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   ![](esr78/firefox-account-menu.png)
 * パネルメニュー内に「新着情報」が追加されました。（Firefox 70）
   ![](esr78/whatsnew-menu.png)
+  （MCDでの `browser.messaging-system.whatsNewPanel.enabled` またはポリシー設定での [`policies.UserMessaging.WhatsNew`](https://github.com/mozilla/policy-templates#usermessaging) で非表示化できます。）
 * Firefoxのタブ内コンテンツがシステムの暗い配色モードに対応しました。（Firefox 70）
   ![](esr78/dark-content.png)
 * 設定画面とabout:configがHTMLで置き換えられました。 （Firefox 71）
