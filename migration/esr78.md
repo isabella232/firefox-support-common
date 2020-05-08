@@ -99,7 +99,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 ### Windows版のみの変更
 
-* Windows 10のタスクバーのショートカットからFirefoxを起動しやすくなりました。（Firefox 69）
+* Windows 10において、タスクバーへのピン留めに失敗したままになる場合があったのを、より確実にピン留めするようになりました。（Firefox 69）
 * Windowsにおいて、Ctrl+Iが「サイドバーでブックマークを開く」操作ではなく「ページの情報を表示する」用途に使われるようになりました。ブックマークサイドバーを開く操作は引き続きCtrl+Bで行えます。（Firefox 74）
 
 ### Windows版以外のみの変更
@@ -121,7 +121,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 ## 動画再生に関する変更
 
-* 音声がない動画であっても動画の自動再生をブロックできるようになりました。（Firefox 69）
+* 音声がない動画であっても動画の自動再生をするようになりました。（Firefox 69）
 * 複数の動画コーデックに対応した事により、ビデオ会議システムなどにおいて、異なるクライアントから来る動画を同時に表示できるようになりました。（Firefox 69）
 * Picture-in-Picture機能（ページ内に埋め込まれた動画を再生するとき、別ウィンドウで小さく表示して再生を継続する機能）が導入されました。（Firefox 71でWindowsのみ対応、72でmacOSとLinuxに対応）
   ![](esr78/picture-in-picture.png)
@@ -138,11 +138,12 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * macOSにおいて、署名付きPKGインストーラが提供されるようになりました。（Firefox 69）
 * Linuxにおいて、Flatpak形式のパッケージが提供されるようになりました。（Firefox 75）
 * Windowsにおいて、タスクスケジューラを使ったバックグラウンドでの自動更新が実装され始めました。 [1343669 - (update-agent) [meta] Background Update Agent tracking bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1343669)（Firefox 76～78）
+  * Firefox ESR78にこの変更が反映されるかどうかは現時点では不明です。
 
 
 ## カスタマイズに関する変更
 
-* userChrome.css. userContent.cssを初期状態では読み込まなくなりました。`toolkit.legacyUserProfileCustomizations.stylesheets`を`true`にすると再び有効化されます。（Firefox 69）
+* userChrome.css、userContent.cssを初期状態では読み込まなくなりました。`toolkit.legacyUserProfileCustomizations.stylesheets`を`true`にすると再び有効化されます。（Firefox 69）
 * [キオスクモード](https://support.mozilla.org/kb/firefox-enterprise-kiosk-mode)が実装されました。 （Firefox 71）
   コマンドラインオプションとして`-kiosk`を指定すると、UIやメニューが一切利用できない状態、かつウィンドウが最大化された状態でFirefoxが起動します。
 * ドメイン指定による画像のブロック機能が廃止されました。（Firefox 72）
@@ -170,7 +171,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 * パスに半角スペースを含むファイルを開けなくなっていた問題が修正されました。（Firefox 72）
 * 古いWebページで明示的にテキストエンコーディングが指定されていないページにおける、古いテキストエンコーディングの自動判別が改善されました。（Firefox 73）
-* 0patchやG DATAなどのサードパーティ製セキュリティソフトウェアをWindowsで使っているときのクラッシュを修正しました。（Firefox 73）
+* 0patch（ゼロパッチ）やG DATAなどのサードパーティ製セキュリティソフトウェアをWindowsで使っているときのクラッシュを修正しました。（Firefox 73）
 * Windowsにおいて互換モードあるいは独自の防護設定を伴って実行されていたときにブラウザの機能が制限される問題を修正しました。（Firefox 73）
 * 印刷プレビュー終了時にFirefoxが意図せず終了してしまう問題を修正しました。（Firefox 73）
 * Linuxにおいて暗号化されたコンテンツの再生中にクラッシュする問題を修正しました。（Firefox 73）
