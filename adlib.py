@@ -53,6 +53,9 @@ class Loader:
     def feed(self, line):
         line = line.rstrip()
 
+        if line.startswith("#"):
+            return
+
         m = re.match(PAT_ITEM, line)
         if m:
             return self.new_item(m.group(1), m.group(2))
@@ -89,6 +92,36 @@ class Loader:
         self.data[-1]['opts'][-1]['conf'] = self.conf.strip()
         self.conf = ''
 
+
+class VariableLoader:
+
+    def __init__(self):
+        self.data = {}
+        self.key = None
+
+    def feed(self, line):
+        line = line.rstrip()
+
+        if line.startswith("#"):
+            return
+
+        if line.startswith("    "):
+            if self.key:
+                self.data[self.key] += line[4:] + '\n'
+            return
+
+        if ':' in line:
+            key, value = line.split(':', maxsplit=1)
+            self.key = key.strip()
+            self.data[self.key] = value.strip()
+
+        if self.key:
+            self.data[self.key] += '\n'
+
+    def flush(self):
+        for key in self.data:
+            self.data[key] = self.data[key].strip()
+
 #
 # API
 
@@ -114,3 +147,14 @@ def load_as_dict(path):
         for opt in item['opts']:
             res[opt['opt_id']] = opt['conf']
     return res
+
+def load_variables(path):
+    loader = VariableLoader()
+
+    with open(path) as fp:
+        for line in fp:
+            loader.feed(line)
+
+    loader.flush()
+
+    return loader.data

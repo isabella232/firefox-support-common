@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+#
+# cat-verify - Generate a Markdown verification manual
+#
+# USAGE
+#
+#     $ cat-verify -c config.txt -a variable.txt
+
+import re
+import sys
+import glob
+import getopt
+import logging
+import csv
+import os
+
+BASEDIR = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(BASEDIR)
+
+import adlib
+
+try:
+    import jinja2
+except ImportError:
+    print("ERROR: Please install jinja2 to run this script\n")
+    print("  $ sudo apt install python3-jinja2\n")
+    sys.exit(1)
+
+#
+# GLOBALS
+
+TEMPLATE = """
+## {opt_id}
+
+**検証対象**
+
+- 検証項目 『{item_title}』
+- 選択内容 「{opt_title}」
+
+**検証手順**
+
+"""
+
+TEMPLATE_PRETEXT = """
+## {opt_title}
+
+{conf}
+"""
+
+FILES = [
+    'PRETEXT',
+    'Install',
+    'Application',
+    'Admin',
+    'Security',
+    'Privacy',
+    'Startup',
+    'Websearch',
+    'Location',
+    'Download',
+    'Tab',
+    'Network',
+    'Update',
+    'Ui',
+    'Script',
+    'Plugin',
+    'External',
+    'Stability',
+    'Appearance',
+    'Performance',
+    'Addon-IEView',
+    'Addon-FireIE',
+    'Addon-Acrobat',
+]
+
+#
+# Utils
+
+def output_config(items, conf, dic):
+    text = dic.get('COVER', '') + '\n'
+
+    text += "# 事前準備"
+
+    for item in items:
+        if item['item_id'].startswith('PRETEXT-'):
+            items.remove(item)
+
+        for opt in item['opts']:
+            if item['item_id'].startswith('PRETEXT-'):
+                text += TEMPLATE_PRETEXT.format(**opt)
+                text += dic.get(opt['opt_id'], "")
+                text += '\n'
+
+    text += "\n# Firefox検証手順"
+
+    for item in items:
+        for opt in item['opts']:
+            if opt['opt_id'] not in conf:
+                continue
+
+            text += TEMPLATE.format(**opt, **item)
+            custom = dic.get(opt['opt_id'], '')
+
+            if custom.startswith('OVERWRITE\n'):
+                text += custom[len('OVERWRITE\n'):]
+            else:
+                text += opt['conf']
+                text += custom
+            text += '\n'
+
+    text += '\n' + dic.get('POSTSCRIPT', '')
+
+    logging.basicConfig(format="\033[31m%(message)s\033[0m")
+    log = logging.getLogger(__name__)
+
+    env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
+    print(env.from_string(text).render(dic))
+
+
+#
+# Main
+
+def usage(err):
+    print('error: %s' % err, file=sys.stderr)
+    print('usage: %s INFILE' % sys.argv[0], file=sys.stderr)
+    sys.exit(1)
+
+def main(args):
+    conf = {}
+    dic = {}
+
+    opts, args = getopt.getopt(args, 'c:a:')
+    for k, v in opts:
+        if k == '-c':
+            conf = adlib.load_as_dict(v)
+        elif k == '-a':
+            dic = adlib.load_variables(v)
+
+    items = []
+    for fn in FILES:
+         items.extend(adlib.load('verify/%s' % fn))
+
+    return output_config(items, conf, dic)
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))

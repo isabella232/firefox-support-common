@@ -36,11 +36,17 @@ list-untracked-policies:
 list-unverified-configs:
 	bash -c 'grep -r -E -v  "^ " esr* | cut -d : -f 2- | sort | cut -d : -f 1 | uniq | grep -v -f <(grep -r -E -v  "^ " esr* | grep 廃止 | cut -d : -f 2 | sort | uniq) | while read key; do grep -E "$${key}[^0-9]" manual.md >/dev/null 2>&1 || echo "$${key}"; done'
 
+
+verify:
+	./cat-verify -c sample.conf -a sample.var | pandoc ${PANDOC_OPT_DOCX} -o verify-$(DATE).docx
+
 updates:
 	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_DOCX} -o "updates-esr78-$(DATE).docx" && mv *.docx ../
 #	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_PDF} -o "updates-esr78-$(DATE).pdf" && mv *.pdf ../
 
 clean:
-	rm -f config.xlsx updates-*.docx updates-*.pdf
+	rm -f config.xlsx
+	rm -f updates-*.docx updates-*.pdf
+	rm -f verify-*.docx
 
-.PHONY: fetch-policies-schema list-untracked-policies clean all
+.PHONY: fetch-policies-schema list-untracked-policies clean all verify

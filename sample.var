@@ -1,0 +1,24 @@
+#
+# 検証手順書用設定ファイル
+#
+
+firefox_version:          78.0 ESR
+windows_version:          Windows 10
+configuration_sheet_name: config.xlsx
+meta_installer_name:      FxMetaInstaller
+meta_installer_file_name: FxMetaInstaller.zip
+meta_installer_version:   78.0
+install_path:             C:\\Program Files\\firefox
+desktop_shortcut_path:    C:\\Users\Public\\Desktop\\firefox.lnk
+start_menu_shortcut_path: C:\\Users\Public\\StartMenu\\firefox.lnk
+
+# 未使用
+install_path_32bit:
+desktop_shortcut_path_32bit:
+start_menu_shortcut_path_32bit:
+
+COVER:
+
+    % Firefoxカスタマイズ内容の検証手順
+    % 株式会社クリアコード
+    % 2020年5月
