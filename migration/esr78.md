@@ -42,6 +42,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 * 十分な複雑さを持ったパスワードの自動生成機能が追加されました。（Firefox 70）
   ![](esr78/generated-password.png)
+  （この機能は `signon.generation.enabled` で無効化できます。）
 * パスワードを表示する前に、OSのアカウントの再認証を求めるようになりました。（Firefox 76～78）
   ![](esr78/auth-to-expose-password.png)
   （Webページへの入力やマスターパスワードの使用時には、OSのアカウントの再認証は求められません。）
@@ -128,14 +129,14 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * 複数の動画コーデックに対応した事により、ビデオ会議システムなどにおいて、異なるクライアントから来る動画を同時に表示できるようになりました。（Firefox 69）
 * Picture-in-Picture機能（ページ内に埋め込まれた動画を再生するとき、別ウィンドウで小さく表示して再生を継続する機能）が導入されました。（Firefox 71でWindowsのみ対応、72でmacOSとLinuxに対応）
   ![](esr78/picture-in-picture.png)
+  （この機能は `media.videocontrols.picture-in-picture.enabled` で無効化できます。）
   * 動画の再生中に右端にPicture-in-Pictureを有効化するかどうか尋ねるポップアップが表示され、それをクリックすると有効化されます。 
     ![](esr78/picture-in-picture-button.png)
   * Picture-in-Picture状態のウィンドウをダブルクリックするとフルスクリーン表示に切り替わります。（Firefox 76）
-  * これらの機能は `media.videocontrols.picture-in-picture.enabled` で無効化できます。
 * Windows, Linux, macOSでMP3のデコードに対応しました。 （Firefox 71）
 * WebRTCでの音声・ビデオ通話について、特定の状況下で、IPアドレスをランダムなID文字列に偽装することでプライバシーを向上しました。（Firefox 74）
 * AudioWorklets APIに対応したことにより、ビデオ会議サービスの「Zoom」を追加のアプリケーションのインストール無しで利用できるようになりました。（Firefox 76）
-  （この機能は `dom.worklet.enabled` で無効化することができます。）
+  （この機能は `dom.worklet.enabled` で無効化できます。）
 
 
 ## インストール、更新に関する変更
