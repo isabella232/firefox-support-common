@@ -16,17 +16,17 @@ PRETEXT-1: 前提条件
     - メタインストーラの表示バージョンは {{meta_installer_version}} とする。
     - Firefoxのインストール先は  
       `{{install_path}}`  
-      {{#install_path_32bit}}
+      {%if install_path_32bit %}
       （32bit環境では `{{install_path_32bit}}`）
-      {{/install_path_32bit}}
+      {% endif %}
       とする。
     - デスクトップのショートカットは  
-      `{{desktop_shortcut_path}}`  {{#desktop_shortcut_path_32bit}}
-      （32bit環境では `{{desktop_shortcut_path_32bit}}`）  {{/desktop_shortcut_path_32bit}}
+      `{{desktop_shortcut_path}}`  {%if desktop_shortcut_path_32bit %}
+      （32bit環境では `{{desktop_shortcut_path_32bit}}`）  {% endif %}
       に作成するものとする。
     - スタートメニューのショートカットは  
-      `{{start_menu_shortcut_path}}`  {{#start_menu_shortcut_path_32bit}}
-      （32bit環境では `{{start_menu_shortcut_path_32bit}}`）  {{/start_menu_shortcut_path_32bit}}
+      `{{start_menu_shortcut_path}}`  {%if start_menu_shortcut_path_32bit %}
+      （32bit環境では `{{start_menu_shortcut_path_32bit}}`）  {% endif %}
       に作成するものとする。
     - 検証環境が新規に用意した環境である場合、検証環境のWindowsは以下の状態を整えておく。
         - ワークグループ名： `ワークグループ`（日本語名）
