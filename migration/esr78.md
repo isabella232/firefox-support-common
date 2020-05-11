@@ -46,7 +46,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   ![](esr78/auth-to-expose-password.png)
   （Webページへの入力やマスターパスワードの使用時には、OSのアカウントの再認証は求められません。）
 * スクリーンリーダーを使用しているユーザーも、パスワード漏洩サイトの警告を利用できるようになりました。 （Firefox 71）
-* 漏洩したパスワードのリストに含まれるパスワードや、他のアカウントですでに使われているパスワードを使い回そうとした時など、脆弱なパスワードに対して警告が表示されるようになりました。（Firefox 76～78）
+* 漏洩したパスワードのリストに含まれるパスワードや、他のアカウントですでに使われているパスワードを使い回そうとした時など、脆弱なパスワードに対してパスワードマネージャ上で警告が表示されるようになりました。（Firefox 76～78）
   ![](esr78/vulnerable-password.png)
 
 ### 利便性の向上
@@ -67,7 +67,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 * Flashプラグインを常に有効化するオプションが廃止されました。これにより、毎回必ずFlashの有効化前に確認を求められるようになりました。（Firefox 69）
   * この影響により、64bit環境でFirefoxが32bit版かどうかを識別する必要が減ったので、フィンガープリンティングを防止しやすくなりました。（Firefox 69）
-* Windows 10の2019年5月版以降で、Windows Hello経由でWeb Authentication HmacSecret拡張を使って、パスワード無しの認証をWebで行えるようになりました。（Firefox 69）
+* Web Authentication HmacSecret拡張により、Windows 10の2019年5月版以降でのWindows Helloによるパスワード無しの認証をWebで行えるようになりました。（Firefox 69）
 * Webサイトのセキュリティレベルの示し方が変更されました。（Firefox 70）
   ![](esr78/security-identity-icons.png)
   * 安全でないHTTP→×ボタン付きの錠前アイコン（Firefox 70）
@@ -75,7 +75,8 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   * EV SSLのときの詳細情報が錠前アイコンをクリックして表示されるポップアップ内に移動（Firefox 70）
 * 実験的な機能として、`security.osclientcerts.autoload`を有効化することによって、WindowsとmacOSでOSの証明書ストアにあるクライアント証明書を利用できるようになりました。（Windows対応はFirefox 72、macOS対応はFirefox 75から）
 * TSL1.0/1.1が無効化され、TSL1.2以上の使用強制が始まる可能性があります。Covid-19の情報を提供する（各国の）政府のサイトの閲覧に支障が生じるため、この変更は今の所保留されています。（Firefox 74）
-* Mozillaが把握している信頼されたWeb PKI認証局の証明書を、ローカルにキャッシュするようになりました。適切に設定されていないWebサーバーに対するHTTPSの互換性と安全性が向上しました。（Firefox 75）
+* Mozillaが把握している信頼されたWeb PKI認証局の証明書を、ローカルにキャッシュするようになりました（CRLite）。適切に設定されていないWebサーバーに対するHTTPSの互換性と安全性が向上しました。（Firefox 75）
+  この機能は `security.pki.crlite_mode` を `0` に設定することにより無効化できます。
 * US地域の英語版ユーザーに対し、DNS over HTTPSが初期状態で有効化されました。有効化の対象は今後拡大する可能性があります。（2020年2月～）
 
 
@@ -92,6 +93,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * 設定画面とabout:configがHTMLで置き換えられました。 （Firefox 71）
 * ニュースやブログなどを閲覧した時に、通知の許可を求めるポップアップが表示されていたケースについて、ポップアップを表示せずにロケーションバーの中にアイコンが表示されるだけになりました。（Firefox 72）
   ![](esr78/notification-popup.png)
+  （この挙動は `dom.webnotifications.requireuserinteraction` で無効化できます。）
 * ロケーションバーのデザインが変更されました。これに伴い、ロケーションバーにフォーカスしただけで、よく見るサイトの一覧が表示されるようになりました。（Firefox 75）
   ![](esr78/megabar.png)
 * ロケーションバーにおいて、[一般的なFirefoxの問題に対する解決策を含む項目が候補に表れるようになりました。](https://support.mozilla.org/ja/kb/search-web-firefox#w_firefox-solution-cualch)現時点では英語版のみ機能します。（Firefox 75）
@@ -121,16 +123,19 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 ## 動画再生に関する変更
 
-* 音声がない動画であっても動画の自動再生をするようになりました。（Firefox 69）
+* 音声がない動画であっても動画の自動再生をブロックするようになりました。（Firefox 69）
+  （この動作は `media.autoplay.default` で従来通りに戻すことができます。）
 * 複数の動画コーデックに対応した事により、ビデオ会議システムなどにおいて、異なるクライアントから来る動画を同時に表示できるようになりました。（Firefox 69）
 * Picture-in-Picture機能（ページ内に埋め込まれた動画を再生するとき、別ウィンドウで小さく表示して再生を継続する機能）が導入されました。（Firefox 71でWindowsのみ対応、72でmacOSとLinuxに対応）
   ![](esr78/picture-in-picture.png)
   * 動画の再生中に右端にPicture-in-Pictureを有効化するかどうか尋ねるポップアップが表示され、それをクリックすると有効化されます。 
     ![](esr78/picture-in-picture-button.png)
   * Picture-in-Picture状態のウィンドウをダブルクリックするとフルスクリーン表示に切り替わります。（Firefox 76）
+  * これらの機能は `media.videocontrols.picture-in-picture.enabled` で無効化できます。
 * Windows, Linux, macOSでMP3のデコードに対応しました。 （Firefox 71）
 * WebRTCでの音声・ビデオ通話について、特定の状況下で、IPアドレスをランダムなID文字列に偽装することでプライバシーを向上しました。（Firefox 74）
 * AudioWorklets APIに対応したことにより、ビデオ会議サービスの「Zoom」を追加のアプリケーションのインストール無しで利用できるようになりました。（Firefox 76）
+  （この機能は `dom.worklet.enabled` で無効化することができます。）
 
 
 ## インストール、更新に関する変更
