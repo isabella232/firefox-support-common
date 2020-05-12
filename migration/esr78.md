@@ -135,7 +135,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   * Picture-in-Picture状態のウィンドウをダブルクリックするとフルスクリーン表示に切り替わります。（Firefox 76）
 * Windows, Linux, macOSでMP3のデコードに対応しました。 （Firefox 71）
 * WebRTCでの音声・ビデオ通話について、特定の状況下で、IPアドレスをランダムなID文字列に偽装することでプライバシーを向上しました。（Firefox 74）
-* AudioWorklets APIに対応したことにより、ビデオ会議サービスの「Zoom」を追加のアプリケーションのインストール無しで利用できるようになりました。（Firefox 76）
+* AudioWorklet APIに対応したことにより、ビデオ会議サービスの「Zoom」を追加のアプリケーションのインストール無しで利用できるようになりました。（Firefox 76）
   （この機能は `dom.worklet.enabled` で無効化できます。）
 
 

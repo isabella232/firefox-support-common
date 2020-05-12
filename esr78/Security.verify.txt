@@ -1239,3 +1239,27 @@ Security-45: 証明書の例外の自動承認
     - 例外を自動承認するホストのページを開く。当該ホストにアクセスできない場合、代わりに `https://expired.badssl.com` を開く。
     - **確認**
         - 例外が自動的に承認され、ページの内容が表示される `false` である。
+
+Security-46: CRLiteの使用
+
+    :1: CRLiteを使用して、Mozillaが把握している信頼されたWeb PKI認証局の証明書をローカルにキャッシュする（既定）
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `security.pki.crlite_mode` の値が `1` である。
+
+    :2: 無効化する
+
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `security.pki.crlite_mode` の値が `0` である。

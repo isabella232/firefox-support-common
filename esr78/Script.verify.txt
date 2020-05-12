@@ -162,7 +162,7 @@ Script-5: DOMイベントによるコンテキストメニュー操作のオー�
     - **確認**
         - コンテキストメニューが開かれる。
 
-Script-7: 音声の自動再生の可否
+Script-7: 動画・音声の自動再生の可否
 
     :1: 許可する
 
@@ -197,7 +197,7 @@ Script-7: 音声の自動再生の可否
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
-        - `media.autoplay.default` の値が `1` である。
+        - `media.autoplay.default` の値が `5` である。
         - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
 
 Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
@@ -221,3 +221,78 @@ Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
     - テストケースリストから`noopener.html`を開き、ページ内のリンクをクリックする。
     - **確認**
         - テスト結果に`window.opener = [object Window]`と出力されている。
+
+Script-9: ページ読み込み時点での、購読を促す通知の表示の可否
+
+    :1: 表示する
+
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `http://example.com/` を開く。
+    - Ctrl-Shift-KでWebコンソールを開く。
+    - `Notification.requestPermission()` と入力し、実行する。
+    - **確認**
+        - 権限の許可を求めるポップアップが表示される。
+
+    :2: 禁止する（既定）
+
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - `http://example.com/` を開く。
+    - Ctrl-Shift-KでWebコンソールを開く。
+    - `Notification.requestPermission()` と入力し、実行する。
+    - **確認**
+        - コンソール上に `通知の許可設定は安全なコンテキスト内でしか要求されません。` と表示され、権限の許可を求めるポップアップが表示されない。
+
+Script-10: 動画に対するPicture-in-Picture表示の可否
+
+    :1: 許可する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `fullscreen.html` を開く。
+    - 動画の上で右クリックする。
+    - **確認**
+        - メニューに「ピクチャーインピクチャー」が表示される。
+
+    :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `fullscreen.html` を開く。
+    - 動画の上で右クリックする。
+    - **確認**
+        - メニューに「ピクチャーインピクチャー」が表示されない。
+
+Script-11: AudioWorklet APIの使用の可否
+
+    :1: 許可する（既定）
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `fullscreen.html` を開く。
+    - 動画の上で右クリックする。
+    - **確認**
+        - 「AudioWorklet」欄に `enabled` と表示される。
+
+    :2: 禁止する
+
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - Firefoxを起動する。
+    - テストケースの `browser.html` を開く。
+    - **確認**
+        - 「AudioWorklet」欄に `disabled` と表示される。

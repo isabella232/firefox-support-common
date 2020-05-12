@@ -963,3 +963,13 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
     // Privacy-18-3 選択時は常にこちらと同等の結果になる
     lockPref("datareporting.policy.firstRunURL", "");
 
+Privacy-53: パスワードの自動生成機能の使用
+
+    :1: 自動生成を許可する（既定）
+
+    -
+
+    :2: 無効化する
+
+    lockPref("signon.generation.enabled", false);
+
