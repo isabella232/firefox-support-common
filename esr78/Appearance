@@ -118,3 +118,12 @@ Appearance-9: 「Firefoxアカウント」ボタンの表示
 
     lockPref("identity.fxaccounts.toolbar.enabled", false);
 
+Appearance-10: ユーザースタイルシートの使用
+
+    :1: 使用する
+
+    lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+    :2: 使用しない（既定）
+
+    -
