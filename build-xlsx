@@ -36,8 +36,8 @@ except ImportError:
 #
 # Global settings
 
-ESR_PREVIOUS = 'esr60'
-ESR_CURRENT = 'esr68'
+ESR_PREVIOUS = 'esr68'
+ESR_CURRENT = 'esr78'
 CHAPTERS_CSV = 'verify-targets-to-chapters.csv'
 
 WORKBOOK_DEF = [
@@ -221,12 +221,16 @@ def main(args):
     outfile = 'config.xlsx'
     excludes = []
 
-    opts, args = getopt.getopt(args, 'o:x:')
+    opts, args = getopt.getopt(args, 'o:x:p:c:')
     for k, v in opts:
         if k == '-o':
             outfile = v
         elif k == '-x':
             excludes = v.split(',')
+        elif k == '-p':
+            ESR_PREVIOUS = v
+        elif k == '-c':
+            ESR_CURRENT = v
 
     for arg in args:
         if ESR_CURRENT in arg:
