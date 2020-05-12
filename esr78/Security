@@ -884,3 +884,13 @@ Security-46: CRLiteの使用
     :2: 無効化する
 
     lockPref("security.pki.crlite_mode", 0);
+
+Securiyt-47: OSの証明書ストアのクライアント証明書の利用
+
+    :1: 使用する
+
+    lockPref("security.osclientcerts.autoload", true);
+
+    :2: 使用しない（既定）
+
+    -
