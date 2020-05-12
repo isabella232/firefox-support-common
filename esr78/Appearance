@@ -1,0 +1,121 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+Appearance-1: 表示フォントの明示
+
+    :1: 設定しない（既定）
+
+    -
+
+    :2: 設定する
+
+    lockPref("font.name-list.serif.ja", "（フォントの英語名のカンマ区切りのリスト）");
+    lockPref("font.name-list.sans-serif.ja", "（フォントの英語名のカンマ区切りのリスト）");
+    lockPref("font.name-list.monospace.ja", "（フォントの英語名のカンマ区切りのリスト）");
+    lockPref("font.name-list.emoji", "EmojiOne Mozilla");
+
+    :3: Firefox ESR52と同じに揃える
+
+    defaultPref("font.name-list.monospace.ja", "MS Gothic, MS Mincho, MS PGothic, MS PMincho,Meiryo");
+    defaultPref("font.name-list.sans-serif.ja", "MS PGothic, MS Gothic, MS PMincho, MS Mincho,Meiryo");
+    defaultPref("font.name-list.serif.ja", "MS PMincho, MS Mincho, MS PGothic, MS Gothic,Meiryo");
+    defaultPref("font.name.monospace.ja", "MS Gothic");
+    defaultPref("font.name.sans-serif.ja", "MS PGothic");
+    defaultPref("font.name.serif.ja", "MS PMincho");
+
+Appearance-2: ツールバー上の項目の初期設定
+
+    :1: 制御しない（既定）
+
+    -
+
+    :2: 制御する
+
+    // そのバージョンのFirefox上で実際に希望の状態になるようカスタマイズした結果の値を使用すること。
+    pref("browser.uiCustomization.state", JSON.stringify({
+      ...
+    }));
+    Pref("browser.migration.version", 78);
+
+Appearance-3: ロケーションバーと検索バーの統合
+
+    :1: 統合する（既定）
+
+    -
+
+    :2: 統合しない
+
+    // PolicyEngineで設定する
+    "SearchBar": "separate",
+
+
+Appearance-4: [廃止] ウィンドウコントロールの不具合の回避（Bug 1521692）
+
+    :1: 回避する
+
+    [廃止]
+
+    :2: 回避しない（既定）
+
+    [廃止]
+    -
+
+Appearance-5: 初期状態でのブックマークツールバーの表示
+
+    :1: 表示する（ポリシーで設定）
+
+    "DisplayBookmarksToolbar": true,
+
+    :2: 表示しない（既定）
+
+    -
+
+Appearance-6: 初期状態でのメニューバーの表示
+
+    :1: 表示する（ポリシーで設定）
+
+    "DisplayMenuBar": true,
+
+    :2: 表示しない（既定）
+
+    -
+
+Appearance-7: アプリケーションのUIに使用する言語
+
+    :1: 組み込みの言語（既定）
+
+    -
+
+    :2: 任意の言語（ポリシーで設定）
+
+    "RequestedLocales": [
+      "en-US",
+      "ja",
+      ...
+    ],
+
+Appearance-8: ヘルプメニュー配下に登録する独自のサポートページの情報
+
+    :1: 表示しない（既定）
+
+    -
+
+    :2: 表示する（ポリシーで設定）
+
+    "SupportMenu": {
+      "Title":     "タイトル",
+      "URL":       "https://example.com/",
+      "AccessKey": "H"
+    },
+
+Appearance-9: 「Firefoxアカウント」ボタンの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    lockPref("identity.fxaccounts.toolbar.enabled", false);
+

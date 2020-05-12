@@ -1,0 +1,47 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+Websearch-1: 検索エンジンの追加・削除の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: [廃止] 追加と削除を禁止する
+
+    [廃止]
+
+    :3: 追加を禁止する
+
+    "SearchEngines": {
+      "PreventInstalls": true
+    },
+
+Websearch-2: 初期設定から取り除く検索エンジン
+
+    :1: すべて使用する（既定）
+
+    -
+
+    :2: 限定する
+
+    lockPref("extensions.disablesearchengines@clear-code.com.disabled", "取り除くエンジン名");
+    // https://github.com/clear-code/disablesearchengines/blob/master/autoconfig-disablesearchengines.js を併用
+
+    :3: 一部の検索エンジンを取り除く（ポリシーで設定）
+
+    "SearchEngines": {
+      "Remove": ["初期状態で取り除く検索エンジン名", ...]
+    },
+
+Websearch-3: 初期状態で追加する検索エンジン
+
+    :1: 追加する（ポリシーで設定）
+
+    "Add": [
+      { "Name": "検索エンジン名",
+        "URLTemplate": "http://example.com/?q={searchTerms}" },
+      ...
+    ],
+
