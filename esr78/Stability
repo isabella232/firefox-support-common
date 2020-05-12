@@ -27,27 +27,14 @@ Stability-2: [廃止] プロセス分離（e10s）を有効化するかどうか
     :1: [廃止] 制御しない（自動的に有効化・無効化が判断される）
 
     [廃止]
-    -
 
     :2: [廃止] 強制的に有効化
 
     [廃止]
-    // 基本的な有効化の設定（設定ダイアログにあるチェックボックスに対応）
-    lockPref("browser.tabs.remote.autostart", true);
-    lockPref("browser.tabs.remote.desktopbehavior", true);
-    // アクセシビリティ機能によるe10s無効化を抑止
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=1198459
-    lockPref("browser.tabs.remote.force-enable", true);
 
     :3: [廃止] 強制的に無効化
 
     [廃止]
-    lockPref("browser.tabs.remote.autostart", false);
-    lockPref("browser.tabs.remote.autostart.2", false);
-    lockPref("browser.tabs.remote.desktopbehavior", false);
-    // シングルコンテンツプロセスを強制(autostart.Nの代替)
-    lockPref("dom.ipc.multiOptOut", 1);
-    lockPref("browser.tabs.remote.force-enable", false);
 
 Stability-3: RDPでの音声再生の有効化
 
