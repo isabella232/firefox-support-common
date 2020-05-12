@@ -599,7 +599,7 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
 
 Privacy-33: Webサービスによる行動履歴の収集（トラッキング）の遮断の可否
 
-    :1: ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する
+    :1: ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（ESR68で既定）
 
     // https://searchfox.org/mozilla-central/rev/116bd975c30746ddefc3d20e6947d1871469354f/browser/app/profile/firefox.js#1614
     // https://searchfox.org/mozilla-central/rev/116bd975c30746ddefc3d20e6947d1871469354f/browser/components/BrowserGlue.jsm#3022
