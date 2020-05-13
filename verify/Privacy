@@ -1112,7 +1112,7 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
 
     :1: 許可する（既定）
 
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を削除する。
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %}（{{special_profile_actual_path}}）{% endif %} を削除する。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -1125,7 +1125,7 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
 
     :2: 一切禁止する
 
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を削除する。
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %}（{{special_profile_actual_path}}）{% endif %} を削除する。
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -1839,7 +1839,7 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
         - **確認**
             - `datareporting.policy.firstRunURL` の値が空文字である。
     - Privacy-18-3が選択されていない場合、以下の手順を実施する。
-        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を空にする。
+        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %}（{{special_profile_actual_path}}）{% endif %} を空にする。
         - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
         - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
           管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -1859,7 +1859,7 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
         - **確認**
             - `datareporting.policy.firstRunURL` の値が空文字である。
     - Privacy-18-3が選択されていない場合、以下の手順を実施する。
-        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {{#special_profile_actual_path}}（{{special_profile_actual_path}}）{{/special_profile_actual_path}} を空にする。
+        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %}（{{special_profile_actual_path}}）{% endif %} を空にする。
         - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
         - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
           管理者権限を要求された場合は、`管理者`ユーザーで認証する。
