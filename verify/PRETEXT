@@ -14,20 +14,9 @@ PRETEXT-1: 前提条件
 
     - メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
     - メタインストーラの表示バージョンは {{meta_installer_version}} とする。
-    - Firefoxのインストール先は  
-      `{{install_path}}`  
-      {%if install_path_32bit %}
-      （32bit環境では `{{install_path_32bit}}`）
-      {% endif %}
-      とする。
-    - デスクトップのショートカットは  
-      `{{desktop_shortcut_path}}`  {%if desktop_shortcut_path_32bit %}
-      （32bit環境では `{{desktop_shortcut_path_32bit}}`）  {% endif %}
-      に作成するものとする。
-    - スタートメニューのショートカットは  
-      `{{start_menu_shortcut_path}}`  {%if start_menu_shortcut_path_32bit %}
-      （32bit環境では `{{start_menu_shortcut_path_32bit}}`）  {% endif %}
-      に作成するものとする。
+    - Firefoxのインストール先は `{{install_path}}` {%if install_path_32bit %}（32bit環境では `{{install_path_32bit}}`）{% endif %}とする。
+    - デスクトップのショートカットは `{{desktop_shortcut_path}}` {%if desktop_shortcut_path_32bit %}（32bit環境では `{{desktop_shortcut_path_32bit}}`）{% endif %}に作成するものとする。
+    - スタートメニューのショートカットは `{{start_menu_shortcut_path}}` {%if start_menu_shortcut_path_32bit %}（32bit環境では `{{start_menu_shortcut_path_32bit}}`）{% endif %}に作成するものとする。
     - 検証環境が新規に用意した環境である場合、検証環境のWindowsは以下の状態を整えておく。
         - ワークグループ名： `ワークグループ`（日本語名）
         - ローカル管理者アカウント： `管理者`（日本語名、パスワードは `administrator`）
