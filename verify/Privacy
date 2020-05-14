@@ -2,13 +2,17 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Privacy-0: プライバシーの検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - カスタマイズ済みFirefoxのインストールが完了した状態にする。
+
 Privacy-1: 履歴の保存の可否
 
     :2: 保存する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -18,9 +22,6 @@ Privacy-1: 履歴の保存の可否
 
     :5: 履歴を基本的には保存し、ただし（一部項目は）終了時の消去を許可する / 起動時からのプライベートブラウジングの開始を無効
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -30,9 +31,6 @@ Privacy-1: 履歴の保存の可否
 
     :7: 保存を強制する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -42,9 +40,6 @@ Privacy-1: 履歴の保存の可否
 
     :3: 一切保存しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -54,9 +49,6 @@ Privacy-1: 履歴の保存の可否
 
     :4: 終了時に消去する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -65,9 +57,6 @@ Privacy-1: 履歴の保存の可否
 
     :6: 終了時に消去する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -78,9 +67,6 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :1: 保存する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -90,9 +76,6 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :2: 保存しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -102,9 +85,6 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :3: 保存しない（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -116,9 +96,6 @@ Privacy-3: ダウンロード履歴の保存の可否
 
     :1: 永続的に保存する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ァイルに名前を付けて保存する。
@@ -129,9 +106,6 @@ Privacy-3: ダウンロード履歴の保存の可否
 
     :3: 保存しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ァイルに名前を付けて保存する。
@@ -144,9 +118,6 @@ Privacy-4: ロケーションバーの入力履歴の表示の可否
 
     :1: 表示する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - Firefoxを再起動する。
@@ -156,9 +127,6 @@ Privacy-4: ロケーションバーの入力履歴の表示の可否
 
     :2: 表示しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - Firefoxを再起動する。
@@ -168,9 +136,6 @@ Privacy-4: ロケーションバーの入力履歴の表示の可否
 
     :3: 表示しない（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - Firefoxを再起動する。
@@ -182,9 +147,6 @@ Privacy-5: パスワードの保存の可否
 
     :1: 確認の上で保存する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -197,9 +159,6 @@ Privacy-5: パスワードの保存の可否
 
     :2: 保存しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -211,9 +170,6 @@ Privacy-5: パスワードの保存の可否
 
     :4: 保存しない（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -225,9 +181,6 @@ Privacy-5: パスワードの保存の可否
 
     :3: 保存せず、マスターパスワードも使用しない（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザーID、パスワードを入力して送信する。
@@ -247,9 +200,6 @@ Privacy-7: リンク先の先読みの可否
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -264,9 +214,6 @@ Privacy-7: リンク先の先読みの可否
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -283,9 +230,6 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -295,9 +239,6 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -309,9 +250,6 @@ Privacy-9: 日数ベースでの履歴の自動削除
 
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 十分な日数分の履歴項目を以下の手順で用意する。
         - システムの日付と時刻について、インターネット経由での調整を無効にする。
@@ -344,9 +282,6 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :1: 永続的に許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - **確認**
@@ -354,9 +289,6 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :6: 既定では禁止し、特定サイトのみ永続的に許可する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - **確認**
@@ -365,9 +297,6 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :3: セッション中のみ許可する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - **確認**
@@ -375,9 +304,6 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :4: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - **確認**
@@ -385,9 +311,6 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - **確認**
@@ -398,9 +321,6 @@ Privacy-12: DOMストレージの利用の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -408,9 +328,6 @@ Privacy-12: DOMストレージの利用の可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -420,9 +337,6 @@ Privacy-13: Indexed DBの利用の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -430,9 +344,6 @@ Privacy-13: Indexed DBの利用の可否
 
     :3: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -442,9 +353,6 @@ Privacy-14: 位置情報の利用の可否
 
     :1: 確認の上で許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -453,9 +361,6 @@ Privacy-14: 位置情報の利用の可否
 
     :6: すべてのサイトについて初期状態で確認無しで禁止する（「位置情報へのアクセスの要求をブロック」にチェック）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -473,9 +378,6 @@ Privacy-14: 位置情報の利用の可否
 
     :7: すべてのサイトについて初期状態で確認無しで許可する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -484,9 +386,6 @@ Privacy-14: 位置情報の利用の可否
 
     :4: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -504,9 +403,6 @@ Privacy-14: 位置情報の利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -524,9 +420,6 @@ Privacy-14: 位置情報の利用の可否
 
     :3: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -538,9 +431,6 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -550,9 +440,6 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -564,9 +451,6 @@ Privacy-16: DNSの先読みの可否
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -584,9 +468,6 @@ Privacy-16: DNSの先読みの可否
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -604,9 +485,6 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ツールバー上のロケーションバーまたは検索窓にフォーカスし `a` と入力する。
     - **確認**
@@ -621,9 +499,6 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ツールバー上のロケーションバーまたは検索窓にフォーカスし `a` と入力する。
     - **確認**
@@ -638,9 +513,6 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ツールバー上のロケーションバーまたは検索窓にフォーカスし `a` と入力する。
     - **確認**
@@ -657,9 +529,6 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -668,9 +537,6 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -679,9 +545,6 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -693,9 +556,6 @@ Privacy-19: セキュリティエラーレポートの送信の可否
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -706,9 +566,6 @@ Privacy-19: セキュリティエラーレポートの送信の可否
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -720,9 +577,6 @@ Privacy-21: クラッシュレポートの送信の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -731,9 +585,6 @@ Privacy-21: クラッシュレポートの送信の可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -742,9 +593,6 @@ Privacy-21: クラッシュレポートの送信の可否
 
     :3: レジストリでグローバルに禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Windowsキーを押しながら「R」を押し、「ファイル名を指定して実行」ダイアログを開く。
     - `regedit.exe` と入力し、実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
@@ -759,9 +607,6 @@ Privacy-22: Firefox Syncの利用の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開く。
     - **確認**
@@ -776,9 +621,6 @@ Privacy-22: Firefox Syncの利用の可否
 
     :2: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開く。
     - **確認**
@@ -793,9 +635,6 @@ Privacy-22: Firefox Syncの利用の可否
 
     :3: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開く。
     - **確認**
@@ -812,9 +651,6 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開く。
     - **確認**
@@ -829,9 +665,6 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開く。
     - **確認**
@@ -846,9 +679,6 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開く。
     - **確認**
@@ -865,9 +695,6 @@ Privacy-26: 「忘れる」ボタンの利用の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - **確認**
@@ -875,9 +702,6 @@ Privacy-26: 「忘れる」ボタンの利用の可否
 
     :2: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - **確認**
@@ -887,9 +711,6 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :1: 許可する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - **確認**
@@ -900,9 +721,6 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - **確認**
@@ -913,9 +731,6 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニュー内の「カスタマイズ」をクリックしてツールバーのカスタマイズ画面を開く。
     - **確認**
@@ -929,9 +744,6 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
     :1: 1週間に1回、最低限の最適化のみ行う（既定）
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -949,9 +761,6 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
     :2: 1週間に1回、VACUUMも含めて行う
 
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -970,9 +779,6 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
 
     :1: 制限しない（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:cache` を開く。
     - **確認**
@@ -980,9 +786,6 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
 
     :2: 制限する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:cache` を開く。
     - **確認**
@@ -990,9 +793,6 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
 
     :3: ディスクキャッシュを使用しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:cache` を開く。
     - **確認**
@@ -1016,9 +816,6 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     - `C:\Users\Public\http.log-*` を全て削除しておく。
     - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
       もしくは、本節での先読みに関する検証を省略する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1040,9 +837,6 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     - `C:\Users\Public\http.log-*` を全て削除しておく。
     - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
       もしくは、本節での先読みに関する検証を省略する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1055,9 +849,6 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :1: ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1066,9 +857,6 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :2: ブロックリストを取得して、トラッキングを常に遮断する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1077,9 +865,6 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシー設定を併用）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1088,9 +873,6 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :3: ブロックリストを取得せず、トラッキングを遮断しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1099,9 +881,6 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :5: ブロックリストを取得せず、トラッキングを遮断しない（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1116,9 +895,6 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
       （{{special_profile_actual_path}}）{% endif %}  
       を削除する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - テストケースの `password.html` を開く。
     - ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
     - ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` の内容を確認する。
@@ -1132,9 +908,6 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
       （{{special_profile_actual_path}}）{% endif %}  
       を削除する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - テストケースの `password.html` を開く。
     - ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
     - ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` の内容を確認する。
@@ -1146,9 +919,6 @@ Privacy-35: トラッキングの遮断に使用するブロックリストの�
 
     :1: レベル1（基本）ブロックを初期設定とし、変更を許可（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1157,9 +927,6 @@ Privacy-35: トラッキングの遮断に使用するブロックリストの�
 
     :2: レベル2（厳格）ブロックを初期設定とし、変更を許可
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1168,9 +935,6 @@ Privacy-35: トラッキングの遮断に使用するブロックリストの�
 
     :3: レベル1（基本）ブロックで固定
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1179,9 +943,6 @@ Privacy-35: トラッキングの遮断に使用するブロックリストの�
 
     :4: レベル2（厳格）ブロックで固定
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1192,9 +953,6 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開く。
     - テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
@@ -1203,9 +961,6 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開く。
     - テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
@@ -1225,9 +980,6 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
             - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
         - `C:\Users\Public\http.log-*` を全て削除しておく。
         - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `https://www.clear-code.com/blog/` を開く。
         - 記事の個別ページを10ページほど訪問する。
@@ -1242,9 +994,6 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
             - コンソールに「All cancelled? false」と出力される。
     - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境では、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -1261,9 +1010,6 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
             - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
         - `C:\Users\Public\http.log-*` を全て削除しておく。
         - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `https://www.clear-code.com/blog/` を開く。
         - 記事の個別ページを10ページほど訪問する。
@@ -1278,9 +1024,6 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
             - コンソールに「All cancelled? true」と出力される。
     - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境では、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -1290,9 +1033,6 @@ Privacy-38: Webビーコンの送信
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -1300,9 +1040,6 @@ Privacy-38: Webビーコンの送信
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `browser.html` を開く。
     - **確認**
@@ -1312,9 +1049,6 @@ Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
 
     :1: 警告する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `insecure-password.html` を開く。
     - パスワードの入力欄にフォーカスを移す。
@@ -1323,9 +1057,6 @@ Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
 
     :2: 警告しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースの `insecure-password.html` を開く。
     - パスワードの入力欄にフォーカスを移す。
@@ -1337,9 +1068,6 @@ Privacy-40: パスワード保存ポップアップにおける、パスワー�
     :1: 表示する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1352,9 +1080,6 @@ Privacy-40: パスワード保存ポップアップにおける、パスワー�
     :2: 表示しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1368,18 +1093,12 @@ Privacy-41: トラッキング保護機能の通知メッセージの表示
 
     :1: 20回まで表示する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ストケースリストのリンクから `http://www.kantei.go.jp/` を開く。
         - トラッキング保護機能が働いた旨の通知ポップアップが表示される。
 
     :2: 表示しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ストケースリストのリンクから `http://www.kantei.go.jp/` を開く。
         - トラッキング保護機能が働いた旨の通知ポップアップが表示されない。
@@ -1388,9 +1107,6 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :1: 参加する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。
@@ -1399,9 +1115,6 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :2: 参加しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。
@@ -1412,9 +1125,6 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :1: トラッキング防止の使用時のみ(既定)
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1423,9 +1133,6 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :2: 常に送る
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1434,9 +1141,6 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :3: プライベートウィンドウのみ送出
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1445,9 +1149,6 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :4: 送出しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1459,9 +1160,6 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     :1: 一切通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1470,9 +1168,6 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1481,9 +1176,6 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1492,9 +1184,6 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1505,9 +1194,6 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     :1: 一切通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1516,9 +1202,6 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1527,9 +1210,6 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1538,9 +1218,6 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1551,9 +1228,6 @@ Privacy-46: カメラの利用の可否
     :1: 確認の上で許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1561,9 +1235,6 @@ Privacy-46: カメラの利用の可否
 
     :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1573,9 +1244,6 @@ Privacy-46: カメラの利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1586,9 +1254,6 @@ Privacy-46: カメラの利用の可否
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1601,9 +1266,6 @@ Privacy-46: カメラの利用の可否
 
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「カメラへのアクセスの要求をブロック」にチェック）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1616,9 +1278,6 @@ Privacy-47: マイクの利用の可否
     :1: 確認の上で許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1627,9 +1286,6 @@ Privacy-47: マイクの利用の可否
     :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1638,9 +1294,6 @@ Privacy-47: マイクの利用の可否
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1649,9 +1302,6 @@ Privacy-47: マイクの利用の可否
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1665,9 +1315,6 @@ Privacy-47: マイクの利用の可否
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「マイクへのアクセスの要求をブロック」にチェック）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1683,9 +1330,6 @@ Privacy-48: リファラの通知の有無
     :1: リンクの遷移、埋め込み画像の取得時に通知（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1694,9 +1338,6 @@ Privacy-48: リファラの通知の有無
     :2: リンクの遷移時にのみ通知
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1705,9 +1346,6 @@ Privacy-48: リファラの通知の有無
     :3: 一切通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1718,9 +1356,6 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     :1: 一切通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1729,9 +1364,6 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1740,9 +1372,6 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1751,9 +1380,6 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1764,9 +1390,6 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     :1: 一切通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1775,9 +1398,6 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1786,9 +1406,6 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1797,9 +1414,6 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -1811,9 +1425,6 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     - ポリシー設定から `DisablePrivateBrowsing` の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開く。
     - **確認**
@@ -1823,9 +1434,6 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     - ポリシー設定から `DisablePrivateBrowsing` の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開く。
     - **確認**
@@ -1837,9 +1445,6 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
 
     - Privacy-18-3が選択されている場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -1849,9 +1454,6 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
           `{{special_profile_path}}` {%if special_profile_actual_path %}  
           （{{special_profile_actual_path}}）{% endif %}  
           を空にする。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - **確認**
             - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。
@@ -1860,9 +1462,6 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
 
     - Privacy-18-3が選択されている場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -1872,9 +1471,6 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
           `{{special_profile_path}}` {%if special_profile_actual_path %}  
           （{{special_profile_actual_path}}）{% endif %}  
           を空にする。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - **確認**
             - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。
@@ -1883,9 +1479,6 @@ Privacy-53: パスワードの自動生成機能の使用
 
     :1: 自動生成を許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1894,9 +1487,6 @@ Privacy-53: パスワードの自動生成機能の使用
 
     :2: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。

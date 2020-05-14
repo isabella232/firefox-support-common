@@ -52,7 +52,6 @@ TEMPLATE_PRETEXT = """
 """
 
 FILES = [
-    'PRETEXT',
     'Install',
     'Application',
     'Admin',
@@ -80,37 +79,51 @@ FILES = [
 #
 # Utils
 
-def output_config(items, conf, dic):
+def output_config(conf, dic):
     text = dic.get('COVER', '') + '\n'
 
     text += "# 事前準備"
 
-    for item in items:
-        if item['item_id'].startswith('PRETEXT-'):
-            items.remove(item)
-
+    for item in adlib.load('verify/PRETEXT'):
         for opt in item['opts']:
             if item['item_id'].startswith('PRETEXT-'):
                 text += TEMPLATE_PRETEXT.format(**opt)
                 text += dic.get(opt['opt_id'], "")
                 text += '\n'
 
-    text += "\n# Firefox検証手順"
+    sections = set(section(item_id) for item_id in conf)
 
-    for item in items:
-        for opt in item['opts']:
-            if opt['opt_id'] not in conf:
-                continue
+    for fn in FILES:
+        if fn not in sections:
+           continue
 
-            text += TEMPLATE.format(**opt, **item)
-            custom = dic.get(opt['opt_id'], '')
+        items = adlib.load('verify/%s' % fn)
+        head = items[0]
 
-            if custom.startswith('OVERWRITE\n'):
-                text += custom[len('OVERWRITE\n'):]
-            else:
-                text += opt['conf']
-                text += custom
-            text += '\n'
+        # Header (e.g. "Privacy-0")
+        if head['item_no'] == '0':
+            text += '\n# %s' % head['item_title']
+            for opt in head['opts']:
+                text += TEMPLATE_PRETEXT.format(**opt)
+                text += dic.get(opt['opt_id'], "")
+                text += '\n'
+        else:
+            text += '\n# %sの検証' % fn
+
+        # Contents
+        for item in items:
+            for opt in item['opts']:
+                if opt['opt_id'] not in conf: continue
+
+                text += TEMPLATE.format(**opt, **item)
+                custom = dic.get(opt['opt_id'], '')
+
+                if custom.startswith('OVERWRITE\n'):
+                    text += custom[len('OVERWRITE\n'):]
+                else:
+                    text += opt['conf']
+                    text += custom
+                text += '\n'
 
     text += '\n' + dic.get('POSTSCRIPT', '')
 
@@ -140,11 +153,7 @@ def main(args):
         elif k == '-a':
             dic = adlib.load_variables(v)
 
-    items = []
-    for fn in FILES:
-         items.extend(adlib.load('verify/%s' % fn))
-
-    return output_config(items, conf, dic)
+    return output_config(conf, dic)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
