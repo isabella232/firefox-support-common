@@ -2,14 +2,19 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Startup-0: 起動時の挙動の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Startup-1: 初回起動時の設定移行ウィザード
 
     :1: 表示する（既定）
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
@@ -21,9 +26,6 @@ Startup-1: 初回起動時の設定移行ウィザード
     :2: 表示しない
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
@@ -36,18 +38,12 @@ Startup-2: 起動時のホームページの指定
 
     :1: ユーザが指定（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 起動直後にFirefox既定のホーム画面または初回起動画面が表示される。
 
     :2: 管理者が指定し、変更を許可
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 起動直後に {{home_page}} が表示される。
@@ -59,9 +55,6 @@ Startup-2: 起動時のホームページの指定
 
     :5: 管理者が指定し、変更を許可（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 起動直後に {{home_page}} が表示される。
@@ -73,9 +66,6 @@ Startup-2: 起動時のホームページの指定
 
     :3: 管理者が指定し、変更を禁止
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 起動直後に {{home_page}} が表示される。
@@ -86,9 +76,6 @@ Startup-2: 起動時のホームページの指定
 
     :4: 管理者が指定し、変更を禁止（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 起動直後に {{home_page}} が表示される。
@@ -99,9 +86,6 @@ Startup-2: 起動時のホームページの指定
 
     :6: 前回の状態を常に復元（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 任意のWebページ（例： `http://example.com/` ）を開く。
     - Firefoxを再起動する。
@@ -114,7 +98,6 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
 
     - システムの「既定のブラウザ」を別のブラウザに設定する。
       （例：「インターネットオプション」からInternet Explorerを既定のブラウザに設定する。）
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動して終了する操作を3回繰り返す。
@@ -125,7 +108,6 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
 
     - システムの「既定のブラウザ」を別のブラウザに設定する。
       （例：「インターネットオプション」からInternet Explorerを既定のブラウザに設定する。）
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動して終了する操作を3回繰り返す。
@@ -141,7 +123,6 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
 
     - システムの「既定のブラウザ」を別のブラウザに設定する。
       （例：「インターネットオプション」からInternet Explorerを既定のブラウザに設定する。）
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動して終了する操作を3回繰り返す。
@@ -158,9 +139,6 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -169,9 +147,6 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -180,9 +155,6 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
     :3: 禁止する（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。
@@ -193,9 +165,6 @@ Startup-5: 初期状態のブックマーク
 
     :1: 初期項目を使う（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - キーボードショートカット「Ctrl-Shift-B」を入力し、ブラウジングライブラリーを開く。
     - 「すべてのブックマーク」配下の内容を確認する。
@@ -205,9 +174,6 @@ Startup-5: 初期状態のブックマーク
 
     :2: 空にする
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - キーボードショートカット「Ctrl-Shift-B」を入力し、ブラウジングライブラリーを開く。
     - 「すべてのブックマーク」配下の内容を確認する。
@@ -218,9 +184,6 @@ Startup-5: 初期状態のブックマーク
 
     :4: 空にする（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - キーボードショートカット「Ctrl-Shift-B」を入力し、ブラウジングライブラリーを開く。
     - 「すべてのブックマーク」配下の内容を確認する。
@@ -231,9 +194,6 @@ Startup-5: 初期状態のブックマーク
 
     :3: 管理者が指定したブックマークを追加する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - キーボードショートカット「Ctrl-Shift-B」を入力し、ブラウジングライブラリーを開く。
     - 「すべてのブックマーク」配下の内容を確認する。
@@ -245,9 +205,6 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     :1: リセットを提案する（既定）
 
     - システムの時計を進めることができる場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動して、終了する。
         - システムの時計を1年先の日付に進める。
         - Firefoxを起動する。
@@ -256,9 +213,6 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
         - 1年進めたシステムの時計を元に戻す。
     - システムの時計を進めることができない場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -267,9 +221,6 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     :2: リセットを提案しない
 
     - システムの時計を進めることができる場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動して、終了する。
         - システムの時計を1年先の日付に進める。
         - Firefoxを起動する。
@@ -278,9 +229,6 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
         - 1年進めたシステムの時計を元に戻す。
     - システムの時計を進めることができない場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -290,9 +238,6 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     - システムの時計を進めることができる場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動して、終了する。
         - システムの時計を1年先の日付に進める。
         - Firefoxを起動する。
@@ -307,9 +252,6 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
         - **確認**
             - 何も起こらない。 
     - システムの時計を進めることができない場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:policies` を開く。
         - 「有効」配下の各設定値を確認する。
@@ -321,9 +263,6 @@ Startup-10: 初回起動時などにダミーのウィンドウを使用して�
     :1: ハードウェア情報が変更されていたら起動時に性能をテストする（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -332,9 +271,6 @@ Startup-10: 初回起動時などにダミーのウィンドウを使用して�
     :2: ハードウェア情報の変更を無視し、性能を測定しない
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -345,16 +281,10 @@ Startup-12: 初回起動時のみの特別なスタートページ
     :1: 表示する（既定）
 
     - Startup-4-2によって初回起動時のページが表示されないよう設定されていない場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - **検証**
             - 起動直後に既定の初回起動用ページが表示される。
     - Startup-4-2によって初回起動時のページが表示されないよう設定されている場合、以下の手順を実施する
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:policies` を開く。
         - 「有効」配下の各設定値を確認する。
@@ -364,16 +294,10 @@ Startup-12: 初回起動時のみの特別なスタートページ
     :2: 任意のページを表示する（ポリシーで設定）
 
     - Startup-4-2によって初回起動時のページが表示されないよう設定されていない場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - **検証**
             - 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。
     - Startup-4-2によって初回起動時のページが表示されないよう設定されている場合、以下の手順を実施する
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:policies` を開く。
         - 「有効」配下の各設定値を確認する。
@@ -383,16 +307,10 @@ Startup-12: 初回起動時のみの特別なスタートページ
     :3: 表示しない（ポリシーで設定）
 
     - Startup-4-2によって初回起動時のページが表示されないよう設定されていない場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - **検証**
             - 起動直後にホームページ（または空白）以外のタブが開かれていない。
     - Startup-4-2によって初回起動時のページが表示されないよう設定されている場合、以下の手順を実施する
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:policies` を開く。
         - 「有効」配下の各設定値を確認する。
@@ -403,9 +321,6 @@ Startup-13: Windows 10の再起動後の自動起動
 
     :1: 自動起動する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - Firefoxを終了させずに、そのままWindows 10を強制的に再起動またはログオフ/サインアウトする。
     - 再度Windows 10にログオン/サインインする。
@@ -414,9 +329,6 @@ Startup-13: Windows 10の再起動後の自動起動
 
     :2: 自動起動しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - Firefoxを終了させずに、そのままWindows 10を強制的に再起動またはログオフ/サインアウトする。
     - 再度Windows 10にログオン/サインインする。
@@ -429,7 +341,6 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - （以前のバージョンのメタインストーラがある場合はそれを用いて）Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
@@ -443,7 +354,6 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - （以前のバージョンのメタインストーラがある場合はそれを用いて）Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。

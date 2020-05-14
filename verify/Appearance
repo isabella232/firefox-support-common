@@ -2,15 +2,20 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Appearance-0: 外観の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Appearance-1: 表示フォントの明示
 
     :1: 設定しない（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` で `font.name.*.ja` を検索し、以下の設定を行う。
         - `font.name.serif.ja`（文字列型）を`missing`に設定する。
@@ -31,9 +36,6 @@ Appearance-1: 表示フォントの明示
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` で `font.name.*.ja` を検索し、以下の設定を行う。
         - `font.name.serif.ja`（文字列型）を`missing`に設定する。
@@ -54,9 +56,6 @@ Appearance-1: 表示フォントの明示
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` で `font.name.*.ja` を検索し、以下の設定を行う。
         - `font.name.serif.ja`（文字列型）を`missing`に設定する。
@@ -77,9 +76,6 @@ Appearance-2: ツールバー上の項目の初期設定
 
     :1: 制御しない（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ツールバーの内容を確認する。
     - **確認**
@@ -105,9 +101,6 @@ Appearance-2: ツールバー上の項目の初期設定
 
     :2: 制御する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - ツールバーの内容を確認する。
     - **確認**
@@ -140,18 +133,12 @@ Appearance-3: ロケーションバーと検索バーの統合
 
     :1: 統合する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - ツールバー上に単独のWeb検索バーが表示されていない。
 
     :2: 統合しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - ツールバー上に単独のWeb検索バーが表示されている。
@@ -161,18 +148,12 @@ Appearance-5: 初期状態でのブックマークツールバーの表示
 
     :1: 表示する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - ブックマークツールバーが表示されている。
 
     :2: 表示しない（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - ブックマークツールバーが表示されていない。
@@ -181,18 +162,12 @@ Appearance-6: 初期状態でのメニューバーの表示
 
     :1: 表示する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - メニューバーが表示されている。
 
     :2: 表示しない（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - メニューバーが表示されていない。
@@ -201,9 +176,6 @@ Appearance-7: アプリケーションのUIに使用する言語
 
     :1: 組み込みの言語（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - **確認**
@@ -211,9 +183,6 @@ Appearance-7: アプリケーションのUIに使用する言語
 
     :2: 任意の言語（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - UIの表示言語が指定の通りになっている。
@@ -222,9 +191,6 @@ Appearance-8: ヘルプメニュー配下に登録する独自のサポートペ
 
     :1: 表示しない（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - キーボードショートカット「Alt-H」でヘルプメニューを開く。
     - **確認**
@@ -240,9 +206,6 @@ Appearance-8: ヘルプメニュー配下に登録する独自のサポートペ
 
     :2: 表示する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - キーボードショートカット「Alt-H」でヘルプメニューを開く。
     - **確認**
@@ -260,18 +223,12 @@ Appearance-9: 「Firefoxアカウント」ボタンの表示
 
     :1: 表示する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Firefoxアカウント」ボタンが表示されている。
 
     :2: 表示しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Firefoxアカウント」ボタンが表示されていない。
@@ -281,9 +238,6 @@ Appearance-10: ユーザースタイルシートの使用
     :1: 使用する
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
@@ -298,9 +252,6 @@ Appearance-10: ユーザースタイルシートの使用
     :2: 使用しない（既定）
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。

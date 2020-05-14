@@ -2,14 +2,19 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Plugin-0: プラグインの設定の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :1: 常に無効化する
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
@@ -19,9 +24,6 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
     :4: 常に無効化する（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
@@ -31,9 +33,6 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
     :3: クリックされたら有効にする（既定）（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
@@ -45,9 +44,6 @@ Plugin-8: Gecko Media Pluginの利用の可否
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
@@ -58,9 +54,6 @@ Plugin-8: Gecko Media Pluginの利用の可否
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
@@ -73,9 +66,6 @@ Plugin-11: 「Firefoxによるサポートが終了したプラグインは表�
     :1: 表示する(既定)
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
@@ -84,9 +74,6 @@ Plugin-11: 「Firefoxによるサポートが終了したプラグインは表�
     :2: 表示しない
 
     - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**

@@ -2,13 +2,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+MenuShortcut-0: メニュー・キーボードショートカットの検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 MenuShortcut-3: ファイル＞新しいプライベートウィンドウを開く (Ctrl-Shift-P)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 「Ctrl-Shift-P」を押す。
     - **確認**
@@ -24,9 +29,6 @@ MenuShortcut-10: ツール＞ウェブ開発（開発ツールボタン）
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 「ツール」メニューを開く。
     - **確認**
@@ -39,9 +41,6 @@ MenuShortcut-11: ツール＞ウェブ開発＞開発ツールを表示 (Ctrl-Sh
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-I」を押して、開発ツールが開かれない。
@@ -58,9 +57,6 @@ MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-C」を押して、インスペクタが開かれない。
@@ -76,9 +72,6 @@ MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-K」を押して、Webコンソールが開かれない。
@@ -94,9 +87,6 @@ MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-S」を押して、デバッガが開かれない。
@@ -112,9 +102,6 @@ MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Shift-F7」を押して、スタイルエディタが開かれない。
@@ -130,9 +117,6 @@ MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バー
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Shift-F5」を押して、プロファイラが開かれない。
@@ -148,9 +132,6 @@ MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-E)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-E」を押して、ネットワークモニターが開かれない。
@@ -166,9 +147,6 @@ MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Shitf-F2」を押して、開発ツールバーが開かれない。
@@ -184,9 +162,6 @@ MenuShortcut-20: ツール＞ウェブ開発＞WebIDE (Shift-F8)
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Shift-F8」を押して、WebIDEが開かれない。
@@ -202,9 +177,6 @@ MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスが開かれない。
@@ -220,9 +192,6 @@ MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-J」を押して、ブラウザーコンソールが開かれない。
@@ -238,9 +207,6 @@ MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビ
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Ctrl-Shift-M」を押して、レスポンシブデザインビューが開かれない。
@@ -257,9 +223,6 @@ MenuShortcut-24: ツール＞ウェブ開発＞スポイト
     :1: 無効化する
 
     - MenuShortcut-10が未選択の場合は以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - 「ツール」メニューの「ウェブ開発」を開く。
         - **確認**
@@ -272,9 +235,6 @@ MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - **確認**
         - 「Shift-F4」を押してスクラッチパッドが開かれない。
@@ -291,9 +251,6 @@ MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
     :1: 無効化する
 
     - MenuShortcut-10が未選択の場合は以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - 「ツール」メニューの「ウェブ開発」を開く。
         - **確認**
@@ -307,9 +264,6 @@ MenuShortcut-28: ツール＞ウェブ開発＞接続...
     :1: 無効化する
 
     - MenuShortcut-10が未選択の場合は以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - 「ツール」メニューの「ウェブ開発」を開く。
         - **確認**
@@ -323,9 +277,6 @@ MenuShortcut-29: ツール＞ウェブ開発＞その他のツールを入手
     :1: 無効化する
 
     - MenuShortcut-10が未選択の場合は以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - 「ツール」メニューの「ウェブ開発」を開く。
         - **確認**
@@ -338,9 +289,6 @@ MenuShortcut-35: ヘルプ＞トラブルシューティング情報
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 通常のWebページ（例：`http://www.example.com/`）を開く。
     - 「ヘルプ」メニューを開く。
@@ -354,9 +302,6 @@ MenuShortcut-36: ヘルプ＞フィードバックを送信
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 通常のWebページ（例：`http://www.example.com/`）を開く。
     - 「ヘルプ」メニューを開く。
@@ -370,9 +315,6 @@ MenuShortcut-37: ヘルプ＞アドオンを無効にして再起動
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 通常のWebページ（例：`http://www.example.com/`）を開く。
     - 「ヘルプ」メニューを開く。
@@ -386,9 +328,6 @@ MenuShortcut-38: ヘルプ＞詐欺サイトを報告
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 通常のWebページ（例：`http://www.example.com/`）を開く。
     - 「ヘルプ」メニューを開く。
@@ -403,9 +342,6 @@ MenuShortcut-39: ヘルプ＞誤警告を報告
     :1: 無効化する
 
     - Security-6-2が未選択の場合は以下の手順を実施する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - 「ヘルプ」メニューを開く。
@@ -419,9 +355,6 @@ MenuShortcut-44: ブックマーク＞ブックマークツールバー（およ
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 「ブックマーク」メニューを開く。
     - **確認**
@@ -441,9 +374,6 @@ MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デス
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `https://addons.mozilla.org` を開く。
     - ページ内に埋め込まれた画像の上で右クリックする。
@@ -454,9 +384,6 @@ MenuShortcut-57: コンテンツ領域のコンテキストメニュー＞要素
 
     :1: 無効化する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `https://addons.mozilla.org` を開く。
     - ページ内の、画像や文字が無い空白領域で右クリックする。
@@ -468,9 +395,6 @@ MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
     :1: 無効化する
 
     - MenuShortcut-10が未選択の場合は以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - 「ツール」メニューの「ウェブ開発」を開く。
         - **確認**
@@ -484,9 +408,6 @@ MenuShortcut-65: ツール＞ウェブ開発＞ブラウザーコンテンツツ
     :1: 無効化する
 
     - MenuShortcut-10が未選択の場合は以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - 「ツール」メニューの「ウェブ開発」を開く。
         - **確認**

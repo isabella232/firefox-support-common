@@ -2,13 +2,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Update-0: 自動更新の設定の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Update-1: Firefoxの自動更新の可否
 
     :1: 許可する（既定）（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 「ヘルプ」→「Firefoxについて」を開く。
     - **確認**
@@ -16,9 +21,6 @@ Update-1: Firefoxの自動更新の可否
 
     :4: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - 「ヘルプ」→「Firefoxについて」を開く。
     - **確認**
@@ -29,9 +31,6 @@ Update-2: アドオンの自動更新の可否
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -40,9 +39,6 @@ Update-2: アドオンの自動更新の可否
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -51,9 +47,6 @@ Update-2: アドオンの自動更新の可否
     :3: 禁止する（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -64,9 +57,6 @@ Update-3: 検索エンジンの自動更新の可否
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -75,9 +65,6 @@ Update-3: 検索エンジンの自動更新の可否
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -88,9 +75,9 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
     :1: 許可する（既定）
 
     - Install-15-2との併用は不可能のため、Install-15-2選択時は検証を省略する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
         - Mozilla Maintenance Service
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
@@ -99,9 +86,9 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
     :2: 禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
         - Mozilla Maintenance Service
+    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
@@ -117,9 +104,6 @@ Update-6: システムアドオンの自動更新の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。
@@ -128,9 +112,6 @@ Update-6: システムアドオンの自動更新の可否
 
     :2: 禁止する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。
@@ -141,9 +122,6 @@ Update-7: アプリケーションの自動更新情報取得先
 
     :1: Mozillaのサーバー（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。
@@ -152,9 +130,6 @@ Update-7: アプリケーションの自動更新情報取得先
 
     :2: 任意のサーバー（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:policies` を開く。
     - 「有効」配下の各設定値を確認する。

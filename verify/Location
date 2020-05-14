@@ -2,13 +2,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Location-0: アドレスバーの設定の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Location-1: アドレスバーにおけるURLの「http://」の省略表示の可否
 
     :1: 省略する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://example.com/` を開く。
     - **確認**
@@ -16,9 +21,6 @@ Location-1: アドレスバーにおけるURLの「http://」の省略表示の�
 
     :2: 省略しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://example.com/` を開く。
     - **確認**
@@ -28,9 +30,6 @@ Location-2: アドレスバーにおける国際化ドメインの表示
 
     :1: 原則として国際化ドメインのまま表示する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `https://日本語.jp/` を開く。
     - **確認**
@@ -38,9 +37,6 @@ Location-2: アドレスバーにおける国際化ドメインの表示
 
     :2: 必ずpunycode形式で表示する（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `https://日本語.jp/` を開く。
     - **確認**
@@ -51,18 +47,12 @@ Location-3: アドレスバーへのURL以外の入力の取り扱い
     :1: 常に検索する（既定）
 
     - `localhost` 以外で `.` を含まない一単語の名前解決可能なホストがローカルネットワーク上にある場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - ロケーションバーに `localhost` 以外で `.` を含まない一単語の名前解決可能なホスト名のホスト名を入力し、ページを開く。
         - **確認**
             - ホスト名を単語とした検索結果が表示される。
     - `localhost` 以外で `.` を含まない一単語の名前解決可能なホストがローカルネットワーク上に無い場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**
@@ -71,18 +61,12 @@ Location-3: アドレスバーへのURL以外の入力の取り扱い
     :2: 入力内容が1単語のみの時、検索を実行する前にローカルドメインのホスト名として名前解決を試みる
 
     - `localhost` 以外で `.` を含まない一単語の名前解決可能なホストがローカルネットワーク上にある場合、以下の手順を実施する。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - ロケーションバーに `localhost` 以外で `.` を含まない一単語の名前解決可能なホスト名のホスト名を入力し、ページを開く。
         - **確認**
             - そのホストが名前解決され、ページが表示される。
     - `localhost` 以外で `.` を含まない一単語の名前解決可能なホストがローカルネットワーク上に無い場合、以下の手順を実施する。
         - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
         - Firefoxを起動する。
         - `about:config` を開く。
         - **確認**

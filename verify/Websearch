@@ -2,13 +2,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Websearch-0: UIの設定の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Websearch-1: 検索エンジンの追加・削除の可否
 
     :1: 許可する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースリストのリンクから `https://addons.mozilla.org/` を開く。
     - アドレスバーの「…」アイコンをクリックする。
@@ -17,9 +22,6 @@ Websearch-1: 検索エンジンの追加・削除の可否
 
     :3: 追加を禁止する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - テストケースリストのリンクから `https://addons.mozilla.org/` を開く。
     - アドレスバーの「…」アイコンをクリックする。
@@ -30,9 +32,6 @@ Websearch-2: 初期設定から取り除く検索エンジン
 
     :1: すべて使用する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「検索」を開く。
@@ -51,9 +50,6 @@ Websearch-2: 初期設定から取り除く検索エンジン
 
     :2: 限定する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「検索」を開く。
@@ -62,9 +58,6 @@ Websearch-2: 初期設定から取り除く検索エンジン
 
     :3: 一部の検索エンジンを取り除く（ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「検索」を開く。
@@ -73,9 +66,6 @@ Websearch-2: 初期設定から取り除く検索エンジン
 
 Websearch-3: 初期状態で追加する検索エンジン
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「検索」を開く。

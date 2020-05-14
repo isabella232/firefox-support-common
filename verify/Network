@@ -2,14 +2,19 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Network-0: ネットワークの設定の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Network-1: Microsoft .NET Frameworkによって変更されたUA文字列の初期化
 
     :1: 初期化する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 文字列型の設定 `general.useragent.extra.microsoftdotnet` を作成し、値を `test` と入力して保存する。
@@ -21,9 +26,6 @@ Network-1: Microsoft .NET Frameworkによって変更されたUA文字列の初�
     :2: 初期化しない（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - 文字列型の設定 `general.useragent.extra.microsoftdotnet` を作成し、値を `test` と入力して保存する。
@@ -38,9 +40,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -51,9 +50,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -64,9 +60,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -78,9 +71,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -93,9 +83,6 @@ Network-2: プロキシの利用
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
       - プロキシ自動設定スクリプトを参照できない環境で検証する場合、PACファイルの参照先URLを `data:application/javascript,` と設定する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -109,9 +96,6 @@ Network-2: プロキシの利用
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
       - プロキシ自動設定スクリプトを参照できない環境で検証する場合、PACファイルの参照先URLを `data:application/javascript,` と設定する。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -124,9 +108,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -137,9 +118,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -150,9 +128,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -163,9 +138,6 @@ Network-2: プロキシの利用
 
     - 自動プロキシー設定スクリプトのURLが未設定の場合、設定する。
       {{pac_url_setup}}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「一般」→「ネットワーク設定」→「接続設定」を開く。
@@ -177,9 +149,6 @@ Network-4: NTLM認証によるシングルサインオンの許可
     :1: 許可する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -188,9 +157,6 @@ Network-4: NTLM認証によるシングルサインオンの許可
     :2: 許可する (Policy Engine)
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -201,9 +167,6 @@ Network-5: HTTPの同時接続数
     :1: パフォーマンスを優先（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -214,9 +177,6 @@ Network-5: HTTPの同時接続数
     :2: トラフィックを抑える事を優先
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -229,9 +189,6 @@ Network-6: SPDYプロトコルの使用の可否
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -240,9 +197,6 @@ Network-6: SPDYプロトコルの使用の可否
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -253,9 +207,6 @@ Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の�
     :1: 禁止する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -264,9 +215,6 @@ Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の�
     :2: 特定のホストでのみ許可する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -277,9 +225,6 @@ Network-8: IPv6の使用
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -289,9 +234,6 @@ Network-8: IPv6の使用
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -303,9 +245,6 @@ Network-10: onionドメインの名前解決
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -314,9 +253,6 @@ Network-10: onionドメインの名前解決
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -327,9 +263,6 @@ Network-11: UA文字列の変更
     :1: 変更しない（既定）
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
@@ -338,9 +271,6 @@ Network-11: UA文字列の変更
     :2: 任意の値を設定する
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
@@ -351,9 +281,6 @@ Network-13: TLS 1.3の使用
     :1: 許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -362,9 +289,6 @@ Network-13: TLS 1.3の使用
     :2: 禁止する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -373,9 +297,6 @@ Network-13: TLS 1.3の使用
     :4: 許可する（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -384,9 +305,6 @@ Network-13: TLS 1.3の使用
     :3: 禁止する（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -397,9 +315,6 @@ Network-14: SSL/TLSでのSHA-1証明書の使用の可否
     :1: 常に受け入れる
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -408,9 +323,6 @@ Network-14: SSL/TLSでのSHA-1証明書の使用の可否
     :2: 常に拒否する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -419,9 +331,6 @@ Network-14: SSL/TLSでのSHA-1証明書の使用の可否
     :3: 2016年以前発行の公的な証明書を受け入れる
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -430,9 +339,6 @@ Network-14: SSL/TLSでのSHA-1証明書の使用の可否
     :4: インポートした認証局の発行した証明書を受け入れる（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -441,9 +347,6 @@ Network-14: SSL/TLSでのSHA-1証明書の使用の可否
     :5: 2016年以前発行の公的な証明書とインポートした認証局の発行した証明書の両方を受け入れる
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -454,9 +357,6 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
     :1: 許可する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -466,9 +366,6 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
     :2: 許可する (Policy Engine)
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -480,9 +377,6 @@ Network-17: TLS 1.xの使用
     :1: TLS 1.0の使用を許可する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -491,9 +385,6 @@ Network-17: TLS 1.xの使用
     :2: 特定バージョン以上のTLSの使用を強制（ポリシーで設定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**

@@ -2,13 +2,18 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Stability-0: 安定性に関わる設定の検証
+
+   :1: 事前準備
+
+    - 前項に引き続き検証するか、または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
 Stability-1: ハードウェアアクセラレーションを有効化するかどうか
 
     :1: 有効化する（安定性より描画性能を優先する：既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - オプション画面の「一般」を開く。
@@ -18,9 +23,6 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :4: 有効化する（安定性より描画性能を優先する：ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - オプション画面の「一般」を開く。
@@ -30,9 +32,6 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :2: 無効化する（描画性能より安定性を優先する）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - オプション画面の「一般」を開く。
@@ -42,9 +41,6 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :3: 無効化する（描画性能より安定性を優先する：ポリシーで設定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューを開き、パネルメニュー内の「オプション」をクリックする。
     - オプション画面の「一般」を開く。
@@ -57,9 +53,6 @@ Stability-3: RDPでの音声再生の有効化
     :1: 無効化する（既定）
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -68,9 +61,6 @@ Stability-3: RDPでの音声再生の有効化
     :2: 有効化する
 
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:config` を開く。
     - **確認**
@@ -81,9 +71,6 @@ Stability-4: WebRenderの有効化
     :1: Mozillaの判断で有効化する（既定）
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
@@ -92,9 +79,6 @@ Stability-4: WebRenderの有効化
     :2: 常に無効化する
 
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
