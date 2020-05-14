@@ -2,19 +2,24 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-Admin-1: 管理者による設定の制御
+Admin-0: 管理用設定の検証
 
-    :1: ローカルのファイルで設定する
+   :1: 事前準備
 
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
         - {{meta_installer_name}}
         - メタインストーラによってインストールされたMozilla Firefox
     - 以下のファイル、フォルダがあれば削除する。
         - `{{install_path_base}}\Mozilla Firefox` {%if install_path_base_32bit %}  
-          （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{% endif %}  
+          （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{% endif %}
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+Admin-1: 管理者による設定の制御
+
+    :1: ローカルのファイルで設定する
+
     - **確認**
         - `{{install_path}}\{{mcd_local_file}}` {%if install_path_base_32bit %}  
           （32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{% endif %}  
@@ -22,7 +27,7 @@ Admin-1: 管理者による設定の制御
         - `{{install_path}}\defaults\pref\*.js` {%if install_path_base_32bit %}  
           （32bit環境では `{{install_path_32bit}}\defaults\pref\*.js`）{% endif %}  
           の位置に、`{{mcd_local_file}}` を読み込ませる指定を含むファイルが存在する。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を再度実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\{{mcd_local_file}}.backup.1` {%if install_path_base_32bit %}  
@@ -34,17 +39,8 @@ Admin-1: 管理者による設定の制御
 
     :2: リモートのファイルで設定する
 
-    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
-        - {{meta_installer_name}}
-        - メタインストーラによってインストールされたMozilla Firefox
-    - 以下のファイル、フォルダがあれば削除する。
-        - `{{install_path_base}}\Mozilla Firefox` {%if install_path_base_32bit %}  
-          （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{% endif %}
     - リモート設定ファイルを参照できない環境で検証する場合、`{{mcd_local_file}}` の `autoadmin.global_config_url` の参照先URLを `file:///c:/users/public/autoconfig.jsc` または類似のローカルファイルのURLに変更し、当該位置にファイルを設置する。
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\{{mcd_local_file}}` {%if install_path_32bit %}  
           （32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{% endif %}  
@@ -70,15 +66,6 @@ Admin-1: 管理者による設定の制御
 
     :3: 設定しない（既定）
 
-    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
-        - {{meta_installer_name}}
-        - メタインストーラによってインストールされたMozilla Firefox
-    - 以下のファイル、フォルダがあれば削除する。
-        - `{{install_path_base}}\Mozilla Firefox` {%if install_path_base_32bit %}  
-          （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox`）{% endif %}  
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\*.cfg` {%if install_path_32bit %}  
           （32bit環境では `{{install_path_32bit}}\*.cfg`）{% endif %}  
@@ -88,9 +75,6 @@ Admin-2: 初回起動時のアドオン導入警告の可否
 
     :1: 警告する（既定）
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - 導入対象のアドオンがない場合、テストケースリストの `{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` リンクからファイルをダウンロードして、
       `{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` {%if install_path_32bit %}  
       （32bit環境では `{{install_path_32bit}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`）{% endif %}  
@@ -101,9 +85,6 @@ Admin-2: 初回起動時のアドオン導入警告の可否
 
     :2: 警告しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - 導入対象のアドオンがない場合、テストケースリストの `{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` リンクからファイルをダウンロードして、
       `{{install_path}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` {%if install_path_32bit %}  
       （32bit環境では `{{install_path_32bit}}\browser\extensions\{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi`）{% endif %}  
@@ -117,9 +98,6 @@ Admin-4: Mozillaにより署名されていないアドオンのインストー�
     :1: 許可する
 
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、
       `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` {%if install_path_32bit %}  
       （32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{% endif %}  
@@ -133,9 +111,6 @@ Admin-4: Mozillaにより署名されていないアドオンのインストー�
     :2: 禁止する（既定）
 
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、
       `{{install_path}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi` {%if install_path_32bit %}  
       （32bit環境では `{{install_path_32bit}}\browser\extensions\unsigned-sample-addon@clear-code.com.xpi`）{% endif %}  
@@ -150,9 +125,6 @@ Admin-5: ポリシー設定の使用の可否
 
     :1: 使用する
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - **確認**
@@ -163,9 +135,6 @@ Admin-5: ポリシー設定の使用の可否
 
     :2: 使用しない
 
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - **確認**
