@@ -79,6 +79,9 @@ FILES = [
 #
 # Utils
 
+def section(opt_id):
+    return opt_id.rsplit('-', 2)[0]
+
 def output_config(conf, dic):
     text = dic.get('COVER', '') + '\n'
 
@@ -91,7 +94,7 @@ def output_config(conf, dic):
                 text += dic.get(opt['opt_id'], "")
                 text += '\n'
 
-    sections = set(section(item_id) for item_id in conf)
+    sections = set(section(opt_id) for opt_id in conf)
 
     for fn in FILES:
         if fn not in sections:
