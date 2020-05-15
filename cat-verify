@@ -15,8 +15,10 @@ import sys
 import glob
 import getopt
 import logging
+import textwrap
 import csv
 import os
+import collections
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(BASEDIR)
@@ -36,13 +38,11 @@ except ImportError:
 TEMPLATE = """
 ## {opt_id}
 
-**検証対象**
-
-- 検証項目 『{item_title}』
-- 選択内容 「{opt_title}」
+『{item_title}』
 
 **検証手順**
 
+{conf}
 """
 
 TEMPLATE_PRETEXT = """
@@ -51,7 +51,19 @@ TEMPLATE_PRETEXT = """
 {conf}
 """
 
+TEMPLATE_CONFIG = """
+# about:configの検証
+
+## 事前準備
+
+- ポリシー設定から一時的に `BlockAboutConfig` を削除しておく。
+- Firefoxを起動し、`about:config`を開く。
+
+## 検証項目
+"""
+
 FILES = [
+    'PRETEXT',
     'Install',
     'Application',
     'Admin',
@@ -76,66 +88,77 @@ FILES = [
     'Addon-Acrobat',
 ]
 
+SPECIALS = [
+    'OVERWRITE',
+    'ABOUT_CONFIG',
+]
+
 #
 # Utils
 
-def section(opt_id):
-    return opt_id.rsplit('-', 2)[0]
+def parse_special(text):
+    ht = text.split('\n', maxsplit=1)
 
-def output_config(conf, vars):
-    text = vars.get('COVER', '') + '\n'
+    if ht[0] in SPECIALS:
+        return (ht[0], ht[1])
 
-    text += "# 事前準備"
+    return ('', text)
 
-    for item in adlib.load('verify/PRETEXT'):
+def apply_vars(items, vars):
+    for item in items:
         for opt in item['opts']:
-            if item['item_id'].startswith('PRETEXT-'):
-                text += TEMPLATE_PRETEXT.format(**opt)
-                text += vars.get(opt['opt_id'], "")
-                text += '\n'
+            if opt['opt_id'] not in vars:
+                continue
 
-    sections = set(section(opt_id) for opt_id in conf)
+            sp, text = parse_special(vars[opt['opt_id']])
+            if sp == 'OVERWRITE':
+                opt['conf'] = text
+            else:
+                opt['conf'] += text
+    return items
 
-    for fn in FILES:
-        if fn not in sections:
-           continue
+def create_template(manual, conf, vars):
+    about_config = []
 
-        items = adlib.load('verify/%s' % fn)
-        head = items[0]
+    template = vars.get('COVER', '') + '\n'
+    template += "# 事前準備"
 
-        # Header (e.g. "Privacy-0")
-        if head['item_no'] == '0':
-            text += '\n# %s' % head['item_title']
-            for opt in head['opts']:
-                text += TEMPLATE_PRETEXT.format(**opt)
-                text += vars.get(opt['opt_id'], "")
-                text += '\n'
-        else:
-            text += '\n# %sの検証' % fn
+    for item in manual['PRETEXT']:
+        for opt in item['opts']:
+            template += TEMPLATE_PRETEXT.format(**opt) + '\n'
 
-        # Contents
-        for item in items:
+    for items in manual.values():
+        tmp = ''
+
+        for item in items[1:]:
             for opt in item['opts']:
-                if opt['opt_id'] not in conf: continue
+                if opt['opt_id'] not in conf:
+                    continue
 
-                text += TEMPLATE.format(**opt, **item)
-                custom = vars.get(opt['opt_id'], '')
+                sp, text = parse_special(opt['conf'])
+                if sp == 'ABOUT_CONFIG':
+                    about_config.append((opt['opt_id'], text))
+                    continue
 
-                if custom.startswith('OVERWRITE\n'):
-                    text += custom[len('OVERWRITE\n'):]
-                else:
-                    text += opt['conf']
-                    text += custom
-                text += '\n'
+                tmp += TEMPLATE.format(**opt, **item) + '\n'
 
-    text += '\n' + vars.get('POSTSCRIPT', '')
+        if not tmp:
+            continue  # Nothing to verify
 
-    logging.basicConfig(format="\033[31m%(message)s\033[0m")
-    log = logging.getLogger(__name__)
+        template += '\n# %s' % items[0]['item_title']
+        for opt in items[0]['opts']:
+            template += TEMPLATE_PRETEXT.format(**opt) + '\n'
+        template += tmp
 
-    env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
-    print(env.from_string(text).render(vars))
+    if about_config:
+        template += TEMPLATE_CONFIG
+        for opt_id, text in about_config:
+            template += '- %s\n' % opt_id
+            template += textwrap.indent(text, '    ') + '\n'
 
+    template += '\n' + vars.get('POSTSCRIPT', '')
+
+    return template
 
 #
 # Main
@@ -156,7 +179,18 @@ def main(args):
         elif k == '-a':
             vars = adlib.load_variables(v)
 
-    return output_config(conf, vars)
+    manual = collections.OrderedDict()
+    for fn in FILES:
+        items = adlib.load('verify/%s' % fn)
+        manual[fn] = apply_vars(items, vars)
+
+    template = create_template(manual, conf, vars)
+
+    logging.basicConfig(format="\033[31m%(message)s\033[0m")
+    log = logging.getLogger(__name__)
+
+    env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
+    print(env.from_string(template).render(vars))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
