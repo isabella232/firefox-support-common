@@ -82,8 +82,8 @@ FILES = [
 def section(opt_id):
     return opt_id.rsplit('-', 2)[0]
 
-def output_config(conf, dic):
-    text = dic.get('COVER', '') + '\n'
+def output_config(conf, vars):
+    text = vars.get('COVER', '') + '\n'
 
     text += "# 事前準備"
 
@@ -91,7 +91,7 @@ def output_config(conf, dic):
         for opt in item['opts']:
             if item['item_id'].startswith('PRETEXT-'):
                 text += TEMPLATE_PRETEXT.format(**opt)
-                text += dic.get(opt['opt_id'], "")
+                text += vars.get(opt['opt_id'], "")
                 text += '\n'
 
     sections = set(section(opt_id) for opt_id in conf)
@@ -108,7 +108,7 @@ def output_config(conf, dic):
             text += '\n# %s' % head['item_title']
             for opt in head['opts']:
                 text += TEMPLATE_PRETEXT.format(**opt)
-                text += dic.get(opt['opt_id'], "")
+                text += vars.get(opt['opt_id'], "")
                 text += '\n'
         else:
             text += '\n# %sの検証' % fn
@@ -119,7 +119,7 @@ def output_config(conf, dic):
                 if opt['opt_id'] not in conf: continue
 
                 text += TEMPLATE.format(**opt, **item)
-                custom = dic.get(opt['opt_id'], '')
+                custom = vars.get(opt['opt_id'], '')
 
                 if custom.startswith('OVERWRITE\n'):
                     text += custom[len('OVERWRITE\n'):]
@@ -128,13 +128,13 @@ def output_config(conf, dic):
                     text += custom
                 text += '\n'
 
-    text += '\n' + dic.get('POSTSCRIPT', '')
+    text += '\n' + vars.get('POSTSCRIPT', '')
 
     logging.basicConfig(format="\033[31m%(message)s\033[0m")
     log = logging.getLogger(__name__)
 
     env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
-    print(env.from_string(text).render(dic))
+    print(env.from_string(text).render(vars))
 
 
 #
@@ -147,16 +147,16 @@ def usage(err):
 
 def main(args):
     conf = {}
-    dic = {}
+    vars = {}
 
     opts, args = getopt.getopt(args, 'c:a:')
     for k, v in opts:
         if k == '-c':
             conf = adlib.load_as_dict(v)
         elif k == '-a':
-            dic = adlib.load_variables(v)
+            vars = adlib.load_variables(v)
 
-    return output_config(conf, dic)
+    return output_config(conf, vars)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
