@@ -18,9 +18,9 @@
 ### ブロック対象が拡大されました
 
 * 初期状態ですべてのユーザーに対して、以下のトラッキングをブロックするようになりました。
-  * サードパーティのトラッキングCookie、暗号通貨採掘（Firefox 69～70）
-  * フィンガープリンティングのためのスクリプト（Firefox 72）
-  * SNSによるトラッキング（Facebook、Twitter、LinkdIn）（Firefox 70）
+    * サードパーティのトラッキングCookie、暗号通貨採掘（Firefox 69～70）
+    * フィンガープリンティングのためのスクリプト（Firefox 72）
+    * SNSによるトラッキング（Facebook、Twitter、LinkdIn）（Firefox 70）
 
 ### UIの変更
 
@@ -71,9 +71,9 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * Web Authentication HmacSecret拡張により、Windows 10の2019年5月版以降でのWindows Helloによるパスワード無しの認証をWebで行えるようになりました。（Firefox 69）
 * Webサイトのセキュリティレベルの示し方が変更されました。（Firefox 70）
   ![](esr78/security-identity-icons.png)
-  * 安全でないHTTP→×ボタン付きの錠前アイコン（Firefox 70）
-  * EV SSL→グレーの錠前アイコン（Firefox 70）
-  * EV SSLのときの詳細情報が錠前アイコンをクリックして表示されるポップアップ内に移動（Firefox 70）
+    * 安全でないHTTP→×ボタン付きの錠前アイコン（Firefox 70）
+    * EV SSL→グレーの錠前アイコン（Firefox 70）
+    * EV SSLのときの詳細情報が錠前アイコンをクリックして表示されるポップアップ内に移動（Firefox 70）
 * 実験的な機能として、`security.osclientcerts.autoload`を有効化することによって、WindowsとmacOSでOSの証明書ストアにあるクライアント証明書を利用できるようになりました。（Windows対応はFirefox 72、macOS対応はFirefox 75から）
 * TSL1.0/1.1が無効化され、TSL1.2以上の使用強制が始まる可能性があります。Covid-19の情報を提供する（各国の）政府のサイトの閲覧に支障が生じるため、この変更は今の所保留されています。（Firefox 74）
 * Mozillaが把握している信頼されたWeb PKI認証局の証明書を、ローカルにキャッシュするようになりました（CRLite）。適切に設定されていないWebサーバーに対するHTTPSの互換性と安全性が向上しました。（Firefox 75）
@@ -132,9 +132,9 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * Picture-in-Picture機能（ページ内に埋め込まれた動画を再生するとき、別ウィンドウで小さく表示して再生を継続する機能）が導入されました。（Firefox 71でWindowsのみ対応、72でmacOSとLinuxに対応）
   ![](esr78/picture-in-picture.png)
   （この機能は `media.videocontrols.picture-in-picture.enabled` で無効化できます。）
-  * 動画の再生中に右端にPicture-in-Pictureを有効化するかどうか尋ねるポップアップが表示され、それをクリックすると有効化されます。 
-    ![](esr78/picture-in-picture-button.png)
-  * Picture-in-Picture状態のウィンドウをダブルクリックするとフルスクリーン表示に切り替わります。（Firefox 76）
+    * 動画の再生中に右端にPicture-in-Pictureを有効化するかどうか尋ねるポップアップが表示され、それをクリックすると有効化されます。 
+      ![](esr78/picture-in-picture-button.png)
+    * Picture-in-Picture状態のウィンドウをダブルクリックするとフルスクリーン表示に切り替わります。（Firefox 76）
 * Windows, Linux, macOSでMP3のデコードに対応しました。 （Firefox 71）
 * WebRTCでの音声・ビデオ通話について、特定の状況下で、IPアドレスをランダムなID文字列に偽装することでプライバシーを向上しました。（Firefox 74）
 * AudioWorklet APIに対応したことにより、ビデオ会議サービスの「Zoom」を追加のアプリケーションのインストール無しで利用できるようになりました。（Firefox 76）
@@ -146,7 +146,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * macOSにおいて、署名付きPKGインストーラが提供されるようになりました。（Firefox 69）
 * Linuxにおいて、Flatpak形式のパッケージが提供されるようになりました。（Firefox 75）
 * Windowsにおいて、タスクスケジューラを使ったバックグラウンドでの自動更新が実装され始めました。 [1343669 - (update-agent) [meta] Background Update Agent tracking bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1343669)（Firefox 76～78）
-  * Firefox ESR78にこの変更が反映されるかどうかは現時点では不明です。
+    * Firefox ESR78にこの変更が反映されるかどうかは現時点では不明です。
 
 
 ## カスタマイズに関する変更
@@ -156,7 +156,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   コマンドラインオプションとして`-kiosk`を指定すると、UIやメニューが一切利用できない状態、かつウィンドウが最大化された状態でFirefoxが起動します。
 * ドメイン指定による画像のブロック機能が廃止されました。（Firefox 72）
 * 外部アプリケーションによって組み込まれたアドオンが、自動的に通常のユーザーインストールの状態に移行され、ユーザーが任意に削除できるようになりました。（Firefox 74）
-  * ESR78ではこの変更を無効化できるようになる予定ですが、検証は実施できていません。
+    * ESR78ではこの変更を無効化できるようになる予定ですが、検証は実施できていません。
 * DNS over HTTPSでは名前解決をしない例外ドメインを、ポリシーで設定できるようになりました。（Firefox 75）
 
 
