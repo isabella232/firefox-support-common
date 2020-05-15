@@ -95,7 +95,9 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * ニュースやブログなどを閲覧した時に、通知の許可を求めるポップアップが表示されていたケースについて、ポップアップを表示せずにロケーションバーの中にアイコンが表示されるだけになりました。（Firefox 72）
   ![](esr78/notification-popup.png)
   （この挙動は `dom.webnotifications.requireuserinteraction` で無効化できます。）
-* ロケーションバーのデザインが変更されました。これに伴い、ロケーションバーにフォーカスしただけで、よく見るサイトの一覧が表示されるようになりました。（Firefox 75）
+* ロケーションバーのデザインが変更されました。（Firefox 75）
+  ![](esr78/megabar-compare.png)
+  これに伴い、ロケーションバーにフォーカスしただけで、よく見るサイトの一覧が表示されるようになりました。
   ![](esr78/megabar.png)
 * ロケーションバーにおいて、[一般的なFirefoxの問題に対する解決策を含む項目が候補に表れるようになりました。](https://support.mozilla.org/ja/kb/search-web-firefox#w_firefox-solution-cualch)現時点では英語版のみ機能します。（Firefox 75）
   ![](esr78/hint-in-urlbar.png)
