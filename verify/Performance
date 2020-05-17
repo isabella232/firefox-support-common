@@ -14,83 +14,65 @@ Performance-1: メモリキャッシュのサイズ
 
     :1: 自動的に決める（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.cache.memory.capacity` が未定義か、ユーザー設定値になっている。
+    ABOUT_CONFIG
+
+    - `browser.cache.memory.capacity` が未定義か、ユーザー設定値になっている。
 
     :2: 明示する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.cache.memory.capacity` の値が指定値の通りである。
+    ABOUT_CONFIG
+
+    - `browser.cache.memory.capacity` の値が指定値の通りである。
 
 Performance-2: コンテンツの再描画間隔
 
     :1: 120ミリ秒間隔で再描画（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `content.notify.interval` が未定義である。
+    ABOUT_CONFIG
+
+    - `content.notify.interval` が未定義である。
 
     :2: 再描画間隔を明示する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `content.notify.interval` の値が指定値の通りである。
+    ABOUT_CONFIG
+
+    - `content.notify.interval` の値が指定値の通りである。
 
 Performance-3: 空きメモリが逼迫した時にバックグラウンドのタブを自動的にアンロードするかどうか
 
     :1: タブをアンロードして空きメモリを増やす
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.tabs.unloadOnLowMemory` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `browser.tabs.unloadOnLowMemory` の値が `true` である。
 
     :2: タブをアンロードしない（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.tabs.unloadOnLowMemory` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `browser.tabs.unloadOnLowMemory` の値が `false` である。
 
 Performance-4: パフォーマンスに悪影響を与えうるアクセシビリティサービス
 
     :1: アクセシビリティを優先して有効にする（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `accessibility.force_disabled` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `accessibility.force_disabled` の値が `0` である。
 
     :2: パフォーマンスを優先して無効化する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `accessibility.force_disabled` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `accessibility.force_disabled` の値が `1` である。
 
 Performance-5: GCの実行頻度
 
     :1: GCの実行頻度を上げ、消費メモリ量を削減する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。
+    ABOUT_CONFIG
+
+    - `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。
 
 Performance-6: 同時に開けるタブの個数を制限する
 
@@ -112,16 +94,12 @@ Performance-7: マルチプロセス機能で使用するプロセスの最大�
 
     :1: Firefoxの既定のプロセス数（8）（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `dom.ipc.processCount` の値が `8` である。
+    ABOUT_CONFIG
+
+    - `dom.ipc.processCount` の値が `8` である。
 
     :2: 任意のプロセス数
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `dom.ipc.processCount` の値が指定値の通りである。
+    ABOUT_CONFIG
+
+    - `dom.ipc.processCount` の値が指定値の通りである。
