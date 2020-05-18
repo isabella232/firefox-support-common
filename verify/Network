@@ -148,245 +148,191 @@ Network-4: NTLM認証によるシングルサインオンの許可
 
     :1: 許可する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.automatic-ntlm-auth.trusted-uris` の値が `{{ntlm_single_signon_hosts}}` である。
+    ABOUT_CONFIG
+
+    - `network.automatic-ntlm-auth.trusted-uris` の値が `{{ntlm_single_signon_hosts}}` である。
 
     :2: 許可する (Policy Engine)
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.automatic-ntlm-auth.trusted-uris` の値が `{{ntlm_single_signon_hosts}}` である。
+    ABOUT_CONFIG
+
+    - `network.automatic-ntlm-auth.trusted-uris` の値が `{{ntlm_single_signon_hosts}}` である。
 
 Network-5: HTTPの同時接続数
 
     :1: パフォーマンスを優先（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.max-connections` の値が `900` である。
-        - `network.http.max-persistent-connections-per-server` の値が `6` である。
-        - `network.http.max-persistent-connections-per-proxy` の値が `32` である。
+    ABOUT_CONFIG
+
+    - `network.http.max-connections` の値が `900` である。
+    - `network.http.max-persistent-connections-per-server` の値が `6` である。
+    - `network.http.max-persistent-connections-per-proxy` の値が `32` である。
 
     :2: トラフィックを抑える事を優先
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.max-connections` の値が `{{max_connections}}` である。
-        - `network.http.max-persistent-connections-per-server` の値が `{{max_persistent_connections_per_server}}` である。
-        - `network.http.max-persistent-connections-per-proxy` の値が `{{max_persistent_connections_per_proxy}}` である。
+    ABOUT_CONFIG
+
+    - `network.http.max-connections` の値が `{{max_connections}}` である。
+    - `network.http.max-persistent-connections-per-server` の値が `{{max_persistent_connections_per_server}}` である。
+    - `network.http.max-persistent-connections-per-proxy` の値が `{{max_persistent_connections_per_proxy}}` である。
 
 Network-6: SPDYプロトコルの使用の可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.spdy.enabled` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `network.http.spdy.enabled` の値が `true` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.spdy.enabled` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `network.http.spdy.enabled` の値が `false` である。
 
 Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の使用の可否
 
     :1: 禁止する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.insecure_fallback_hosts` の値が未設定または空文字である。
+    ABOUT_CONFIG
+
+    - `security.tls.insecure_fallback_hosts` の値が未設定または空文字である。
 
     :2: 特定のホストでのみ許可する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.insecure_fallback_hosts` の値が `{{ntlm_single_signon_hosts}}` である。
+    ABOUT_CONFIG
+
+    - `security.tls.insecure_fallback_hosts` の値が `{{ntlm_single_signon_hosts}}` である。
 
 Network-8: IPv6の使用
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.dns.disableIPv6` の値が `false` である。
-        - `network.dns.disablePrefetch` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `network.dns.disableIPv6` の値が `false` である。
+    - `network.dns.disablePrefetch` の値が `false` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.dns.disableIPv6` の値が `true` である。
-        - `network.dns.disablePrefetch` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `network.dns.disableIPv6` の値が `true` である。
+    - `network.dns.disablePrefetch` の値が `true` である。
 
 Network-10: onionドメインの名前解決
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.dns.blockDotOnion` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `network.dns.blockDotOnion` の値が `false` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.dns.blockDotOnion` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `network.dns.blockDotOnion` の値が `true` である。
 
 Network-11: UA文字列の変更
 
     :1: 変更しない（既定）
 
-    - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:support` を開く。
-    - **確認**
-        - 「User Agent」の値がFirefox既定のUA文字列である。
+    ABOUT_CONFIG
+
+    - 「User Agent」の値がFirefox既定のUA文字列である。
 
     :2: 任意の値を設定する
 
-    - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:support` を開く。
-    - **確認**
-        - 「User Agent」の値が「{{user_agent_name}}」である。
+    ABOUT_CONFIG
+
+    - 「User Agent」の値が「{{user_agent_name}}」である。
 
 Network-13: TLS 1.3の使用
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.version.max` の値が `4` である。
+    ABOUT_CONFIG
+
+    - `security.tls.version.max` の値が `4` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.version.max` の値が `3` 以下である。
+    ABOUT_CONFIG
+
+    - `security.tls.version.max` の値が `3` 以下である。
 
     :4: 許可する（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.version.max` の値が `4` である。
+    ABOUT_CONFIG
+
+    - `security.tls.version.max` の値が `4` である。
 
     :3: 禁止する（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.version.max` の値が `3` 以下である。
+    ABOUT_CONFIG
+
+    - `security.tls.version.max` の値が `3` 以下である。
 
 Network-14: SSL/TLSでのSHA-1証明書の使用の可否
 
     :1: 常に受け入れる
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.pki.sha1_enforcement_level` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `security.pki.sha1_enforcement_level` の値が `0` である。
 
     :2: 常に拒否する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.pki.sha1_enforcement_level` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `security.pki.sha1_enforcement_level` の値が `1` である。
 
     :3: 2016年以前発行の公的な証明書を受け入れる
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.pki.sha1_enforcement_level` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `security.pki.sha1_enforcement_level` の値が `2` である。
 
     :4: インポートした認証局の発行した証明書を受け入れる（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.pki.sha1_enforcement_level` の値が `3` である。
+    ABOUT_CONFIG
+
+    - `security.pki.sha1_enforcement_level` の値が `3` である。
 
     :5: 2016年以前発行の公的な証明書とインポートした認証局の発行した証明書の両方を受け入れる
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.pki.sha1_enforcement_level` の値が `4` である。
+    ABOUT_CONFIG
+
+    - `security.pki.sha1_enforcement_level` の値が `4` である。
 
 Network-16: FQDN形式でない（ドットを含まない）ホスト名でのシングルサインオンの許可
 
     :1: 許可する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.negotiate-auth.allow-non-fqdn` の値が `true` である。
-        - `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `network.negotiate-auth.allow-non-fqdn` の値が `true` である。
+    - `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。
 
     :2: 許可する (Policy Engine)
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.negotiate-auth.allow-non-fqdn` の値が `true` である。
-        - `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `network.negotiate-auth.allow-non-fqdn` の値が `true` である。
+    - `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。
 
 Network-17: TLS 1.xの使用
 
     :1: TLS 1.0の使用を許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.version.min` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `security.tls.version.min` の値が `1` である。
 
     :2: 特定バージョン以上のTLSの使用を強制（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.tls.version.min` の値が `2` 以上である。
+    ABOUT_CONFIG
+
+    - `security.tls.version.min` の値が `2` 以上である。
 

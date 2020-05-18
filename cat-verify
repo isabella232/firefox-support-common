@@ -56,6 +56,7 @@ TEMPLATE_CONFIG = """
 
 ## 事前準備
 
+- ポリシー設定から一時的に `DisableDeveloperTools` を削除しておく。
 - ポリシー設定から一時的に `BlockAboutConfig` を削除しておく。
 - Firefoxを起動し、`about:config`を開く。
 

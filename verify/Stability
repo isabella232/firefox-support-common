@@ -52,19 +52,15 @@ Stability-3: RDPでの音声再生の有効化
 
     :1: 無効化する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.sandbox.content.level` の値が `5` である。
+    ABOUT_CONFIG
+
+    - `security.sandbox.content.level` の値が `5` である。
 
     :2: 有効化する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.sandbox.content.level` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `security.sandbox.content.level` の値が `2` である。
 
 Stability-4: WebRenderの有効化
 

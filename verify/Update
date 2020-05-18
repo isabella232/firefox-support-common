@@ -30,45 +30,35 @@ Update-2: アドオンの自動更新の可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `extensions.update.enabled` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `extensions.update.enabled` の値が `true` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `extensions.update.enabled` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `extensions.update.enabled` の値が `false` である。
 
     :3: 禁止する（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `extensions.update.enabled` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `extensions.update.enabled` の値が `false` である。
 
 Update-3: 検索エンジンの自動更新の可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.search.update` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `browser.search.update` の値が `true` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.search.update` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `browser.search.update` の値が `false` である。
 
 Update-4: 「Mozilla Maintenance Service」のインストールの可否
 

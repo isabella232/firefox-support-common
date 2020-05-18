@@ -138,19 +138,15 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.startup.homepage_override.mstone` が現在のFirefoxのバージョンと一致している。
+    ABOUT_CONFIG
+
+    - `browser.startup.homepage_override.mstone` が現在のFirefoxのバージョンと一致している。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.startup.homepage_override.mstone` が `ignore` である。
+    ABOUT_CONFIG
+
+    - `browser.startup.homepage_override.mstone` が `ignore` である。
 
     :3: 禁止する（ポリシーで設定）
 
@@ -262,19 +258,15 @@ Startup-10: 初回起動時などにダミーのウィンドウを使用して�
 
     :1: ハードウェア情報が変更されていたら起動時に性能をテストする（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `media.hardware-video-decoding.failed` の値が固定されていない。
+    ABOUT_CONFIG
+
+    - `media.hardware-video-decoding.failed` の値が固定されていない。
 
     :2: ハードウェア情報の変更を無視し、性能を測定しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `media.hardware-video-decoding.failed` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `media.hardware-video-decoding.failed` の値が `true` である。
 
 Startup-12: 初回起動時のみの特別なスタートページ
 

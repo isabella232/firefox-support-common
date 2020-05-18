@@ -229,21 +229,15 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
     :1: 指定しない（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `places.history.expiration.max_pages` が未定義である。
+    ABOUT_CONFIG
+
+    - `places.history.expiration.max_pages` が未定義である。
 
     :2: 指定する
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。
+    ABOUT_CONFIG
+
+    - `places.history.expiration.max_pages` の値が `{{history_expiration_max_pages}}` である。
 
 Privacy-9: 日数ベースでの履歴の自動削除
 
@@ -430,21 +424,15 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.search.geoip.url` の値が未定義や空でない。
+    ABOUT_CONFIG
+
+    - `browser.search.geoip.url` の値が未定義や空でない。
 
     :2: 禁止する
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.search.geoip.url` の値が空文字である。
+    ABOUT_CONFIG
+
+    - `browser.search.geoip.url` の値が空文字である。
 
 Privacy-16: DNSの先読みの可否
 
@@ -556,23 +544,19 @@ Privacy-19: セキュリティエラーレポートの送信の可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.ssl.errorReporting.automatic` の値が `true` である。
-        - `security.ssl.errorReporting.enabled` の値が `true` である。
-        - `security.ssl.errorReporting.url` の値が空文字でない。
+    ABOUT_CONFIG
+
+    - `security.ssl.errorReporting.automatic` の値が `true` である。
+    - `security.ssl.errorReporting.enabled` の値が `true` である。
+    - `security.ssl.errorReporting.url` の値が空文字でない。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `security.ssl.errorReporting.automatic` の値が `false` である。
-        - `security.ssl.errorReporting.enabled` の値が `false` である。
-        - `security.ssl.errorReporting.url` の値が空文字である。
+    ABOUT_CONFIG
+
+    - `security.ssl.errorReporting.automatic` の値が `false` である。
+    - `security.ssl.errorReporting.enabled` の値が `false` である。
+    - `security.ssl.errorReporting.url` の値が空文字である。
 
 Privacy-21: クラッシュレポートの送信の可否
 
@@ -850,43 +834,38 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :1: ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（既定）
 
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `privacy.trackingprotection.enabled` が `false` である。
-        - `privacy.trackingprotection.pbmode.enabled` が `true` である。
+    ABOUT_CONFIG
+
+    - `privacy.trackingprotection.enabled` が `false` である。
+    - `privacy.trackingprotection.pbmode.enabled` が `true` である。
 
     :2: ブロックリストを取得して、トラッキングを常に遮断する
 
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `privacy.trackingprotection.enabled` が `true` である。
-        - `privacy.trackingprotection.pbmode.enabled` が `true` である。
+    ABOUT_CONFIG
+
+    - `privacy.trackingprotection.enabled` が `true` である。
+    - `privacy.trackingprotection.pbmode.enabled` が `true` である。
 
     :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシー設定を併用）
 
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `privacy.trackingprotection.enabled` が `true` である。
-        - `privacy.trackingprotection.pbmode.enabled` が `true` である。
+    ABOUT_CONFIG
+
+    - `privacy.trackingprotection.enabled` が `true` である。
+    - `privacy.trackingprotection.pbmode.enabled` が `true` である。
 
     :3: ブロックリストを取得せず、トラッキングを遮断しない
 
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `privacy.trackingprotection.enabled` が `false` である。
-        - `privacy.trackingprotection.pbmode.enabled` が `false` である。
+    ABOUT_CONFIG
+
+    - `privacy.trackingprotection.enabled` が `false` である。
+    - `privacy.trackingprotection.pbmode.enabled` が `false` である。
 
     :5: ブロックリストを取得せず、トラッキングを遮断しない（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `privacy.trackingprotection.enabled` が `false` である。
-        - `privacy.trackingprotection.pbmode.enabled` が `false` である。
+    ABOUT_CONFIG
+
+    - `privacy.trackingprotection.enabled` が `false` である。
+    - `privacy.trackingprotection.pbmode.enabled` が `false` である。
 
 Privacy-34: フォームへのユーザー入力値のセッション情報への保存の可否
 
@@ -1160,79 +1139,61 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
 
     :1: 一切通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy` の値が `0` である。
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy` の値が `2` である。
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy` の値が `3` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy` の値が `3` である。
 
 Privacy-45: プライベートブラウジングモードでのリファラの通知ポリシー
 
     :1: 一切通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.pbmode` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.pbmode` の値が `0` である。
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.pbmode` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.pbmode` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.pbmode` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.pbmode` の値が `2` である。
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.pbmode` の値が `3` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.pbmode` の値が `3` である。
 
 Privacy-46: カメラの利用の可否
 
     :1: 確認の上で許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `permissions.default.camera` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `permissions.default.camera` の値が `0` である。
 
     :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
@@ -1278,27 +1239,21 @@ Privacy-47: マイクの利用の可否
 
     :1: 確認の上で許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `permissions.default.microphone` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `permissions.default.microphone` の値が `0` である。
 
     :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `permissions.default.microphone` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `permissions.default.microphone` の値が `0` である。
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `permissions.default.microphone` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `permissions.default.microphone` の値が `0` である。
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
@@ -1330,95 +1285,73 @@ Privacy-48: リファラの通知の有無
 
     :1: リンクの遷移、埋め込み画像の取得時に通知（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.sendRefererHeader` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `network.http.sendRefererHeader` の値が `2` である。
 
     :2: リンクの遷移時にのみ通知
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.sendRefererHeader` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `network.http.sendRefererHeader` の値が `1` である。
 
     :3: 一切通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.sendRefererHeader` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `network.http.sendRefererHeader` の値が `0` である。
 
 Privacy-49: 通常モードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
     :1: 一切通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers` の値が `0` である。
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers` の値が `2` である。
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers` の値が `3` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers` の値が `3` である。
 
 Privacy-50: プライベートブラウジングモードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
     :1: 一切通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `0` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `0` である。
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `1` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `1` である。
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `2` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `2` である。
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `3` である。
+    ABOUT_CONFIG
+
+    - `network.http.referer.defaultPolicy.trackers.pbmode` の値が `3` である。
 
 Privacy-51: プライベートウィンドウでのアドオンの動作可否
 

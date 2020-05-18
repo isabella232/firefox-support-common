@@ -30,12 +30,10 @@ Script-2: プッシュ通知の可否
 
     :1: 確認の上で許可する（通常版・既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `dom.push.enabled` の値が `true` である。
-        - `dom.serviceWorkers.enabled` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `dom.push.enabled` の値が `true` である。
+    - `dom.serviceWorkers.enabled` の値が `true` である。
 
     :4: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
@@ -75,19 +73,15 @@ Script-3: ゲームパッドAPIの利用の可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `domdom.gamepad.enabled` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `domdom.gamepad.enabled` の値が `true` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `domdom.gamepad.enabled` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `domdom.gamepad.enabled` の値が `false` である。
 
 Script-4: DOMイベントによるクリップボード操作のオーバーライド
 
@@ -133,30 +127,24 @@ Script-7: 動画・音声の自動再生の可否
 
     :1: 許可する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `media.autoplay.default` の値が `0` である。
-        - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `media.autoplay.default` の値が `0` である。
+    - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `media.autoplay.default` の値が `1` である。
-        - `media.autoplay.enabled.user-gestures-needed` の値が `false` である。
+    ABOUT_CONFIG
+
+    - `media.autoplay.default` の値が `1` である。
+    - `media.autoplay.enabled.user-gestures-needed` の値が `false` である。
 
     :3: 原則禁止するが、ユーザーの操作で再生される物は許可（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `media.autoplay.default` の値が `5` である。
-        - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `media.autoplay.default` の値が `5` である。
+    - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
 
 Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
