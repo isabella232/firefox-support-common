@@ -42,7 +42,7 @@ from collections import OrderedDict
 # option title.
 
 PAT_ITEM = re.compile('^(\S+): (.+)')
-PAT_OPT  = re.compile('^ +:(\d+): (.+)')
+PAT_OPT  = re.compile('^ +:(\d+): ([^:]+)(: *(.+))?')
 
 class Loader:
 
@@ -62,7 +62,7 @@ class Loader:
 
         m = re.match(PAT_OPT, line)
         if m:
-            return self.new_opt(m.group(1), m.group(2))
+            return self.new_opt(m.group(1), m.group(2), m.group(4))
 
         self.conf += line[4:] + '\n'
 
@@ -75,13 +75,16 @@ class Loader:
                 'opts': []}
         self.data.append(item)
 
-    def new_opt(self, opt_no, opt_title):
+    def new_opt(self, opt_no, opt_title, opt_title_sub):
         self.flush()
+        if not opt_title_sub:
+            opt_title_sub = ''
 
         opt_id =  '%s-%s' % (self.data[-1]['item_id'], opt_no)
         opt = {'opt_id': opt_id,
                'opt_no': opt_no,
                'opt_title': opt_title,
+               'opt_title_sub': opt_title_sub,
                'conf': ''}
         self.data[-1]['opts'].append(opt)
 

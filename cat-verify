@@ -39,6 +39,7 @@ TEMPLATE = """
 ## {opt_id}
 
 『{item_title}』
+{opt_title_sub}
 
 **検証手順**
 
@@ -169,14 +170,17 @@ def create_template(manual, conf, vars):
 
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
-                    options.append((opt['opt_id'], text))
+                    options.append((opt['opt_id'], opt['opt_title_sub'], text))
                     continue
                 elif sp == 'ABOUT_CONFIG':
-                    about_config.append((opt['opt_id'], text))
+                    about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
                     continue
                 elif sp == 'ABOUT_POLICIES':
-                    about_policies.append((opt['opt_id'], text))
+                    about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
                     continue
+
+                if opt['opt_title_sub'] != '':
+                    opt['opt_title_sub'] = '（' + opt['opt_title_sub'] + '）'
 
                 tmp += TEMPLATE.format(**opt, **item) + '\n'
 
@@ -190,20 +194,20 @@ def create_template(manual, conf, vars):
 
     if options:
         template += TEMPLATE_OPTIONS
-        for opt_id, text in options:
-            template += '\n## %s\n' % opt_id
+        for opt_id, opt_title_sub, text in options:
+            template += '\n## %s %s\n' % (opt_id, opt_title_sub)
             template += text + '\n'
 
     if about_config:
         template += TEMPLATE_ABOUT_CONFIG
-        for opt_id, text in about_config:
-            template += '\n## %s\n' % opt_id
+        for opt_id, opt_title_sub, text in about_config:
+            template += '\n## %s %s\n' % (opt_id, opt_title_sub)
             template += text + '\n'
 
     if about_policies:
         template += TEMPLATE_ABOUT_POLICIES
-        for opt_id, text in about_policies:
-            template += '\n## %s\n' % opt_id
+        for opt_id, opt_title_sub, text in about_policies:
+            template += '\n## %s %s\n' % (opt_id, opt_title_sub)
             template += text + '\n'
 
     template += '\n' + vars.get('POSTSCRIPT', '')

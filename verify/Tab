@@ -185,19 +185,15 @@ Tab-9: 新しいタブを開く操作の高速化
 
     :1: 事前読み込みで高速化する（既定）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.newtab.preload` の値が `true` である。
+    ABOUT_CONFIG
+
+    - `browser.newtab.preload` の値が `true` である。
 
     :2: 高速化しない（Tab-5-2選択時は常にこの動作）
 
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-    - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - `browser.newtab.preload` の値がユーザー設定値の `false` であるか、`false` にロックされている。
+    ABOUT_CONFIG
+
+    - `browser.newtab.preload` の値がユーザー設定値の `false` であるか、`false` にロックされている。
 
 Tab-10: 検索バーの表示
 
