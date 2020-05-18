@@ -538,13 +538,13 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
 
 Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
 
-    :1: ブロックする（既定）:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :1: ブロックする（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.enabled` の値が `true` である。
 
-    :1: ブロックする（既定）:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :1: ブロックする（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -554,13 +554,13 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
     - **確認**
         - ダウンロード一覧の一番上の項目に「このファイルはウイルスやマルウェアが含まれています。」という警告のメッセージが表示される。
 
-    :2: ブロックしない:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :2: ブロックしない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.enabled` の値が `false` である。
 
-    :2: ブロックしない:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合：
+    :2: ブロックしない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -572,14 +572,14 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
 
 Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
 
-    :1: 警告する（既定）:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :1: 警告する（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.remote.block_potentially_unwanted` の値が `true` である。
     - `browser.safebrowsing.downloads.remote.block_uncommon` の値が `true` である。
 
-    :1: 警告する（既定）:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :1: 警告する（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -589,14 +589,14 @@ Security-27: ファイルのダウンロード保護により、不要なソフ�
     - **確認**
         - ダウンロード一覧の一番上の項目に「このファイルを開くのは危険です。」という警告のメッセージが表示される。
 
-    :2: 警告しない:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :2: 警告しない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.remote.block_potentially_unwanted` の値が `false` である。
     - `browser.safebrowsing.downloads.remote.block_uncommon` の値が `false` である。
 
-    :2: 警告しない:フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :2: 警告しない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -628,13 +628,13 @@ Security-28: 認証が必要なWiFiアクセスポイントを検出した時に
 
 Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの実行
 
-    :1: 許可する:外部Webサイト（www.clear-code.com/）にアクセスできず、且つPythonの実行環境がない場合
+    :1: 許可する: 外部Webサイト（www.clear-code.com/）にアクセスできず、且つPythonの実行環境がない場合
 
     ABOUT_CONFIG
 
     - `security.block_script_with_wrong_mime` の値が `false` である。
 
-    :1: 許可する:外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
+    :1: 許可する: 外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
@@ -642,13 +642,13 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
     - **確認**
         - スクリプトがブロックされず、アラートダイアログに`3`と表示される。
 
-    :2: 禁止する（既定）:外部Webサイト（www.clear-code.com/）にアクセスできず、且つPythonの実行環境がない場合
+    :2: 禁止する（既定）: 外部Webサイト（www.clear-code.com/）にアクセスできず、且つPythonの実行環境がない場合
 
     ABOUT_CONFIG
 
     - `security.block_script_with_wrong_mime` の値が `true` である。
 
-    :2: 禁止する（既定）:外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
+    :2: 禁止する（既定）: 外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
 
     - Pythonの実行環境を整えておく。
     - Firefoxを起動する。

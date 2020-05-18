@@ -42,7 +42,7 @@ from collections import OrderedDict
 # option title.
 
 PAT_ITEM = re.compile('^(\S+): (.+)')
-PAT_OPT  = re.compile('^ +:(\d+): ([^:]+)(: *(.+))?')
+PAT_OPT  = re.compile('^ +:(\d+): ([^:]+)(: (.+))?')
 
 class Loader:
 

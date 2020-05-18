@@ -39,7 +39,7 @@ TEMPLATE = """
 ## {opt_id}
 
 『{item_title}』
-{opt_title_sub}
+{opt_title_sub_out}
 
 **検証手順**
 
@@ -148,10 +148,14 @@ def apply_vars(items, vars):
                 opt['conf'] += text
     return items
 
+PAT_PRETEXT_OPTION = re.compile('.+-0-%d+\Z')
+
 def create_template(manual, conf, vars):
     items_options = []
     items_about_config = []
     items_about_policies = []
+
+    all_ids = []
 
     template = vars.get('COVER', '') + '\n'
     template += "# 事前準備"
@@ -171,18 +175,24 @@ def create_template(manual, conf, vars):
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
                     items_options.append((opt['opt_id'], opt['opt_title_sub'], text))
+                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-options'))
                     continue
                 elif sp == 'ABOUT_CONFIG':
                     items_about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
+                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-config'))
                     continue
                 elif sp == 'ABOUT_POLICIES':
                     items_about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
+                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-policies'))
                     continue
 
-                if opt['opt_title_sub'] != '':
-                    opt['opt_title_sub'] = '（' + opt['opt_title_sub'] + '）'
+                opt['opt_title_sub_out'] = opt['opt_title_sub']
+                if opt['opt_title_sub_out'] != '':
+                    opt['opt_title_sub_out'] = '（' + opt['opt_title_sub_out'] + '）'
 
                 tmp += TEMPLATE.format(**opt, **item) + '\n'
+                if not re.match(PAT_PRETEXT_OPTION, opt['opt_id']):
+                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], opt['opt_id']))
 
         if not tmp:
             continue  # Nothing to verify
@@ -211,6 +221,13 @@ def create_template(manual, conf, vars):
             template += text + '\n'
 
     template += '\n' + vars.get('POSTSCRIPT', '')
+
+
+    if all_ids:
+        all_ids.sort(key=lambda x: [x[0].split('-')[0]] + list(map(int, x[0].split('-')[1:])))
+        template += '\n# 索引\n'
+        for opt_id, opt_title_sub, reference in all_ids:
+            template += '\n* %s %s' % (opt_id, opt_title_sub)
 
     return template
 
