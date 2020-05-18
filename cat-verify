@@ -149,9 +149,9 @@ def apply_vars(items, vars):
     return items
 
 def create_template(manual, conf, vars):
-    options = []
-    about_config = []
-    about_policies = []
+    items_options = []
+    items_about_config = []
+    items_about_policies = []
 
     template = vars.get('COVER', '') + '\n'
     template += "# 事前準備"
@@ -170,13 +170,13 @@ def create_template(manual, conf, vars):
 
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
-                    options.append((opt['opt_id'], opt['opt_title_sub'], text))
+                    items_options.append((opt['opt_id'], opt['opt_title_sub'], text))
                     continue
                 elif sp == 'ABOUT_CONFIG':
-                    about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
+                    items_about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
                     continue
                 elif sp == 'ABOUT_POLICIES':
-                    about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
+                    items_about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
                     continue
 
                 if opt['opt_title_sub'] != '':
@@ -192,21 +192,21 @@ def create_template(manual, conf, vars):
             template += TEMPLATE_PRETEXT.format(**opt) + '\n'
         template += tmp
 
-    if options:
+    if items_options:
         template += TEMPLATE_OPTIONS
-        for opt_id, opt_title_sub, text in options:
+        for opt_id, opt_title_sub, text in items_options:
             template += '\n## %s %s\n' % (opt_id, opt_title_sub)
             template += text + '\n'
 
-    if about_config:
+    if items_about_config:
         template += TEMPLATE_ABOUT_CONFIG
-        for opt_id, opt_title_sub, text in about_config:
+        for opt_id, opt_title_sub, text in items_about_config:
             template += '\n## %s %s\n' % (opt_id, opt_title_sub)
             template += text + '\n'
 
-    if about_policies:
+    if items_about_policies:
         template += TEMPLATE_ABOUT_POLICIES
-        for opt_id, opt_title_sub, text in about_policies:
+        for opt_id, opt_title_sub, text in items_about_policies:
             template += '\n## %s %s\n' % (opt_id, opt_title_sub)
             template += text + '\n'
 
