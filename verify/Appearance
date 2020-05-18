@@ -176,10 +176,9 @@ Appearance-7: アプリケーションのUIに使用する言語
 
     :1: 組み込みの言語（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - 有効なポリシーの中に `RequestedLocales` の記載が無い。
+    ABOUT_POLICIES
+
+    - `RequestedLocales` が存在しない。
 
     :2: 任意の言語（ポリシーで設定）
 

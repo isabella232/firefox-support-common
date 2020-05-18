@@ -94,34 +94,26 @@ Update-6: システムアドオンの自動更新の可否
 
     :1: 許可する（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - 「有効」配下の各設定値を確認する。
-    - **確認**
-        - `DisableSystemAddonUpdate` が存在しない。
+    ABOUT_POLICIES
+
+    - `DisableSystemAddonUpdate` が存在しない。
 
     :2: 禁止する（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - 「有効」配下の各設定値を確認する。
-    - **確認**
-        - `DisableSystemAddonUpdate` が `true` に設定されている。
+    ABOUT_POLICIES
+
+    - `DisableSystemAddonUpdate` が `true` に設定されている。
 
 Update-7: アプリケーションの自動更新情報取得先
 
     :1: Mozillaのサーバー（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - 「有効」配下の各設定値を確認する。
-    - **確認**
-        - `AppUpdateURL` が存在しない。
+    ABOUT_POLICIES
+
+    - `AppUpdateURL` が存在しない。
 
     :2: 任意のサーバー（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - 「有効」配下の各設定値を確認する。
-    - **確認**
-        - `AppUpdateURL` が空文字に設定されている。
+    ABOUT_POLICIES
+
+    - `AppUpdateURL` が空文字に設定されている。

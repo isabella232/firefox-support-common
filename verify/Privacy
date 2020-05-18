@@ -277,40 +277,35 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :1: 永続的に許可する（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - `Cookies` の `Default` の値が `true` である。
+    ABOUT_POLICIES
+
+    - `Cookies` の `Default` の値が `true` である。
 
     :6: 既定では禁止し、特定サイトのみ永続的に許可する（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - `Cookies` の `Default` の値が `false` である。
-        - `Cookies` の `Allow` の値として許可サイトが列挙されている。
+    ABOUT_POLICIES
+
+    - `Cookies` の `Default` の値が `false` である。
+    - `Cookies` の `Allow` の値として許可サイトが列挙されている。
 
     :3: セッション中のみ許可する（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - `Cookies` の `ExpireAtSessionEnd` の値が `true` である。
+    ABOUT_POLICIES
+
+    - `Cookies` の `ExpireAtSessionEnd` の値が `true` である。
 
     :4: 禁止する（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - `Cookies` の `Default` の値が `false` である。
+    ABOUT_POLICIES
+
+    - `Cookies` の `Default` の値が `false` である。
 
     :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - `Cookies` の `Default` の値が `true` である。
-        - `Cookies` の `Allow` の値として禁止サイトが列挙されている。
+    ABOUT_POLICIES
+
+    - `Cookies` の `Default` の値が `true` である。
+    - `Cookies` の `Allow` の値として禁止サイトが列挙されている。
 
 Privacy-12: DOMストレージの利用の可否
 
@@ -1087,19 +1082,15 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :1: 参加する
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - 「有効」配下の各設定値を確認する。
-    - **確認**
-        - `DisableFirefoxStudies` の値が `false` である。
+    ABOUT_POLICIES
+
+    - `DisableFirefoxStudies` の値が `false` である。
 
     :2: 参加しない
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - 「有効」配下の各設定値を確認する。
-    - **確認**
-        - `DisableFirefoxStudies` の値が `true` である。
+    ABOUT_POLICIES
+
+    - `DisableFirefoxStudies` の値が `true` である。
 
 Privacy-43: 「Do Not Track」ヘッダの送出の可否
 

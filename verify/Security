@@ -14,10 +14,9 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     :2: 導入しない（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - 設定済みのポリシーの中に `Certificates` が含まれない。
+    ABOUT_POLICIES
+
+    - `Certificates` が存在しない。
 
     :3: Windowsの証明書データベースから自動的にインポートする
 
@@ -839,10 +838,9 @@ Security-39: 特定のWebサイトへのアクセスの遮断
 
     :1: 遮断しない（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - 有効なポリシーの中に `WebsiteFilter` の記載が無い。
+    ABOUT_POLICIES
+
+    - `WebsiteFilter` が存在しない。
 
     :2: 遮断する（ポリシーで設定）
 
@@ -858,10 +856,9 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
 
     :1: 常に共通のメッセージを表示（既定）
 
-    - Firefoxを起動する。
-    - `about:policies` を開く。
-    - **確認**
-        - 有効なポリシーの中に `ExtensionSettings` の記載が無い。
+    ABOUT_POLICIES
+
+    - `ExtensionSettings` が存在しない。
 
     :2: アドオンごとにメッセージを指定（ポリシーで設定）
 

@@ -51,14 +51,31 @@ TEMPLATE_PRETEXT = """
 {conf}
 """
 
-TEMPLATE_CONFIG = """
-# about:configの検証
+TEMPLATE_ABOUT_CONFIG = """
+# about:configを使用した検証
 
 ## 事前準備
 
+- 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
 - ポリシー設定から一時的に `DisableDeveloperTools` を削除しておく。
 - ポリシー設定から一時的に `BlockAboutConfig` を削除しておく。
-- Firefoxを起動し、`about:config`を開く。
+- Firefoxを起動する。
+- `about:config`を開く。
+"""
+
+TEMPLATE_ABOUT_POLICIES = """
+# about:policiesを使用した検証
+
+## 事前準備
+
+- 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+- Firefoxを起動する。
+- `about:policies`を開く。
+- 「有効」を選択する。
 """
 
 FILES = [
@@ -118,6 +135,7 @@ def apply_vars(items, vars):
 
 def create_template(manual, conf, vars):
     about_config = []
+    about_policies = []
 
     template = vars.get('COVER', '') + '\n'
     template += "# 事前準備"
@@ -138,6 +156,9 @@ def create_template(manual, conf, vars):
                 if sp == 'ABOUT_CONFIG':
                     about_config.append((opt['opt_id'], text))
                     continue
+                elif sp == 'ABOUT_POLICIES':
+                    about_policies.append((opt['opt_id'], text))
+                    continue
 
                 tmp += TEMPLATE.format(**opt, **item) + '\n'
 
@@ -150,8 +171,14 @@ def create_template(manual, conf, vars):
         template += tmp
 
     if about_config:
-        template += TEMPLATE_CONFIG
+        template += TEMPLATE_ABOUT_CONFIG
         for opt_id, text in about_config:
+            template += '\n## %s\n' % opt_id
+            template += text + '\n'
+
+    if about_policies:
+        template += TEMPLATE_ABOUT_POLICIES
+        for opt_id, text in about_policies:
             template += '\n## %s\n' % opt_id
             template += text + '\n'
 
