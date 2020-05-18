@@ -107,6 +107,7 @@ FILES = [
 SPECIALS = [
     'OVERWRITE',
     'ABOUT_CONFIG',
+    'ABOUT_POLICIES',
 ]
 
 #
