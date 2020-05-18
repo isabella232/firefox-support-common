@@ -59,8 +59,6 @@ TEMPLATE_CONFIG = """
 - ポリシー設定から一時的に `DisableDeveloperTools` を削除しておく。
 - ポリシー設定から一時的に `BlockAboutConfig` を削除しておく。
 - Firefoxを起動し、`about:config`を開く。
-
-## 検証項目
 """
 
 FILES = [
@@ -154,8 +152,8 @@ def create_template(manual, conf, vars):
     if about_config:
         template += TEMPLATE_CONFIG
         for opt_id, text in about_config:
-            template += '- %s\n' % opt_id
-            template += textwrap.indent(text, '    ') + '\n'
+            template += '\n## %s\n' % opt_id
+            template += text + '\n'
 
     template += '\n' + vars.get('POSTSCRIPT', '')
 
