@@ -51,6 +51,18 @@ TEMPLATE_PRETEXT = """
 {conf}
 """
 
+TEMPLATE_OPTIONS = """
+# オプション画面を使用した検証
+
+## 事前準備
+
+- 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+- Firefoxを起動する。
+- パネルメニューからオプションを開く。
+"""
+
 TEMPLATE_ABOUT_CONFIG = """
 # about:configを使用した検証
 
@@ -106,6 +118,7 @@ FILES = [
 
 SPECIALS = [
     'OVERWRITE',
+    'OPTIONS',
     'ABOUT_CONFIG',
     'ABOUT_POLICIES',
 ]
@@ -135,6 +148,7 @@ def apply_vars(items, vars):
     return items
 
 def create_template(manual, conf, vars):
+    options = []
     about_config = []
     about_policies = []
 
@@ -154,7 +168,10 @@ def create_template(manual, conf, vars):
                     continue
 
                 sp, text = parse_special(opt['conf'])
-                if sp == 'ABOUT_CONFIG':
+                if sp == 'OPTIONS':
+                    options.append((opt['opt_id'], text))
+                    continue
+                elif sp == 'ABOUT_CONFIG':
                     about_config.append((opt['opt_id'], text))
                     continue
                 elif sp == 'ABOUT_POLICIES':
@@ -170,6 +187,12 @@ def create_template(manual, conf, vars):
         for opt in items[0]['opts']:
             template += TEMPLATE_PRETEXT.format(**opt) + '\n'
         template += tmp
+
+    if options:
+        template += TEMPLATE_OPTIONS
+        for opt_id, text in options:
+            template += '\n## %s\n' % opt_id
+            template += text + '\n'
 
     if about_config:
         template += TEMPLATE_ABOUT_CONFIG
