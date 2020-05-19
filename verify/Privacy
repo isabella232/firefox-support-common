@@ -255,7 +255,9 @@ Privacy-9: 日数ベースでの履歴の自動削除
 
     :1: 日数ベースで履歴を自動削除する
 
+    {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
       {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
       {% endif %}
@@ -288,6 +290,9 @@ Privacy-9: 日数ベースでの履歴の自動削除
         - 前日を含めて過去5日間の履歴が残っており、それよりも古い履歴項目が残っていない。
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
 
 Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cacheの保存の可否
@@ -1395,21 +1400,41 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     :1: 原則として禁止し、個別に許可する（既定）
 
-    - ポリシー設定から `DisablePrivateBrowsing` の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if MenuShortcut_3 %}
+    - ポリシー設定から `DisablePrivateBrowsing` を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
+      {% endif %}
+      {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開く。
     - **確認**
         - アドオンがすべてプライベートウィンドウでは無効になっている。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
+      {%if MenuShortcut_3 %}
+    - ポリシー設定から一時的に削除した `DisablePrivateBrowsing` を元に戻す。
+      {% endif %}
 
     :2: 原則として許可する
 
-    - ポリシー設定から `DisablePrivateBrowsing` の設定を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if MenuShortcut_3 %}
+    - ポリシー設定から `DisablePrivateBrowsing` を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
+      {% endif %}
+      {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開く。
     - **確認**
         - アドオンがすべてプライベートウィンドウでも有効になっている。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
+      {%if MenuShortcut_3 %}
+    - ポリシー設定から一時的に削除した `DisablePrivateBrowsing` を元に戻す。
+      {% endif %}
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
 

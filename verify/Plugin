@@ -14,68 +14,103 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :1: 常に無効化する
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
         - その項目の「…」ボタンの配下で「無効化する」が選択されている。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
     :4: 常に無効化する（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
         - その項目の「…」ボタンの配下で「無効化する」が選択されている。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
     :3: クリックされたら有効にする（既定）（ポリシーで設定）
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - Adobe Flashプラグインの項目（Shockwave Flash）が表示されている。
         - その項目の「…」ボタンの配下で「実行時に確認する」が選択されている。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
 Plugin-8: Gecko Media Pluginの利用の可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - OpenH264のプラグインが表示される。
         - 「Primetime Content Decryption Module」が表示される。
         - 「Widevine Content Decryption Module」が表示される。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
     :2: 禁止する
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - OpenH264のプラグインが表示されない。
         - 「Primetime Content Decryption Module」が表示されない。
         - 「Widevine Content Decryption Module」が表示されない。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
 Plugin-11: 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージ
 
     :1: 表示する(既定)
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージが表示される。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
     :2: 表示しない
 
-    - ポリシー設定から `BlockAboutAddons` の設定を削除し、アドオンマネージャを一時的に有効化しておく。
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - アドオンマネージャを開き、「プラグイン」を選択する。
     - **確認**
         - 「Firefoxによるサポートが終了したプラグインは表示されません。」のメッセージが表示されない。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
