@@ -14,7 +14,9 @@ Network-1: Microsoft .NET Frameworkによって変更されたUA文字列の初�
 
     :1: 初期化する
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 文字列型の設定 `general.useragent.extra.microsoftdotnet` を作成し、値を `test` と入力して保存する。
@@ -22,10 +24,15 @@ Network-1: Microsoft .NET Frameworkによって変更されたUA文字列の初�
     - `about:config` を開く。
     - **確認**
         - `general.useragent.extra.microsoftdotnet` が項目として存在しない、もしくは、値が未定義である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
     :2: 初期化しない（既定）
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 文字列型の設定 `general.useragent.extra.microsoftdotnet` を作成し、値を `test` と入力して保存する。
@@ -33,6 +40,9 @@ Network-1: Microsoft .NET Frameworkによって変更されたUA文字列の初�
     - `about:config` を開く。
     - **確認**
         - `general.useragent.extra.microsoftdotnet` の値が `test` である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
 Network-2: プロキシの利用
 

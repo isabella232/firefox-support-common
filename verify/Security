@@ -211,7 +211,9 @@ Security-5: 攻撃サイトに対する警告の可否
 
     :1: 警告する（既定）
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - **確認**
@@ -227,6 +229,9 @@ Security-5: 攻撃サイトに対する警告の可否
     - **確認**
         - 各行の「最終更新日時」列の内容が現在時刻に更新される。
         - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
     :2: 警告しない
 
@@ -242,7 +247,9 @@ Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - **確認**
@@ -255,6 +262,9 @@ Security-6: 偽装サイトに対する警告の可否
     - **確認**
         - 各行の「最終更新日時」列の内容が現在時刻に更新される。
         - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
     :2: 警告しない
 
@@ -348,7 +358,12 @@ Security-15: その他、バックグラウンドで行われる外部への通�
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` と `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
     - Firefoxを起動する。
     - ロケーションバーに `about:blank` と入力し、空のページを開く。
@@ -362,10 +377,21 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     - そのまま10分放置する。
     - **確認**
         - ネットワーク通信が記録される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 禁止する
 
-    - ポリシー設定から `DisableDeveloperTools` と `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
     - Firefoxを起動する。
     - ロケーションバーに `about:blank` と入力し、空のページを開く。
@@ -395,6 +421,12 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     - メニューの「プロジェクト」→「追加のコンポーネントを管理」を開く。インストールボタンが表示されている場合は、クリックする。
     - **確認**
         - 無反応である、もしくはADB Extensionアドオンが準備中になっている。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Security-16: フルスクリーン表示の可否
 
@@ -748,23 +780,45 @@ Security-36: DNS over HTTPSの使用
 
     :1: 使用しない（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` および `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
         - 「ファイル」欄が `dns-query` となっているリクエストが記録されていない。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 使用する（ポリシーで設定）
 
-    - ポリシー設定から `DisableDeveloperTools` および `BlockAboutConfig` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
         - 「ファイル」欄が `dns-query` となっているリクエストが記録されている。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Security-37: セキュリティ警告の回避
 

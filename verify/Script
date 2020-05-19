@@ -87,23 +87,33 @@ Script-4: DOMイベントによるクリップボード操作のオーバーラ�
 
     :1: 許可する（既定）
 
+    {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - テストケースの `mouseevent.html` を開く。
     - Ctrl-Shift-KでWebコンソールを開く。
     - コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - **確認**
         - コンソール上に `copy` という文字が出力される。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 禁止する
 
+    {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - テストケースの `mouseevent.html` を開く。
     - Ctrl-Shift-KでWebコンソールを開く。
     - コンテンツ内の文字を選択して、キーボードショートカット「Ctrl-C」でコピーする。
     - **確認**
         - コンソール上に `copy` という文字が出力されない。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Script-5: DOMイベントによるコンテキストメニュー操作のオーバーライド
 
@@ -166,23 +176,33 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
 
     :1: 表示する
 
+    {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `http://example.com/` を開く。
     - Ctrl-Shift-KでWebコンソールを開く。
     - `Notification.requestPermission()` と入力し、実行する。
     - **確認**
         - 権限の許可を求めるポップアップが表示される。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 禁止する（既定）
 
+    {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `http://example.com/` を開く。
     - Ctrl-Shift-KでWebコンソールを開く。
     - `Notification.requestPermission()` と入力し、実行する。
     - **確認**
         - コンソール上に `通知の許可設定は安全なコンテキスト内でしか要求されません。` と表示され、権限の許可を求めるポップアップが表示されない。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Script-10: 動画に対するPicture-in-Picture表示の可否
 

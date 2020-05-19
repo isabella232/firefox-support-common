@@ -14,8 +14,12 @@ Appearance-1: 表示フォントの明示
 
     :1: 設定しない（既定）
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` で `font.name.*.ja` を検索し、以下の設定を行う。
         - `font.name.serif.ja`（文字列型）を`missing`に設定する。
@@ -31,11 +35,21 @@ Appearance-1: 表示フォントの明示
     - 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - **確認**
         - 既定の等幅フォントの名前が表示される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 設定する
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` で `font.name.*.ja` を検索し、以下の設定を行う。
         - `font.name.serif.ja`（文字列型）を`missing`に設定する。
@@ -51,11 +65,21 @@ Appearance-1: 表示フォントの明示
     - 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - **確認**
         - `font.name-list.monospace.ja` に設定したフォントのいずれかの名前が表示される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :3: Firefox ESR52と同じに揃える
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` で `font.name.*.ja` を検索し、以下の設定を行う。
         - `font.name.serif.ja`（文字列型）を`missing`に設定する。
@@ -71,6 +95,12 @@ Appearance-1: 表示フォントの明示
     - 「Monospace / 等幅」の箇所を右クリックし、「要素を調査」を選択して、インスペクタ右端の「フォント」をクリックする。
     - **確認**
         - `font.name-list.monospace.ja` に設定したフォントのいずれかの名前が表示される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Appearance-2: ツールバー上の項目の初期設定
 

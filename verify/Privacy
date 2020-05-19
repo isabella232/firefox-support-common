@@ -191,8 +191,12 @@ Privacy-7: リンク先の先読みの可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -202,11 +206,21 @@ Privacy-7: リンク先の先読みの可否
     - ブラウザウィンドウでテストケースリストのリンクから `https://www.clear-code.com/blog/2016/5/10.html` を開く。
     - **確認**
         - `GET https://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに出力される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 禁止する
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -216,6 +230,12 @@ Privacy-7: リンク先の先読みの可否
     - ブラウザウィンドウでテストケースリストのリンクから `https://www.clear-code.com/blog/2016/5/10.html` を開く。
     - **確認**
         - `GET https://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに出力されない。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
@@ -236,7 +256,9 @@ Privacy-9: 日数ベースでの履歴の自動削除
     :1: 日数ベースで履歴を自動削除する
 
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - 十分な日数分の履歴項目を以下の手順で用意する。
         - システムの日付と時刻について、インターネット経由での調整を無効にする。
@@ -264,6 +286,9 @@ Privacy-9: 日数ベースでの履歴の自動削除
     - マウスとキーボードから手を離し、4分以上、何も操作せずに放置する。
     - **確認**
         - 前日を含めて過去5日間の履歴が残っており、それよりも古い履歴項目が残っていない。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
 Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cacheの保存の可否
 
@@ -425,8 +450,12 @@ Privacy-16: DNSの先読みの可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -439,11 +468,21 @@ Privacy-16: DNSの先読みの可否
     - ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - **確認**
         - `dns-resolution-request: dns-prefetch.example.com` というログがブラウザーコンソールに出力される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 禁止する
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を行う（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -456,6 +495,12 @@ Privacy-16: DNSの先読みの可否
     - ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - **確認**
         - `dns-resolution-request: dns-prefetch.example.com` というログがブラウザーコンソールに出力されない。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
@@ -705,7 +750,9 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
 
     :1: 1週間に1回、最低限の最適化のみ行う（既定）
 
+    {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -719,10 +766,15 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
             - `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
             - `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
             - `The database has been vacuumed.`
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 1週間に1回、VACUUMも含めて行う
 
+    {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -736,6 +788,9 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
             - `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
             - `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
             - `The database has been vacuumed.`
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Privacy-30: ディスクキャッシュの最大サイズ制限
 
@@ -767,8 +822,12 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
 
     :1: 許可する（既定）
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - MCD設定ファイルに以下の設定を追加しておく。
         - `lockPref("logging.nsHttp", 5);`
         - `lockPref("logging.NetworkPredictor", 5);`
@@ -785,11 +844,21 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - **確認**
         - 「All skipped? false」とコンソールに出力される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 禁止する
 
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - MCD設定ファイルに以下の設定を追加しておく。
         - `lockPref("logging.nsHttp", 5);`
         - `lockPref("logging.NetworkPredictor", 5);`
@@ -806,6 +875,12 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - **確認**
         - 「All skipped? true」とコンソールに出力される。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Privacy-33: Webサービスによる行動履歴の収集（トラッキング）の遮断の可否
 
@@ -920,6 +995,9 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     :1: 先読みを許可する（既定）: 先読み対象となるページのホスト名がグローバルIPアドレスに解決される環境の場合
 
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - MCD設定ファイルに以下の設定を追加しておく。
         - `lockPref("logging.nsHttp", 5);`
         - `lockPref("logging.NetworkPredictor", 5);`
@@ -927,7 +1005,6 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
         - `lockPref("logging.config.add_timestamp", true);`
         - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
     - `C:\Users\Public\http.log-*` を全て削除しておく。
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - Firefoxを起動する。
     - `https://www.clear-code.com/blog/` を開く。
     - 記事の個別ページを10ページほど訪問する。
@@ -940,6 +1017,9 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     - コピーしたスクリプトを貼り付けて、実行する。
     - **確認**
         - コンソールに「All cancelled? false」と出力される。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :1: 先読みを許可する（既定）: 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境の場合
 
@@ -949,6 +1029,9 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     :2: 先読みを禁止する: 先読み対象となるページのホスト名がグローバルIPアドレスに解決される環境の場合
 
+    {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - MCD設定ファイルに以下の設定を追加しておく。
         - `lockPref("logging.nsHttp", 5);`
         - `lockPref("logging.NetworkPredictor", 5);`
@@ -956,7 +1039,6 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
         - `lockPref("logging.config.add_timestamp", true);`
         - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
     - `C:\Users\Public\http.log-*` を全て削除しておく。
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
     - Firefoxを起動する。
     - `https://www.clear-code.com/blog/` を開く。
     - 記事の個別ページを10ページほど訪問する。
@@ -969,6 +1051,9 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     - コピーしたスクリプトを貼り付けて、実行する。
     - **確認**
         - コンソールに「All cancelled? true」と出力される。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
     :2: 先読みを禁止する: 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境の場合
 
@@ -1200,7 +1285,9 @@ Privacy-47: マイクの利用の可否
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1210,10 +1297,15 @@ Privacy-47: マイクの利用の可否
     - `about:config` を開く。
     - **確認**
         - `permissions.default.microphone` の値が `1` である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「マイクへのアクセスの要求をブロック」にチェック）
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - パネルメニューからオプションを開く。
     - オプション画面の「プライバシーとセキュリティ」を開く。
@@ -1223,6 +1315,9 @@ Privacy-47: マイクの利用の可否
     - `about:config` を開く。
     - **確認**
         - `permissions.default.microphone` の値が `4` である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
 Privacy-48: リファラの通知の有無
 
@@ -1318,39 +1413,51 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
 
-    :1: 表示する（既定）
+    :1: 表示する（既定）: Privacy-18-3が選択されている場合
 
-    - Privacy-18-3が選択されている場合、以下の手順を実施する。
-        - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - Firefoxを起動する。
-        - `about:config` を開く。
-        - **確認**
-            - `datareporting.policy.firstRunURL` の値が空文字である。
-    - Privacy-18-3が選択されていない場合、以下の手順を実施する。
-        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-          `{{special_profile_path}}` {%if special_profile_actual_path %}  
-          （{{special_profile_actual_path}}）{% endif %}  
-          を空にする。
-        - Firefoxを起動する。
-        - **確認**
-            - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。
+    {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `datareporting.policy.firstRunURL` の値が空文字である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
-    :2: 表示しない
+    :1: 表示する（既定）: Privacy-18-3が選択されていない場合
 
-    - Privacy-18-3が選択されている場合、以下の手順を実施する。
-        - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-        - Firefoxを起動する。
-        - `about:config` を開く。
-        - **確認**
-            - `datareporting.policy.firstRunURL` の値が空文字である。
-    - Privacy-18-3が選択されていない場合、以下の手順を実施する。
-        - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-          `{{special_profile_path}}` {%if special_profile_actual_path %}  
-          （{{special_profile_actual_path}}）{% endif %}  
-          を空にする。
-        - Firefoxを起動する。
-        - **確認**
-            - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
+      `{{special_profile_path}}` {%if special_profile_actual_path %}  
+      （{{special_profile_actual_path}}）{% endif %}  
+      を空にする。
+    - Firefoxを起動する。
+    - **確認**
+        - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。
+
+    :2: 表示しない:  Privacy-18-3が選択されている場合
+
+    {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
+    - Firefoxを起動する。
+    - `about:config` を開く。
+    - **確認**
+        - `datareporting.policy.firstRunURL` の値が空文字である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
+
+    :2: 表示しない: Privacy-18-3が選択されていない場合
+
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
+      `{{special_profile_path}}` {%if special_profile_actual_path %}  
+      （{{special_profile_actual_path}}）{% endif %}  
+      を空にする。
+    - Firefoxを起動する。
+    - **確認**
+        - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれていない。
 
 Privacy-53: パスワードの自動生成機能の使用
 

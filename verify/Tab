@@ -69,7 +69,9 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
+    {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - 新しいタブを2つ以上開く。
     - タブを1つ選択し、右クリックして「他のタブをすべて閉じる」を選択する。
@@ -84,6 +86,9 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
     - `about:config` を開く。
     - **確認**
         - `browser.tabs.warnOnCloseOtherTabs` の値が `true` である。
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
 
 Tab-3: 複数のタブを一度に開く際の警告の可否
 
