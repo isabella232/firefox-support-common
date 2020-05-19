@@ -1438,7 +1438,7 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
 
-    :1: 表示する（既定）: Privacy-18-3が選択されている場合
+    :1: 表示する（既定）: Privacy_18_3
 
     {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
@@ -1451,7 +1451,7 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
 
-    :1: 表示する（既定）: Privacy-18-3が選択されていない場合
+    :1: 表示する（既定）: not Privacy_18_3
 
     - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
@@ -1461,7 +1461,7 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
     - **確認**
         - プライバシーポリシーの説明のためのタブがバックグラウンドで開かれている。
 
-    :2: 表示しない:  Privacy-18-3が選択されている場合
+    :2: 表示しない: Privacy_18_3
 
     {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
@@ -1474,7 +1474,7 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
 
-    :2: 表示しない: Privacy-18-3が選択されていない場合
+    :2: 表示しない: not Privacy_18_3
 
     - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
       `{{special_profile_path}}` {%if special_profile_actual_path %}  

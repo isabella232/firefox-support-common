@@ -165,6 +165,12 @@ def create_template(manual, conf, vars):
             template += TEMPLATE_PRETEXT.format(**opt) + '\n'
 
     for items in manual.values():
+        for item in items[1:]:
+            for opt in item['opts']:
+                vars[opt['opt_id'].replace('-', '_')] = opt['opt_id'] in conf
+                vars['not ' + opt['opt_id'].replace('-', '_')] = opt['opt_id'] not in conf
+
+    for items in manual.values():
         tmp = ''
 
         for item in items[1:]:
@@ -172,7 +178,10 @@ def create_template(manual, conf, vars):
                 if opt['opt_id'] not in conf:
                     continue
 
-                vars[opt['opt_id'].replace('-', '_')] = True
+                if opt['opt_title_sub'] in vars:
+                    if not vars[opt['opt_title_sub']]:
+                        continue
+                    opt['opt_title_sub'] = ''
 
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
