@@ -66,7 +66,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 * 十分な複雑さを持ったパスワードの自動生成機能が追加されました。（Firefox 70）
   ![](esr78/generated-password.png)
-  （この機能は `signon.generation.enabled` で無効化できます。）
+  （この機能はパスワードの保存を禁止している場合は無効化されます。また、 `signon.generation.enabled` で個別にも無効化できます。）
 * パスワードを表示する前に、OSのアカウントの再認証を求めるようになりました。（Firefox 76～78）
   ![](esr78/auth-to-expose-password.png)
   （Webページへの入力やマスターパスワードの使用時には、OSのアカウントの再認証は求められません。）
