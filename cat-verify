@@ -224,8 +224,9 @@ def create_template(manual, conf, vars):
 
 
     if all_ids:
-        all_ids.sort(key=lambda x: [x[0].split('-')[0]] + list(map(int, x[0].split('-')[1:])))
-        template += '\n# 索引\n'
+        #all_ids.sort(key=lambda x: [x[0].split('-')[0]] + list(map(int, x[0].split('-')[1:])))
+        #template += '\n# 索引\n'
+        template += '\n# 検証対象項目一覧\n'
         for opt_id, opt_title_sub, reference in all_ids:
             template += '\n* %s %s' % (opt_id, opt_title_sub)
 
