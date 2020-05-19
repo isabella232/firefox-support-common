@@ -164,11 +164,21 @@ def create_template(manual, conf, vars):
         for opt in item['opts']:
             template += TEMPLATE_PRETEXT.format(**opt) + '\n'
 
+
+    # prepare internal variables
+
     for items in manual.values():
         for item in items[1:]:
             for opt in item['opts']:
                 vars[opt['opt_id'].replace('-', '_')] = opt['opt_id'] in conf
                 vars['not ' + opt['opt_id'].replace('-', '_')] = opt['opt_id'] not in conf
+
+    vars['DisableDeveloperTools'] = len(vars.keys() & {'MenuShortcut_10', 'MenuShortcut_11', 'MenuShortcut_12', 'MenuShortcut_13', 'MenuShortcut_14', 'MenuShortcut_15', 'MenuShortcut_16', 'MenuShortcut_17', 'MenuShortcut_18', 'MenuShortcut_20', 'MenuShortcut_21', 'MenuShortcut_22', 'MenuShortcut_23', 'MenuShortcut_24', 'MenuShortcut_25', 'MenuShortcut_26', 'MenuShortcut_28', 'MenuShortcut_29', 'MenuShortcut_57', 'MenuShortcut_64', 'MenuShortcut_65'}) > 0
+    vars['not DisableDeveloperTools'] = not vars['DisableDeveloperTools']
+
+    vars['OfferToSaveLogins'] = len(vars.keys() & {'Privacy_5_2', 'Privacy_5_3', 'Privacy_5_4'}) == 0
+    vars['not OfferToSaveLogins'] = not vars['OfferToSaveLogins']
+
 
     for items in manual.values():
         tmp = ''
@@ -268,8 +278,6 @@ def main(args):
         manual[fn] = apply_vars(items, vars)
 
     template = create_template(manual, conf, vars)
-
-    vars['DisableDeveloperTools'] = len(vars.keys() & {'MenuShortcut_10', 'MenuShortcut_11', 'MenuShortcut_12', 'MenuShortcut_13', 'MenuShortcut_14', 'MenuShortcut_15', 'MenuShortcut_16', 'MenuShortcut_17', 'MenuShortcut_18', 'MenuShortcut_20', 'MenuShortcut_21', 'MenuShortcut_22', 'MenuShortcut_23', 'MenuShortcut_24', 'MenuShortcut_25', 'MenuShortcut_26', 'MenuShortcut_28', 'MenuShortcut_29', 'MenuShortcut_57', 'MenuShortcut_64', 'MenuShortcut_65'}) > 0
 
     logging.basicConfig(format="\033[31m%(message)s\033[0m")
     log = logging.getLogger(__name__)
