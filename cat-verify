@@ -172,6 +172,8 @@ def create_template(manual, conf, vars):
                 if opt['opt_id'] not in conf:
                     continue
 
+                vars[opt['opt_id'].replace('-', '_')] = True
+
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
                     items_options.append((opt['opt_id'], opt['opt_title_sub'], text))

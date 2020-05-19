@@ -40,7 +40,9 @@ Admin-1: 管理者による設定の制御
     :2: リモートのファイルで設定する
 
     - リモート設定ファイルを参照できない環境で検証する場合、`{{mcd_local_file}}` の `autoadmin.global_config_url` の参照先URLを `file:///c:/users/public/autoconfig.jsc` または類似のローカルファイルのURLに変更し、当該位置にファイルを設置する。
+      {%if MenuShortcut_35 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
+      {% endif %}
     - **確認**
         - `{{install_path}}\{{mcd_local_file}}` {%if install_path_32bit %}  
           （32bit環境では `{{install_path_32bit}}\{{mcd_local_file}}`）{% endif %}  
@@ -63,6 +65,9 @@ Admin-1: 管理者による設定の制御
     - **確認**
         - ユーザープロファイルフォルダ内に `failover.jsc` が存在する。
         - `failover.jsc` の内容が `autoadmin.global_config_url` の参照先の内容と等しい。
+      {%if MenuShortcut_35 %}
+    - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
+      {% endif %}
 
     :3: 設定しない（既定）
 

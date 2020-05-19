@@ -236,7 +236,9 @@ Appearance-10: ユーザースタイルシートの使用
 
     :1: 使用する
 
+    {%if MenuShortcut_35 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
@@ -247,10 +249,15 @@ Appearance-10: ユーザースタイルシートの使用
     - テストケースの `index.html` を開く。
     - **確認**
         - 文字色が赤色で表示される。
+      {%if MenuShortcut_35 %}
+    - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
+      {% endif %}
 
     :2: 使用しない（既定）
 
+    {%if MenuShortcut_35 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
@@ -261,3 +268,6 @@ Appearance-10: ユーザースタイルシートの使用
     - テストケースの `index.html` を開く。
     - **確認**
         - 既定の文字色で表示される。
+      {%if MenuShortcut_35 %}
+    - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
+      {% endif %}
