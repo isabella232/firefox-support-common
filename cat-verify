@@ -176,12 +176,12 @@ def create_template(manual, conf, vars):
     vars['DisableDeveloperTools'] = len(vars.keys() & {'MenuShortcut_10', 'MenuShortcut_11', 'MenuShortcut_12', 'MenuShortcut_13', 'MenuShortcut_14', 'MenuShortcut_15', 'MenuShortcut_16', 'MenuShortcut_17', 'MenuShortcut_18', 'MenuShortcut_20', 'MenuShortcut_21', 'MenuShortcut_22', 'MenuShortcut_23', 'MenuShortcut_24', 'MenuShortcut_25', 'MenuShortcut_26', 'MenuShortcut_28', 'MenuShortcut_29', 'MenuShortcut_57', 'MenuShortcut_64', 'MenuShortcut_65'}) > 0
     vars['not DisableDeveloperTools'] = not vars['DisableDeveloperTools']
 
-    vars['OfferToSaveLogins'] = len(vars.keys() & {'Privacy_5_2', 'Privacy_5_3', 'Privacy_5_4'}) == 0
+    vars['OfferToSaveLogins'] = not (vars['Privacy_5_2'] or vars['Privacy_5_3'] or vars['Privacy_5_4'])
     vars['not OfferToSaveLogins'] = not vars['OfferToSaveLogins']
 
-    vars['UsePACFile'] = len(vars.keys() & {'Network_2_3', 'Network_2_8'}) > 0
+    vars['UsePACFile'] = vars['Network_2_3'] or vars['Network_2_8']
 
-    vars['UseBlockList'] = len(vars.keys() & {'Security_5_2', 'Security_6_2', 'Privacy_33_3', 'Privacy_33_5'}) == 0
+    vars['UseBlockList'] = not (vars['Security_5_2'] or vars['Security_6_2'] or vars['Privacy_33_3'] or vars['Privacy_33_5'])
 
 
     for items in manual.values():
