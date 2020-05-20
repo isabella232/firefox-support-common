@@ -484,7 +484,9 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
 
     :1: ブロックする（既定）
 
+    {%if InstallAddonsPermission %}
     - ポリシー設定から `InstallAddonsPermission` を削除し、アドオンのインストールを一時的に有効化しておく。
+      {% endif %}
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
@@ -496,10 +498,15 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
+      {%if InstallAddonsPermission %}
+    - ポリシー設定から一時的に削除した `InstallAddonsPermission` を元に戻す。
+      {% endif %}
 
     :2: ブロックしない
 
+    {%if InstallAddonsPermission %}
     - ポリシー設定から `InstallAddonsPermission` を削除し、アドオンのインストールを一時的に有効化しておく。
+      {% endif %}
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
@@ -510,6 +517,9 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
         - 読み込まれたアドオンが一時的な拡張機能の一覧に表示されている。
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
+      {%if InstallAddonsPermission %}
+    - ポリシー設定から一時的に削除した `InstallAddonsPermission` を元に戻す。
       {% endif %}
 
 Security-23: プラグインのサンドボックス内実行
