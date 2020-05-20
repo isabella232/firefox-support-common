@@ -661,7 +661,11 @@ Privacy-22: Firefox Syncの利用の可否
 
 Privacy-24: Firefoxアカウントの利用の可否
 
-    :1: 許可する（既定）
+    :1: 許可する（既定）: DisableSync
+
+    - Privacy-24の検証と重複するため省略
+
+    :1: 許可する（既定）: not DisableSync
 
     - Firefoxを起動する。
     - パネルメニューを開く。
@@ -675,7 +679,11 @@ Privacy-24: Firefoxアカウントの利用の可否
         - 「Sync」が存在する。
         - 「Syncにサインイン」が存在する。
 
-    :2: 禁止する
+    :2: 禁止する: DisableSync
+
+    - Privacy-24の検証と重複するため省略
+
+    :2: 禁止する: not DisableSync
 
     - Firefoxを起動する。
     - パネルメニューを開く。
@@ -689,7 +697,11 @@ Privacy-24: Firefoxアカウントの利用の可否
         - 「Sync」が存在しない。
         - 「Syncにサインイン」が存在しない。
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する（ポリシーで設定）: DisableSync
+
+    - Privacy-24の検証と重複するため省略
+
+    :3: 禁止する（ポリシーで設定）: not DisableSync
 
     - Firefoxを起動する。
     - パネルメニューを開く。
