@@ -116,11 +116,11 @@ MenuShortcut-19: [廃止] ツール＞ウェブ開発＞アプリマネージャ
 
     [廃止]
 
-MenuShortcut-20: ツール＞ウェブ開発＞WebIDE (Shift-F8)
+MenuShortcut-20: [廃止] ツール＞ウェブ開発＞WebIDE (Shift-F8)
 
-    :1: 無効化する
+    :1: [廃止] 無効化する
 
-    "DisableDeveloperTools": true,
+    [廃止] Firefox 71でWebIDEが削除されたため廃止
 
 MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
 
