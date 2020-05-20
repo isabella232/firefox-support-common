@@ -837,7 +837,7 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
 
 Privacy-32: リンクのhoverによるリンク先の先読みの可否
 
-    :1: 許可する（既定）
+    :1: 許可する（既定）: 先読み対象となるページのホスト名がグローバルIPアドレスに解決される環境の場合
 
     {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
@@ -852,12 +852,12 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
         - `lockPref("logging.config.add_timestamp", true);`
         - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
     - `C:\Users\Public\http.log-*` を全て削除しておく。
-    - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
-      もしくは、本節での先読みに関する検証を省略する。
     - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境で、`network.http.speculative-parallel-limit` が `1` またはそれ以上である。
+    - `https://www.clear-code.com/blog/` を開く。
+    - 記事の個別ページを10ページほど訪問する。
+    - Firefoxを終了する。
+    - MCD設定ファイルに加えた設定を元に戻す。
+    - Firefoxを起動する。
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - **確認**
         - 「All skipped? false」とコンソールに出力される。
@@ -867,8 +867,17 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
+      {%if not Privacy_37_1 and not Privacy_37_2 %}
+    - `C:\Users\Public\http.log-*` を全て削除しておく。
+      {% endif %}
 
-    :2: 禁止する
+    :1: 許可する（既定）: 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境の場合
+
+    ABOUT_CONFIG
+
+    - `network.http.speculative-parallel-limit` が `1` またはそれ以上である。
+
+    :2: 禁止する: 先読み対象となるページのホスト名がグローバルIPアドレスに解決される環境の場合
 
     {%if Security_9_3 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
@@ -883,12 +892,11 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
         - `lockPref("logging.config.add_timestamp", true);`
         - `lockPref("logging.config.LOG_FILE","C:\\Users\\Public\\http.log");`
     - `C:\Users\Public\http.log-*` を全て削除しておく。
-    - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境においては、先読み機能が作用せず実際の動作での検証が不可能なため、グローバルIPアドレスでWebサイトに接続可能な状態にしておく。
-      もしくは、本節での先読みに関する検証を省略する。
     - Firefoxを起動する。
-    - `about:config` を開く。
-    - **確認**
-        - 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境で、`network.http.speculative-parallel-limit` が `0` である。
+    - `https://www.clear-code.com/blog/` を開く。
+    - 記事の個別ページを10ページほど訪問する。
+    - Firefoxを終了する。
+    - MCD設定ファイルに加えた設定を元に戻す。
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - **確認**
         - 「All skipped? true」とコンソールに出力される。
@@ -898,6 +906,15 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
+      {%if not Privacy_37_1 and not Privacy_37_2 %}
+    - `C:\Users\Public\http.log-*` を全て削除しておく。
+      {% endif %}
+
+    :2: 禁止する: 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境の場合
+
+    ABOUT_CONFIG
+
+    - `network.http.speculative-parallel-limit` が `0` である。
 
 Privacy-33: Webサービスによる行動履歴の収集（トラッキング）の遮断の可否
 
@@ -1015,6 +1032,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
       {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
+      {%if not Privacy_32_1 and not Privacy_32_2 %}
     - MCD設定ファイルに以下の設定を追加しておく。
         - `lockPref("logging.nsHttp", 5);`
         - `lockPref("logging.NetworkPredictor", 5);`
@@ -1027,6 +1045,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     - 記事の個別ページを10ページほど訪問する。
     - Firefoxを終了する。
     - MCD設定ファイルに追加した設定を削除または無効化する。
+      {% endif %}
     - Firefoxを起動する。
     - テストケースの `httplog.html` を開き、スクリプトをコピーする。
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をFirefoxで開く。
@@ -1037,6 +1056,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
+    - `C:\Users\Public\http.log-*` を全て削除しておく。
 
     :1: 先読みを許可する（既定）: 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境の場合
 
@@ -1049,6 +1069,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
+      {%if not Privacy_32_1 and not Privacy_32_2 %}
     - MCD設定ファイルに以下の設定を追加しておく。
         - `lockPref("logging.nsHttp", 5);`
         - `lockPref("logging.NetworkPredictor", 5);`
@@ -1061,6 +1082,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     - 記事の個別ページを10ページほど訪問する。
     - Firefoxを終了する。
     - MCD設定ファイルに追加した設定を削除または無効化する。
+      {% endif %}
     - Firefoxを起動する。
     - テストケースの `httplog.html` を開き、スクリプトをコピーする。
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をFirefoxで開く。
@@ -1071,6 +1093,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
+    - `C:\Users\Public\http.log-*` を全て削除しておく。
 
     :2: 先読みを禁止する: 先読み対象となるページのホスト名がプライベートIPアドレスに解決される環境の場合
 
