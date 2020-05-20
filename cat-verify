@@ -181,6 +181,8 @@ def create_template(manual, conf, vars):
 
     vars['UsePACFile'] = len(vars.keys() & {'Network_2_3', 'Network_2_8'}) > 0
 
+    vars['UseBlockList'] = len(vars.keys() & {'Security_5_2', 'Security_6_2', 'Privacy_33_3', 'Privacy_33_5'}) == 0
+
 
     for items in manual.values():
         tmp = ''

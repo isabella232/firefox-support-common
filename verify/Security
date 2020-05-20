@@ -394,7 +394,9 @@ Security-15: その他、バックグラウンドで行われる外部への通�
       {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
+      {%if UsePACFile %}
     - プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
+      {% endif %}
     - Firefoxを起動する。
     - ロケーションバーに `about:blank` と入力し、空のページを開く。
     - パネルメニューまたはメニューバーの「ウェブ開発」→「開発ツールを表示」で開発ツールを表示する。
@@ -406,15 +408,15 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     - ブラウザーツールボックス内の「再読み込み」ボタンをクリックする。
     - そのまま10分放置する。
     - **確認**
-        - localhostへのリクエストと、以下の例外を除いて、一切のネットワーク通信が記録されない。
-           - 「Network-2-3」または「Network-2-8」が選択されている場合、「自動プロキシー設定スクリプトURL」に設定したURL。
-           - 「Update-1-1」が選択されている場合、Firefoxの自動更新のための通信、およびそれに関連するOCSPの通信。
-           - 「Security-5-1」、「Security-6-1」、「Privacy-33-1」、「Privacy-33-2」、または「Privacy-33-4」が選択されている場合、ブロックリスト取得のための通信、およびそれに関連するOCSPの通信
-               - `https://firefox.settings.services.mozilla.com/v1/～`
-               - `https://content-signature.cdn.mozilla.net/～`
-               - `https://safebrowsing.googleapis.com/v4/～`
-               - `https://shaver.services.mozila.com/～`
-               - `ocsp.pki.goog`
+        - localhostへのリクエストと一部例外を除いて、一切のネットワーク通信が記録されない。{%if UsePACFile %}
+             - 「自動プロキシー設定スクリプトURL」に設定したURL。{% endif %}{%if not Update_1_4 %}
+             - Firefoxの自動更新のための通信、およびそれに関連するOCSPの通信。{% endif %}{%if UseBlockList %}
+             - ブロックリスト取得のための通信、およびそれに関連するOCSPの通信
+                 - `https://firefox.settings.services.mozilla.com/v1/～`
+                 - `https://content-signature.cdn.mozilla.net/～`
+                 - `https://safebrowsing.googleapis.com/v4/～`
+                 - `https://shaver.services.mozila.com/～`
+                 - `ocsp.pki.goog`{% endif %}
     - パネルメニューからツールバーのカスタマイズ画面を開く。
     - **確認**
         - 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。
