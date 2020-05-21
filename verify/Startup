@@ -14,30 +14,15 @@ Startup-1: 初回起動時の設定移行ウィザード
 
     :1: 表示する（既定）
 
-    {%if MenuShortcut_35 %}
-    - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-      {% endif %}
-    - Firefoxを起動する。
-    - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
-    - Firefoxを終了する。
     - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
-    - Firefoxを終了する。
+    - Firefoxを起動する。
     - **確認**
         - Firefoxが起動した時に「設定移行ウィザード」が表示される。
-      {%if MenuShortcut_35 %}
-    - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
-      {% endif %}
 
     :2: 表示しない
 
-    {%if MenuShortcut_35 %}
-    - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
-      {% endif %}
-    - Firefoxを起動する。
-    - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
-    - Firefoxを終了する。
     - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
-    - Firefoxを終了する。
+    - Firefoxを起動する。
     - **確認**
         - Firefoxが起動した時に「設定移行ウィザード」が表示されない。
       {%if MenuShortcut_35 %}
@@ -259,6 +244,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     :1: 表示する（既定）: not Startup_4_2
 
+    - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
     - Firefoxを起動する。
     - **検証**
         - 起動直後に既定の初回起動用ページが表示される。
@@ -271,6 +257,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     :2: 任意のページを表示する（ポリシーで設定）: not Startup_4_2
 
+    - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
     - Firefoxを起動する。
     - **検証**
         - 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。
@@ -283,6 +270,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     :3: 表示しない（ポリシーで設定）: not Startup_4_2
 
+    - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
     - Firefoxを起動する。
     - **検証**
         - 起動直後にホームページ（または空白）以外のタブが開かれていない。
