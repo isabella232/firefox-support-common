@@ -127,3 +127,16 @@ Appearance-10: ユーザースタイルシートの使用
     :2: 使用しない（既定）
 
     -
+
+Appearance-11: 「新着情報」の表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない（ポリシーで設定）
+
+    "UserMessaging": {
+      "WhatsNew": false,
+      "Locked": true
+    },
