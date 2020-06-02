@@ -115,6 +115,7 @@ FILES = [
     'Addon-IEView',
     'Addon-FireIE',
     'Addon-Acrobat',
+    'MenuShortcut',
 ]
 
 SPECIALS = [
