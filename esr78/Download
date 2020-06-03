@@ -17,7 +17,7 @@ Download-1: ダウンロードマネージャの利用の可否
     lockPref("browser.download.animateNotifications", false);
     lockPref("browser.download.manager.addToRecentDocs", false);
     lockPref("browser.download.panel.shown", true);
-    lockPref("browser.download.useDownloadDir", false);
+    //lockPref("browser.download.useDownloadDir", false);
     lockPref("browser.uiCustomization.state", JSON.stringify({
       "placements":{
         "widget-overflow-fixed-list":[],
