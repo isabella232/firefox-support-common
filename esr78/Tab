@@ -209,6 +209,24 @@ Tab-11: トップサイトの表示
       "Locked": true
     },
 
+    :7: 初期状態で特定の行数で表示するが、表示・非表示や行数の変更を許容する
+
+    lockPref("browser.newtabpage.activity-stream.prerender", false);
+    defaultPref("browser.newtabpage.activity-stream.showTopSites", true);
+    {
+      let TOPSITE_INITIAL_VALUE_VERSION = 1;
+      let lastVersion = 0;
+      try {
+        lastVersion = getPref('browser.newtabpage.activity-stream.topSitesRows.lastInitialValueVersion');
+      }
+      catch(e) {
+      }
+      if (lastVersion < TOPSITE_INITIAL_VALUE_VERSION) {
+        pref("browser.newtabpage.activity-stream.topSitesRows", 2);
+        pref("browser.newtabpage.activity-stream.topSitesRows.lastInitialValueVersion", TOPSITE_INITIAL_VALUE_VERSION);
+      }
+    }
+
 Tab-12: ハイライトの表示
 
     :1: 表示する（既定）
