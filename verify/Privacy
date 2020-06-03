@@ -860,6 +860,7 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     - Firefoxを起動する。
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - **確認**
+        - コンソールに出力された「requested」と「skipped」の値の合計が0でない。
         - 「All skipped? false」とコンソールに出力される。
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
@@ -897,6 +898,7 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     - MCD設定ファイルに加えた設定を元に戻す。
     - `C:\Users\Public\http.log` の位置に出力されているログファイル（複数ある場合はサイズが最も大きい物）をブラウザで開き、テストケースの`httplog.html`所定のスクリプトを実行する。
     - **確認**
+        - コンソールに出力された「requested」と「skipped」の値の合計が0でない。
         - 「All skipped? true」とコンソールに出力される。
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
@@ -1071,6 +1073,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     - 「Ctrl-Shift-K」でコンソールを開く。
     - コピーしたスクリプトを貼り付けて、実行する。
     - **確認**
+        - コンソールに出力された「success」と「fail」の値の合計が0でない。
         - コンソールに「All cancelled? false」と出力される。
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
@@ -1123,6 +1126,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
     - 「Ctrl-Shift-K」でコンソールを開く。
     - コピーしたスクリプトを貼り付けて、実行する。
     - **確認**
+        - コンソールに出力された「success」と「fail」の値の合計が0でない。
         - コンソールに「All cancelled? true」と出力される。
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
