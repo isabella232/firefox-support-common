@@ -21,11 +21,13 @@
 var text = document.body.textContent;
 var requested = text.match(/nsHttpConnectionMgr::OnMsgSpeculativeConnect/g) || [];
 var skipped = text.match(/Transport not created due to existing connection count/g) || [];
+console.log({ requested: requested.length, skipped: skipped.length });
 console.log('All skipped?', requested.length == skipped.length);
 
 var prefetchText = text.match(/^.+D\/NetworkPredictor.+$/gm).join('\n');
 var success = prefetchText.match(/Predictor::Predict.*\n.*called on parent process.*\n.*not enabled/g) || [];
 var fail = prefetchText.match(/Predictor::Predict.*\n.*called on parent process/g) || [];
+console.log({ success: success.length, fail: fail.length });
 console.log('All cancelled?', success.length == fail.length);
 </pre>
 </body>
