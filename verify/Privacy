@@ -663,7 +663,7 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :1: 許可する（既定）: DisableSync
 
-    - Privacy-24の検証と重複するため省略
+    - Privacy-22の検証と重複するため省略
 
     :1: 許可する（既定）: not DisableSync
 
@@ -681,7 +681,7 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :2: 禁止する: DisableSync
 
-    - Privacy-24の検証と重複するため省略
+    - Privacy-22の検証と重複するため省略
 
     :2: 禁止する: not DisableSync
 
@@ -699,7 +699,7 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :3: 禁止する（ポリシーで設定）: DisableSync
 
-    - Privacy-24の検証と重複するため省略
+    - Privacy-22の検証と重複するため省略
 
     :3: 禁止する（ポリシーで設定）: not DisableSync
 
