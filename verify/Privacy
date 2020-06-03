@@ -1007,19 +1007,27 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
 
     :1: 許可する（既定）
 
-    - Firefoxを起動する。
     - テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開く。
-    - テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
+      `{{special_profile_path}}` {%if special_profile_actual_path %}  
+      （{{special_profile_actual_path}}）{% endif %}  
+      内のファイルと、それに対応するキャッシュファイルフォルダ内の `thumbnails` フォルダを削除する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを遷移する操作を10分間行う。
     - **確認**
-        - サムネイル画像が保存される。
+        - addons.mozilla.orgのページのサムネイル画像が保存される。
 
     :2: 禁止する
 
-    - Firefoxを起動する。
     - テンポラリファイルおよびキャッシュファイルフォルダ内の `thumbnails` フォルダを開く。
-    - テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを何度か遷移する。
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
+      `{{special_profile_path}}` {%if special_profile_actual_path %}  
+      （{{special_profile_actual_path}}）{% endif %}  
+      内のファイルと、それに対応するキャッシュファイルフォルダ内の `thumbnails` フォルダを削除する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから開いた `https://addons.mozilla.org/` サイト内のリンクを遷移する操作を10分間行う。
     - **確認**
-        - サムネイル画像が保存されない。
+        - addons.mozilla.orgのページのサムネイル画像が保存されない。
 
 Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
