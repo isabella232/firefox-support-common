@@ -66,26 +66,26 @@ Stability-4: WebRenderの有効化
 
     :1: Mozillaの判断で有効化する（既定）
 
-    {%if MenuShortcut_35 %}
+    {%if MenuShortcut_35_1 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
         -  「グラフィック」の「画像処理」に「WebRender」と表示されているか、もしくは、「WEBRENDER」に「unavailable (機能名) by runtime」と表示されている。
-      {%if MenuShortcut_35 %}
+      {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
 
     :2: 常に無効化する
 
-    {%if MenuShortcut_35 %}
+    {%if MenuShortcut_35_1 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
         -  「グラフィック」の「画像処理」に「WebRender」と表示されていない。
-      {%if MenuShortcut_35 %}
+      {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}

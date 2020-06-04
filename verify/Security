@@ -31,7 +31,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     :4: 導入する（ポリシーで設定）
 
-    {%if MenuShortcut_35 %}
+    {%if MenuShortcut_35_1 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
@@ -43,7 +43,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     - 「プライバシーとセキュリティ」→「証明書」→「証明書を表示」→「認証局証明書」を表示する。
     - **確認**
         - インポートするよう指定した証明書が一覧に登録されている。
-      {%if MenuShortcut_35 %}
+      {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
 

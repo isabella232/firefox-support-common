@@ -25,7 +25,7 @@ Startup-1: 初回起動時の設定移行ウィザード
     - Firefoxを起動する。
     - **確認**
         - Firefoxが起動した時に「設定移行ウィザード」が表示されない。
-      {%if MenuShortcut_35 %}
+      {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
 
@@ -200,7 +200,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）: システムの時計を進めることができる場合
 
-    {%if MenuShortcut_35 %}
+    {%if MenuShortcut_35_1 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動して、終了する。
@@ -216,7 +216,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     - 「Firefoxをリフレッシュ」ボタンを押す。
     - **確認**
         - 何も起こらない。 
-      {%if MenuShortcut_35 %}
+      {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
 
