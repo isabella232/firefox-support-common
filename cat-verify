@@ -60,8 +60,12 @@ TEMPLATE_OPTIONS = """
 - 前項に引き続き検証するか、または以下の状態を整えておく。
     - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+## 検証
+
 - Firefoxを起動する。
 - パネルメニューからオプションを開く。
+- **確認**
 """
 
 TEMPLATE_ABOUT_CONFIG = """
@@ -72,10 +76,14 @@ TEMPLATE_ABOUT_CONFIG = """
 - 前項に引き続き検証するか、または以下の状態を整えておく。
     - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+## 検証
+
 - ポリシー設定から一時的に `DisableDeveloperTools` を削除しておく。
 - ポリシー設定から一時的に `BlockAboutConfig` を削除しておく。
 - Firefoxを起動する。
 - `about:config`を開く。
+- **確認**
 """
 
 TEMPLATE_ABOUT_POLICIES = """
@@ -86,9 +94,58 @@ TEMPLATE_ABOUT_POLICIES = """
 - 前項に引き続き検証するか、または以下の状態を整えておく。
     - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+## 検証
+
 - Firefoxを起動する。
 - `about:policies`を開く。
 - 「有効」を選択する。
+- **確認**
+"""
+
+TEMPLATE_SHORTCUT = """
+# その他のキーボードショートカットの検証
+
+## 事前準備
+
+- 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+## 検証
+
+- Firefoxを起動する。
+- **確認**
+"""
+
+TEMPLATE_DEVTOOL_MENU = """
+# 開発ツールのメニュー項目の検証
+
+## 事前準備
+
+- 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+## 検証
+
+- Firefoxを起動する。
+- **確認**
+"""
+
+TEMPLATE_DEVTOOL_PANEL = """
+# 開発ツールのパネルメニュー項目の検証
+
+## 事前準備
+
+- 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+
+## 検証
+
+- Firefoxを起動する。
+- **確認**
 """
 
 FILES = [
@@ -136,6 +193,20 @@ def parse_special(text):
 
     return ('', text)
 
+PAT_DISABLED_ITEM_KEY = re.compile('(DISABLED_[A-Z_]+):\s+(.+)\Z')
+
+def shift_disabled_item(text):
+    ht = text.split('\n', maxsplit=1)
+
+    match = re.match(PAT_DISABLED_ITEM_KEY, ht[0])
+    if match:
+        rest = ''
+        if len(ht) > 1:
+            rest = ht[1]
+        return (match.group(1), match.group(2), rest)
+
+    return ('', '', text)
+
 def apply_vars(items, vars):
     for item in items:
         for opt in item['opts']:
@@ -150,11 +221,15 @@ def apply_vars(items, vars):
     return items
 
 PAT_PRETEXT_OPTION = re.compile('.+-0-%d+\Z')
+PAT_TOP_LEVEL_ITEM = re.compile('^- (.+)$', re.MULTILINE)
 
 def create_template(manual, conf, vars):
     items_options = []
     items_about_config = []
     items_about_policies = []
+    items_disabled_shortcuts = []
+    items_disabled_devtool_menu = []
+    items_disabled_devtool_panel = []
 
     all_ids = []
 
@@ -217,6 +292,23 @@ def create_template(manual, conf, vars):
                     all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-policies'))
                     continue
 
+                while True:
+                    key, desc, text = shift_disabled_item(text)
+                    if key == '':
+                        break
+                    elif key == 'DISABLED_SHORTCUT':
+                        items_disabled_shortcuts.append((opt['opt_id'], desc))
+                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-shortcut'))
+                    elif key == 'DISABLED_DEVTOOL_MENU':
+                        items_disabled_devtool_menu.append((opt['opt_id'], desc))
+                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-menu'))
+                    elif key == 'DISABLED_DEVTOOL_PANEL':
+                        items_disabled_devtool_panel.append((opt['opt_id'], desc))
+                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-panel'))
+
+                if text == '':
+                    continue
+
                 opt['opt_title_sub_out'] = opt['opt_title_sub']
                 if opt['opt_title_sub_out'] != '':
                     opt['opt_title_sub_out'] = '（' + opt['opt_title_sub_out'] + '）'
@@ -236,20 +328,47 @@ def create_template(manual, conf, vars):
     if items_options:
         template += TEMPLATE_OPTIONS
         for opt_id, opt_title_sub, text in items_options:
-            template += '\n## %s %s\n' % (opt_id, opt_title_sub)
-            template += text + '\n'
+            if opt_title_sub:
+                suffix = ' (%s %s)' % (opt_id, opt_title_sub)
+            else:
+                suffix = ' (%s)' % (opt_id)
+            template += re.sub(PAT_TOP_LEVEL_ITEM, '    - \\1 %s' % (suffix), text)
+            template += '\n'
 
     if items_about_config:
         template += TEMPLATE_ABOUT_CONFIG
         for opt_id, opt_title_sub, text in items_about_config:
-            template += '\n## %s %s\n' % (opt_id, opt_title_sub)
-            template += text + '\n'
+            if opt_title_sub:
+                suffix = ' (%s %s)' % (opt_id, opt_title_sub)
+            else:
+                suffix = ' (%s)' % (opt_id)
+            template += re.sub(PAT_TOP_LEVEL_ITEM, '    - \\1 %s' % (suffix), text)
+            template += '\n'
 
     if items_about_policies:
         template += TEMPLATE_ABOUT_POLICIES
         for opt_id, opt_title_sub, text in items_about_policies:
-            template += '\n## %s %s\n' % (opt_id, opt_title_sub)
-            template += text + '\n'
+            if opt_title_sub:
+                suffix = ' (%s %s)' % (opt_id, opt_title_sub)
+            else:
+                suffix = ' (%s)' % (opt_id)
+            template += re.sub(PAT_TOP_LEVEL_ITEM, '    - \\1 %s' % (suffix), text)
+            template += '\n'
+
+    if items_disabled_shortcuts:
+        template += TEMPLATE_SHORTCUT
+        for opt_id, text in items_disabled_shortcuts:
+            template += '    - %s (%s)\n' % (text, opt_id)
+
+    if items_disabled_devtool_menu:
+        template += TEMPLATE_DEVTOOL_MENU
+        for opt_id, text in items_disabled_devtool_menu:
+            template += '    - %s (%s)\n' % (text, opt_id)
+
+    if items_disabled_devtool_panel:
+        template += TEMPLATE_DEVTOOL_PANEL
+        for opt_id, text in items_disabled_devtool_panel:
+            template += '    - %s (%s)\n' % (text, opt_id)
 
     template += '\n' + vars.get('POSTSCRIPT', '')
 
