@@ -318,6 +318,8 @@ def create_template(manual, conf, vars):
                 if text == '':
                     continue
 
+                opt['conf'] = text
+
                 opt['opt_title_sub_out'] = opt['opt_title_sub']
                 if opt['opt_title_sub_out'] != '':
                     opt['opt_title_sub_out'] = '（' + opt['opt_title_sub_out'] + '）'
