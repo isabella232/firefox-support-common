@@ -343,7 +343,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_ITEM, '    \\1- \\2 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
             template += '\n'
 
     if items_about_config:
@@ -353,7 +353,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_ITEM, '    \\1- \\2 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
             template += '\n'
 
     if items_about_policies:
@@ -363,7 +363,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_ITEM, '    \\1- \\2 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
             template += '\n'
 
     if items_disabled_shortcuts:
