@@ -230,7 +230,7 @@ def apply_vars(items, vars):
     return items
 
 PAT_PRETEXT_OPTION = re.compile('.+-0-%d+\Z')
-PAT_TOP_LEVEL_ITEM = re.compile('^- (.+)$', re.MULTILINE)
+PAT_LIST_ITEM = re.compile('^(\s*)- (.+)$', re.MULTILINE)
 
 def create_template(manual, conf, vars):
     items_options = []
@@ -343,7 +343,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_TOP_LEVEL_ITEM, '    - \\1 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_ITEM, '    \\1- \\2 %s' % (suffix), text)
             template += '\n'
 
     if items_about_config:
@@ -353,7 +353,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_TOP_LEVEL_ITEM, '    - \\1 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_ITEM, '    \\1- \\2 %s' % (suffix), text)
             template += '\n'
 
     if items_about_policies:
@@ -363,7 +363,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_TOP_LEVEL_ITEM, '    - \\1 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_ITEM, '    \\1- \\2 %s' % (suffix), text)
             template += '\n'
 
     if items_disabled_shortcuts:
