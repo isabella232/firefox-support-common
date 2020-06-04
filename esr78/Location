@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-Location-1: ロケーションバーにおけるURLの「http://」の省略表示の可否
+Location-1: アドレスバーにおけるURLの「http://」の省略表示の可否
 
     :1: 省略する（既定）
 
@@ -12,7 +12,7 @@ Location-1: ロケーションバーにおけるURLの「http://」の省略表�
 
     lockPref("browser.urlbar.trimURLs", false);
 
-Location-2: ロケーションバーにおける国際化ドメインの表示
+Location-2: アドレスバーにおける国際化ドメインの表示
 
     :1: 原則として国際化ドメインのまま表示する（既定）
 
@@ -24,7 +24,7 @@ Location-2: ロケーションバーにおける国際化ドメインの表示
       "network.IDN_show_punycode": true
     },
 
-Location-3: ロケーションバーへのURL以外の入力の取り扱い
+Location-3: アドレスバーへのURL以外の入力の取り扱い
 
     :1: 常に検索する（既定）
 

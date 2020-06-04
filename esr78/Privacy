@@ -81,7 +81,7 @@ Privacy-3: ダウンロード履歴の保存の可否
     lockPref("privacy.clearOnShutdown.sessions", false);
     lockPref("privacy.clearOnShutdown.siteSettings", false);
 
-Privacy-4: ロケーションバーの入力履歴の表示の可否
+Privacy-4: アドレスバーの入力履歴の表示の可否
 
     :1: 表示する（既定）
 
