@@ -150,6 +150,13 @@ TEMPLATE_DEVTOOL_PANEL = """
 - **確認**
 """
 
+TEMPLATE_DEVTOOL_SKIPPED = """
+# 開発ツールの個別の検証
+
+開発ツール非表示のため、「ツール」メニューの「ウェブ開発」およびサブメニューパネルメニューの「ウェブ開発」サブメニュー配下の以下の項目の非表示化は、検証を省略する。
+
+"""
+
 FILES = [
     'PRETEXT',
     'Install',
@@ -362,15 +369,23 @@ def create_template(manual, conf, vars):
         for opt_id, text in items_disabled_shortcuts:
             template += '    - %s (%s)\n' % (text, opt_id)
 
-    if items_disabled_devtool_menu:
-        template += TEMPLATE_DEVTOOL_MENU
-        for opt_id, text in items_disabled_devtool_menu:
-            template += '    - %s (%s)\n' % (text, opt_id)
+    if vars['MenuShortcut_10_1']:
+        if items_disabled_devtool_menu or items_disabled_devtool_panel:
+            template += TEMPLATE_DEVTOOL_SKIPPED
+            for opt_id, text in items_disabled_devtool_menu:
+                template += '- %s (%s)\n' % (text, opt_id)
+            #for opt_id, text in items_disabled_devtool_panel:
+            #    template += '- %s (%s)\n' % (text, opt_id)
+    else:
+        if items_disabled_devtool_menu:
+            template += TEMPLATE_DEVTOOL_MENU
+            for opt_id, text in items_disabled_devtool_menu:
+                template += '    - %s (%s)\n' % (text, opt_id)
 
-    if items_disabled_devtool_panel:
-        template += TEMPLATE_DEVTOOL_PANEL
-        for opt_id, text in items_disabled_devtool_panel:
-            template += '    - %s (%s)\n' % (text, opt_id)
+        if items_disabled_devtool_panel:
+            template += TEMPLATE_DEVTOOL_PANEL
+            for opt_id, text in items_disabled_devtool_panel:
+                template += '    - %s (%s)\n' % (text, opt_id)
 
     template += '\n' + vars.get('POSTSCRIPT', '')
 
