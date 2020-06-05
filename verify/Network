@@ -182,7 +182,7 @@ Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の�
 
     ABOUT_CONFIG
 
-    - `security.tls.insecure_fallback_hosts` の値が `{{ntlm_single_signon_hosts}}` である。
+    - `security.tls.insecure_fallback_hosts` の値が `{{weak_tls_allowed_hosts}}` である。
 
 Network-8: IPv6の使用
 
