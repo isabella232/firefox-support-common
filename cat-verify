@@ -79,11 +79,19 @@ TEMPLATE_ABOUT_CONFIG = """
 
 ## 検証
 
-- ポリシー設定から一時的に `DisableDeveloperTools` を削除しておく。
-- ポリシー設定から一時的に `BlockAboutConfig` を削除しておく。
+{%if Security_9_3 %}
+- ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+  {% endif %}
+- ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
 - Firefoxを起動する。
 - `about:config`を開く。
 - **確認**
+"""
+
+TEMPLATE_ABOUT_CONFIG_END = """
+  {%if Security_9_3 %}
+- ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+  {% endif %}
 """
 
 TEMPLATE_ABOUT_POLICIES = """
@@ -355,6 +363,8 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s)' % (opt_id)
             template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
             template += '\n'
+        template += TEMPLATE_ABOUT_CONFIG_END
+        template += '\n'
 
     if items_about_policies:
         template += TEMPLATE_ABOUT_POLICIES
