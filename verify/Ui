@@ -16,19 +16,19 @@ Ui-1: Firefox組み込みのPDFビューアの使用可否
 
     OPTIONS
 
-    - 「一般」→「ファイルとプログラム」→「プログラム」でファイルの種類「PDF文書（PDF）」、「Adobe Acrobat Document」、または「PDFファイル」の取り扱い方法が「Firefoxでプレビュー表示」となっている。
+    - 「一般」→「ファイルとプログラム」→「プログラム」でファイルの種類「PDF文書（PDF）」、「Adobe Acrobat Document」、または「PDFファイル」の取り扱い方法が「Firefoxで開く」となっている。
 
     :2: 禁止する
 
     OPTIONS
 
-    - 「一般」→「ファイルとプログラム」→「プログラム」でファイルの種類「PDF文書（PDF）」、「Adobe Acrobat Document」、および「PDFファイル」の選択肢に「Firefoxでプレビュー表示」が存在しない。
+    - 「一般」→「ファイルとプログラム」→「プログラム」でファイルの種類「PDF文書（PDF）」、「Adobe Acrobat Document」、および「PDFファイル」の選択肢に「Firefoxで開く」が存在しない。
 
     :3: 禁止する（ポリシーで設定）
 
     OPTIONS
 
-    - 「一般」→「ファイルとプログラム」→「プログラム」でファイルの種類「PDF文書（PDF）」、「Adobe Acrobat Document」、および「PDFファイル」の選択肢に「Firefoxでプレビュー表示」が存在しない。
+    - 「一般」→「ファイルとプログラム」→「プログラム」でファイルの種類「PDF文書（PDF）」、「Adobe Acrobat Document」、および「PDFファイル」の選択肢に「Firefoxで開く」が存在しない。
 
 Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
