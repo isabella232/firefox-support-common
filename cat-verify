@@ -406,7 +406,7 @@ def create_template(manual, conf, vars):
             template += '    - %s (%s)\n' % (text, opt_id)
 
     if items_disabled_devtool_menu:
-        if vars['MenuShortcut_10_1']:
+        if vars['DisableDeveloperTools']:
             template += TEMPLATE_DEVTOOL_SKIPPED
             for opt_id, text in items_disabled_devtool_menu:
                 template += '- %s (%s)\n' % (text, opt_id)
