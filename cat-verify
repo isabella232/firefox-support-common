@@ -182,17 +182,6 @@ TEMPLATE_DEVTOOL_MENU = """
 """
 
 TEMPLATE_DEVTOOL_PANEL = """
-# 開発ツールのパネルメニュー項目の検証
-
-## 事前準備
-
-- 前項に引き続き検証するか、または以下の状態を整えておく。
-    - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-
-## 検証
-
-- Firefoxを起動する。
 - パネルメニューの「ウェブ開発」サブメニューを開く。
 - **確認**
 """
@@ -285,7 +274,6 @@ def create_template(manual, conf, vars):
     items_about_policies = []
     items_disabled_shortcuts = []
     items_disabled_devtool_menu = []
-    items_disabled_devtool_panel = []
 
     all_ids = []
 
@@ -358,9 +346,6 @@ def create_template(manual, conf, vars):
                     elif key == 'DISABLED_DEVTOOL_MENU':
                         items_disabled_devtool_menu.append((opt['opt_id'], desc))
                         all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-menu'))
-                    elif key == 'DISABLED_DEVTOOL_PANEL':
-                        items_disabled_devtool_panel.append((opt['opt_id'], desc))
-                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-panel'))
 
                 if text == '':
                     continue
@@ -420,22 +405,17 @@ def create_template(manual, conf, vars):
         for opt_id, text in items_disabled_shortcuts:
             template += '    - %s (%s)\n' % (text, opt_id)
 
-    if vars['MenuShortcut_10_1']:
-        if items_disabled_devtool_menu or items_disabled_devtool_panel:
+    if items_disabled_devtool_menu:
+        if vars['MenuShortcut_10_1']:
             template += TEMPLATE_DEVTOOL_SKIPPED
             for opt_id, text in items_disabled_devtool_menu:
                 template += '- %s (%s)\n' % (text, opt_id)
-            #for opt_id, text in items_disabled_devtool_panel:
-            #    template += '- %s (%s)\n' % (text, opt_id)
-    else:
-        if items_disabled_devtool_menu:
+        else:
             template += TEMPLATE_DEVTOOL_MENU
             for opt_id, text in items_disabled_devtool_menu:
                 template += '    - %s (%s)\n' % (text, opt_id)
-
-        if items_disabled_devtool_panel:
             template += TEMPLATE_DEVTOOL_PANEL
-            for opt_id, text in items_disabled_devtool_panel:
+            for opt_id, text in items_disabled_devtool_menu:
                 template += '    - %s (%s)\n' % (text, opt_id)
 
     template += '\n' + vars.get('POSTSCRIPT', '')

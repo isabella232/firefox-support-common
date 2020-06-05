@@ -46,7 +46,6 @@ MenuShortcut-11: ツール＞ウェブ開発＞開発ツールを表示 (Ctrl-Sh
     DISABLED_SHORTCUT: 「Ctrl-Shift-I」で開発ツールが開かれない。
     DISABLED_SHORTCUT: 「F12」で開発ツールが開かれない。
     DISABLED_DEVTOOL_MENU: 「開発ツールを表示」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「開発ツールを表示」が存在しない。
 
 MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
 
@@ -54,7 +53,6 @@ MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-C」でインスペクタが開かれない。
     DISABLED_DEVTOOL_MENU: 「インスペクタ」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「インスペクタ」が存在しない。
 
 MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
 
@@ -62,7 +60,6 @@ MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-K」でWebコンソールが開かれない。
     DISABLED_DEVTOOL_MENU: 「Webコンソール」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「Webコンソール」が存在しない。
 
 MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
 
@@ -70,7 +67,6 @@ MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-S」でデバッガが開かれない。
     DISABLED_DEVTOOL_MENU: 「デバッガ」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「デバッガ」が存在しない。
 
 MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F7)
 
@@ -78,7 +74,6 @@ MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F
 
     DISABLED_SHORTCUT: 「Shift-F7」でスタイルエディタが開かれない。
     DISABLED_DEVTOOL_MENU: 「スタイルエディタ」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「スタイルエディタ」が存在しない。
 
 MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バージョンでは「プロファイラ」） (Shift-F5)
 
@@ -86,7 +81,6 @@ MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バー
 
     DISABLED_SHORTCUT: 「Shift-F5」でプロファイラが開かれない。
     DISABLED_DEVTOOL_MENU: 「パフォーマンス」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「パフォーマンス」が存在しない。
 
 MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-E)
 
@@ -94,7 +88,6 @@ MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-E)
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-E」でネットワークモニターが開かれない。
     DISABLED_DEVTOOL_MENU: 「ネットワークモニター」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「ネットワークモニター」が存在しない。
 
 MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
 
@@ -102,7 +95,6 @@ MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
 
     DISABLED_SHORTCUT: 「Shitf-F2」で開発ツールバーが開かれない。
     DISABLED_DEVTOOL_MENU: 「開発ツールバー」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「開発ツールバー」が存在しない。
 
 MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
 
@@ -110,7 +102,6 @@ MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-Alt-I」でブラウザーツールボックスが開かれない。
     DISABLED_DEVTOOL_MENU: 「ブラウザーツールボックス」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「ブラウザーツールボックス」が存在しない。
 
 MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl-Shift-J)
 
@@ -118,7 +109,6 @@ MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-J」でブラウザーコンソールが開かれない。
     DISABLED_DEVTOOL_MENU: 「ブラウザーコンソール」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「ブラウザーコンソール」が存在しない。
 
 MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビュー (Ctrl-Shift-M)
 
@@ -126,14 +116,12 @@ MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビ
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-M」でレスポンシブデザインビューが開かれない。
     DISABLED_DEVTOOL_MENU: 「レスポンシブデザインビュー」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「レスポンシブデザインビュー」が存在しない。
 
 MenuShortcut-24: ツール＞ウェブ開発＞スポイト
 
     :1: 無効化する
 
     DISABLED_DEVTOOL_MENU: 「スポイト」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「スポイト」が存在しない。
 
 MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F4)
 
@@ -141,28 +129,24 @@ MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F
 
     DISABLED_SHORTCUT: 「Shift-F4」でスクラッチパッドが開かれない。
     DISABLED_DEVTOOL_MENU: 「スクラッチパッド」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「スクラッチパッド」が存在しない。
 
 MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
 
     :1: 無効化する
 
     DISABLED_DEVTOOL_MENU: 「ページのソース」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「ページのソース」が存在しない。
 
 MenuShortcut-28: ツール＞ウェブ開発＞接続...
 
     :1: 無効化する
 
     DISABLED_DEVTOOL_MENU: 「接続...」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「接続...」が存在しない。
 
 MenuShortcut-29: ツール＞ウェブ開発＞その他のツールを入手
 
     :1: 無効化する
 
     DISABLED_DEVTOOL_MENU: 「その他のツールを入手」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「その他のツールを入手」が存在しない。
 
 MenuShortcut-35: ヘルプ＞トラブルシューティング情報
 
@@ -277,12 +261,10 @@ MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
     :1: 無効化する
 
     DISABLED_DEVTOOL_MENU: 「Service Worker」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「Service Worker」が存在しない。
 
 MenuShortcut-65: ツール＞ウェブ開発＞ブラウザーコンテンツツールボックス
 
     :1: 無効化する
 
     DISABLED_DEVTOOL_MENU: 「ブラウザーコンテンツツールボックス」が存在しない。
-    DISABLED_DEVTOOL_PANEL: 「ブラウザーコンテンツツールボックス」が存在しない。
 
