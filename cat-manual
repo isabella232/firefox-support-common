@@ -44,7 +44,9 @@ VARIABLES = {
   install_path:                   "C:\\Program Files (x86)\\Mozilla Firefox",
   install_path_32bit:             "C:\\Program Files\\Mozilla Firefox", # インストール先を固定しておらず、32bit環境と64bit環境でインストール先が変わる場合
   desktop_shortcut_path:          "C:\\Users\\Public\\Desktop\\Firefox.lnk",
+  #desktop_shortcut_path_32bit:    "C:\\Users\\Public\\Desktop\\Firefox.lnk",
   start_menu_shortcut_path:       "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk",
+  #start_menu_shortcut_path_32bit: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Firefox.lnk",
   finish_title:                   "Mozilla Firefox",
   finish_message:                 "インストールが完了しました",
   restart_title:                  "Mozilla Firefox",
