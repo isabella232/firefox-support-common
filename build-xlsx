@@ -221,6 +221,9 @@ def main(args):
     outfile = 'config.xlsx'
     excludes = []
 
+    esr_current = ESR_CURRENT
+    esr_previous = ESR_PREVIOUS
+
     opts, args = getopt.getopt(args, 'o:x:p:c:')
     for k, v in opts:
         if k == '-o':
@@ -228,16 +231,16 @@ def main(args):
         elif k == '-x':
             excludes = v.split(',')
         elif k == '-p':
-            ESR_PREVIOUS = v
+            esr_previous = v
         elif k == '-c':
-            ESR_CURRENT = v
+            esr_current = v
 
     for arg in args:
-        if ESR_CURRENT in arg:
-            print('%s -> %s' % (ESR_CURRENT, arg))
+        if esr_current in arg:
+            print('%s -> %s' % (esr_current, arg))
             conf_curr = adlib.load_as_dict(arg)
-        elif ESR_PREVIOUS in arg:
-            print('%s -> %s' % (ESR_PREVIOUS, arg))
+        elif esr_previous in arg:
+            print('%s -> %s' % (esr_previous, arg))
             conf_prev = adlib.load_as_dict(arg)
         elif CHAPTERS_CSV in arg:
             print('Loading', os.path.basename(arg))

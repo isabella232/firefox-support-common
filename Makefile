@@ -8,6 +8,7 @@ DATE=$(shell date +%Y%m%d)
 UPDATES_PDF = "Firefox_$(DATE).pdf"
 BASE=$(shell pwd)
 
+VERIFY_MANUAL_OPT= -c assets/esr78.conf -a assets/esr78.var
 PANDOC_OPT_PDF= -N --toc-depth=2 --table-of-contents \
                 -f markdown+ignore_line_breaks \
                 -V documentclass=ltjsarticle \
@@ -21,10 +22,7 @@ PANDOC_OPT_DOCX= -N --toc-depth=2 --table-of-contents \
                  --reference-doc="$(BASE)/assets/template.docx"
 
 
-all: config.xlsx
-
-config.xlsx: build-xlsx esr60/*
-	./build-xlsx
+all: configurations-sheet
 
 fetch-policies-schema:
 	rm -f assets/policies-schema.json
@@ -37,17 +35,22 @@ list-untracked-policies:
 list-unverified-configs:
 	bash -c 'grep -r -E -v  "^ " esr* | cut -d : -f 2- | sort | cut -d : -f 1 | uniq | grep -v -f <(grep -r -E -v  "^ " esr* | grep 廃止 | cut -d : -f 2 | sort | uniq) | while read key; do grep -E "$${key}[^0-9]" manual.md >/dev/null 2>&1 || echo "$${key}"; done'
 
+verify-targets-to-chapters.csv:
+	./cat-verify ${VERIFY_MANUAL_OPT} -i > "$(PWD)/$@"
+
+configurations-sheet: verify-targets-to-chapters.csv
+	./build-xlsx -o config-$(DATE).xlsx assets/esr78.conf assets/esr68.conf verify-targets-to-chapters.csv
 
 verification-manual:
-	./cat-verify -c assets/sample.conf -a assets/sample.var | pandoc ${PANDOC_OPT_DOCX} -o verify-$(DATE).docx
+	./cat-verify ${VERIFY_MANUAL_OPT} | pandoc ${PANDOC_OPT_DOCX} -o verify-$(DATE).docx
 
-updates:
-	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_DOCX} -o "updates-esr78-$(DATE).docx" && mv *.docx ../
-#	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_PDF} -o "updates-esr78-$(DATE).pdf" && mv *.pdf ../
+migration-report:
+	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_DOCX} -o "migration-report-esr78-$(DATE).docx" && mv *.docx ../
+#	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_PDF} -o "migration-report-esr78-$(DATE).pdf" && mv *.pdf ../
 
 clean:
-	rm -f config.xlsx
-	rm -f updates-*.docx updates-*.pdf
+	rm -f config-*.xlsx
+	rm -f migration-report-*.docx migration-report-*.pdf
 	rm -f verify-*.docx
 
-.PHONY: fetch-policies-schema list-untracked-policies clean all verify
+.PHONY: fetch-policies-schema list-untracked-policies clean all verify-targets-to-chapters.csv configurations-sheet verification-manual migration-report
