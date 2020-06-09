@@ -222,15 +222,3 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
     :2: 実行しない
 
     lockPref("browser.livebookmarks.migrationAttemptsLeft", 0);
-
-Startup-15: 新着情報の表示
-
-    :1: 表示する（既定）
-
-    -
-
-    :2: 表示しない（ポリシーで設定）
-
-    "UserMessaging": {
-      "WhatsNew": false
-    },
