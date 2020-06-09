@@ -265,7 +265,7 @@ def apply_vars(items, vars):
                 opt['conf'] += text
     return items
 
-PAT_PRETEXT_OPTION = re.compile('.+-0-%d+\Z')
+PAT_PRETEXT_OPTION = re.compile('^[^-]+-0-[0-9]+\Z')
 PAT_LIST_ITEM = re.compile('^(\s*)- (.+)$', re.MULTILINE)
 
 def create_template(manual, conf, vars):
@@ -274,8 +274,6 @@ def create_template(manual, conf, vars):
     items_about_policies = []
     items_disabled_shortcuts = []
     items_disabled_devtool_menu = []
-
-    all_ids = []
 
     template = vars.get('COVER', '') + '\n'
     template += "# 事前準備"
@@ -308,9 +306,23 @@ def create_template(manual, conf, vars):
     vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3']
     vars['not DisableSync'] = not vars['DisableSync']
 
+    all_ids = []
 
+    chapters = {}
+    chapter_options = []
+    chapter_about_config = []
+    chapter_about_policies = []
+    chapter_disabled_shortcut = []
+    chapter_disabled_devtool = []
+
+    first_level_chapter = 2
     for items in manual.values():
         tmp = ''
+
+        if len(items) > 0 and re.match(PAT_PRETEXT_OPTION, items[0]['opts'][0]['opt_id']):
+            second_level_chapter = 2
+        else:
+            second_level_chapter = 1
 
         for item in items[1:]:
             for opt in item['opts']:
@@ -326,14 +338,17 @@ def create_template(manual, conf, vars):
                 if sp == 'OPTIONS':
                     items_options.append((opt['opt_id'], opt['opt_title_sub'], text))
                     all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-options'))
+                    chapter_options.append(opt['opt_id'])
                     continue
                 elif sp == 'ABOUT_CONFIG':
                     items_about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
                     all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-config'))
+                    chapter_about_config.append(opt['opt_id'])
                     continue
                 elif sp == 'ABOUT_POLICIES':
                     items_about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
                     all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-policies'))
+                    chapter_about_policies.append(opt['opt_id'])
                     continue
 
                 while True:
@@ -343,9 +358,11 @@ def create_template(manual, conf, vars):
                     elif key == 'DISABLED_SHORTCUT':
                         items_disabled_shortcuts.append((opt['opt_id'], desc))
                         all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-shortcut'))
+                        chapter_disabled_shortcut.append(opt['opt_id'])
                     elif key == 'DISABLED_DEVTOOL_MENU':
                         items_disabled_devtool_menu.append((opt['opt_id'], desc))
                         all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-menu'))
+                        chapter_disabled_devtool.append(opt['opt_id'])
 
                 if text == '':
                     continue
@@ -360,6 +377,16 @@ def create_template(manual, conf, vars):
                 if not re.match(PAT_PRETEXT_OPTION, opt['opt_id']):
                     all_ids.append((opt['opt_id'], opt['opt_title_sub'], opt['opt_id']))
 
+                    capter_id = '%s.%s' % (first_level_chapter, second_level_chapter)
+                    if capter_id in chapters:
+                        option_ids = chapters[capter_id]
+                    else:
+                        option_ids = []
+                    option_ids.append(opt['opt_id'])
+                    chapters[capter_id] = option_ids
+
+                second_level_chapter += 1
+
         if not tmp:
             continue  # Nothing to verify
 
@@ -367,6 +394,8 @@ def create_template(manual, conf, vars):
         for opt in items[0]['opts']:
             template += TEMPLATE_PRETEXT.format(**opt) + '\n'
         template += tmp
+
+        first_level_chapter += 1
 
     if items_options:
         template += TEMPLATE_OPTIONS
@@ -377,6 +406,9 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s)' % (opt_id)
             template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
             template += '\n'
+
+        chapters['%s' % (first_level_chapter)] = chapter_options
+        first_level_chapter += 1
 
     if items_about_config:
         template += TEMPLATE_ABOUT_CONFIG
@@ -389,6 +421,8 @@ def create_template(manual, conf, vars):
             template += '\n'
         template += TEMPLATE_ABOUT_CONFIG_END
         template += '\n'
+        chapters['%s' % (first_level_chapter)] = chapter_about_config
+        first_level_chapter += 1
 
     if items_about_policies:
         template += TEMPLATE_ABOUT_POLICIES
@@ -399,11 +433,15 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s)' % (opt_id)
             template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
             template += '\n'
+        chapters['%s' % (first_level_chapter)] = chapter_about_policies
+        first_level_chapter += 1
 
     if items_disabled_shortcuts:
         template += TEMPLATE_SHORTCUT
         for opt_id, text in items_disabled_shortcuts:
             template += '    - %s (%s)\n' % (text, opt_id)
+        chapters['%s' % (first_level_chapter)] = chapter_disabled_shortcut
+        first_level_chapter += 1
 
     if items_disabled_devtool_menu:
         if vars['DisableDeveloperTools']:
@@ -418,6 +456,9 @@ def create_template(manual, conf, vars):
             for opt_id, text in items_disabled_devtool_menu:
                 template += '    - %s (%s)\n' % (text, opt_id)
 
+        chapters['%s' % (first_level_chapter)] = chapter_disabled_devtool
+        first_level_chapter += 1
+
     template += '\n' + vars.get('POSTSCRIPT', '')
 
 
@@ -428,7 +469,7 @@ def create_template(manual, conf, vars):
         for opt_id, opt_title_sub, reference in all_ids:
             template += '\n* %s %s' % (opt_id, opt_title_sub)
 
-    return template
+    return (template, chapters)
 
 #
 # Main
@@ -455,7 +496,7 @@ def main(args):
         items = adlib.load('verify/%s' % fn)
         manual[fn] = apply_vars(items, vars)
 
-    template = create_template(manual, conf, vars)
+    template, chapters = create_template(manual, conf, vars)
 
     logging.basicConfig(format="\033[31m%(message)s\033[0m")
     log = logging.getLogger(__name__)
