@@ -471,6 +471,24 @@ def create_template(manual, conf, vars):
 
     return (template, chapters)
 
+def chapters_to_csv(chapters):
+    chapters_by_opt_id = {}
+    for chapter_id, opt_ids in chapters.items():
+        for opt_id in opt_ids:
+            if opt_id in chapters_by_opt_id:
+                chapter_ids = chapters_by_opt_id[opt_id]
+            else:
+                chapter_ids = []
+            if not chapter_id in chapter_ids:
+                chapter_ids.append(chapter_id)
+                chapters_by_opt_id[opt_id] = chapter_ids
+
+    csv_source = []
+    for opt_id, chapter_ids in chapters_by_opt_id.items():
+        csv_source.append((opt_id, "\n".join(chapter_ids)))
+
+    return csv_source
+
 #
 # Main
 
@@ -483,12 +501,16 @@ def main(args):
     conf = {}
     vars = {}
 
-    opts, args = getopt.getopt(args, 'c:a:')
+    only_index_output = False
+
+    opts, args = getopt.getopt(args, 'c:a:i')
     for k, v in opts:
         if k == '-c':
             conf = adlib.load_as_dict(v)
         elif k == '-a':
             vars = adlib.load_variables(v)
+        elif k == '-i':
+            only_index_output = True
 
     vars = {**DEFAULT_VAR, **vars}
     manual = collections.OrderedDict()
@@ -498,11 +520,15 @@ def main(args):
 
     template, chapters = create_template(manual, conf, vars)
 
-    logging.basicConfig(format="\033[31m%(message)s\033[0m")
-    log = logging.getLogger(__name__)
+    if only_index_output:
+        csv_writer = csv.writer(sys.stdout)
+        csv_writer.writerows(chapters_to_csv(chapters))
+    else:
+        logging.basicConfig(format="\033[31m%(message)s\033[0m")
+        log = logging.getLogger(__name__)
 
-    env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
-    print(env.from_string(template).render(vars))
+        env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
+        print(env.from_string(template).render(vars))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
