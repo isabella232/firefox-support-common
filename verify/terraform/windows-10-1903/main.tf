@@ -205,6 +205,9 @@ resource "local_file" "playbook" {
   filename = "ansible/playbook.yml"
   content  = <<EOL
 - hosts: windows
+  become_method: runas
+  vars:
+    ansible_become_password: "${var.windows-password}"
   tasks:
     - name: Set non-ASCII workgroup name
       win_domain_membership:
@@ -223,20 +226,25 @@ resource "local_file" "playbook" {
     - name: Install language pack
       win_shell: |
         $LpTemp = "c:\temp\lp.cab"
-        Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force
         Add-WindowsPackage -PackagePath $LpTemp -Online
+        Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force
         Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
         Set-WinLanguageBarOption -UseLegacySwitchMode -UseLegacyLanguageBar
         Remove-Item $LpTemp -Force
     - win_reboot:
     - win_timezone:
         timezone: Tokyo Standard Time
+    - name: Set location
+      win_shell: Set-WinHomeLocation -GeoId 0x7A
     - name: Set UI language
       win_shell: Set-WinUILanguageOverride -Language ja-JP
     - name: Set system language
       win_shell: Set-WinSystemLocale -SystemLocale ja-JP
     - name: Set date/time format
       win_shell: Set-WinCultureFromLanguageListOptOut -OptOut $False
+    - name: Set keyboard layout
+      win_shell: Set-ItemProperty 'registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters' -Name 'LayerDriver JPN' -Value 'kbd106.dll'
+    - win_reboot:
     - name: Set region globally
       win_region:
         copy_settings: yes
@@ -254,6 +262,10 @@ resource "local_file" "playbook" {
           - Administrators
           - Users
           - Remote Desktop Users
+    - name: Set display language for the administrator user
+      become: yes
+      become_user: "管理者"
+      win_shell: Set-WinUILanguageOverride -Language ja-JP
     - name: Create regular user
       win_user:
         name: "ユーザー"
@@ -263,6 +275,10 @@ resource "local_file" "playbook" {
         groups:
           - Users
           - Remote Desktop Users
+    - name: Set display language for the regular user
+      become: yes
+      become_user: "ユーザー"
+      win_shell: Set-WinUILanguageOverride -Language ja-JP
     - name: Setup chocolatey
       win_chocolatey:
         name: chocolatey
