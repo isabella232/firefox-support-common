@@ -229,6 +229,7 @@ resource "local_file" "playbook" {
         unicode_language: ja-JP
         register: result
     - win_shell: Set-WinUILanguageOverride -Language ja-JP
+    - win_shell: Set-WinSystemLocale -SystemLocale ja-JP
     - win_shell: Set-WinCultureFromLanguageListOptOut -OptOut $False
     - win_shell: Set-ItemProperty 'registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters' -Name 'LayerDriver JPN' -Value 'kbd106.dll'
     - win_user:
