@@ -61,7 +61,7 @@ resource "azurerm_virtual_machine" "winservtesting" {
     name              = "2019-datacenter-disk1"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+    managed_disk_type = "StandardSSD_LRS"
     os_type           = "Windows"
   }
 
