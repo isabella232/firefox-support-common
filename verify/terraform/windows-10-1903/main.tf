@@ -265,7 +265,9 @@ resource "local_file" "playbook" {
     - name: Set display language for the administrator user
       become: yes
       become_user: "管理者"
-      win_shell: Set-WinUILanguageOverride -Language ja-JP
+      win_shell: |
+        Set-WinUILanguageOverride -Language ja-JP
+        Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
     - name: Create regular user
       win_user:
         name: "ユーザー"
@@ -278,7 +280,9 @@ resource "local_file" "playbook" {
     - name: Set display language for the regular user
       become: yes
       become_user: "ユーザー"
-      win_shell: Set-WinUILanguageOverride -Language ja-JP
+      win_shell: |
+        Set-WinUILanguageOverride -Language ja-JP
+        Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
     - name: Setup chocolatey
       win_chocolatey:
         name: chocolatey
