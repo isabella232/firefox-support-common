@@ -206,13 +206,22 @@ resource "local_file" "playbook" {
   content  = <<EOL
 - hosts: windows
   tasks:
-    - win_file:
+    - name: Set non-ASCII workgroup name
+      win_domain_membership:
+        domain_admin_user: "${var.windows-username}"
+        domain_admin_password: "${var.windows-password}"
+        state: workgroup
+        workgroup_name: ワークグループ
+    - name: Prepare directory to download language pack
+      win_file:
         path: C:\temp
         state: directory
-    - win_get_url:
+    - name: Download language pack file
+      win_get_url:
         url: "${var.windows-language-pack-url}"
         dest: 'c:\temp\lp.cab'
-    - win_shell: |
+    - name: Install language pack
+      win_shell: |
         $LpTemp = "c:\temp\lp.cab"
         Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force
         Add-WindowsPackage -PackagePath $LpTemp -Online
@@ -222,17 +231,23 @@ resource "local_file" "playbook" {
     - win_reboot:
     - win_timezone:
         timezone: Tokyo Standard Time
-    - win_region:
-        copy_settings: "true"
+    - name: Set UI language
+      win_shell: Set-WinUILanguageOverride -Language ja-JP
+    - name: Set system language
+      win_shell: Set-WinSystemLocale -SystemLocale ja-JP
+    - name: Set date/time format
+      win_shell: Set-WinCultureFromLanguageListOptOut -OptOut $False
+    - name: Set keyboard layout
+      win_shell: Set-ItemProperty 'registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters' -Name 'LayerDriver JPN' -Value 'kbd106.dll'
+    - name: Set region globally
+      win_region:
+        copy_settings: yes
         location: "122"
         format: ja-JP
         unicode_language: ja-JP
-        register: result
-    - win_shell: Set-WinUILanguageOverride -Language ja-JP
-    - win_shell: Set-WinSystemLocale -SystemLocale ja-JP
-    - win_shell: Set-WinCultureFromLanguageListOptOut -OptOut $False
-    - win_shell: Set-ItemProperty 'registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters' -Name 'LayerDriver JPN' -Value 'kbd106.dll'
-    - win_user:
+    - win_reboot:
+    - name: Create administrator user
+      win_user:
         name: "管理者"
         password: "${var.windows-password}"
         password_never_expires: true
@@ -241,7 +256,8 @@ resource "local_file" "playbook" {
           - Administrators
           - Users
           - Remote Desktop Users
-    - win_user:
+    - name: Create regular user
+      win_user:
         name: "ユーザー"
         password: "${var.windows-password}"
         password_never_expires: true
@@ -249,19 +265,15 @@ resource "local_file" "playbook" {
         groups:
           - Users
           - Remote Desktop Users
-    - win_domain_membership:
-        domain_admin_user: "${var.windows-username}"
-        domain_admin_password: "${var.windows-password}"
-        state: workgroup
-        workgroup_name: ワークグループ
-    - win_chocolatey:
+    - name: Setup chocolatey
+      win_chocolatey:
         name: chocolatey
         state: present
-    - win_chocolatey:
+    - name: Install EmEditor
+      win_chocolatey:
         name: emeditor
         state: present
         allow_empty_checksums: yes
         ignore_checksums: yes
-    - win_reboot:
 EOL
 }
