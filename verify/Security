@@ -21,7 +21,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     :3: Windowsの証明書データベースから自動的にインポートする
 
     - インポートされることが期待される認証局証明書がWindowsの証明書データベースに含まれる状態にする。
-      例えば、テストケースの `add-badssl-com-enterprise-root.reg` を使用して「BadSSL.com」の認証局証明書をインポート済みの状態にする。
+      例えば、管理者権限でコマンドプロンプトを開き、`reg import path\to\add-badssl-com-enterprise-root.reg` のようにして、テストケースの `add-badssl-com-enterprise-root.reg` を使用して「BadSSL.com」の認証局証明書をインポート済みの状態にする。
     - Firefoxを起動する。
     - インポートされる事が期待される認証局証明書に対応する認証局で発行された証明書を使用したWebサイトを開く。
       例えば、`https://untrusted-root.badssl.com/` を訪問する。
