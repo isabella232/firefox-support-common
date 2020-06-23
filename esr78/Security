@@ -480,7 +480,7 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
 
     :2: 禁止する
 
-    lockPref("lightweightThemes.recommendedThemes", "");
+    lockPref("extensions.getAddons.discovery.api_url", "");
 
 Security-20: [廃止] パーミッション設定変更の可否
 
