@@ -244,13 +244,14 @@ Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    {%if Security_9_3 %}
+    {%if Security_9_3 %}{%if not Security_5_1 %}
     - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-      {% endif %}
+      {% endif %}{% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - **確認**
         - 詐欺サイトとしてブロックされる。
+    {%if not Security_5_1 %}
     - `about:config` を開く。
     - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
     - Firefoxを再起動する。
@@ -262,6 +263,7 @@ Security-6: 偽装サイトに対する警告の可否
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
+    {% endif %}
 
     :2: 警告しない
 
