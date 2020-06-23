@@ -209,6 +209,12 @@ resource "local_file" "playbook" {
   vars:
     ansible_become_password: "${var.windows-password}"
   tasks:
+    - name: Allow copy and paste to the UAC dialog
+      win_regedit:
+        key: HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System
+        value: PromptOnSecureDesktop
+        data: 00000000
+        datatype: dword
     - name: Set non-ASCII workgroup name
       win_domain_membership:
         domain_admin_user: "${var.windows-username}"
