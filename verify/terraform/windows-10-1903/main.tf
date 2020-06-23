@@ -299,6 +299,11 @@ resource "local_file" "playbook" {
         state: present
         allow_empty_checksums: yes
         ignore_checksums: yes
+#    - name: Add popup blocker exception hosts for Security-4-5 and Security-4-6
+#      win_hosts:
+#        state: present
+#        canonical_name: hostname
+#        ip_address: '93.184.216.34'
 EOL
 }
 
