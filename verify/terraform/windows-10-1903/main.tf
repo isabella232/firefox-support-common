@@ -295,3 +295,25 @@ resource "local_file" "playbook" {
         ignore_checksums: yes
 EOL
 }
+
+resource "local_file" "RDP shortcut for the administrator" {
+  filename = "rdp/管理者"
+  content  = <<EOL
+full address:s:${data.azurerm_public_ip.testing.ip_address}:3389
+prompt for credentials:i:0
+administrative session:i:1
+username:s:管理者
+password 51:b:<powershell.exe -command "('${var.windows-password}' | ConvertTo-SecureString -AsPlainText -Force) | ConvertFrom-SecureString;">
+EOL
+}
+
+resource "local_file" "RDP shortcut for the user" {
+  filename = "rdp/ユーザー"
+  content  = <<EOL
+full address:s:${data.azurerm_public_ip.testing.ip_address}:3389
+prompt for credentials:i:0
+administrative session:i:1
+username:s:ユーザー
+password 51:b:<powershell.exe -command "('${var.windows-password}' | ConvertTo-SecureString -AsPlainText -Force) | ConvertFrom-SecureString;">
+EOL
+}
