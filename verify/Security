@@ -729,12 +729,21 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
 
     :2: 禁止する（既定）: 外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
 
-    - Pythonの実行環境を整えておく。
+    {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
+    - 外部Webサイト（www.clear-code.com/）にアクセスできない場合、Pythonの実行環境を整えておく。
     - Firefoxを起動する。
     - テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
       または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - **確認**
         - スクリプトがブロックされ、アラートダイアログが表示されない。
+    - Ctrl-Shift-K でWebコンソールを開く。
+    - **確認**
+        - 許可されていないMIMEタイプであるためにスクリプトがブロックされた旨が出力されている。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
 
 Security-31: 危険なFlashコンテンツの読み込み
 
