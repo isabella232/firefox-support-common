@@ -568,6 +568,7 @@ Security-24: Flashプラグインの保護モード
 
     :1: 使用する（既定）
 
+    - 以下は32bit版Firefoxおいてのみ検証する。64bit版Firefoxにおいては、機能が存在しないため検証を省略する。
     - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
@@ -578,13 +579,13 @@ Security-24: Flashプラグインの保護モード
     - Flashプラグインの「オプション」を開く。
     - **確認**
         - 32bit版Firefoxにおいて、「Adobe Flashの保護モードを有効化」にチェックが入っている。
-          （64bit版Firefoxにおいては機能が存在しないため確認を省略する。）
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
 
     :2: 使用しない
 
+    - 以下は32bit版Firefoxおいてのみ検証する。64bit版Firefoxにおいては、機能が存在しないため検証を省略する。
     - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
@@ -595,7 +596,6 @@ Security-24: Flashプラグインの保護モード
     - Flashプラグインの「オプション」を開く。
     - **確認**
         - 32bit版Firefoxにおいて、「Adobe Flashの保護モードを有効化」にチェックが入っていない。
-          （64bit版Firefoxにおいては機能が存在しないため確認を省略する。）
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
