@@ -354,7 +354,8 @@ Install-14: Internet Explorerのコンテキストメニューにコマンドを
 
     :1: 登録しない
 
-    - IEを起動し、Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
+    - Windowsキーを押しながらR、またはスタートボタンの右クリックから「ファイル名を指定して実行」を選択し、`iexplore.exe` と入力して、IEを起動する。
+    - Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
         -  もし項目が存在している場合、コマンドプロンプトで
            `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"`
            を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
@@ -366,7 +367,8 @@ Install-14: Internet Explorerのコンテキストメニューにコマンドを
 
     :2: 登録する
 
-    - IEを起動し、Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
+    - Windowsキーを押しながらR、またはスタートボタンの右クリックから「ファイル名を指定して実行」を選択し、`iexplore.exe` と入力して、IEを起動する。
+    - Webページ上でコンテキストメニューを開いて、追加のコンテキストメニューが表示されない事を確認する。
         -  もし項目が存在している場合、コマンドプロンプトで
            `reg.exe delete /va /f "HKCU\\Software\Microsoft\Internet Explorer\MenuExt\メニュー項目名"`
            を実行し、Internet Exploerに追加したコンテキストメニュー項目を削除する。
