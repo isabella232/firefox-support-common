@@ -305,6 +305,27 @@ resource "local_file" "playbook" {
         state: present
         allow_empty_checksums: yes
         ignore_checksums: yes
+    - name: Download firefox-support-common for testcases
+      win_get_url:
+        url: "https://github.com/clear-code/firefox-support-common/archive/master.zip"
+        dest: 'c:\Users\Public\firefox-support-common.zip'
+    - name: Extract contents
+      win_unzip:
+        src: 'c:\Users\Public\firefox-support-common.zip'
+        dest: 'c:\Users\Public'
+        delete_archive: yes
+    - name: Extract only testcases
+      win_copy:
+        src: 'c:\Users\Public\firefox-support-common-master\testcases'
+        dest: 'c:\Users\Public'
+        remote_src: True
+    - name: Delete needless files
+      win_file:
+        path: 'c:\Users\Public\firefox-support-common-master'
+        state: absent
+    - name: Add enterprise cert for verification
+      win_regmerge:
+        path: 'C:\Users\Public\testcases\add-badssl-com-enterprise-root.reg'
 #    - name: Add popup blocker exception hosts for Security-4-5 and Security-4-6
 #      win_hosts:
 #        state: present
