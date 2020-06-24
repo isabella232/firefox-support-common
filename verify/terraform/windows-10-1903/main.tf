@@ -50,11 +50,17 @@ resource "azurerm_virtual_machine" "winservtesting" {
   delete_data_disks_on_termination = true
 
   storage_image_reference {
-    # Windows 10 Enterprise 1093
+    # Windows 10 Professional 1093
     publisher = "MicrosoftWindowsDesktop"
     offer     = "Windows-10"
-    sku       = "19h1-ent"
+    sku       = "19h1-pro"
     version   = "latest"
+
+    ## Windows 10 Enterprise 1093
+    #publisher = "MicrosoftWindowsDesktop"
+    #offer     = "Windows-10"
+    #sku       = "19h1-ent"
+    #version   = "latest"
   }
 
   storage_os_disk {
