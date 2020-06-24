@@ -8,12 +8,12 @@ provider "local" {
 }
 
 resource "azurerm_resource_group" "firefoxverify" {
-  name     = "FirefoxVerifyResourceGroup"
+  name     = "FirefoxVerifyResourceGroup-${var.namespace}"
   location = "Japan East"
 }
 
 resource "azurerm_virtual_network" "firefoxverify" {
-  name                = "firefoxverify-network"
+  name                = "firefoxverify-${var.namespace}-network"
   resource_group_name = azurerm_resource_group.firefoxverify.name
   location            = azurerm_resource_group.firefoxverify.location
   address_space       = ["10.5.0.0/16"]
@@ -26,25 +26,25 @@ resource "azurerm_subnet" "internal" {
   address_prefixes     = ["10.5.2.0/24"]
 }
 
-resource "azurerm_network_interface" "testing" {
-  name                = "firefoxverify-testing-instance-nic"
+resource "azurerm_network_interface" "firefoxverify" {
+  name                = "firefoxverify-${var.namespace}-instance-nic"
   location            = azurerm_resource_group.firefoxverify.location
   resource_group_name = azurerm_resource_group.firefoxverify.name
 
   ip_configuration {
-    name                          = "testing-instance-nic"
+    name                          = "firefoxverify-${var.namespace}-instance-nic"
     subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = "Static"
     private_ip_address            = "10.5.2.10"
-    public_ip_address_id          = azurerm_public_ip.testing.id
+    public_ip_address_id          = azurerm_public_ip.firefoxverify.id
   }
 }
 
-resource "azurerm_virtual_machine" "winservtesting" {
-  name                             = "firefoxverify-vm-${var.vm-name}"
+resource "azurerm_virtual_machine" "firefoxverify_vm" {
+  name                             = "firefoxverify-${var.namespace}-vm"
   location                         = azurerm_resource_group.firefoxverify.location
   resource_group_name              = azurerm_resource_group.firefoxverify.name
-  network_interface_ids            = [azurerm_network_interface.testing.id]
+  network_interface_ids            = [azurerm_network_interface.firefoxverify.id]
   vm_size                          = "Standard_B2S"
   delete_os_disk_on_termination    = true
   delete_data_disks_on_termination = true
@@ -64,7 +64,7 @@ resource "azurerm_virtual_machine" "winservtesting" {
   }
 
   storage_os_disk {
-    name              = "2019-datacenter-disk1"
+    name              = "firefoxverify-${var.namespace}-disk1"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "StandardSSD_LRS"
@@ -72,7 +72,7 @@ resource "azurerm_virtual_machine" "winservtesting" {
   }
 
   os_profile {
-    computer_name  = "cc-winserv"
+    computer_name  = "firefoxverify"
     admin_username = var.windows-username
     admin_password = var.windows-password
     custom_data    = file("./config/settings.ps1")
@@ -106,7 +106,7 @@ resource "azurerm_virtual_machine" "winservtesting" {
   }
 
   connection {
-    host     = azurerm_public_ip.testing.ip_address
+    host     = azurerm_public_ip.firefoxverify.ip_address
     type     = "winrm"
     port     = 5985
     https    = false
@@ -120,8 +120,8 @@ resource "azurerm_virtual_machine" "winservtesting" {
 #  }
 }
 
-resource "azurerm_network_security_group" "testing" {
-  name                = "FirefoxVerifySecurityGroup"
+resource "azurerm_network_security_group" "firefoxverify" {
+  name                = "FirefoxVerifySecurityGroup-${var.namespace}"
   location            = "Japan East"
   resource_group_name = azurerm_resource_group.firefoxverify.name
 
@@ -166,37 +166,37 @@ resource "azurerm_network_security_group" "testing" {
   }
 }
 
-resource "azurerm_network_interface_security_group_association" "testing" {
-  network_interface_id      = azurerm_network_interface.testing.id
-  network_security_group_id = azurerm_network_security_group.testing.id
+resource "azurerm_network_interface_security_group_association" "firefoxverify" {
+  network_interface_id      = azurerm_network_interface.firefoxverify.id
+  network_security_group_id = azurerm_network_security_group.firefoxverify.id
 }
 
-resource "azurerm_public_ip" "testing" {
-  name                    = "firefoxverify-collector-pip"
+resource "azurerm_public_ip" "firefoxverify" {
+  name                    = "firefoxverify-${var.namespace}-collector-pip"
   location                = azurerm_resource_group.firefoxverify.location
   resource_group_name     = azurerm_resource_group.firefoxverify.name
   allocation_method       = "Dynamic"
   idle_timeout_in_minutes = 30
 
   tags = {
-    environment = "firefoxverify-testing-pip"
+    environment = "firefoxverify-${var.namespace}-pip"
   }
 }
 
-data "azurerm_public_ip" "testing" {
-  name                = azurerm_public_ip.testing.name
-  resource_group_name = azurerm_virtual_machine.winservtesting.resource_group_name
+data "azurerm_public_ip" "firefoxverify" {
+  name                = azurerm_public_ip.firefoxverify.name
+  resource_group_name = azurerm_virtual_machine.firefoxverify_vm.resource_group_name
 }
 
-output "win10testing_instance_public_ip_address" {
-  value = data.azurerm_public_ip.testing.ip_address
+output "vm_public_ip_address" {
+  value = data.azurerm_public_ip.firefoxverify.ip_address
 }
 
 resource "local_file" "inventory" {
   filename = "ansible/hosts"
   content  = <<EOL
 [windows]
-${data.azurerm_public_ip.testing.ip_address}
+${data.azurerm_public_ip.firefoxverify.ip_address}
 
 [windows:vars]
 ansible_user=${var.windows-username}
@@ -341,7 +341,7 @@ EOL
 resource "local_file" "admin_rdp_shortcut" {
   filename = "rdp/管理者.rdp"
   content  = <<EOL
-full address:s:${data.azurerm_public_ip.testing.ip_address}:3389
+full address:s:${data.azurerm_public_ip.firefoxverify.ip_address}:3389
 prompt for credentials:i:0
 administrative session:i:1
 username:s:管理者
@@ -351,7 +351,7 @@ EOL
 resource "local_file" "user_rdp_shortcut" {
   filename = "rdp/ユーザー.rdp"
   content  = <<EOL
-full address:s:${data.azurerm_public_ip.testing.ip_address}:3389
+full address:s:${data.azurerm_public_ip.firefoxverify.ip_address}:3389
 prompt for credentials:i:0
 administrative session:i:1
 username:s:ユーザー
@@ -369,5 +369,5 @@ EOL
 
 resource "local_file" "password_file" {
   filename = "password.txt"
-  content  = "${var.windows-password}"
+  content  = var.windows-password
 }

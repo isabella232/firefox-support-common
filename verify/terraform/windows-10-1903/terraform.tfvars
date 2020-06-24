@@ -1,4 +1,4 @@
-vm-name = "windows-10-1903-common"
+namespace = "example-win10-pro-1903"
 windows-username = "clearcode"
 windows-password = "%PASSWORD%"
 windows-language-pack-url = "%LANGUAGE_PACK_URL%"
