@@ -41,7 +41,7 @@ resource "azurerm_network_interface" "testing" {
 }
 
 resource "azurerm_virtual_machine" "winservtesting" {
-  name                             = "firefoxverify-windows-10-1903-vm"
+  name                             = "firefoxverify-vm-${var.vm-name}"
   location                         = azurerm_resource_group.firefoxverify.location
   resource_group_name              = azurerm_resource_group.firefoxverify.name
   network_interface_ids            = [azurerm_network_interface.testing.id]
