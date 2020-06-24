@@ -313,24 +313,36 @@ resource "local_file" "playbook" {
 EOL
 }
 
-resource "local_file" "RDP shortcut for the administrator" {
-  filename = "rdp/管理者"
+resource "local_file" "admin_rdp_shortcut" {
+  filename = "rdp/管理者.rdp"
   content  = <<EOL
 full address:s:${data.azurerm_public_ip.testing.ip_address}:3389
 prompt for credentials:i:0
 administrative session:i:1
 username:s:管理者
-password 51:b:<powershell.exe -command "('${var.windows-password}' | ConvertTo-SecureString -AsPlainText -Force) | ConvertFrom-SecureString;">
 EOL
 }
 
-resource "local_file" "RDP shortcut for the user" {
-  filename = "rdp/ユーザー"
+resource "local_file" "user_rdp_shortcut" {
+  filename = "rdp/ユーザー.rdp"
   content  = <<EOL
 full address:s:${data.azurerm_public_ip.testing.ip_address}:3389
 prompt for credentials:i:0
 administrative session:i:1
 username:s:ユーザー
-password 51:b:<powershell.exe -command "('${var.windows-password}' | ConvertTo-SecureString -AsPlainText -Force) | ConvertFrom-SecureString;">
 EOL
+}
+
+resource "local_file" "batch_to_add_password_lines_for_rdp_shortcuts" {
+  filename = "rdp/add_password.bat"
+  content  = <<EOL
+@echo off
+for /f "usebackq delims==" %%i IN (`dir *.rdp /b`) do powershell.exe -command "'password 51:b:' + (('${var.windows-password}' | ConvertTo-SecureString -AsPlainText -Force) | ConvertFrom-SecureString);" >> %%i
+del add_password.bat
+EOL
+}
+
+resource "local_file" "password_file" {
+  filename = "password.txt"
+  content  = "${var.windows-password}"
 }
