@@ -122,6 +122,8 @@ Appearance-10: ユーザースタイルシートの使用
 
     :1: 使用する
 
+    // 必ずローカルのMCD用設定ファイルに記入する。
+    // リモートのMCD用設定ファイルに記入した場合、初期化タイミングに間に合わないため設定が機能しない。
     lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
     :2: 使用しない（既定）
