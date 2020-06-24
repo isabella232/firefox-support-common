@@ -751,13 +751,13 @@ Security-31: 危険なFlashコンテンツの読み込み
 
     ABOUT_CONFIG
 
-    - `browser.safebrowsing.blockedURIs.enabled` の値が `true` である。
+    - `browser.safebrowsing.blockedURIs.enabled` の値が `false` である。
 
     :2: ブロックする（既定）
 
     ABOUT_CONFIG
 
-    - `browser.safebrowsing.blockedURIs.enabled` の値が `false` である。
+    - `browser.safebrowsing.blockedURIs.enabled` の値が `true` である。
 
 Security-32: アドオンのインストール時の警告
 
