@@ -1013,27 +1013,27 @@ Privacy-35: トラッキングの遮断に使用するブロックリストの�
 
     :1: レベル1（基本）ブロックを初期設定とし、変更を許可（既定）
 
-    OPTIONS
+    ABOUT_CONFIG
 
-    - 「プライバシーとセキュリティ」→「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル1ブロックリスト」が選択されている。
+    - `urlclassifier.trackingTable` が `test-track-simple,base-track-digest256` に設定されている。
 
     :2: レベル2（厳格）ブロックを初期設定とし、変更を許可
 
-    OPTIONS
+    ABOUT_CONFIG
 
-    - 「プライバシーとセキュリティ」→「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル2ブロックリスト」が選択されている。
+    - `urlclassifier.trackingTable` が `test-track-simple,,base-track-digest256,content-track-digest256` に設定されている。
 
     :3: レベル1（基本）ブロックで固定
 
-    OPTIONS
+    ABOUT_CONFIG
 
-    - 「プライバシーとセキュリティ」→「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル1ブロックリスト」が選択されている。
+    - `urlclassifier.trackingTable` が `test-track-simple,base-track-digest256` に固定されている。
 
     :4: レベル2（厳格）ブロックで固定
 
-    OPTIONS
+    ABOUT_CONFIG
 
-    - 「プライバシーとセキュリティ」→「ブロックリストを変更」リンクで開かれるブロックリストの選択で、「レベル2ブロックリスト」が選択されている。
+    - `urlclassifier.trackingTable` が `test-track-simple,,base-track-digest256,content-track-digest256` に固定されている。
 
 Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上へのキャッシュ
 
