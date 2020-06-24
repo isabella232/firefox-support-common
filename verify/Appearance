@@ -273,7 +273,7 @@ Appearance-10: ユーザースタイルシートの使用
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
     - ユーザープロファイルフォルダに `chrome` フォルダを作成する。
-    - `chrome` フォルダ内にテキストファイル `userContent.css` を以下の内容で作成する：
+    - `chrome` フォルダ内にテストケースの `userContent.css` を設置する、またはテキストファイル `userContent.css` を以下の内容で作成する：
       `* { color: red !important }`
     - Firefoxを起動する。
     - テストケースの `index.html` を開く。
@@ -292,7 +292,7 @@ Appearance-10: ユーザースタイルシートの使用
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
     - ユーザープロファイルフォルダに `chrome` フォルダを作成する。
-    - `chrome` フォルダ内にテキストファイル `userContent.css` を以下の内容で作成する：
+    - `chrome` フォルダ内にテストケースの `userContent.css` を設置する、またはテキストファイル `userContent.css` を以下の内容で作成する：
       `* { color: red !important }`
     - Firefoxを起動する。
     - テストケースの `index.html` を開く。
