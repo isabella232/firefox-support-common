@@ -280,6 +280,14 @@ resource "local_file" "playbook" {
       win_shell: |
         Set-WinUILanguageOverride -Language ja-JP
         Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
+    - name: Show hidden files for the administrator user
+      become: yes
+      become_user: "管理者"
+      win_command: reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden /t REG_DWORD /d 1 /f
+    - name: Show file extensions for the administrator user
+      become: yes
+      become_user: "管理者"
+      win_command: reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v HideFileExt /t REG_DWORD /d 0 /f
     - name: Create regular user
       win_user:
         name: "ユーザー"
@@ -295,6 +303,14 @@ resource "local_file" "playbook" {
       win_shell: |
         Set-WinUILanguageOverride -Language ja-JP
         Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
+    - name: Show hidden files for the regular user
+      become: yes
+      become_user: "ユーザー"
+      win_command: reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Hidden /t REG_DWORD /d 1 /f
+    - name: Show file extensions for the regular user
+      become: yes
+      become_user: "ユーザー"
+      win_command: reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v HideFileExt /t REG_DWORD /d 0 /f
     - name: Setup chocolatey
       win_chocolatey:
         name: chocolatey
