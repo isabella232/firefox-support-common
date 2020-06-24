@@ -346,6 +346,26 @@ resource "local_file" "playbook" {
       win_get_url:
         url: "${var.flash-installer-url}"
         dest: 'C:\Users\Public\flash_installer.exe'
+    - name: Create shortcut to Program Files
+      win_shortcut:
+        src: '%ProgramFiles%'
+        dest: '%Public%\Desktop\Program Files.lnk'
+    - name: Create shortcut to Program Files (x86)
+      win_shortcut:
+        src: '%ProgramFiles(x86)%'
+        dest: '%Public%\Desktop\Program Files (x86).lnk'
+    - name: Create shortcut to testcases
+      win_shortcut:
+        src: '%Public%\testcases'
+        dest: '%Public%\Desktop\testcases.lnk'
+    - name: Create shortcut to AppData
+      win_shortcut:
+        src: '%AppData%'
+        dest: '%Public%\Desktop\AppData.lnk'
+    - name: Create shortcut to LocalAppData
+      win_shortcut:
+        src: '%LocalAppData%'
+        dest: '%Public%\Desktop\LocalAppData.lnk'
 #    - name: Add popup blocker exception hosts for Security-4-5 and Security-4-6
 #      win_hosts:
 #        state: present
