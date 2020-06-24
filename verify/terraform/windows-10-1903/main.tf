@@ -326,6 +326,10 @@ resource "local_file" "playbook" {
     - name: Add enterprise cert for verification
       win_regmerge:
         path: 'C:\Users\Public\testcases\add-badssl-com-enterprise-root.reg'
+    - name: Download Flash installer
+      win_get_url:
+        url: "${var.flash-installer-url}"
+        dest: 'C:\Users\Public\flash_installer.exe'
 #    - name: Add popup blocker exception hosts for Security-4-5 and Security-4-6
 #      win_hosts:
 #        state: present

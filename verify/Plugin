@@ -14,6 +14,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :1: 常に無効化する
 
+    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
     {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
@@ -28,6 +29,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :4: 常に無効化する（ポリシーで設定）
 
+    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
     {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
@@ -42,6 +44,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :3: クリックされたら有効にする（既定）（ポリシーで設定）
 
+    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
     {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
