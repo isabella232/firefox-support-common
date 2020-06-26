@@ -10,14 +10,13 @@ BASE=$(shell pwd)
 
 VERIFY_MANUAL_OPT= -c assets/esr78.conf -a assets/esr78.var
 PANDOC_OPT_PDF= -N --toc-depth=2 --table-of-contents \
-                -f markdown+ignore_line_breaks \
+                -f markdown \
+                --wrap=perserve \
                 -V documentclass=ltjsarticle \
                 -V classoption=titlepage \
                 --latex-engine=lualatex
-PANDOC_OPT_DOCX= -N --toc-depth=2 --table-of-contents \
-                 -f markdown+ignore_line_breaks \
-                 -V documentclass=ltjsarticle \
-                 -V classoption=titlepage \
+PANDOC_OPT_DOCX= --toc-depth=2 --table-of-contents \
+                 -f markdown+east_asian_line_breaks \
                  -t docx \
                  --reference-doc="$(BASE)/assets/template.docx"
 
