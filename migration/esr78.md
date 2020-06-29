@@ -114,7 +114,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
   ![](esr78/firefox-account-menu.png)
 * パネルメニュー内に「新着情報」が追加されました。（Firefox 70）
   ![](esr78/whatsnew-menu.png)
-  （MCDでの `browser.messaging-system.whatsNewPanel.enabled` またはポリシー設定での [`policies.UserMessaging.WhatsNew`](https://github.com/mozilla/policy-templates#usermessaging) で非表示化できます。）
+  （項目は非表示にはできませんが、ポップアップで表示されるpush型の通知はMCDでの `browser.messaging-system.whatsNewPanel.enabled` またはポリシー設定での [`policies.UserMessaging.WhatsNew`](https://github.com/mozilla/policy-templates#usermessaging) で無効化できます。）
 * Firefoxのタブ内コンテンツがシステムの暗い配色モードに対応しました。（Firefox 70）
   ![](esr78/dark-content.png)
 * 設定画面とabout:configがHTMLで置き換えられました。 （Firefox 71）
