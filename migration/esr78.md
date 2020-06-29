@@ -47,10 +47,10 @@
 
 ### UIの変更
 
-* プライバシー保護の状況のレポートを、ロケーションバーの盾アイコンのクリックで表示できるようになりました。（Firefox 71）
-  ![](esr78/tracking-block-report.png)
-  このUIには、暗号通貨採掘のブロック状況も表示されます。（Firefox 71）
-  ![](esr78/cryptomining-blocker.png)
+* プライバシー保護の状況のレポートを、ロケーションバーの盾アイコンのクリックで表示できるようになりました。（Firefox 71）  
+  ![](esr78/tracking-block-report.png){width=350px}  
+  このUIには、暗号通貨採掘のブロック状況も表示されます。（Firefox 71）  
+  ![](esr78/cryptomining-blocker.png){width=350px}
 * Webサイトがユーザーの位置情報を参照している事の通知がロケーションバーに表示されるようになりました。（Firefox 70）
   ![](esr78/geolocation-icon.png)
 
@@ -75,11 +75,11 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 
 ### 利便性の向上
 
-* パスワードの自動入力について、同じサイトの別のサブドメインの情報も列挙するようになりました。 （Firefox 71）
-  ![](esr78/multiple-logins.png)
+* パスワードの自動入力について、同じサイトの別のサブドメインの情報も列挙するようになりました。 （Firefox 71）  
+  ![](esr78/multiple-logins.png){width=350px}
 * ログインフォームの内容が変更されていた場合にのみ、ログイン情報を保存するかどうかを尋ねるようになりました。（Firefox 73）
-* 保存済みの項目をアルファベット順の逆順で並べ替えられるようになりました。（Firefox 74）
-  ![](esr78/sortable-logins.png)
+* 保存済みの項目をアルファベット順の逆順で並べ替えられるようになりました。（Firefox 74）  
+  ![](esr78/sortable-logins.png){width=350px}
 
 ### 他ブラウザからの情報のインポート機能の強化
 
@@ -112,8 +112,8 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * US地域の英語版ユーザーに対して、Pocketのおすすめコンテンツを新規タブに表示するようになりました。（Firefox 69）
 * パネルメニュー内の「Syncにログイン」が「Firefoxアカウント」用のメニューに置き換えられました。（Firefox 70）
   ![](esr78/firefox-account-menu.png)
-* パネルメニュー内に「新着情報」が追加されました。（Firefox 70）
-  ![](esr78/whatsnew-menu.png)
+* パネルメニュー内に「新着情報」が追加されました。（Firefox 70）  
+  ![](esr78/whatsnew-menu.png){width=400px}  
   （項目は非表示にはできませんが、ポップアップで表示されるpush型の通知はMCDでの `browser.messaging-system.whatsNewPanel.enabled` またはポリシー設定での [`policies.UserMessaging.WhatsNew`](https://github.com/mozilla/policy-templates#usermessaging) で無効化できます。）
 * Firefoxのタブ内コンテンツがシステムの暗い配色モードに対応しました。（Firefox 70）
   ![](esr78/dark-content.png)
@@ -144,8 +144,8 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * 文字の下線（と上線）が「g」の下の部分など文字を避けてレンダリングされるようになりました。（Firefox 70）
   ![](esr78/text-decoration-underline.png)
 * ハイコントラストモードにおいて、背景画像が無効化された状態でもテキストがさらに読みやすくなりました。（Firefox 73）
-* Webページの表示について、既定のズームサイズを設定できるようになりました。（文字のみ変更も可能、サイトごとにズーム率を変更可能）（Firefox 73）
-  ![](esr78/default-zoom-level.png)
+* Webページの表示について、既定のズームサイズを設定できるようになりました。（文字のみ変更も可能、サイトごとにズーム率を変更可能）（Firefox 73）  
+  ![](esr78/default-zoom-level.png){width=400px}
 * Application Cache APIが完全に廃止されました。（この機能はFirefox ESR68時点で既に無効化されていました）（Firefox 77）
 
 
