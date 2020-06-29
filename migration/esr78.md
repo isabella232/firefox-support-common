@@ -1,5 +1,9 @@
-% Firefox ESR68からESR78の変更点
-
+---
+title:     Firefox ESR68からESR78の変更点
+author:    株式会社クリアコード
+date:      2020年6月29日
+toc-title: 目次
+---
 
 # Firefox ESR78のリリーススケジュール
 
