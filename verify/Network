@@ -316,17 +316,23 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
     - `network.negotiate-auth.allow-non-fqdn` の値が `true` である。
     - `network.automatic-ntlm-auth.allow-non-fqdn` の値が `true` である。
 
-Network-17: TLS 1.xの使用
+Network-17: 脆弱なバージョンのTLSの使用
 
-    :1: TLS 1.0の使用を許可する（既定）
+    :1: TLS 1.0/1.1の使用を許可する（ポリシーで設定）
 
-    ABOUT_CONFIG
+    ABOUT_POLICIES
 
-    - `security.tls.version.min` の値が `1` である。
+    - `SSLVersionMin` の値が `tls1` である。
 
     :2: 特定バージョン以上のTLSの使用を強制（ポリシーで設定）
 
-    ABOUT_CONFIG
+    ABOUT_POLICIES
 
-    - `security.tls.version.min` の値が `2` 以上である。
+    - `SSLVersionMin` の値が指定の通りである。
+
+    :3: TLS 1.0/1.1の使用を禁止する（既定）
+
+    ABOUT_POLICIES
+
+    - `SSLVersionMin` の値が未定義である。
 
