@@ -177,7 +177,7 @@ Mozillaは現在、スマートフォン向けパスワードマネージャ「F
 * macOSにおいて、署名付きPKGインストーラが提供されるようになりました。（Firefox 69）
 * Linuxにおいて、Flatpak形式のパッケージが提供されるようになりました。（Firefox 75）
 * Windowsにおいて、タスクスケジューラを使ったバックグラウンドでの自動更新が実装され始めました。 [1343669 - (update-agent) [meta] Background Update Agent tracking bug](https://bugzilla.mozilla.org/show_bug.cgi?id=1343669)（Firefox 76～78）
-    * Firefox ESR78にこの変更が反映されるかどうかは現時点では不明です。
+    * Firefox ESR78では有効化されませんが、次期ESRでは有効化される可能性が高いです。
 
 
 ## カスタマイズに関する変更
