@@ -393,6 +393,9 @@ Security-15: その他、バックグラウンドで行われる外部への通�
       {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
+      {%if Security_3_3 %}{%if not Security_18_2 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}{% endif %}
       {%if UsePACFile %}
     - プロキシ自動設定スクリプトを参照できない環境で検証する場合、「Network-2-3」または「Network-2-8」でのPACファイルの参照先URLを `data:application/javascript,` と設定する。
       {% endif %}
@@ -417,10 +420,15 @@ Security-15: その他、バックグラウンドで行われる外部への通�
                  - `https://shaver.services.mozila.com/～`
                  - `ocsp.pki.goog`
                  - `ocsp.digicert.com`{% endif %}
+      {%if not Security_18_2 %}
     - パネルメニューからツールバーのカスタマイズ画面を開く。
     - **確認**
         - 「テーマ」内の「その他のテーマを入手」をクリックしても何も起こらない。
         - 「テーマ」内に「おすすめ」セクションが表示されない、またはセクションに何も項目が表示されない。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
+      {% endif %}
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
