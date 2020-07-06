@@ -42,6 +42,7 @@ configurations-sheet: verify-targets-to-chapters.csv
 
 verification-manual:
 	./cat-verify ${VERIFY_MANUAL_OPT} | pandoc ${PANDOC_OPT_DOCX} -o verify-$(DATE).docx
+	./cat-verify ${VERIFY_MANUAL_OPT} -l > verify-$(DATE)-checklist.csv
 
 migration-report:
 	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_DOCX} -o "migration-report-esr78-$(DATE).docx" && mv *.docx ../
