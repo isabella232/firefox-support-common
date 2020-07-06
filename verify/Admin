@@ -10,7 +10,7 @@ Admin-0: 管理用設定の検証
         - {{meta_installer_name}}
         - メタインストーラによってインストールされたMozilla Firefox
     - 以下のファイル、フォルダがあれば削除する。
-        - `{{install_path}}\Mozilla Firefox` {%if install_path_32bit %}  
+        - `{{install_path}}` {%if install_path_32bit %}  
           （32bit環境では `{{install_path_32bit}}`）{% endif %}
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
