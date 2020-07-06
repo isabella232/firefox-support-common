@@ -489,6 +489,14 @@ def chapters_to_csv(chapters):
 
     return csv_source
 
+def chapters_to_checklist(chapters):
+    rows = []
+    for chapter_id, opt_ids in chapters.items():
+        for opt_id in opt_ids:
+            rows.append((chapter_id, opt_id))
+
+    return rows
+
 #
 # Main
 
@@ -502,8 +510,9 @@ def main(args):
     vars = {}
 
     only_index_output = False
+    only_checklist_output = False
 
-    opts, args = getopt.getopt(args, 'c:a:i')
+    opts, args = getopt.getopt(args, 'c:a:il')
     for k, v in opts:
         if k == '-c':
             conf = adlib.load_as_dict(v)
@@ -511,6 +520,8 @@ def main(args):
             vars = adlib.load_variables(v)
         elif k == '-i':
             only_index_output = True
+        elif k == '-l':
+            only_checklist_output = True
 
     vars = {**DEFAULT_VAR, **vars}
     manual = collections.OrderedDict()
@@ -523,6 +534,9 @@ def main(args):
     if only_index_output:
         csv_writer = csv.writer(sys.stdout)
         csv_writer.writerows(chapters_to_csv(chapters))
+    elif only_checklist_output:
+        csv_writer = csv.writer(sys.stdout)
+        csv_writer.writerows(chapters_to_checklist(chapters))
     else:
         logging.basicConfig(format="\033[31m%(message)s\033[0m")
         log = logging.getLogger(__name__)
