@@ -150,21 +150,29 @@ Install-8: Firefox/Thunderbirdのインストール先
 
     :1: 既定のインストール先（既定）
 
+    {%if Install_7_2 %}
+    - Install-7-2 の検証仮定で確認済みのため、検証を省略する。
+    {% else %}
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path_base}}\Mozilla Firefox\{{exe_name}}.exe` {%if install_path_base_32bit %}  
           （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox\{{exe_name}}.exe`）{% endif %}  
           が存在する。
+    {% endif %}
 
     :2: 任意のインストール先
 
+    {%if Install_7_2 %}
+    - Install-7-2 の検証仮定で確認済みのため、検証を省略する。
+    {% else %}
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
           （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
           が存在する。
+    {% endif %}
 
 Install-9: メタインストーラの表示バージョン
 
@@ -191,11 +199,11 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-    - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-      （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
-      のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
-    - `Firefox` のショートカットを右クリックし、プロパティを開く。
-    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+          のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
+        - `Firefox` のショートカットを右クリックし、プロパティを開く。
+        - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
     - インストールされたFirefoxを起動する。
     - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
@@ -217,35 +225,35 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-    - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-      （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
-      のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
-    - `Firefox` のショートカットを右クリックし、プロパティを開く。
-    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+          のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
+        - `Firefox` のショートカットを右クリックし、プロパティを開く。
+        - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-2` を追記する。
     - インストールされたFirefoxを起動する。
     - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - `Firefox` のショートカットを右クリックし、プロパティを開く。
-    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
+    - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-2` を追記する。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
     - `Firefox` のショートカットを右クリックし、プロパティを開く。
     - **確認**
-        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されていない。
+        - 「リンク先」欄末尾に `about:blank?Install-10-2` と記載されていない。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - `Firefox` のショートカットを右クリックし、プロパティを開く。
     - **確認**
-        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されていない。
+        - 「リンク先」欄末尾に `about:blank?Install-10-2` と記載されていない。
 
     :3: 削除のみする
 
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-    - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-      （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
-      のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
+        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+          のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
     - インストールされたFirefoxを起動する。
     - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
