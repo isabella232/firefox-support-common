@@ -491,9 +491,10 @@ def chapters_to_csv(chapters):
 
 def chapters_to_checklist(chapters):
     rows = []
+    rows.append(("見出し番号", "検証対象項目", "検証結果（ok/ng）"))
     for chapter_id, opt_ids in chapters.items():
         for opt_id in opt_ids:
-            rows.append((chapter_id, opt_id))
+            rows.append((chapter_id, opt_id, ""))
 
     return rows
 
