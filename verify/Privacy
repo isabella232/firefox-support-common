@@ -818,6 +818,9 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
     {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
+      {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
     - 以下の設定を新規に作成する（設定値が既に指定の通りであればそのままとし、既存の値がない場合は新規に作成する）。
@@ -831,6 +834,9 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
             - `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
             - `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
             - `The database has been vacuumed.`
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
@@ -839,6 +845,9 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
 
     {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
+      {%if Security_9_3 %}
+    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
     - `about:config` を開く。
@@ -853,6 +862,9 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
             - `PlacesDBUtils.maintenanceOnIdle() is called and redirected to checkAndFixDatabase().`
             - `PlacesDBUtils.checkAndFixDatabase() successfully finished.`
             - `The database has been vacuumed.`
+      {%if Security_9_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
+      {% endif %}
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
