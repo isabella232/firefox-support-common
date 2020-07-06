@@ -510,11 +510,17 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:debugging` を開く。
     - テストケースの `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
     - **確認**
         - エラーとなり、アドオンの読み込みに失敗する。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
@@ -530,11 +536,17 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動する。
     - `about:debugging` を開く。
     - テストケースの `blocked-addon.xpi` を「一時的なアドオンを読み込む」で読み込ませる。
     - **確認**
         - 読み込まれたアドオンが一時的な拡張機能の一覧に表示されている。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
