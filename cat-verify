@@ -536,7 +536,7 @@ def main(args):
         csv_writer = csv.writer(sys.stdout)
         csv_writer.writerows(chapters_to_csv(chapters))
     elif only_checklist_output:
-        csv_writer = csv.writer(sys.stdout)
+        csv_writer = csv.writer(sys.stdout,  quotechar='"', quoting=csv.QUOTE_ALL)
         csv_writer.writerows(chapters_to_checklist(chapters))
     else:
         logging.basicConfig(format="\033[31m%(message)s\033[0m")
