@@ -212,9 +212,9 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-    - `Firefox` のショートカットを右クリックし、プロパティを開く。
-    - **確認**
-        - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されている。
+        - 開けた場合、`Firefox` のショートカットを右クリックし、プロパティを開く。
+        - **確認**
+            - 「リンク先」欄末尾に `about:blank?Install-10-1` と記載されている。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - `Firefox` のショートカットを右クリックし、プロパティを開く。
     - **確認**
@@ -238,9 +238,9 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-    - `Firefox` のショートカットを右クリックし、プロパティを開く。
-    - **確認**
-        - 「リンク先」欄末尾に `about:blank?Install-10-2` と記載されていない。
+        - 開けた場合、`Firefox` のショートカットを右クリックし、プロパティを開く。
+        - **確認**
+            - 「リンク先」欄末尾に `about:blank?Install-10-2` と記載されていない。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - `Firefox` のショートカットを右クリックし、プロパティを開く。
     - **確認**
@@ -260,8 +260,8 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-    - **確認**
-        - `Firefox` のショートカットが存在しない。
+        - **確認**
+            - 開けた場合、`Firefox` のショートカットが存在しない。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - **確認**
         - `Firefox` のショートカットが存在しない。
