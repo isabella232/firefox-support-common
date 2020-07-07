@@ -346,6 +346,15 @@ resource "local_file" "playbook" {
       win_get_url:
         url: "${var.flash-installer-url}"
         dest: 'C:\Users\Public\flash_installer.exe'
+#    - name: Download HookDate to override system time for Firefox
+#      win_get_url:
+#        url: "${var.hookdate-download-url}"
+#        dest: 'C:\Users\Public\hookdate.zip'
+#    - name: Extract contents
+#      win_unzip:
+#        src: 'C:\Users\Public\hookdate.zip'
+#        dest: 'c:\Users\Public'
+#        delete_archive: yes
     - name: Create shortcut to Program Files
       win_shortcut:
         src: '%ProgramFiles%'
