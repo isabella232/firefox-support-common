@@ -75,13 +75,13 @@ Script-3: ゲームパッドAPIの利用の可否
 
     ABOUT_CONFIG
 
-    - `domdom.gamepad.enabled` の値が `true` である。
+    - `dom.gamepad.enabled` の値が `true` である。
 
     :2: 禁止する
 
     ABOUT_CONFIG
 
-    - `domdom.gamepad.enabled` の値が `false` である。
+    - `dom.gamepad.enabled` の値が `false` である。
 
 Script-4: DOMイベントによるクリップボード操作のオーバーライド
 
