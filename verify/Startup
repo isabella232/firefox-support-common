@@ -25,9 +25,6 @@ Startup-1: 初回起動時の設定移行ウィザード
     - Firefoxを起動する。
     - **確認**
         - Firefoxが起動した時に「設定移行ウィザード」が表示されない。
-      {%if MenuShortcut_35_1 %}
-    - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
-      {% endif %}
 
 Startup-2: 起動時のホームページの指定
 
