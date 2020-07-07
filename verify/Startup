@@ -172,10 +172,16 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     - Firefoxを起動して、終了する。
     - システムの時計を1年先の日付に進める。
+        - [HookDate](http://dsas.blog.klab.org/archives/51078742.html)を使用する場合：
+            1. HookDateRegister.exe を実行してHookDateを登録済みの状態にする。
+            2. HookDate.exe を起動する。
+            3. プログラムの一覧に {{exe_name}} をドラッグ＆ドロップして登録する。
+            4. {{exe_name}} の項目を編集し、日付を1年先に設定し、変更を保存する。
     - Firefoxを起動する。
     - **確認**
         - 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが表示される。
     - 1年進めたシステムの時計を元に戻す。
+        - HookDateを使用する場合、HookDateRegister.exe を実行してHookDateを未登録の状態に戻す。
 
     :1: リセットを提案する（既定）: システムの時計を進めることができない場合
 
@@ -187,10 +193,16 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     - Firefoxを起動して、終了する。
     - システムの時計を1年先の日付に進める。
+        - [HookDate](http://dsas.blog.klab.org/archives/51078742.html)を使用する場合：
+            1. HookDateRegister.exe を実行してHookDateを登録済みの状態にする。
+            2. HookDate.exe を起動する。
+            3. プログラムの一覧に {{exe_name}} をドラッグ＆ドロップして登録する。
+            4. {{exe_name}} の項目を編集し、日付を1年先に設定し、変更を保存する。
     - Firefoxを起動する。
     - **確認**
         - 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが表示されない。
     - 1年進めたシステムの時計を元に戻す。
+        - HookDateを使用する場合、HookDateRegister.exe を実行してHookDateを未登録の状態に戻す。
 
     :2: リセットを提案しない: システムの時計を進めることができない場合
 
@@ -205,10 +217,16 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
       {% endif %}
     - Firefoxを起動して、終了する。
     - システムの時計を1年先の日付に進める。
+        - [HookDate](http://dsas.blog.klab.org/archives/51078742.html)を使用する場合：
+            1. HookDateRegister.exe を実行してHookDateを登録済みの状態にする。
+            2. HookDate.exe を起動する。
+            3. プログラムの一覧に {{exe_name}} をドラッグ＆ドロップして登録する。
+            4. {{exe_name}} の項目を編集し、日付を1年先に設定し、変更を保存する。
     - Firefoxを起動する。
     - **確認**
         - 「お久しぶりです！ Firefoxはしばらく使われていないようです。プロファイルを掃除して新品のようにきれいにしますか？」というメッセージが表示されない。
     - 1年進めたシステムの時計を元に戻す。
+        - HookDateを使用する場合、HookDateRegister.exe を実行してHookDateを未登録の状態に戻す。
     - `about:support` を開く。
     - **確認**
         -  「Firefoxをリフレッシュ」ボタンが無効化されている、または表示されていない。
