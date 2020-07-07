@@ -132,8 +132,8 @@ Install-7: Firefox/Thunderbirdの同梱
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{install_path}}\firefox.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit\firefox.exe}}`）{% endif %}  
+        - `{{install_path}}\{{exe_name}}` {%if install_path_32bit %}  
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}`）{% endif %}  
           が存在しない。
 
     :2: 指定バージョンを同梱する
@@ -424,7 +424,7 @@ Install-15: Firefoxのインストーラの動作モード
         - `{{original_version_install_path}}` 配下にFirefoxが存在する。
         - `{{original_version_install_path}}` 配下にカスタマイズ用のファイルが設置されていない。
     - Windowsキーを押しながら「R」を押し、「ファイル名を指定して実行」ダイアログを開く。
-    - `firefox.exe` と入力し、実行する。
+    - `{{exe_name}}` と入力し、実行する。
     - **確認**
         - `{{original_version_install_path}}` 配下のFirefoxが起動する。
     - レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが32bit版で且つWindowsが64bit版であれば  

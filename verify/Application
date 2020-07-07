@@ -135,7 +135,7 @@ Application-6: プロファイルの位置
         - `{{special_profile_name}}` フォルダが存在する。
         - フォルダの内容は空である。
     - デスクトップ上またはスタートメニュー内にFirefox起動用ショートカットが作成された場合、そのいずれかを使用してFirefoxを起動する。
-      ショートカットが作成されなかった場合、firefox.exeを実行してFirefoxを起動する。
+      ショートカットが作成されなかった場合、{{exe_name}}を実行してFirefoxを起動する。
     - デスクトップ上にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
     - **確認**
         - `{{special_profile_path}}\{{special_profile_name}}` に `prefs.js` などのファイルが作成される。
