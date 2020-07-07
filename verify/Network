@@ -191,14 +191,12 @@ Network-8: IPv6の使用
     ABOUT_CONFIG
 
     - `network.dns.disableIPv6` の値が `false` である。
-    - `network.dns.disablePrefetch` の値が `false` である。
 
     :2: 禁止する
 
     ABOUT_CONFIG
 
     - `network.dns.disableIPv6` の値が `true` である。
-    - `network.dns.disablePrefetch` の値が `true` である。
 
 Network-10: onionドメインの名前解決
 
