@@ -412,13 +412,15 @@ def create_template(manual, conf, vars):
 
     if items_about_config:
         template += TEMPLATE_ABOUT_CONFIG
+        config_list = []
         for opt_id, opt_title_sub, text in items_about_config:
             if opt_title_sub:
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
-            template += '\n'
+            config_list.append(re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text))
+        config_list.sort()
+        template += '\n'.join(config_list)
         template += TEMPLATE_ABOUT_CONFIG_END
         template += '\n'
         chapters['%s' % (first_level_chapter)] = chapter_about_config
