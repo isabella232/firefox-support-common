@@ -288,7 +288,7 @@ Network-17: 脆弱なバージョンのTLSの使用
 
     -
 
-Network-17: navigator.appVersionの変更
+Network-18: navigator.appVersionの変更
 
     :1: 変更しない（既定）
 
