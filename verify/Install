@@ -302,6 +302,11 @@ Install-12: メタインストーラ自身による管理者権限の確認
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
+    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log`
+      （32bit環境では `C:\Program Files\ClearCode Inc\{{meta_installer_file_name}}\install.log` ）
+      を開く。
+    - **確認**
+        - 最後の「----------------------onInit------------------------」より後に「No access rights.」という出力が無い。
 
     :2: 確認しない
 
@@ -310,10 +315,16 @@ Install-12: メタインストーラ自身による管理者権限の確認
         - {{meta_installer_name}}
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
     - **確認**
-        - 管理者権限を要求されない。
+        - 管理者権限を要求される。
+    - `管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
+    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log`
+      （32bit環境では `C:\Program Files\ClearCode Inc\{{meta_installer_file_name}}\install.log` ）
+      を開く。
+    - **確認**
+        - 最後の「----------------------onInit------------------------」より後に「=> skip administrator privilege check」という出力がある。
 
     :3: 特定のフォルダで書き込み可否を判断する
 
@@ -322,10 +333,16 @@ Install-12: メタインストーラ自身による管理者権限の確認
         - {{meta_installer_name}}
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
     - **確認**
-        - 管理者権限を要求されない。
+        - 管理者権限を要求される。
+    - `管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
+    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log`
+      （32bit環境では `C:\Program Files\ClearCode Inc\{{meta_installer_file_name}}\install.log` ）
+      を開く。
+    - **確認**
+        - 最後の「----------------------onInit------------------------」より後に「=> has access right: writable to ～」という出力がある。
 
 Install-13: インストール前のクリーンアップ処理
 
