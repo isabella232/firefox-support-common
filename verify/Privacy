@@ -919,7 +919,7 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     - `about:cache` を開く。
     - **確認**
         - 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。
-    - `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（ランダムな文字列）.default\cache2` を開き、その中の `entries` フォルダを開く。
+    - `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（現在のプロファイルに対応するフォルダ名）\cache2` を開き、その中の `entries` フォルダを開く。
     - **確認**
         - フォルダが空である。
 
