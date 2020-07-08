@@ -334,3 +334,33 @@ Network-17: 脆弱なバージョンのTLSの使用
 
     - `SSLVersionMin` の値が未定義である。
 
+Network-17: navigator.appVersionの変更
+
+    :1: 変更しない（既定）
+
+    {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
+    - Firefoxを起動する。
+    - Ctrl-Shift-K でWebコンソールを開く。
+    - `navigagtor.appVersion` と入力し、Enterを押す。
+    - **確認**
+        - 結果の文字列が `5.0 (Windows)` である。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
+
+    :2: 任意の値を設定する
+
+    {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+      {% endif %}
+    - Firefoxを起動する。
+    - Ctrl-Shift-K でWebコンソールを開く。
+    - `navigagtor.appVersion` と入力し、Enterを押す。
+    - **確認**
+        - 結果の文字列が `[{navigator_appVersion}}` である。
+      {%if DisableDeveloperTools %}
+    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
+      {% endif %}
+
