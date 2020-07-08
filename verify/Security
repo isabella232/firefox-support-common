@@ -223,7 +223,7 @@ Security-5: 攻撃サイトに対する警告の可否
     - **確認**
         - 望ましくないソフトウェアの提供サイトとしてブロックされる。
     - `about:config` を開く。
-    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
+    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の右端のごみ箱ボタンをクリックして値を消去する。
     - Firefoxを再起動する。
     - `about:url-classifier` を開く。
     - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
@@ -257,7 +257,7 @@ Security-6: 偽装サイトに対する警告の可否
         - 詐欺サイトとしてブロックされる。
     {%if not Security_5_1 %}
     - `about:config` を開く。
-    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の値をリセットする。
+    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の右端のごみ箱ボタンをクリックして値を消去する。
     - Firefoxを再起動する。
     - `about:url-classifier` を開く。
     - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
