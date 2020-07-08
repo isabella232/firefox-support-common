@@ -1047,6 +1047,7 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
       （{{special_profile_actual_path}}）{% endif %}  
       を削除する。
+    - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
     - ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` の内容を確認する。
@@ -1060,6 +1061,7 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
       （{{special_profile_actual_path}}）{% endif %}  
       を削除する。
+    - Firefoxを起動する。
     - テストケースの `password.html` を開く。
     - ユーザID欄に「ユーザ入力値」と入力し、20秒待つ。
     - ユーザープロファイル内の `sessionstore-backups` フォルダ内の `recovery.jsonlz4` の内容を確認する。
