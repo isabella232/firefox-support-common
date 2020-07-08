@@ -1638,10 +1638,10 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
     - アドオンマネージャを開く。
     - **確認**
         - 各アドオンの詳細画面において、プライベートウィンドウでの使用の可否が許可になっている。もしくは、プライベートウィンドウでの使用可否の設定が表示されていない。
-      {%if MenuShortcut_3_1 %}
+      {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
-      {%if MenuShortcut_3 %}
+      {%if MenuShortcut_3_1 %}
     - ポリシー設定から一時的に削除した `DisablePrivateBrowsing` を元に戻す。
       {% endif %}
 
