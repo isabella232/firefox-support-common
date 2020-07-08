@@ -359,7 +359,7 @@ Network-18: navigator.appVersionの変更
     - Ctrl-Shift-K でWebコンソールを開く。
     - `navigagtor.appVersion` と入力し、Enterを押す。
     - **確認**
-        - 結果の文字列が `[{navigator_appVersion}}` である。
+        - 結果の文字列が `{{navigator_appVersion}}` である。
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
