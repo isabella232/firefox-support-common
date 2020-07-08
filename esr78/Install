@@ -148,7 +148,7 @@ Install-11: タスクバー上へのピン留め用ショートカットの作�
     [Install]
     TaskbarShortcut=false
 
-Install-12: 管理者権限の確認
+Install-12: メタインストーラ自身による管理者権限の確認
 
     :1: 確認する（既定）
 
@@ -160,17 +160,11 @@ Install-12: 管理者権限の確認
     [Install]
     RequireAdminPrivilege=false
 
-    config.nsh:
-    !define REQUIRE_ADMIN "false"
-
     :3: 特定のフォルダで書き込み可否を判断する
 
     Firefox-setup.ini/Thunderbird-setup.ini:
     [Install]
     AdminPrivilegeCheckDirectory=C:\Program Files (x86)\
-
-    config.nsh:
-    !define REQUIRE_ADMIN "false"
 
 Install-13: インストール前のクリーンアップ処理
 
