@@ -16,13 +16,13 @@ Performance-1: メモリキャッシュのサイズ
 
     ABOUT_CONFIG
 
-    - `browser.cache.memory.capacity` が未定義か、ユーザー設定値になっている。
+    - `browser.cache.memory.capacity` が `-1` か、未定義か、ユーザー設定値になっている。
 
     :2: 明示する
 
     ABOUT_CONFIG
 
-    - `browser.cache.memory.capacity` の値が指定値の通りである。
+    - `browser.cache.memory.capacity` の値が指定値で固定されている。
 
 Performance-2: コンテンツの再描画間隔
 
