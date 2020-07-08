@@ -1099,51 +1099,58 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
 
     :1: 許可する（既定）
 
+    {%if Tab_17_2 %}
+    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックを外す。
+      {% endif %}
+      {%if Privacy_30_3 %}
+    - `%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
+    - `thumbnails` フォルダを消去する。
+      {% else %}
     - Firefoxを起動する。
     - `about:cache` を開く。
     - `disk` 配下の `Storage disk location:` に記載されている位置のフォルダを開く。
     - Firefoxを終了する。
     - 先ほど開いたディスクキャッシュの保存先フォルダを開き、その1つ上位のフォルダに移動して、中にある `thumbnails` フォルダを消去する。
+      {% endif %}
     - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
       （{{special_profile_actual_path}}）{% endif %}  
       内のファイルを削除する。
     - Firefoxを起動する。
       {%if Tab_17_2 %}
-    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックを入れる。
+    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックが入っていなければチェックを入れる。
       {% endif %}
     - テストケースリストのリンクから `https://addons.mozilla.org/` を開く。
     - サイト内のリンクから新しいタブを2～3個開く。
     - Ctrl-Tab を押し、サムネイルが表示されるのを待つ。
     - **確認**
         - ディスクキャッシュの保存先フォルダの上位フォルダ内にある `thumbnails` フォルダに addons.mozilla.org のページのサムネイル画像が保存される。
-      {%if Tab_17_2 %}
-    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックを外す。
-      {% endif %}
 
     :2: 禁止する
 
+    {%if Privacy_30_3 %}
+    - `%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
+    - `thumbnails` フォルダを消去する。
+      {% else %}
     - Firefoxを起動する。
     - `about:cache` を開く。
     - `disk` 配下の `Storage disk location:` に記載されている位置のフォルダを開く。
     - Firefoxを終了する。
     - 先ほど開いたディスクキャッシュの保存先フォルダを開き、その1つ上位のフォルダに移動して、中にある `thumbnails` フォルダを消去する。
+      {% endif %}
     - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
       `{{special_profile_path}}` {%if special_profile_actual_path %}  
       （{{special_profile_actual_path}}）{% endif %}  
       内のファイルを削除する。
     - Firefoxを起動する。
       {%if Tab_17_2 %}
-    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックを入れる。
+    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックが入っていなければチェックを入れる。
       {% endif %}
     - テストケースリストのリンクから `https://addons.mozilla.org/` を開く。
     - サイト内のリンクから新しいタブを2～3個開く。
     - Ctrl-Tab を押し、サムネイルが表示されるのを待つ。
     - **確認**
         - ディスクキャッシュの保存先フォルダの上位フォルダ内にある `thumbnails` フォルダに addons.mozilla.org のページのサムネイル画像が保存されない。
-      {%if Tab_17_2 %}
-    - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックを外す。
-      {% endif %}
 
 Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
