@@ -149,7 +149,7 @@ Appearance-2: ツールバー上の項目の初期設定
             - 空白
             - ブラウジングライブラリー
             - サイドバー
-              {%if not (Privacy_22_2 or Privacy_22_3 or Privacy_24_2 or Privacy_24_3) %}
+              {%if not DisableFirefoxAccount %}
             - Firefoxアカウント
               {% endif %}
             - アプリケーションメニューボタン

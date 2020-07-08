@@ -295,6 +295,11 @@ def create_template(manual, conf, vars):
     vars['DisableDeveloperTools'] = vars['MenuShortcut_10_1'] or vars['MenuShortcut_11_1'] or vars['MenuShortcut_12_1'] or vars['MenuShortcut_13_1'] or vars['MenuShortcut_14_1'] or vars['MenuShortcut_15_1'] or vars['MenuShortcut_16_1'] or vars['MenuShortcut_17_1'] or vars['MenuShortcut_18_1'] or vars['MenuShortcut_21_1'] or vars['MenuShortcut_22_1'] or vars['MenuShortcut_23_1'] or vars['MenuShortcut_24_1'] or vars['MenuShortcut_25_1'] or vars['MenuShortcut_26_1'] or vars['MenuShortcut_28_1'] or vars['MenuShortcut_29_1'] or vars['MenuShortcut_57_1'] or vars['MenuShortcut_64_1'] or vars['MenuShortcut_65_1']
     vars['not DisableDeveloperTools'] = not vars['DisableDeveloperTools']
 
+    vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3'] or vars['Privacy_24_2'] or vars['Privacy_24_3']
+    vars['not DisableSync'] = not vars['DisableSync']
+    vars['DisableFirefoxAccount'] = vars['DisableSync']
+    vars['not DisableFirefoxAccount'] = not vars['DisableFirefoxAccount']
+
     vars['OfferToSaveLogins'] = not (vars['Privacy_5_2'] or vars['Privacy_5_3'] or vars['Privacy_5_4'])
     vars['not OfferToSaveLogins'] = not vars['OfferToSaveLogins']
 
