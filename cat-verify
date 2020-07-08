@@ -70,7 +70,7 @@ DEFAULT_VAR = {
     "max_persistent_connections_per_proxy":  "2",
     "max_pipelining_requests":               "32",
     "user_agent_name":                "Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/78.0",
-    "navigator_appVersion":           "5.0 (Windows)"
+    "navigator_appVersion":           "5.0 (Windows)",
     "imported_certs":                 "検証用証明書（example.com）, (発行者名1)/(証明署名1), (発行者名1)/(証明署名2), ...",
     "flash_download_url":             "https://get.adobe.com/jp/flashplayer/",
 }
