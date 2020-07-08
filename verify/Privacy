@@ -1603,7 +1603,7 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     :1: 原則として禁止し、個別に許可する（既定）
 
-    {%if MenuShortcut_3 %}
+    {%if MenuShortcut_3_1 %}
     - ポリシー設定から `DisablePrivateBrowsing` を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
       {% endif %}
       {%if Security_3_3 %}
@@ -1616,13 +1616,13 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
-      {%if MenuShortcut_3 %}
+      {%if MenuShortcut_3_1 %}
     - ポリシー設定から一時的に削除した `DisablePrivateBrowsing` を元に戻す。
       {% endif %}
 
     :2: 原則として許可する
 
-    {%if MenuShortcut_3 %}
+    {%if MenuShortcut_3_1 %}
     - ポリシー設定から `DisablePrivateBrowsing` を削除し、プライベートウィンドウ機能を一時的に有効化しておく。
       {% endif %}
       {%if Security_3_3 %}
@@ -1632,7 +1632,7 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
     - アドオンマネージャを開く。
     - **確認**
         - アドオンがすべてプライベートウィンドウでも有効になっている。
-      {%if Security_3_3 %}
+      {%if MenuShortcut_3_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
       {%if MenuShortcut_3 %}
