@@ -30,7 +30,7 @@ Performance-2: コンテンツの再描画間隔
 
     ABOUT_CONFIG
 
-    - `content.notify.interval` が未定義である。
+    - `content.notify.interval` が未定義か、または既定値の `120000` である。
 
     :2: 再描画間隔を明示する
 
