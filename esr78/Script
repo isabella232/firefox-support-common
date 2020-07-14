@@ -103,18 +103,19 @@ Script-7: 動画・音声の自動再生の可否
 
     :1: 許可する
 
-    lockPref("media.autoplay.default", 0);
+    lockPref("media.autoplay.default", 0); // すべて自動再生
+    lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
     lockPref("media.autoplay.enabled.user-gestures-needed", true);
 
     :2: 禁止する
 
-    lockPref("media.autoplay.default", 1);
-    lockPref("media.autoplay.enabled.user-gestures-needed", false);
+    lockPref("media.autoplay.default", 5); // すべて禁止
+    lockPref("media.autoplay.blocking_policy", 1); // 制限を解除しても dom.user_activation.transient.timeout の時間が経過したら制限状態に戻す
 
     :3: 原則禁止するが、ユーザーの操作で再生される物は許可（既定）
 
-    lockPref("media.autoplay.default", 5);
-    lockPref("media.autoplay.enabled.user-gestures-needed", true);
+    lockPref("media.autoplay.default", 1); // 音声無しはすべて自動再生、それ以外は禁止
+    lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
 
 Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 

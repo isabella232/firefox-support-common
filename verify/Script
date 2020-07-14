@@ -140,21 +140,21 @@ Script-7: 動画・音声の自動再生の可否
     ABOUT_CONFIG
 
     - `media.autoplay.default` の値が `0` である。
-    - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
+    - `media.autoplay.blocking_policy` の値が `0` である。
 
     :2: 禁止する
 
     ABOUT_CONFIG
 
-    - `media.autoplay.default` の値が `1` である。
-    - `media.autoplay.enabled.user-gestures-needed` の値が `false` である。
+    - `media.autoplay.default` の値が `5` である。
+    - `media.autoplay.blocking_policy` の値が `1` である。
 
     :3: 原則禁止するが、ユーザーの操作で再生される物は許可（既定）
 
     ABOUT_CONFIG
 
-    - `media.autoplay.default` の値が `5` である。
-    - `media.autoplay.enabled.user-gestures-needed` の値が `true` である。
+    - `media.autoplay.default` の値が `1` である。
+    - `media.autoplay.blocking_policy` の値が `0` である。
 
 Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
