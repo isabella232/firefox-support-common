@@ -105,7 +105,6 @@ Script-7: 動画・音声の自動再生の可否
 
     lockPref("media.autoplay.default", 0); // すべて自動再生
     lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
-    lockPref("media.autoplay.enabled.user-gestures-needed", true);
 
     :2: 禁止する
 
