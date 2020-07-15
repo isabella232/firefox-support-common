@@ -735,7 +735,6 @@ Security-36: DNS over HTTPSの使用
 
     "DNSOverHTTPS": {
       "Enabled": false,
-      "ProviderURL": "".
       "Locked": true
     },
 
