@@ -950,6 +950,10 @@ Security-45: 証明書の例外の自動承認
     };
     autoAcceptExceptionFor('ホスト名');
 
+    :2: 特定のホストの証明書の例外を自動的に承認しない（既定）
+
+    -
+
 Security-46: CRLiteの使用
 
     :1: CRLiteを使用して、Mozillaが把握している信頼されたWeb PKI認証局の証明書をローカルにキャッシュする（既定）
