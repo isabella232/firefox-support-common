@@ -94,6 +94,7 @@ def create_formats(wb):
         'default':          new_format(),
         'noborder':         new_format(border=0),
         'center':           new_format(align='center'),
+        'changed':          new_format(bold=True),
         'deprecated':       new_format(bg_color='#dddddd'),
         'question':         new_format(bg_color='#90ee90'),
         'selected':         new_format(bg_color='#fffa95'),
@@ -187,6 +188,11 @@ def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
                             fmt, status = formats['selected_changed'], '変更あり'
                         else:
                             fmt, status = formats['selected'], ''
+                    elif opt['conf'].strip() != prev.get(opt_id, ''):
+                        if prev.get(opt_id, '') == '':
+                            fmt, status = formats['changed'], '新規（未設定）'
+                        else:
+                            fmt, status = formats['changed'], '変更あり（未設定）'
 
                     sheet.write(row, 0, fn, formats['default'])
                     sheet.write(row, 1, int(item['item_no']), item_fmt)
