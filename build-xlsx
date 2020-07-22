@@ -194,19 +194,19 @@ def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
                         else:
                             fmt, status = formats['changed'], '変更あり（未設定）'
 
-                    sheet.write(row, 0, fn, formats['default'])
-                    sheet.write(row, 1, int(item['item_no']), item_fmt)
-                    sheet.write(row, 2, item['item_title'], item_fmt)
-                    sheet.write(row, 3, selected, fmt)
-                    sheet.write(row, 4, int(opt['opt_no']), fmt)
-                    sheet.write(row, 5, opt['opt_title'], fmt)
-                    sheet.write(row, 6, opt['conf'].strip(), fmt)
-                    sheet.write(row, 7, conf_curr.get(opt_id, ''), fmt)
-                    sheet.write(row, 8, status, fmt)
-                    sheet.write(row, 9, chapter, formats['default'])
-                    sheet.write(row, 10, '', formats['noborder'])
-                    sheet.write(row, 11, prev.get(opt_id, ''), fmt)
-                    sheet.write(row, 12, conf_prev.get(opt_id, ''), fmt)
+                    sheet.write(row, 0, fn, formats['default']) # A
+                    sheet.write(row, 1, int(item['item_no']), item_fmt) # B
+                    sheet.write(row, 2, item['item_title'], item_fmt) # C
+                    sheet.write(row, 3, selected, fmt) # D
+                    sheet.write(row, 4, int(opt['opt_no']), fmt) # E
+                    sheet.write(row, 5, opt['opt_title'], fmt) # F
+                    sheet.write(row, 6, opt['conf'].strip(), fmt) # G
+                    sheet.write(row, 7, conf_curr.get(opt_id, ''), fmt) # H
+                    sheet.write(row, 8, status, fmt) # I
+                    sheet.write(row, 9, chapter, formats['default']) # J
+                    sheet.write(row, 10, '', formats['noborder']) # K
+                    sheet.write(row, 11, prev.get(opt_id, ''), fmt) # L
+                    sheet.write(row, 12, conf_prev.get(opt_id, ''), fmt) # M
                     row += 1
         write_legend(sheet, formats, row+1)
 
