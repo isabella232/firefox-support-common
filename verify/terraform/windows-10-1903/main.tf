@@ -50,16 +50,34 @@ resource "azurerm_virtual_machine" "firefoxverify_vm" {
   delete_data_disks_on_termination = true
 
   storage_image_reference {
-    # Windows 10 Professional 1093
+    ## Windows 10 Professional 2004
+    #publisher = "MicrosoftWindowsDesktop"
+    #offer     = "Windows-10"
+    #sku       = "20h1-pro"
+    #version   = "latest"
+
+    ## Windows 10 Professional 1909
+    #publisher = "MicrosoftWindowsDesktop"
+    #offer     = "Windows-10"
+    #sku       = "19h2-pro"
+    #version   = "latest"
+
+    # Windows 10 Professional 1903
     publisher = "MicrosoftWindowsDesktop"
     offer     = "Windows-10"
     sku       = "19h1-pro"
     version   = "latest"
 
-    ## Windows 10 Enterprise 1093
+    ## Windows 10 Enterprise 1903
     #publisher = "MicrosoftWindowsDesktop"
     #offer     = "Windows-10"
     #sku       = "19h1-ent"
+    #version   = "latest"
+
+    ## Windows 10 Professional 1809
+    #publisher = "MicrosoftWindowsDesktop"
+    #offer     = "Windows-10"
+    #sku       = "rs5-pro"
     #version   = "latest"
   }
 
