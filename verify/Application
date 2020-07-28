@@ -114,24 +114,16 @@ Application-6: プロファイルの位置
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - デスクトップ上にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
     - **確認**
-        - 「リンク先」末尾に、プロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。
-          ```
-          -p {{special_profile_name}}
-          ```
-          または
-          ```
-          -profile {{special_profile_path}}\{{special_profile_name}}
-          ```
+        - 「リンク先」末尾に、プロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。 \
+          `-p {{special_profile_name}}` \
+          または \
+          `-profile {{special_profile_path}}\{{special_profile_name}}`
     - スタートメニュー内にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
     - **確認**
-        - 「リンク先」末尾に、プロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。
-          ```
-          -p {{special_profile_name}}
-          ```
-          または
-          ```
-          -profile {{special_profile_path}}\{{special_profile_name}}
-          ```
+        - 「リンク先」末尾に、プロファイルを指定する以下のオプションのうち、fainstall.iniの指定と一致する物が設定されている。 \
+          `-p {{special_profile_name}}` \
+          または \
+          `-profile {{special_profile_path}}\{{special_profile_name}}`
     - Windowsエクスプローラを開き、アドレスバーに `{{special_profile_path}}` と入力してEnterを押す。
     - **確認**
         - `{{special_profile_name}}` フォルダが存在する。
@@ -140,4 +132,5 @@ Application-6: プロファイルの位置
       ショートカットが作成されなかった場合、{{exe_name}}を実行してFirefoxを起動する。
     - デスクトップ上にFirefoxの起動用ショートカットが作成された場合、そのプロパティを開く。
     - **確認**
-        - `{{special_profile_path}}\{{special_profile_name}}` に `prefs.js` などのファイルが作成される。
+        - `{{special_profile_path}}\{{special_profile_name}}` \
+          に `prefs.js` などのファイルが作成される。

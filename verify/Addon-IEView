@@ -9,11 +9,11 @@ Addon-IEView-0: IE View WEの検証
     - 前項に引き続き検証するか、または以下の状態を整えておく。
         - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
           管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。  
-      `https://github.com/clear-code/ieview-we/releases`  
+    - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。 \
+      `https://github.com/clear-code/ieview-we/releases` \
       （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）
     - IE View WEの起動対象アプリケーションが検証環境にインストールされていない場合、各パラメータを以下の通り設定する。
-        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe`  
+        - `ieapp`: `{{default_install_path_base}}\Internet Explorer\iexplore.exe` \
           （JSON、JavaScriptファイル中では `{{default_install_path_base}}\\Internet Explorer\\iexplore.exe`）
         - `ieargs`: 空文字
 
@@ -35,10 +35,12 @@ Addon-IEView-1: IEの起動
     - **確認**
         - IEで開くサイトとして設定した内容が一覧表示される。
     - Firefoxを終了する。
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -53,10 +55,12 @@ Addon-IEView-1: IEの起動
     - **確認**
         - IEで開くサイトとして設定した内容が一覧表示される。
     - Firefoxを終了する。
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -71,10 +75,12 @@ Addon-IEView-1: IEの起動
     - **確認**
         - IEで開くサイトとして設定した内容が一覧表示される。
     - Firefoxを終了する。
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -90,10 +96,12 @@ Addon-IEView-1: IEの起動
     - **確認**
         - IEで開くサイトとして設定した内容が一覧表示される。
     - Firefoxを終了する。
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -106,7 +114,9 @@ Addon-IEView-2: 起動するIEの設定
     :1: パスと起動オプションを指定する（MCD）
 
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - IEで開かれる条件にあてはまるリンクをクリックし、結果を確認する。
     - **確認**
         - 指定したパスのアプリケーションが起動し、指定したオプションも反映されている。
@@ -114,7 +124,9 @@ Addon-IEView-2: 起動するIEの設定
     :2: パスと起動オプションを指定する（ポリシー設定）
 
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - IEで開かれる条件にあてはまるリンクをクリックし、結果を確認する。
     - **確認**
         - 指定したパスのアプリケーションが起動し、指定したオプションも反映されている。
@@ -133,7 +145,9 @@ Addon-IEView-5: IE View WEのコンテキストメニュー
     :1: 使用する（既定）
 
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - ページ上で右クリックする。
     - **確認**
         - IE View WEのコンテキストメニュー項目が表示される。
@@ -141,7 +155,9 @@ Addon-IEView-5: IE View WEのコンテキストメニュー
     :2: 使用しない
 
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - ページ上で右クリックする。
     - **確認**
         - IE View WEのコンテキストメニュー項目が表示されない。
@@ -156,10 +172,12 @@ Addon-IEView-6: IEで開かない例外サイト
     - **確認**
         - IEで開かない例外サイトとして設定した内容が空である。
     - Firefoxを終了する。
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -179,12 +197,14 @@ Addon-IEView-6: IEで開かない例外サイト
     - **確認**
         - IEで開かない例外サイトとして設定した内容が一覧表示される。
     - Firefoxを終了する。
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
-    - IE View WEの設定パラメータのうち、`sitesOpenedBySelf` `（自動的にIEで開かない例外サイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`sitesOpenedBySelf` `（自動的にIEで開かない例外サイトのリスト）に以下の内容を追加する。 \
       `https://example.com/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -201,19 +221,23 @@ Addon-IEView-7: IEで開くページの検出対象
 
     :1: トップレベルのフレームへの読み込みのみ
 
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
+    - テストケースリストのリンクから \
+      `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` \
+      を開く。
     - **確認**
         - IEが起動しない。
 
     :2: すべてのフレームの読み込み
 
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` を開く。
+    - テストケースリストのリンクから \
+      `https://developer.mozilla.org/ja/docs/Web/HTML/Element/iframe` \
+      を開く。
     - **確認**
         - IEが起動する。
 
@@ -221,10 +245,12 @@ Addon-IEView-8: URLのマッチング時にクエリ文字列を無視するか�
 
     :1: 無視する
 
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。
@@ -235,10 +261,12 @@ Addon-IEView-8: URLのマッチング時にクエリ文字列を無視するか�
 
     :2: 無視しない
 
-    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。  
+    - IE View WEの設定パラメータのうち、`forceielist` （自動的にIEで開く対象のサイトのリスト）に以下の内容を追加する。 \
       `*://example.com/* http://example.org/* *foo* *://www.openstreetmap.org/*`
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` を開く。
+    - テストケースリストのリンクから \
+      `https://github.com/clear-code/firefox-support-common/blob/master/testcases/example-domains.md` \
+      を開く。
     - 各リンクをクリックし、結果を確認する。
     - **確認**
         - 以下のURLのリンクでIEが起動する。

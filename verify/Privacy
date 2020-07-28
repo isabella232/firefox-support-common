@@ -220,9 +220,12 @@ Privacy-7: リンク先の先読みの可否
         - `devtools.chrome.enabled`（真偽型）：`true`
     - パネルメニューの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
     - コンソール上の「要求」が選択された状態にする（すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する）。
-    - ブラウザウィンドウでテストケースリストのリンクから `https://www.clear-code.com/blog/2016/5/10.html` を開く。
+    - ブラウザウィンドウでテストケースリストのリンクから \
+      `https://www.clear-code.com/blog/2016/5/10.html` \
+      を開く。
     - **確認**
-        - `GET https://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに出力される。
+        - `GET https://www.clear-code.com/blog/2016/5/18.html` \
+          というログがコンソールに出力される。
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
@@ -244,9 +247,12 @@ Privacy-7: リンク先の先読みの可否
         - `devtools.chrome.enabled`（真偽型）：`true`
     - パネルメニューの「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
     - コンソール上の「要求」が選択された状態にする（すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する）。
-    - ブラウザウィンドウでテストケースリストのリンクから `https://www.clear-code.com/blog/2016/5/10.html` を開く。
+    - ブラウザウィンドウでテストケースリストのリンクから \
+      `https://www.clear-code.com/blog/2016/5/10.html` \
+      を開く。
     - **確認**
-        - `GET https://www.clear-code.com/blog/2016/5/18.html` というログがコンソールに出力されない。
+        - `GET https://www.clear-code.com/blog/2016/5/18.html` \
+          というログがコンソールに出力されない。
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
@@ -544,7 +550,11 @@ Privacy-16: DNSの先読みの可否
         - `devtools.chrome.enabled`（真偽型）：`true`
     - パネルメニューで「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
     - 以下のコードをコンソール内で実行する。
-        - `Services.obs.addObserver({observe:(s,t,d)=>console.log(t+': '+d)},'dns-resolution-request',false);`
+      
+              Services.obs.addObserver({observe:(s,t,d)=>console.log(t+': '+d)},
+                                       'dns-resolution-request',
+                                       false);
+      
     - コンソール上の「要求」が選択された状態にする（すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する）。
     - ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - **確認**
@@ -571,7 +581,11 @@ Privacy-16: DNSの先読みの可否
         - `devtools.chrome.enabled`（真偽型）：`true`
     - パネルメニューで「ウェブ開発」をクリックして、サブメニューの「ブラウザーコンソール」をクリックする。
     - 以下のコードをコンソール内で実行する。
-        - `Services.obs.addObserver({observe:(s,t,d)=>console.log(t+': '+d)},'dns-resolution-request',false);`
+      
+              Services.obs.addObserver({observe:(s,t,d)=>console.log(t+': '+d)},
+                                       'dns-resolution-request',
+                                       false);
+      
     - コンソール上の「要求」が選択された状態にする（すでに選択されていた場合は、一旦未選択状態に戻し、再度選択する）。
     - ブラウザウィンドウでテストケースの `prefetching.html` を開く。
     - **確認**
@@ -684,8 +698,9 @@ Privacy-21: クラッシュレポートの送信の可否
     - Windowsキーを押しながら「R」を押し、「ファイル名を指定して実行」ダイアログを開く。
     - `regedit.exe` と入力し、実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - `HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\Firefox\Crash Reporter`
-      （32bit版Firefoxを64bit環境で使用している場合は `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Mozilla\Firefox\Crash Reporter`）
+    - `HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\Firefox\Crash Reporter` \
+      （32bit版Firefoxを64bit環境で使用している場合は \
+      `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Mozilla\Firefox\Crash Reporter` ） \
       を開く。
     - **確認**
         - 値 `SubmitCrashReport` のデータが `0` である。
@@ -919,7 +934,10 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     - `about:cache` を開く。
     - **確認**
         - 「disk」欄の「Storage disk location」に「none, only stored in memory」と表示されている。
-    - `{{special_profile_path}}\{{special_profile_name}}\cache2` 、もしくは `%LocalAppData%\Mozilla\Firefox\Profiles\（現在のプロファイルに対応するフォルダ名）\cache2` を開き、その中の `entries` フォルダを開く。
+    - `{{special_profile_path}}\{{special_profile_name}}\cache2` \
+      もしくは \
+      `%LocalAppData%\Mozilla\Firefox\Profiles\（現在のプロファイルに対応するフォルダ名）\cache2` \
+      を開き、その中の `entries` フォルダを開く。
     - **確認**
         - フォルダが空である。
 
@@ -1043,9 +1061,9 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
 
     :1: 許可する（既定）
 
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-      `{{special_profile_path}}` {%if special_profile_actual_path %}  
-      （{{special_profile_actual_path}}）{% endif %}  
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
       を削除する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
@@ -1057,9 +1075,9 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
 
     :2: 一切禁止する
 
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-      `{{special_profile_path}}` {%if special_profile_actual_path %}  
-      （{{special_profile_actual_path}}）{% endif %}  
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
       を削除する。
     - Firefoxを起動する。
     - テストケースの `password.html` を開く。
@@ -1112,9 +1130,9 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - Firefoxを終了する。
     - 先ほど開いたディスクキャッシュの保存先フォルダを開き、その1つ上位のフォルダに移動して、中にある `thumbnails` フォルダを消去する。
       {% endif %}
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-      `{{special_profile_path}}` {%if special_profile_actual_path %}  
-      （{{special_profile_actual_path}}）{% endif %}  
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
       内のファイルを削除する。
     - Firefoxを起動する。
       {%if Tab_17_2 %}
@@ -1144,9 +1162,9 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - Firefoxを終了する。
     - 先ほど開いたディスクキャッシュの保存先フォルダを開き、その1つ上位のフォルダに移動して、中にある `thumbnails` フォルダを消去する。
       {% endif %}
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-      `{{special_profile_path}}` {%if special_profile_actual_path %}  
-      （{{special_profile_actual_path}}）{% endif %}  
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
       内のファイルを削除する。
     - Firefoxを起動する。
       {%if Tab_17_2 %}
@@ -1662,9 +1680,9 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
 
     :1: 表示する（既定）: not Privacy_18_3
 
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-      `{{special_profile_path}}` {%if special_profile_actual_path %}  
-      （{{special_profile_actual_path}}）{% endif %}  
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
       を空にする。
     - Firefoxを起動する。
     - **確認**
@@ -1685,9 +1703,9 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
 
     :2: 表示しない: not Privacy_18_3
 
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル  
-      `{{special_profile_path}}` {%if special_profile_actual_path %}  
-      （{{special_profile_actual_path}}）{% endif %}  
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
       を空にする。
     - Firefoxを起動する。
     - **確認**

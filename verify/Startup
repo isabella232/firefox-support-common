@@ -228,7 +228,9 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     - `about:support` を開く。
     - **確認**
         -  「Firefoxをリフレッシュ」ボタンが無効化されている、または表示されていない。
-    - テストケースリストのリンクから `https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` を開く。
+    - テストケースリストのリンクから \
+      `https://support.mozilla.org/kb/reset-firefox-easily-fix-most-problems` \
+      を開く。
     - 「Firefoxをリフレッシュ」ボタン（リンク）を押す。
     - **確認**
         - 何も起こらない。 

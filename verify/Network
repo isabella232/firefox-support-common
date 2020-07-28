@@ -130,13 +130,17 @@ Network-4: NTLM認証によるシングルサインオンの許可
 
     ABOUT_CONFIG
 
-    - `network.automatic-ntlm-auth.trusted-uris` の値が `{{ntlm_single_signon_hosts}}` である。
+    - `network.automatic-ntlm-auth.trusted-uris` の値が \
+      `{{ntlm_single_signon_hosts}}` \
+      である。
 
     :2: 許可する (Policy Engine)
 
     ABOUT_CONFIG
 
-    - `network.automatic-ntlm-auth.trusted-uris` の値が `{{ntlm_single_signon_hosts}}` である。
+    - `network.automatic-ntlm-auth.trusted-uris` の値が \
+      `{{ntlm_single_signon_hosts}}` \
+      である。
 
 Network-5: HTTPの同時接続数
 
@@ -182,7 +186,9 @@ Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の�
 
     ABOUT_CONFIG
 
-    - `security.tls.insecure_fallback_hosts` の値が `{{weak_tls_allowed_hosts}}` である。
+    - `security.tls.insecure_fallback_hosts` の値が \
+      `{{weak_tls_allowed_hosts}}` \
+      である。
 
 Network-8: IPv6の使用
 
@@ -235,7 +241,9 @@ Network-11: UA文字列の変更
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
-        - 「ユーザーエージェント」の値が {{user_agent_name}} である。
+        - 「ユーザーエージェント」の値が \
+          {{user_agent_name}} \
+          である。
       {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}

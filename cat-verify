@@ -267,7 +267,8 @@ def apply_vars(items, vars):
     return items
 
 PAT_PRETEXT_OPTION = re.compile('^[^-]+-0-[0-9]+\Z')
-PAT_LIST_ITEM = re.compile('^(\s*)- (.+)$', re.MULTILINE)
+PAT_LIST_ITEM = re.compile('^(\s*)(- )?(.*[^\\\\])$', re.MULTILINE)
+PAT_LIST_LINE = re.compile('^(\s*)(- )?(.+)$', re.MULTILINE)
 
 def create_template(manual, conf, vars):
     items_options = []
@@ -414,7 +415,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_LINE, '\\1    \\2\\3', re.sub(PAT_LIST_ITEM, '\\1\\2\\3 %s' % (suffix), text))
             template += '\n'
 
         chapters['%s' % (first_level_chapter)] = chapter_options
@@ -428,7 +429,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            config_list.append(re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text))
+            config_list.append(re.sub(PAT_LIST_LINE, '\\1    \\2\\3', re.sub(PAT_LIST_ITEM, '\\1\\2\\3 %s' % (suffix), text)))
         config_list.sort()
         template += '\n'.join(config_list)
         template += TEMPLATE_ABOUT_CONFIG_END
@@ -443,7 +444,7 @@ def create_template(manual, conf, vars):
                 suffix = ' (%s %s)' % (opt_id, opt_title_sub)
             else:
                 suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_ITEM, '\\1    - \\2 %s' % (suffix), text)
+            template += re.sub(PAT_LIST_LINE, '\\1    \\2\\3', re.sub(PAT_LIST_ITEM, '\\1\\2\\3 %s' % (suffix), text))
             template += '\n'
         chapters['%s' % (first_level_chapter)] = chapter_about_policies
         first_level_chapter += 1

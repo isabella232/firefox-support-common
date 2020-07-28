@@ -10,7 +10,7 @@ Install-0: インストーラの動作検証
         - {{meta_installer_name}}
         - メタインストーラによってインストールされたMozilla Firefox
     - 以下のファイル、フォルダがあれば削除する。
-        - `{{install_path}}` {%if install_path_32bit %}  
+        - `{{install_path}}` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit}}`）{% endif %}
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
 
@@ -132,8 +132,8 @@ Install-7: Firefox/Thunderbirdの同梱
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{install_path}}\{{exe_name}}` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}`）{% endif %}  
+        - `{{install_path}}\{{exe_name}}` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}`）{% endif %} \
           が存在しない。
 
     :2: 指定バージョンを同梱する
@@ -141,8 +141,8 @@ Install-7: Firefox/Thunderbirdの同梱
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+        - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
           が存在する。
         - `{{exe_name}}.exe` と同じ位置にある `application.ini` に記載されているFirefoxのバージョンが {{firefox_version}} である。
             - ESR版かどうかは、 `SourceRepository=https://hg.mozilla.org/releases/mozilla-esr*` の記述の有無で判断する。
@@ -157,8 +157,8 @@ Install-8: Firefox/Thunderbirdのインストール先
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{install_path_base}}\Mozilla Firefox\{{exe_name}}.exe` {%if install_path_base_32bit %}  
-          （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox\{{exe_name}}.exe`）{% endif %}  
+        - `{{install_path_base}}\Mozilla Firefox\{{exe_name}}.exe` {%if install_path_base_32bit %} \
+          （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox\{{exe_name}}.exe`）{% endif %} \
           が存在する。
     {% endif %}
 
@@ -170,8 +170,8 @@ Install-8: Firefox/Thunderbirdのインストール先
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+        - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
           が存在する。
     {% endif %}
 
@@ -200,8 +200,8 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
           のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
         - `Firefox` のショートカットを右クリックし、プロパティを開く。
         - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-1` を追記する。
@@ -226,8 +226,8 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
           のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
         - `Firefox` のショートカットを右クリックし、プロパティを開く。
         - 「リンク先」欄末尾に、半角スペースを空けて `about:blank?Install-10-2` を追記する。
@@ -252,8 +252,8 @@ Install-10: スタートメニュー、タスクバー上のショートカッ�
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\StartMenu` を開く。
-        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+        - 開けた場合、 `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
           のショートカットをフォルダ内に作成し、名前を `Firefox` に変更する。
     - インストールされたFirefoxを起動する。
     - タスクバー上のアイコンを右クリックして「タスクバーにピン留めする」を選択する。
@@ -302,7 +302,7 @@ Install-12: メタインストーラ自身による管理者権限の確認
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log`
+    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log` \
       （32bit環境では `C:\Program Files\ClearCode Inc\{{meta_installer_file_name}}\install.log` ）
       を開く。
     - **確認**
@@ -320,7 +320,7 @@ Install-12: メタインストーラ自身による管理者権限の確認
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log`
+    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log` \
       （32bit環境では `C:\Program Files\ClearCode Inc\{{meta_installer_file_name}}\install.log` ）
       を開く。
     - **確認**
@@ -338,7 +338,7 @@ Install-12: メタインストーラ自身による管理者権限の確認
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log`
+    - `C:\Program Files (x86)\ClearCode Inc\{{meta_installer_file_name}}\install.log` \
       （32bit環境では `C:\Program Files\ClearCode Inc\{{meta_installer_file_name}}\install.log` ）
       を開く。
     - **確認**
@@ -348,30 +348,30 @@ Install-13: インストール前のクリーンアップ処理
 
     :1: 何もしない
 
-    - `{{install_path}}` {%if install_path_32bit %}  
-      （32bit環境では `{{install_path_32bit}}`）{% endif %}  
+    - `{{install_path}}` {%if install_path_32bit %} \
+      （32bit環境では `{{install_path_32bit}}`）{% endif %} \
       の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-        - `{{install_path}}\must-be-removed.txt` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{% endif %}  
+        - `{{install_path}}\must-be-removed.txt` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{% endif %} \
           が存在する。
 
     :2: 旧バージョンのFirefoxを強制的に削除する
 
-    - `{{install_path}}` {%if install_path_32bit %}  
-      （32bit環境では `{{install_path_32bit}}`）{% endif %}  
+    - `{{install_path}}` {%if install_path_32bit %} \
+      （32bit環境では `{{install_path_32bit}}`）{% endif %} \
       の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-        - `{{install_path}}\must-be-removed.txt` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{% endif %}  
+        - `{{install_path}}\must-be-removed.txt` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{% endif %} \
           が存在しない。
 
     :3: 特定のフォルダを消去してから同梱のアプリケーションをインストールする
@@ -435,8 +435,8 @@ Install-15: Firefoxのインストーラの動作モード
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %}  
+        - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
           が存在する。
         - `{{original_version_install_path}}` 配下にFirefoxが存在する。
         - `{{original_version_install_path}}` 配下にカスタマイズ用のファイルが設置されていない。
@@ -444,10 +444,10 @@ Install-15: Firefoxのインストーラの動作モード
     - `{{exe_name}}` と入力し、実行する。
     - **確認**
         - `{{original_version_install_path}}` 配下のFirefoxが起動する。
-    - レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが32bit版で且つWindowsが64bit版であれば  
-      `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)`  
-      を、そうでなければ  
-      `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)`  
+    - レジストリエディタを起動し、`{{original_version_install_path}}` 配下のFirefoxが32bit版で且つWindowsが64bit版であれば \
+      `HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x64 ja)` \
+      を、そうでなければ \
+      `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Mozilla Firefox {{firefox_version}} (x86 ja)` \
       を開く。
     - **確認**
         - 値 `InstallLocation` のデータが `{{original_version_install_path}}` である。
@@ -502,18 +502,18 @@ Install-18: BrowserSelectorのインストール
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
         - BrowserSelector
     - 以下のファイル、フォルダがあれば削除する。
-        - `{{default_install_path_base}}\ClearCode Inc` {%if install_path_32bit %}  
+        - `{{default_install_path_base}}\ClearCode Inc` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit_base}}\ClearCode Inc`）{% endif %}
-        - `{{default_install_path_base}}\ClearCode` {%if install_path_32bit %}  
+        - `{{default_install_path_base}}\ClearCode` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit_base}}\ClearCode`）{% endif %}
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`）{% endif %}  
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`）{% endif %} \
           が存在しない。
-        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`）{% endif %}
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`）{% endif %} \
           が存在しない。
 
 
@@ -522,16 +522,16 @@ Install-18: BrowserSelectorのインストール
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
         - BrowserSelector
     - 以下のファイル、フォルダがあれば削除する。
-        - `{{default_install_path_base}}\ClearCode Inc` {%if install_path_32bit %}  
+        - `{{default_install_path_base}}\ClearCode Inc` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit_base}}\ClearCode Inc`）{% endif %}
-        - `{{default_install_path_base}}\ClearCode` {%if install_path_32bit %}  
+        - `{{default_install_path_base}}\ClearCode` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit_base}}\ClearCode`）{% endif %}
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
-        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`）{% endif %}  
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.exe` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.exe`）{% endif %} \
           が存在する。
-        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini` {%if install_path_32bit %}  
-          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`）{% endif %}  
+        - `{{default_install_path_base}}\ClearCode\BrowserSelector\BrowserSelector.ini` {%if install_path_32bit %} \
+          （32bit環境では `{{install_path_32bit_base}}\ClearCode\BrowserSelector\BrowserSelector.ini`）{% endif %} \
           が存在する。

@@ -21,7 +21,9 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     :3: Windowsの証明書データベースから自動的にインポートする
 
     - インポートされることが期待される認証局証明書がWindowsの証明書データベースに含まれる状態にする。
-      例えば、管理者権限でコマンドプロンプトを開き、`reg import path\to\add-badssl-com-enterprise-root.reg` のようにして、テストケースの `add-badssl-com-enterprise-root.reg` を使用して「BadSSL.com」の認証局証明書をインポート済みの状態にする。
+      例えば、管理者権限でコマンドプロンプトを開き、 \
+      `reg import path\to\add-badssl-com-enterprise-root.reg` \
+      のようにして、テストケースの `add-badssl-com-enterprise-root.reg` を使用して「BadSSL.com」の認証局証明書をインポート済みの状態にする。
     - Firefoxを起動する。
     - インポートされる事が期待される認証局証明書に対応する認証局で発行された証明書を使用したWebサイトを開く。
       例えば、`https://untrusted-root.badssl.com/` を訪問する。
@@ -163,7 +165,7 @@ Security-4: 広告などのポップアップの表示の可否
         - 「サイト別設定」欄に、「ポップアップ」が「許可」と表示される。
     - 「ポップアップ」を「ブロック」に変更する。
     - Firefoxを終了し、再度起動する。
-    - ポップアップを許可したサイト（`default.permissions`に列挙されているいずれかのサイト）を開く。証明書のエラーが表示される場合、「詳細情報」→「危険性を承知で続行」を選択し、エラーを無視してページを表示する。
+    - ポップアップを許可したサイトを開く。
     - アドレスバー左端のアイコン部分をクリックする。
     - **確認**
         - 「サイト別設定」欄に、「ポップアップ」が「ブロック」と表示される。
@@ -176,7 +178,7 @@ Security-4: 広告などのポップアップの表示の可否
     - テストケースの `popupblock.html` を開く。
     - **確認**
         - ポップアップブロックの通知が表示される。
-    - ポップアップを許可したサイト（`about:policies`の`PopupBlocking`で`Allow`に列挙されているいずれかのサイト）を開く。証明書のエラーが表示される場合、「詳細情報」→「危険性を承知で続行」を選択し、エラーを無視してページを表示する。
+    - ポップアップを許可したサイトを開く。
     - ポップアップが開かれる操作を行える場合、以下を実施する。
         - ポップアップが開かれる操作を実施する。
         - **確認**
@@ -740,7 +742,9 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
     :1: 許可する: 外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
 
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
+    - テストケースリストのリンクから \
+      `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` \
+      を開く。
       または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
     - **確認**
         - スクリプトがブロックされず、アラートダイアログに`3`と表示される。
@@ -758,8 +762,12 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
       {% endif %}
     - 外部Webサイト（www.clear-code.com/）にアクセスできない場合、Pythonの実行環境を整えておく。
     - Firefoxを起動する。
-    - テストケースリストのリンクから `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` を開く。
-      または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` を開く。
+    - テストケースリストのリンクから \
+      `https://www.clear-code.com/temp/block_script_with_wrong_mime.html` \
+      を開く。
+      または、テストケースの `block_script_with_wrong_mime.py` を実行し、誤ったMIMEタイプを返すHTTPサーバーを起動して、Firefoxで \
+      `http://(HTTPサーバーのIPアドレス):8888/block_script_with_wrong_mime.html` \
+      を開く。
     - **確認**
         - スクリプトがブロックされ、アラートダイアログが表示されない。
     - Ctrl-Shift-K でWebコンソールを開く。
@@ -801,7 +809,9 @@ Security-33: 危険ででしゃばりなFlashコンテンツをブロック
 
     :1: ブロックする（既定）
 
-    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
+    - Adobe Flashプラグインが未導入の場合、\
+      `{{flash_download_url}} ` \
+      からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
@@ -817,7 +827,9 @@ Security-33: 危険ででしゃばりなFlashコンテンツをブロック
 
     :2: ブロックしない
 
-    - Adobe Flashプラグインが未導入の場合、`{{flash_download_url}} ` からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
+    - Adobe Flashプラグインが未導入の場合、\
+      `{{flash_download_url}} ` \
+      からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
       {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
