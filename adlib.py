@@ -148,7 +148,9 @@ def load_as_dict(path):
     res = OrderedDict()
     for item in data:
         for opt in item['opts']:
-            res[opt['opt_id']] = opt['conf']
+            res[opt['opt_id']] = {'conf':          opt['conf'],
+                                  'opt_title':     opt['opt_title'],
+                                  'opt_title_sub': opt['opt_title_sub']}
     return res
 
 def load_variables(path):

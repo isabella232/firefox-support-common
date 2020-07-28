@@ -78,7 +78,7 @@ DEFAULT_VAR = {
 TEMPLATE = """
 ## {opt_id}
 
-『{item_title}』
+『{item_title}：{opt_title}』
 {opt_title_sub_out}
 
 **検証手順**
@@ -334,6 +334,10 @@ def create_template(manual, conf, vars):
             for opt in item['opts']:
                 if opt['opt_id'] not in conf:
                     continue
+
+                conf_values = conf.get(opt['opt_id'], '')
+                opt['opt_title'] = conf_values['opt_title']
+                opt['opt_title_sub'] = conf_values['opt_title_sub']
 
                 if opt['opt_title_sub'] in vars:
                     if not vars[opt['opt_title_sub']]:
