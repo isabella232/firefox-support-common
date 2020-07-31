@@ -4,6 +4,8 @@
 
 .PHONY: apply ansible destroy
 
+SHELL=/bin/bash
+
 all: apply
 
 apply:
