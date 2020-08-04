@@ -313,8 +313,6 @@ def create_template(manual, conf, vars):
     vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3']
     vars['not DisableSync'] = not vars['DisableSync']
 
-    all_ids = []
-
     chapters = {}
     chapter_options = []
     chapter_about_config = []
@@ -348,17 +346,14 @@ def create_template(manual, conf, vars):
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
                     items_options.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-options'))
                     chapter_options.append(opt['opt_id'])
                     continue
                 elif sp == 'ABOUT_CONFIG':
                     items_about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-config'))
                     chapter_about_config.append(opt['opt_id'])
                     continue
                 elif sp == 'ABOUT_POLICIES':
                     items_about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-policies'))
                     chapter_about_policies.append(opt['opt_id'])
                     continue
 
@@ -368,11 +363,9 @@ def create_template(manual, conf, vars):
                         break
                     elif key == 'DISABLED_SHORTCUT':
                         items_disabled_shortcuts.append((opt['opt_id'], desc))
-                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-shortcut'))
                         chapter_disabled_shortcut.append(opt['opt_id'])
                     elif key == 'DISABLED_DEVTOOL_MENU':
                         items_disabled_devtool_menu.append((opt['opt_id'], desc))
-                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-menu'))
                         chapter_disabled_devtool.append(opt['opt_id'])
 
                 if text == '':
@@ -386,8 +379,6 @@ def create_template(manual, conf, vars):
 
                 tmp += TEMPLATE.format(**opt, **item) + '\n'
                 if not re.match(PAT_PRETEXT_OPTION, opt['opt_id']):
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], opt['opt_id']))
-
                     capter_id = '%s.%s' % (first_level_chapter, second_level_chapter)
                     if capter_id in chapters:
                         option_ids = chapters[capter_id]
@@ -473,14 +464,6 @@ def create_template(manual, conf, vars):
         first_level_chapter += 1
 
     template += '\n' + vars.get('POSTSCRIPT', '')
-
-
-    #if all_ids:
-    #    #all_ids.sort(key=lambda x: [x[0].split('-')[0]] + list(map(int, x[0].split('-')[1:])))
-    #    #template += '\n# 索引\n'
-    #    template += '\n# 検証対象項目一覧\n'
-    #    for opt_id, opt_title_sub, reference in all_ids:
-    #        template += '\n* %s %s' % (opt_id, opt_title_sub)
 
     return (template, chapters)
 
