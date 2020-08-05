@@ -214,9 +214,6 @@ Security-5: 攻撃サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    {%if Security_9_3 %}
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-      {% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - **確認**
@@ -224,17 +221,11 @@ Security-5: 攻撃サイトに対する警告の可否
     - テストケースリストのリンクから`https://itisatrap.org/firefox/unwanted.html` を開く。
     - **確認**
         - 望ましくないソフトウェアの提供サイトとしてブロックされる。
-    - `about:config` を開く。
-    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の右端のごみ箱ボタンをクリックして値を消去する。
-    - Firefoxを再起動する。
     - `about:url-classifier` を開く。
     - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
     - **確認**
         - 各行の「最終更新日時」列の内容が現在時刻に更新される。
         - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
-      {%if Security_9_3 %}
-    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
-      {% endif %}
 
     :2: 警告しない
 
@@ -250,25 +241,16 @@ Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    {%if Security_9_3 %}{%if not Security_5_1 %}
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-      {% endif %}{% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - **確認**
         - 詐欺サイトとしてブロックされる。
     {%if not Security_5_1 %}
-    - `about:config` を開く。
-    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の右端のごみ箱ボタンをクリックして値を消去する。
-    - Firefoxを再起動する。
     - `about:url-classifier` を開く。
     - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
     - **確認**
         - 各行の「最終更新日時」列の内容が現在時刻に更新される。
         - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
-      {%if Security_9_3 %}
-    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
-      {% endif %}
     {% endif %}
 
     :2: 警告しない
