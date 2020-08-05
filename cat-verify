@@ -231,6 +231,9 @@ SPECIALS = [
 #
 # Utils
 
+def anyof(vars, *args):
+    return any(vars[k] for k in args)
+
 def parse_special(text):
     ht = text.split('\n', maxsplit=1)
 
@@ -293,10 +296,18 @@ def create_template(manual, conf, vars):
                 vars[opt['opt_id'].replace('-', '_')] = opt['opt_id'] in conf
                 vars['not ' + opt['opt_id'].replace('-', '_')] = opt['opt_id'] not in conf
 
-    vars['DisableDeveloperTools'] = vars['MenuShortcut_10_1'] or vars['MenuShortcut_11_1'] or vars['MenuShortcut_12_1'] or vars['MenuShortcut_13_1'] or vars['MenuShortcut_14_1'] or vars['MenuShortcut_15_1'] or vars['MenuShortcut_16_1'] or vars['MenuShortcut_17_1'] or vars['MenuShortcut_18_1'] or vars['MenuShortcut_21_1'] or vars['MenuShortcut_22_1'] or vars['MenuShortcut_23_1'] or vars['MenuShortcut_24_1'] or vars['MenuShortcut_25_1'] or vars['MenuShortcut_26_1'] or vars['MenuShortcut_28_1'] or vars['MenuShortcut_29_1'] or vars['MenuShortcut_57_1'] or vars['MenuShortcut_64_1'] or vars['MenuShortcut_65_1']
+    vars['DisableDeveloperTools'] = anyof(vars,
+        'MenuShortcut_10_1', 'MenuShortcut_11_1', 'MenuShortcut_12_1',
+        'MenuShortcut_13_1', 'MenuShortcut_14_1', 'MenuShortcut_15_1',
+        'MenuShortcut_16_1', 'MenuShortcut_17_1', 'MenuShortcut_18_1',
+        'MenuShortcut_21_1', 'MenuShortcut_22_1', 'MenuShortcut_23_1',
+        'MenuShortcut_24_1', 'MenuShortcut_25_1', 'MenuShortcut_26_1',
+        'MenuShortcut_28_1', 'MenuShortcut_29_1', 'MenuShortcut_57_1',
+        'MenuShortcut_64_1', 'MenuShortcut_65_1')
+
     vars['not DisableDeveloperTools'] = not vars['DisableDeveloperTools']
 
-    vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3'] or vars['Privacy_24_2'] or vars['Privacy_24_3']
+    vars['DisableSync'] = anyof(vars, 'Privacy_22_2', 'Privacy_22_3', 'Privacy_24_2', 'Privacy_24_3')
     vars['not DisableSync'] = not vars['DisableSync']
     vars['DisableFirefoxAccount'] = vars['DisableSync']
     vars['not DisableFirefoxAccount'] = not vars['DisableFirefoxAccount']
