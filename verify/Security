@@ -156,15 +156,15 @@ Security-4: 広告などのポップアップの表示の可否
     - **確認**
         - ポップアップブロックの通知が表示される。
     - ポップアップを許可したサイトを開く。
-    - ポップアップが開かれる操作を行える場合、以下を実施する。
-        - ポップアップが開かれる操作を実施する。
-        - **確認**
+    - サイト上でポップアップを表示する操作をする。
+        - 該当する操作ができない場合は、CTRL-Shift-Iを押下して開発ツールを開き、`window.open()`を実行する。
+    - **確認**
             - ポップアップブロックの通知が表示されずに、タブまたはウィンドウが開かれる。
     - アドレスバー左端のアイコン部分をクリックする。
     - **確認**
         - 「サイト別設定」欄に、「ポップアップ」が「許可」と表示される。
     - 「ポップアップ」を「ブロック」に変更する。
-    - Firefoxを終了し、再度起動する。
+    - Firefoxを終了し、再起動する。
     - ポップアップを許可したサイトを開く。
     - アドレスバー左端のアイコン部分をクリックする。
     - **確認**
@@ -179,10 +179,10 @@ Security-4: 広告などのポップアップの表示の可否
     - **確認**
         - ポップアップブロックの通知が表示される。
     - ポップアップを許可したサイトを開く。
-    - ポップアップが開かれる操作を行える場合、以下を実施する。
-        - ポップアップが開かれる操作を実施する。
-        - **確認**
-            - ポップアップブロックの通知が表示されずに、タブまたはウィンドウが開かれる。
+    - サイト上でポップアップを表示する操作をする。
+        - 該当する操作ができない場合は、CTRL-Shift-Iを押下して開発ツールを開き、`window.open()`を実行する。
+    - **確認**
+        - ポップアップブロックの通知が表示されずに、タブまたはウィンドウが開かれる。
     - アドレスバー左端のアイコン部分をクリックする。
     - **確認**
         - 「サイト別設定」欄に、「ポップアップ」が「許可」と表示される。
@@ -214,9 +214,6 @@ Security-5: 攻撃サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    {%if Security_9_3 %}
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-      {% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-an-attack.html` を開く。
     - **確認**
@@ -224,17 +221,11 @@ Security-5: 攻撃サイトに対する警告の可否
     - テストケースリストのリンクから`https://itisatrap.org/firefox/unwanted.html` を開く。
     - **確認**
         - 望ましくないソフトウェアの提供サイトとしてブロックされる。
-    - `about:config` を開く。
-    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の右端のごみ箱ボタンをクリックして値を消去する。
-    - Firefoxを再起動する。
     - `about:url-classifier` を開く。
     - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
     - **確認**
         - 各行の「最終更新日時」列の内容が現在時刻に更新される。
         - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
-      {%if Security_9_3 %}
-    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
-      {% endif %}
 
     :2: 警告しない
 
@@ -250,25 +241,16 @@ Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    {%if Security_9_3 %}{%if not Security_5_1 %}
-    - ポリシー設定から `BlockAboutConfig` を削除し、`about:config` を一時的に有効化しておく。
-      {% endif %}{% endif %}
     - Firefoxを起動する。
     - テストケースリストのリンクから`https://itisatrap.org/firefox/its-a-trap.html` を開く。
     - **確認**
         - 詐欺サイトとしてブロックされる。
     {%if not Security_5_1 %}
-    - `about:config` を開く。
-    - `browser.safebrowsing.provider.*updatetime` を検索し、各項目の右端のごみ箱ボタンをクリックして値を消去する。
-    - Firefoxを再起動する。
     - `about:url-classifier` を開く。
     - 「プロバイダー」欄の「google4」と「mozilla」の各行について、各行の「更新」列にある「更新」ボタンをクリックする。
     - **確認**
         - 各行の「最終更新日時」列の内容が現在時刻に更新される。
         - 各行の「更新状態」列の内容が「更新できません」にならずに「完了」または「なし」となる。
-      {%if Security_9_3 %}
-    - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
-      {% endif %}
     {% endif %}
 
     :2: 警告しない
@@ -643,13 +625,13 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
 
 Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
 
-    :1: ブロックする（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :1: ブロックする（既定）: not DownloadExeFile
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.enabled` の値が `true` である。
 
-    :1: ブロックする（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :1: ブロックする（既定）: DownloadExeFile
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -659,13 +641,13 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
     - **確認**
         - ダウンロード一覧の一番上の項目に「このファイルはウイルスやマルウェアが含まれています。」という警告のメッセージが表示される。
 
-    :2: ブロックしない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :2: ブロックしない: not DownloadExeFile
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.enabled` の値が `false` である。
 
-    :2: ブロックしない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :2: ブロックしない: DownloadExeFile
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -677,14 +659,14 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
 
 Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
 
-    :1: 警告する（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :1: 警告する（既定）: not DownloadExeFile
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.remote.block_potentially_unwanted` の値が `true` である。
     - `browser.safebrowsing.downloads.remote.block_uncommon` の値が `true` である。
 
-    :1: 警告する（既定）: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :1: 警告する（既定）: DownloadExeFile
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。
@@ -694,14 +676,14 @@ Security-27: ファイルのダウンロード保護により、不要なソフ�
     - **確認**
         - ダウンロード一覧の一番上の項目に「このファイルを開くのは危険です。」という警告のメッセージが表示される。
 
-    :2: 警告しない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされる場合
+    :2: 警告しない: not DownloadExeFile
 
     ABOUT_CONFIG
 
     - `browser.safebrowsing.downloads.remote.block_potentially_unwanted` の値が `false` である。
     - `browser.safebrowsing.downloads.remote.block_uncommon` の値が `false` である。
 
-    :2: 警告しない: フィルタリングソフトなどにより危険なソフトウェアのダウンロードがブロックされない場合
+    :2: 警告しない: DownloadExeFile
 
     - Firefoxを起動する。
     - テストケースリストのリンクから `http://testsafebrowsing.appspot.com/` を開く。

@@ -165,7 +165,7 @@ Startup-5: 初期状態のブックマーク
 
 Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時における設定のリセットの提案の可否
 
-    :1: リセットを提案する（既定）: システムの時計を進めることができる場合
+    :1: リセットを提案する（既定）: ModifySystemTime
 
     - Firefoxを起動して、終了する。
     - システムの時計を1年先の日付に進める。
@@ -180,13 +180,13 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     - 1年進めたシステムの時計を元に戻す。
         - HookDateを使用する場合、HookDateRegister.exe を実行してHookDateを未登録の状態に戻す。
 
-    :1: リセットを提案する（既定）: システムの時計を進めることができない場合
+    :1: リセットを提案する（既定）: not ModifySystemTime
 
     ABOUT_CONFIG
 
     - `browser.disableResetPrompt` の値が `false` である。
 
-    :2: リセットを提案しない: システムの時計を進めることができる場合
+    :2: リセットを提案しない: ModifySystemTime
 
     - Firefoxを起動して、終了する。
     - システムの時計を1年先の日付に進める。
@@ -201,13 +201,13 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     - 1年進めたシステムの時計を元に戻す。
         - HookDateを使用する場合、HookDateRegister.exe を実行してHookDateを未登録の状態に戻す。
 
-    :2: リセットを提案しない: システムの時計を進めることができない場合
+    :2: リセットを提案しない: not ModifySystemTime
 
     ABOUT_POLICIES
 
     - `browser.disableResetPrompt` の値が `true` である。
 
-    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）: システムの時計を進めることができる場合
+    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）: ModifySystemTime
 
     {%if MenuShortcut_35_1 %}
     - ポリシー設定から `BlockAboutSupport` を削除し、`about:support` を一時的に有効化しておく。
@@ -238,7 +238,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
 
-    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）: システムの時計を進めることができない場合
+    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）: not ModifySystemTime
 
     ABOUT_POLICIES
 
@@ -319,7 +319,7 @@ Startup-13: Windows 10の再起動後の自動起動
 
 Startup-14: 初回起動時のRSSフィードのマイグレーション
 
-    :1: 実行する（既定）: プロファイルがRSSフィードを含んでいるか、ESR60が動作可能な状態である場合
+    :1: 実行する（既定）: UpdateFromFirefox60
 
     - （以前のバージョンのメタインストーラがある場合はそれを用いて）Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
@@ -328,13 +328,13 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
     - **確認**
         - デスクトップ上にOPML形式のバックアップファイルが生成されている。
 
-    :1: 実行する（既定）: プロファイルがRSSフィードを含んでおらず、且つ、ESR60が動作可能な状態でない場合
+    :1: 実行する（既定）: not UpdateFromFirefox60
 
     ABOUT_CONFIG
 
     - `browser.livebookmarks.migrationAttemptsLeft` の値が `0` でなく、固定されてもいない。
 
-    :2: 実行しない: プロファイルがRSSフィードを含んでいるか、ESR60が動作可能な状態である場合
+    :2: 実行しない: UpdateFromFirefox60
 
     - （以前のバージョンのメタインストーラがある場合はそれを用いて）Firefox ESR60またはそれ以前のバージョンのFirefoxをセットアップし、`https://www.clear-code.com/blog/index.rdf` をライブブックマークを登録して、配下の項目を一度読み込んでおく。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
@@ -343,7 +343,7 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
     - **確認**
         - デスクトップ上にOPML形式のバックアップファイルが生成されていない。
 
-    :2: 実行しない: プロファイルがRSSフィードを含んでおらず、且つ、ESR60が動作可能な状態でない場合
+    :2: 実行しない: not UpdateFromFirefox60
 
     ABOUT_CONFIG
 

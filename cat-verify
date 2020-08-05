@@ -231,6 +231,32 @@ SPECIALS = [
 #
 # Utils
 
+def anyof(vars, *args):
+    return any(vars[k] for k in args)
+
+def check_skip(vars, opt_title_sub):
+    """Return True if the verification step should be skipped.
+
+    >>> vars = {'ModifyTime': 1}
+    >>> check_skip(vars, 'ModifyTime')
+    False
+    >>> check_skip(vars, 'ModifySystem')
+    False
+    >>> check_skip(vars, 'not ModifyTime')
+    True
+    """
+    key = opt_title_sub
+    func = lambda x: x
+
+    if key.startswith('not '):
+        key = key[4:]
+        func = lambda x: not x
+
+    if key not in vars:
+        return False
+
+    return not func(vars[key])
+
 def parse_special(text):
     ht = text.split('\n', maxsplit=1)
 
@@ -293,10 +319,18 @@ def create_template(manual, conf, vars):
                 vars[opt['opt_id'].replace('-', '_')] = opt['opt_id'] in conf
                 vars['not ' + opt['opt_id'].replace('-', '_')] = opt['opt_id'] not in conf
 
-    vars['DisableDeveloperTools'] = vars['MenuShortcut_10_1'] or vars['MenuShortcut_11_1'] or vars['MenuShortcut_12_1'] or vars['MenuShortcut_13_1'] or vars['MenuShortcut_14_1'] or vars['MenuShortcut_15_1'] or vars['MenuShortcut_16_1'] or vars['MenuShortcut_17_1'] or vars['MenuShortcut_18_1'] or vars['MenuShortcut_21_1'] or vars['MenuShortcut_22_1'] or vars['MenuShortcut_23_1'] or vars['MenuShortcut_24_1'] or vars['MenuShortcut_25_1'] or vars['MenuShortcut_26_1'] or vars['MenuShortcut_28_1'] or vars['MenuShortcut_29_1'] or vars['MenuShortcut_57_1'] or vars['MenuShortcut_64_1'] or vars['MenuShortcut_65_1']
+    vars['DisableDeveloperTools'] = anyof(vars,
+        'MenuShortcut_10_1', 'MenuShortcut_11_1', 'MenuShortcut_12_1',
+        'MenuShortcut_13_1', 'MenuShortcut_14_1', 'MenuShortcut_15_1',
+        'MenuShortcut_16_1', 'MenuShortcut_17_1', 'MenuShortcut_18_1',
+        'MenuShortcut_21_1', 'MenuShortcut_22_1', 'MenuShortcut_23_1',
+        'MenuShortcut_24_1', 'MenuShortcut_25_1', 'MenuShortcut_26_1',
+        'MenuShortcut_28_1', 'MenuShortcut_29_1', 'MenuShortcut_57_1',
+        'MenuShortcut_64_1', 'MenuShortcut_65_1')
+
     vars['not DisableDeveloperTools'] = not vars['DisableDeveloperTools']
 
-    vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3'] or vars['Privacy_24_2'] or vars['Privacy_24_3']
+    vars['DisableSync'] = anyof(vars, 'Privacy_22_2', 'Privacy_22_3', 'Privacy_24_2', 'Privacy_24_3')
     vars['not DisableSync'] = not vars['DisableSync']
     vars['DisableFirefoxAccount'] = vars['DisableSync']
     vars['not DisableFirefoxAccount'] = not vars['DisableFirefoxAccount']
@@ -312,8 +346,6 @@ def create_template(manual, conf, vars):
 
     vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3']
     vars['not DisableSync'] = not vars['DisableSync']
-
-    all_ids = []
 
     chapters = {}
     chapter_options = []
@@ -336,6 +368,9 @@ def create_template(manual, conf, vars):
                 if opt['opt_id'] not in conf:
                     continue
 
+                if check_skip(vars, opt['opt_title_sub']):
+                    continue
+
                 conf_values = conf.get(opt['opt_id'], '')
                 opt['opt_title'] = conf_values['opt_title']
                 opt['opt_title_sub'] = conf_values['opt_title_sub']
@@ -348,17 +383,14 @@ def create_template(manual, conf, vars):
                 sp, text = parse_special(opt['conf'])
                 if sp == 'OPTIONS':
                     items_options.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-options'))
                     chapter_options.append(opt['opt_id'])
                     continue
                 elif sp == 'ABOUT_CONFIG':
                     items_about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-config'))
                     chapter_about_config.append(opt['opt_id'])
                     continue
                 elif sp == 'ABOUT_POLICIES':
                     items_about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'specials-about-policies'))
                     chapter_about_policies.append(opt['opt_id'])
                     continue
 
@@ -368,11 +400,9 @@ def create_template(manual, conf, vars):
                         break
                     elif key == 'DISABLED_SHORTCUT':
                         items_disabled_shortcuts.append((opt['opt_id'], desc))
-                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-shortcut'))
                         chapter_disabled_shortcut.append(opt['opt_id'])
                     elif key == 'DISABLED_DEVTOOL_MENU':
                         items_disabled_devtool_menu.append((opt['opt_id'], desc))
-                        all_ids.append((opt['opt_id'], opt['opt_title_sub'], 'disabled-devloop-menu'))
                         chapter_disabled_devtool.append(opt['opt_id'])
 
                 if text == '':
@@ -386,8 +416,6 @@ def create_template(manual, conf, vars):
 
                 tmp += TEMPLATE.format(**opt, **item) + '\n'
                 if not re.match(PAT_PRETEXT_OPTION, opt['opt_id']):
-                    all_ids.append((opt['opt_id'], opt['opt_title_sub'], opt['opt_id']))
-
                     capter_id = '%s.%s' % (first_level_chapter, second_level_chapter)
                     if capter_id in chapters:
                         option_ids = chapters[capter_id]
@@ -474,14 +502,6 @@ def create_template(manual, conf, vars):
 
     template += '\n' + vars.get('POSTSCRIPT', '')
 
-
-    #if all_ids:
-    #    #all_ids.sort(key=lambda x: [x[0].split('-')[0]] + list(map(int, x[0].split('-')[1:])))
-    #    #template += '\n# 索引\n'
-    #    template += '\n# 検証対象項目一覧\n'
-    #    for opt_id, opt_title_sub, reference in all_ids:
-    #        template += '\n* %s %s' % (opt_id, opt_title_sub)
-
     return (template, chapters)
 
 def chapters_to_csv(chapters):
@@ -545,18 +565,24 @@ def main(args):
 
     template, chapters = create_template(manual, conf, vars)
 
+    # This mode generates a mapping file of (opt_id -> chapter)
+    # for conf sheets (build-xlsx).
     if only_index_output:
         csv_writer = csv.writer(sys.stdout)
         csv_writer.writerows(chapters_to_csv(chapters))
-    elif only_checklist_output:
+        return 0
+
+    # This mode generates a checklist for human usage.
+    if only_checklist_output:
         csv_writer = csv.writer(sys.stdout,  quotechar='"', quoting=csv.QUOTE_ALL)
         csv_writer.writerows(chapters_to_checklist(chapters))
-    else:
-        logging.basicConfig(format="\033[31m%(message)s\033[0m")
-        log = logging.getLogger(__name__)
+        return 0
 
-        env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
-        print(env.from_string(template).render(vars))
+    logging.basicConfig(format="\033[31m%(message)s\033[0m")
+    log = logging.getLogger(__name__)
+
+    env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
+    print(env.from_string(template).render(vars))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))

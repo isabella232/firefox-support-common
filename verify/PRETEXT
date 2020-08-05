@@ -14,26 +14,20 @@ PRETEXT-1: 前提条件
 
     - メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
     - メタインストーラの表示バージョンは {{meta_installer_version}} とする。
-    - Firefoxのインストール先は \
-      `{{install_path}}` {%if install_path_32bit %} \
-      （32bit環境では `{{install_path_32bit}}`）{% endif %} \
-      とする。
-    - デスクトップのショートカットは \
-      `{{desktop_shortcut_path}}` {%if desktop_shortcut_path_32bit %} \
-      （32bit環境では `{{desktop_shortcut_path_32bit}}`）{% endif %} \
-      に作成するものとする。
-    - スタートメニューのショートカットは \
-      `{{start_menu_shortcut_path}}` {%if start_menu_shortcut_path_32bit %} \
-      （32bit環境では `{{start_menu_shortcut_path_32bit}}`）{% endif %} \
-      に作成するものとする。
+    - Firefoxは次のパスにインストールする。
+        - `{{install_path}}` {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}`）{% endif %}
+    - デスクトップのショートカットは次のパスに作成する。
+        - `{{desktop_shortcut_path}}` {%if desktop_shortcut_path_32bit %} （32bit環境では `{{desktop_shortcut_path_32bit}}`）{% endif %}
+    - スタートメニューのショートカットは次のパスに作成する。
+        - `{{start_menu_shortcut_path}}` {%if start_menu_shortcut_path_32bit %} （32bit環境では `{{start_menu_shortcut_path_32bit}}`）{% endif %}
     - 検証環境が新規に用意した環境である場合、検証環境のWindowsは以下の状態を整えておく。
         - ワークグループ名： `ワークグループ`（日本語名）
         - ローカル管理者アカウント： `管理者`（日本語名、パスワードは `administrator`）
         - ローカル一般アカウント： `ユーザー`（日本語名、パスワードは `user`）（検証作業で主に使用するログオンユーザー）
 
     :3: 検証の準備
-    - 検証環境からインターネット上のWebサイトに接続できる状態にしておく。フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部    の検証を実施できない場合がある。
+    - 検証環境からインターネット上のWebサイトに接続できる状態にしておく。
+        - フィルタリングソフトウェア、ファイアウォール等で接続が制限されている場合、一部の検証を実施できない場合がある。
     - 以下のページから検証用テストケース集をダウンロードし、検証環境に用意しておく（テストケースリストは `testcases/index.html` に存在する）。
-    
-            https://github.com/clear-code/firefox-support-common/
+        - https://github.com/clear-code/firefox-support-common/
     
