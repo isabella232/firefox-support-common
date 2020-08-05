@@ -10,8 +10,10 @@ Install-0: インストーラの動作検証
         - {{meta_installer_name}}
         - メタインストーラによってインストールされたMozilla Firefox
     - 以下のファイル、フォルダがあれば削除する。
-        - `{{install_path}}` {%if install_path_32bit %} \
-          （32bit環境では `{{install_path_32bit}}`）{% endif %}
+        - `{{install_path}}` {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}`）{% endif %}
+        {% if Install_11_1 or Install_11_2 %}
+        - `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar`のFirefoxショートカット
+        {% endif %}
     - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
 
 Install-1: インストーラの表示名
@@ -36,13 +38,13 @@ Install-2: インストーラのファイル名
 
     :1: FxMetaInstaller
 
-    - メタインストーラ作成キット一式を用意する。
+    - メタインストーラ作成キットのフォルダを開く。
     - **確認**
         - メタインストーラ作成キット一式の格納フォルダ名が `FxMetaInstaller` で始まる。
 
     :2: 任意の名前
 
-    - メタインストーラ作成キット一式を用意する。
+    - メタインストーラ作成キットのフォルダを開く。
     - **確認**
         - メタインストーラ作成キット一式の格納フォルダ名が `{{meta_installer_file_name}}` で始まる。
 
@@ -129,8 +131,9 @@ Install-7: Firefox/Thunderbirdの同梱
 
     :1: 同梱しない（既定）
 
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\{{exe_name}}` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit}}\{{exe_name}}`）{% endif %} \
@@ -138,8 +141,9 @@ Install-7: Firefox/Thunderbirdの同梱
 
     :2: 指定バージョンを同梱する
 
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
@@ -154,8 +158,9 @@ Install-8: Firefox/Thunderbirdのインストール先
     {%if Install_7_2 %}
     - Install-7-2 の検証仮定で確認済みのため、検証を省略する。
     {% else %}
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path_base}}\Mozilla Firefox\{{exe_name}}.exe` {%if install_path_base_32bit %} \
           （32bit環境では `{{install_path_base_32bit}}\Mozilla Firefox\{{exe_name}}.exe`）{% endif %} \
@@ -167,8 +172,9 @@ Install-8: Firefox/Thunderbirdのインストール先
     {%if Install_7_2 %}
     - Install-7-2 の検証仮定で確認済みのため、検証を省略する。
     {% else %}
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - **確認**
         - `{{install_path}}\{{exe_name}}.exe` {%if install_path_32bit %} \
           （32bit環境では `{{install_path_32bit}}\{{exe_name}}.exe`）{% endif %} \
@@ -179,16 +185,18 @@ Install-9: メタインストーラの表示バージョン
 
     :1: 更新しない（既定）
 
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」のバージョンが空である。
 
     :2: 指定する
 
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」のバージョンが「{{meta_installer_version}}」と表示されている。
@@ -271,20 +279,18 @@ Install-11: タスクバー上へのピン留め用ショートカットの作�
 
     :1: 作成する（既定）
 
-    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
-    - `Firefox` のショートカットがあれば削除する。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - **確認**
         - `Firefox` のショートカットが存在する。
 
     :2: 作成しない
 
-    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
-    - `Firefox` のショートカットがあれば削除する。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - **確認**
         - `Firefox` のショートカットが存在しない。
@@ -395,6 +401,9 @@ Install-14: Internet Explorerのコンテキストメニューにコマンドを
 
     :2: 登録する
 
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから`cmd.exe`を検索する。
     - インストーラを実行したユーザーでコマンドプロンプトを起動し、次のコマンドを実行する。
         - `reg query "HKCU\Software\Microsoft\Internet Explorer\MenuExt"`

@@ -6,15 +6,9 @@ Admin-0: 管理用設定の検証
 
    :1: 事前準備
 
-    - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動し、以下が存在していればアンインストールする。
-        - {{meta_installer_name}}
-        - メタインストーラによってインストールされたMozilla Firefox
-    - 以下のファイル、フォルダがあれば削除する。
-        - `{{install_path}}` {%if install_path_32bit %} \
-          （32bit環境では `{{install_path_32bit}}`）{% endif %}
-    - `{{meta_installer_file_name}}*.exe` が作成済みの状態にする。
-    - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-      管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
+        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
 
 Admin-1: 管理者による設定の制御
 
