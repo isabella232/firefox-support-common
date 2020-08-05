@@ -234,6 +234,29 @@ SPECIALS = [
 def anyof(vars, *args):
     return any(vars[k] for k in args)
 
+def check_skip(vars, opt_title_sub):
+    """Return True if the verification step should be skipped.
+
+    >>> vars = {'ModifyTime': 1}
+    >>> check_skip(vars, 'ModifyTime')
+    False
+    >>> check_skip(vars, 'ModifySystem')
+    False
+    >>> check_skip(vars, 'not ModifyTime')
+    True
+    """
+    key = opt_title_sub
+    func = lambda x: x
+
+    if key.startswith('not '):
+        key = key[4:]
+        func = lambda x: not x
+
+    if key not in vars:
+        return False
+
+    return not func(vars[key])
+
 def parse_special(text):
     ht = text.split('\n', maxsplit=1)
 
@@ -343,6 +366,9 @@ def create_template(manual, conf, vars):
         for item in items[1:]:
             for opt in item['opts']:
                 if opt['opt_id'] not in conf:
+                    continue
+
+                if check_skip(vars, opt['opt_title_sub']):
                     continue
 
                 conf_values = conf.get(opt['opt_id'], '')
