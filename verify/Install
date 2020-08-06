@@ -136,7 +136,7 @@ Install-7: Firefox/Thunderbirdの同梱
         - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - `{{install_path}}`を開く {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}）{% endif %}
     - **確認**
-        - `{{exe_name}}`が存在しない。
+        - `{{exe_name}}.exe`が存在しない。
 
     :2: 指定バージョンを同梱する
 
@@ -145,7 +145,7 @@ Install-7: Firefox/Thunderbirdの同梱
         - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - `{{install_path}}`を開く {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}）{% endif %}
     - **確認**
-        - `{{exe_name}}`が存在する。
+        - `{{exe_name}}.exe`が存在する。
         - `application.ini` に記載されているFirefoxのバージョンが {{firefox_version}} である。
             - ESR版かどうかは、 `SourceRepository=https://hg.mozilla.org/releases/mozilla-esr*` の記述の有無で判断する。
 
