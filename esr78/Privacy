@@ -514,6 +514,8 @@ Privacy-21: クラッシュレポートの送信の可否
 
     :2: 禁止する
 
+    環境変数 MOZ_CRASHREPORTER_DISABLE を 1 に設定する。
+
     fainstall.ini:
     [fainstall]
     AppEnableCrashReport=false
@@ -523,6 +525,8 @@ Privacy-21: クラッシュレポートの送信の可否
     lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
 
     :3: レジストリでグローバルに禁止する
+
+    環境変数 MOZ_CRASHREPORTER_DISABLE を 1 に設定する。
 
     disable-crash-report-globally-32bit.reg:
 
