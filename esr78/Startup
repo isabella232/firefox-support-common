@@ -37,6 +37,7 @@ Startup-2: 起動時のホームページの指定
 
     :5: 管理者が指定し、変更を許可（ポリシーで設定）
 
+    policies.json:
     "Homepage": {
       "URL": "http://example.com",
       "Locked": false,
@@ -46,8 +47,15 @@ Startup-2: 起動時のホームページの指定
       ]
     },
 
+    GPO:
+    カテゴリ「Firefox」→「Home page」
+    → 「URL for Home page」を有効化し、オプションでURLを設定
+    → 「URL for Home page」のオプションの「Don't allow the homepage to be changed.」のチェックをOFF
+    → 「Additional Homepages」を有効化し、オプションでURLを設定
+
     :4: 管理者が指定し、変更を禁止（ポリシーで設定）
 
+    policies.json:
     "Homepage": {
       "URL": "http://example.com",
       "Locked": true,
@@ -57,12 +65,24 @@ Startup-2: 起動時のホームページの指定
       ]
     },
 
+    GPO:
+    カテゴリ「Firefox」→「Home page」
+    → 「URL for Home page」を有効化し、オプションでURLを設定
+    → 「URL for Home page」のオプションの「Don't allow the homepage to be changed.」のチェックをON
+    → 「Additional Homepages」を有効化し、オプションでURLを設定
+
     :6: 前回の状態を常に復元（ポリシーで設定）
 
+    policies.json:
     "Homepage": {
       "StartPage": "previous-session",
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Home page」
+    → 「Start Page」を有効化し、オプションで「Previous Session」を選択
+    → 「URL for Home page」を有効化し、オプションの「Don't allow the homepage to be changed.」のチェックをON
 
 Startup-3: 既定のブラウザでなかった場合の、起動時における既定のブラウザにするかどうかの確認の可否
 
@@ -76,7 +96,12 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
 
     :3: 確認しない（ポリシーで設定）
 
+    policies.json:
     "DontCheckDefaultBrowser": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Don't Check Default Browser」を有効化
 
 Startup-4: バージョンアップ後の初回起動時における、バージョンアップ完了案内のタブの表示の可否
 
@@ -91,7 +116,12 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
 
     :3: 禁止する（ポリシーで設定）
 
+    policies.json:
     "OverridePostUpdatePage": "",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Override the upgrade page」を有効化し、オプションでURLを入力
 
 Startup-5: 初期状態のブックマーク
 
@@ -107,12 +137,18 @@ Startup-5: 初期状態のブックマーク
 
     :4: 空にする（ポリシーで設定）
 
+    policies.json:
     "NoDefaultBookmarks": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「No Default Bookmarks」を有効化
 
     :3: 管理者が指定したブックマークを追加する（ポリシーで設定）
 
     // ブックマークのアップデートは起動ごとに行われる。
     // JSONの定義から削除したサイトは次回起動時に自動的に削除される。
+    policies.json:
     "Bookmarks": [
       {
         "Title": "Clear Code",
@@ -122,6 +158,10 @@ Startup-5: 初期状態のブックマーク
         "Folder": "Company"
       }
     ],
+
+    GPO:
+    カテゴリ「Firefox」→「Bookmarks」
+    → 「Bookmark 00」から「Bookmark 50」について、必要な分を有効化し、それぞれオプションで項目の情報を定義する
 
 
 Startup-6: [廃止] 「あなたの権利」の表示の可否
@@ -146,7 +186,12 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     :3: リセットを提案せず、about:supportやサポートページ等からのユーザーの任意操作でのリセットも禁止（ポリシーで設定）
 
+    policies.json:
     "DisableProfileRefresh": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Profile Refresh」を有効化
 
 Startup-8: [廃止] UIの変更点を解説するツアーの表示の可否
 
@@ -201,7 +246,12 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     :3: 表示しない（ポリシーで設定）
 
+    policies.json:
     "OverrideFirstRunPage": "",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Override the first run page」を有効化し、オプションでURLを入力
 
 Startup-13: Windows 10の再起動後の自動起動
 

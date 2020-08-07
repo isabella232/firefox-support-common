@@ -42,6 +42,19 @@ Performance-4: パフォーマンスに悪影響を与えうるアクセシビ�
 
     lockPref("accessibility.force_disabled", 1);
 
+    -
+
+    :3: パフォーマンスを優先して無効化する（ポリシーで設定）
+
+    policies.json:
+    "Preferences": {
+      "accessibility.force_disabled": 1
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Preferences」
+    → 「accessibility.force_disabled」を有効化し、「オプション」で「Always Off (1)」を選択
+
 Performance-5: GCの実行頻度
 
     :1: GCの実行頻度を上げ、消費メモリ量を削減する

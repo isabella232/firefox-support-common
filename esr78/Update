@@ -18,7 +18,12 @@ Update-1: Firefoxの自動更新の可否
 
     :4: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisableAppUpdate": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Update」を有効化
 
 Update-2: アドオンの自動更新の可否
 
@@ -34,7 +39,12 @@ Update-2: アドオンの自動更新の可否
 
     :3: 禁止する（ポリシーで設定）
 
+    policies.json:
     "ExtensionUpdate": false,
+
+    GPO:
+    カテゴリ「Firefox」→「Extensions」
+    → 「Extension Update」を無効化
 
 Update-3: 検索エンジンの自動更新の可否
 
@@ -80,7 +90,12 @@ Update-6: システムアドオンの自動更新の可否
 
     :2: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisableSystemAddonUpdate": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable System Addon Updates」を有効化
 
 Update-7: アプリケーションの自動更新情報取得先
 
@@ -90,5 +105,10 @@ Update-7: アプリケーションの自動更新情報取得先
 
     :2: 任意のサーバー（ポリシーで設定）
 
+    policies.json:
     "AppUpdateURL": "（URL）",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Custom Update URL」を有効化し、任意のURLを入力
 

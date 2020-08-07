@@ -37,7 +37,12 @@ Privacy-1: 履歴の保存の可否
 
     :6: 終了時に消去する（ポリシーで設定）
 
+    policies.json:
     "SanitizeOnShutdown": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Clear data when browser is closed (Moved)」を有効化し、削除対象の項目にチェックを入れる
 
 Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフォーム要素、およびWeb検索バーのオートコンプリート機能の無効化）
 
@@ -51,7 +56,12 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :3: 保存しない（ポリシーで設定）
 
+    policies.json:
     "DisableFormHistory": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Form History」を有効化
 
 Privacy-3: ダウンロード履歴の保存の可否
 
@@ -99,11 +109,18 @@ Privacy-4: アドレスバーの入力履歴の表示の可否
     :3: 表示しない（ポリシーで設定）
 
     （履歴を表示しないだけで、格納は行われる）
+    policies.json:
     "Preferences": {
       "browser.urlbar.suggest.openpage": false,
       "browser.urlbar.suggest.history": false,
       "browser.urlbar.suggest.bookmark": false
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Preferences」
+    → 「browser.urlbar.suggest.openpage」を無効化
+    → 「browser.urlbar.suggest.history」を無効化
+    → 「browser.urlbar.suggest.bookmark」を無効化
 
 Privacy-5: パスワードの保存の可否
 
@@ -118,12 +135,23 @@ Privacy-5: パスワードの保存の可否
 
     :4: 保存しない（ポリシーで設定）
 
+    policies.json:
     "OfferToSaveLogins": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Offer to save logins」を無効化
 
     :3: 保存せず、マスターパスワードも使用しない（ポリシーで設定）
 
+    policies.json:
     "DisableMasterPasswordCreation": true,
     "OfferToSaveLogins": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Master Password Creation」を有効化
+    → 「Offer to save logins」を無効化
 
 Privacy-6: [廃止] Webアプリのオフラインキャッシュの利用の可否
 
@@ -218,10 +246,16 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :1: 永続的に許可する（既定）
 
+    policies.json:
     "Cookies": {
       "Default": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Cookies」
+    → 「Accept cookies from websites」を有効化
+    → 「Do not allow preferences to be changed」を有効化
 
     :2: [廃止] 特定サイトのみ永続的に許可する
 
@@ -233,34 +267,61 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :6: 既定では禁止し、特定サイトのみ永続的に許可する（ポリシーで設定）
 
+    policies.json:
     "Cookies": {
       "Default": false,
       "Locked": true,
       "Allow": ["(origin1)", "(origin2)", ...]
     },
 
+    GPO:
+    カテゴリ「Firefox」→「Cookies」
+    → 「Accept cookies from websites」を無効化
+    → 「Do not allow preferences to be changed」を有効化
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+
     :3: セッション中のみ許可する（ポリシーで設定）
 
+    policies.json:
     "Cookies": {
       "Default": true,
       "ExpireAtSessionEnd": true,
       "Locked": true
     },
 
+    GPO:
+    カテゴリ「Firefox」→「Cookies」
+    → 「Accept cookies from websites」を有効化
+    → 「Keep cookies until Firefox is closed」を有効化
+    → 「Do not allow preferences to be changed」を有効化
+
     :4: 禁止する（ポリシーで設定）
 
+    policies.json:
     "Cookies": {
       "Default": false,
       "Locked": true
     },
 
+    GPO:
+    カテゴリ「Firefox」→「Cookies」
+    → 「Accept cookies from websites」を無効化
+    → 「Keep cookies until Firefox is closed」を有効化化
+
     :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
 
+    policies.json:
     "Cookies": {
       "Default": true,
       "Locked": true,
       "Block": ["(origin1)", "(origin2)", ...]
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Cookies」
+    → 「Accept cookies from websites」を有効化
+    → 「Do not allow preferences to be changed」を有効化
+    → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
 Privacy-12: DOMストレージの利用の可否
 
@@ -324,6 +385,7 @@ Privacy-14: 位置情報の利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    policies.json:
     "Permissions": {
       "Location": {
         "Allow": ["https://www.example.com", ... ],
@@ -331,9 +393,21 @@ Privacy-14: 位置情報の利用の可否
       }
     },
 
-    :3: 禁止する
+    GPO:
+    カテゴリ「Firefox」→「Permissions」→「Location」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+    → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
-    lockPref("geo.enabled", false);
+    :3: 禁止する（ポリシーで設定）
+
+    policies.json:
+    "Preferences": {
+      "geo.enabled": false
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Preferences」
+    → 「geo.enabled」を無効化
 
 Privacy-15: 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否
 
@@ -369,7 +443,12 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :3: 禁止する（ポリシーで設定）
 
+    policies.json:
     "SearchSuggestEnabled": false,
+
+    GPO:
+    カテゴリ「Firefox」→「Search」
+    → 「Search Suggestions」を無効化
 
 Privacy-18: 利用状況の統計の保存および送信の可否
 
@@ -390,7 +469,12 @@ Privacy-18: 利用状況の統計の保存および送信の可否
     :3: 禁止する（ポリシーで設定）
 
     // Privacy-52 よりも優先される
+    policies.json:
     "DisableTelemetry": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Telemetry」を有効化
 
 Privacy-19: セキュリティエラーレポートの送信の可否
 
@@ -464,7 +548,12 @@ Privacy-22: Firefox Syncの利用の可否
 
     :2: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisableFirefoxAccounts": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Firefox Accounts」を有効化
 
     :3: 禁止する
 
@@ -515,7 +604,12 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisableFirefoxAccounts": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Firefox Accounts」を有効化
 
 Privacy-25: [廃止] Firefox Helloの利用の可否
 
@@ -535,7 +629,12 @@ Privacy-26: 「忘れる」ボタンの利用の可否
 
     :2: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisableForgetButton": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Forget Button」を有効化
 
 Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
@@ -551,7 +650,12 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisablePocket": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Pocket」を有効化
 
 Privacy-28: [廃止] その他、プライバシー情報に関わる一切の機能の利用の可否
 
@@ -649,6 +753,13 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
       "RejectTracker": true
     },
 
+    GPO:
+    カテゴリ「Firefox」→「Tracking Protection」
+    → 「Enabled」を有効化
+    → 「Do not allow tracking protection preferences to be changed」を有効化
+    カテゴリ「Firefox」→「Cookies」
+    → 「Reject trackers」を有効化
+
     MCD:
     lockPref("privacy.trackingprotection.cryptomining.enabled", true);
     lockPref("privacy.trackingprotection.fingerprinting.enabled", true);
@@ -668,10 +779,16 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :5: ブロックリストを取得せず、トラッキングを遮断しない（ポリシーで設定）
 
+    policies.json:
     "EnableTrackingProtection": {
       "Value": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Tracking Protection」
+    → 「Enabled」を無効化
+    → 「Do not allow tracking protection preferences to be changed」を有効化
 
 Privacy-34: フォームへのユーザー入力値のセッション情報への保存の可否
 
@@ -771,7 +888,12 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :2: 参加しない
 
+    policies.json:
     "DisableFirefoxStudies": true
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Firefox Studies」を有効化
 
 Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
@@ -852,12 +974,18 @@ Privacy-46: カメラの利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    policies.json:
     "Permissions": {
       "Camera": {
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Permissions」→「Camera」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+    → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
@@ -888,12 +1016,18 @@ Privacy-47: マイクの利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    policies.json:
     "Permissions": {
       "Microphone": {
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Permissions」→「Microphone」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+    → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 

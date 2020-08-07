@@ -66,6 +66,12 @@ Performance-4: パフォーマンスに悪影響を与えうるアクセシビ�
 
     - `accessibility.force_disabled` の値が `1` である。
 
+    :3: パフォーマンスを優先して無効化する
+
+    ABOUT_POLICIES
+
+    - `Preferences` の `accessibility.force_disabled` の値が `1` である。
+
 Performance-5: GCの実行頻度
 
     :1: GCの実行頻度を上げ、消費メモリ量を削減する

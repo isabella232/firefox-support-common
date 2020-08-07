@@ -11,6 +11,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     :4: 導入する（ポリシーで設定）
 
     （「%AppData%\Mozilla\Certificates」または「%LocalAppData%\Mozilla\Certificates」に証明書ファイルを設置した上で）
+    policies.json:
     "Certificates": {
       "Install": [
         "ファイル名1",
@@ -18,6 +19,10 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
         ...
       ]
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Certificates」
+    → 「Install Certificates」を有効化し、「オプション」でファイル名を追加
 
     :2: 導入しない（既定）
 
@@ -49,7 +54,18 @@ Security-3: アドオンのインストールの可否
 
     :6: 特定サイトのみ常に許可する（ポリシーとして設定）
 
-    "InstallAddonsPermission": { "Allow": ["(origin1)", "(origin2)", …] },
+    policies.json:
+    "InstallAddonsPermission": {
+      "Allow": [
+        "(origin1)",
+        "(origin2)",
+        …
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Addons」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
 
     :5: 特定サイトのみ初期状態で許可する
 
@@ -63,10 +79,17 @@ Security-3: アドオンのインストールの可否
 
     :3: 禁止する（ポリシー設定）
 
+    policies.json:
     "BlockAboutAddons": true,
     "InstallAddonsPermission": {
       "Default": false
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Block Add-ons Manager」を有効化
+    カテゴリ「Firefox」→「Addons」
+    → 「Allow add-on installs from websites」を無効化
 
     :4: 禁止するが、設定の変更は許可する
 
@@ -83,9 +106,14 @@ Security-3: アドオンのインストールの可否
 
     :7: 禁止するが、設定の変更は許可する（ポリシー設定）
 
+    policies.json:
     "InstallAddonsPermission": {
       "Default": false
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Addons」
+    → 「Allow add-on installs from websites」を無効化
 
 Security-4: 広告などのポップアップの表示の可否
 
@@ -99,6 +127,7 @@ Security-4: 広告などのポップアップの表示の可否
 
     :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
 
+    policies.json:
     "PopupBlocking": {
       "Default": true,
       "Locked": true,
@@ -108,6 +137,12 @@ Security-4: 広告などのポップアップの表示の可否
         …
       ]
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Popups」
+    → 「Allow pop-ups from websites」を有効化
+    → 「Do not allow preferences to be changed」を有効化
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
 
     :5: 特定サイトのみ初期状態で確認無しで許可する
 
@@ -125,10 +160,16 @@ Security-4: 広告などのポップアップの表示の可否
 
     :7: すべて確認無しで許可する（ポリシーで設定）
 
+    policies.json:
     "PopupBlocking": {
       "Default": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Popups」
+    → 「Allow pop-ups from websites」を無効化
+    → 「Do not allow preferences to be changed」を有効化
 
     :4: 禁止する
 
@@ -138,10 +179,16 @@ Security-4: 広告などのポップアップの表示の可否
 
     :8: 禁止する（ポリシーで設定）
 
+    policies.json:
     "PopupBlocking": {
       "Default": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Popups」
+    → 「Allow pop-ups from websites」を有効化
+    → 「Do not allow preferences to be changed」を有効化
 
 Security-5: 攻撃サイトに対する警告の可否
 
@@ -262,11 +309,16 @@ Security-13: ローカルファイルの読み込みの可否
 
     :3: 特定サイトのみ許可する（ポリシーで設定）
 
+    policies.json:
     "LocalFileLinks": [
       "http://example.com",
       "http://example.net",
       ...
     ],
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Local File Links」を有効化し、「オプション」でWebサイトを追加
 
     :2: 禁止する（既定）
 
@@ -645,7 +697,12 @@ Security-28: 認証が必要なWiFiアクセスポイントを検出した時に
 
     :3: 何もしない（ポリシーで設定）
 
+    policies.json:
     "CaptivePortal": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Captive Portal」を無効化
 
 Security-29: [廃止] SSL/TLSでないページでの「secure」属性付きCookieの読み書き(HTTPSなページで設定したCookieの値をHTTPなページから読み書きする)
 
@@ -705,7 +762,12 @@ Security-34: about:profilesの使用
 
     :2: 禁止する
 
+    policies.json:
     "BlockAboutProfiles": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Block about:profiles」を有効化
 
 Security-35: about:supportの使用
 
@@ -715,7 +777,12 @@ Security-35: about:supportの使用
 
     :2: 禁止する
 
+    policies.json:
     "BlockAboutSupport": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Block Troubleshooting Information」を有効化
 
 Security-36: DNS over HTTPSの使用
 
@@ -725,18 +792,31 @@ Security-36: DNS over HTTPSの使用
 
     :2: 使用する（ポリシーで設定）
 
+    policies.json:
     "DNSOverHTTPS": {
       "Enabled": true,
       "ProviderURL": "https://mozilla.cloudflare-dns.com/dns-query".
       "Locked": true
     },
 
+    GPO:
+    カテゴリ「Firefox」→「DNS Over HTTPS」
+    → 「Enabled」を有効化
+    → 「Provider URL」を有効化してURLを設定
+    → 「Locked」を有効化
+
     :3: 使用を禁止する（ポリシーで設定）
 
+    policies.json:
     "DNSOverHTTPS": {
       "Enabled": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「DNS Over HTTPS」
+    → 「Enabled」を無効化
+    → 「Locked」を有効化
 
 Security-37: セキュリティ警告の回避
 
@@ -747,10 +827,16 @@ Security-37: セキュリティ警告の回避
     :2: 警告の回避を禁止する（ポリシーで設定）
 
     // 証明書の例外登録、詐欺サイトの強制表示を禁止
+    policies.json:
     "DisableSecurityBypass": {
       "InvalidCertificate": true,
       "SafeBrowsing": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Prevent overriding certificate errors」を有効化
+    → 「Prevent overriding safe browsing errors」を有効化
 
 Security-38: セキュリティデバイスの登録
 
@@ -760,10 +846,15 @@ Security-38: セキュリティデバイスの登録
 
     :2: 登録する（ポリシーで設定）
 
+    policies.json:
     "SecurityDevices": {
       "デバイス名1": "C:\\Path\\To\\Library.dll",
       ...
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Security Devices」を有効化し、オプションでデバイス名とパスのペアを追加
 
 Security-39: 特定のWebサイトへのアクセスの遮断
 
@@ -776,6 +867,7 @@ Security-39: 特定のWebサイトへのアクセスの遮断
     // ブロックする対象のURLを示すマッチパターン。
     // （詳細は https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns を参照）
     // http:またはhttps:で始まるサイトのみが対象で、最大1000項目まで指定可能。
+    policies.json:
     "WebsiteFilter": {
       "Block": [
         "https://twitter.com/*",
@@ -788,6 +880,11 @@ Security-39: 特定のWebサイトへのアクセスの遮断
       ]
     },
 
+    GPO:
+    カテゴリ「Firefox」
+    → 「Blocked websites」を有効化し、オプションでURLのパターンを追加
+    → 「Exceptions to blocked websites」を有効化し、オプションで例外のURLのパターンを追加
+
 Security-40: アドオンのインストールを遮断した際の追加のメッセージ
 
     :1: 常に共通のメッセージを表示（既定）
@@ -796,11 +893,15 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
 
     :2: アドオンごとにメッセージを指定（ポリシーで設定）
 
+    policies.json:
     "ExtensionSettings": {
       "example@example.com": { // アドオンのID
         "blocked_install_message": "このアドオンは使用禁止です"
       }
     },
+
+    GPO:
+    対応する設定無し
 
 Security-41: 複数のポップアップを一度に開く操作
 
