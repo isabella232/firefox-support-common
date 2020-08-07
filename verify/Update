@@ -60,6 +60,12 @@ Update-3: 検索エンジンの自動更新の可否
 
     - `browser.search.update` の値が `false` である。
 
+    :3: 禁止する（ポリシーで設定）
+
+    ABOUT_POLICIES
+
+    - `Preferences` の `extensions.update.enabled` の値が `false` である。
+
 Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
     :1: 許可する（既定）

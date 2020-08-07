@@ -56,6 +56,17 @@ Update-3: 検索エンジンの自動更新の可否
 
     lockPref("browser.search.update", false);
 
+    :3: 禁止する（ポリシーで設定）
+
+    policies.json:
+    "Preferences": {
+      "browser.search.update": false
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Preferences」
+    → 「browser.search.update」を無効化
+
 Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
     :1: 許可する（既定）
