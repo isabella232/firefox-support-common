@@ -20,9 +20,14 @@ Location-2: アドレスバーにおける国際化ドメインの表示
 
     :2: 必ずpunycode形式で表示する（ポリシーで設定）
 
+    policies.json:
     "Preferences": {
       "network.IDN_show_punycode": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Preferences」
+    → 「network.IDN_show_punycode」を有効化
 
 Location-3: アドレスバーへのURL以外の入力の取り扱い
 
@@ -32,7 +37,12 @@ Location-3: アドレスバーへのURL以外の入力の取り扱い
 
     :2: 入力内容が1単語のみの時、検索を実行する前にローカルドメインのホスト名として名前解決を試みる
 
+    policies.json:
     "Preferences": {
       "browser.fixup.dns_first_for_single_words": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Preferences」
+    → 「browser.fixup.dns_first_for_single_words」を有効化
 

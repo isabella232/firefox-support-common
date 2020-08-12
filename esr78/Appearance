@@ -47,7 +47,13 @@ Appearance-3: アドレスバーと検索バーの統合
     :2: 統合しない
 
     // PolicyEngineで設定する
+
+    policies.json:
     "SearchBar": "separate",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Search bar location」を有効化し、オプションで「Separate」を選択
 
 
 Appearance-4: [廃止] ウィンドウコントロールの不具合の回避（Bug 1521692）
@@ -64,7 +70,12 @@ Appearance-5: 初期状態でのブックマークツールバーの表示
 
     :1: 表示する（ポリシーで設定）
 
+    policies.json:
     "DisplayBookmarksToolbar": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Display Bookmarks Toolbar」を有効化
 
     :2: 表示しない（既定）
 
@@ -74,7 +85,12 @@ Appearance-6: 初期状態でのメニューバーの表示
 
     :1: 表示する（ポリシーで設定）
 
-    "DisplayMenuBar": true,
+    policies.json:
+    "DisplayMenuBar": "default-on",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Display Menu Bar」を有効化し、オプションで「On by default」を選択
 
     :2: 表示しない（既定）
 
@@ -88,11 +104,16 @@ Appearance-7: アプリケーションのUIに使用する言語
 
     :2: 任意の言語（ポリシーで設定）
 
+    policies.json:
     "RequestedLocales": [
       "en-US",
       "ja",
       ...
     ],
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Requested locale (string)」を有効化し、オプションで言語名を指定
 
 Appearance-8: ヘルプメニュー配下に登録する独自のサポートページの情報
 
@@ -102,11 +123,16 @@ Appearance-8: ヘルプメニュー配下に登録する独自のサポートペ
 
     :2: 表示する（ポリシーで設定）
 
+    policies.json:
     "SupportMenu": {
       "Title":     "タイトル",
       "URL":       "https://example.com/",
       "AccessKey": "H"
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Support Menu」を有効化し、オプションでタイトル、URL、アクセスキーを指定
 
 Appearance-9: 「Firefoxアカウント」ボタンの表示
 
@@ -138,7 +164,12 @@ Appearance-11: 「新着情報」の通知の表示
 
     :2: 表示しない（ポリシーで設定）
 
+    policies.json:
     "UserMessaging": {
       "WhatsNew": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「User Messaging」
+    → 「What's New」を無効化（設定値の固定は不可能）

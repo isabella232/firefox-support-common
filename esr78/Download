@@ -54,12 +54,24 @@ Download-2: ファイルの既定のダウンロード先
     :4: 指定する：任意（ポリシーで設定）
 
     // ホームディレクトリを指すプレースホルダとして ${home} を使用可能
+
+    policies.json:
     "DefaultDownloadDirectory": "（ディレクトリのパス）",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Default Download Directory」を有効化し、オプションでパスを指定
 
     :5: 指定する：任意の場所に固定（ポリシーで設定）
 
     // ホームディレクトリを指すプレースホルダとして ${home} を使用可能
+
+    policies.json:
     "DownloadDirectory": "（ディレクトリのパス）",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Download Directory」を有効化し、オプションでパスを指定
 
     :2: 指定する：デスクトップ
 
@@ -87,5 +99,10 @@ Download-3: ファイルのダウンロード先ディレクトリの制御
 
     :4: ダウンロード先を固定せず、常にユーザに選択させる（ポリシーで設定）
 
+    policies.json:
     "PromptForDownloadLocation": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Prompt for download location」を有効化
 
