@@ -6,17 +6,20 @@ Script-1: スクリプトによる頻繁なalertの可否
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("dom.successive_dialog_time_limit", 0);
 
     :2: 禁止する（既定）
 
     // 3秒以内にalertが繰り返されたら警告を表示する（既定値）
+    *.cfg / *.jsc:
     lockPref("dom.successive_dialog_time_limit", 3);
 
 Script-2: プッシュ通知の可否
 
     :1: 確認の上で許可する（通常版・既定）
 
+    *.cfg / *.jsc:
     lockPref("dom.push.enabled", true);
     lockPref("dom.serviceWorkers.enabled", true);
 
@@ -35,7 +38,7 @@ Script-2: プッシュ通知の可否
     # origin<\t>desktop-notification<\t>1<\t>http://example.com
     # origin<\t>desktop-notification<\t>2<\t>http://example.com
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("dom.push.enabled", true);
     lockPref("dom.serviceWorkers.enabled", true);
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
@@ -57,32 +60,38 @@ Script-2: プッシュ通知の可否
 
     :3: 禁止する（ESR版・既定）
 
+    *.cfg / *.jsc:
     lockPref("dom.push.enabled", false);
     lockPref("dom.serviceWorkers.enabled", false);
     lockPref("dom.push.serverURL", "");
 
     :6: すべてのサイトについて初期状態で確認無しで禁止する（「通知の許可の要求をブロック」にチェック）
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.desktop-notification", 2);
 
 Script-3: ゲームパッドAPIの利用の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("dom.gamepad.enabled",true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("dom.gamepad.enabled",false);
 
 Script-4: DOMイベントによるクリップボード操作のオーバーライド
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     defaultPref("dom.event.clipboardevents.enabled", true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("dom.event.clipboardevents.enabled", false);
 
 Script-5: DOMイベントによるコンテキストメニュー操作のオーバーライド
@@ -93,6 +102,7 @@ Script-5: DOMイベントによるコンテキストメニュー操作のオー�
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("dom.event.contextmenu.enabled", false);
 
 Script-6: [廃止] 左クリック以外のクリック操作によるイベントの発火
@@ -109,16 +119,19 @@ Script-7: 動画・音声の自動再生の可否
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("media.autoplay.default", 0); // すべて自動再生
     lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("media.autoplay.default", 5); // すべて禁止
     lockPref("media.autoplay.blocking_policy", 1); // 制限を解除しても dom.user_activation.transient.timeout の時間が経過したら制限状態に戻す
 
     :3: 原則禁止するが、ユーザーの操作で再生される物は許可（既定）
 
+    *.cfg / *.jsc:
     lockPref("media.autoplay.default", 1); // 音声無しはすべて自動再生、それ以外は禁止
     lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
 
@@ -130,12 +143,14 @@ Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
     :2: 付与しない
 
+    *.cfg / *.jsc:
     lockPref("dom.targetBlankNoOpener.enabled", false);
 
 Script-9: ページ読み込み時点での、購読を促す通知の表示の可否
 
     :1: 表示する
 
+    *.cfg / *.jsc:
     lockPref("dom.webnotifications.requireuserinteraction", false);
 
     :2: 禁止する（既定）
@@ -150,6 +165,7 @@ Script-10: 動画に対するPicture-in-Picture表示の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("media.videocontrols.picture-in-picture.enabled", false);
 
 Script-11: AudioWorklet APIの使用の可否
@@ -160,4 +176,5 @@ Script-11: AudioWorklet APIの使用の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("dom.worklet.enabled", false);

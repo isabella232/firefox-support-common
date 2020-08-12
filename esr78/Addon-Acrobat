@@ -6,7 +6,7 @@ Addon-Acrobat-1: 初期設定を変更するかどうか
 
     :1: 変更する
 
-    MCD:
+    *.cfg / *.jsc:
     // codes to initialize configuration of Adobe Acrobat addon
     async function setLocalStorageFor(aAddonId, aValues = {}) {
       const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
@@ -57,7 +57,7 @@ Addon-Acrobat-2: 初回起動ページの表示
 
     :2: 表示しない
 
-    MCD:
+    *.cfg / *.jsc:
     // Addon-Acrobat-1に依存
     setLocalStorageFor('web2pdfextension.17@acrobat.adobe.com', {
       // Do not show https://helpx.adobe.com/acrobat/kb/acrobat-pro-firefox-extension.html on firstrun
@@ -87,7 +87,7 @@ Addon-Acrobat-3: 使用状況の送信の可否
     [userContent.css]
     TargetLocation=%AppDir%/defaults/chrome/
     
-    MCD:
+    *.cfg / *.jsc:
     // Addon-Acrobat-1に依存
     setLocalStorageFor('web2pdfextension.17@acrobat.adobe.com', {
       analyticspref: { value: false }

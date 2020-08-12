@@ -30,6 +30,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     :3: Windowsの証明書データベースから自動的にインポートする
 
+    *.cfg / *.jsc:
     lockPref("security.enterprise_roots.enabled", true);
 
 Security-2: [廃止] 独自のルート証明書の自動再登録の可否
@@ -74,7 +75,7 @@ Security-3: アドオンのインストールの可否
     # または
     origin<\t>install<\t>1<\t>http://example.com
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
     :3: 禁止する（ポリシー設定）
@@ -93,6 +94,7 @@ Security-3: アドオンのインストールの可否
 
     :4: 禁止するが、設定の変更は許可する
 
+    *.cfg / *.jsc:
     lockPref("xpinstall.enabled", false);
     // アドオンマネージャからのインストールを禁止
     lockPref("extensions.getAddons.discovery.api_url", "");
@@ -151,7 +153,7 @@ Security-4: 広告などのポップアップの表示の可否
     # または
     origin<\t>popup<\t>1<\t>http://example.com
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
     :3: すべて確認無しで許可する
@@ -173,7 +175,7 @@ Security-4: 広告などのポップアップの表示の可否
 
     :4: 禁止する
 
-    MCDで
+    *.cfg / *.jsc:
     lockPref("dom.disable_open_during_load", true);
     と設定した上で、「UI・キーボードショートカット無効化項目一覧」に従いUIを無効化
 
@@ -194,12 +196,12 @@ Security-5: 攻撃サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.malware.enabled", true);
 
     :2: 警告しない
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.malware.enabled", false);
     lockPref("browser.safebrowsing.downloads.remote.url", "");
     lockPref("browser.safebrowsing.provider.google.advisoryURL", "");
@@ -225,10 +227,12 @@ Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.phishing.enabled", true);
 
     :2: 警告しない
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.phishing.enabled", false);
 
 Security-7: [廃止] プラグインのインストールの可否
@@ -263,7 +267,12 @@ Security-9: about:configの利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
+    distribution\policies.json:
     "BlockAboutConfig": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「about:config」を有効化
 
 Security-10: [廃止] エラーコンソールの利用の可否
 
@@ -289,6 +298,7 @@ Security-12: JavaScriptの実行の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("javascript.enabled", true);
 
     :2: [廃止] 特定サイトのみ許可する
@@ -297,12 +307,14 @@ Security-12: JavaScriptの実行の可否
 
     :3: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("javascript.enabled", false);
 
 Security-13: ローカルファイルの読み込みの可否
 
     :1: 特定サイトのみ許可する
 
+    *.cfg / *.jsc:
     lockPref("capability.policy.policynames", "trusted");
     lockPref("capability.policy.trusted.sites", "http://example.com http://example.net");
     lockPref("capability.policy.trusted.checkloaduri.enabled", "allAccess");
@@ -328,10 +340,12 @@ Security-14: ローカルファイルからの他ディレクトリの参照の�
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("security.fileuri.strict_origin_policy", false);
 
     :2: 禁止する（既定）
 
+    *.cfg / *.jsc:
     lockPref("security.fileuri.strict_origin_policy", true);
 
 Security-15: その他、バックグラウンドで行われる外部への通信の可否
@@ -369,6 +383,7 @@ Security-15: その他、バックグラウンドで行われる外部への通�
 
     上記に加え、以下の設定を行う。
 
+    *.cfg / *.jsc:
     // アクセシビリティの情報
     lockPref("accessibility.support.url", "");
     // 各種詳細説明のURL
@@ -495,6 +510,7 @@ Security-16: フルスクリーン表示の可否
 
     :1: 確認の上で許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("full-screen-api.enabled", true);
 
     :2: [廃止] 特定サイトのみ確認なしで許可する
@@ -503,6 +519,7 @@ Security-16: フルスクリーン表示の可否
 
     :3: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("full-screen-api.enabled", false);
 
 Security-17: [廃止] about:homeからマーケットプレイスへの遷移の可否
@@ -523,6 +540,7 @@ Security-18: ツールバーカスタマイズにおける、「その他のテ�
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("lightweightThemes.getMoreURL", "");
 
 Security-19: ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否
@@ -533,6 +551,7 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("extensions.getAddons.discovery.api_url", "");
 
 Security-20: [廃止] パーミッション設定変更の可否
@@ -553,6 +572,7 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
 
     :2: ブロックしない
 
+    *.cfg / *.jsc:
     lockPref("extensions.blocklist.enabled", false);
     lockPref("extensions.blocklist.detailsURL", "");
     lockPref("extensions.blocklist.itemURL", "");
@@ -572,21 +592,25 @@ Security-23: プラグインのサンドボックス内実行
 
     :1: サンドボックス内で実行しない（既定）
 
+    *.cfg / *.jsc:
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 0);
 
     :2: Flashプラグインのみサンドボックス内で実行
 
+    *.cfg / *.jsc:
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
 
     :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
 
+    *.cfg / *.jsc:
     defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
     defaultPref("dom.ipc.plugins.sandbox-level.flash", 2);
 
     :3: すべてサンドボックス内で実行
 
+    *.cfg / *.jsc:
     // 1: 管理者権限のないユーザのレベル
     // 2: より厳格なレベル（機能的に問題が起こりうる）
     // 3: 最も厳格なレベル
@@ -601,6 +625,7 @@ Security-24: Flashプラグインの保護モード
 
     :2: 使用しない
 
+    *.cfg / *.jsc:
     // 32bit版でのみ使用される設定。
     // 64bit版では設定項目が表示されず使用されないため、
     // 設定ファイルの共通化の際にはそのまま残しても問題無い。
@@ -614,6 +639,7 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
 
     :2: 使用しない
 
+    *.cfg / *.jsc:
     // Webフィード用のサービス
     lockPref("browser.contentHandlers.types.0.name", "");
     lockPref("browser.contentHandlers.types.0.uri", "");
@@ -667,21 +693,25 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
 
     :1: ブロックする（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.enabled", true);
 
     :2: ブロックしない
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.enabled", false);
 
 Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
 
     :1: 警告する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
     lockPref("browser.safebrowsing.downloads.remote.block_uncommon", true);
 
     :2: 警告しない
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
     lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 
@@ -693,6 +723,7 @@ Security-28: 認証が必要なWiFiアクセスポイントを検出した時に
 
     :2: 何もしない
 
+    *.cfg / *.jsc:
     lockPref("network.captive-portal-service.enabled", false);
 
     :3: 何もしない（ポリシーで設定）
@@ -718,6 +749,7 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("security.block_script_with_wrong_mime", false);
 
     :2: 禁止する（既定）
@@ -728,6 +760,7 @@ Security-31: 危険なFlashコンテンツの読み込み
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("browser.safebrowsing.blockedURIs.enabled", false);
 
     :2: ブロックする（既定）
@@ -738,20 +771,24 @@ Security-32: アドオンのインストール時の警告
 
     :1: 警告する（既定）
 
+    *.cfg / *.jsc:
     lockPref("xpinstall.whitelist.required", true);
 
     :2: 警告しない
 
+    *.cfg / *.jsc:
     lockPref("xpinstall.whitelist.required", false);
 
 Security-33: 危険ででしゃばりなFlashコンテンツをブロック
 
     :1: ブロックする（既定）
 
+    *.cfg / *.jsc:
     lockPref("plugins.flashBlock.enabled", true);
 
     :2: ブロックしない
 
+    *.cfg / *.jsc:
     lockPref("plugins.flashBlock.enabled", false);
 
 Security-34: about:profilesの使用
@@ -907,6 +944,7 @@ Security-41: 複数のポップアップを一度に開く操作
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("dom.block_multiple_popups", false);
 
     :2: 禁止する（既定）
@@ -924,32 +962,38 @@ Security-42: 過去にデータ流出事故を起こしたWebサービスでの�
 
     :2: 警告を表示しない
 
+    *.cfg / *.jsc:
     lockPref("extensions.fxmonitor.enabled", false);
 
 Security-43: ローカルファイルからの同じディレクトリのファイルの参照の可否
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("privacy.file_unique_origin", false);
 
     :2: 禁止する（既定）
 
+    *.cfg / *.jsc:
     lockPref("privacy.file_unique_origin", true);
 
 Security-44: HTTPSでないURLのページでのカメラ・マイクの使用の可否
 
     :1: 許可する
 
+    *.cfg / *.jsc:
     lockPref("media.getusermedia.insecure.enabled", true);
 
     :2: 禁止する（既定）
 
+    *.cfg / *.jsc:
     lockPref("media.getusermedia.insecure.enabled", false);
 
 Security-45: 証明書の例外の自動承認
 
     :1: 特定のホストの証明書の例外を自動的に承認する
 
+    *.cfg / *.jsc:
     const autoAcceptExceptionFor = (host, port = 443) => {
       const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
       const exceptionURL = port == 443 ? `https://${host}` : `https://${host}:${port}`;
@@ -1063,12 +1107,14 @@ Security-46: CRLiteの使用
 
     :2: 無効化する
 
+    *.cfg / *.jsc:
     lockPref("security.pki.crlite_mode", 0);
 
 Securiyt-47: OSの証明書ストアのクライアント証明書の利用
 
     :1: 使用する
 
+    *.cfg / *.jsc:
     lockPref("security.osclientcerts.autoload", true);
 
     :2: 使用しない（既定）

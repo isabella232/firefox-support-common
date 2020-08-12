@@ -10,6 +10,7 @@ Addon-IEView-1: IEの起動
 
     :2: 特定サイトでIEを自動起動（MCD）
 
+    *.cfg / *.jsc:
     lockPref("extensions.ieview.forceielist", "（半角スペース区切りのURLのリスト）");
 
     :4: 特定サイトでIEを自動起動（ポリシー設定）
@@ -24,6 +25,7 @@ Addon-IEView-1: IEの起動
 
     :3: 特定サイトをIEを自動起動し、Firefox側のタブを閉じる（MCD）
 
+    *.cfg / *.jsc:
     lockPref("extensions.ieview.forceielist", "（半角スペース区切りのURLのリスト）");
     lockPref("extensions.ieview.closeReloadPage", true);
 
@@ -42,6 +44,7 @@ Addon-IEView-2: 起動するIEの設定
 
     :1: パスと起動オプションを指定する（MCD）
 
+    *.cfg / *.jsc:
     lockPref("extensions.ieview.ieapp", "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe");
     lockPref("extensions.ieview.ieargs", "");
 

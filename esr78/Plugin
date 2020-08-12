@@ -20,6 +20,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :1: 常に無効化する
 
+    *.cfg / *.jsc:
     lockPref("plugin.state.flash", 0);
 
     サイト別の初期状態のみを設定する場合:
@@ -73,7 +74,8 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
     # または
     origin<\t>plugin:flash<\t>3<\t>http://example.com
     origin<\t>plugin-vulnerable:flash<\t>3<\t>http://example.com
-    MCD:
+
+    *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
 Plugin-3: [廃止] Adobe Acrobatプラグインの有効・無効の制御
@@ -156,6 +158,7 @@ Plugin-8: Gecko Media Pluginの利用の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("media.eme.enabled",false);
     lockPref("media.gmp-eme-adobe.enabled",false);
     lockPref("media.gmp-eme-adobe.autoupdate",false);

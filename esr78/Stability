@@ -6,6 +6,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :1: 有効化する（安定性より描画性能を優先する：既定）
 
+    *.cfg / *.jsc:
     lockPref("gfx.direct2d.disabled", false);
     lockPref("layers.acceleration.disabled", false);
 
@@ -20,6 +21,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :2: 無効化する（描画性能より安定性を優先する）
 
+    *.cfg / *.jsc:
     lockPref("gfx.direct2d.disabled", true);
     lockPref("layers.acceleration.disabled", true);
 
@@ -54,6 +56,7 @@ Stability-3: RDPでの音声再生の有効化
 
     :2: 有効化する
 
+    *.cfg / *.jsc:
     // リモートデスクトップ接続で音声が鳴らない不具合を回避する
     // https://bugzilla.mozilla.org/show_bug.cgi?id=1385207
     lockPref("security.sandbox.content.level", 2)
@@ -66,6 +69,7 @@ Stability-4: WebRenderの有効化
 
     :2: 常に無効化する
 
+    *.cfg / *.jsc:
     lockPref("gfx.webrender.all", false);
     lockPref("gfx.webrender.enabled", false);
     lockPref("gfx.webrender.force-disabled", true);

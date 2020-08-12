@@ -10,20 +10,24 @@ Privacy-1: 履歴の保存の可否
 
     :5: 履歴を基本的には保存し、ただし（一部項目は）終了時の消去を許可する / 起動時からのプライベートブラウジングの開始を無効
 
+    *.cfg / *.jsc:
     lockPref("browser.privatebrowsing.autostart", false);
 
     :7: 保存を強制する
 
+    *.cfg / *.jsc:
     lockPref("browser.privatebrowsing.autostart", false);
     lockPref("privacy.sanitize.sanitizeOnShutdown", false);
 
     :3: 一切保存しない
 
+    *.cfg / *.jsc:
     lockPref("browser.privatebrowsing.autostart", true);
     lockPref("privacy.sanitize.sanitizeOnShutdown", true);
 
     :4: 終了時に消去する
 
+    *.cfg / *.jsc:
     lockPref("privacy.sanitize.sanitizeOnShutdown", true);
     lockPref("privacy.clearOnShutdown.cache", true); // キャッシュ
     lockPref("privacy.clearOnShutdown.cookies", true); // Cookie
@@ -52,6 +56,7 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :2: 保存しない
 
+    *.cfg / *.jsc:
     lockPref("browser.formfill.enable", false);
 
     :3: 保存しない（ポリシーで設定）
@@ -68,6 +73,7 @@ Privacy-3: ダウンロード履歴の保存の可否
     :1: 永続的に保存する（既定）
 
     // Privacy-1-3, Privacy-1-4との共存は不可能
+    *.cfg / *.jsc:
     lockPref("privacy.clearOnShutdown.downloads", false);
     lockPref("privacy.clearOnShutdown.history", false);
 
@@ -77,6 +83,7 @@ Privacy-3: ダウンロード履歴の保存の可否
 
     :3: 保存しない
 
+    *.cfg / *.jsc:
     // Privacy-1-3, Privacy-1-4選択時は強制的にこの動作となる
     lockPref("privacy.sanitize.sanitizeOnShutdown", true);
     lockPref("privacy.clearOnShutdown.downloads", true);
@@ -99,6 +106,7 @@ Privacy-4: アドレスバーの入力履歴の表示の可否
 
     :2: 表示しない
 
+    *.cfg / *.jsc:
     lockPref("browser.urlbar.autocomplete.enabled", false);
     lockPref("browser.urlbar.maxRichResults", -1);
     lockPref("browser.urlbar.suggest.history", false);
@@ -130,6 +138,7 @@ Privacy-5: パスワードの保存の可否
 
     :2: 保存しない
 
+    *.cfg / *.jsc:
     lockPref("signon.rememberSignons", false);
     lockPref("signon.autofillForms", false);
 
@@ -175,10 +184,12 @@ Privacy-7: リンク先の先読みの可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("network.prefetch-next", true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("network.prefetch-next", false);
 
 Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
@@ -189,6 +200,7 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
     :2: 指定する
 
+    *.cfg / *.jsc:
     lockPref("places.history.expiration.max_pages", （最低限保持することを保証したい履歴の件数）);
 
 Privacy-9: 日数ベースでの履歴の自動削除
@@ -227,6 +239,7 @@ Privacy-10: セッション情報の保存の可否
     また、閉じたウィンドウを開き直すためのデータもセッション中1つは必ず保持される。
     設定の一部はPrivacy-1-2と重複する。
 
+    *.cfg / *.jsc:
     lockPref("privacy.sanitize.sanitizeOnShutdown", true); // Privacy-1-2
     lockPref("privacy.clearOnShutdown.sessions", true); // Privacy-1-2
     lockPref("browser.sessionstore.max_tabs_undo", 0);
@@ -331,12 +344,14 @@ Privacy-12: DOMストレージの利用の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("dom.storage.enabled", false);
 
 Privacy-13: Indexed DBの利用の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("dom.indexedDB.enabled", true);
 
     :2: [廃止] 特定サイトのみ確認なしで許可する
@@ -349,6 +364,7 @@ Privacy-13: Indexed DBの利用の可否
 
     :3: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("dom.indexedDB.enabled", false);
 
 Privacy-14: 位置情報の利用の可否
@@ -359,10 +375,12 @@ Privacy-14: 位置情報の利用の可否
 
     :6: すべてのサイトについて初期状態で確認無しで禁止する（「位置情報へのアクセスの要求をブロック」にチェック）
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.geo", 2);
 
     :7: すべてのサイトについて初期状態で確認無しで許可する
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.geo", 1);
 
     :2: [廃止] 特定サイトのみ確認なしで許可する
@@ -380,7 +398,7 @@ Privacy-14: 位置情報の利用の可否
     # origin<\t>geo<\t>1<\t>http://example.com
     # origin<\t>geo<\t>2<\t>http://example.com
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
@@ -417,16 +435,19 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("browser.search.geoip.url", "");
 
 Privacy-16: DNSの先読みの可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("network.dns.disablePrefetch", false);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("network.dns.disablePrefetch", true);
     lockPref("network.dns.disablePrefetchFromHTTPS", true);
 
@@ -434,10 +455,12 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.search.suggest.enabled", true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("browser.search.suggest.enabled", false);
     lockPref("browser.urlbar.suggest.searches", false);
 
@@ -458,6 +481,7 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
     lockPref("toolkit.telemetry.enabled", false);
     lockPref("toolkit.telemetry.infoURL", "");
@@ -484,6 +508,7 @@ Privacy-19: セキュリティエラーレポートの送信の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("security.ssl.errorReporting.automatic", false);
     lockPref("security.ssl.errorReporting.enabled", false);
     lockPref("security.ssl.errorReporting.url", "");
@@ -563,6 +588,7 @@ Privacy-22: Firefox Syncの利用の可否
 
     // Privacy-24-2と同時に設定する必要あり。
     // 設定画面、メニューバー、ツールバー上に操作不能なUIが表示されます。
+    *.cfg / *.jsc:
     lockPref("identity.fxaccounts.enabled", false);
     lockPref("identity.sync.tokenserver.uri", "");
     lockPref("services.sync.account", "");
@@ -596,6 +622,7 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("identity.fxaccounts.auth.uri", "");
     lockPref("identity.fxaccounts.enabled", false);
     lockPref("identity.fxaccounts.commands.enabled", false);
@@ -648,6 +675,7 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("extensions.pocket.enabled", false);
     lockPref("extensions.pocket.api", "");
     lockPref("extensions.pocket.site", "");
@@ -679,21 +707,25 @@ Privacy-29: 履歴・ブックマーク用データベースの自動最適化
 
     :2: 1週間に1回、VACUUMも含めて行う
 
+    *.cfg / *.jsc:
     「Places Auto Vacuum On Idle」互換スクリプト:https://github.com/clear-code/places-auto-vacuum-on-idle/blob/master/autoconfig-places-auto-vacuum-on-idle.js
 
 Privacy-30: ディスクキャッシュの最大サイズ制限
 
     :1: 制限しない（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.cache.disk.smart_size.enabled", true);
 
     :2: 制限する
 
+    *.cfg / *.jsc:
     lockPref("browser.cache.disk.smart_size.enabled", false);
     lockPref("browser.cache.disk.capacity", サイズ（KB）);
 
     :3: ディスクキャッシュを使用しない
 
+    *.cfg / *.jsc:
     lockPref("browser.cache.disk.enable", false);
     lockPref("browser.cache.disk.smart_size.enabled", false);
     lockPref("browser.cache.disk.capacity", 0);
@@ -713,16 +745,19 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     defaultPref("network.http.speculative-parallel-limit", 6);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("network.http.speculative-parallel-limit", 0);
 
 Privacy-33: Webサービスによる行動履歴の収集（トラッキング）の遮断の可否
 
     :1: ブロックリストを取得して、プライベートブラウジング時のみトラッキングを遮断する（ESR68で既定）
 
+    *.cfg / *.jsc:
     // https://searchfox.org/mozilla-central/rev/116bd975c30746ddefc3d20e6947d1871469354f/browser/app/profile/firefox.js#1614
     // https://searchfox.org/mozilla-central/rev/116bd975c30746ddefc3d20e6947d1871469354f/browser/components/BrowserGlue.jsm#3022
     lockPref("browser.contentblocking.category", "standard");
@@ -735,6 +770,7 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :2: ブロックリストを取得して、トラッキングを常に遮断する（既定）
 
+    *.cfg / *.jsc:
     // https://searchfox.org/mozilla-central/rev/116bd975c30746ddefc3d20e6947d1871469354f/browser/app/profile/firefox.js#1622
     // https://searchfox.org/mozilla-central/rev/116bd975c30746ddefc3d20e6947d1871469354f/browser/components/BrowserGlue.jsm#3022
     lockPref("browser.contentblocking.category", "strict");
@@ -764,7 +800,7 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
     カテゴリ「Firefox」→「Cookies」
     → 「Reject trackers」を有効化
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("privacy.trackingprotection.cryptomining.enabled", true);
     lockPref("privacy.trackingprotection.fingerprinting.enabled", true);
     lockPref("privacy.trackingprotection.socialtracking.enabled", true);
@@ -772,6 +808,7 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
     :3: ブロックリストを取得せず、トラッキングを遮断しない
 
     Security-5-2も併せて設定する。
+    *.cfg / *.jsc:
     lockPref("browser.contentblocking.category", "custom");
     lockPref("privacy.trackingprotection.enabled", false);
     lockPref("privacy.trackingprotection.pbmode.enabled", false);
@@ -798,29 +835,35 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.sessionstore.privacy_level", 0);
 
     :2: 一切禁止する
 
     // Privacy-10-2に包含される
+    *.cfg / *.jsc:
     lockPref("browser.sessionstore.privacy_level", 2);
 
 Privacy-35: トラッキングの遮断に使用するブロックリストの指定
 
     :1: レベル1（基本）ブロックを初期設定とし、変更を許可（既定）
 
+    *.cfg / *.jsc:
     defaultPref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256");
 
     :2: レベル2（厳格）ブロックを初期設定とし、変更を許可
 
+    *.cfg / *.jsc:
     defaultPref("urlclassifier.trackingTable", "test-track-simple,,base-track-digest256,content-track-digest256");
 
     :3: レベル1（基本）ブロックで固定
 
+    *.cfg / *.jsc:
     lockPref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256");
 
     :4: レベル2（厳格）ブロックで固定
 
+    *.cfg / *.jsc:
     lockPref("urlclassifier.trackingTable", "test-track-simple,base-track-digest256,content-track-digest256");
 
 Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上へのキャッシュ
@@ -831,6 +874,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("browser.cache.disk_cache_ssl", false)
 
 Privacy-37: ネットワーク経由での先読み機能の全般的な制御
@@ -841,6 +885,7 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     :2: 先読みを禁止する
 
+    *.cfg / *.jsc:
     lockPref("network.predictor.enabled", false);
 
 Privacy-38: Webビーコンの送信
@@ -851,6 +896,7 @@ Privacy-38: Webビーコンの送信
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("beacon.enabled", false);
 
 Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
@@ -861,6 +907,7 @@ Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
 
     :2: 警告しない
 
+    *.cfg / *.jsc:
     lockPref("security.insecure_field_warning.contextual.enabled", false);
 
 Privacy-40: パスワード保存ポップアップにおける、パスワードを平文表示するチェックボックスの表示の可否
@@ -871,6 +918,7 @@ Privacy-40: パスワード保存ポップアップにおける、パスワー�
 
     :2: 表示しない
 
+    *.cfg / *.jsc:
     lockPref("signon.rememberSignons.visibilityToggle", false);
 
 Privacy-41: トラッキング保護機能の通知メッセージの表示
@@ -882,6 +930,7 @@ Privacy-41: トラッキング保護機能の通知メッセージの表示
     :2: 表示しない
 
     // Privacy-33-2選択時にのみ影響。
+    *.cfg / *.jsc:
     lockPref("browser.contentblocking.introCount", 999);
 
 Privacy-42: Firefoxの新機能のテストへの参加の可否
@@ -907,16 +956,19 @@ Privacy-43: 「Do Not Track」ヘッダの送出の可否
 
     :2: 常に送る
 
+    *.cfg / *.jsc:
     lockPref("privacy.donottrackheader.enabled", true);
 
     :3: プライベートウィンドウのみ送出
 
+    *.cfg / *.jsc:
     lockPref("privacy.trackingprotection.pbmode.enabled", true);
     lockPref("privacy.donottrackheader.enabled", false);
 
     :4: 送出しない
 
     Privacy-33-3も併せて設定する。
+    *.cfg / *.jsc:
     lockPref("privacy.donottrackheader.enabled", false);
     lockPref("privacy.trackingprotection.enabled", false);
     lockPref("privacy.trackingprotection.pbmode.enabled", false);
@@ -925,36 +977,44 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 0);
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 1);
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 2);
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 3);
 
 Privacy-45: プライベートブラウジングモードでのリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 0);
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 1);
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 2);
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 3);
 
 Privacy-46: カメラの利用の可否
@@ -973,7 +1033,8 @@ Privacy-46: カメラの利用の可否
     # または
     # origin<\t>camera<\t>1<\t>http://example.com
     # origin<\t>camera<\t>2<\t>http://example.com
-    MCD:
+
+    *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
@@ -993,10 +1054,12 @@ Privacy-46: カメラの利用の可否
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.camera", 1);
 
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「カメラへのアクセスの要求をブロック」にチェック）
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.camera", 2);
 
 Privacy-47: マイクの利用の可否
@@ -1015,7 +1078,8 @@ Privacy-47: マイクの利用の可否
     # または
     # origin<\t>microphone<\t>1<\t>http://example.com
     # origin<\t>microphone<\t>2<\t>http://example.com
-    MCD:
+
+    *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
@@ -1035,28 +1099,33 @@ Privacy-47: マイクの利用の可否
 
     :3: すべてのサイトについて初期状態で確認無しで許可する
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.microphone", 1);
 
     :4: すべてのサイトについて初期状態で確認無しで禁止する（「マイクへのアクセスの要求をブロック」にチェック）
 
+    *.cfg / *.jsc:
     lockPref("permissions.default.microphone", 2);
 
 Privacy-48: リファラの通知の有無
 
     :1: リンクの遷移、埋め込み画像の取得時に通知（既定）
 
+    *.cfg / *.jsc:
     // Privacy-44-2～4, Privacy-45-2～4. Privacy-49-2～4, Privacy-50-2～4と共存可能
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1とは共存不可
     lockPref("network.http.sendRefererHeader", 2);
 
     :2: リンクの遷移時にのみ通知
 
+    *.cfg / *.jsc:
     // Privacy-44-2～4, Privacy-45-2～4, Privacy-49-2～4, Privacy-50-2～4と共存可能
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1とは共存不可
     lockPref("network.http.sendRefererHeader", 1);
 
     :3: 一切通知しない
 
+    *.cfg / *.jsc:
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1との併用
     // Privacy-44-2～4, Privacy-45-2～4, Privacy-49-2～4, Privacy-50-2～4とは共存不可
     lockPref("network.http.sendRefererHeader", 0);
@@ -1065,36 +1134,44 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
 
     :1: 一切通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 0);
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 1);
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 2);
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 3);
 
 Privacy-50: プライベートブラウジングモードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
     :1: 一切通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 0);
 
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 2);
 
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
+    *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 3);
 
 Privacy-51: プライベートウィンドウでのアドオンの動作可否
@@ -1105,6 +1182,7 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     :2: 原則として許可する
 
+    *.cfg / *.jsc:
     lockPref("extensions.allowPrivateBrowsingByDefault", true);
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
@@ -1117,6 +1195,7 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
     :2: 表示しない
 
     // Privacy-18-3 選択時は常にこちらと同等の結果になる
+    *.cfg / *.jsc:
     lockPref("datareporting.policy.firstRunURL", "");
 
 Privacy-53: パスワードの自動生成機能の使用
@@ -1127,5 +1206,6 @@ Privacy-53: パスワードの自動生成機能の使用
 
     :2: 無効化する
 
+    *.cfg / *.jsc:
     lockPref("signon.generation.enabled", false);
 

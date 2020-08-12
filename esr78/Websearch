@@ -31,6 +31,7 @@ Websearch-2: 初期設定から取り除く検索エンジン
 
     :2: 限定する
 
+    *.cfg / *.jsc:
     lockPref("extensions.disablesearchengines@clear-code.com.disabled", "取り除くエンジン名");
     // https://github.com/clear-code/disablesearchengines/blob/master/autoconfig-disablesearchengines.js を併用
 

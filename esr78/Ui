@@ -6,11 +6,13 @@ Ui-1: Firefox組み込みのPDFビューアの使用可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("pdfjs.disabled", false);
     lockPref("plugin.disable_full_page_plugin_for_types", "（application/pdfを含まない値）");
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("pdfjs.disabled", true);
 
     :3: 禁止する（ポリシーで設定）
@@ -26,10 +28,12 @@ Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("accessibility.browsewithcaret_shortcut.enabled", true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("accessibility.browsewithcaret_shortcut.enabled", false);
 
 Ui-3: [廃止] タブごとの音声インジケータの利用の許可
@@ -60,6 +64,7 @@ Ui-5: リーダービュー機能の使用
 
     :2: 使用しない
 
+    *.cfg / *.jsc:
     lockPref("reader.parse-on-load.enabled", false)
 
 Ui-6: スペルチェック機能の使用
@@ -70,6 +75,7 @@ Ui-6: スペルチェック機能の使用
 
     :2: 使用しない
 
+    *.cfg / *.jsc:
     lockPref("layout.spellcheckDefault", 0);
 
 Ui-7: FirefoxScreenshots機能の使用
@@ -80,6 +86,7 @@ Ui-7: FirefoxScreenshots機能の使用
 
     :2: 使用しない
 
+    *.cfg / *.jsc:
     lockPref("extensions.screenshots.disabled", true);
 
     :3: 使用しない（ポリシーで設定）
@@ -109,5 +116,6 @@ Ui-9: Tabキーでのツールバーボタンへのフォーカス移動
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("browser.toolbars.keyboard_navigation", false);
 

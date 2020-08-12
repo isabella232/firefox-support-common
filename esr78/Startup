@@ -33,6 +33,7 @@ Startup-2: 起動時のホームページの指定
 
     :3: 管理者が指定し、変更を禁止
 
+    *.cfg / *.jsc:
     lockPref("browser.startup.homepage", "(URL)");
 
     :5: 管理者が指定し、変更を許可（ポリシーで設定）
@@ -88,10 +89,12 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
 
     :1: 確認する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.shell.checkDefaultBrowser", true);
 
     :2: 確認しない
 
+    *.cfg / *.jsc:
     lockPref("browser.shell.checkDefaultBrowser", false);
 
     :3: 確認しない（ポリシーで設定）
@@ -112,6 +115,7 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
     :2: 禁止する
 
     // Startup-12の指定より優先される
+    *.cfg / *.jsc:
     lockPref("browser.startup.homepage_override.mstone", "ignore");
 
     :3: 禁止する（ポリシーで設定）
@@ -131,6 +135,7 @@ Startup-5: 初期状態のブックマーク
 
     :2: 空にする
 
+    *.cfg / *.jsc:
     defaultPref("browser.places.importBookmarksHTML", true);
     lockPref("browser.bookmarks.autoExportHTML", false);
     defaultPref("browser.bookmarks.restore_default_bookmarks", false);
@@ -178,10 +183,12 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     :1: リセットを提案する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.disableResetPrompt", false);
 
     :2: リセットを提案しない
 
+    *.cfg / *.jsc:
     lockPref("browser.disableResetPrompt", true);
 
     :3: リセットを提案せず、about:supportやサポートページ等からのユーザーの任意操作でのリセットも禁止（ポリシーで設定）
@@ -221,6 +228,7 @@ Startup-10: 初回起動時などにダミーのウィンドウを使用して�
 
     :2: ハードウェア情報の変更を無視し、性能を測定しない
 
+    *.cfg / *.jsc:
     lockPref("sanity-test.running", true);
 
 Startup-11: [廃止] 起動時のActiviyStream(新規タブページの改良版)の表示の可否
@@ -242,7 +250,12 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     :2: 任意のページを表示する（ポリシーで設定）
 
+    distribution\policies.json:
     "OverrideFirstRunPage": "http://www.example.com/",
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Override the first run page」を有効化し、オプションでURLを入力
 
     :3: 表示しない（ポリシーで設定）
 
@@ -251,7 +264,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     GPO:
     カテゴリ「Firefox」
-    → 「Override the first run page」を有効化し、オプションでURLを入力
+    → 「Override the first run page」を有効化し、オプションでURLを空に指定
 
 Startup-13: Windows 10の再起動後の自動起動
 
@@ -261,6 +274,7 @@ Startup-13: Windows 10の再起動後の自動起動
 
     :2: 自動起動しない
 
+    *.cfg / *.jsc:
     lockPref("toolkit.winRegisterApplicationRestart", false);
 
 Startup-14: 初回起動時のRSSフィードのマイグレーション
@@ -271,4 +285,5 @@ Startup-14: 初回起動時のRSSフィードのマイグレーション
 
     :2: 実行しない
 
+    *.cfg / *.jsc:
     lockPref("browser.livebookmarks.migrationAttemptsLeft", 0);

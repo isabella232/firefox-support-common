@@ -29,10 +29,12 @@ Update-2: アドオンの自動更新の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("extensions.update.enabled", true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("extensions.update.enabled", false);
     lockPref("extensions.update.background.url", "");
     lockPref("extensions.update.url", "");
@@ -50,10 +52,12 @@ Update-3: 検索エンジンの自動更新の可否
 
     :1: 許可する（既定）
 
+    *.cfg / *.jsc:
     lockPref("browser.search.update", true);
 
     :2: 禁止する
 
+    *.cfg / *.jsc:
     lockPref("browser.search.update", false);
 
     :3: 禁止する（ポリシーで設定）
@@ -80,7 +84,7 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
     [Install]
     MaintenanceService=false
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("app.update.service.enabled", false);
 
 Update-5: [廃止] 軽量テーマの自動更新の可否

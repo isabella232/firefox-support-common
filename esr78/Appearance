@@ -10,6 +10,7 @@ Appearance-1: 表示フォントの明示
 
     :2: 設定する
 
+    *.cfg / *.jsc:
     lockPref("font.name-list.serif.ja", "（フォントの英語名のカンマ区切りのリスト）");
     lockPref("font.name-list.sans-serif.ja", "（フォントの英語名のカンマ区切りのリスト）");
     lockPref("font.name-list.monospace.ja", "（フォントの英語名のカンマ区切りのリスト）");
@@ -17,6 +18,7 @@ Appearance-1: 表示フォントの明示
 
     :3: Firefox ESR52と同じに揃える
 
+    *.cfg / *.jsc:
     defaultPref("font.name-list.monospace.ja", "MS Gothic, MS Mincho, MS PGothic, MS PMincho,Meiryo");
     defaultPref("font.name-list.sans-serif.ja", "MS PGothic, MS Gothic, MS PMincho, MS Mincho,Meiryo");
     defaultPref("font.name-list.serif.ja", "MS PMincho, MS Mincho, MS PGothic, MS Gothic,Meiryo");
@@ -32,6 +34,7 @@ Appearance-2: ツールバー上の項目の初期設定
 
     :2: 制御する
 
+    *.cfg / *.jsc:
     // そのバージョンのFirefox上で実際に希望の状態になるようカスタマイズした結果の値を使用すること。
     pref("browser.uiCustomization.state", JSON.stringify({
       ...
@@ -142,12 +145,14 @@ Appearance-9: 「Firefoxアカウント」ボタンの表示
 
     :2: 表示しない
 
+    *.cfg / *.jsc:
     lockPref("identity.fxaccounts.toolbar.enabled", false);
 
 Appearance-10: ユーザースタイルシートの使用
 
     :1: 使用する
 
+    *.cfg:
     // 必ずローカルのMCD用設定ファイルに記入する。
     // リモートのMCD用設定ファイルに記入した場合、初期化タイミングに間に合わないため設定が機能しない。
     lockPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
