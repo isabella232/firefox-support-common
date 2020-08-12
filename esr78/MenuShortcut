@@ -60,7 +60,7 @@ MenuShortcut-10: ツール＞ウェブ開発（開発ツールボタン）
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -71,7 +71,7 @@ MenuShortcut-11: ツール＞ウェブ開発＞開発ツールを表示 (Ctrl-Sh
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -82,7 +82,7 @@ MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -93,7 +93,7 @@ MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -104,7 +104,7 @@ MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -115,7 +115,7 @@ MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -126,7 +126,7 @@ MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バー
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -137,7 +137,7 @@ MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-E)
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -148,7 +148,7 @@ MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -171,7 +171,7 @@ MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -182,7 +182,7 @@ MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -193,7 +193,7 @@ MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビ
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -204,7 +204,7 @@ MenuShortcut-24: ツール＞ウェブ開発＞スポイト
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -215,7 +215,7 @@ MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -226,7 +226,7 @@ MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -243,7 +243,7 @@ MenuShortcut-28: ツール＞ウェブ開発＞接続...
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -254,7 +254,7 @@ MenuShortcut-29: ツール＞ウェブ開発＞その他のツールを入手
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -295,7 +295,7 @@ MenuShortcut-35: ヘルプ＞トラブルシューティング情報
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "BlockAboutSupport": true,
 
     GPO:
@@ -306,7 +306,7 @@ MenuShortcut-36: ヘルプ＞フィードバックを送信
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableFeedbackCommands": true,
 
     GPO:
@@ -317,7 +317,7 @@ MenuShortcut-37: ヘルプ＞アドオンを無効にして再起動
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableSafeMode": true,
 
     GPO:
@@ -328,7 +328,7 @@ MenuShortcut-38: ヘルプ＞詐欺サイトを報告
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableFeedbackCommands": true,
 
     GPO:
@@ -341,7 +341,7 @@ MenuShortcut-39: ヘルプ＞誤警告を報告
 
     // Security-6-2 選択時は指定不要
 
-    policies.json:
+    distribution\policies.json:
     "DisableFeedbackCommands": true,
 
     GPO:
@@ -442,7 +442,7 @@ MenuShortcut-55: コンテンツ領域のコンテキストメニュー＞デス
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableSetDesktopBackground": true,
 
     GPO:
@@ -459,7 +459,7 @@ MenuShortcut-57: コンテンツ領域のコンテキストメニュー＞要素
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -507,7 +507,7 @@ MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:
@@ -518,7 +518,7 @@ MenuShortcut-65: ツール＞ウェブ開発＞ブラウザーコンテンツツ
 
     :1: 無効化する
 
-    policies.json:
+    distribution\policies.json:
     "DisableDeveloperTools": true,
 
     GPO:

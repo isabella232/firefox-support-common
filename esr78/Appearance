@@ -48,7 +48,7 @@ Appearance-3: アドレスバーと検索バーの統合
 
     // PolicyEngineで設定する
 
-    policies.json:
+    distribution\policies.json:
     "SearchBar": "separate",
 
     GPO:
@@ -70,7 +70,7 @@ Appearance-5: 初期状態でのブックマークツールバーの表示
 
     :1: 表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisplayBookmarksToolbar": true,
 
     GPO:
@@ -85,7 +85,7 @@ Appearance-6: 初期状態でのメニューバーの表示
 
     :1: 表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisplayMenuBar": "default-on",
 
     GPO:
@@ -104,7 +104,7 @@ Appearance-7: アプリケーションのUIに使用する言語
 
     :2: 任意の言語（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "RequestedLocales": [
       "en-US",
       "ja",
@@ -123,7 +123,7 @@ Appearance-8: ヘルプメニュー配下に登録する独自のサポートペ
 
     :2: 表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SupportMenu": {
       "Title":     "タイトル",
       "URL":       "https://example.com/",
@@ -164,7 +164,7 @@ Appearance-11: 「新着情報」の通知の表示
 
     :2: 表示しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "UserMessaging": {
       "WhatsNew": false,
       "Locked": true

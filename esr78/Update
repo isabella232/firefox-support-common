@@ -18,7 +18,7 @@ Update-1: Firefoxの自動更新の可否
 
     :4: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableAppUpdate": true,
 
     GPO:
@@ -39,7 +39,7 @@ Update-2: アドオンの自動更新の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "ExtensionUpdate": false,
 
     GPO:
@@ -58,7 +58,7 @@ Update-3: 検索エンジンの自動更新の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Preferences": {
       "browser.search.update": false
     },
@@ -101,7 +101,7 @@ Update-6: システムアドオンの自動更新の可否
 
     :2: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableSystemAddonUpdate": true,
 
     GPO:
@@ -116,7 +116,7 @@ Update-7: アプリケーションの自動更新情報取得先
 
     :2: 任意のサーバー（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "AppUpdateURL": "（URL）",
 
     GPO:

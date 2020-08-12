@@ -20,7 +20,7 @@ Network-2: プロキシの利用
 
     :6: 利用しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Proxy": {
       "Mode": "none",
       "Locked": true
@@ -39,7 +39,7 @@ Network-2: プロキシの利用
 
     :7: 固定のプロキシを利用する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Proxy": {
       "Mode": "manual",
       "HTTPProxy": "（ホスト名）:（ポート番号）",
@@ -70,7 +70,7 @@ Network-2: プロキシの利用
 
     :8: プロキシ自動設定スクリプトを利用する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Proxy": {
       "Mode": "autoConfig",
       "AutoConfigURL": "（ファイルのURL）",
@@ -87,7 +87,7 @@ Network-2: プロキシの利用
 
     :9: WPADでネットワークのプロキシ設定を自動検出する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Proxy": {
       "Mode": "autoDetect",
       "Locked": true
@@ -103,7 +103,7 @@ Network-2: プロキシの利用
 
     :10: システムの設定を利用する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Proxy": {
       "Mode": "system",
       "Locked": true
@@ -137,7 +137,7 @@ Network-4: NTLM認証によるシングルサインオンの許可
     // Delegated: network.negotiate-auth.delegation-uris
     // NTLM: network.automatic-ntlm-auth.trusted-uris
 
-    policies.json:
+    distribution\policies.json:
     "Authentication": {
       "SPNEGO": ["https://example.com/"],
       "Delegated": ["https://example.com/"],
@@ -250,7 +250,7 @@ Network-13: TLS 1.3の使用
 
     :4: 許可する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SSLVersionMax": "tls1.3",
 
     GPO:
@@ -259,7 +259,7 @@ Network-13: TLS 1.3の使用
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SSLVersionMax": "tls1.2", // "tls1", "tls1.1", "tls1.2" のいずれか
 
     GPO:
@@ -310,7 +310,7 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
     // AllowNonFQDN.SPNEGO: network.negotiate-auth.allow-non-fqdn
     // AllowNonFQDN.NTLM: network.automatic-ntlm-auth.allow-non-fqdn
 
-    policies.json:
+    distribution\policies.json:
     "Authentication": {
       ...
       "AllowNonFQDN": {
@@ -327,7 +327,7 @@ Network-17: 脆弱なバージョンのTLSの使用
 
     :1: TLS 1.0/1.1の使用を許可する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SSLVersionMin": "tls1",
 
     GPO:
@@ -336,7 +336,7 @@ Network-17: 脆弱なバージョンのTLSの使用
 
     :2: 特定バージョン以上のTLSの使用を強制（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SSLVersionMin": "tls1.1", // "tls1", "tls1.1", "tls1.2", "tls1.3" のいずれか
 
     GPO:

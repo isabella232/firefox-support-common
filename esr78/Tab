@@ -82,7 +82,7 @@ Tab-5: 新しいタブの内容
 
     :4: アドオンを使わず空白ページを表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "NewTabPage": false,
 
     GPO:
@@ -161,7 +161,7 @@ Tab-10: 検索バーの表示
 
     :4: 常に表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Search": true,
       "Locked": true
@@ -178,7 +178,7 @@ Tab-10: 検索バーの表示
 
     :5: 常に非表示にする（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Search": false,
       "Locked": true
@@ -207,7 +207,7 @@ Tab-11: トップサイトの表示
 
     :5: 常に表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "TopSites": true,
       "Locked": true
@@ -224,7 +224,7 @@ Tab-11: トップサイトの表示
 
     :6: 常に非表示にする（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "TopSites": false,
       "Locked": true
@@ -265,7 +265,7 @@ Tab-12: ハイライトの表示
 
     :4: 常に表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Highlights": true,
       "Locked": true
@@ -282,7 +282,7 @@ Tab-12: ハイライトの表示
 
     :5: 常に非表示にする（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Highlights": false,
       "Locked": true
@@ -305,7 +305,7 @@ Tab-13: スニペットの表示
 
     :4: 常に表示する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Snippets": true,
       "Locked": true
@@ -322,7 +322,7 @@ Tab-13: スニペットの表示
 
     :5: 常に非表示にする（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Snippets": false,
       "Locked": true
@@ -346,7 +346,7 @@ Tab-14: インポートボタンの表示
 
     新規タブの画面にはボタンが存在しなくなっているが、「ブラウジングライブラリー」からのインポート操作には影響する。
 
-    policies.json:
+    distribution\policies.json:
     "DisableProfileImport": true,
 
     GPO:
@@ -416,7 +416,7 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
 
     :2: 表示しない（ポリシー＋MCDで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FirefoxHome": {
       "Pocket": false,
       "Locked": true

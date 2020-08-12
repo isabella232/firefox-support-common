@@ -37,7 +37,7 @@ Startup-2: 起動時のホームページの指定
 
     :5: 管理者が指定し、変更を許可（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Homepage": {
       "URL": "http://example.com",
       "Locked": false,
@@ -55,7 +55,7 @@ Startup-2: 起動時のホームページの指定
 
     :4: 管理者が指定し、変更を禁止（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Homepage": {
       "URL": "http://example.com",
       "Locked": true,
@@ -73,7 +73,7 @@ Startup-2: 起動時のホームページの指定
 
     :6: 前回の状態を常に復元（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Homepage": {
       "StartPage": "previous-session",
       "Locked": true
@@ -96,7 +96,7 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
 
     :3: 確認しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DontCheckDefaultBrowser": true,
 
     GPO:
@@ -116,7 +116,7 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "OverridePostUpdatePage": "",
 
     GPO:
@@ -137,7 +137,7 @@ Startup-5: 初期状態のブックマーク
 
     :4: 空にする（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "NoDefaultBookmarks": true,
 
     GPO:
@@ -148,7 +148,7 @@ Startup-5: 初期状態のブックマーク
 
     // ブックマークのアップデートは起動ごとに行われる。
     // JSONの定義から削除したサイトは次回起動時に自動的に削除される。
-    policies.json:
+    distribution\policies.json:
     "Bookmarks": [
       {
         "Title": "Clear Code",
@@ -186,7 +186,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     :3: リセットを提案せず、about:supportやサポートページ等からのユーザーの任意操作でのリセットも禁止（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableProfileRefresh": true,
 
     GPO:
@@ -246,7 +246,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
 
     :3: 表示しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "OverrideFirstRunPage": "",
 
     GPO:

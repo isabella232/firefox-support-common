@@ -37,7 +37,7 @@ Privacy-1: 履歴の保存の可否
 
     :6: 終了時に消去する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SanitizeOnShutdown": true,
 
     GPO:
@@ -56,7 +56,7 @@ Privacy-2: フォームの入力履歴の保存の可否（Webページ上のフ
 
     :3: 保存しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableFormHistory": true,
 
     GPO:
@@ -109,7 +109,7 @@ Privacy-4: アドレスバーの入力履歴の表示の可否
     :3: 表示しない（ポリシーで設定）
 
     （履歴を表示しないだけで、格納は行われる）
-    policies.json:
+    distribution\policies.json:
     "Preferences": {
       "browser.urlbar.suggest.openpage": false,
       "browser.urlbar.suggest.history": false,
@@ -135,7 +135,7 @@ Privacy-5: パスワードの保存の可否
 
     :4: 保存しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "OfferToSaveLogins": false,
 
     GPO:
@@ -144,7 +144,7 @@ Privacy-5: パスワードの保存の可否
 
     :3: 保存せず、マスターパスワードも使用しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableMasterPasswordCreation": true,
     "OfferToSaveLogins": false,
 
@@ -197,7 +197,7 @@ Privacy-9: 日数ベースでの履歴の自動削除
 
     Flexible Expire History by Daysを使用し、Managed Storageで「days」「frequency」の既定値を指定する。
     
-    policies.json:
+    distribution\policies.json:
     "3rdparty": {
       "Extensions": {
         "flexible-expire-history-by-days@clear-code.com": {
@@ -246,7 +246,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :1: 永続的に許可する（既定）
 
-    policies.json:
+    distribution\policies.json:
     "Cookies": {
       "Default": true,
       "Locked": true
@@ -267,7 +267,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :6: 既定では禁止し、特定サイトのみ永続的に許可する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Cookies": {
       "Default": false,
       "Locked": true,
@@ -282,7 +282,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :3: セッション中のみ許可する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Cookies": {
       "Default": true,
       "ExpireAtSessionEnd": true,
@@ -297,7 +297,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :4: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Cookies": {
       "Default": false,
       "Locked": true
@@ -310,7 +310,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
 
     :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Cookies": {
       "Default": true,
       "Locked": true,
@@ -385,7 +385,7 @@ Privacy-14: 位置情報の利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Permissions": {
       "Location": {
         "Allow": ["https://www.example.com", ... ],
@@ -400,7 +400,7 @@ Privacy-14: 位置情報の利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Preferences": {
       "geo.enabled": false
     },
@@ -443,7 +443,7 @@ Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "SearchSuggestEnabled": false,
 
     GPO:
@@ -469,7 +469,7 @@ Privacy-18: 利用状況の統計の保存および送信の可否
     :3: 禁止する（ポリシーで設定）
 
     // Privacy-52 よりも優先される
-    policies.json:
+    distribution\policies.json:
     "DisableTelemetry": true,
 
     GPO:
@@ -552,7 +552,7 @@ Privacy-22: Firefox Syncの利用の可否
 
     :2: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableFirefoxAccounts": true,
 
     GPO:
@@ -608,7 +608,7 @@ Privacy-24: Firefoxアカウントの利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableFirefoxAccounts": true,
 
     GPO:
@@ -633,7 +633,7 @@ Privacy-26: 「忘れる」ボタンの利用の可否
 
     :2: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisableForgetButton": true,
 
     GPO:
@@ -654,7 +654,7 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "DisablePocket": true,
 
     GPO:
@@ -748,7 +748,7 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :4: ブロックリストを取得して、トラッキングを常に遮断する（ポリシー設定を併用）
 
-    policies.json:
+    distribution\policies.json:
     "EnableTrackingProtection": {
       "Value": true,
       "Locked": true
@@ -783,7 +783,7 @@ Privacy-33: Webサービスによる行動履歴の収集（トラッキング�
 
     :5: ブロックリストを取得せず、トラッキングを遮断しない（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "EnableTrackingProtection": {
       "Value": false,
       "Locked": true
@@ -892,7 +892,7 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
 
     :2: 参加しない
 
-    policies.json:
+    distribution\policies.json:
     "DisableFirefoxStudies": true
 
     GPO:
@@ -978,7 +978,7 @@ Privacy-46: カメラの利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Permissions": {
       "Camera": {
         "Allow": ["https://www.example.com", ... ],
@@ -1020,7 +1020,7 @@ Privacy-47: マイクの利用の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Permissions": {
       "Microphone": {
         "Allow": ["https://www.example.com", ... ],

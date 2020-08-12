@@ -72,7 +72,7 @@ Admin-5: ポリシー設定の使用の可否
     MCD:
     lockPref("browser.policies.loglevel", "debug");
 
-    policies.json:
+    distribution\policies.json:
     { "policies": { … } }
 
     :2: 使用しない

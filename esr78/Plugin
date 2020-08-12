@@ -34,7 +34,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :4: 常に無効化する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FlashPlugin": {
       "Default": false,
       "Locked": true
@@ -55,7 +55,7 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :3: クリックされたら有効にする（既定）（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "FlashPlugin": {
       "Default": true,
       "Locked": true

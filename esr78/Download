@@ -55,7 +55,7 @@ Download-2: ファイルの既定のダウンロード先
 
     // ホームディレクトリを指すプレースホルダとして ${home} を使用可能
 
-    policies.json:
+    distribution\policies.json:
     "DefaultDownloadDirectory": "（ディレクトリのパス）",
 
     GPO:
@@ -66,7 +66,7 @@ Download-2: ファイルの既定のダウンロード先
 
     // ホームディレクトリを指すプレースホルダとして ${home} を使用可能
 
-    policies.json:
+    distribution\policies.json:
     "DownloadDirectory": "（ディレクトリのパス）",
 
     GPO:
@@ -99,7 +99,7 @@ Download-3: ファイルのダウンロード先ディレクトリの制御
 
     :4: ダウンロード先を固定せず、常にユーザに選択させる（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "PromptForDownloadLocation": true,
 
     GPO:

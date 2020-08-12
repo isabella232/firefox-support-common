@@ -11,7 +11,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :4: 有効化する（安定性より描画性能を優先する：ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "HardwareAcceleration": true,
 
     GPO:
@@ -25,7 +25,7 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
 
     :3: 無効化する（描画性能より安定性を優先する：ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "HardwareAcceleration": false,
 
     GPO:

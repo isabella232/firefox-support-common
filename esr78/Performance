@@ -46,7 +46,7 @@ Performance-4: パフォーマンスに悪影響を与えうるアクセシビ�
 
     :3: パフォーマンスを優先して無効化する（ポリシーで設定）
 
-    policies.json:
+    distribution\policies.json:
     "Preferences": {
       "accessibility.force_disabled": 1
     },
@@ -125,7 +125,7 @@ Performance-6: 同時に開けるタブの個数を制限する
     TargetLocation=%AppDir%/browser/extensions
     Unpack=false
     
-    policies.json
+    distribution\policies.json:
     "3rdparty": {
       "Extensions": {
         "lean-tab-limiter-advanced@clear-code.com": {
