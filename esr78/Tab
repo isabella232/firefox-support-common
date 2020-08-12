@@ -82,7 +82,12 @@ Tab-5: 新しいタブの内容
 
     :4: アドオンを使わず空白ページを表示する（ポリシーで設定）
 
+    policies.json:
     "NewTabPage": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「New Tab Page」を無効化
 
     :5: スポンサーコンテンツを非表示にする
 
@@ -156,10 +161,15 @@ Tab-10: 検索バーの表示
 
     :4: 常に表示する（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Search": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Search」と「Don't allow settings to be changed」のチェックをONにする
 
     :3: 常に非表示にする
 
@@ -168,10 +178,15 @@ Tab-10: 検索バーの表示
 
     :5: 常に非表示にする（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Search": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Search」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
 
 Tab-11: トップサイトの表示
 
@@ -192,10 +207,15 @@ Tab-11: トップサイトの表示
 
     :5: 常に表示する（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "TopSites": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Top Sites」と「Don't allow settings to be changed」のチェックをONにする
 
     :4: 常に非表示にする
 
@@ -204,10 +224,15 @@ Tab-11: トップサイトの表示
 
     :6: 常に非表示にする（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "TopSites": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Top Sites」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
 
     :7: 初期状態で特定の行数で表示するが、表示・非表示や行数の変更を許容する
 
@@ -240,10 +265,15 @@ Tab-12: ハイライトの表示
 
     :4: 常に表示する（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Highlights": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Download History」と「Don't allow settings to be changed」のチェックをONにする
 
     :3: 常に非表示にする
 
@@ -252,10 +282,15 @@ Tab-12: ハイライトの表示
 
     :5: 常に非表示にする（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Highlights": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Download History」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
 
 Tab-13: スニペットの表示
 
@@ -270,10 +305,15 @@ Tab-13: スニペットの表示
 
     :4: 常に表示する（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Snippets": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Snippets」と「Don't allow settings to be changed」のチェックをONにする
 
     :3: 常に非表示にする
 
@@ -282,10 +322,15 @@ Tab-13: スニペットの表示
 
     :5: 常に非表示にする（ポリシーで設定）
 
+    policies.json:
     "FirefoxHome": {
       "Snippets": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Snippets」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
 
 Tab-14: インポートボタンの表示
 
@@ -300,7 +345,13 @@ Tab-14: インポートボタンの表示
     :3: 表示しない（ポリシーで設定）
 
     新規タブの画面にはボタンが存在しなくなっているが、「ブラウジングライブラリー」からのインポート操作には影響する。
+
+    policies.json:
     "DisableProfileImport": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Profile Import」を有効化する
 
 Tab-15: [廃止] 新機能のツアーの表示
 
@@ -370,6 +421,10 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
       "Pocket": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Recommended by Pocket」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
 
     MCD:
     lockPref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);

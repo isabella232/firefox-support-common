@@ -34,10 +34,16 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :4: 常に無効化する（ポリシーで設定）
 
+    policies.json:
     "FlashPlugin": {
       "Default": false,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Flash」
+    → 「Activate Flash on websites」を無効化
+    →「Do not allow preferences to be changed」を有効化
 
     :2: [廃止] 常に有効化する
 
@@ -49,10 +55,16 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     :3: クリックされたら有効にする（既定）（ポリシーで設定）
 
+    policies.json:
     "FlashPlugin": {
       "Default": true,
       "Locked": true
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Flash」
+    → 「Activate Flash on websites」を有効化
+    →「Do not allow preferences to be changed」を有効化
 
     サイト別の初期状態のみを設定する場合:
     default.permissions:

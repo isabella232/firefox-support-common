@@ -15,7 +15,12 @@ Ui-1: Firefox組み込みのPDFビューアの使用可否
 
     :3: 禁止する（ポリシーで設定）
 
+    policies.json:
     "DisableBuiltinPDFViewer": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Built-in PDF Viewer (PDF.js)」を有効化
 
 Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
@@ -79,7 +84,12 @@ Ui-7: FirefoxScreenshots機能の使用
 
     :3: 使用しない（ポリシーで設定）
 
+    policies.json:
     "DisableFirefoxScreenshots": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Firefox Screenshots」を有効化
 
 Ui-8: [廃止] アドレスバーの拡大・縮小ボタンの表示
 

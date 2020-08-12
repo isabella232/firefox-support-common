@@ -42,12 +42,18 @@ Script-2: プッシュ通知の可否
 
     :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
 
+    policies.json:
     "Permissions": {
       "Notifications": {
         "Allow": ["https://www.example.com", ... ],
         "Block": ["https://www.example.com", ... ]
       }
     },
+
+    GPO:
+    カテゴリ「Firefox」→「Permissions」→「Notifications」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+    → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
     :3: 禁止する（ESR版・既定）
 
