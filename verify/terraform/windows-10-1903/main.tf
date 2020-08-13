@@ -250,10 +250,12 @@ resource "local_file" "playbook" {
         path: C:\temp
         state: directory
     - name: Download language pack file
+      when: not "${var.windows-language-pack-url}" == ""
       win_get_url:
         url: "${var.windows-language-pack-url}"
         dest: 'c:\temp\lp.cab'
     - name: Install language pack
+      when: not "${var.windows-language-pack-url}" == ""
       win_shell: |
         $LpTemp = "c:\temp\lp.cab"
         Add-WindowsPackage -PackagePath $LpTemp -Online
@@ -262,6 +264,7 @@ resource "local_file" "playbook" {
         Set-WinLanguageBarOption -UseLegacySwitchMode -UseLegacyLanguageBar
         Remove-Item $LpTemp -Force
     - win_reboot:
+      when: not "${var.windows-language-pack-url}" == ""
     - win_timezone:
         timezone: Tokyo Standard Time
     - name: Set location
@@ -361,18 +364,21 @@ resource "local_file" "playbook" {
       win_regmerge:
         path: 'C:\Users\Public\testcases\add-badssl-com-enterprise-root.reg'
     - name: Download Flash installer
+      when: not "${var.flash-installer-url}" == ""
       win_get_url:
         url: "${var.flash-installer-url}"
         dest: 'C:\Users\Public\flash_installer.exe'
-#    - name: Download HookDate to override system time for Firefox
-#      win_get_url:
-#        url: "${var.hookdate-download-url}"
-#        dest: 'C:\Users\Public\hookdate.zip'
-#    - name: Extract contents
-#      win_unzip:
-#        src: 'C:\Users\Public\hookdate.zip'
-#        dest: 'c:\Users\Public'
-#        delete_archive: yes
+    - name: Download HookDate to override system time for Firefox
+      when: not "${var.hookdate-download-url}" == ""
+      win_get_url:
+        url: "${var.hookdate-download-url}"
+        dest: 'C:\Users\Public\hookdate.zip'
+    - name: Extract contents
+      when: not "${var.hookdate-download-url}" == ""
+      win_unzip:
+        src: 'C:\Users\Public\hookdate.zip'
+        dest: 'c:\Users\Public'
+        delete_archive: yes
     - name: Create shortcut to Program Files
       win_shortcut:
         src: '%ProgramFiles%'
