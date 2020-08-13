@@ -8,7 +8,10 @@ SHELL=/bin/bash
 
 all: apply
 
-apply:
+terraform.tfvars:
+	cat terraform.tfvars.template | sed -e "s/%password%/$$(pwgen -y 20 1)/i" > terraform.tfvars
+
+apply: terraform.tfvars
 	terraform init
 	terraform plan
 	time (terraform apply -auto-approve && sleep 10 && ansible-playbook -i ansible/hosts ansible/playbook.yml)
@@ -18,3 +21,7 @@ apply-playbook:
 
 destroy:
 	terraform destroy -auto-approve
+
+clean:
+	rm -rf terraform.tfvars .terraform terraform.tfstate terraform.tfstate.backup
+
