@@ -20,10 +20,6 @@ PRETEXT-1: 前提条件
         - `{{desktop_shortcut_path}}` {%if desktop_shortcut_path_32bit %} （32bit環境では `{{desktop_shortcut_path_32bit}}`）{% endif %}
     - スタートメニューのショートカットは次のパスに作成する。
         - `{{start_menu_shortcut_path}}` {%if start_menu_shortcut_path_32bit %} （32bit環境では `{{start_menu_shortcut_path_32bit}}`）{% endif %}
-    - 検証環境が新規に用意した環境である場合、検証環境のWindowsは以下の状態を整えておく。
-        - ワークグループ名： `ワークグループ`（日本語名）
-        - ローカル管理者アカウント： `管理者`（日本語名、パスワードは `administrator`）
-        - ローカル一般アカウント： `ユーザー`（日本語名、パスワードは `user`）（検証作業で主に使用するログオンユーザー）
 
     :3: 検証の準備
     - 検証環境からインターネット上のWebサイトに接続できる状態にしておく。
