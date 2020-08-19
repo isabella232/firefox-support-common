@@ -21,15 +21,21 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     :3: Windowsの証明書データベースから自動的にインポートする
 
     - インポートされることが期待される認証局証明書がWindowsの証明書データベースに含まれる状態にする。
-      例えば、管理者権限でコマンドプロンプトを開き、 \
-      `reg import path\to\add-badssl-com-enterprise-root.reg` \
-      のようにして、テストケースの `add-badssl-com-enterprise-root.reg` を使用して「BadSSL.com」の認証局証明書をインポート済みの状態にする。
+        - コマンドプロンプトで登録する場合
+            - 管理者権限でcmd.exeを起動し、テストケースのフォルダで `reg import add-badssl-com-enterprise-root.reg` を実行する。
+        - 「mmc.exe」で登録する場合
+            - 管理者権限で「mmc.exe」を実行し、「ファイル > スナップインの追加と削除」を選ぶ。
+            - 「証明書 > コンピューターアカウント > ローカル コンピューター」を順番に選択する。
+            - 「コンソール ルート > 証明書（ローカル コンピューター）」を開き、メニューから「すべてのタスク > インポート」を選択する。
+            - テストケースの「BadSSLUntrustedRootCertificateAuthority.crt」を選択し、信頼されたルート証明機関に配置する。
     - Firefoxを起動する。
     - インポートされる事が期待される認証局証明書に対応する認証局で発行された証明書を使用したWebサイトを開く。
-      例えば、`https://untrusted-root.badssl.com/` を訪問する。
+        - 上記の手順でインポートした場合は `https://untrusted-root.badssl.com/` を開く。
     - **確認**
         - 証明書のエラーが表示されず、Webサイトの内容をそのまま閲覧できる。
-    - テストケースの `add-badssl-com-enterprise-root.reg` を使用した場合、テストケースの `remove-badssl-com-enterprise-root.reg` を使用して「BadSSL.com」の認証局証明書を削除する。
+    - 検証用に登録した証明書を削除する。
+        - コマンドプロンプトで登録した場合は `reg import remove-badssl-com-enterprise-root.reg` を実行する。
+        - 「mmc.exe」で登録した場合は、右クリックメニューから削除する。
 
     :4: 導入する（ポリシーで設定）
 
