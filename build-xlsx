@@ -87,6 +87,9 @@ def is_deprecated(x):
 def count_options(conf):
     return sum(len(item['opts']) for item in conf)
 
+def sanitize_conf(conf):
+    return re.sub(' *[^:]+:\n', '', conf).strip()
+
 def create_formats(wb):
     def new_format(**kwargs):
         return wb.add_format(dict(DEFAULT_FORMAT, **kwargs))
@@ -188,11 +191,11 @@ def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
                         chapter = chapters.get(opt_id, '省略')
                         if opt_id not in conf_prev:
                             fmt, status = formats['selected_changed'], '新規'
-                        elif conf_prev_conf != conf_curr_conf:
+                        elif sanitize_conf(conf_prev_conf) != sanitize_conf(conf_curr_conf):
                             fmt, status = formats['selected_changed'], '変更あり'
                         else:
                             fmt, status = formats['selected'], ''
-                    elif opt['conf'].strip() != prev_conf:
+                    elif sanitize_conf(opt['conf'].strip()) != sanitize_conf(prev_conf):
                         if prev_conf == '':
                             fmt, status = formats['changed'], '新規（未設定）'
                         else:
