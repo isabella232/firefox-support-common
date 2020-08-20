@@ -402,7 +402,7 @@ resource "local_file" "playbook" {
 #    - name: Add popup blocker exception hosts for Security-4-5 and Security-4-6
 #      win_hosts:
 #        state: present
-#        canonical_name: hostname
+#        canonical_name: hostname.example.com
 #        ip_address: '93.184.216.34'
 EOL
 }
