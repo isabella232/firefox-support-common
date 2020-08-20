@@ -6,9 +6,10 @@ Addon-IEView-0: IE View WEの検証
 
    :1: 事前準備
 
-    - 前項に引き続き検証するか、または以下の状態を整えておく。
+    - 前項に引き続いて検証するか、{%if use_meta_installer %}または以下の状態を整えておく。
         - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
-          管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    {% else %}再ログオン、インストーラの手動実行など、所定の手順でFirefoxのインストール及びカスタマイズを反映済みの状態とする。{% endif %}
     - IE View WE用のNative Messaging Host（インストール対象のIE View WEの版に対応する版）を以下のURLのテストケースリストのリンク先からダウンロードし、インストールしておく。 \
       `https://github.com/clear-code/ieview-we/releases` \
       （最新の `ieview-we-host.zip` をダウンロードし、展開して `install.bat` を実行する。）

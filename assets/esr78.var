@@ -5,6 +5,7 @@
 firefox_version:                78.0 ESR
 windows_version:                Windows 7 および Windows 10
 configuration_sheet_name:       configs.xlsx
+use_meta_installer:             true
 meta_installer_name:            DemoFxMetaInstaller
 meta_installer_file_name:       DemoFxMetaInstaller
 meta_installer_version:         78.0
