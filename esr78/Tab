@@ -459,3 +459,15 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
     *.cfg / *.jsc:
     lockPref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 
+Tab-20: 新規タブに「Firefoxにようこそ」メッセージを表示するかどうか
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    // Firefox ESR78.1.0以降は、Privacy-22-2 または Privacy-24-3 選択時には常にこの動作となる
+    *.cfg / *.jsc:
+    lockPref("trailhead.firstrun.branches", "nofirstrun-empty");
+
