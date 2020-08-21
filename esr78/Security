@@ -158,6 +158,7 @@ Security-4: 広告などのポップアップの表示の可否
 
     :3: すべて確認無しで許可する
 
+    *.cfg / *.jsc:
     lockPref("dom.disable_open_during_load", false);
 
     :7: すべて確認無しで許可する（ポリシーで設定）
