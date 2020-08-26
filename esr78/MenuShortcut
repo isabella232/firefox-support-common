@@ -18,7 +18,12 @@ MenuShortcut-3: ファイル＞新しいプライベートウィンドウを開�
 
     :1: 無効化する
 
+    distribution\policies.json:
     "DisablePrivateBrowsing": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Disable Private Browsing」を有効化
 
 MenuShortcut-4: [廃止] ファイル＞ページのURLをメールで送信（ページのURLをメールで送信ボタン）
 

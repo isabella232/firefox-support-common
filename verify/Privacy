@@ -658,9 +658,10 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     :3: 禁止する（ポリシーで設定）
 
-    OPTIONS
+    ABOUT_POLICIES
 
-    - 「プライバシーとセキュリティ」→「Firefoxが技術的な対話データをMozillaへ送信することを許可する」のチェックが外れている。
+    - `DisableDefaultBrowserAgent` の値が `true` である。
+    - `DisableTelemetry` の値が `true` である。
 
 Privacy-19: セキュリティエラーレポートの送信の可否
 

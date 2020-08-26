@@ -494,10 +494,12 @@ Privacy-18: 利用状況の統計の保存および送信の可否
 
     // Privacy-52 よりも優先される
     distribution\policies.json:
+    "DisableDefaultBrowserAgent": true,
     "DisableTelemetry": true,
 
     GPO:
     カテゴリ「Firefox」
+    → 「Disable the default browser agent.」を有効化
     → 「Disable Telemetry」を有効化
 
 Privacy-19: セキュリティエラーレポートの送信の可否
