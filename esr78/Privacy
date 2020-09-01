@@ -146,21 +146,25 @@ Privacy-5: パスワードの保存の可否
 
     distribution\policies.json:
     "OfferToSaveLogins": false,
+    "PasswordManagerEnabled": false,
 
     GPO:
     カテゴリ「Firefox」
     → 「Offer to save logins」を無効化
+    → 「Password Manager」を無効化
 
     :3: 保存せず、マスターパスワードも使用しない（ポリシーで設定）
 
     distribution\policies.json:
     "DisableMasterPasswordCreation": true,
     "OfferToSaveLogins": false,
+    "PasswordManagerEnabled": false,
 
     GPO:
     カテゴリ「Firefox」
     → 「Disable Master Password Creation」を有効化
     → 「Offer to save logins」を無効化
+    → 「Password Manager」を無効化
 
 Privacy-6: [廃止] Webアプリのオフラインキャッシュの利用の可否
 
