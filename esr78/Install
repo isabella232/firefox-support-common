@@ -163,7 +163,7 @@ Install-12: メタインストーラ自身による管理者権限の確認
     :3: 特定のフォルダで書き込み可否を判断する
 
     fainstall.ini:
-    [Install]
+    [fainstall]
     AdminPrivilegeCheckDirectory=C:\Program Files (x86)\
 
 Install-13: インストール前のクリーンアップ処理
