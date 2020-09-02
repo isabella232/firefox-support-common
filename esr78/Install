@@ -156,13 +156,13 @@ Install-12: メタインストーラ自身による管理者権限の確認
 
     :2: 確認しない
 
-    Firefox-setup.ini/Thunderbird-setup.ini:
+    fainstall.ini:
     [Install]
     RequireAdminPrivilege=false
 
     :3: 特定のフォルダで書き込み可否を判断する
 
-    Firefox-setup.ini/Thunderbird-setup.ini:
+    fainstall.ini:
     [Install]
     AdminPrivilegeCheckDirectory=C:\Program Files (x86)\
 
