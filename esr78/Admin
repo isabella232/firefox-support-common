@@ -83,3 +83,41 @@ Admin-5: ポリシー設定の使用の可否
 
     -
 
+Admin-6: ユーザーが導入済みのアドオンの取り扱い
+
+    :1: そのまま使用を許可（既定）
+
+    -
+
+    :2: 使用を許可するアドオン以外すべて削除する
+
+    distribution\policies.json:
+    "ExtensionSettings": {
+      "*": {
+        "installation_mode": "blocked"
+      }
+    }
+
+    GPO:
+    カテゴリ「Firefox」→「Extensions」
+    → 「Extension Management」を有効化し、「オプション」欄に、policies.jsonにおいて"ExtensionSettings"の値となるJSON文字列を記述
+
+Admin-7: アドオンのインストール
+
+    :1: アドオンをインストールしない（既定）
+
+    -
+
+    :2: アドオンを強制的にインストールする
+
+    distribution\policies.json:
+    "ExtensionSettings": {
+      "to-be-installed@example.com": {
+        "installation_mode": "force_installed",
+        "install_url": "file:///..."
+      }
+    }
+
+    GPO:
+    カテゴリ「Firefox」→「Extensions」
+    → 「Extension Management」を有効化し、「オプション」欄に、policies.jsonにおいて"ExtensionSettings"の値となるJSON文字列を記述
