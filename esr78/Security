@@ -939,7 +939,8 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
     },
 
     GPO:
-    対応する設定無し
+    カテゴリ「Firefox」→「Extensions」
+    → 「Extension Management」を有効化し、「オプション」欄に、policies.jsonにおいて"ExtensionSettings"の値となるJSON文字列を記述
 
 Security-41: 複数のポップアップを一度に開く操作
 
