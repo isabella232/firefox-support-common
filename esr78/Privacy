@@ -948,7 +948,7 @@ Privacy-42: Firefoxの新機能のテストへの参加の可否
     :2: 参加しない
 
     distribution\policies.json:
-    "DisableFirefoxStudies": true
+    "DisableFirefoxStudies": true,
 
     GPO:
     カテゴリ「Firefox」
