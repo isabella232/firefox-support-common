@@ -551,7 +551,7 @@ Privacy-21: クラッシュレポートの送信の可否
     [fainstall]
     AppEnableCrashReport=false
 
-    MCD:
+    *.cfg / *.jsc:
     lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
     lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
 
