@@ -47,3 +47,21 @@ Location-3: アドレスバーへのURL以外の入力の取り扱い
     カテゴリ「Firefox」→「Preferences」
     → 「browser.fixup.dns_first_for_single_words」を有効化
 
+Location-4: Firefox Solution ボタンを含む、アドレスバー候補内へのヒントの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない（ポリシーで設定）
+
+    distribution\policies.json:
+    "UserMessaging": {
+      "UrlbarInterventions": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「User Messaging」
+    → 「Urlbar Interventions」を無効化（設定値の固定は不可能）
+

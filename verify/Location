@@ -71,3 +71,17 @@ Location-3: アドレスバーへのURL以外の入力の取り扱い
 
     - `browser.fixup.dns_first_for_single_words` が `true` である。
 
+Location-4: Firefox Solution ボタンを含む、アドレスバー候補内へのヒントの表示
+
+    :1: 表示する（既定）
+
+    ABOUT_POLICIES
+
+    - `UserMessaging` 配下に `UrlbarInterventions` が存在しない。
+
+    :2: 表示しない（ポリシーで設定）
+
+    ABOUT_POLICIES
+
+    - `UserMessaging` 配下の `UrlbarInterventions` が `false` である。
+
