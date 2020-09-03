@@ -174,10 +174,14 @@ Install-13: インストール前のクリーンアップ処理
 
     :2: 旧バージョンのFirefoxを強制的に削除する
 
+    fainstall.ini:
+    [fainstall]
     AppCleanupDirs=%ProgramFiles32%/Mozilla Firefox|%ProgramFiles64%/Mozilla Firefox
 
     :3: 特定のフォルダを消去してから同梱のアプリケーションをインストールする
 
+    fainstall.ini:
+    [fainstall]
     AppCleanupDirs=（消去したいフォルダのパス）
 
 Install-14: Internet Explorerのコンテキストメニューにコマンドを追加登録する
