@@ -1005,13 +1005,12 @@ Security-45: 証明書の例外の自動承認
         observe(aSubject, aTopic, aData) {
           switch (aTopic) {
             case 'domwindowopened':
-              if (!aSubject.QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIWebNavigation)
+              if (!aSubject.getInterface(Ci.nsIWebNavigation)
                            .QueryInterface(Ci.nsIDocShell)
                            .QueryInterface(Ci.nsIDocShellTreeNode || Ci.nsIDocShellTreeItem) // nsIDocShellTreeNode is merged to nsIDocShellTreeItem by https://bugzilla.mozilla.org/show_bug.cgi?id=331376
                            .QueryInterface(Ci.nsIDocShellTreeItem)
                            .parent) {
-                const win = aSubject.QueryInterface(Ci.nsIDOMWindow);
+                const win = aSubject.getInterface(Ci.nsIDOMWindow);
                 win.addEventListener('load', () => tryHandleWindow(win), { once: true });
               }
               return;
@@ -1048,13 +1047,17 @@ Security-45: 証明書の例外の自動承認
     
       let tab;
       const tryHandleWindow = async (win) => {
+        Services.console.logStringMessage(`tryHandleWindow ${win.location.href}`);
         switch (win.location.href.replace(/(\?.*)(#.*)$/, '')) {
-          case 'chrome://browser/content/browser.xul': {
+          case 'chrome://browser/content/browser.xhtml': {
+            Services.console.logStringMessage(` => waiting MozAfterPaint`);
             await new Promise((resolve, reject) => {
               win.addEventListener('MozAfterPaint', resolve, { once: true });
             });
+            Services.console.logStringMessage(` => MozAfterPaint done`);
     
             //win.openNewTabWith(exceptionURL);
+            Services.console.logStringMessage(` => waiting TabAttrModified`);
             await new Promise((resolve, reject) => {
               const listener = (event) => {
                 if (event.detail.changed != 'busy' ||
@@ -1071,8 +1074,10 @@ Security-45: 証明書の例外の自動承認
               };
               win.document.addEventListener('TabAttrModified', listener);
             });
+            Services.console.logStringMessage(` => TabAttrModified done`);
     
             const browser = tab.linkedBrowser;
+            Services.console.logStringMessage(` => try load script`);
             browser.messageManager.loadFrameScript('data:text/javascript,(' + (async (waitUntilEventOrTimeout) => {
               const doc = docShell.QueryInterface(Components.interfaces.nsIWebNavigation).document;
               const win = doc.defaultView;
@@ -1088,7 +1093,8 @@ Security-45: 証明書の例外の自動承認
                 }
               }
               /* failure case */
-            }).toSource() + ')(' + waitUntilEventOrTimeout.toSource() + ')', false, false);
+            }).toString() + ')(' + waitUntilEventOrTimeout.toString() + ')', false, false);
+            Services.console.logStringMessage(` => done`);
           }; break;
         }
       };
