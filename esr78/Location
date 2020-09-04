@@ -65,3 +65,13 @@ Location-4: Firefox Solution ボタンを含む、アドレスバー候補内へ
     カテゴリ「Firefox」→「User Messaging」
     → 「Urlbar Interventions」を無効化（設定値の固定は不可能）
 
+Location-5: アドレスバー候補内にトップサイトを表示する
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    *.cfg / *.jsc
+    lockPref("browser.urlbar.suggest.topsites", false);
