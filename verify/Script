@@ -181,7 +181,7 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
-    - `http://example.com/` を開く。
+    - `https://example.com/` を開く。
     - Ctrl-Shift-KでWebコンソールを開く。
     - `Notification.requestPermission()` と入力し、実行する。
     - **確認**
@@ -196,7 +196,7 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
-    - `http://example.com/` を開く。
+    - `https://example.com/` を開く。
     - Ctrl-Shift-KでWebコンソールを開く。
     - `Notification.requestPermission()` と入力し、実行する。
     - **確認**
