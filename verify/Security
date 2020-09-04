@@ -1069,10 +1069,8 @@ Security-45: 証明書の例外の自動承認
     :1: 特定のホストの証明書の例外を自動的に承認する
 
     - 例外を自動承認するホスト `{{security_45_exception_hosts}}` にアクセスできる状態にしておく。
-      当該ホストにアクセスできない場合、代わりに `expired.badssl.com` の例外を承認するよう設定を修正する。
     - Firefoxを起動する。
-    - 例外を自動承認するホストのページ `https://{{security_45_exception_hosts}}` を開く。 \
-      当該ホストにアクセスできない場合、代わりに `https://expired.badssl.com` を開く。
+    - 例外を自動承認するホストのページ `https://{{security_45_exception_hosts}}` を開く。
     - **確認**
         - 例外が自動的に承認され、ページの内容が表示される。
 
