@@ -74,4 +74,5 @@ Location-5: アドレスバー候補内にトップサイトを表示する
     :2: 表示しない
 
     *.cfg / *.jsc
+    // Security-15-2 で browser.newtabpage.activity-stream.default.sites と browser.newtabpage.pinned を設定した場合も、これと同様の結果となる
     lockPref("browser.urlbar.suggest.topsites", false);
