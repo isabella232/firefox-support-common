@@ -1548,7 +1548,7 @@ Privacy-47: マイクの利用の可否
         - 「マイクへのアクセスの要求をブロック」がチェック済みである。
     - `about:config` を開く。
     - **確認**
-        - `permissions.default.microphone` の値が `4` である。
+        - `permissions.default.microphone` の値が `2` である。
       {%if Security_9_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutConfig` を元に戻す。
       {% endif %}
