@@ -72,7 +72,7 @@ Addon-Acrobat-3: 使用状況の送信の可否
 
     :2: 送信しない
 
-    userContent.css:
+    defaults\chrome\userContent.css:
     input[class="analytics"],
     #web2pdfOptions,
     #web2pdfOptOut,
