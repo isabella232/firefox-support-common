@@ -281,9 +281,14 @@ Appearance-10: ユーザースタイルシートの使用
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
+      {%if Addon_Acrobat_3 %}
+    - `defaults\chrome\userContent.css` に以下の内容を追記する：
+      `*|* { color: red !important }`
+      {% else %}
     - ユーザープロファイルフォルダに `chrome` フォルダを作成する。
-    - `chrome` フォルダ内にテストケースの `userContent.css` を設置する、またはテキストファイル `userContent.css` を以下の内容で作成する：
-      `* { color: red !important }`
+    - `chrome` フォルダ内にテストケースの `userContent.css` を設置する、またはテキストファイル `userContent.css` を以下の内容で作成する（既にファイルがある場合は内容を追記する）：
+      `*|* { color: red !important }`
+      {% endif %}
     - Firefoxを起動する。
     - テストケースの `index.html` を開く。
     - **確認**
@@ -300,9 +305,14 @@ Appearance-10: ユーザースタイルシートの使用
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
+      {%if Addon_Acrobat_3 %}
+    - `defaults\chrome\userContent.css` に以下の内容を追記する：
+      `*|* { color: red !important }`
+      {% else %}
     - ユーザープロファイルフォルダに `chrome` フォルダを作成する。
-    - `chrome` フォルダ内にテストケースの `userContent.css` を設置する、またはテキストファイル `userContent.css` を以下の内容で作成する：
-      `* { color: red !important }`
+    - `chrome` フォルダ内にテストケースの `userContent.css` を設置する、またはテキストファイル `userContent.css` を以下の内容で作成する（既にファイルがある場合は内容を追記する）：
+      `*|* { color: red !important }`
+      {% endif %}
     - Firefoxを起動する。
     - テストケースの `index.html` を開く。
     - **確認**
