@@ -67,6 +67,7 @@ DEFAULT_VAR = {
     "ntlm_single_signon_hosts":       "sso.example.local",
     "weak_tls_allowed_hosts":         "weak.example.local",
     "security_45_exception_hosts":    "example.com",
+    "location_3_hostname_like_term":  "example",
     "max_connections":                       "6",
     "max_persistent_connections_per_server": "2",
     "max_persistent_connections_per_proxy":  "2",
