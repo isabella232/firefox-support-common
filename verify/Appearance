@@ -281,7 +281,7 @@ Appearance-10: ユーザースタイルシートの使用
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
-      {%if Addon_Acrobat_3 %}
+      {%if Addon_Acrobat_3_2 %}
     - `defaults\chrome\userContent.css` に以下の内容を追記する：
       `*|* { color: red !important }`
       {% else %}
@@ -305,7 +305,7 @@ Appearance-10: ユーザースタイルシートの使用
     - Firefoxを起動する。
     - `about:profiles` または `about:support` から、現在のユーザープロファイルフォルダを開く。
     - Firefoxを終了する。
-      {%if Addon_Acrobat_3 %}
+      {%if Addon_Acrobat_3_2 %}
     - `defaults\chrome\userContent.css` に以下の内容を追記する：
       `*|* { color: red !important }`
       {% else %}
