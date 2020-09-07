@@ -558,15 +558,15 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
 
     :1: 表示する（既定）
 
-    OPTIONS
+    ABOUT_POLICIES
 
-    - 「ホーム」→「Firefox Homeコンテンツ」→「ハイライト」→「Pocketに保存されたページ」のチェックが入っている。
+    - `DisablePocket` が存在しないか、値が `false` である。
 
     :2: 表示しない（ポリシー＋MCDで設定）
 
-    OPTIONS
+    ABOUT_POLICIES
 
-    - 「ホーム」→「Firefox Homeコンテンツ」→「ハイライト」→「Pocketに保存されたページ」のチェックが外れている。
+    - `DisablePocket` の値が `true` である。
 
 Tab-20: 新規タブに「Firefoxにようこそ」メッセージを表示するかどうか
 
