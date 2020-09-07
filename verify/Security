@@ -875,7 +875,7 @@ Security-36: DNS over HTTPSの使用
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
-    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
+    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスを開き、ネットワークモニターを選択する。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
@@ -896,7 +896,7 @@ Security-36: DNS over HTTPSの使用
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
-    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
+    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスを開き、ネットワークモニターを選択する。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
@@ -917,7 +917,7 @@ Security-36: DNS over HTTPSの使用
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
     - Firefoxを起動する。
-    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスのネットワークモニターを開く。
+    - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスを開き、ネットワークモニターを選択する。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
