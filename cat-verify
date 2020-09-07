@@ -351,6 +351,9 @@ def create_template(manual, conf, vars):
     vars['DisableSync'] = vars['Privacy_22_2'] or vars['Privacy_22_3']
     vars['not DisableSync'] = not vars['DisableSync']
 
+    vars['NotificationGloballyDisabled'] = vars['Script_2_3'] or vars['Script_2_6']
+    vars['not NotificationGloballyDisabled'] = not vars['NotificationGloballyDisabled']
+
     chapters = {}
     chapter_options = []
     chapter_about_config = []

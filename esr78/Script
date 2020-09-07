@@ -58,12 +58,13 @@ Script-2: プッシュ通知の可否
     → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
     → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
-    :3: 禁止する（ESR版・既定）
+    :3: 禁止する
 
     *.cfg / *.jsc:
     lockPref("dom.push.enabled", false);
     lockPref("dom.serviceWorkers.enabled", false);
     lockPref("dom.push.serverURL", "");
+    lockPref("permissions.default.desktop-notification", 2);
 
     :6: すべてのサイトについて初期状態で確認無しで禁止する（「通知の許可の要求をブロック」にチェック）
 
@@ -151,11 +152,12 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
     :1: 表示する
 
     *.cfg / *.jsc:
+    // Script-2-3, Script-2-5との併用は不可能（これらが反映されている場合は常にScript-9-2選択時の挙動になる）。
     lockPref("dom.webnotifications.requireuserinteraction", false);
 
     :2: 禁止する（既定）
 
-    -
+    // Script-2-3, Script-2-5選択時は常にこの挙動になる。
 
 Script-10: 動画に対するPicture-in-Picture表示の可否
 

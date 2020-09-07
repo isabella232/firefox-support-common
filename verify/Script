@@ -177,6 +177,9 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
 
     :1: 表示する
 
+    {%if NotificationGloballyDisabled %}
+    - プッシュ通知が初期状態で無効化されている状況では、購読を促す通知も抑止されるため、検証を省略する。
+    {%else%}
     {%if DisableDeveloperTools %}
     - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
       {% endif %}
@@ -189,6 +192,7 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
+      {% endif %}
 
     :2: 禁止する（既定）
 
@@ -200,7 +204,7 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
     - Ctrl-Shift-KでWebコンソールを開く。
     - `Notification.requestPermission()` と入力し、実行する。
     - **確認**
-        - コンソール上に `通知の許可設定は安全なコンテキスト内でしか要求されません。` と表示され、権限の許可を求めるポップアップが表示されない。
+        - 権限の許可を求めるポップアップが表示されず、アドレスバー中に通知のアイコンが表示される。
       {%if DisableDeveloperTools %}
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
