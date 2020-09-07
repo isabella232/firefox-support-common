@@ -277,13 +277,12 @@ Startup-13: Windows 10の再起動後の自動起動
     *.cfg / *.jsc:
     lockPref("toolkit.winRegisterApplicationRestart", false);
 
-Startup-14: 初回起動時のRSSフィードのマイグレーション
+Startup-14: [廃止] RSSフィードの自動マイグレーション
 
-    :1: 実行する（既定）
+    :1: [廃止] 実行する
 
     -
 
-    :2: 実行しない
+    :2: [廃止] 実行しない
 
-    *.cfg / *.jsc:
-    lockPref("browser.livebookmarks.migrationAttemptsLeft", 0);
+    -
