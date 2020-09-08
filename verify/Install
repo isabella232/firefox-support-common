@@ -134,7 +134,7 @@ Install-7: Firefox/Thunderbirdの同梱
     - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
         - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
         - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - `{{install_path}}`を開く {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}）{% endif %}
+    - `{{install_path}}`を開く {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}`）{% endif %}
     - **確認**
         - `{{exe_name}}.exe`が存在しない。
 
@@ -143,7 +143,7 @@ Install-7: Firefox/Thunderbirdの同梱
     - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
         - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
         - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - `{{install_path}}`を開く {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}）{% endif %}
+    - `{{install_path}}`を開く {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}`）{% endif %}
     - **確認**
         - `{{exe_name}}.exe`が存在する。
         - `application.ini` に記載されているFirefoxのバージョンが {{firefox_version}} である。
