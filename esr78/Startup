@@ -191,7 +191,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     *.cfg / *.jsc:
     lockPref("browser.disableResetPrompt", true);
 
-    :3: リセットを提案せず、about:supportやサポートページ等からのユーザーの任意操作でのリセットも禁止（ポリシーで設定）
+    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）
 
     distribution\policies.json:
     "DisableProfileRefresh": true,
