@@ -354,39 +354,43 @@ Install-13: インストール前のクリーンアップ処理
 
     - `{{install_path}}` {%if install_path_32bit %} \
       （32bit環境では `{{install_path_32bit}}`）{% endif %} \
-      の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+      の位置にフォルダを作成し、`must-not-removed.txt` という名前で空のファイルを置く。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-        - `{{install_path}}\must-be-removed.txt` {%if install_path_32bit %} \
-          （32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{% endif %} \
-          が存在する。
+        - インストール時のクリーンアップ対象に指定した位置に `must-not-removed.txt` が存在する。
+    - `{{install_path}}\ClearCode Inc\{{meta_installer_name}}\install.log` {%if install_path_32bit %} \
+      （32bit環境では `{{install_path_32bit}}\ClearCode Inc\{{meta_installer_name}}\install.log`）{% endif %} \
+      をテキストエディタで開く。
+    - **確認**
+        - 最後の `----------------------onInit------------------------` よりも後に \
+          ` Running （Firefoxのインストール先）\uninstall\helper.exe` という行が出力されていない。
 
     :2: 旧バージョンのFirefoxを強制的に削除する
 
-    - `{{install_path}}` {%if install_path_32bit %} \
-      （32bit環境では `{{install_path_32bit}}`）{% endif %} \
-      の位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-        - `{{install_path}}\must-be-removed.txt` {%if install_path_32bit %} \
-          （32bit環境では `{{install_path_32bit}}\must-be-removed.txt`）{% endif %} \
-          が存在しない。
+    - `{{install_path}}\ClearCode Inc\{{meta_installer_name}}\install.log` {%if install_path_32bit %} \
+      （32bit環境では `{{install_path_32bit}}\ClearCode Inc\{{meta_installer_name}}\install.log`）{% endif %} \
+      をテキストエディタで開く。
+    - **確認**
+        - 最後の `----------------------onInit------------------------` よりも後に \
+          ` Running （Firefoxのインストール先）\uninstall\helper.exe` という行が出力されている。
 
     :3: 特定のフォルダを消去してから同梱のアプリケーションをインストールする
 
-    - インストール時のクリーンアップ対象に指定した位置にフォルダを作成し、`must-be-removed.txt` という名前で空のファイルを置く。
+    - インストール時のクリーンアップ対象に指定した位置にフォルダを作成し、`must-removed.txt` という名前で空のファイルを置く。
     - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
       管理者権限を要求された場合は、`管理者`ユーザーで認証する。
     - スタートメニューから `appwiz.cpl` （プログラムの機能と削除）を起動する。
     - **確認**
         - 「{{meta_installer_name}}」がインストールされている。
-        - インストール時のクリーンアップ対象に指定した位置に `must-be-removed.txt` が存在しない。
+        - インストール時のクリーンアップ対象に指定した位置に `must-removed.txt` が存在しない。
 
 Install-14: Internet Explorerのコンテキストメニューにコマンドを追加登録する
 
