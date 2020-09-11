@@ -1128,3 +1128,17 @@ Securiyt-47: OSの証明書ストアのクライアント証明書の利用
     :2: 使用しない（既定）
 
     -
+
+Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可する
+
+    :1: 許可する
+
+    distribution\policies.json:
+    "LegacySameSiteCookieBehaviorEnabled": true,
+
+    GPO:
+    （2020年9月11日現在未定義）
+
+    :2: 禁止する（既定）
+
+    -
