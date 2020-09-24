@@ -1142,3 +1142,41 @@ Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可�
     :2: 禁止する（既定）
 
     -
+
+Securiyt-49: 「ようこそ」画面からのFirefox Monitorへの遷移
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "WebsiteFilter": {
+      "Block": [
+        "https://monitor.firefox.com/?utm_source=activity-stream*"
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Blocked websites」を有効化し、「オプション」欄に「https://monitor.firefox.com/?utm_source=activity-stream*」を追加
+
+Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "WebsiteFilter": {
+      "Block": [
+        "https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*"
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Blocked websites」を有効化し、「オプション」欄に「https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*」を追加
