@@ -139,7 +139,7 @@ def write_header(sheet, formats, conf):
     for key in conf.keys():
         if key == ESR_PREVIOUS.upper():
             continue
-        sheet.write(0, col_count+1, '最終的に反映した設定値\n(%s)' % key, fmt)
+        sheet.write(0, col_count+1, '反映した設定値\n(%s)' % key, fmt)
         sheet.write(0, col_count+2, '%s→%sでの変更' % (prev_key, key), fmt)
         sheet.set_column(col_count+1, col_count+1, 40)
         sheet.set_column(col_count+2, col_count+2, 10)
@@ -148,7 +148,7 @@ def write_header(sheet, formats, conf):
 
     sheet.write(0, col_count+1, '検証手順書対応番号', fmt)
     sheet.write(0, col_count+3, '設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), fmt)
-    sheet.write(0, col_count+4, '最終的に反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), fmt)
+    sheet.write(0, col_count+4, '反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), fmt)
     sheet.set_column(col_count+1, col_count+1, 10)
     sheet.set_column(col_count+2, col_count+2, 12)
     sheet.set_column(col_count+3, col_count+3, 40)
