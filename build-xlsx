@@ -124,6 +124,7 @@ def write_header(sheet, formats, conf):
     sheet.write(0, 2, 'カスタマイズ項目 (目的)', fmt)
     sheet.write(0, 3, '選択肢番号', fmt)
     sheet.write(0, 4, '選択肢', fmt)
+    sheet.write(0, 5, '設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), fmt)
 
     sheet.set_row(0, 25)
     sheet.set_column(0, 0, 10)
@@ -131,25 +132,23 @@ def write_header(sheet, formats, conf):
     sheet.set_column(2, 2, 30)
     sheet.set_column(3, 3, 5)
     sheet.set_column(4, 4, 20)
+    sheet.set_column(5, 5, 40)
 
-    col_count = 4
+    col_count = 5
     prev_key = ESR_PREVIOUS.upper()
     for key in conf.keys():
-        sheet.write(0, col_count+1, '状態\n(%s)' % key, fmt)
-        sheet.write(0, col_count+2, '設定内容の雛形\n(%s)' % key, fmt)
-        sheet.write(0, col_count+3, '最終的に反映した設定値\n(%s)' % key, fmt)
-        sheet.write(0, col_count+4, '%s→%sでの変更' % (prev_key, key), fmt)
-        sheet.set_column(col_count+1, col_count+1, 8)
-        sheet.set_column(col_count+2, col_count+2, 40)
-        sheet.set_column(col_count+3, col_count+3, 40)
-        sheet.set_column(col_count+4, col_count+4, 10)
-        col_count+=4
+        if key == ESR_PREVIOUS.upper():
+            continue
+        sheet.write(0, col_count+1, '最終的に反映した設定値\n(%s)' % key, fmt)
+        sheet.write(0, col_count+2, '%s→%sでの変更' % (prev_key, key), fmt)
+        sheet.set_column(col_count+1, col_count+1, 40)
+        sheet.set_column(col_count+2, col_count+2, 10)
+        col_count+=2
         prev_key = key
 
-    prev_key = ESR_PREVIOUS.upper()
     sheet.write(0, col_count+1, '検証手順書対応番号', fmt)
-    sheet.write(0, col_count+3, '設定内容の雛形\n(%s)' % prev_key, fmt)
-    sheet.write(0, col_count+4, '最終的に反映した設定値\n(%s)' % prev_key, fmt)
+    sheet.write(0, col_count+3, '設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), fmt)
+    sheet.write(0, col_count+4, '最終的に反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), fmt)
     sheet.set_column(col_count+1, col_count+1, 10)
     sheet.set_column(col_count+2, col_count+2, 12)
     sheet.set_column(col_count+3, col_count+3, 40)
@@ -160,8 +159,8 @@ def write_header(sheet, formats, conf):
 
 def generate_xlsx(wb, conf, chapters, excludes):
     formats = create_formats(wb)
-    conf_curr = conf[ESR_CURRENT.upper()]
-    conf_prev = conf[ESR_PREVIOUS.upper()]
+    curr_conf = conf[ESR_CURRENT.upper()]
+    prev_conf = conf[ESR_PREVIOUS.upper()]
 
     for title, files in WORKBOOK_DEF:
         if title in excludes:
@@ -182,50 +181,72 @@ def generate_xlsx(wb, conf, chapters, excludes):
                     sheet.merge_range(row, 2, row + len(item['opts']) - 1, 2, '')
 
                 for opt in item['opts']:
-                    selected = ''
                     status = ''
                     chapter = ''
                     fmt = formats['default']
                     item_fmt = formats['default']
                     opt_id = opt['opt_id']
 
-                    conf_curr_conf = conf_curr.get(opt_id, {'conf':''})['conf']
-                    conf_prev_conf = conf_prev.get(opt_id, {'conf':''})['conf']
-                    prev_conf = prev.get(opt_id, {'conf':''})['conf']
+                    applied_curr_conf = curr_conf.get(opt_id, {'conf':''})['conf']
+                    applied_prev_conf = prev_conf.get(opt_id, {'conf':''})['conf']
+                    template_curr_conf = opt['conf'].strip()
+                    template_prev_conf = prev.get(opt_id, {'conf':''})['conf']
 
                     if is_deprecated(item['item_title']):
                         item_fmt = formats['deprecated']
                         fmt = formats['deprecated']
                     elif is_deprecated(opt['opt_title']):
                         fmt = formats['deprecated']
-                    elif opt_id in conf_curr:
-                        selected = 'y'
+                    elif opt_id in curr_conf:
                         chapter = chapters.get(opt_id, '省略')
-                        if opt_id not in conf_prev:
-                            fmt, status = formats['selected_changed'], '新規'
-                        elif sanitize_conf(conf_prev_conf) != sanitize_conf(conf_curr_conf):
-                            fmt, status = formats['selected_changed'], '変更あり'
+                        if opt_id not in prev_conf or sanitize_conf(applied_prev_conf) != sanitize_conf(applied_curr_conf):
+                            fmt = formats['selected_changed']
                         else:
-                            fmt, status = formats['selected'], ''
-                    elif sanitize_conf(opt['conf'].strip()) != sanitize_conf(prev_conf):
-                        if prev_conf == '':
-                            fmt, status = formats['changed'], '新規（未設定）'
-                        else:
-                            fmt, status = formats['changed'], '変更あり（未設定）'
+                            fmt = formats['selected']
+                    elif sanitize_conf(template_curr_conf) != sanitize_conf(template_prev_conf):
+                        fmt = formats['changed']
 
                     sheet.write(row, 0, fn, formats['default']) # A
                     sheet.write(row, 1, int(item['item_no']), item_fmt) # B
                     sheet.write(row, 2, item['item_title'], item_fmt) # C
                     sheet.write(row, 3, int(opt['opt_no']), fmt) # D
                     sheet.write(row, 4, opt['opt_title'], fmt) # E
-                    sheet.write(row, 5, selected, fmt) # F
-                    sheet.write(row, 6, opt['conf'].strip(), fmt) # G
-                    sheet.write(row, 7, conf_curr_conf, fmt) # H
-                    sheet.write(row, 8, status, fmt) # I
-                    sheet.write(row, 9, chapter, formats['default']) # J
-                    sheet.write(row, 10, '', formats['noborder']) # K
-                    sheet.write(row, 11, prev_conf, fmt) # L
-                    sheet.write(row, 12, conf_prev_conf, fmt) # M
+                    sheet.write(row, 5, template_curr_conf, fmt) # F
+
+                    col_count = 5
+                    base_conf = prev_conf
+                    applied_base_conf = applied_prev_conf
+                    for key, variation_conf in conf.items():
+                        if key == key == ESR_PREVIOUS.upper():
+                            continue
+
+                        variation_status = ''
+                        variation_fmt = ''
+                        applied_variation_conf = variation_conf.get(opt_id, {'conf':''})['conf']
+                        if opt_id in variation_conf:
+                            if opt_id not in base_conf:
+                                variation_fmt, variation_status = formats['selected_changed'], '新規'
+                            elif sanitize_conf(applied_base_conf) != sanitize_conf(applied_variation_conf):
+                                variation_fmt, variation_status = formats['selected_changed'], '変更あり'
+                            else:
+                                variation_fmt, variation_status = formats['selected'], ''
+                        elif sanitize_conf(template_curr_conf) != sanitize_conf(template_prev_conf):
+                            if base_conf == prev_conf:
+                              if template_prev_conf == '':
+                                  variation_fmt, variation_status = formats['changed'], '新規（未設定）'
+                              else:
+                                  variation_fmt, variation_status = formats['changed'], '変更あり（未設定）'
+
+                        sheet.write(row, col_count+1, applied_variation_conf, variation_fmt)
+                        sheet.write(row, col_count+2, variation_status, variation_fmt)
+                        col_count+=2
+                        base_conf = variation_conf
+                        applied_base_conf = applied_variation_conf
+
+                    sheet.write(row, col_count+1, chapter, formats['default'])
+                    sheet.write(row, col_count+2, '', formats['noborder'])
+                    sheet.write(row, col_count+3, template_prev_conf, fmt)
+                    sheet.write(row, col_count+4, applied_prev_conf, fmt)
                     row += 1
         write_legend(sheet, formats, row+1)
 
@@ -260,12 +281,12 @@ def main(args):
             conf[parts[0]] = parts[1]
 
     for arg in args:
-        if ESR_CURRENT in arg:
-            print('%s -> %s' % (ESR_CURRENT, arg))
-            conf[ESR_CURRENT.upper()] = arg
-        elif ESR_PREVIOUS in arg:
+        if ESR_PREVIOUS in arg:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
             conf[ESR_PREVIOUS.upper()] = arg
+        elif ESR_CURRENT in arg:
+            print('%s -> %s' % (ESR_CURRENT, arg))
+            conf[ESR_CURRENT.upper()] = arg
         elif CHAPTERS_CSV in arg:
             print('Loading', os.path.basename(arg))
             chapters = load_chapters(arg)

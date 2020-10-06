@@ -38,7 +38,7 @@ verify-targets-to-chapters.csv:
 	./cat-verify ${VERIFY_MANUAL_OPT} -i > "$(PWD)/$@"
 
 configurations-sheet: verify-targets-to-chapters.csv
-	./build-xlsx -o config-$(DATE).xlsx assets/esr78.conf assets/esr68.conf verify-targets-to-chapters.csv
+	./build-xlsx -o config-$(DATE).xlsx -d ESR68:assets/esr68.conf -d ESR78:assets/esr78.conf -d "ESR78 派生:assets/esr78-variation.conf" verify-targets-to-chapters.csv
 
 verification-manual:
 	./cat-verify ${VERIFY_MANUAL_OPT} | pandoc ${PANDOC_OPT_DOCX} -o verify-$(DATE).docx
