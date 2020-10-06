@@ -13,7 +13,9 @@
 #
 # (2) Generate a filled sheet
 #
-#     $ build-xlsx esr60.txt esr68.txt verify-targets-to-chapters.csv
+#     $ build-xlsx esr60.txt esr68.txt esr78.txt ... verify-targets-to-chapters.csv
+#     $ build-xlsx -p esr68.txt -c esr78.txt
+#     $ build-xlsx -d ESR68:esr68.txt -d ESR78:esr78.txt
 #
 import re
 import sys
@@ -112,9 +114,7 @@ def write_legend(sheet, formats, row):
     sheet.write(row + 2, 1, '', formats['deprecated'])
     sheet.write(row + 2, 2, '廃止済みの項目', formats['noborder'])
 
-def write_header(sheet, formats):
-    curr = ESR_CURRENT.upper()
-    prev = ESR_PREVIOUS.upper()
+def write_header(sheet, formats, conf):
     fmt = formats['center']
 
     sheet.freeze_panes(1, 0)
@@ -122,41 +122,53 @@ def write_header(sheet, formats):
     sheet.write(0, 0, 'カテゴリー', fmt)
     sheet.write(0, 1, '項目設定番号', fmt)
     sheet.write(0, 2, 'カスタマイズ項目 (目的)', fmt)
-    sheet.write(0, 3, '状態', fmt)
-    sheet.write(0, 4, '選択肢番号', fmt)
-    sheet.write(0, 5, '選択肢', fmt)
-    sheet.write(0, 6, '設定内容の雛形\n(%s)' % curr, fmt)
-    sheet.write(0, 7, '最終的に反映した設定値\n(%s)' % curr, fmt)
-    sheet.write(0, 8, '%s→%sでの変更' % (prev, curr), fmt)
-    sheet.write(0, 9, '検証手順書対応番号', fmt)
-    sheet.write(0, 11, '設定内容の雛形\n(%s)' % prev, fmt)
-    sheet.write(0, 12, '最終的に反映した設定値\n(%s)' % prev, fmt)
+    sheet.write(0, 3, '選択肢番号', fmt)
+    sheet.write(0, 4, '選択肢', fmt)
 
     sheet.set_row(0, 25)
-    sheet.set_column(0, 12, None, formats['default'])
     sheet.set_column(0, 0, 10)
     sheet.set_column(1, 1, 10)
     sheet.set_column(2, 2, 30)
     sheet.set_column(3, 3, 5)
-    sheet.set_column(4, 4, 5)
-    sheet.set_column(5, 5, 20)
-    sheet.set_column(6, 6, 40)
-    sheet.set_column(7, 7, 40)
-    sheet.set_column(8, 8, 10)
-    sheet.set_column(9, 9, 10)
-    sheet.set_column(10, 10, 12)
-    sheet.set_column(11, 11, 40)
-    sheet.set_column(12, 12, 40)
+    sheet.set_column(4, 4, 20)
 
-def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
+    col_count = 4
+    prev_key = ESR_PREVIOUS.upper()
+    for key in conf.keys():
+        sheet.write(0, col_count+1, '状態\n(%s)' % key, fmt)
+        sheet.write(0, col_count+2, '設定内容の雛形\n(%s)' % key, fmt)
+        sheet.write(0, col_count+3, '最終的に反映した設定値\n(%s)' % key, fmt)
+        sheet.write(0, col_count+4, '%s→%sでの変更' % (prev_key, key), fmt)
+        sheet.set_column(col_count+1, col_count+1, 8)
+        sheet.set_column(col_count+2, col_count+2, 40)
+        sheet.set_column(col_count+3, col_count+3, 40)
+        sheet.set_column(col_count+4, col_count+4, 10)
+        col_count+=4
+        prev_key = key
+
+    prev_key = ESR_PREVIOUS.upper()
+    sheet.write(0, col_count+1, '検証手順書対応番号', fmt)
+    sheet.write(0, col_count+3, '設定内容の雛形\n(%s)' % prev_key, fmt)
+    sheet.write(0, col_count+4, '最終的に反映した設定値\n(%s)' % prev_key, fmt)
+    sheet.set_column(col_count+1, col_count+1, 10)
+    sheet.set_column(col_count+2, col_count+2, 12)
+    sheet.set_column(col_count+3, col_count+3, 40)
+    sheet.set_column(col_count+4, col_count+4, 40)
+    col_count+=4
+
+    sheet.set_column(0, col_count, None, formats['default'])
+
+def generate_xlsx(wb, conf, chapters, excludes):
     formats = create_formats(wb)
+    conf_curr = conf[ESR_CURRENT.upper()]
+    conf_prev = conf[ESR_PREVIOUS.upper()]
 
     for title, files in WORKBOOK_DEF:
         if title in excludes:
             continue
 
         sheet = wb.add_worksheet(title)
-        write_header(sheet, formats)
+        write_header(sheet, formats, conf)
 
         row = 1
         for fn in files:
@@ -204,9 +216,9 @@ def generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes):
                     sheet.write(row, 0, fn, formats['default']) # A
                     sheet.write(row, 1, int(item['item_no']), item_fmt) # B
                     sheet.write(row, 2, item['item_title'], item_fmt) # C
-                    sheet.write(row, 3, selected, fmt) # D
-                    sheet.write(row, 4, int(opt['opt_no']), fmt) # E
-                    sheet.write(row, 5, opt['opt_title'], fmt) # F
+                    sheet.write(row, 3, int(opt['opt_no']), fmt) # D
+                    sheet.write(row, 4, opt['opt_title'], fmt) # E
+                    sheet.write(row, 5, selected, fmt) # F
                     sheet.write(row, 6, opt['conf'].strip(), fmt) # G
                     sheet.write(row, 7, conf_curr_conf, fmt) # H
                     sheet.write(row, 8, status, fmt) # I
@@ -228,39 +240,41 @@ def load_chapters(path):
         return {}
 
 def main(args):
-    conf_curr = {}
-    conf_prev = {}
+    conf = {}
     chapters = {}
     outfile = 'config.xlsx'
     excludes = []
 
-    esr_current = ESR_CURRENT
-    esr_previous = ESR_PREVIOUS
-
-    opts, args = getopt.getopt(args, 'o:x:p:c:')
+    opts, args = getopt.getopt(args, 'o:x:p:c:d:')
     for k, v in opts:
         if k == '-o':
             outfile = v
         elif k == '-x':
             excludes = v.split(',')
         elif k == '-p':
-            esr_previous = v
+            conf[ESR_PREVIOUS.upper()] = v
         elif k == '-c':
-            esr_current = v
+            conf[ESR_CURRENT.upper()] = v
+        elif k == '-d':
+            parts = v.split(':', 1)
+            conf[parts[0]] = parts[1]
 
     for arg in args:
-        if esr_current in arg:
-            print('%s -> %s' % (esr_current, arg))
-            conf_curr = adlib.load_as_dict(arg)
-        elif esr_previous in arg:
-            print('%s -> %s' % (esr_previous, arg))
-            conf_prev = adlib.load_as_dict(arg)
+        if ESR_CURRENT in arg:
+            print('%s -> %s' % (ESR_CURRENT, arg))
+            conf[ESR_CURRENT.upper()] = arg
+        elif ESR_PREVIOUS in arg:
+            print('%s -> %s' % (ESR_PREVIOUS, arg))
+            conf[ESR_PREVIOUS.upper()] = arg
         elif CHAPTERS_CSV in arg:
             print('Loading', os.path.basename(arg))
             chapters = load_chapters(arg)
 
+    for label, path in conf.items():
+        conf[label] = adlib.load_as_dict(path)
+
     with xlsxwriter.Workbook(outfile) as wb:
-        generate_xlsx(wb, conf_curr, conf_prev, chapters, excludes)
+        generate_xlsx(wb, conf, chapters, excludes)
 
     print('Generated:', wb.filename)
 
