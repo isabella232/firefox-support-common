@@ -13,9 +13,9 @@
 #
 # (2) Generate a filled sheet
 #
-#     $ build-xlsx esr60.txt esr68.txt esr78.txt ... verify-targets-to-chapters.csv
+#     $ build-xlsx esr68.txt esr78.txt ... verify-targets-to-chapters.csv
 #     $ build-xlsx -p esr68.txt -c esr78.txt
-#     $ build-xlsx -d ESR68:esr68.txt -d ESR78:esr78.txt
+#     $ build-xlsx -d ESR68:esr68.txt -d ESR78:esr78.txt -d "ESR78 variation:esr78-variation.txt"
 #
 import re
 import sys
