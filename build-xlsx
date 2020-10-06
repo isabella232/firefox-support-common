@@ -159,7 +159,6 @@ def write_header(sheet, formats, conf):
 
 def generate_xlsx(wb, conf, chapters, excludes):
     formats = create_formats(wb)
-    curr_conf = conf[ESR_CURRENT.upper()]
     prev_conf = conf[ESR_PREVIOUS.upper()]
 
     for title, files in WORKBOOK_DEF:
@@ -187,31 +186,16 @@ def generate_xlsx(wb, conf, chapters, excludes):
                     item_fmt = formats['default']
                     opt_id = opt['opt_id']
 
-                    applied_curr_conf = curr_conf.get(opt_id, {'conf':''})['conf']
                     applied_prev_conf = prev_conf.get(opt_id, {'conf':''})['conf']
                     template_curr_conf = opt['conf'].strip()
                     template_prev_conf = prev.get(opt_id, {'conf':''})['conf']
 
                     if is_deprecated(item['item_title']):
                         item_fmt = formats['deprecated']
-                        fmt = formats['deprecated']
-                    elif is_deprecated(opt['opt_title']):
-                        fmt = formats['deprecated']
-                    elif opt_id in curr_conf:
-                        chapter = chapters.get(opt_id, '省略')
-                        if opt_id not in prev_conf or sanitize_conf(applied_prev_conf) != sanitize_conf(applied_curr_conf):
-                            fmt = formats['selected_changed']
-                        else:
-                            fmt = formats['selected']
-                    elif sanitize_conf(template_curr_conf) != sanitize_conf(template_prev_conf):
-                        fmt = formats['changed']
 
                     sheet.write(row, 0, fn, formats['default']) # A
                     sheet.write(row, 1, int(item['item_no']), item_fmt) # B
                     sheet.write(row, 2, item['item_title'], item_fmt) # C
-                    sheet.write(row, 3, int(opt['opt_no']), fmt) # D
-                    sheet.write(row, 4, opt['opt_title'], fmt) # E
-                    sheet.write(row, 5, template_curr_conf, fmt) # F
 
                     col_count = 5
                     base_conf = prev_conf
@@ -223,25 +207,38 @@ def generate_xlsx(wb, conf, chapters, excludes):
                         variation_status = ''
                         variation_fmt = ''
                         applied_variation_conf = variation_conf.get(opt_id, {'conf':''})['conf']
-                        if opt_id in variation_conf:
+
+                        if is_deprecated(item['item_title']) or is_deprecated(opt['opt_title']):
+                            variation_fmt = formats['deprecated']
+                        elif opt_id in variation_conf:
                             if opt_id not in base_conf:
                                 variation_fmt, variation_status = formats['selected_changed'], '新規'
                             elif sanitize_conf(applied_base_conf) != sanitize_conf(applied_variation_conf):
                                 variation_fmt, variation_status = formats['selected_changed'], '変更あり'
                             else:
                                 variation_fmt, variation_status = formats['selected'], ''
-                        elif sanitize_conf(template_curr_conf) != sanitize_conf(template_prev_conf):
-                            if base_conf == prev_conf:
+                        elif base_conf == prev_conf:
+                            if sanitize_conf(template_curr_conf) != sanitize_conf(template_prev_conf):
                               if template_prev_conf == '':
                                   variation_fmt, variation_status = formats['changed'], '新規（未設定）'
                               else:
                                   variation_fmt, variation_status = formats['changed'], '変更あり（未設定）'
+                        else:
+                            if sanitize_conf(applied_base_conf) != sanitize_conf(applied_variation_conf):
+                                variation_status = '削除'
+
+                        if base_conf == prev_conf:
+                          fmt = variation_fmt
 
                         sheet.write(row, col_count+1, applied_variation_conf, variation_fmt)
                         sheet.write(row, col_count+2, variation_status, variation_fmt)
                         col_count+=2
                         base_conf = variation_conf
                         applied_base_conf = applied_variation_conf
+
+                    sheet.write(row, 3, int(opt['opt_no']), fmt) # D
+                    sheet.write(row, 4, opt['opt_title'], fmt) # E
+                    sheet.write(row, 5, template_curr_conf, fmt) # F
 
                     sheet.write(row, col_count+1, chapter, formats['default'])
                     sheet.write(row, col_count+2, '', formats['noborder'])
