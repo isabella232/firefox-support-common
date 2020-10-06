@@ -278,10 +278,10 @@ def main(args):
             conf[parts[0]] = parts[1]
 
     for arg in args:
-        if ESR_PREVIOUS in arg:
+        if ESR_PREVIOUS in arg and not ESR_PREVIOUS.upper() in conf:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
             conf[ESR_PREVIOUS.upper()] = arg
-        elif ESR_CURRENT in arg:
+        elif ESR_CURRENT in arg and not ESR_CURRENT.upper() in conf:
             print('%s -> %s' % (ESR_CURRENT, arg))
             conf[ESR_CURRENT.upper()] = arg
         elif CHAPTERS_CSV in arg:
