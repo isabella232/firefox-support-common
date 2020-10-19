@@ -79,6 +79,12 @@ resource "azurerm_virtual_machine" "firefoxverify_vm" {
     #offer     = "Windows-10"
     #sku       = "rs5-pro"
     #version   = "latest"
+
+    ## Windows 7
+    #publisher = "MicrosoftWindowsDesktop"
+    #offer     = "windows-7"
+    #sku       = "win7-enterprise"
+    #version   = "latest"
   }
 
   storage_os_disk {
