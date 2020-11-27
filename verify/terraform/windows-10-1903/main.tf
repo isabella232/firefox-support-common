@@ -385,6 +385,17 @@ resource "local_file" "playbook" {
         src: 'C:\Users\Public\hookdate.zip'
         dest: 'c:\Users\Public'
         delete_archive: yes
+    - name: Download DebugView for BrowserSelector
+      when: not "${var.debugview-download-url}" == ""
+      win_get_url:
+        url: "${var.debugview-download-url}"
+        dest: 'C:\Users\Public\DebugView.zip'
+    - name: Extract contents
+      when: not "${var.old-ie-download-url}" == ""
+      win_unzip:
+        src: 'C:\Users\Public\DebugView.zip'
+        dest: 'c:\Users\Public'
+        delete_archive: yes
     - name: Create shortcut to Program Files
       win_shortcut:
         src: '%ProgramFiles%'
