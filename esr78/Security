@@ -33,6 +33,15 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     *.cfg / *.jsc:
     lockPref("security.enterprise_roots.enabled", true);
 
+    :5: Windowsの証明書データベースから自動的にインポートする（ポリシーで設定）
+
+    distribution\policies.json:
+    "ImportEnterpriseRoots": true,
+
+    GPO:
+    カテゴリ「Firefox」→「Certificates」
+    → 「Import Enterprise Roots」を有効化
+
 Security-2: [廃止] 独自のルート証明書の自動再登録の可否
 
     :1: [廃止] 自動的に再登録する
