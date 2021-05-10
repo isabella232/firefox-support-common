@@ -36,7 +36,9 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
     :5: Windowsの証明書データベースから自動的にインポートする（ポリシーで設定）
 
     distribution\policies.json:
-    "ImportEnterpriseRoots": true,
+    "Certificates": {
+      "ImportEnterpriseRoots": true
+    },
 
     GPO:
     カテゴリ「Firefox」→「Certificates」
