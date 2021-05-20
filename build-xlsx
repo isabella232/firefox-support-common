@@ -211,6 +211,7 @@ def generate_xlsx(wb, conf, chapters, excludes):
                         if is_deprecated(item['item_title']) or is_deprecated(opt['opt_title']):
                             variation_fmt = formats['deprecated']
                         elif opt_id in variation_conf:
+                            chapter = chapters.get(opt_id, '省略')
                             if opt_id not in base_conf:
                                 variation_fmt, variation_status = formats['selected_changed'], '新規'
                             elif sanitize_conf(applied_base_conf) != sanitize_conf(applied_variation_conf):
@@ -219,6 +220,7 @@ def generate_xlsx(wb, conf, chapters, excludes):
                                 variation_fmt, variation_status = formats['selected'], ''
                         elif base_conf == prev_conf:
                             if sanitize_conf(template_curr_conf) != sanitize_conf(template_prev_conf):
+                              chapter = chapters.get(opt_id, '省略')
                               if template_prev_conf == '':
                                   variation_fmt, variation_status = formats['changed'], '新規（未設定）'
                               else:
