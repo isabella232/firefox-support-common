@@ -73,6 +73,13 @@ toc-title: 目次
 * `ExtensionSettings` ポリシーの機能が強化され、個々の拡張機能の自動更新を `updates_disabled` で無効化できるようになりました。
 * `Preferences` ポリシーで、`gfx.`および`layers.`から始まる名前の設定を制御できるようになりました。
 
+### Web開発者・アドオン開発者向けの変更
+
+* DeviceProximityEvent、UserProximityEvent、DeviceLightEventが廃止されました。
+* ブラウザーの外観の変更に伴い、テーマの配色のうち `tab_background_separator` と `toolbar_field_separator` の情報が利用されなくなりました。
+* ブラウザーの外観の変更に伴い、アドレスバー右端の「...」ボタン配下の項目をピン留めする機能が廃止されました。また、`page_action`の`pinned`属性が無視されるようになりました。
+* `page_action`で追加された項目に対する「アドレスバーから削除」操作が廃止されました。
+
 
 ## リンク
 
