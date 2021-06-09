@@ -22,10 +22,26 @@ toc-title: 目次
 
 ## Firefox 79
 
-* WebRenderのロールアウト対象の環境が拡大しました。
-* ポリシーで特定のドメインのみCookieの使用を許可できるようになりました。
-* ポリシーでマスターパスワードの使用を必須にできるようになりました。
+* Intel/AMD GPUを搭載したWindowsにおいて、WebRenderが有効化されるようになりました。
+* 「新しいタブ」ページにPocketのおすすめが表示されるようになりました（ドイツのみ）
 * macOS 10.9 (Maverics) 10.10 (Yosemite) 10.11 (El Capitan) のサポートが終了しました。
+
+### 開発
+
+* `<a>`および`<area>`要素で、`target="_blank"`を設定すると`rel="noopener"`が暗黙に仮定されるようになりました。
+
+### アクセシビリティ
+
+* JAWSスクリーンリーダの使用時に頻繁にクラッシュする問題を解決しました。
+* スクリーンリーダーでSVGの`title`と`desc`要素にアクセスできるようになりました。
+
+### ポリシー設定
+
+* `PrimaryPassword`ポリシーで、マスターパスワードの使用を強制できるようになりました。
+* `Cookies`ポリシーで、現在のセッションのみCookieを許可するドメインを指定できるようになりました。
+* `Preferences`ポリシーの設定名が一部変更になりました。
+  * 旧: `media.peerconnection.ice.obfuscate_host_addresses.whitelist`
+  * 新: `media.peerconnection.ice.obfuscate_host_addresses.blocklist`
 
 ## Firefox 80
 
