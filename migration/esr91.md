@@ -62,6 +62,46 @@ toc-title: 目次
 * ポリシーによる`about:config`の設定が拡大されました（`Preferences`ポリシーを利用中の場合は移行が必要です）
 * Microsoft IntuneでMSIをインストールできない不具合が修正されました。
 
+## Firefox87
+
+* プライベートブラウジングモードおよび、スマートブロック機能によるより厳密なトラッキング保護において、Webサイトの動作が壊れる問題の発生を軽減しました。
+* HTTPリファラの既定の送信ポリシーを変更し、URLのパス部分とクエリ文字列を除去した状態で送出するようにしました。
+* ページ内検索で「すべて強調表示」がOKの時に、検索結果があるページ上の位置をスクロールバー上に表示するようにしました。
+* シレジア語ロケールに対応しました。
+* 動画再生・音声再生のUIをキーボードで操作できるようになりました。
+* スクリーンリーダーがHTMLのmeta要素を読み上げるようになりました。
+* アドオンマネージャの画面内で、初期フォーカス状態がより使いやすい状態に設定されるようになりました。
+* ARIAのアクセシビリティ属性（aria-labeledby/describedby）の値の変更をイベントで通知するようになりました。
+* Backspaceキーに対する「戻る」操作へのショートカット割り当てを廃止しました。`browser.backspace_action`を`0`にすることで、ショートカットを再度有効化できます。また、代替のショートカットとしてAlt-←（macOSではCommand-←）が使用できます。
+* ライブラリーメニューから「同期タブ」「最近のハイライト」「Pocket」を削除しました。
+* 「ヘルプ」メニューの内容を整理しました。
+* 画像のコンテキストメニューの「画像の情報を表示」を廃止しました。
+* TLSクライアント証明書を使っている組織において、`network.cors_preflight.allow_client_cert`の切り替えにより、Google Chrome互換のCORSプロトコルの取り扱いが可能になりました。
+* macOSにおいて、組み込みのスクリーンリーダーであるVoiceOverに全面的に対応しました。
+
+### ポリシー設定
+
+* GPOやmacOSのプロファイル設定が有効な場合でも、policies.jsonが読み込まれるようになりました。競合する設定内容は、GPOやプロファイル設定の物が優先されます。
+
+### Web開発者向けの変更
+
+* 非標準の、テーマに関係したメディアクエリについて、以下の物がWebページからは利用できないようになりました。
+  * `-moz-mac-graphite-theme`
+  * `-moz-mac-lion-theme`
+  * `-moz-maemo-classic`
+  * `-moz-windows-classic`
+  * `-moz-windows-compositor`
+  * `-moz-windows-default-theme`
+  * `-moz-windows-theme`
+  * `-moz-scrollbar-end-backward`
+  * `-moz-scrollbar-end-forward`
+  * `-moz-scrollbar-start-backward`
+  * `-moz-scrollbar-start-forward`
+  * `-moz-scrollbar-thumb-proportional`
+  * `-moz-menubar-drag`
+* caption-sideの非標準の値（left, right, top-outside, bottom-outside）が廃止を前提に無効化されました。（`layout.css.caption-side-non-standard.enabled`で再度有効化できます。）
+
+
 ## Firefox88 / 88.0.1
 
 * Widevineプラグインの更新の影響により発生していた、動画再生の問題が解消されました。
