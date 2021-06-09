@@ -28,7 +28,7 @@ toc-title: 目次
 
 ### 開発
 
-* `<a>`および`<area>`要素で、`target="_blank"`を設定すると`rel="noopener"`が暗黙に仮定されるようになりました。
+* `<a>`および`<area>`要素で、`target="_blank"`を設定すると`rel="noopener"`が標準で付与されるようになりました。
 
 ### アクセシビリティ
 
@@ -43,13 +43,21 @@ toc-title: 目次
   * 旧: `media.peerconnection.ice.obfuscate_host_addresses.whitelist`
   * 新: `media.peerconnection.ice.obfuscate_host_addresses.blocklist`
 
-## Firefox 80
+## Firefox 80 / 80.0.1
 
 * FirefoxをWindowsのPDFアプリとして設定できるようになりました。
   ![](esr91/default-app-pdf.png)
-* HTTPSからHTTPにフォーム投稿した時の警告を抑止できるようになりました。
+* HTTPSからHTTPにフォームを送信する時の警告を抑止可能になりました (`security.warn_submit_secure_to_insecure`)
   ![](esr91/insecure-form.png)
-* ポリシーでバーチャルリアリティの許可通知を制御できるようになりました。
+* WebRTCの`RTX`とTransport-cc`に対応し、音声通話の品質が向上しました
+
+### ポリシー設定
+
+* `Permissions`ポリシーで、バーチャルリアリティの許可通知を制御できるようになりました。
+
+### 開発
+
+* `Windows.open()`で非標準の`outerHeight/`outerWidth`を指定できなくなりました。
 
 ## Firefox 81
 
@@ -57,10 +65,28 @@ toc-title: 目次
 * FIrefoxの標準テーマに「Firefox AlpenGlow」が追加されました。
   ![](esr91/alpenglow.png)
 * クレジットカード情報の自動記入をサポートしました（アメリカのみ）
-* `.xml`、`.svg`、`.webp` (ウェッピー) ファイルを表示できるようになりました。
+* `.xml`, `.svg`, `.webp` (ウェッピー) ファイルを表示できるようになりました。
+* 「新しいタブ」ページにPocketのおすすめが表示されるようになりました（オーストリア・ベルギー・スイス）
 * Windowsの`.lnk`ショートカットをサポートしました。
-* ポリシーによる`about:config`の設定が拡大されました（`Preferences`ポリシーを利用中の場合は移行が必要です）
 * Microsoft IntuneでMSIをインストールできない不具合が修正されました。
+
+### ポリシー設定
+
+* `Preferences`ポリシーの設定フォーマットが変更になりました。
+* `Preferences`ポリシーで制御可能な設定値の範囲が拡大されました。
+
+### 開発
+
+* サンドボックスが有効化された`<iframe>`で、自動ダウンロードをブロックするようになりました。
+* `<iframe>`から、非標準の`mozallowfullscreen`属性が削除されました。
+* 非標準の`::-moz-focus-outer`疑似要素が削除されました。
+
+### アクセシビリティ
+
+* スクリーンリーダーで、隠された音声・動画の制御UIにアクセスできるようになりました。
+* スクリーンリーダーで、音声・動画の現在時と合計時間にアクセスできるようになりました。
+* スクリーンリーダー向けに、制御UIのラベルが追加されました。
+* スクリーンリーダーで、ユーザーの要求がない限り、再生状態を報告しないようにしました。
 
 
 ## Firefox86
@@ -133,7 +159,6 @@ toc-title: 目次
   * `-moz-scrollbar-thumb-proportional`
   * `-moz-menubar-drag`
 * caption-sideの非標準の値（left, right, top-outside, bottom-outside）が廃止を前提に無効化されました。（`layout.css.caption-side-non-standard.enabled`で再度有効化できます。）
-
 
 ## Firefox88 / 88.0.1
 
