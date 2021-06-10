@@ -1,0 +1,1193 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+Security-1: 独自のルート証明書をあらかじめ導入しておく
+
+    :1: [廃止] 導入する
+
+    [廃止]
+
+    :4: 導入する（ポリシーで設定）
+
+    （「%AppData%\Mozilla\Certificates」または「%LocalAppData%\Mozilla\Certificates」に証明書ファイルを設置した上で）
+    distribution\policies.json:
+    "Certificates": {
+      "Install": [
+        "ファイル名1",
+        "ファイル名2",
+        ...
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Certificates」
+    → 「Install Certificates」を有効化し、「オプション」でファイル名を追加
+
+    :2: 導入しない（既定）
+
+    -
+
+    :3: Windowsの証明書データベースから自動的にインポートする
+
+    *.cfg / *.jsc:
+    lockPref("security.enterprise_roots.enabled", true);
+
+    :5: Windowsの証明書データベースから自動的にインポートする（ポリシーで設定）
+
+    distribution\policies.json:
+    "Certificates": {
+      "ImportEnterpriseRoots": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Certificates」
+    → 「Import Enterprise Roots」を有効化
+
+Security-2: [廃止] 独自のルート証明書の自動再登録の可否
+
+    :1: [廃止] 自動的に再登録する
+
+    [廃止]
+
+    :2: [廃止] 自動的に再登録しない（既定）
+
+    [廃止]
+
+Security-3: アドオンのインストールの可否
+
+    :1: 確認の上で許可する（既定）
+
+    -
+
+    :2: [廃止] 特定サイトのみ常に許可する
+
+    [廃止]
+
+    :6: 特定サイトのみ常に許可する（ポリシーとして設定）
+
+    distribution\policies.json:
+    "InstallAddonsPermission": {
+      "Allow": [
+        "(origin1)",
+        "(origin2)",
+        …
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Addons」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+
+    :5: 特定サイトのみ初期状態で許可する
+
+    default.permissions:
+    host<\t>install<\t>1<\t>http://example.com
+    # または
+    origin<\t>install<\t>1<\t>http://example.com
+
+    *.cfg / *.jsc:
+    lockPref("permissions.manager.defaultsUrl", "file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :3: 禁止する（ポリシー設定）
+
+    distribution\policies.json:
+    "BlockAboutAddons": true,
+    "InstallAddonsPermission": {
+      "Default": false
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Block Add-ons Manager」を有効化
+    カテゴリ「Firefox」→「Addons」
+    → 「Allow add-on installs from websites」を無効化
+
+    :4: 禁止するが、設定の変更は許可する
+
+    *.cfg / *.jsc:
+    lockPref("xpinstall.enabled", false);
+    // アドオンマネージャからのインストールを禁止
+    lockPref("extensions.getAddons.discovery.api_url", "");
+    lockPref("extensions.getAddons.get.url", "");
+    lockPref("extensions.getAddons.getWithPerformance.url", "");
+    lockPref("extensions.getAddons.langpacks.url", "");
+    lockPref("extensions.getAddons.link.url", "");
+    lockPref("extensions.getAddons.recommended.url", "");
+    lockPref("extensions.getAddons.search.browseURL", "");
+    lockPref("extensions.getAddons.search.url", "");
+
+    :7: 禁止するが、設定の変更は許可する（ポリシー設定）
+
+    distribution\policies.json:
+    "InstallAddonsPermission": {
+      "Default": false
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Addons」
+    → 「Allow add-on installs from websites」を無効化
+
+Security-4: 広告などのポップアップの表示の可否
+
+    :1: 確認の上で許可する（既定）
+
+    -
+
+    :2: [廃止] 特定サイトのみ常に確認無しで許可する
+
+    [廃止]
+
+    :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
+
+    distribution\policies.json:
+    "PopupBlocking": {
+      "Default": true,
+      "Locked": true,
+      "Allow": [
+        "(origin1)",
+        "(origin2)",
+        …
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Popups」
+    → 「Allow pop-ups from websites」を有効化
+    → 「Do not allow preferences to be changed」を有効化
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+
+    :5: 特定サイトのみ初期状態で確認無しで許可する
+
+    default.permissions:
+    host<\t>popup<\t>1<\t>http://example.com
+    # または
+    origin<\t>popup<\t>1<\t>http://example.com
+
+    *.cfg / *.jsc:
+    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+
+    :3: すべて確認無しで許可する
+
+    *.cfg / *.jsc:
+    lockPref("dom.disable_open_during_load", false);
+
+    :7: すべて確認無しで許可する（ポリシーで設定）
+
+    distribution\policies.json:
+    "PopupBlocking": {
+      "Default": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Popups」
+    → 「Allow pop-ups from websites」を無効化
+    → 「Do not allow preferences to be changed」を有効化
+
+    :4: 禁止する
+
+    *.cfg / *.jsc:
+    lockPref("dom.disable_open_during_load", true);
+    と設定した上で、「UI・キーボードショートカット無効化項目一覧」に従いUIを無効化
+
+    :8: 禁止する（ポリシーで設定）
+
+    distribution\policies.json:
+    "PopupBlocking": {
+      "Default": true,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Popups」
+    → 「Allow pop-ups from websites」を有効化
+    → 「Do not allow preferences to be changed」を有効化
+
+Security-5: 攻撃サイトに対する警告の可否
+
+    :1: 警告する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.malware.enabled", true);
+
+    :2: 警告しない
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.malware.enabled", false);
+    lockPref("browser.safebrowsing.downloads.remote.url", "");
+    lockPref("browser.safebrowsing.provider.google.advisoryURL", "");
+    lockPref("browser.safebrowsing.provider.google.gethashURL", "");
+    lockPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
+    lockPref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
+    lockPref("browser.safebrowsing.provider.google.reportURL", "");
+    lockPref("browser.safebrowsing.provider.google.updateURL", "");
+    lockPref("browser.safebrowsing.provider.google4.advisoryURL", "");
+    lockPref("browser.safebrowsing.provider.google4.gethashURL", "");
+    lockPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
+    lockPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
+    lockPref("browser.safebrowsing.provider.google4.dataSharingURL", "");
+    lockPref("browser.safebrowsing.provider.google4.reportURL", "");
+    lockPref("browser.safebrowsing.provider.google4.updateURL", "");
+    lockPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
+    lockPref("browser.safebrowsing.provider.mozilla.updateURL", "");
+    lockPref("browser.safebrowsing.reportMalwareMistakeURL", "");
+    lockPref("browser.safebrowsing.reportPhishMistakeURL", "");
+    lockPref("browser.safebrowsing.reportPhishURL", "");
+
+Security-6: 偽装サイトに対する警告の可否
+
+    :1: 警告する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.phishing.enabled", true);
+
+    :2: 警告しない
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.phishing.enabled", false);
+
+Security-7: [廃止] プラグインのインストールの可否
+
+    :1: [廃止] 許可する（既定）
+
+    [廃止]
+
+    :2: [廃止] 一切禁止する
+
+    [廃止]
+
+Security-8: [廃止] about:***の利用の可否
+
+    :1: [廃止] 許可する（既定）
+
+    [廃止]
+
+    :2: [廃止] 禁止する
+
+    [廃止]
+
+Security-9: about:configの利用の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: [廃止] 禁止する
+
+    [廃止]
+
+    :3: 禁止する（ポリシーで設定）
+
+    distribution\policies.json:
+    "BlockAboutConfig": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「about:config」を有効化
+
+Security-10: [廃止] エラーコンソールの利用の可否
+
+    :1: [廃止] 許可する
+
+    [廃止]
+
+    :2: [廃止] 禁止する（既定）
+
+    [廃止]
+
+Security-11: [廃止] SNS連携機能の利用の可否
+
+    :1: [廃止] 許可する（既定）
+
+    [廃止]
+
+    :2: [廃止] 禁止する
+
+    [廃止]
+
+Security-12: JavaScriptの実行の可否
+
+    :1: 許可する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("javascript.enabled", true);
+
+    :2: [廃止] 特定サイトのみ許可する
+
+    [廃止]
+
+    :3: 禁止する
+
+    *.cfg / *.jsc:
+    lockPref("javascript.enabled", false);
+
+Security-13: ローカルファイルの読み込みの可否
+
+    :1: 特定サイトのみ許可する
+
+    *.cfg / *.jsc:
+    lockPref("capability.policy.policynames", "trusted");
+    lockPref("capability.policy.trusted.sites", "http://example.com http://example.net");
+    lockPref("capability.policy.trusted.checkloaduri.enabled", "allAccess");
+
+    :3: 特定サイトのみ許可する（ポリシーで設定）
+
+    distribution\policies.json:
+    "LocalFileLinks": [
+      "http://example.com",
+      "http://example.net",
+      ...
+    ],
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Local File Links」を有効化し、「オプション」でWebサイトを追加
+
+    :2: 禁止する（既定）
+
+    -
+
+Security-14: ローカルファイルからの他ディレクトリの参照の可否
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("security.fileuri.strict_origin_policy", false);
+
+    :2: 禁止する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("security.fileuri.strict_origin_policy", true);
+
+Security-15: その他、バックグラウンドで行われる外部への通信の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    * Firefox自体の自動更新のURL（Update-1）
+    * アドオンの自動更新のURL（Update-2）
+    * アドオンのインストール (Security-3-3/4)
+    * セーフブラウジング（Security-5）
+    * ツールバーカスタマイズにおける、「その他のテーマを入手」 (Security-18)
+    * ツールバーカスタマイズにおける、テーマの「おすすめ」 (Security-19)
+    * 危険なアドオンのブロックの可否 (Security-21)
+    * プロトコルごとの外部Webアプリケーションへの連携 (Security-25)
+    * ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする (Security-26)
+    * ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する (Security-27)
+    * 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く (Security-28)
+    * 危険なFlashコンテンツの読み込み (Security-31)
+    * 危険ででしゃばりなFlashコンテンツをブロック (Security-33-2)
+    * 過去にデータ流出事故を起こしたWebサービスでの警告の表示 (Security-42-2)
+    * リンク先の先読みの可否 (Privacy-7)
+    * 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否 (Privacy-15)
+    * 検索エンジンの候補表示（Suggest）の可否 (Privacy-17)
+    * 利用状況の統計の保存および送信の可否 (Privacy-18)
+    * セキュリティエラーレポートの送信の可否 (Privacy-19)
+    * Firefox Syncの利用の可否 (Privacy-22)
+    * Firefoxアカウント (Privacy-24)
+    * トラッキング防止 (Privacy-33)
+    * Gecko Media Pluginの利用の可否 (Plugin-8)
+    * 初回起動時のみの特別なスタートページ(Startup-12)
+
+    上記に加え、以下の設定を行う。
+
+    *.cfg / *.jsc:
+    // アクセシビリティの情報
+    lockPref("accessibility.support.url", "");
+    // 各種詳細説明のURL
+    lockPref("app.feedback.baseURL", "");
+    lockPref("app.support.baseURL", "");
+    lockPref("app.releaseNotesURL", "");
+    lockPref("app.update.url.details", "");
+    lockPref("app.update.url.manual", "");
+    lockPref("browser.chrome.errorReporter.infoURL", "");
+    // 統計情報の収集
+    lockPref("app.normandy.api_url", "");
+    lockPref("app.normandy.shieldLearnMoreUrl", "");
+    // Webサイトの互換性情報のURL
+    lockPref("breakpad.reportURL", "");
+    // トラッキングブロック
+    lockPref("browser.contentblocking.report.cookie.url", "");
+    lockPref("browser.contentblocking.report.cryptominer.url", "");
+    lockPref("browser.contentblocking.report.fingerprinter.url", "");
+    lockPref("browser.contentblocking.report.lockwise.how_it_works.url", "");
+    lockPref("browser.contentblocking.report.lockwise.mobile-android.url", "");
+    lockPref("browser.contentblocking.report.lockwise.mobile-ios.url", "");
+    lockPref("browser.contentblocking.report.manage_devices.url", "");
+    lockPref("browser.contentblocking.report.mobile-android.url", "");
+    lockPref("browser.contentblocking.report.mobile-ios.url", "");
+    lockPref("browser.contentblocking.report.monitor.home_page_url", "");
+    lockPref("browser.contentblocking.report.monitor.how_it_works.url", "");
+    lockPref("browser.contentblocking.report.monitor.preferences_url", "");
+    lockPref("browser.contentblocking.report.monitor.sign_in_url", "");
+    lockPref("browser.contentblocking.report.monitor.url", "");
+    lockPref("browser.contentblocking.report.proxy_extension.url", "");
+    lockPref("browser.contentblocking.report.social.url", "");
+    lockPref("browser.contentblocking.report.tracker.url", "");
+    lockPref("browser.contentblocking.reportBreakage.url", "");
+    // オートコレクト用辞書の取得先URL
+    lockPref("browser.dictionaries.download.url", "");
+    // 位置情報サービスの説明用URL
+    lockPref("browser.geolocation.warning.infoURL", "");
+    // 新規タブページ
+    lockPref("browser.newtabpage.activity-stream.asrouter.providers.snippets", "");
+    lockPref("browser.newtabpage.activity-stream.default.sites", "");
+    lockPref("browser.newtabpage.activity-stream.discoverystream.config", "");
+    lockPref("browser.newtabpage.activity-stream.discoverystream.endpointSpocsClear", "");
+    lockPref("browser.newtabpage.activity-stream.discoverystream.endpoints", "");
+    lockPref("browser.newtabpage.activity-stream.discoverystream.feeds.seciton.topstories.options", "{}");
+    lockPref("browser.newtabpage.activity-stream.fxaccounts.endpoint", "");
+    lockPref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "");
+    lockPref("browser.newtabpage.pinned", "[]");
+    // 地域情報をWi-Fiアクセスポイントから取得するためのURL
+    lockPref("browser.region.network.url", "");
+    // 地域ごとのデフォルトの検索サービス切り替え
+    lockPref("browser.search.geoSpecificDefaults", false);
+    lockPref("browser.search.geoSpecificDefaults.url", "");
+    // 検索プロバイダ（検索エンジン）の取得元URL
+    lockPref("browser.search.searchEnginesURL", "");
+    // UIツアー
+    lockPref("browser.uitour.themeOrigin", "");
+    lockPref("browser.uitour.url", "");
+    // WebXR APIの案内
+    lockPref("browser.xr.warning.infoURL", "");
+    // 接続の状態（接続が制限されているかどうかなど）を判定するためのアクセス先
+    lockPref("captivedetect.canonicalURL", "");
+    // 統計情報の案内
+    lockPref("datareporting.healthreport.infoURL", "");
+    // 開発ツールで使用するデバイス
+    lockPref("devtools.devices.url", "");
+    // 開発者ツールからの外部サイト参照の無効化
+    lockPref("devtools.performance.recording.ui-base-url", "");
+    lockPref("devtools.remote.adb.extensionURL", "");
+    // 不正なアドオンの報告・警告
+    lockPref("extensions.abuseReport.amoDetailsURL", "");
+    lockPref("extensions.abuseReport.url", "");
+    lockPref("extensions.blocklist.addonItemURL", "");
+    // アドオンのインストールやおすすめの列挙
+    lockPref("extensions.getAddons.discovery.api_url", "");
+    lockPref("extensions.getAddons.langpacks.url", "");
+    lockPref("extensions.getAddons.link.url", "");
+    lockPref("extensions.getAddons.search.browseURL", "");
+    lockPref("extensions.recommendations.privacyPolicyUrl", "");
+    lockPref("extensions.recommendations.themeRecommendationUrl", "");
+    // パッチ、組み込みのアドオンの更新
+    lockPref("extensions.systemAddon.update.url", "");
+    // 互換性の問題の報告
+    lockPref("extensions.webcompat-reporter.newIssueEndpoint", "");
+    lockPref("media.decoder-doctor.new-issue-endpoint", "");
+    // 位置情報をWi-Fiアクセスポイントから取得するためのURL
+    lockPref("geo.provider.network.url", "");
+    // Firefox Accounts
+    lockPref("identity.fxaccounts.service.monitorLoginUrl", "");
+    lockPref("identity.fxaccounts.service.sendLoginUrl", "");
+    lockPref("identity.sendtabpromo.url", "");
+    lockPref("identity.sync.tokenserver.uri", "");
+    // Firefox Sync向けモバイルアプリの宣伝リンク
+    lockPref("identity.mobilepromo.android", "");
+    lockPref("identity.mobilepromo.ios", "");
+    // クラッシュレポーターの関連情報
+    lockPref("toolkit.crashreporter.infoURL", "");
+    // アドオンの署名義務化に関するメッセージ
+    lockPref("xpinstall.signatures.devInfoURL", "");
+    // IPv4, IPv6の疎通確認
+    lockPref("network.connectivity-service.enabled", false);
+    lockPref("network.connectivity-service.IPv4.url", "");
+    lockPref("network.connectivity-service.IPv6.url", "");
+    // DNSの疎通確認
+    lockPref("network.connectivity-service.DNSv4.domain", "");
+    lockPref("network.connectivity-service.DNSv6.domain", "");
+    // DNS over HTTPS
+    // Security-36-1/2とは共存不可
+    lockPref("network.trr.resolvers", "[]");
+    lockPref("network.trr.uri", "");
+    // ブロックリスト等の取得
+    lockPref("services.settings.server", "localhost");
+    // 中間者攻撃の検出
+    lockPref("security.certerrors.mitm.priming.endpoint", "");
+    // Lockwise（パスワードマネージャ）
+    lockPref("signon.management.page.mobileAndroidURL", "");
+    lockPref("signon.management.page.mobileAppleURL", "");
+    // 統計情報の送信
+    lockPref("toolkit.coverage.endpoint.base", "");
+    lockPref("toolkit.datacollection.infoURL", "");
+    // Firefox Sync
+    lockPref("webextensions.storage.sync.serverURL", "");
+
+Security-16: フルスクリーン表示の可否
+
+    :1: 確認の上で許可する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("full-screen-api.enabled", true);
+
+    :2: [廃止] 特定サイトのみ確認なしで許可する
+
+    [廃止]
+
+    :3: 禁止する
+
+    *.cfg / *.jsc:
+    lockPref("full-screen-api.enabled", false);
+
+Security-17: [廃止] about:homeからマーケットプレイスへの遷移の可否
+
+    :1: [廃止] 許可する（既定）
+
+    [廃止]
+
+    :2: [廃止] 禁止する
+
+    [廃止]
+
+Security-18: ツールバーカスタマイズにおける、「その他のテーマを入手」の遷移の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    *.cfg / *.jsc:
+    lockPref("lightweightThemes.getMoreURL", "");
+
+Security-19: ツールバーカスタマイズにおける、テーマの「おすすめ」の取得の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    *.cfg / *.jsc:
+    lockPref("extensions.getAddons.discovery.api_url", "");
+
+Security-20: [廃止] パーミッション設定変更の可否
+
+    :1: [廃止] 変更を許可する（既定）
+
+    [廃止]
+
+    :2: [廃止] 変更を禁止する
+
+    [廃止]
+
+Security-21: 危険なアドオンとプラグインのブロックの可否
+
+    :1: ブロックする（既定）
+
+    -
+
+    :2: ブロックしない
+
+    *.cfg / *.jsc:
+    lockPref("extensions.blocklist.enabled", false);
+    lockPref("extensions.blocklist.detailsURL", "");
+    lockPref("extensions.blocklist.itemURL", "");
+    lockPref("extensions.blocklist.url", "");
+
+Security-22: [廃止] Webアプリケーションのインストールの可否
+
+    :1: [廃止] marketplace.firefox.comからのインストールのみ許可（既定）
+
+    [廃止]
+
+    :2: [廃止] 禁止する
+
+    [廃止]
+
+Security-23: プラグインのサンドボックス内実行
+
+    :1: サンドボックス内で実行しない（既定）
+
+    *.cfg / *.jsc:
+    lockPref("dom.ipc.plugins.sandbox-level.default", 0);
+    lockPref("dom.ipc.plugins.sandbox-level.flash", 0);
+
+    :2: Flashプラグインのみサンドボックス内で実行
+
+    *.cfg / *.jsc:
+    lockPref("dom.ipc.plugins.sandbox-level.default", 0);
+    lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+    :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
+
+    *.cfg / *.jsc:
+    defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
+    defaultPref("dom.ipc.plugins.sandbox-level.flash", 2);
+
+    :3: すべてサンドボックス内で実行
+
+    *.cfg / *.jsc:
+    // 1: 管理者権限のないユーザのレベル
+    // 2: より厳格なレベル（機能的に問題が起こりうる）
+    // 3: 最も厳格なレベル
+    lockPref("dom.ipc.plugins.sandbox-level.default", 1);
+    lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+Security-24: Flashプラグインの保護モード
+
+    :1: 使用する（既定）
+
+    -
+
+    :2: 使用しない
+
+    *.cfg / *.jsc:
+    // 32bit版でのみ使用される設定。
+    // 64bit版では設定項目が表示されず使用されないため、
+    // 設定ファイルの共通化の際にはそのまま残しても問題無い。
+    lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
+
+Security-25: プロトコルごとの外部Webアプリケーションへの連携
+
+    :1: 使用する（既定）
+
+    -
+
+    :2: 使用しない
+
+    *.cfg / *.jsc:
+    // Webフィード用のサービス
+    lockPref("browser.contentHandlers.types.0.name", "");
+    lockPref("browser.contentHandlers.types.0.uri", "");
+    lockPref("browser.contentHandlers.types.1.name", "");
+    lockPref("browser.contentHandlers.types.1.uri", "");
+    pref("browser.contentHandlers.types.2.name", "");
+    pref("browser.contentHandlers.types.2.uri", "");
+    pref("browser.contentHandlers.types.3.name", "");
+    pref("browser.contentHandlers.types.3.uri", "");
+    pref("browser.contentHandlers.types.4.name", "");
+    pref("browser.contentHandlers.types.4.uri", "");
+    pref("browser.contentHandlers.types.5.name", "");
+    pref("browser.contentHandlers.types.5.uri", "");
+    // IRC
+    lockPref("gecko.handlerService.schemes.irc.0.name", "");
+    lockPref("gecko.handlerService.schemes.irc.0.uriTemplate", "");
+    pref("gecko.handlerService.schemes.irc.1.name", "");
+    pref("gecko.handlerService.schemes.irc.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.irc.2.name", "");
+    pref("gecko.handlerService.schemes.irc.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.irc.3.name", "");
+    pref("gecko.handlerService.schemes.irc.3.uriTemplate", "");
+    lockPref("gecko.handlerService.schemes.ircs.0.name", "");
+    lockPref("gecko.handlerService.schemes.ircs.0.uriTemplate", "");
+    pref("gecko.handlerService.schemes.ircs.1.name", "");
+    pref("gecko.handlerService.schemes.ircs.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.ircs.2.name", "");
+    pref("gecko.handlerService.schemes.ircs.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.ircs.3.name", "");
+    pref("gecko.handlerService.schemes.ircs.3.uriTemplate", "");
+    // メール
+    lockPref("gecko.handlerService.schemes.mailto.0.name", "");
+    lockPref("gecko.handlerService.schemes.mailto.0.uriTemplate", "");
+    lockPref("gecko.handlerService.schemes.mailto.1.name", "");
+    lockPref("gecko.handlerService.schemes.mailto.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.mailto.2.name", "");
+    pref("gecko.handlerService.schemes.mailto.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.mailto.3.name", "");
+    pref("gecko.handlerService.schemes.mailto.3.uriTemplate", "");
+    // カレンダー
+    lockPref("gecko.handlerService.schemes.webcal.0.name", "");
+    lockPref("gecko.handlerService.schemes.webcal.0.uriTemplate", "");
+    pref("gecko.handlerService.schemes.webcal.1.name", "");
+    pref("gecko.handlerService.schemes.webcal.1.uriTemplate", "");
+    pref("gecko.handlerService.schemes.webcal.2.name", "");
+    pref("gecko.handlerService.schemes.webcal.2.uriTemplate", "");
+    pref("gecko.handlerService.schemes.webcal.3.name", "");
+    pref("gecko.handlerService.schemes.webcal.3.uriTemplate", "");
+
+Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
+
+    :1: ブロックする（既定）
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.downloads.enabled", true);
+
+    :2: ブロックしない
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.downloads.enabled", false);
+
+Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
+
+    :1: 警告する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
+    lockPref("browser.safebrowsing.downloads.remote.block_uncommon", true);
+
+    :2: 警告しない
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+    lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+
+Security-28: 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く
+
+    :1: タブを開く（既定）
+
+    -
+
+    :2: 何もしない
+
+    *.cfg / *.jsc:
+    lockPref("network.captive-portal-service.enabled", false);
+
+    :3: 何もしない（ポリシーで設定）
+
+    distribution\policies.json:
+    "CaptivePortal": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Captive Portal」を無効化
+
+Security-29: [廃止] SSL/TLSでないページでの「secure」属性付きCookieの読み書き(HTTPSなページで設定したCookieの値をHTTPなページから読み書きする)
+
+    :1: [廃止] 許可する
+
+    [廃止]
+
+    :2: [廃止] 禁止する（既定）
+
+    [廃止]
+
+Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの実行
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("security.block_script_with_wrong_mime", false);
+
+    :2: 禁止する（既定）
+
+    -
+
+Security-31: 危険なFlashコンテンツの読み込み
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("browser.safebrowsing.blockedURIs.enabled", false);
+
+    :2: ブロックする（既定）
+
+    -
+
+Security-32: アドオンのインストール時の警告
+
+    :1: 警告する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("xpinstall.whitelist.required", true);
+
+    :2: 警告しない
+
+    *.cfg / *.jsc:
+    lockPref("xpinstall.whitelist.required", false);
+
+Security-33: 危険ででしゃばりなFlashコンテンツをブロック
+
+    :1: ブロックする（既定）
+
+    *.cfg / *.jsc:
+    lockPref("plugins.flashBlock.enabled", true);
+
+    :2: ブロックしない
+
+    *.cfg / *.jsc:
+    lockPref("plugins.flashBlock.enabled", false);
+
+Security-34: about:profilesの使用
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "BlockAboutProfiles": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Block about:profiles」を有効化
+
+Security-35: about:supportの使用
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "BlockAboutSupport": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Block Troubleshooting Information」を有効化
+
+Security-36: DNS over HTTPSの使用
+
+    :1: Mozillaの判断に従う（既定）
+
+    // 2020年7月現在は、US地域の英語版でのみ有効で、それ以外では無効。
+
+    :2: 使用する（ポリシーで設定）
+
+    distribution\policies.json:
+    "DNSOverHTTPS": {
+      "Enabled": true,
+      "ProviderURL": "https://mozilla.cloudflare-dns.com/dns-query".
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「DNS Over HTTPS」
+    → 「Enabled」を有効化
+    → 「Provider URL」を有効化してURLを設定
+    → 「Locked」を有効化
+
+    :3: 使用を禁止する（ポリシーで設定）
+
+    distribution\policies.json:
+    "DNSOverHTTPS": {
+      "Enabled": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「DNS Over HTTPS」
+    → 「Enabled」を無効化
+    → 「Locked」を有効化
+
+Security-37: セキュリティ警告の回避
+
+    :1: 制限しない（既定）
+
+    -
+
+    :2: 警告の回避を禁止する（ポリシーで設定）
+
+    // 証明書の例外登録、詐欺サイトの強制表示を禁止
+    distribution\policies.json:
+    "DisableSecurityBypass": {
+      "InvalidCertificate": true,
+      "SafeBrowsing": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Prevent overriding certificate errors」を有効化
+    → 「Prevent overriding safe browsing errors」を有効化
+
+Security-38: セキュリティデバイスの登録
+
+    :1: 登録しない（既定）
+
+    -
+
+    :2: 登録する（ポリシーで設定）
+
+    distribution\policies.json:
+    "SecurityDevices": {
+      "デバイス名1": "C:\\Path\\To\\Library.dll",
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Security Devices」を有効化し、オプションでデバイス名とパスのペアを追加
+
+Security-39: 特定のWebサイトへのアクセスの遮断
+
+    :1: 遮断しない（既定）
+
+    -
+
+    :2: 遮断する（ポリシーで設定）
+
+    // ブロックする対象のURLを示すマッチパターン。
+    // （詳細は https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns を参照）
+    // http:またはhttps:で始まるサイトのみが対象で、最大1000項目まで指定可能。
+    distribution\policies.json:
+    "WebsiteFilter": {
+      "Block": [
+        "https://twitter.com/*",
+        "https://*.twitter.com/*",
+        ...
+      ],
+      "Exceptions": [
+        "https://twitter.com/about",
+        ...
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Blocked websites」を有効化し、オプションでURLのパターンを追加
+    → 「Exceptions to blocked websites」を有効化し、オプションで例外のURLのパターンを追加
+
+Security-40: アドオンのインストールを遮断した際の追加のメッセージ
+
+    :1: 常に共通のメッセージを表示（既定）
+
+    -
+
+    :2: アドオンごとにメッセージを指定（ポリシーで設定）
+
+    distribution\policies.json:
+    "ExtensionSettings": {
+      "example@example.com": { // アドオンのID
+        "blocked_install_message": "このアドオンは使用禁止です"
+      }
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Extensions」
+    → 「Extension Management」を有効化し、「オプション」欄に、policies.jsonにおいて"ExtensionSettings"の値となるJSON文字列を記述
+
+Security-41: 複数のポップアップを一度に開く操作
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("dom.block_multiple_popups", false);
+
+    :2: 禁止する（既定）
+
+    -
+
+Security-42: 過去にデータ流出事故を起こしたWebサービスでの警告の表示
+
+    :1: 警告を表示する（既定）
+
+    -
+    // Security-15-2の
+    // lockPref("services.settings.server", "localhost");
+    // とは併用不可能
+
+    :2: 警告を表示しない
+
+    *.cfg / *.jsc:
+    lockPref("extensions.fxmonitor.enabled", false);
+
+Security-43: ローカルファイルからの同じディレクトリのファイルの参照の可否
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("privacy.file_unique_origin", false);
+
+    :2: 禁止する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("privacy.file_unique_origin", true);
+
+Security-44: HTTPSでないURLのページでのカメラ・マイクの使用の可否
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("media.getusermedia.insecure.enabled", true);
+
+    :2: 禁止する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("media.getusermedia.insecure.enabled", false);
+
+Security-45: 証明書の例外の自動承認
+
+    :1: 特定のホストの証明書の例外を自動的に承認する
+
+    *.cfg / *.jsc:
+    const autoAcceptExceptionFor = (host, port = 443) => {
+      const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
+      const exceptionURL = port == 443 ? `https://${host}` : `https://${host}:${port}`;
+    
+      const { Services } = Cu.import('resource://gre/modules/Services.jsm', {});
+      const observer = {
+        observe(aSubject, aTopic, aData) {
+          switch (aTopic) {
+            case 'domwindowopened':
+              if (!aSubject.getInterface(Ci.nsIWebNavigation)
+                           .QueryInterface(Ci.nsIDocShell)
+                           .QueryInterface(Ci.nsIDocShellTreeNode || Ci.nsIDocShellTreeItem) // nsIDocShellTreeNode is merged to nsIDocShellTreeItem by https://bugzilla.mozilla.org/show_bug.cgi?id=331376
+                           .QueryInterface(Ci.nsIDocShellTreeItem)
+                           .parent) {
+                const win = aSubject.getInterface(Ci.nsIDOMWindow);
+                win.addEventListener('load', () => tryHandleWindow(win), { once: true });
+              }
+              return;
+          }
+        },
+        QueryInterface(aIID) {
+          if (!aIID.equals(Ci.nsIObserver) &&
+              !aIID.equals(Ci.nsISupports)) {
+            throw Components.results.NS_ERROR_NO_INTERFACE;
+          }
+          return this;
+        }
+      };
+    
+      const waitUntilEventOrTimeout = (target, type, timeout) => {
+        return new Promise((resolve, reject) => {
+          const win = (target.ownerDocument || target).defaultView || target;
+          const listener = () => {
+            target.removeEventListener(type, listener);
+            win.clearTimeout(timer);
+            resolve();
+          };
+          const timer = win.setTimeout(listener, timeout);
+          target.addEventListener(type, listener);
+        });
+      };
+    
+      const WW = Cc['@mozilla.org/embedcomp/window-watcher;1'].getService(Ci.nsIWindowWatcher);
+      const teardown = () => {
+        WW.unregisterNotification(observer);
+        //if (tab)
+        //  tab.ownerDocument.defaultView.gBrowser.removeTab(tab);
+      };
+    
+      let tab;
+      const tryHandleWindow = async (win) => {
+        Services.console.logStringMessage(`tryHandleWindow ${win.location.href}`);
+        switch (win.location.href.replace(/(\?.*)(#.*)$/, '')) {
+          case 'chrome://browser/content/browser.xhtml': {
+            Services.console.logStringMessage(` => waiting MozAfterPaint`);
+            await new Promise((resolve, reject) => {
+              win.addEventListener('MozAfterPaint', resolve, { once: true });
+            });
+            Services.console.logStringMessage(` => MozAfterPaint done`);
+    
+            //win.openNewTabWith(exceptionURL);
+            Services.console.logStringMessage(` => waiting TabAttrModified`);
+            await new Promise((resolve, reject) => {
+              const listener = (event) => {
+                if (event.detail.changed != 'busy' ||
+                    event.target.getAttribute('busy') == 'true')
+                  return;
+                win.setTimeout(() => {
+                  const uri = event.target.linkedBrowser.lastURI || event.target.linkedBrowser.currentURI;
+                  if (!uri || uri.spec.indexOf(exceptionURL) != 0)
+                    return;
+                  win.document.removeEventListener('TabAttrModified', listener);
+                  tab = event.target;
+                  resolve();
+                }, 100);
+              };
+              win.document.addEventListener('TabAttrModified', listener);
+            });
+            Services.console.logStringMessage(` => TabAttrModified done`);
+    
+            const browser = tab.linkedBrowser;
+            Services.console.logStringMessage(` => try load script`);
+            browser.messageManager.loadFrameScript('data:text/javascript,(' + (async (waitUntilEventOrTimeout) => {
+              const doc = docShell.QueryInterface(Components.interfaces.nsIWebNavigation).document;
+              const win = doc.defaultView;
+              await waitUntilEventOrTimeout(doc, 'AboutNetErrorLoad', 500);
+    
+              const advancedButton = doc.getElementById('advancedButton');
+              if (advancedButton) {
+                advancedButton.dispatchEvent(new win.MouseEvent('click', { button: 0 }));
+                const exceptionDialogButton = doc.getElementById('exceptionDialogButton');
+                if (exceptionDialogButton) {
+                  exceptionDialogButton.click();
+                  return; /* success case, go to next step: exceptionDialog */
+                }
+              }
+              /* failure case */
+            }).toString() + ')(' + waitUntilEventOrTimeout.toString() + ')', false, false);
+            Services.console.logStringMessage(` => done`);
+          }; break;
+        }
+      };
+    
+      WW.registerNotification(observer);
+    };
+    autoAcceptExceptionFor('ホスト名');
+
+    :2: 特定のホストの証明書の例外を自動的に承認しない（既定）
+
+    -
+
+Security-46: CRLiteの使用
+
+    :1: CRLiteを使用して、Mozillaが把握している信頼されたWeb PKI認証局の証明書をローカルにキャッシュする（既定）
+
+    -
+
+    :2: 無効化する
+
+    *.cfg / *.jsc:
+    lockPref("security.pki.crlite_mode", 0);
+
+Securiyt-47: OSの証明書ストアのクライアント証明書の利用
+
+    :1: 使用する
+
+    *.cfg / *.jsc:
+    lockPref("security.osclientcerts.autoload", true);
+
+    :2: 使用しない（既定）
+
+    -
+
+Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可する
+
+    :1: 許可する
+
+    distribution\policies.json:
+    "LegacySameSiteCookieBehaviorEnabled": true,
+
+    GPO:
+    （2020年9月11日現在未定義）
+
+    :2: 禁止する（既定）
+
+    -
+
+Securiyt-49: 「ようこそ」画面からのFirefox Monitorへの遷移
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "WebsiteFilter": {
+      "Block": [
+        "https://monitor.firefox.com/?utm_source=activity-stream*"
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Blocked websites」を有効化し、「オプション」欄に「https://monitor.firefox.com/?utm_source=activity-stream*」を追加
+
+Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "WebsiteFilter": {
+      "Block": [
+        "https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*"
+      ]
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Blocked websites」を有効化し、「オプション」欄に「https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*」を追加
