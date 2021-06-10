@@ -106,6 +106,34 @@ toc-title: 目次
 * `:-moz-user-disabled`疑似クラスが削除されました。
 * `window.name`プロパティがクロスオリジンで共有されないようになりました。
 
+## Firefox 83
+
+* HTTPSオンリーモードが追加されました (`dom.security.https_only_mode`)
+* WindowsとMacにおいて、タッチデバイスのピンチズームに対応しました。
+* 画面共有時のステータス表示で、どの画面を共有しているかが見やすくなりました。
+  ![](esr91/screenshare.png)
+* 検索パネルの検索エンジンをクリック時に、検索モードに移行するようになりました。従来の動作（検索を即時実行する）は、Shiftキーを押下しながらクリックすることで呼び出せます。  
+  ![](esr91/searchengine.png)
+* アドレスバーから、個別の検索エンジンで直接検索できるようになりました。
+  ![](esr91/directsearch.png)
+* AcroFormをサポートし、FirefoxでPDFのフォームを入力できるようになりました。
+* 「新しいタブ」ページにPocketのおすすめが表示されるようになりました（インド英語版のみ）
+* Rosseta 2エミュレーションにより、Apple SilliconデバイスでFirefoxを利用できるようになりました。
+* Windows 7/8およびmacOS 10.12-10.15において、WebRenderが有効化されるようになりました。
+* ピクチャーインピクチャーで矢印キーが正しく動作しない不具合を修正しました。
+
+### アクセシビリティ
+
+* スクリーンリーダーで、Google Docsの段落が検出できない問題を解決しました。
+* スクリーンリーダーで単語毎に読み上げる時に、近くの句読点を元に正しく単語を判定できるようになりました。
+
+### ポリシー設定
+
+* `ManagedBookmarks`ポリシーが新しく追加されました。
+* `Preferences`ポリシーで、`general.autoScroll.`・`general.smoothScroll`・`signon`から始まる設定を管理できるようになりました。
+* `OverrideFirstRunPage`ポリシーで、複数のページを設定できるようになりました。
+* `WebsiteFilter`ポリシーで、`file://`でローカルファイルをブロックできるようになりました。
+* `DisableTelemetry`ポリシー有効化時に、`toolkit.telemetry.archive.enabled`を`false`に設定するようになりました。
 
 ## Firefox84
 
