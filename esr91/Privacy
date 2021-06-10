@@ -1216,3 +1216,15 @@ Privacy-53: パスワードの自動生成機能の使用
     *.cfg / *.jsc:
     lockPref("signon.generation.enabled", false);
 
+Privacy-54: supercookieによるユーザー識別の遮断
+
+    :1: 遮断する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("privacy.partition.network_state", true);
+
+    :2: 遮断しない
+
+    *.cfg / *.jsc:
+    lockPref("privacy.partition.network_state", false);
+

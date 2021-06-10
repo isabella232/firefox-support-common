@@ -1732,3 +1732,17 @@ Privacy-53: パスワードの自動生成機能の使用
     OPTIONS
 
     - 「プライバシーとセキュリティ」→「ログインとパスワード」→「強固なパスワードを生成、提案する」にチェックが入っておらず、選択不可になっている。
+
+Privacy-54: supercookieによるユーザー識別の遮断
+
+    :1: 遮断する（既定）
+
+    ABOUT_CONFIG
+
+    - `privacy.partition.network_state` の値が `true` である。
+
+    :2: 遮断しない
+
+    ABOUT_CONFIG
+
+    - `privacy.partition.network_state` の値が `false` である。
