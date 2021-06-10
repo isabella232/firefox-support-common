@@ -71,7 +71,22 @@ Appearance-4: [廃止] ウィンドウコントロールの不具合の回避（
 
 Appearance-5: 初期状態でのブックマークツールバーの表示
 
-    :1: 表示する（ポリシーで設定）
+    :1: 表示する
+
+    *.cfg / *.jsc:
+    lockPref("browser.toolbars.bookmarks.visibility", "always");
+
+    :2: 表示しない
+
+    distribution\policies.json:
+    "DisplayBookmarksToolbar": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Display Bookmarks Toolbar」を無効化
+    //
+
+    :3: 新しいタブでのみ自動的に表示（既定）
 
     distribution\policies.json:
     "DisplayBookmarksToolbar": true,
@@ -79,10 +94,6 @@ Appearance-5: 初期状態でのブックマークツールバーの表示
     GPO:
     カテゴリ「Firefox」
     → 「Display Bookmarks Toolbar」を有効化
-
-    :2: 表示しない（既定）
-
-    -
 
 Appearance-6: 初期状態でのメニューバーの表示
 
