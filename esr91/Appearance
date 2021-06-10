@@ -39,7 +39,7 @@ Appearance-2: ツールバー上の項目の初期設定
     pref("browser.uiCustomization.state", JSON.stringify({
       ...
     }));
-    Pref("browser.migration.version", 78);
+    pref("browser.migration.version", 78);
 
 Appearance-3: アドレスバーと検索バーの統合
 
