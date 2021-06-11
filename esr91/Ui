@@ -119,3 +119,20 @@ Ui-9: Tabキーでのツールバーボタンへのフォーカス移動
     *.cfg / *.jsc:
     lockPref("browser.toolbars.keyboard_navigation", false);
 
+Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
+
+    :1: なし（既定）
+
+    *.cfg / *.jsc:
+    lockPref("browser.backspace_action", 2);
+
+    :2: 戻る/進む
+
+    *.cfg / *.jsc:
+    lockPref("browser.backspace_action", 0);
+
+    :3: 1ページ上にスクロール/下にスクロール
+
+    *.cfg / *.jsc:
+    lockPref("browser.backspace_action", 1);
+
