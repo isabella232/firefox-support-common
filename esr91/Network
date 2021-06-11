@@ -488,3 +488,29 @@ Network-20: Google Workspaceへのアクセスを許可するドメイン
     GPO:
     カテゴリ「Firefox」
     →「Define domains allowed to access Google Workspace」を有効化し、オプションでドメイン名をカンマ区切りで列挙
+
+Network-21: FTPの使用
+
+    :1: 使用しない（既定）
+
+    -
+
+    :2: 使用する
+
+    *.cfg / *.jsc:
+    lockPref("network.ftp.enabled", true);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.ftp.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

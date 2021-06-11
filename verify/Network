@@ -401,4 +401,17 @@ Network-20: Google Workspaceへのアクセスを許可するドメイン
 
     - `AllowedDomainsForApps` の値として、指定のサイトのドメイン名がカンマ区切りで列挙されている。
 
+Network-21: FTPの使用
+
+    :1: 使用しない（既定）
+
+    ABOUT_CONFIG
+
+    - `network.ftp.enabled` の値が `false` である。
+
+    :2: 使用する
+
+    ABOUT_CONFIG
+
+    - `network.ftp.enabled` の値が `true` である。
 
