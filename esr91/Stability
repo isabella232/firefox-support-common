@@ -73,3 +73,26 @@ Stability-4: WebRenderの有効化
     lockPref("gfx.webrender.all", false);
     lockPref("gfx.webrender.enabled", false);
     lockPref("gfx.webrender.force-disabled", true);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "gfx.webrender.all": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "gfx.webrender.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "gfx.webrender.force-disabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

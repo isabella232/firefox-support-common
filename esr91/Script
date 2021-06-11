@@ -9,11 +9,24 @@ Script-1: スクリプトによる頻繁なalertの可否
     *.cfg / *.jsc:
     lockPref("dom.successive_dialog_time_limit", 0);
 
-    :2: 禁止する（既定）
+    または
 
-    // 3秒以内にalertが繰り返されたら警告を表示する（既定値）
-    *.cfg / *.jsc:
-    lockPref("dom.successive_dialog_time_limit", 3);
+    distribution\policies.json:
+    "Preferences": {
+      "dom.successive_dialog_time_limit": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: 禁止する（3秒以内にalertが繰り返されたら警告を表示する）（既定）
+
+    -
 
 Script-2: プッシュ通知の可否
 
@@ -75,25 +88,53 @@ Script-3: ゲームパッドAPIの利用の可否
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("dom.gamepad.enabled",true);
+    -
 
     :2: 禁止する
 
     *.cfg / *.jsc:
-    lockPref("dom.gamepad.enabled",false);
+    lockPref("dom.gamepad.enabled", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.gamepad.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Script-4: DOMイベントによるクリップボード操作のオーバーライド
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    defaultPref("dom.event.clipboardevents.enabled", true);
+    -
 
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("dom.event.clipboardevents.enabled", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.event.clipboardevents.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Script-5: DOMイベントによるコンテキストメニュー操作のオーバーライド
 
@@ -105,6 +146,21 @@ Script-5: DOMイベントによるコンテキストメニュー操作のオー�
 
     *.cfg / *.jsc:
     lockPref("dom.event.contextmenu.enabled", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.event.contextmenu.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Script-6: [廃止] 左クリック以外のクリック操作によるイベントの発火
 
@@ -124,17 +180,74 @@ Script-7: 動画・音声の自動再生の可否
     lockPref("media.autoplay.default", 0); // すべて自動再生
     lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "media.autoplay.default": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      "media.autoplay.blocking_policy": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("media.autoplay.default", 5); // すべて禁止
     lockPref("media.autoplay.blocking_policy", 1); // 制限を解除しても dom.user_activation.transient.timeout の時間が経過したら制限状態に戻す
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "media.autoplay.default": {
+        "Value": 5,
+        "Status": "locked"
+      },
+      "media.autoplay.blocking_policy": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :3: 原則禁止するが、ユーザーの操作で再生される物は許可（既定）
 
     *.cfg / *.jsc:
     lockPref("media.autoplay.default", 1); // 音声無しはすべて自動再生、それ以外は禁止
     lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "media.autoplay.default": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      "media.autoplay.blocking_policy": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
@@ -147,6 +260,21 @@ Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
     *.cfg / *.jsc:
     lockPref("dom.targetBlankNoOpener.enabled", false);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.targetBlankNoOpener.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Script-9: ページ読み込み時点での、購読を促す通知の表示の可否
 
     :1: 表示する
@@ -154,6 +282,21 @@ Script-9: ページ読み込み時点での、購読を促す通知の表示の�
     *.cfg / *.jsc:
     // Script-2-3, Script-2-5との併用は不可能（これらが反映されている場合は常にScript-9-2選択時の挙動になる）。
     lockPref("dom.webnotifications.requireuserinteraction", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.webnotifications.requireuserinteraction": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 禁止する（既定）
 
@@ -170,6 +313,21 @@ Script-10: 動画に対するPicture-in-Picture表示の可否
     *.cfg / *.jsc:
     lockPref("media.videocontrols.picture-in-picture.enabled", false);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "media.videocontrols.picture-in-picture.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Script-11: AudioWorklet APIの使用の可否
 
     :1: 許可する（既定）
@@ -180,3 +338,18 @@ Script-11: AudioWorklet APIの使用の可否
 
     *.cfg / *.jsc:
     lockPref("dom.worklet.enabled", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.worklet.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

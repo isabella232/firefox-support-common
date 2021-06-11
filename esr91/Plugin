@@ -16,35 +16,15 @@ Plugin-1: [廃止] Javaプラグインの有効・無効の制御
 
     [廃止]
 
-Plugin-2: Adobe Flashプラグインの有効・無効の制御
+Plugin-2: [廃止] Adobe Flashプラグインの有効・無効の制御
 
-    :1: 常に無効化する
+    :1: [廃止] 常に無効化する
 
-    *.cfg / *.jsc:
-    lockPref("plugin.state.flash", 0);
+    -
 
-    サイト別の初期状態のみを設定する場合:
-    default.permissions:
-    host<\t>plugin:flash<\t>2<\t>http://example.com
-    host<\t>plugin-vulnerable:flash<\t>2<\t>http://example.com
-    # または
-    origin<\t>plugin:flash<\t>2<\t>http://example.com
-    origin<\t>plugin-vulnerable:flash<\t>2<\t>http://example.com
-    MCD:
-    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+    :4: [廃止] 常に無効化する（ポリシーで設定）
 
-    :4: 常に無効化する（ポリシーで設定）
-
-    distribution\policies.json:
-    "FlashPlugin": {
-      "Default": false,
-      "Locked": true
-    },
-
-    GPO:
-    カテゴリ「Firefox」→「Flash」
-    → 「Activate Flash on websites」を無効化
-    →「Do not allow preferences to be changed」を有効化
+    -
 
     :2: [廃止] 常に有効化する
 
@@ -54,29 +34,9 @@ Plugin-2: Adobe Flashプラグインの有効・無効の制御
 
     [廃止]
 
-    :3: クリックされたら有効にする（既定）（ポリシーで設定）
+    :3: [廃止] クリックされたら有効にする（既定）（ポリシーで設定）
 
-    distribution\policies.json:
-    "FlashPlugin": {
-      "Default": true,
-      "Locked": true
-    },
-
-    GPO:
-    カテゴリ「Firefox」→「Flash」
-    → 「Activate Flash on websites」を有効化
-    →「Do not allow preferences to be changed」を有効化
-
-    サイト別の初期状態のみを設定する場合:
-    default.permissions:
-    host<\t>plugin:flash<\t>3<\t>http://example.com
-    host<\t>plugin-vulnerable:flash<\t>3<\t>http://example.com
-    # または
-    origin<\t>plugin:flash<\t>3<\t>http://example.com
-    origin<\t>plugin-vulnerable:flash<\t>3<\t>http://example.com
-
-    *.cfg / *.jsc:
-    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
+    -
 
 Plugin-3: [廃止] Adobe Acrobatプラグインの有効・無効の制御
 
@@ -168,6 +128,53 @@ Plugin-8: Gecko Media Pluginの利用の可否
     lockPref("media.gmp-widevinecdm.autoupdate",false);
     lockPref("media.gmp-manager.url", "about:blank");
     lockPref("media.gmp-provider.enabled",false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "media.eme.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-eme-adobe.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-eme-adobe.autoupdate": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-gmpopenh264.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-gmpopenh264.autoupdate": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-widevinecdm.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-widevinecdm.autoupdate": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "media.gmp-manager.url": {
+        "Value": "about:blank",
+        "Status": "locked"
+      },
+      "media.gmp-provider.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Plugin-9: [廃止] IcedTeaプラグインの有効・無効の制御
 

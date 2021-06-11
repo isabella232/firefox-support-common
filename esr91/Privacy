@@ -1919,6 +1919,21 @@ Privacy-52: プライバシーに関する通知タブの表示の可否
     *.cfg / *.jsc:
     lockPref("datareporting.policy.firstRunURL", "");
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "datareporting.policy.firstRunURL": {
+        "Value": "",
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-53: パスワードの自動生成機能の使用
 
     :1: 自動生成を許可する（既定）
