@@ -13,6 +13,19 @@ Privacy-1: 履歴の保存の可否
     *.cfg / *.jsc:
     lockPref("browser.privatebrowsing.autostart", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.privatebrowsing.autostart": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :7: 保存を強制する
 
     *.cfg / *.jsc:
@@ -120,16 +133,24 @@ Privacy-4: アドレスバーの入力履歴の表示の可否
     （履歴を表示しないだけで、格納は行われる）
     distribution\policies.json:
     "Preferences": {
-      "browser.urlbar.suggest.openpage": false,
-      "browser.urlbar.suggest.history": false,
-      "browser.urlbar.suggest.bookmark": false
+      "browser.urlbar.suggest.openpage": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.urlbar.suggest.history": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.urlbar.browser.urlbar.suggest.bookmark.openpage": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
     },
 
     GPO:
-    カテゴリ「Firefox」→「Preferences」
-    → 「browser.urlbar.suggest.openpage」を無効化
-    → 「browser.urlbar.suggest.history」を無効化
-    → 「browser.urlbar.suggest.bookmark」を無効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-5: パスワードの保存の可否
 
@@ -192,10 +213,36 @@ Privacy-7: リンク先の先読みの可否
     *.cfg / *.jsc:
     lockPref("network.prefetch-next", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.prefetch-next": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("network.prefetch-next", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.prefetch-next": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
@@ -207,6 +254,19 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
     *.cfg / *.jsc:
     lockPref("places.history.expiration.max_pages", （最低限保持することを保証したい履歴の件数）);
+
+    distribution\policies.json:
+    "Preferences": {
+      "places.history.expiration.max_pages": {
+        "Value": （最低限保持することを保証したい履歴の件数）,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-9: 日数ベースでの履歴の自動削除
 
@@ -367,12 +427,38 @@ Privacy-12: DOMストレージの利用の可否
     *.cfg / *.jsc:
     lockPref("dom.storage.enabled", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "dom.storage.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-13: Indexed DBの利用の可否
 
     :1: 許可する（既定）
 
     *.cfg / *.jsc:
     lockPref("dom.indexedDB.enabled", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.indexedDB.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: [廃止] 特定サイトのみ確認なしで許可する
 
@@ -386,6 +472,19 @@ Privacy-13: Indexed DBの利用の可否
 
     *.cfg / *.jsc:
     lockPref("dom.indexedDB.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.indexedDB.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-14: 位置情報の利用の可否
 
@@ -440,12 +539,16 @@ Privacy-14: 位置情報の利用の可否
 
     distribution\policies.json:
     "Preferences": {
-      "geo.enabled": false
+      "geo.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
     },
 
     GPO:
-    カテゴリ「Firefox」→「Preferences」
-    → 「geo.enabled」を無効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-15: 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否
 
@@ -458,6 +561,19 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
     *.cfg / *.jsc:
     lockPref("browser.search.geoip.url", "");
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.search.geoip.url": {
+        "Value": "",
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-16: DNSの先読みの可否
 
     :1: 許可する（既定）
@@ -465,11 +581,41 @@ Privacy-16: DNSの先読みの可否
     *.cfg / *.jsc:
     lockPref("network.dns.disablePrefetch", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.dns.disablePrefetch": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("network.dns.disablePrefetch", true);
     lockPref("network.dns.disablePrefetchFromHTTPS", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.dns.disablePrefetch": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "network.dns.disablePrefetchFromHTTPS": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-17: 検索エンジンの候補表示（Suggest）の可否
 
@@ -535,6 +681,19 @@ Privacy-19: セキュリティエラーレポートの送信の可否
     lockPref("security.ssl.errorReporting.enabled", false);
     lockPref("security.ssl.errorReporting.url", "");
 
+    distribution\policies.json:
+    "Preferences": {
+      "security.ssl.errorReporting.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-20: [廃止] 「Do Not Track」ヘッダの送出の可否
 
     :1: [廃止] 許可で送出する
@@ -570,6 +729,23 @@ Privacy-21: クラッシュレポートの送信の可否
     *.cfg / *.jsc:
     lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
     lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.crashReports.unsubmittedCheck.autoSubmit2": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.crashReports.unsubmittedCheck.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: レジストリでグローバルに禁止する
 
@@ -706,10 +882,23 @@ Privacy-27: Pocket（リーディングリスト機能）の利用の可否
 
     distribution\policies.json:
     "DisablePocket": true,
+    "Preferences": {
+      "extensions.pocket.api": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "extensions.pocket.site": {
+        "Value": "",
+        "Status": "locked"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」
     → 「Disable Pocket」を有効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-28: [廃止] その他、プライバシー情報に関わる一切の機能の利用の可否
 
@@ -739,11 +928,41 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     *.cfg / *.jsc:
     lockPref("browser.cache.disk.smart_size.enabled", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.cache.disk.smart_size.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 制限する
 
     *.cfg / *.jsc:
     lockPref("browser.cache.disk.smart_size.enabled", false);
-    lockPref("browser.cache.disk.capacity", サイズ（KB）);
+    lockPref("browser.cache.disk.capacity", （サイズ（KB））);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.cache.disk.smart_size.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.cache.disk.capacity": {
+        "Value": （サイズ（KB））,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: ディスクキャッシュを使用しない
 
@@ -752,6 +971,31 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     lockPref("browser.cache.disk.smart_size.enabled", false);
     lockPref("browser.cache.disk.capacity", 0);
     lockPref("browser.cache.disk.max_entry_size", 0);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.cache.disk.enable": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.cache.disk.smart_size.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.cache.disk.capacity": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      "browser.cache.disk.max_entry_size": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-31: [廃止] Firefoxのユーザー評価の送信の可否
 
@@ -770,10 +1014,36 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     *.cfg / *.jsc:
     defaultPref("network.http.speculative-parallel-limit", 6);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.speculative-parallel-limit": {
+        "Value": 6,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("network.http.speculative-parallel-limit", 0);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.speculative-parallel-limit": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-33: Webサービスによる行動履歴の収集（トラッキング）の遮断の可否
 
@@ -860,11 +1130,37 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
     *.cfg / *.jsc:
     lockPref("browser.sessionstore.privacy_level", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.sessionstore.privacy_level": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 一切禁止する
 
     // Privacy-10-2に包含される
     *.cfg / *.jsc:
     lockPref("browser.sessionstore.privacy_level", 2);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.sessionstore.privacy_level": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-35: トラッキングの遮断に使用するブロックリストの指定
 
@@ -899,6 +1195,19 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     *.cfg / *.jsc:
     lockPref("browser.cache.disk_cache_ssl", false)
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.cache.disk_cache_ssl": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     :1: 先読みを許可する（既定）
@@ -909,6 +1218,19 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     *.cfg / *.jsc:
     lockPref("network.predictor.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.predictor.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-38: Webビーコンの送信
 
@@ -932,6 +1254,19 @@ Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
     *.cfg / *.jsc:
     lockPref("security.insecure_field_warning.contextual.enabled", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "security.insecure_field_warning.contextual.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-40: パスワード保存ポップアップにおける、パスワードを平文表示するチェックボックスの表示の可否
 
     :1: 表示する（既定）
@@ -942,6 +1277,19 @@ Privacy-40: パスワード保存ポップアップにおける、パスワー�
 
     *.cfg / *.jsc:
     lockPref("signon.rememberSignons.visibilityToggle", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "signon.rememberSignons.visibilityToggle": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-41: トラッキング保護機能の通知メッセージの表示
 
@@ -954,6 +1302,19 @@ Privacy-41: トラッキング保護機能の通知メッセージの表示
     // Privacy-33-2選択時にのみ影響。
     *.cfg / *.jsc:
     lockPref("browser.contentblocking.introCount", 999);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.contentblocking.introCount": {
+        "Value": 999,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-42: Firefoxの新機能のテストへの参加の可否
 
@@ -1002,20 +1363,72 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 1);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 2);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 3);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy": {
+        "Value": 3,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-45: プライベートブラウジングモードでのリファラの通知ポリシー
 
@@ -1024,20 +1437,72 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.pbmode": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 1);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.pbmode": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 2);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.pbmode": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 3);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.pbmode": {
+        "Value": 3,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-46: カメラの利用の可否
 
@@ -1138,12 +1603,38 @@ Privacy-48: リファラの通知の有無
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1とは共存不可
     lockPref("network.http.sendRefererHeader", 2);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.sendRefererHeader": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: リンクの遷移時にのみ通知
 
     *.cfg / *.jsc:
     // Privacy-44-2～4, Privacy-45-2～4, Privacy-49-2～4, Privacy-50-2～4と共存可能
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1とは共存不可
     lockPref("network.http.sendRefererHeader", 1);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.sendRefererHeader": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 一切通知しない
 
@@ -1152,6 +1643,19 @@ Privacy-48: リファラの通知の有無
     // Privacy-44-2～4, Privacy-45-2～4, Privacy-49-2～4, Privacy-50-2～4とは共存不可
     lockPref("network.http.sendRefererHeader", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.sendRefererHeader": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-49: 通常モードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
     :1: 一切通知しない
@@ -1159,20 +1663,72 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 1);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 2);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 3);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers": {
+        "Value": 3,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-50: プライベートブラウジングモードでの行動履歴のトラッキングに対するリファラの通知ポリシー
 
@@ -1181,20 +1737,72 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers.pbmode": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: オリジンが同じである場合はパスまで含むURLを通知・それ以外は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers.pbmode": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: オリジンが同じである場合はパスまで含むURLを通知・オリジンが異なる場合はオリジンまでを通知・セキュリティレベルが異なる場合は通知しない（既定）
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 2);
 
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers.pbmode": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :4: セキュリティレベルが同じである場合はオリジンの違いに関わらずパスまで含むURLを通知・セキュリティレベルが異なる場合は通知しない
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 3);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.defaultPolicy.trackers.pbmode": {
+        "Value": 3,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
@@ -1206,6 +1814,19 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     *.cfg / *.jsc:
     lockPref("extensions.allowPrivateBrowsingByDefault", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "extensions.allowPrivateBrowsingByDefault": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
 
@@ -1231,6 +1852,19 @@ Privacy-53: パスワードの自動生成機能の使用
     *.cfg / *.jsc:
     lockPref("signon.generation.enabled", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "signon.generation.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Privacy-54: supercookieによるユーザー識別の遮断
 
     :1: 遮断する（既定）
@@ -1247,13 +1881,33 @@ Privacy-55: サイトごとのCookieの分離
 
     :1: 分離する
 
-    *.cfg / *.jsc:
-    lockPref("network.cookie.cookieBehavior", 5);
+    distribution\policies.json:
+    "Preferences": {
+      "network.cookie.cookieBehavior": {
+        "Value": 5,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 分離しない（既定）
 
-    *.cfg / *.jsc:
-    lockPref("network.cookie.cookieBehavior", 4);
+    distribution\policies.json:
+    "Preferences": {
+      "network.cookie.cookieBehavior": {
+        "Value": 4,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-56: マスターパスワードの使用の強制
 

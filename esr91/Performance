@@ -153,3 +153,16 @@ Performance-7: マルチプロセス機能で使用するプロセスの最大�
 
     *.cfg / *.jsc:
     lockPref("dom.ipc.processCount", (整数値));
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.ipc.processCount": {
+        "Value": (整数値),
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

@@ -9,8 +9,34 @@ External-1: ファイルをダウンロードして直接外部アプリケー�
     *.cfg / *.jsc:
     lockPref("browser.helperApps.deleteTempFileOnExit", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.helperApps.deleteTempFileOnExit": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない
 
     *.cfg / *.jsc:
     lockPref("browser.helperApps.deleteTempFileOnExit", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.helperApps.deleteTempFileOnExit": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
