@@ -1760,3 +1760,18 @@ Privacy-55: サイトごとのCookieの分離
     ABOUT_CONFIG
 
     - `network.cookie.cookieBehavior` の値が `5` より小さい数値である。
+
+Privacy-56: マスターパスワードの使用の強制
+
+    :1: 強制する
+
+    ABOUT_POLICIES
+
+    - `PrimaryPassword` の値が `true` である。
+
+
+    :2: 強制しない（既定）
+
+    ABOUT_POLICIES
+
+    - `PrimaryPassword` の値が `false` であるか、存在しない。

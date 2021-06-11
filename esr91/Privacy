@@ -1240,3 +1240,17 @@ Privacy-55: サイトごとのCookieの分離
     *.cfg / *.jsc:
     lockPref("network.cookie.cookieBehavior", 4);
 
+Privacy-56: マスターパスワードの使用の強制
+
+    :1: 強制する
+
+    distribution\policies.json:
+    "PrimaryPassword": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Primary (Master) Password」を有効化
+
+    :2: 強制しない（既定）
+
+    -
