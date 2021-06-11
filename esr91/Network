@@ -177,17 +177,54 @@ Network-5: HTTPの同時接続数
     lockPref("network.http.max-persistent-connections-per-server", 2);
     lockPref("network.http.max-persistent-connections-per-proxy", 2);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.max-connections": {
+        "Value": 6,
+        "Status": "locked"
+      },
+      "network.http.max-persistent-connections-per-server": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      "network.http.max-persistent-connections-per-proxy": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Network-6: SPDYプロトコルの使用の可否
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("network.http.spdy.enabled", true);
+    -
 
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("network.http.spdy.enabled", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.spdy.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Network-7: TLS/SSLでの脆弱な暗号化アルゴリズム（RC4など）の使用の可否
 
@@ -211,6 +248,21 @@ Network-8: IPv6の使用
     *.cfg / *.jsc:
     lockPref("network.dns.disableIPv6", true);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.dns.disableIPv6": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Network-9: [廃止] HTTP Pipeliningの使用
 
     :1: [廃止] 許可する
@@ -231,6 +283,21 @@ Network-10: onionドメインの名前解決
 
     *.cfg / *.jsc:
     lockPref("network.dns.blockDotOnion", true);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.dns.blockDotOnion": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Network-11: UA文字列の変更
 
@@ -328,7 +395,7 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
     lockPref("network.negotiate-auth.allow-non-fqdn", true);
     lockPref("network.automatic-ntlm-auth.allow-non-fqdn", true);
 
-    :2: 許可する (Policy Engine)
+    :2: 許可する (ポリシーで設定)
 
     // AllowNonFQDN.SPNEGO: network.negotiate-auth.allow-non-fqdn
     // AllowNonFQDN.NTLM: network.automatic-ntlm-auth.allow-non-fqdn
@@ -390,5 +457,20 @@ Network-19: TLSのクライアント証明書を組織内で使用している�
     :2: 使用する（Google Chrome互換の動作にする）
 
     *.cfg / *.jsc:
-    lockPref("network.cors_preflight.allow_client_cert", "true");
+    lockPref("network.cors_preflight.allow_client_cert", true);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.cors_preflight.allow_client_cert": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
