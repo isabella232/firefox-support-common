@@ -373,3 +373,18 @@ Network-18: navigator.appVersionの変更
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
 
+Network-19: TLSのクライアント証明書を組織内で使用している場合向けの、CORSプロトコルでのGoogle Chrome互換の動作
+
+    :1: 使用しない（既定）
+
+    ABOUT_CONFIG
+
+    - `network.cors_preflight.allow_client_cert` の値が `false` である。
+
+    :2: 使用する（Google Chrome互換の動作にする）
+
+    ABOUT_CONFIG
+
+    - `network.cors_preflight.allow_client_cert` の値が `true` である。
+
+

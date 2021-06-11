@@ -381,3 +381,14 @@ Network-18: navigator.appVersionの変更
     *.cfg / *.jsc:
     lockPref("general.appversion.override", "5.0 (Windows)");
 
+Network-19: TLSのクライアント証明書を組織内で使用している場合向けの、CORSプロトコルでのGoogle Chrome互換の動作
+
+    :1: 使用しない（既定）
+
+    -
+
+    :2: 使用する（Google Chrome互換の動作にする）
+
+    *.cfg / *.jsc:
+    lockPref("network.cors_preflight.allow_client_cert", "true");
+
