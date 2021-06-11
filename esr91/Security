@@ -1191,3 +1191,24 @@ Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロード�
     GPO:
     カテゴリ「Firefox」
     →「Blocked websites」を有効化し、「オプション」欄に「https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*」を追加
+
+Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
+
+    :1: 警告する（既定）
+
+    -
+
+    :2: 警告しない
+
+    distribution\policies.json:
+    "Preferences": {
+      "security.warn_submit_secure_to_insecure": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

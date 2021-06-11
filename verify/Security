@@ -1174,3 +1174,15 @@ Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロード�
     - 新規タブページの最上部の「Firefoxにようこそ」の「モバイル版ブラウザーをダウンロード」をクリックする。
     - **確認**
         - タブが開かれないか、Webページが読み込まれずブロックされる。
+
+Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
+
+    :1: 警告する（既定）
+
+    ABOUT_POLICIES
+
+    - `Preferences` の `security.warn_submit_secure_to_insecure` の値が存在しないか、 `true` である。
+
+    :2: 警告しない
+
+    - `Preferences` の `security.warn_submit_secure_to_insecure` の値が `false` である。

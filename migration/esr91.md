@@ -107,7 +107,7 @@ toc-title: 目次
 
 ### セキュリティ
 
-* HTTPSからHTTPにフォームを送信する時の警告を抑止できるようになりました。 (`security.warn_submit_secure_to_insecure`) (Firefox 80)
+* HTTPSからHTTPにフォームを送信する時の警告を抑止できるようになりました。 (`security.warn_submit_secure_to_insecure`=`false`で従来の動作になります。) (Firefox 80)
   ![](esr91/insecure-form.png)
 * HTTPSで通信するWebサイトのみを閲覧可能にする、HTTPSオンリーモードが追加されました。 (`dom.security.https_only_mode`) (Firefox 83)
 * アドオンでの`browser.identity.launchWebAuthFlow`を使用したOAuthでのログイン動作において、リダイレクト先として、フォーマット化されたループバックアドレスを使うようになりました。 (Firefox 85)
