@@ -1186,3 +1186,23 @@ Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォー�
     :2: 警告しない
 
     - `Preferences` の `security.warn_submit_secure_to_insecure` の値が `false` である。
+
+Securiyt-52: HTTPS接続の強制
+
+    :1: 強制しない（既定）
+
+    OPTIONS
+
+    - 「プライバシーとセキュリティ」→「HTTPS-Onlyモード」で「HTTPS-Onlyモードを有効にしない」が選択されている。
+
+    :2: プライベートブラウジングモードでのみ強制する
+
+    OPTIONS
+
+    - 「プライバシーとセキュリティ」→「HTTPS-Onlyモード」で「プライベートウィンドウのみHTTPS-Onlyモードを有効にする」が選択されている。
+
+    :3: 常に強制する
+
+    OPTIONS
+
+    - 「プライバシーとセキュリティ」→「HTTPS-Onlyモード」で「すべてのウィンドウでHTTPS-Onlyモードを有効にする」が選択されている。

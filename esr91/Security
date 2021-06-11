@@ -1212,3 +1212,20 @@ Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォー�
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Securiyt-52: HTTPS接続の強制
+
+    :1: 強制しない（既定）
+
+    -
+
+    :2: プライベートブラウジングモードでのみ強制する
+
+    *.cfg / *.jsc:
+    lockPref("dom.security.https_only_mode_pbm", true);
+
+    :3: 常に強制する
+
+    *.cfg / *.jsc:
+    lockPref("dom.security.https_only_mode", true);
+    lockPref("dom.security.https_only_mode_pbm", true);
