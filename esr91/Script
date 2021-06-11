@@ -353,3 +353,24 @@ Script-11: AudioWorklet APIの使用の可否
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Script-12: VRデバイスへのアクセスの可否
+
+    :1: 確認を求める（既定）
+
+    -
+
+    :1: 特定サイトのみ初期状態で確認なしで許可/禁止する
+
+    distribution\policies.json:
+    "Permissions": {
+      "VirtualReality": {
+        "Allow": ["https://www.example.com", ... ],
+        "Block": ["https://www.example.com", ... ]
+      }
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Permissions」→「Virtual Reality」
+    → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
+    → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
