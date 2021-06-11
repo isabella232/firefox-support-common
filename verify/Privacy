@@ -420,6 +420,13 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
     - `Cookies` の `Default` の値が `true` である。
     - `Cookies` の `Allow` の値として禁止サイトが列挙されている。
 
+    :8: 特定サイトでセッション中のみ許可する（ポリシーで設定）
+
+    ABOUT_POLICIES
+
+    - `Cookies` の `Default` の値が `false` である。
+    - `Cookies` の `AllowSession` の値として許可サイトが列挙されている。
+
 Privacy-12: DOMストレージの利用の可否
 
     :1: 許可する（既定）

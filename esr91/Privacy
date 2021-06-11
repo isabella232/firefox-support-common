@@ -341,6 +341,21 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
     → 「Do not allow preferences to be changed」を有効化
     → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
 
+    :8: 特定サイトでセッション中のみ許可する（ポリシーで設定）
+
+    distribution\policies.json:
+    "Cookies": {
+      "Default": false,
+      "Locked": true,
+      "AllowSession": ["(origin1)", "(origin2)", ...]
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「Cookies」
+    → 「Accept cookies from websites」を無効化
+    → 「Do not allow preferences to be changed」を有効化
+    → 「Allowed Sites (Session Only)」を有効化し、「オプション」でWebサイトを追加
+
 Privacy-12: DOMストレージの利用の可否
 
     :1: 許可する（既定）
