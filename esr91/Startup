@@ -168,7 +168,6 @@ Startup-5: 初期状態のブックマーク
     カテゴリ「Firefox」→「Bookmarks」
     → 「Bookmark 00」から「Bookmark 50」について、必要な分を有効化し、それぞれオプションで項目の情報を定義する
 
-
 Startup-6: [廃止] 「あなたの権利」の表示の可否
 
     :1: [廃止] 許可する（既定）
@@ -286,3 +285,28 @@ Startup-14: [廃止] RSSフィードの自動マイグレーション
     :2: [廃止] 実行しない
 
     -
+
+Startup-15: ブックマークツールバーに固定で表示する項目
+
+    :1: 作成しない（既定）
+
+    -
+
+    :2: 作成する
+
+    distribution\policies.json:
+    "ManagedBookmarks ": [
+      { "toplevel_name": "ブックマークツールバーに作成するフォルダー名" },
+      { "url": "https://example.com/",
+        "name": "Example.com" },
+      { "name": "フォルダー名",
+        "children": [
+          { "url": "https://example.org",
+            "name": "Example.org" },
+          { "url": "https://example.jp",
+            "name": "Example.jp" },
+          ...
+        ]
+      },
+      ...
+    ],
