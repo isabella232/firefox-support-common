@@ -41,6 +41,8 @@ Appearance-2: ツールバー上の項目の初期設定
     }));
     pref("browser.migration.version", 78);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.uiCustomization.state": {

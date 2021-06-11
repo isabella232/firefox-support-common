@@ -154,6 +154,8 @@ Performance-7: マルチプロセス機能で使用するプロセスの最大�
     *.cfg / *.jsc:
     lockPref("dom.ipc.processCount", (整数値));
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "dom.ipc.processCount": {

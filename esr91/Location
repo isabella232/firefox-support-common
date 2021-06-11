@@ -13,6 +13,8 @@ Location-1: アドレスバーにおけるURLの「http://」の省略表示の�
     *.cfg / *.jsc:
     lockPref("browser.urlbar.trimURLs", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.urlbar.trimURLs": {
@@ -34,6 +36,11 @@ Location-2: アドレスバーにおける国際化ドメインの表示
 
     :2: 必ずpunycode形式で表示する（ポリシーで設定）
 
+    *.cfg / *.jsc:
+    lockPref("network.IDN_show_punycode", true);
+
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.IDN_show_punycode": {
@@ -54,6 +61,11 @@ Location-3: アドレスバーへのURL以外の入力の取り扱い
     -
 
     :2: 入力内容が1単語のみの時、検索を実行する前にローカルドメインのホスト名として名前解決を試みる
+
+    *.cfg / *.jsc:
+    lockPref("browser.fixup.dns_first_for_single_words", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -97,6 +109,8 @@ Location-5: アドレスバー候補内にトップサイトを表示する
     *.cfg / *.jsc
     // Security-15-2 で browser.newtabpage.activity-stream.default.sites と browser.newtabpage.pinned を設定した場合も、これと同様の結果となる
     lockPref("browser.urlbar.suggest.topsites", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {

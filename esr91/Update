@@ -43,10 +43,23 @@ Update-2: アドオンの自動更新の可否
 
     distribution\policies.json:
     "ExtensionUpdate": false,
+    "Preferences": {
+      "extensions.update.background.url": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "extensions.update.url": {
+        "Value": "",
+        "Status": "locked"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」→「Extensions」
     → 「Extension Update」を無効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Update-3: 検索エンジンの自動更新の可否
 
@@ -64,12 +77,16 @@ Update-3: 検索エンジンの自動更新の可否
 
     distribution\policies.json:
     "Preferences": {
-      "browser.search.update": false
+      "browser.search.update": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
     },
 
     GPO:
-    カテゴリ「Firefox」→「Preferences」
-    → 「browser.search.update」を無効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
@@ -86,6 +103,12 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
 
     *.cfg / *.jsc:
     lockPref("app.update.service.enabled", false);
+
+    または
+
+    Firefox-setup.ini/Thunderbird-setup.ini:
+    [Install]
+    MaintenanceService=false
 
     distribution\policies.json:
     "Preferences": {

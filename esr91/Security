@@ -248,6 +248,8 @@ Security-5: 攻撃サイトに対する警告の可否
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.malware.enabled", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.safebrowsing.malware.enabled": {
@@ -284,6 +286,8 @@ Security-5: 攻撃サイトに対する警告の可否
     lockPref("browser.safebrowsing.reportMalwareMistakeURL", "");
     lockPref("browser.safebrowsing.reportPhishMistakeURL", "");
     lockPref("browser.safebrowsing.reportPhishURL", "");
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -705,6 +709,8 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
     *.cfg / *.jsc:
     lockPref("extensions.getAddons.discovery.api_url", "");
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "extensions.getAddons.discovery.api_url": {
@@ -741,6 +747,8 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
     lockPref("extensions.blocklist.detailsURL", "");
     lockPref("extensions.blocklist.itemURL", "");
     lockPref("extensions.blocklist.url", "");
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -785,6 +793,8 @@ Security-23: プラグインのサンドボックス内実行
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "dom.ipc.plugins.sandbox-level.default": {
@@ -808,6 +818,8 @@ Security-23: プラグインのサンドボックス内実行
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "dom.ipc.plugins.sandbox-level.default": {
@@ -830,6 +842,8 @@ Security-23: プラグインのサンドボックス内実行
     *.cfg / *.jsc:
     defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
     defaultPref("dom.ipc.plugins.sandbox-level.flash", 2);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -856,6 +870,8 @@ Security-23: プラグインのサンドボックス内実行
     // 3: 最も厳格なレベル
     lockPref("dom.ipc.plugins.sandbox-level.default", 1);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -887,6 +903,8 @@ Security-24: Flashプラグインの保護モード
     // 64bit版では設定項目が表示されず使用されないため、
     // 設定ファイルの共通化の際にはそのまま残しても問題無い。
     lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -966,6 +984,8 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.enabled", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.safebrowsing.downloads.enabled": {
@@ -983,6 +1003,8 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
 
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1004,6 +1026,8 @@ Security-27: ファイルのダウンロード保護により、不要なソフ�
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
     lockPref("browser.safebrowsing.downloads.remote.block_uncommon", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1027,6 +1051,8 @@ Security-27: ファイルのダウンロード保護により、不要なソフ�
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
     lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1092,6 +1118,8 @@ Security-31: 危険なFlashコンテンツの読み込み
 
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.blockedURIs.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1291,6 +1319,8 @@ Security-41: 複数のポップアップを一度に開く操作
     *.cfg / *.jsc:
     lockPref("dom.block_multiple_popups", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "dom.block_multiple_popups": {
@@ -1321,6 +1351,8 @@ Security-42: 過去にデータ流出事故を起こしたWebサービスでの�
 
     *.cfg / *.jsc:
     lockPref("extensions.fxmonitor.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1354,6 +1386,8 @@ Security-44: HTTPSでないURLのページでのカメラ・マイクの使用�
     *.cfg / *.jsc:
     lockPref("media.getusermedia.insecure.enabled", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "media.getusermedia.insecure.enabled": {
@@ -1371,6 +1405,8 @@ Security-44: HTTPSでないURLのページでのカメラ・マイクの使用�
 
     *.cfg / *.jsc:
     lockPref("media.getusermedia.insecure.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1519,6 +1555,8 @@ Securiyt-47: OSの証明書ストアのクライアント証明書の利用
     *.cfg / *.jsc:
     lockPref("security.osclientcerts.autoload", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "security.osclientcerts.autoload": {
@@ -1596,6 +1634,11 @@ Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォー�
 
     :2: 警告しない
 
+    *.cfg / *.jsc:
+    lockPref("security.warn_submit_secure_to_insecure", false);
+
+    または
+
     distribution\policies.json:
     "Preferences": {
       "security.warn_submit_secure_to_insecure": {
@@ -1617,6 +1660,11 @@ Securiyt-52: HTTPS接続の強制
 
     :2: プライベートブラウジングモードでのみ強制する
 
+    *.cfg / *.jsc:
+    lockPref("dom.security.https_only_mode_pbm", true);
+
+    または
+
     distribution\policies.json:
     "Preferences": {
       "dom.security.https_only_mode_pbm": {
@@ -1631,6 +1679,12 @@ Securiyt-52: HTTPS接続の強制
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 常に強制する
+
+    *.cfg / *.jsc:
+    lockPref("dom.security.https_only_mode", true);
+    lockPref("dom.security.https_only_mode_pbm", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {

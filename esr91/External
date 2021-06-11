@@ -9,6 +9,8 @@ External-1: ファイルをダウンロードして直接外部アプリケー�
     *.cfg / *.jsc:
     lockPref("browser.helperApps.deleteTempFileOnExit", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.helperApps.deleteTempFileOnExit": {
@@ -26,6 +28,8 @@ External-1: ファイルをダウンロードして直接外部アプリケー�
 
     *.cfg / *.jsc:
     lockPref("browser.helperApps.deleteTempFileOnExit", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {

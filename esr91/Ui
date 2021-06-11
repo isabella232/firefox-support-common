@@ -31,6 +31,8 @@ Ui-2: F7キーによるキャレットブラウズモードの開始の可否
     *.cfg / *.jsc:
     lockPref("accessibility.browsewithcaret_shortcut.enabled", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "accessibility.browsewithcaret_shortcut.enabled": {
@@ -48,6 +50,8 @@ Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
     *.cfg / *.jsc:
     lockPref("accessibility.browsewithcaret_shortcut.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -104,6 +108,21 @@ Ui-6: スペルチェック機能の使用
     *.cfg / *.jsc:
     lockPref("layout.spellcheckDefault", 0);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "layout.spellcheckDefault": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Ui-7: FirefoxScreenshots機能の使用
 
     :1: 使用する（既定）
@@ -145,6 +164,21 @@ Ui-9: Tabキーでのツールバーボタンへのフォーカス移動
     *.cfg / *.jsc:
     lockPref("browser.toolbars.keyboard_navigation", false);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.toolbars.keyboard_navigation": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
 
     :1: なし（既定）
@@ -152,13 +186,58 @@ Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
     *.cfg / *.jsc:
     lockPref("browser.backspace_action", 2);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.backspace_action": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 戻る/進む
 
     *.cfg / *.jsc:
     lockPref("browser.backspace_action", 0);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.backspace_action": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :3: 1ページ上にスクロール/下にスクロール
 
     *.cfg / *.jsc:
     lockPref("browser.backspace_action", 1);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.backspace_action": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 

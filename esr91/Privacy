@@ -13,6 +13,8 @@ Privacy-1: 履歴の保存の可否
     *.cfg / *.jsc:
     lockPref("browser.privatebrowsing.autostart", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.privatebrowsing.autostart": {
@@ -210,26 +212,14 @@ Privacy-7: リンク先の先読みの可否
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("network.prefetch-next", true);
-
-    distribution\policies.json:
-    "Preferences": {
-      "network.prefetch-next": {
-        "Value": true,
-        "Status": "locked"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    -
 
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("network.prefetch-next", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -254,6 +244,8 @@ Privacy-8: 履歴の最低保証保持件数（lazyな最大保持件数）
 
     *.cfg / *.jsc:
     lockPref("places.history.expiration.max_pages", （最低限保持することを保証したい履歴の件数）);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -427,6 +419,8 @@ Privacy-12: DOMストレージの利用の可否
     *.cfg / *.jsc:
     lockPref("dom.storage.enabled", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "dom.storage.enabled": {
@@ -446,6 +440,8 @@ Privacy-13: Indexed DBの利用の可否
 
     *.cfg / *.jsc:
     lockPref("dom.indexedDB.enabled", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -472,6 +468,8 @@ Privacy-13: Indexed DBの利用の可否
 
     *.cfg / *.jsc:
     lockPref("dom.indexedDB.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -561,6 +559,8 @@ Privacy-15: 検索結果のローカライズ用地域コードの位置情報�
     *.cfg / *.jsc:
     lockPref("browser.search.geoip.url", "");
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.search.geoip.url": {
@@ -581,6 +581,8 @@ Privacy-16: DNSの先読みの可否
     *.cfg / *.jsc:
     lockPref("network.dns.disablePrefetch", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.dns.disablePrefetch": {
@@ -599,6 +601,8 @@ Privacy-16: DNSの先読みの可否
     *.cfg / *.jsc:
     lockPref("network.dns.disablePrefetch", true);
     lockPref("network.dns.disablePrefetchFromHTTPS", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -681,6 +685,8 @@ Privacy-19: セキュリティエラーレポートの送信の可否
     lockPref("security.ssl.errorReporting.enabled", false);
     lockPref("security.ssl.errorReporting.url", "");
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "security.ssl.errorReporting.enabled": {
@@ -729,6 +735,14 @@ Privacy-21: クラッシュレポートの送信の可否
     *.cfg / *.jsc:
     lockPref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
     lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
+
+    または
+
+    環境変数 MOZ_CRASHREPORTER_DISABLE を 1 に設定する。
+
+    fainstall.ini:
+    [fainstall]
+    AppEnableCrashReport=false
 
     distribution\policies.json:
     "Preferences": {
@@ -928,6 +942,8 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     *.cfg / *.jsc:
     lockPref("browser.cache.disk.smart_size.enabled", true);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.cache.disk.smart_size.enabled": {
@@ -946,6 +962,8 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     *.cfg / *.jsc:
     lockPref("browser.cache.disk.smart_size.enabled", false);
     lockPref("browser.cache.disk.capacity", （サイズ（KB））);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -971,6 +989,8 @@ Privacy-30: ディスクキャッシュの最大サイズ制限
     lockPref("browser.cache.disk.smart_size.enabled", false);
     lockPref("browser.cache.disk.capacity", 0);
     lockPref("browser.cache.disk.max_entry_size", 0);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1014,11 +1034,13 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     *.cfg / *.jsc:
     defaultPref("network.http.speculative-parallel-limit", 6);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.speculative-parallel-limit": {
         "Value": 6,
-        "Status": "locked"
+        "Status": "default"
       },
       ...
     },
@@ -1031,6 +1053,8 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
 
     *.cfg / *.jsc:
     lockPref("network.http.speculative-parallel-limit", 0);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1130,6 +1154,8 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
     *.cfg / *.jsc:
     lockPref("browser.sessionstore.privacy_level", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "browser.sessionstore.privacy_level": {
@@ -1148,6 +1174,8 @@ Privacy-34: フォームへのユーザー入力値のセッション情報へ�
     // Privacy-10-2に包含される
     *.cfg / *.jsc:
     lockPref("browser.sessionstore.privacy_level", 2);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1193,7 +1221,9 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     :2: 禁止する
 
     *.cfg / *.jsc:
-    lockPref("browser.cache.disk_cache_ssl", false)
+    lockPref("browser.cache.disk_cache_ssl", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1218,6 +1248,8 @@ Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
     *.cfg / *.jsc:
     lockPref("network.predictor.enabled", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1254,6 +1286,8 @@ Privacy-39: SSL/TLSでないページへのパスワード入力時の警告
     *.cfg / *.jsc:
     lockPref("security.insecure_field_warning.contextual.enabled", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "security.insecure_field_warning.contextual.enabled": {
@@ -1277,6 +1311,8 @@ Privacy-40: パスワード保存ポップアップにおける、パスワー�
 
     *.cfg / *.jsc:
     lockPref("signon.rememberSignons.visibilityToggle", false);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1302,6 +1338,8 @@ Privacy-41: トラッキング保護機能の通知メッセージの表示
     // Privacy-33-2選択時にのみ影響。
     *.cfg / *.jsc:
     lockPref("browser.contentblocking.introCount", 999);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1363,6 +1401,8 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy": {
@@ -1380,6 +1420,8 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 1);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1399,6 +1441,8 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 2);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy": {
@@ -1416,6 +1460,8 @@ Privacy-44: 通常モードでのリファラの通知ポリシー
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy", 3);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1437,6 +1483,8 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy.pbmode": {
@@ -1454,6 +1502,8 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 1);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1473,6 +1523,8 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 2);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy.pbmode": {
@@ -1490,6 +1542,8 @@ Privacy-45: プライベートブラウジングモードでのリファラの�
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.pbmode", 3);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1603,6 +1657,8 @@ Privacy-48: リファラの通知の有無
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1とは共存不可
     lockPref("network.http.sendRefererHeader", 2);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.sendRefererHeader": {
@@ -1622,6 +1678,8 @@ Privacy-48: リファラの通知の有無
     // Privacy-44-2～4, Privacy-45-2～4, Privacy-49-2～4, Privacy-50-2～4と共存可能
     // Privacy-44-1, Privacy-45-1, Privacy-49-1, Privacy-50-1とは共存不可
     lockPref("network.http.sendRefererHeader", 1);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1643,6 +1701,8 @@ Privacy-48: リファラの通知の有無
     // Privacy-44-2～4, Privacy-45-2～4, Privacy-49-2～4, Privacy-50-2～4とは共存不可
     lockPref("network.http.sendRefererHeader", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.sendRefererHeader": {
@@ -1663,6 +1723,8 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy.trackers": {
@@ -1680,6 +1742,8 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 1);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1699,6 +1763,8 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 2);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy.trackers": {
@@ -1716,6 +1782,8 @@ Privacy-49: 通常モードでの行動履歴のトラッキングに対する�
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers", 3);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1737,6 +1805,8 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 0);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy.trackers.pbmode": {
@@ -1754,6 +1824,8 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 1);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1773,6 +1845,8 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 2);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.http.referer.defaultPolicy.trackers.pbmode": {
@@ -1790,6 +1864,8 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
 
     *.cfg / *.jsc:
     lockPref("network.http.referer.defaultPolicy.trackers.pbmode", 3);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1814,6 +1890,8 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
 
     *.cfg / *.jsc:
     lockPref("extensions.allowPrivateBrowsingByDefault", true);
+
+    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1852,6 +1930,8 @@ Privacy-53: パスワードの自動生成機能の使用
     *.cfg / *.jsc:
     lockPref("signon.generation.enabled", false);
 
+    または
+
     distribution\policies.json:
     "Preferences": {
       "signon.generation.enabled": {
@@ -1881,6 +1961,11 @@ Privacy-55: サイトごとのCookieの分離
 
     :1: 分離する
 
+    *.cfg / *.jsc:
+    lockPref("network.cookie.cookieBehavior", 5);
+
+    または
+
     distribution\policies.json:
     "Preferences": {
       "network.cookie.cookieBehavior": {
@@ -1895,6 +1980,11 @@ Privacy-55: サイトごとのCookieの分離
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 分離しない（既定）
+
+    *.cfg / *.jsc:
+    lockPref("network.cookie.cookieBehavior", 4);
+
+    または
 
     distribution\policies.json:
     "Preferences": {

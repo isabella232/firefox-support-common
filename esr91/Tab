@@ -9,10 +9,40 @@ Tab-1: 複数のタブを閉じる際の警告の可否
     *.cfg / *.jsc:
     lockPref("browser.tabs.warnOnClose", true);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnClose": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 警告しない
 
     *.cfg / *.jsc:
     lockPref("browser.tabs.warnOnClose", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnClose": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
@@ -22,6 +52,21 @@ Tab-1: 複数のタブを閉じる際の警告の可否
       pref("browser.tabs.warnOnClose.initialized", true);
     }
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnClose": {
+        "Value": false,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Tab-2: 「他のタブをすべて閉じる」の警告の可否
 
     :1: 警告する（既定）
@@ -29,10 +74,40 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
     *.cfg / *.jsc:
     lockPref("browser.tabs.warnOnCloseOtherTabs", true);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnCloseOtherTabs": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 警告しない
 
     *.cfg / *.jsc:
     lockPref("browser.tabs.warnOnCloseOtherTabs", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnCloseOtherTabs": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
@@ -42,6 +117,21 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
       pref("browser.tabs.warnOnCloseOtherTabs.initialized", true);
     }
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnCloseOtherTabs": {
+        "Value": false,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Tab-3: 複数のタブを一度に開く際の警告の可否
 
     :1: 警告する（既定）
@@ -49,10 +139,40 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
     *.cfg / *.jsc:
     lockPref("browser.tabs.warnOnOpen", true);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnOpen": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 警告しない
 
     *.cfg / *.jsc:
     lockPref("browser.tabs.warnOnOpen", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnOpen": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
@@ -61,6 +181,21 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
       pref("browser.tabs.warnOnOpen", false);
       pref("browser.tabs.warnOnOpen.initialized", true);
     }
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.warnOnOpen": {
+        "Value": false,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-4: [廃止] タブバーの表示の可否
 
@@ -94,10 +229,27 @@ Tab-5: 新しいタブの内容
 
     distribution\policies.json:
     "NewTabPage": false,
+    "Preferences": {
+      "browser.newtabpage.enhanced": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.newtabpage.directory.ping": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.newtabpage.directory.source": {
+        "Value": "about:blank",
+        "Status": "locked"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」
     → 「New Tab Page」を無効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :5: スポンサーコンテンツを非表示にする
 
@@ -105,6 +257,29 @@ Tab-5: 新しいタブの内容
     lockPref("browser.newtabpage.enhanced",false);
     lockPref("browser.newtabpage.directory.ping", "");
     lockPref("browser.newtabpage.directory.source", "about:blank");
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.newtabpage.enhanced": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.newtabpage.directory.ping": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "browser.newtabpage.directory.source": {
+        "Value": "about:blank",
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-6: Webページによって開かれる新規ウィンドウを、代わりにタブで開く
 
@@ -117,6 +292,25 @@ Tab-6: Webページによって開かれる新規ウィンドウを、代わり�
     *.cfg / *.jsc:
     lockPref("browser.link.open_newwindow", 1);
     lockPref("browser.link.open_newwindow.restriction", 0);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.link.open_newwindow": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      "browser.link.open_newwindow.restriction": {
+        "Value": 0,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-7: [廃止] 既定の新しいタブで表示する内容(Tab-5-1が指定されているときに設定可能な項目)
 
@@ -160,6 +354,21 @@ Tab-9: 新しいタブを開く操作の高速化
 
     *.cfg / *.jsc:
     lockPref("browser.newtab.preload", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.newtab.preload": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-10: 検索バーの表示
 
@@ -221,6 +430,27 @@ Tab-11: トップサイトの表示
     lockPref("browser.newtabpage.activity-stream.prerender", false);
     lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
     lockPref("browser.newtabpage.activity-stream.topSitesRows", 2)
+
+    または
+
+    distribution\policies.json:
+    "FirefoxHome": {
+      "TopSites": true,
+      "Locked": true
+    },
+    "Preferences": {
+      "browser.newtabpage.activity-stream.topSitesRows": {
+        "Value": 2,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Top Sites」と「Don't allow settings to be changed」のチェックをONにする
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :5: 常に表示する（ポリシーで設定）
 
@@ -397,6 +627,21 @@ Tab-16: トップサイトに表示されるウェブサイト
     *.cfg / *.jsc:
     lockPref("browser.newtabpage.activity-stream.default.sites", "...");
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.newtabpage.activity-stream.default.sites": {
+        "Value": "...",
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     :1: 最近使ったタブの順で切り替える（ESR68既定）
@@ -406,14 +651,46 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
     *.cfg / *.jsc:
     lockPref("browser.ctrlTab.recentlyUsedOrder", true);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.ctrlTab.recentlyUsedOrder": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: タブバー上の並び順で切り替える（ESR60以前既定）
 
     新規導入環境で必要。ESR60からの移行時は不要。
 
     *.cfg / *.jsc:
     lockPref("browser.ctrlTab.recentlyUsedOrder", false);
-    
-    /* ユーザーによる設定変更を許可する場合は以下の通り
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.ctrlTab.recentlyUsedOrder": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    ユーザーによる設定変更を許可する場合は以下の通り。
+
+    *.cfg / *.jsc:
     var recentlyUsedOrderInitialized = false;
     try {
       recentlyUsedOrderInitialized = getPref("browser.ctrlTab.recentlyUsedOrder.initialized");
@@ -424,7 +701,21 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
       pref("browser.ctrlTab.recentlyUsedOrder", false);
       pref("browser.ctrlTab.recentlyUsedOrder.initialized", true);
     }
-    */
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.ctrlTab.recentlyUsedOrder": {
+        "Value": false,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-18: タブの複数選択
 
@@ -433,10 +724,40 @@ Tab-18: タブの複数選択
     *.cfg / *.jsc:
     lockPref("browser.tabs.multiselect", true);
 
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.multiselect": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("browser.tabs.multiselect", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.tabs.multiselect": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-19: ハイライトにPocketの項目を表示するかどうか
 
@@ -444,20 +765,26 @@ Tab-19: ハイライトにPocketの項目を表示するかどうか
 
     -
 
-    :2: 表示しない（ポリシー＋MCDで設定）
+    :2: 表示しない
 
     distribution\policies.json:
     "FirefoxHome": {
       "Pocket": false,
       "Locked": true
     },
+    "Preferences": {
+      "browser.newtabpage.activity-stream.section.highlights.includePocket": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Recommended by Pocket」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
-
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-20: 新規タブに「Firefoxにようこそ」メッセージを表示するかどうか
 
@@ -471,4 +798,14 @@ Tab-20: 新規タブに「Firefoxにようこそ」メッセージを表示す�
     // Firefox ESR78.1.0以降は、Privacy-22-2 または Privacy-24-3 選択時には常にこの動作となる
     *.cfg / *.jsc:
     lockPref("trailhead.firstrun.branches", "nofirstrun-empty");
+
+    distribution\policies.json:
+    "UserMessaging": {
+      "SkipOnboarding": true,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→「User Messaging」
+    → 「Skip Onboarding」を有効化（設定値の固定は不可能）
 
