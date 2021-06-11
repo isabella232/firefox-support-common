@@ -1206,3 +1206,17 @@ Securiyt-52: HTTPS接続の強制
     OPTIONS
 
     - 「プライバシーとセキュリティ」→「HTTPS-Onlyモード」で「すべてのウィンドウでHTTPS-Onlyモードを有効にする」が選択されている。
+
+Securiyt-53: パスワードマネージャでの平文パスワードの表示の可否
+
+    :1: 許可する（既定）
+
+    ABOUT_POLICIES
+
+    - `DisablePasswordReveal` の値が存在しないか、 `false` である。
+
+    :2: 禁止する
+
+    ABOUT_POLICIES
+
+    - `DisablePasswordReveal` の値が `true` である。

@@ -1702,3 +1702,18 @@ Securiyt-52: HTTPS接続の強制
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Securiyt-53: パスワードマネージャでの平文パスワードの表示の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "DisablePasswordReveal": true,
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Do not allow passwords to be revealed in saved logins」を有効化
