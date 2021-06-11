@@ -387,4 +387,18 @@ Network-19: TLSのクライアント証明書を組織内で使用している�
 
     - `network.cors_preflight.allow_client_cert` の値が `true` である。
 
+Network-20: Google Workspaceへのアクセスを許可するドメイン
+
+    :1: 許可しない（既定）
+
+    ABOUT_POLICIES
+
+    - `AllowedDomainsForApps` の値が存在しないか、空である。
+
+    :2: 指定のサイトで許可する
+
+    ABOUT_POLICIES
+
+    - `AllowedDomainsForApps` の値として、指定のサイトのドメイン名がカンマ区切りで列挙されている。
+
 

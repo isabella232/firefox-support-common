@@ -474,3 +474,17 @@ Network-19: TLSのクライアント証明書を組織内で使用している�
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
+Network-20: Google Workspaceへのアクセスを許可するドメイン
+
+    :1: 許可しない（既定）
+
+    -
+
+    :2: 指定のサイトで許可する
+
+    distribution\policies.json:
+    "AllowedDomainsForApps": "example.com,example.org,...",
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Define domains allowed to access Google Workspace」を有効化し、オプションでドメイン名をカンマ区切りで列挙
