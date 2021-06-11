@@ -41,6 +41,23 @@ Appearance-2: ツールバー上の項目の初期設定
     }));
     pref("browser.migration.version", 78);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.uiCustomization.state": {
+        "Value": "...",
+        "Status": "user"
+      },
+      "browser.migration.version": {
+        "Value": 78,
+        "Status": "user"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Appearance-3: アドレスバーと検索バーの統合
 
     :1: 統合する（既定）
@@ -73,8 +90,18 @@ Appearance-5: 初期状態でのブックマークツールバーの表示
 
     :1: 表示する
 
-    *.cfg / *.jsc:
-    lockPref("browser.toolbars.bookmarks.visibility", "always");
+    distribution\policies.json:
+    "Preferences": {
+      "browser.toolbars.bookmarks.visibility": {
+        "Value": "always",
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 表示しない
 

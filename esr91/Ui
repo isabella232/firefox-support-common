@@ -31,10 +31,36 @@ Ui-2: F7キーによるキャレットブラウズモードの開始の可否
     *.cfg / *.jsc:
     lockPref("accessibility.browsewithcaret_shortcut.enabled", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "accessibility.browsewithcaret_shortcut.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する
 
     *.cfg / *.jsc:
     lockPref("accessibility.browsewithcaret_shortcut.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "accessibility.browsewithcaret_shortcut.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Ui-3: [廃止] タブごとの音声インジケータの利用の許可
 

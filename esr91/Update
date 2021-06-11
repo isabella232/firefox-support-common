@@ -87,6 +87,19 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
     *.cfg / *.jsc:
     lockPref("app.update.service.enabled", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "app.update.service.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Update-5: [廃止] 軽量テーマの自動更新の可否
 
     :1: [廃止] 許可する（既定）
