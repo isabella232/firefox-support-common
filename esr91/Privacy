@@ -1228,3 +1228,15 @@ Privacy-54: supercookieによるユーザー識別の遮断
     *.cfg / *.jsc:
     lockPref("privacy.partition.network_state", false);
 
+Privacy-55: サイトごとのCookieの分離
+
+    :1: 分離する
+
+    *.cfg / *.jsc:
+    lockPref("network.cookie.cookieBehavior", 5);
+
+    :2: 分離しない（既定）
+
+    *.cfg / *.jsc:
+    lockPref("network.cookie.cookieBehavior", 4);
+

@@ -1746,3 +1746,17 @@ Privacy-54: supercookieによるユーザー識別の遮断
     ABOUT_CONFIG
 
     - `privacy.partition.network_state` の値が `false` である。
+
+Privacy-55: サイトごとのCookieの分離
+
+    :1: 分離する
+
+    ABOUT_CONFIG
+
+    - `network.cookie.cookieBehavior` の値が `5` である。
+
+    :2: 分離しない（既定）
+
+    ABOUT_CONFIG
+
+    - `network.cookie.cookieBehavior` の値が `5` より小さい数値である。
