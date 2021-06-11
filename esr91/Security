@@ -123,10 +123,47 @@ Security-3: アドオンのインストールの可否
     "InstallAddonsPermission": {
       "Default": false
     },
+    "Preferences": {
+      "extensions.getAddons.discovery.api_url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.get.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.getWithPerformance.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.langpacks.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.link.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.recommended.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.search.browseURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.getAddons.search.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」→「Addons」
     → 「Allow add-on installs from websites」を無効化
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-4: 広告などのポップアップの表示の可否
 
@@ -211,6 +248,19 @@ Security-5: 攻撃サイトに対する警告の可否
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.malware.enabled", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.malware.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 警告しない
 
     *.cfg / *.jsc:
@@ -234,6 +284,95 @@ Security-5: 攻撃サイトに対する警告の可否
     lockPref("browser.safebrowsing.reportMalwareMistakeURL", "");
     lockPref("browser.safebrowsing.reportPhishMistakeURL", "");
     lockPref("browser.safebrowsing.reportPhishURL", "");
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.malware.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "browser.safebrowsing.downloads.remote.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.advisoryURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.gethashURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.reportPhishMistakeURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.reportURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google.updateURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.advisoryURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.gethashURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.reportMalwareMistakeURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.reportPhishMistakeURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.dataSharingURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.reportURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.google4.updateURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.mozilla.gethashURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.provider.mozilla.updateURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.reportMalwareMistakeURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.reportPhishMistakeURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "browser.safebrowsing.reportPhishURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-6: 偽装サイトに対する警告の可否
 
@@ -566,6 +705,19 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
     *.cfg / *.jsc:
     lockPref("extensions.getAddons.discovery.api_url", "");
 
+    distribution\policies.json:
+    "Preferences": {
+      "extensions.getAddons.discovery.api_url": {
+        "Value": "",
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Security-20: [廃止] パーミッション設定変更の可否
 
     :1: [廃止] 変更を許可する（既定）
@@ -590,6 +742,31 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
     lockPref("extensions.blocklist.itemURL", "");
     lockPref("extensions.blocklist.url", "");
 
+    distribution\policies.json:
+    "Preferences": {
+      "extensions.blocklist.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      "extensions.blocklist.detailsURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.blocklist.itemURL": {
+        "Value": "",
+        "Status": "default"
+      },
+      "extensions.blocklist.url": {
+        "Value": "",
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
 Security-22: [廃止] Webアプリケーションのインストールの可否
 
     :1: [廃止] marketplace.firefox.comからのインストールのみ許可（既定）
@@ -608,17 +785,68 @@ Security-23: プラグインのサンドボックス内実行
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 0);
 
+    distribution\policies.json:
+    "Preferences": {
+      "dom.ipc.plugins.sandbox-level.default": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "dom.ipc.plugins.sandbox-level.flash": {
+        "Value": 0,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: Flashプラグインのみサンドボックス内で実行
 
     *.cfg / *.jsc:
     lockPref("dom.ipc.plugins.sandbox-level.default", 0);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
 
+    distribution\policies.json:
+    "Preferences": {
+      "dom.ipc.plugins.sandbox-level.default": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "dom.ipc.plugins.sandbox-level.flash": {
+        "Value": 1,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
 
     *.cfg / *.jsc:
     defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
     defaultPref("dom.ipc.plugins.sandbox-level.flash", 2);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.ipc.plugins.sandbox-level.default": {
+        "Value": 0,
+        "Status": "default"
+      },
+      "dom.ipc.plugins.sandbox-level.flash": {
+        "Value": 2,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: すべてサンドボックス内で実行
 
@@ -628,6 +856,23 @@ Security-23: プラグインのサンドボックス内実行
     // 3: 最も厳格なレベル
     lockPref("dom.ipc.plugins.sandbox-level.default", 1);
     lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.ipc.plugins.sandbox-level.default": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      "dom.ipc.plugins.sandbox-level.flash": {
+        "Value": 1,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-24: Flashプラグインの保護モード
 
@@ -642,6 +887,19 @@ Security-24: Flashプラグインの保護モード
     // 64bit版では設定項目が表示されず使用されないため、
     // 設定ファイルの共通化の際にはそのまま残しても問題無い。
     lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.ipc.plugins.flash.disable-protected-mode": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-25: プロトコルごとの外部Webアプリケーションへの連携
 
@@ -708,10 +966,36 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.enabled", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.downloads.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: ブロックしない
 
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.downloads.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
 
@@ -721,11 +1005,45 @@ Security-27: ファイルのダウンロード保護により、不要なソフ�
     lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
     lockPref("browser.safebrowsing.downloads.remote.block_uncommon", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.downloads.remote.block_potentially_unwanted": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.downloads.remote.block_uncommon": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 警告しない
 
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
     lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.downloads.remote.block_potentially_unwanted": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.safebrowsing.downloads.remote.block_uncommon": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-28: 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く
 
@@ -774,6 +1092,19 @@ Security-31: 危険なFlashコンテンツの読み込み
 
     *.cfg / *.jsc:
     lockPref("browser.safebrowsing.blockedURIs.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.blockedURIs.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: ブロックする（既定）
 
@@ -960,6 +1291,19 @@ Security-41: 複数のポップアップを一度に開く操作
     *.cfg / *.jsc:
     lockPref("dom.block_multiple_popups", false);
 
+    distribution\policies.json:
+    "Preferences": {
+      "dom.block_multiple_popups": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する（既定）
 
     -
@@ -977,6 +1321,19 @@ Security-42: 過去にデータ流出事故を起こしたWebサービスでの�
 
     *.cfg / *.jsc:
     lockPref("extensions.fxmonitor.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "extensions.fxmonitor.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-43: ローカルファイルからの同じディレクトリのファイルの参照の可否
 
@@ -997,10 +1354,36 @@ Security-44: HTTPSでないURLのページでのカメラ・マイクの使用�
     *.cfg / *.jsc:
     lockPref("media.getusermedia.insecure.enabled", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "media.getusermedia.insecure.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 禁止する（既定）
 
     *.cfg / *.jsc:
     lockPref("media.getusermedia.insecure.enabled", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "media.getusermedia.insecure.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-45: 証明書の例外の自動承認
 
@@ -1136,6 +1519,19 @@ Securiyt-47: OSの証明書ストアのクライアント証明書の利用
     *.cfg / *.jsc:
     lockPref("security.osclientcerts.autoload", true);
 
+    distribution\policies.json:
+    "Preferences": {
+      "security.osclientcerts.autoload": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
     :2: 使用しない（既定）
 
     -
@@ -1221,11 +1617,34 @@ Securiyt-52: HTTPS接続の強制
 
     :2: プライベートブラウジングモードでのみ強制する
 
-    *.cfg / *.jsc:
-    lockPref("dom.security.https_only_mode_pbm", true);
+    distribution\policies.json:
+    "Preferences": {
+      "dom.security.https_only_mode_pbm": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 常に強制する
 
-    *.cfg / *.jsc:
-    lockPref("dom.security.https_only_mode", true);
-    lockPref("dom.security.https_only_mode_pbm", true);
+    distribution\policies.json:
+    "Preferences": {
+      "dom.security.https_only_mode": {
+        "Value": true,
+        "Status": "locked"
+      },
+      "dom.security.https_only_mode_pbm": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
