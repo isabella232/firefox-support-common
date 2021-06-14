@@ -120,10 +120,10 @@ Script-7: 音声の自動再生の可否
 
 Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
-    :1: 付与する（既定）
+    :1: 付与する
 
-    -
+    lockPref("dom.targetBlankNoOpener.enabled", true);
 
-    :2: 付与しない
+    :2: 付与しない（既定）
 
     lockPref("dom.targetBlankNoOpener.enabled", false);
