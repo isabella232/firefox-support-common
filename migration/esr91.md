@@ -208,8 +208,7 @@ toc-title: 目次
   * 非標準の`:-moz-sumbit-invalid` 疑似クラスが、廃止を前提に無効化されました。 (Firefox 88)
   * 非標準の`:-moz-ui-invalid`と`:-moz-ui-valid`に対するスタイル付けが行われなくなりました。 (Firefox 88)
 -->
-* `window.name`プロパティがクロスオリジンで共有されないようになりました。 (Firefox 82)
-  * `window.name`が、Webサイトをまたいだページ遷移によっても自動消去されるようになりました。 (Firefox 88)
+* `window.name`が、Webサイトをまたいだページ遷移によっても自動消去されるようになりました。（`window.name.update.enabled`で従来の挙動に戻せます） (Firefox 88)
 * localhostのURLについて、常にホストのローカルループバックインターフェースとして扱うようになりました。 (Firefox 84)
 * Application Cache APIが廃止されました。代わりにService Worker APIを使用する事が推奨されます。 (Firefox 84)
 * ARIAのアクセシビリティ属性（aria-labeledby/describedby）の値の変更をイベントで通知するようになりました。 (Firefox 87)

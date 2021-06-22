@@ -397,3 +397,13 @@ Script-13: サンドボックス化されたiframeの自動ダウンロードの
       ...
     },
 
+Script-14: window.nameのクロスオリジン間での共有
+
+	:1: 共有を許可しない（既定）
+
+	-
+
+	:2: 共有を許可する
+
+	*.cfg / *.jsc
+	lockPref("privacy.window.name.update.enabled", false);
