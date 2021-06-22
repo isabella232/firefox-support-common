@@ -181,7 +181,7 @@ toc-title: 目次
 
 * `<a>`および`<area>`要素で、`target="_blank"`を設定すると`rel="noopener"`が標準で付与されるようになりました。 (Firefox 79)
 * `Windows.open()`で非標準の`outerHeight`と`outerWidth`を指定できなくなりました。 (Firefox 80)
-* サンドボックスが有効化された`<iframe>`で、自動ダウンロードをブロックするようになりました。 (Firefox 81)
+* サンドボックスが有効化された`<iframe>`で、自動ダウンロードをブロックするようになりました。（`dom.block_download_in_sandboxed_iframes`でダウンロードを許可できます） (Firefox 81)
 * `<iframe>`から、非標準の`mozallowfullscreen`属性が削除されました。 (Firefox 81)
 * CSSの非標準の機能の一部が廃止・無効化されました。 (Firefox 81～88)
 <!-- エンドユーザー観点では細かすぎるため、詳細は省略する。

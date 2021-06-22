@@ -374,3 +374,26 @@ Script-12: VRデバイスへのアクセスの可否
     カテゴリ「Firefox」→「Permissions」→「Virtual Reality」
     → 「Allowed Sites」を有効化し、「オプション」でWebサイトを追加
     → 「Blocked Sites」を有効化し、「オプション」でWebサイトを追加
+
+Script-13: サンドボックス化されたiframeの自動ダウンロードの抑止
+
+    :1: ブロックする（既定）
+
+	-
+
+	:2: ブロックしない
+
+    *.cfg / *.jsc:
+    lockPref("dom.block_download_in_sandboxed_iframes", false);
+
+    または
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.block_download_in_sandboxed_iframes": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
