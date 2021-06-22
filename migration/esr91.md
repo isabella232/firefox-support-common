@@ -101,6 +101,7 @@ toc-title: 目次
   * Picture-in-PictureのUIアイコンが変更になりました。 (Firefox 82)
     ![](esr91/picture-in-picture.png)
   * 複数の動画を同時にPicture-in-Pictureで表示できるようになりました。 (Firefox 86)
+    ![](esr91/multi-picture-in-picture.png)
 <!-- 単純な修正でデメリットがない物なので、省略する。
   * Picture-in-Pictureで矢印キーが正しく動作しない不具合を修正しました。 (Firefox 83)
 -->
