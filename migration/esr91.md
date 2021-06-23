@@ -111,7 +111,9 @@ toc-title: 目次
 * HTTPSからHTTPにフォームを送信する時の警告を抑止できるようになりました。 (`security.warn_submit_secure_to_insecure`=`false`で従来の動作になります。) (Firefox 80)
   ![](esr91/insecure-form.png)
 * HTTPSで通信するWebサイトのみを閲覧可能にする、HTTPSオンリーモードが追加されました。 (`dom.security.https_only_mode`、`dom.security.https_only_mode_pbm`で通常モードとプライベートブラウジングモードのそれぞれについて有効化できます。) (Firefox 83)
+<!-- ESR78にバックポート済み https://bugzilla.mozilla.org/show_bug.cgi?id=1635344
 * アドオンでの`browser.identity.launchWebAuthFlow`を使用したOAuthでのログイン動作において、リダイレクト先として、フォーマット化されたループバックアドレスを使うようになりました。 (Firefox 85)
+-->
 * TLSクライアント証明書を使っている組織において、`network.cors_preflight.allow_client_cert`の切り替えにより、Google Chrome互換のCORSプロトコルの取り扱いが可能になりました。 (Firefox 87)
 <!-- 単純な修正でデメリットがない物なので、省略する。
 * サードパティ製PKCS11モジュールとスマートカードを使用している環境での、セキュアな接続を使用したWebサイトの読み込みに失敗したりクラッシュしたりする問題を修正しました。 (Firefox 84)
