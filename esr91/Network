@@ -514,3 +514,23 @@ Network-21: FTPの使用
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Network-22: localhostの名前解決
+
+    :1: 常にループバックインターフェイスとして扱う（既定）
+
+	-
+
+	:2: 通常の名前解決を許可する
+
+    *.cfg / *.jsc:
+	lockPref("network.proxy.allow_hijacking_localhost", true);
+
+	または
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.proxy.allow_hijacking_localhost": {"Value": true,"Status": "locked"},
+      ...
+    },
+
