@@ -4,13 +4,11 @@
 
 Stability-1: ハードウェアアクセラレーションを有効化するかどうか
 
-    :1: 有効化する（安定性より描画性能を優先する：既定）
+    :1: 有効化する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("gfx.direct2d.disabled", false);
-    lockPref("layers.acceleration.disabled", false);
+    -
 
-    :4: 有効化する（安定性より描画性能を優先する：ポリシーで設定）
+    :4: 有効化する（安定性より描画性能を優先する）
 
     distribution\policies.json:
     "HardwareAcceleration": true,
@@ -19,13 +17,11 @@ Stability-1: ハードウェアアクセラレーションを有効化するか�
     カテゴリ「Firefox」
     → 「Hardware Acceleration」を有効化
 
-    :2: 無効化する（描画性能より安定性を優先する）
+    :2: [廃止] 無効化する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("gfx.direct2d.disabled", true);
-    lockPref("layers.acceleration.disabled", true);
+    [廃止]
 
-    :3: 無効化する（描画性能より安定性を優先する：ポリシーで設定）
+    :3: 無効化する（描画性能より安定性を優先する）
 
     distribution\policies.json:
     "HardwareAcceleration": false,
@@ -68,13 +64,6 @@ Stability-4: WebRenderの有効化
     -
 
     :2: 常に無効化する
-
-    *.cfg / *.jsc:
-    lockPref("gfx.webrender.all", false);
-    lockPref("gfx.webrender.enabled", false);
-    lockPref("gfx.webrender.force-disabled", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {

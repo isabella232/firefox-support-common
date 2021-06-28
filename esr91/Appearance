@@ -34,14 +34,7 @@ Appearance-2: ツールバー上の項目の初期設定
 
     :2: 制御する
 
-    *.cfg / *.jsc:
     // そのバージョンのFirefox上で実際に希望の状態になるようカスタマイズした結果の値を使用すること。
-    pref("browser.uiCustomization.state", JSON.stringify({
-      ...
-    }));
-    pref("browser.migration.version", 78);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -67,8 +60,6 @@ Appearance-3: アドレスバーと検索バーの統合
     -
 
     :2: 統合しない
-
-    // PolicyEngineで設定する
 
     distribution\policies.json:
     "SearchBar": "separate",
@@ -207,7 +198,7 @@ Appearance-11: 「新着情報」の通知の表示
 
     -
 
-    :2: 表示しない（ポリシーで設定）
+    :2: 表示しない
 
     distribution\policies.json:
     "UserMessaging": {

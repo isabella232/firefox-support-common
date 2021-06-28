@@ -16,7 +16,7 @@ Update-1: Firefoxの自動更新の可否
 
     [廃止]
 
-    :4: 禁止する（ポリシーで設定）
+    :4: 禁止する
 
     distribution\policies.json:
     "DisableAppUpdate": true,
@@ -29,17 +29,13 @@ Update-2: アドオンの自動更新の可否
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("extensions.update.enabled", true);
+    -
 
-    :2: 禁止する
+    :2: [廃止] 禁止する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("extensions.update.enabled", false);
-    lockPref("extensions.update.background.url", "");
-    lockPref("extensions.update.url", "");
+    [廃止]
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     distribution\policies.json:
     "ExtensionUpdate": false,
@@ -65,15 +61,13 @@ Update-3: 検索エンジンの自動更新の可否
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.search.update", true);
+    -
 
-    :2: 禁止する
+    :2: [廃止] 禁止する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.search.update", false);
+    [廃止]
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     distribution\policies.json:
     "Preferences": {
@@ -96,15 +90,6 @@ Update-4: 「Mozilla Maintenance Service」のインストールの可否
     Install-15-2選択時は常にUpdate-4-2を選択する必要がある。
 
     :2: 禁止する
-
-    Firefox-setup.ini/Thunderbird-setup.ini:
-    [Install]
-    MaintenanceService=false
-
-    *.cfg / *.jsc:
-    lockPref("app.update.service.enabled", false);
-
-    または
 
     Firefox-setup.ini/Thunderbird-setup.ini:
     [Install]
@@ -139,7 +124,7 @@ Update-6: システムアドオンの自動更新の可否
 
     -
 
-    :2: 禁止する（ポリシーで設定）
+    :2: 禁止する
 
     distribution\policies.json:
     "DisableSystemAddonUpdate": true,
@@ -154,7 +139,7 @@ Update-7: アプリケーションの自動更新情報取得先
 
     -
 
-    :2: 任意のサーバー（ポリシーで設定）
+    :2: 任意のサーバー
 
     distribution\policies.json:
     "AppUpdateURL": "（URL）",

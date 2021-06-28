@@ -6,11 +6,6 @@ External-1: ファイルをダウンロードして直接外部アプリケー�
 
     :1: ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.helperApps.deleteTempFileOnExit", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.helperApps.deleteTempFileOnExit": {
@@ -25,11 +20,6 @@ External-1: ファイルをダウンロードして直接外部アプリケー�
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: ファイルを読み書き可能で開き、アプリケーション終了後に一時ファイルを削除しない
-
-    *.cfg / *.jsc:
-    lockPref("browser.helperApps.deleteTempFileOnExit", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {

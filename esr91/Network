@@ -15,12 +15,11 @@ Network-1: Microsoft .NET Frameworkによって変更されたUA文字列の初�
 
 Network-2: プロキシの利用
 
-    :1: 利用しない
+    :1: [廃止] 利用しない（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.proxy.type", 0);
+    [廃止]
 
-    :6: 利用しない（ポリシーで設定）
+    :6: 利用しない
 
     distribution\policies.json:
     "Proxy": {
@@ -32,15 +31,11 @@ Network-2: プロキシの利用
     カテゴリ「Firefox」
     → 「Proxy Settings」を有効化し、「Connection Type:」で「No Proxy」を選択、「Don't allow proxy settings to be changed.」のチェックをON
 
-    :2: 固定のプロキシを利用する
+    :2: [廃止] 固定のプロキシを利用する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.proxy.type", 1);
-    lockPref("network.proxy.http", "（ホスト名）");
-    lockPref("network.proxy.http_port", （ポート番号）);
-    lockPref("network.proxy.share_proxy_settings", true);
+    [廃止]
 
-    :7: 固定のプロキシを利用する（ポリシーで設定）
+    :7: 固定のプロキシを利用する
 
     distribution\policies.json:
     "Proxy": {
@@ -54,25 +49,11 @@ Network-2: プロキシの利用
     カテゴリ「Firefox」
     → 「Proxy Settings」を有効化し、「Connection Type:」で「Manual proxy configuration」を選択、「HTTP Proxy:」にホスト名とポートを入力、「Use this proxy server for all protocols.」と「Don't allow proxy settings to be changed.」のチェックをON
 
-    :3: プロキシ自動設定スクリプトを利用する
+    :3: [廃止] プロキシ自動設定スクリプトを利用する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.proxy.type", 2);
-    clearPref("network.proxy.http");
-    clearPref("network.proxy.http_port");
-    clearPref("network.proxy.share_proxy_settings");
-    clearPref("network.proxy.ssl");
-    clearPref("network.proxy.ssl_port");
-    clearPref("network.proxy.ftp");
-    clearPref("network.proxy.ftp_port");
-    clearPref("network.proxy.gopher");
-    clearPref("network.proxy.gopher_port");
-    clearPref("network.proxy.socks");
-    clearPref("network.proxy.socks_port");
-    clearPref("network.proxy.no_proxies_on");
-    lockPref("network.proxy.autoconfig_url", "（ファイルのURL）");
+    [廃止]
 
-    :8: プロキシ自動設定スクリプトを利用する（ポリシーで設定）
+    :8: プロキシ自動設定スクリプトを利用する
 
     distribution\policies.json:
     "Proxy": {
@@ -85,12 +66,11 @@ Network-2: プロキシの利用
     カテゴリ「Firefox」
     → 「Proxy Settings」を有効化し、「Connection Type:」で「Automatic proxy configuration」を選択、「Automatic proxy configuration URL」にURLを入力、「Don't allow proxy settings to be changed.」のチェックをON
 
-    :4: WPADでネットワークのプロキシ設定を自動検出する
+    :4: [廃止] WPADでネットワークのプロキシ設定を自動検出する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.proxy.type", 4);
+    [廃止]
 
-    :9: WPADでネットワークのプロキシ設定を自動検出する（ポリシーで設定）
+    :9: WPADでネットワークのプロキシ設定を自動検出する
 
     distribution\policies.json:
     "Proxy": {
@@ -104,10 +84,9 @@ Network-2: プロキシの利用
 
     :5: システムの設定を利用する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("network.proxy.type", 5);
+    -
 
-    :10: システムの設定を利用する（ポリシーで設定）
+    :10: システムの設定を利用する（明示）
 
     distribution\policies.json:
     "Proxy": {
@@ -131,14 +110,11 @@ Network-3: [廃止] SSL3.0の利用の可否
 
 Network-4: NTLM認証によるシングルサインオンの許可
 
-    :1: 許可する
+    :1: [廃止] 許可する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.automatic-ntlm-auth.trusted-uris", "ドメイン名のカンマ区切りのリスト");
-    lockPref("network.negotiate-auth.delegation-uris", "ドメイン名のカンマ区切りのリスト");
-    lockPref("network.negotiate-auth.trusted-uris", "ドメイン名のカンマ区切りのリスト");
+    [廃止]
 
-    :2: 許可する (Policy Engine)
+    :2: 許可する
 
     // SPNEGO: network.negotiate-auth.trusted-uris
     // Delegated: network.negotiate-auth.delegation-uris
@@ -170,15 +146,6 @@ Network-5: HTTPの同時接続数
 
     :2: トラフィックを抑える事を優先
 
-    *.cfg / *.jsc:
-    // 最大同時接続数
-    lockPref("network.http.max-connections", 6);
-    // Proxy未使用時・使用時それぞれの、Keep-Aliveでの最大同時維持接続数
-    lockPref("network.http.max-persistent-connections-per-server", 2);
-    lockPref("network.http.max-persistent-connections-per-proxy", 2);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "network.http.max-connections": {
@@ -207,11 +174,6 @@ Network-6: SPDYプロトコルの使用の可否
     -
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("network.http.spdy.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -245,11 +207,6 @@ Network-8: IPv6の使用
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("network.dns.disableIPv6", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "network.dns.disableIPv6": {
@@ -280,11 +237,6 @@ Network-10: onionドメインの名前解決
     -
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("network.dns.blockDotOnion", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -324,15 +276,13 @@ Network-13: TLS 1.3の使用
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("security.tls.version.max", 4);
+    -
 
-    :2: 禁止する
+    :2: [廃止] 禁止する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("security.tls.version.max", 3); // 1 = TLS 1.0, 2 = TLS 1.1, 3 = TLS 1.2
+    [廃止]
 
-    :4: 許可する（ポリシーで設定）
+    :4: 許可する（明示）
 
     distribution\policies.json:
     "SSLVersionMax": "tls1.3",
@@ -341,7 +291,7 @@ Network-13: TLS 1.3の使用
     カテゴリ「Firefox」
     → 「Maximum SSL version enabled」を有効化し、オプションで「TLS 1.3」を選択
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     distribution\policies.json:
     "SSLVersionMax": "tls1.2", // "tls1", "tls1.1", "tls1.2" のいずれか
@@ -389,13 +339,11 @@ Network-15: [廃止] HTTP Pipeliningの最大同時リクエスト数
 
 Network-16: FQDN形式でない（ドットを含まない）ホスト名でのシングルサインオンの許可
 
-    :1: 許可する
+    :1: [廃止] 許可する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.negotiate-auth.allow-non-fqdn", true);
-    lockPref("network.automatic-ntlm-auth.allow-non-fqdn", true);
+    [廃止]
 
-    :2: 許可する (ポリシーで設定)
+    :2: 許可する
 
     // AllowNonFQDN.SPNEGO: network.negotiate-auth.allow-non-fqdn
     // AllowNonFQDN.NTLM: network.automatic-ntlm-auth.allow-non-fqdn
@@ -415,7 +363,7 @@ Network-16: FQDN形式でない（ドットを含まない）ホスト名での�
 
 Network-17: 脆弱なバージョンのTLSの使用
 
-    :1: TLS 1.0/1.1の使用を許可する（ポリシーで設定）
+    :1: TLS 1.0/1.1の使用を許可する
 
     distribution\policies.json:
     "SSLVersionMin": "tls1",
@@ -424,7 +372,7 @@ Network-17: 脆弱なバージョンのTLSの使用
     カテゴリ「Firefox」
     → 「Maximum SSL version enabled」を有効化し、オプションで「TLS 1.0」を選択
 
-    :2: 特定バージョン以上のTLSの使用を強制（ポリシーで設定）
+    :2: 特定バージョン以上のTLSの使用を強制
 
     distribution\policies.json:
     "SSLVersionMin": "tls1.1", // "tls1", "tls1.1", "tls1.2", "tls1.3" のいずれか
@@ -455,11 +403,6 @@ Network-19: TLSのクライアント証明書を組織内で使用している�
     -
 
     :2: 使用する（Google Chrome互換の動作にする）
-
-    *.cfg / *.jsc:
-    lockPref("network.cors_preflight.allow_client_cert", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -497,11 +440,6 @@ Network-21: FTPの使用
 
     :2: 使用する
 
-    *.cfg / *.jsc:
-    lockPref("network.ftp.enabled", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "network.ftp.enabled": {
@@ -522,11 +460,6 @@ Network-22: localhostの名前解決
     -
 
     :2: 通常の名前解決を許可する
-
-    *.cfg / *.jsc:
-    lockPref("network.proxy.allow_hijacking_localhost", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {

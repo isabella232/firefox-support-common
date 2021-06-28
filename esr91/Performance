@@ -43,12 +43,11 @@ Performance-4: パフォーマンスに悪影響を与えうるアクセシビ�
 
     -
 
-    :2: パフォーマンスを優先して無効化する
+    :2: [廃止] パフォーマンスを優先して無効化する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("accessibility.force_disabled", 1);
+    [廃止]
 
-    :3: パフォーマンスを優先して無効化する（ポリシーで設定）
+    :3: パフォーマンスを優先して無効化する
 
     distribution\policies.json:
     "Preferences": {
@@ -150,11 +149,6 @@ Performance-7: マルチプロセス機能で使用するプロセスの最大�
     -
 
     :2: 任意のプロセス数
-
-    *.cfg / *.jsc:
-    lockPref("dom.ipc.processCount", (整数値));
-
-    または
 
     distribution\policies.json:
     "Preferences": {

@@ -39,11 +39,6 @@ Admin-2: 初回起動時のアドオン導入警告の可否
 
     :1: 警告する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("extensions.autoDisableScopes", 15);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "extensions.autoDisableScopes": {
@@ -58,11 +53,6 @@ Admin-2: 初回起動時のアドオン導入警告の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 警告しない
-
-    *.cfg / *.jsc:
-    lockPref("extensions.autoDisableScopes", 11);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -102,18 +92,6 @@ Admin-4: Mozillaにより署名されていないアドオンのインストー�
 Admin-5: ポリシー設定の使用の可否
 
     :1: 使用する
-
-    *.cfg / *.jsc:
-    lockPref("browser.policies.loglevel", "debug");
-
-    distribution\policies.json:
-    {
-      "policies": {
-         ...
-      }
-    }
-
-    または
 
     distribution\policies.json:
     {

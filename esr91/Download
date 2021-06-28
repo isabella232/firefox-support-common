@@ -14,11 +14,8 @@ Download-1: ダウンロードマネージャの利用の可否
     Firefox 31時点で機能が廃止されたためカスタマイズ不可能。
     ダウンロードボタンの機能を可能な限り無効化する設定は以下の通り。
 
-    *.cfg / *.jsc:
-    lockPref("browser.download.animateNotifications", false);
-    lockPref("browser.download.manager.addToRecentDocs", false);
-    lockPref("browser.download.panel.shown", true);
-    lockPref("browser.uiCustomization.state", JSON.stringify({
+    browser.uiCustomization.state:
+    {
       "placements":{
         "widget-overflow-fixed-list":[],
         "nav-bar":[
@@ -42,7 +39,7 @@ Download-1: ダウンロードマネージャの利用の可否
       "dirtyAreaCache":["nav-bar", "toolbar-menubar", "TabsToolbar", "PersonalToolbar"],
       "currentVersion":16,
       "newElementCount":3
-    }));
+    }
 
     distribution\policies.json:
     "Preferences": {
@@ -71,14 +68,11 @@ Download-1: ダウンロードマネージャの利用の可否
 
 Download-2: ファイルの既定のダウンロード先
 
-    :1: 指定する：任意
+    :1: [廃止] 指定する：任意（MCD）
 
-    *.cfg / *.jsc:
-    defaultPref("browser.open.lastDir", "（ディレクトリのパス）");
-    defaultPref("browser.download.dir", "（ディレクトリのパス）");
-    defaultPref("browser.download.lastDir", "（ディレクトリのパス）");
+    [廃止]
 
-    :4: 指定する：任意（ポリシーで設定）
+    :4: 指定する：任意
 
     // ホームディレクトリを指すプレースホルダとして ${home} を使用可能
 
@@ -89,7 +83,7 @@ Download-2: ファイルの既定のダウンロード先
     カテゴリ「Firefox」
     → 「Default Download Directory」を有効化し、オプションでパスを指定
 
-    :5: 指定する：任意の場所に固定（ポリシーで設定）
+    :5: 指定する：任意の場所に固定
 
     // ホームディレクトリを指すプレースホルダとして ${home} を使用可能
 
@@ -149,12 +143,11 @@ Download-3: ファイルのダウンロード先ディレクトリの制御
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-    :3: ダウンロード先を固定せず、常にユーザに選択させる
+    :3: [廃止] ダウンロード先を固定せず、常にユーザに選択させる（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.download.useDownloadDir", false);
+    [廃止]
 
-    :4: ダウンロード先を固定せず、常にユーザに選択させる（ポリシーで設定）
+    :4: ダウンロード先を固定せず、常にユーザに選択させる
 
     distribution\policies.json:
     "PromptForDownloadLocation": true,

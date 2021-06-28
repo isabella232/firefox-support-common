@@ -6,11 +6,6 @@ Script-1: スクリプトによる頻繁なalertの可否
 
     :1: 許可する
 
-    *.cfg / *.jsc:
-    lockPref("dom.successive_dialog_time_limit", 0);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.successive_dialog_time_limit": {
@@ -40,23 +35,11 @@ Script-2: プッシュ通知の可否
 
     [廃止]
 
-    :4: 特定サイトのみ初期状態で確認なしで許可/禁止する
+    :4: [廃止] 特定サイトのみ初期状態で確認なしで許可/禁止する（MCD）
 
-    default.permissions:
-    # 許可
-    host<\t>desktop-notification<\t>1<\t>http://example.com
-    # 禁止
-    host<\t>desktop-notification<\t>2<\t>http://example.com
-    # または
-    # origin<\t>desktop-notification<\t>1<\t>http://example.com
-    # origin<\t>desktop-notification<\t>2<\t>http://example.com
+    [廃止]
 
-    *.cfg / *.jsc:
-    lockPref("dom.push.enabled", true);
-    lockPref("dom.serviceWorkers.enabled", true);
-    lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
-
-    :5: 特定サイトのみ初期状態で確認なしで許可/禁止する（ポリシーで設定）
+    :5: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     distribution\policies.json:
     "Permissions": {
@@ -92,11 +75,6 @@ Script-3: ゲームパッドAPIの利用の可否
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("dom.gamepad.enabled", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.gamepad.enabled": {
@@ -118,11 +96,6 @@ Script-4: DOMイベントによるクリップボード操作のオーバーラ�
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("dom.event.clipboardevents.enabled", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.event.clipboardevents.enabled": {
@@ -143,11 +116,6 @@ Script-5: DOMイベントによるコンテキストメニュー操作のオー�
     -
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("dom.event.contextmenu.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -176,12 +144,6 @@ Script-7: 動画・音声の自動再生の可否
 
     :1: 許可する
 
-    *.cfg / *.jsc:
-    lockPref("media.autoplay.default", 0); // すべて自動再生
-    lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "media.autoplay.default": {
@@ -201,12 +163,6 @@ Script-7: 動画・音声の自動再生の可否
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("media.autoplay.default", 5); // すべて禁止
-    lockPref("media.autoplay.blocking_policy", 1); // 制限を解除しても dom.user_activation.transient.timeout の時間が経過したら制限状態に戻す
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "media.autoplay.default": {
@@ -225,12 +181,6 @@ Script-7: 動画・音声の自動再生の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 原則禁止するが、ユーザーの操作で再生される物は許可（既定）
-
-    *.cfg / *.jsc:
-    lockPref("media.autoplay.default", 1); // 音声無しはすべて自動再生、それ以外は禁止
-    lockPref("media.autoplay.blocking_policy", 0); // 一度制限が解除されたらずっと解除したままにする
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -257,11 +207,6 @@ Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 
     :2: 付与しない
 
-    *.cfg / *.jsc:
-    lockPref("dom.targetBlankNoOpener.enabled", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.targetBlankNoOpener.enabled": {
@@ -278,12 +223,6 @@ Script-8: target=_blankリンクに「rel=noopener」を自動的に付与する
 Script-9: ページ読み込み時点での、購読を促す通知の表示の可否
 
     :1: 表示する
-
-    *.cfg / *.jsc:
-    // Script-2-3, Script-2-5との併用は不可能（これらが反映されている場合は常にScript-9-2選択時の挙動になる）。
-    lockPref("dom.webnotifications.requireuserinteraction", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -310,11 +249,6 @@ Script-10: 動画に対するPicture-in-Picture表示の可否
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("media.videocontrols.picture-in-picture.enabled", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "media.videocontrols.picture-in-picture.enabled": {
@@ -335,11 +269,6 @@ Script-11: AudioWorklet APIの使用の可否
     -
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("dom.worklet.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -382,11 +311,6 @@ Script-13: サンドボックス化されたiframeの自動ダウンロードの
     -
 
     :2: ブロックしない
-
-    *.cfg / *.jsc:
-    lockPref("dom.block_download_in_sandboxed_iframes", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {

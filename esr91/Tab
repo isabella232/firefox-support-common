@@ -6,11 +6,6 @@ Tab-1: 複数のタブを閉じる際の警告の可否
 
     :1: 警告する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.warnOnClose", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.warnOnClose": {
@@ -26,11 +21,6 @@ Tab-1: 複数のタブを閉じる際の警告の可否
 
     :2: 警告しない
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.warnOnClose", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.warnOnClose": {
@@ -45,14 +35,6 @@ Tab-1: 複数のタブを閉じる際の警告の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
-
-    *.cfg / *.jsc:
-    if (!getPref("browser.tabs.warnOnClose.initialized")) {
-      pref("browser.tabs.warnOnClose", false);
-      pref("browser.tabs.warnOnClose.initialized", true);
-    }
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -71,11 +53,6 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
 
     :1: 警告する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.warnOnCloseOtherTabs", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.warnOnCloseOtherTabs": {
@@ -91,11 +68,6 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
 
     :2: 警告しない
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.warnOnCloseOtherTabs", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.warnOnCloseOtherTabs": {
@@ -110,14 +82,6 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
-
-    *.cfg / *.jsc:
-    if (!getPref("browser.tabs.warnOnCloseOtherTabs.initialized")) {
-      pref("browser.tabs.warnOnCloseOtherTabs", false);
-      pref("browser.tabs.warnOnCloseOtherTabs.initialized", true);
-    }
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -136,11 +100,6 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
 
     :1: 警告する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.warnOnOpen", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.warnOnOpen": {
@@ -156,11 +115,6 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
 
     :2: 警告しない
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.warnOnOpen", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.warnOnOpen": {
@@ -175,14 +129,6 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
-
-    *.cfg / *.jsc:
-    if (!getPref("browser.tabs.warnOnOpen.initialized")) {
-      pref("browser.tabs.warnOnOpen", false);
-      pref("browser.tabs.warnOnOpen.initialized", true);
-    }
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -217,15 +163,11 @@ Tab-5: 新しいタブの内容
 
     [廃止]
 
-    :3: アドオンを使わず空白ページを表示する
+    :3: [廃止] アドオンを使わず空白ページを表示する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.enabled",false);
-    lockPref("browser.newtabpage.enhanced",false);
-    lockPref("browser.newtabpage.directory.ping", "");
-    lockPref("browser.newtabpage.directory.source", "about:blank");
+    [廃止]
 
-    :4: アドオンを使わず空白ページを表示する（ポリシーで設定）
+    :4: アドオンを使わず空白ページを表示する
 
     distribution\policies.json:
     "NewTabPage": false,
@@ -252,13 +194,6 @@ Tab-5: 新しいタブの内容
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :5: スポンサーコンテンツを非表示にする
-
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.enhanced",false);
-    lockPref("browser.newtabpage.directory.ping", "");
-    lockPref("browser.newtabpage.directory.source", "about:blank");
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -288,12 +223,6 @@ Tab-6: Webページによって開かれる新規ウィンドウを、代わり�
     -
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("browser.link.open_newwindow", 1);
-    lockPref("browser.link.open_newwindow.restriction", 0);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -352,11 +281,6 @@ Tab-9: 新しいタブを開く操作の高速化
 
     :2: 高速化しない（Tab-5-2選択時は常にこの動作）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtab.preload", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.newtab.preload": {
@@ -376,13 +300,11 @@ Tab-10: 検索バーの表示
 
     -
 
-    :2: 常に表示する
+    :2: [廃止] 常に表示する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.showSearch", true);
+    [廃止]
 
-    :4: 常に表示する（ポリシーで設定）
+    :4: 常に表示する
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -394,13 +316,11 @@ Tab-10: 検索バーの表示
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Search」と「Don't allow settings to be changed」のチェックをONにする
 
-    :3: 常に非表示にする
+    :3: [廃止] 常に非表示にする（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.showSearch", false);
+    [廃止]
 
-    :5: 常に非表示にする（ポリシーで設定）
+    :5: 常に非表示にする
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -418,20 +338,11 @@ Tab-11: トップサイトの表示
 
     -
 
-    :2: 常に表示する
+    :2: [廃止] 常に表示する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
+    [廃止]
 
     :3: 常に表示する（2段組）
-
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.topsites", true);
-    lockPref("browser.newtabpage.activity-stream.topSitesRows", 2)
-
-    または
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -452,7 +363,7 @@ Tab-11: トップサイトの表示
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-    :5: 常に表示する（ポリシーで設定）
+    :5: 常に表示する
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -464,13 +375,11 @@ Tab-11: トップサイトの表示
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Top Sites」と「Don't allow settings to be changed」のチェックをONにする
 
-    :4: 常に非表示にする
+    :4: [廃止] 常に非表示にする（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.topsites", false);
+    -
 
-    :6: 常に非表示にする（ポリシーで設定）
+    :6: 常に非表示にする
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -507,13 +416,11 @@ Tab-12: ハイライトの表示
 
     -
 
-    :2: 常に表示する
+    :2: [廃止] 常に表示する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.section.highlights", true);
+    [廃止]
 
-    :4: 常に表示する（ポリシーで設定）
+    :4: 常に表示する
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -525,13 +432,11 @@ Tab-12: ハイライトの表示
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Download History」と「Don't allow settings to be changed」のチェックをONにする
 
-    :3: 常に非表示にする
+    :3: [廃止] 常に非表示にする（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+    [廃止]
 
-    :5: 常に非表示にする（ポリシーで設定）
+    :5: 常に非表示にする
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -549,13 +454,11 @@ Tab-13: スニペットの表示
 
     -
 
-    :2: 常に表示する
+    :2: [廃止] 常に表示する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.snippets", true);
+    [廃止]
 
-    :4: 常に表示する（ポリシーで設定）
+    :4: 常に表示する
 
     distribution\policies.json:
     "FirefoxHome": {
@@ -567,11 +470,9 @@ Tab-13: スニペットの表示
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Snippets」と「Don't allow settings to be changed」のチェックをONにする
 
-    :3: 常に非表示にする
+    :3: [廃止] 常に非表示にする（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.prerender", false);
-    lockPref("browser.newtabpage.activity-stream.feeds.snippets", false);
+    [廃止]
 
     :5: 常に非表示にする（ポリシーで設定）
 
@@ -591,11 +492,11 @@ Tab-14: インポートボタンの表示
 
     [廃止]
 
-    :2: [廃止] 表示しない
+    :2: [廃止] 表示しない（MCD）
 
     [廃止]
 
-    :3: 表示しない（ポリシーで設定）
+    :3: 表示しない
 
     新規タブの画面にはボタンが存在しなくなっているが、「ブラウジングライブラリー」からのインポート操作には影響する。
 
@@ -624,11 +525,6 @@ Tab-16: トップサイトに表示されるウェブサイト
 
     :2: 変更する
 
-    *.cfg / *.jsc:
-    lockPref("browser.newtabpage.activity-stream.default.sites", "...");
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.newtabpage.activity-stream.default.sites": {
@@ -648,11 +544,6 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     ESR60からの移行時のみ必要。新規導入環境では不要。
 
-    *.cfg / *.jsc:
-    lockPref("browser.ctrlTab.recentlyUsedOrder", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.ctrlTab.recentlyUsedOrder": {
@@ -670,11 +561,6 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     新規導入環境で必要。ESR60からの移行時は不要。
 
-    *.cfg / *.jsc:
-    lockPref("browser.ctrlTab.recentlyUsedOrder", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.ctrlTab.recentlyUsedOrder": {
@@ -689,20 +575,6 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     ユーザーによる設定変更を許可する場合は以下の通り。
-
-    *.cfg / *.jsc:
-    var recentlyUsedOrderInitialized = false;
-    try {
-      recentlyUsedOrderInitialized = getPref("browser.ctrlTab.recentlyUsedOrder.initialized");
-    }
-    catch(e) {
-    }
-    if (!recentlyUsedOrderInitialized) {
-      pref("browser.ctrlTab.recentlyUsedOrder", false);
-      pref("browser.ctrlTab.recentlyUsedOrder.initialized", true);
-    }
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -721,11 +593,6 @@ Tab-18: タブの複数選択
 
     :1: 許可する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.multiselect", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.tabs.multiselect": {
@@ -740,11 +607,6 @@ Tab-18: タブの複数選択
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.multiselect", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {

@@ -118,19 +118,6 @@ Plugin-8: Gecko Media Pluginの利用の可否
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("media.eme.enabled",false);
-    lockPref("media.gmp-eme-adobe.enabled",false);
-    lockPref("media.gmp-eme-adobe.autoupdate",false);
-    lockPref("media.gmp-gmpopenh264.enabled",false);
-    lockPref("media.gmp-gmpopenh264.autoupdate",false);
-    lockPref("media.gmp-widevinecdm.enabled",false);
-    lockPref("media.gmp-widevinecdm.autoupdate",false);
-    lockPref("media.gmp-manager.url", "about:blank");
-    lockPref("media.gmp-provider.enabled",false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "media.eme.enabled": {

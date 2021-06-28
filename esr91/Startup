@@ -20,7 +20,7 @@ Startup-2: 起動時のホームページの指定
 
     -
 
-    :2: 管理者が指定し、変更を許可
+    :2: [廃止] 管理者が指定し、変更を許可（distribution.ini）
 
     distribution.ini:
     [Global]
@@ -31,12 +31,11 @@ Startup-2: 起動時のホームページの指定
     [LocalizablePreferences]
     browser.startup.homepage="（URL）"
 
-    :3: 管理者が指定し、変更を禁止
+    :3: [廃止] 管理者が指定し、変更を禁止（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.startup.homepage", "(URL)");
+    [廃止]
 
-    :5: 管理者が指定し、変更を許可（ポリシーで設定）
+    :5: 管理者が指定し、変更を許可
 
     distribution\policies.json:
     "Homepage": {
@@ -54,7 +53,7 @@ Startup-2: 起動時のホームページの指定
     → 「URL for Home page」のオプションの「Don't allow the homepage to be changed.」のチェックをOFF
     → 「Additional Homepages」を有効化し、オプションでURLを設定
 
-    :4: 管理者が指定し、変更を禁止（ポリシーで設定）
+    :4: 管理者が指定し、変更を禁止
 
     distribution\policies.json:
     "Homepage": {
@@ -72,7 +71,7 @@ Startup-2: 起動時のホームページの指定
     → 「URL for Home page」のオプションの「Don't allow the homepage to be changed.」のチェックをON
     → 「Additional Homepages」を有効化し、オプションでURLを設定
 
-    :6: 前回の状態を常に復元（ポリシーで設定）
+    :6: 前回の状態を常に復元
 
     distribution\policies.json:
     "Homepage": {
@@ -92,12 +91,11 @@ Startup-3: 既定のブラウザでなかった場合の、起動時における
     *.cfg / *.jsc:
     lockPref("browser.shell.checkDefaultBrowser", true);
 
-    :2: 確認しない
+    :2: [廃止] 確認しない（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("browser.shell.checkDefaultBrowser", false);
+    [廃止]
 
-    :3: 確認しない（ポリシーで設定）
+    :3: 確認しない
 
     distribution\policies.json:
     "DontCheckDefaultBrowser": true,
@@ -112,14 +110,13 @@ Startup-4: バージョンアップ後の初回起動時における、バージ
 
     -
 
-    :2: 禁止する
+    :2: [廃止] 禁止する（MCD）
 
-    // Startup-12の指定より優先される
-    *.cfg / *.jsc:
-    lockPref("browser.startup.homepage_override.mstone", "ignore");
+    [廃止]
 
     :3: 禁止する（ポリシーで設定）
 
+    // Startup-12の指定より優先される
     distribution\policies.json:
     "OverridePostUpdatePage": "",
 
@@ -133,14 +130,11 @@ Startup-5: 初期状態のブックマーク
 
     -
 
-    :2: 空にする
+    :2: [廃止] 空にする（MCD）
 
-    *.cfg / *.jsc:
-    defaultPref("browser.places.importBookmarksHTML", true);
-    lockPref("browser.bookmarks.autoExportHTML", false);
-    defaultPref("browser.bookmarks.restore_default_bookmarks", false);
+    [廃止]
 
-    :4: 空にする（ポリシーで設定）
+    :4: 空にする
 
     distribution\policies.json:
     "NoDefaultBookmarks": true,
@@ -149,7 +143,7 @@ Startup-5: 初期状態のブックマーク
     カテゴリ「Firefox」
     → 「No Default Bookmarks」を有効化
 
-    :3: 管理者が指定したブックマークを追加する（ポリシーで設定）
+    :3: 管理者が指定したブックマークを追加する
 
     // ブックマークのアップデートは起動ごとに行われる。
     // JSONの定義から削除したサイトは次回起動時に自動的に削除される。
@@ -190,7 +184,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
     *.cfg / *.jsc:
     lockPref("browser.disableResetPrompt", true);
 
-    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止（ポリシーで設定）
+    :3: リセットを提案せず、ユーザーの任意操作でのリセットも禁止
 
     distribution\policies.json:
     "DisableProfileRefresh": true,
@@ -247,7 +241,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
     // Startup-4-2 が選択されている場合は初回起動ページは常に表示されない
     -
 
-    :2: 任意のページを表示する（ポリシーで設定）
+    :2: 任意のページを表示する
 
     distribution\policies.json:
     "OverrideFirstRunPage": "http://www.example.com/",
@@ -256,7 +250,7 @@ Startup-12: 初回起動時のみの特別なスタートページ
     カテゴリ「Firefox」
     → 「Override the first run page」を有効化し、オプションでURLを入力
 
-    :3: 表示しない（ポリシーで設定）
+    :3: 表示しない
 
     distribution\policies.json:
     "OverrideFirstRunPage": "",

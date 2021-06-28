@@ -10,12 +10,11 @@ Ui-1: Firefox組み込みのPDFビューアの使用可否
     lockPref("pdfjs.disabled", false);
     lockPref("plugin.disable_full_page_plugin_for_types", "（application/pdfを含まない値）");
 
-    :2: 禁止する
+    :2: [廃止] 禁止する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("pdfjs.disabled", true);
+    [廃止]
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     distribution\policies.json:
     "DisableBuiltinPDFViewer": true,
@@ -27,11 +26,6 @@ Ui-1: Firefox組み込みのPDFビューアの使用可否
 Ui-2: F7キーによるキャレットブラウズモードの開始の可否
 
     :1: 許可する（既定）
-
-    *.cfg / *.jsc:
-    lockPref("accessibility.browsewithcaret_shortcut.enabled", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -47,11 +41,6 @@ Ui-2: F7キーによるキャレットブラウズモードの開始の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 禁止する
-
-    *.cfg / *.jsc:
-    lockPref("accessibility.browsewithcaret_shortcut.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -105,11 +94,6 @@ Ui-6: スペルチェック機能の使用
 
     :2: 使用しない
 
-    *.cfg / *.jsc:
-    lockPref("layout.spellcheckDefault", 0);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "layout.spellcheckDefault": {
@@ -129,12 +113,11 @@ Ui-7: FirefoxScreenshots機能の使用
 
     -
 
-    :2: 使用しない
+    :2: [廃止] 使用しない（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("extensions.screenshots.disabled", true);
+    -
 
-    :3: 使用しない（ポリシーで設定）
+    :3: [廃止] 使用しない
 
     distribution\policies.json:
     "DisableFirefoxScreenshots": true,
@@ -161,11 +144,6 @@ Ui-9: Tabキーでのツールバーボタンへのフォーカス移動
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("browser.toolbars.keyboard_navigation", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.toolbars.keyboard_navigation": {
@@ -183,11 +161,6 @@ Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
 
     :1: なし（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.backspace_action", 2);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.backspace_action": {
@@ -203,11 +176,6 @@ Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
 
     :2: 戻る/進む
 
-    *.cfg / *.jsc:
-    lockPref("browser.backspace_action", 0);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.backspace_action": {
@@ -222,11 +190,6 @@ Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 1ページ上にスクロール/下にスクロール
-
-    *.cfg / *.jsc:
-    lockPref("browser.backspace_action", 1);
-
-    または
 
     distribution\policies.json:
     "Preferences": {

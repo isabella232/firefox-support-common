@@ -28,10 +28,9 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     -
 
-    :3: Windowsの証明書データベースから自動的にインポートする
+    :3: [廃止] Windowsの証明書データベースから自動的にインポートする（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("security.enterprise_roots.enabled", true);
+    [廃止]
 
     :5: Windowsの証明書データベースから自動的にインポートする（ポリシーで設定）
 
@@ -103,21 +102,11 @@ Security-3: アドオンのインストールの可否
     カテゴリ「Firefox」→「Addons」
     → 「Allow add-on installs from websites」を無効化
 
-    :4: 禁止するが、設定の変更は許可する
+    :4: [廃止] 禁止するが、設定の変更は許可する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("xpinstall.enabled", false);
-    // アドオンマネージャからのインストールを禁止
-    lockPref("extensions.getAddons.discovery.api_url", "");
-    lockPref("extensions.getAddons.get.url", "");
-    lockPref("extensions.getAddons.getWithPerformance.url", "");
-    lockPref("extensions.getAddons.langpacks.url", "");
-    lockPref("extensions.getAddons.link.url", "");
-    lockPref("extensions.getAddons.recommended.url", "");
-    lockPref("extensions.getAddons.search.browseURL", "");
-    lockPref("extensions.getAddons.search.url", "");
+    [廃止]
 
-    :7: 禁止するが、設定の変更は許可する（ポリシー設定）
+    :7: 禁止するが、設定の変更は許可する
 
     distribution\policies.json:
     "InstallAddonsPermission": {
@@ -171,11 +160,11 @@ Security-4: 広告などのポップアップの表示の可否
 
     -
 
-    :2: [廃止] 特定サイトのみ常に確認無しで許可する
+    :2: [廃止] 特定サイトのみ常に確認無しで許可する（MCD）
 
     [廃止]
 
-    :6: 特定サイトのみ常に確認無しで許可する（ポリシーで設定）
+    :6: 特定サイトのみ常に確認無しで許可する
 
     distribution\policies.json:
     "PopupBlocking": {
@@ -204,12 +193,11 @@ Security-4: 広告などのポップアップの表示の可否
     *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file:///C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
-    :3: すべて確認無しで許可する
+    :3: [廃止] すべて確認無しで許可する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("dom.disable_open_during_load", false);
+    [廃止]
 
-    :7: すべて確認無しで許可する（ポリシーで設定）
+    :7: すべて確認無しで許可する
 
     distribution\policies.json:
     "PopupBlocking": {
@@ -222,13 +210,11 @@ Security-4: 広告などのポップアップの表示の可否
     → 「Allow pop-ups from websites」を無効化
     → 「Do not allow preferences to be changed」を有効化
 
-    :4: 禁止する
+    :4: [廃止] 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("dom.disable_open_during_load", true);
-    と設定した上で、「UI・キーボードショートカット無効化項目一覧」に従いUIを無効化
+    [廃止]
 
-    :8: 禁止する（ポリシーで設定）
+    :8: 禁止する
 
     distribution\policies.json:
     "PopupBlocking": {
@@ -245,11 +231,6 @@ Security-5: 攻撃サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.malware.enabled", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.safebrowsing.malware.enabled": {
@@ -264,30 +245,6 @@ Security-5: 攻撃サイトに対する警告の可否
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 警告しない
-
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.malware.enabled", false);
-    lockPref("browser.safebrowsing.downloads.remote.url", "");
-    lockPref("browser.safebrowsing.provider.google.advisoryURL", "");
-    lockPref("browser.safebrowsing.provider.google.gethashURL", "");
-    lockPref("browser.safebrowsing.provider.google.reportMalwareMistakeURL", "");
-    lockPref("browser.safebrowsing.provider.google.reportPhishMistakeURL", "");
-    lockPref("browser.safebrowsing.provider.google.reportURL", "");
-    lockPref("browser.safebrowsing.provider.google.updateURL", "");
-    lockPref("browser.safebrowsing.provider.google4.advisoryURL", "");
-    lockPref("browser.safebrowsing.provider.google4.gethashURL", "");
-    lockPref("browser.safebrowsing.provider.google4.reportMalwareMistakeURL", "");
-    lockPref("browser.safebrowsing.provider.google4.reportPhishMistakeURL", "");
-    lockPref("browser.safebrowsing.provider.google4.dataSharingURL", "");
-    lockPref("browser.safebrowsing.provider.google4.reportURL", "");
-    lockPref("browser.safebrowsing.provider.google4.updateURL", "");
-    lockPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
-    lockPref("browser.safebrowsing.provider.mozilla.updateURL", "");
-    lockPref("browser.safebrowsing.reportMalwareMistakeURL", "");
-    lockPref("browser.safebrowsing.reportPhishMistakeURL", "");
-    lockPref("browser.safebrowsing.reportPhishURL", "");
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -416,11 +373,11 @@ Security-9: about:configの利用の可否
 
     -
 
-    :2: [廃止] 禁止する
+    :2: [廃止] 禁止する（アドオン）
 
     [廃止]
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     distribution\policies.json:
     "BlockAboutConfig": true,
@@ -467,14 +424,11 @@ Security-12: JavaScriptの実行の可否
 
 Security-13: ローカルファイルの読み込みの可否
 
-    :1: 特定サイトのみ許可する
+    :1: [廃止] 特定サイトのみ許可する（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("capability.policy.policynames", "trusted");
-    lockPref("capability.policy.trusted.sites", "http://example.com http://example.net");
-    lockPref("capability.policy.trusted.checkloaduri.enabled", "allAccess");
+    [廃止]
 
-    :3: 特定サイトのみ許可する（ポリシーで設定）
+    :3: 特定サイトのみ許可する
 
     distribution\policies.json:
     "LocalFileLinks": [
@@ -706,11 +660,6 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
 
     :2: 禁止する
 
-    *.cfg / *.jsc:
-    lockPref("extensions.getAddons.discovery.api_url", "");
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "extensions.getAddons.discovery.api_url": {
@@ -741,14 +690,6 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
     -
 
     :2: ブロックしない
-
-    *.cfg / *.jsc:
-    lockPref("extensions.blocklist.enabled", false);
-    lockPref("extensions.blocklist.detailsURL", "");
-    lockPref("extensions.blocklist.itemURL", "");
-    lockPref("extensions.blocklist.url", "");
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -789,12 +730,6 @@ Security-23: プラグインのサンドボックス内実行
 
     :1: サンドボックス内で実行しない（既定）
 
-    *.cfg / *.jsc:
-    lockPref("dom.ipc.plugins.sandbox-level.default", 0);
-    lockPref("dom.ipc.plugins.sandbox-level.flash", 0);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.ipc.plugins.sandbox-level.default": {
@@ -813,12 +748,6 @@ Security-23: プラグインのサンドボックス内実行
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: Flashプラグインのみサンドボックス内で実行
-
-    *.cfg / *.jsc:
-    lockPref("dom.ipc.plugins.sandbox-level.default", 0);
-    lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -839,12 +768,6 @@ Security-23: プラグインのサンドボックス内実行
 
     :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
 
-    *.cfg / *.jsc:
-    defaultPref("dom.ipc.plugins.sandbox-level.default", 0);
-    defaultPref("dom.ipc.plugins.sandbox-level.flash", 2);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.ipc.plugins.sandbox-level.default": {
@@ -864,14 +787,9 @@ Security-23: プラグインのサンドボックス内実行
 
     :3: すべてサンドボックス内で実行
 
-    *.cfg / *.jsc:
     // 1: 管理者権限のないユーザのレベル
     // 2: より厳格なレベル（機能的に問題が起こりうる）
     // 3: 最も厳格なレベル
-    lockPref("dom.ipc.plugins.sandbox-level.default", 1);
-    lockPref("dom.ipc.plugins.sandbox-level.flash", 1);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -897,14 +815,6 @@ Security-24: Flashプラグインの保護モード
     -
 
     :2: 使用しない
-
-    *.cfg / *.jsc:
-    // 32bit版でのみ使用される設定。
-    // 64bit版では設定項目が表示されず使用されないため、
-    // 設定ファイルの共通化の際にはそのまま残しても問題無い。
-    lockPref("dom.ipc.plugins.flash.disable-protected-mode", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -981,11 +891,6 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
 
     :1: ブロックする（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.downloads.enabled", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "browser.safebrowsing.downloads.enabled": {
@@ -1000,11 +905,6 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: ブロックしない
-
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.downloads.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1022,12 +922,6 @@ Security-26: ファイルのダウンロード保護により、危険なソフ�
 Security-27: ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する
 
     :1: 警告する（既定）
-
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", true);
-    lockPref("browser.safebrowsing.downloads.remote.block_uncommon", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1047,12 +941,6 @@ Security-27: ファイルのダウンロード保護により、不要なソフ�
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 警告しない
-
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-    lockPref("browser.safebrowsing.downloads.remote.block_uncommon", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1077,12 +965,11 @@ Security-28: 認証が必要なWiFiアクセスポイントを検出した時に
 
     -
 
-    :2: 何もしない
+    :2: [廃止] 何もしない（MCD）
 
-    *.cfg / *.jsc:
-    lockPref("network.captive-portal-service.enabled", false);
+    [廃止]
 
-    :3: 何もしない（ポリシーで設定）
+    :3: 何もしない
 
     distribution\policies.json:
     "CaptivePortal": false,
@@ -1115,11 +1002,6 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
 Security-31: 危険なFlashコンテンツの読み込み
 
     :1: 許可する
-
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.blockedURIs.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1198,7 +1080,7 @@ Security-36: DNS over HTTPSの使用
 
     // 2020年7月現在は、US地域の英語版でのみ有効で、それ以外では無効。
 
-    :2: 使用する（ポリシーで設定）
+    :2: 使用する
 
     distribution\policies.json:
     "DNSOverHTTPS": {
@@ -1213,7 +1095,7 @@ Security-36: DNS over HTTPSの使用
     → 「Provider URL」を有効化してURLを設定
     → 「Locked」を有効化
 
-    :3: 使用を禁止する（ポリシーで設定）
+    :3: 使用を禁止する
 
     distribution\policies.json:
     "DNSOverHTTPS": {
@@ -1232,7 +1114,7 @@ Security-37: セキュリティ警告の回避
 
     -
 
-    :2: 警告の回避を禁止する（ポリシーで設定）
+    :2: 警告の回避を禁止する
 
     // 証明書の例外登録、詐欺サイトの強制表示を禁止
     distribution\policies.json:
@@ -1252,7 +1134,7 @@ Security-38: セキュリティデバイスの登録
 
     -
 
-    :2: 登録する（ポリシーで設定）
+    :2: 登録する
 
     distribution\policies.json:
     "SecurityDevices": {
@@ -1270,7 +1152,7 @@ Security-39: 特定のWebサイトへのアクセスの遮断
 
     -
 
-    :2: 遮断する（ポリシーで設定）
+    :2: 遮断する
 
     // ブロックする対象のURLを示すマッチパターン。
     // （詳細は https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns を参照）
@@ -1299,7 +1181,7 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
 
     -
 
-    :2: アドオンごとにメッセージを指定（ポリシーで設定）
+    :2: アドオンごとにメッセージを指定
 
     distribution\policies.json:
     "ExtensionSettings": {
@@ -1315,11 +1197,6 @@ Security-40: アドオンのインストールを遮断した際の追加のメ�
 Security-41: 複数のポップアップを一度に開く操作
 
     :1: 許可する
-
-    *.cfg / *.jsc:
-    lockPref("dom.block_multiple_popups", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1348,11 +1225,6 @@ Security-42: 過去にデータ流出事故を起こしたWebサービスでの�
     // とは併用不可能
 
     :2: 警告を表示しない
-
-    *.cfg / *.jsc:
-    lockPref("extensions.fxmonitor.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1383,11 +1255,6 @@ Security-44: HTTPSでないURLのページでのカメラ・マイクの使用�
 
     :1: 許可する
 
-    *.cfg / *.jsc:
-    lockPref("media.getusermedia.insecure.enabled", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "media.getusermedia.insecure.enabled": {
@@ -1402,11 +1269,6 @@ Security-44: HTTPSでないURLのページでのカメラ・マイクの使用�
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 禁止する（既定）
-
-    *.cfg / *.jsc:
-    lockPref("media.getusermedia.insecure.enabled", false);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
@@ -1552,11 +1414,6 @@ Securiyt-47: OSの証明書ストアのクライアント証明書の利用
 
     :1: 使用する
 
-    *.cfg / *.jsc:
-    lockPref("security.osclientcerts.autoload", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "security.osclientcerts.autoload": {
@@ -1634,11 +1491,6 @@ Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォー�
 
     :2: 警告しない
 
-    *.cfg / *.jsc:
-    lockPref("security.warn_submit_secure_to_insecure", false);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "security.warn_submit_secure_to_insecure": {
@@ -1660,11 +1512,6 @@ Securiyt-52: HTTPS接続の強制
 
     :2: プライベートブラウジングモードでのみ強制する
 
-    *.cfg / *.jsc:
-    lockPref("dom.security.https_only_mode_pbm", true);
-
-    または
-
     distribution\policies.json:
     "Preferences": {
       "dom.security.https_only_mode_pbm": {
@@ -1679,12 +1526,6 @@ Securiyt-52: HTTPS接続の強制
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :3: 常に強制する
-
-    *.cfg / *.jsc:
-    lockPref("dom.security.https_only_mode", true);
-    lockPref("dom.security.https_only_mode_pbm", true);
-
-    または
 
     distribution\policies.json:
     "Preferences": {
