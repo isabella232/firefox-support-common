@@ -9,6 +9,12 @@ UPDATES_PDF = "Firefox_$(DATE).pdf"
 BASE=$(shell pwd)
 
 VERIFY_MANUAL_OPT= -c assets/esr78.conf -a assets/esr78.var
+
+# How to generate a PDF document:
+#
+#   $ sudo apt install texlive-full pandoc fonts-noto-cjk
+#   $ make migration-report
+#
 PANDOC_OPT_PDF= -N --toc-depth=2 --table-of-contents \
                 -f markdown \
                 --wrap=preserve \
@@ -16,6 +22,7 @@ PANDOC_OPT_PDF= -N --toc-depth=2 --table-of-contents \
                 -V documentclass=ltjsarticle \
                 -V classoption=titlepage \
                 --pdf-engine=xelatex
+
 PANDOC_OPT_DOCX= --toc-depth=2 --table-of-contents \
                  -f markdown+east_asian_line_breaks \
                  -t docx \
