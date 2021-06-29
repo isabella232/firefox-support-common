@@ -11,10 +11,11 @@ BASE=$(shell pwd)
 VERIFY_MANUAL_OPT= -c assets/esr78.conf -a assets/esr78.var
 PANDOC_OPT_PDF= -N --toc-depth=2 --table-of-contents \
                 -f markdown \
-                --wrap=perserve \
+                --wrap=preserve \
+                --template=eisvogel.tex \
                 -V documentclass=ltjsarticle \
                 -V classoption=titlepage \
-                --latex-engine=lualatex
+                --pdf-engine=xelatex
 PANDOC_OPT_DOCX= --toc-depth=2 --table-of-contents \
                  -f markdown+east_asian_line_breaks \
                  -t docx \
@@ -45,8 +46,8 @@ verification-manual:
 	./cat-verify ${VERIFY_MANUAL_OPT} -l > verify-$(DATE)-checklist.csv
 
 migration-report:
-	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_DOCX} -o "migration-report-esr78-$(DATE).docx" && mv *.docx ../
-#	cd migration && cat esr78.md | pandoc ${PANDOC_OPT_PDF} -o "migration-report-esr78-$(DATE).pdf" && mv *.pdf ../
+	#cd migration && cat esr91.md | pandoc ${PANDOC_OPT_DOCX} -o "migration-report-esr91-$(DATE).docx" && mv *.docx ../
+	cd migration && cat esr91.md | pandoc ${PANDOC_OPT_PDF} -o "migration-report-esr91-$(DATE).pdf" && mv *.pdf ../
 
 clean:
 	rm -f config-*.xlsx
