@@ -38,8 +38,8 @@ except ImportError:
 #
 # Global settings
 
-ESR_PREVIOUS = 'esr68'
-ESR_CURRENT = 'esr78'
+ESR_PREVIOUS = 'esr78'
+ESR_CURRENT = 'esr91'
 CHAPTERS_CSV = 'verify-targets-to-chapters.csv'
 
 WORKBOOK_DEF = [
