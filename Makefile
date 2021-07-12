@@ -53,8 +53,8 @@ verification-manual:
 	./cat-verify ${VERIFY_MANUAL_OPT} -l > verify-$(DATE)-checklist.csv
 
 migration-report:
-	#cd migration && cat esr91.md | pandoc ${PANDOC_OPT_DOCX} -o "migration-report-esr91-$(DATE).docx" && mv *.docx ../
-	cd migration && cat esr91.md | pandoc ${PANDOC_OPT_PDF} -o "migration-report-esr91-$(DATE).pdf" && mv *.pdf ../
+	cd migration && cat esr91.md | pandoc ${PANDOC_OPT_PDF} -o "../migration-report-esr91-$(DATE).pdf"
+	cd migration && cat esr91.md | pandoc ${PANDOC_OPT_DOCX} -o "../migration-report-esr91-$(DATE).docx"
 
 clean:
 	rm -f config-*.xlsx
