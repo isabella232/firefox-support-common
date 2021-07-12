@@ -1776,9 +1776,22 @@ Privacy-56: マスターパスワードの使用の強制
 
     - `PrimaryPassword` の値が `true` である。
 
-
     :2: 強制しない（既定）
 
     ABOUT_POLICIES
 
     - `PrimaryPassword` の値が `false` であるか、存在しない。
+
+Privacy-57: 同一タブ・サイトにおけるマイクとカメラのアクセス
+
+    :1: 60分以内であれば自動的に承認する (既定)
+
+    ABOUT_CONFIG
+
+    - "privacy.webrtc.deviceGracePeriodTimeoutMs" の値が `60000` である。
+
+    :2: 独自のタイムアウトを設定する
+
+    ABOUT_CONFIG
+
+    - "privacy.webrtc.deviceGracePeriodTimeoutMs" の値が指定されたタイムアウト値 (単位はms) である

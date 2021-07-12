@@ -415,3 +415,16 @@ Network-21: FTPの使用
 
     - `network.ftp.enabled` の値が `true` である。
 
+Network-22: localhostの名前解決
+
+    :1: 常にループバックインターフェイスとして扱う（既定）
+
+    ABOUT_CONFIG
+
+    - `network.proxy.allow_hijacking_localhost` の値が `false` である。
+
+    :2: 通常の名前解決を許可する
+
+    ABOUT_CONFIG
+
+    - `network.proxy.allow_hijacking_localhost` の値が `true` である。
