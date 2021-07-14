@@ -474,7 +474,7 @@ Tab-13: スニペットの表示
 
     [廃止]
 
-    :5: 常に非表示にする（ポリシーで設定）
+    :5: 常に非表示にする
 
     distribution\policies.json:
     "FirefoxHome": {

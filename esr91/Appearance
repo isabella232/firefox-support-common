@@ -117,7 +117,7 @@ Appearance-5: 初期状態でのブックマークツールバーの表示
 
 Appearance-6: 初期状態でのメニューバーの表示
 
-    :1: 表示する（ポリシーで設定）
+    :1: 表示する
 
     distribution\policies.json:
     "DisplayMenuBar": "default-on",
@@ -136,7 +136,7 @@ Appearance-7: アプリケーションのUIに使用する言語
 
     -
 
-    :2: 任意の言語（ポリシーで設定）
+    :2: 任意の言語
 
     distribution\policies.json:
     "RequestedLocales": [
@@ -155,7 +155,7 @@ Appearance-8: ヘルプメニュー配下に登録する独自のサポートペ
 
     -
 
-    :2: 表示する（ポリシーで設定）
+    :2: 表示する
 
     distribution\policies.json:
     "SupportMenu": {

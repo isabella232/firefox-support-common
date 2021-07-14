@@ -4,11 +4,11 @@
 
 Security-1: 独自のルート証明書をあらかじめ導入しておく
 
-    :1: [廃止] 導入する
+    :1: [廃止] 導入する（MCD）
 
     [廃止]
 
-    :4: 導入する（ポリシーで設定）
+    :4: 導入する
 
     （「%AppData%\Mozilla\Certificates」または「%LocalAppData%\Mozilla\Certificates」に証明書ファイルを設置した上で）
     distribution\policies.json:
@@ -32,7 +32,7 @@ Security-1: 独自のルート証明書をあらかじめ導入しておく
 
     [廃止]
 
-    :5: Windowsの証明書データベースから自動的にインポートする（ポリシーで設定）
+    :5: Windowsの証明書データベースから自動的にインポートする
 
     distribution\policies.json:
     "Certificates": {
@@ -59,11 +59,11 @@ Security-3: アドオンのインストールの可否
 
     -
 
-    :2: [廃止] 特定サイトのみ常に許可する
+    :2: [廃止] 特定サイトのみ常に許可する（MCD）
 
     [廃止]
 
-    :6: 特定サイトのみ常に許可する（ポリシーとして設定）
+    :6: 特定サイトのみ常に許可する
 
     distribution\policies.json:
     "InstallAddonsPermission": {
@@ -88,7 +88,7 @@ Security-3: アドオンのインストールの可否
     *.cfg / *.jsc:
     lockPref("permissions.manager.defaultsUrl", "file://\C:/Program Files (x86)/Mozilla%20Firefox/defaults/default.permissions");
 
-    :3: 禁止する（ポリシー設定）
+    :3: 禁止する
 
     distribution\policies.json:
     "BlockAboutAddons": true,
