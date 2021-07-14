@@ -1410,7 +1410,7 @@ Security-46: CRLiteの使用
     *.cfg / *.jsc:
     lockPref("security.pki.crlite_mode", 0);
 
-Securiyt-47: OSの証明書ストアのクライアント証明書の利用
+Security-47: OSの証明書ストアのクライアント証明書の利用
 
     :1: 使用する
 
@@ -1431,7 +1431,7 @@ Securiyt-47: OSの証明書ストアのクライアント証明書の利用
 
     -
 
-Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可する
+Security-48: クロスオリジンでのCookieの設定を初期状態で許可する
 
     :1: 許可する
 
@@ -1445,7 +1445,7 @@ Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可�
 
     -
 
-Securiyt-49: 「ようこそ」画面からのFirefox Monitorへの遷移
+Security-49: 「ようこそ」画面からのFirefox Monitorへの遷移
 
     :1: 許可する（既定）
 
@@ -1464,7 +1464,7 @@ Securiyt-49: 「ようこそ」画面からのFirefox Monitorへの遷移
     カテゴリ「Firefox」
     →「Blocked websites」を有効化し、「オプション」欄に「https://monitor.firefox.com/?utm_source=activity-stream*」を追加
 
-Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
+Security-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
 
     :1: 許可する（既定）
 
@@ -1483,7 +1483,7 @@ Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロード�
     カテゴリ「Firefox」
     →「Blocked websites」を有効化し、「オプション」欄に「https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*」を追加
 
-Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
+Security-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
 
     :1: 警告する（既定）
 
@@ -1504,7 +1504,7 @@ Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォー�
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-Securiyt-52: HTTPS接続の強制
+Security-52: HTTPS接続の強制
 
     :1: 強制しない（既定）
 
@@ -1544,7 +1544,7 @@ Securiyt-52: HTTPS接続の強制
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-Securiyt-53: パスワードマネージャでの平文パスワードの表示の可否
+Security-53: パスワードマネージャでの平文パスワードの表示の可否
 
     :1: 許可する（既定）
 

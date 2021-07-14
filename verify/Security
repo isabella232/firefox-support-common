@@ -1111,7 +1111,7 @@ Security-46: CRLiteの使用
 
     - `security.pki.crlite_mode` の値が `0` である。
 
-Securiyt-47: OSの証明書ストアのクライアント証明書の利用
+Security-47: OSの証明書ストアのクライアント証明書の利用
 
     :1: 使用する
 
@@ -1125,7 +1125,7 @@ Securiyt-47: OSの証明書ストアのクライアント証明書の利用
 
     - 「プライバシーとセキュリティ」→「証明書」→「証明書を表示」→「あなたの証明書」で「OS Client Cert Token」という項目が表示されない。
 
-Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可する
+Security-48: クロスオリジンでのCookieの設定を初期状態で許可する
 
     :1: 許可する
 
@@ -1139,7 +1139,7 @@ Securiyt-48: クロスオリジンでのCookieの設定を初期状態で許可�
 
     - `LegacySameSiteCookieBehaviorEnabled` が存在しない。
 
-Securiyt-49: 「ようこそ」画面からのFirefox Monitorへの遷移
+Security-49: 「ようこそ」画面からのFirefox Monitorへの遷移
 
     :1: 許可する（既定）
 
@@ -1157,7 +1157,7 @@ Securiyt-49: 「ようこそ」画面からのFirefox Monitorへの遷移
     - **確認**
         - タブが開かれないか、Webページが読み込まれずブロックされる。
 
-Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
+Security-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
 
     :1: 許可する（既定）
 
@@ -1175,7 +1175,7 @@ Securiyt-50: 「ようこそ」画面からのFirefox Mobileダウンロード�
     - **確認**
         - タブが開かれないか、Webページが読み込まれずブロックされる。
 
-Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
+Security-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
 
     :1: 警告する（既定）
 
@@ -1187,7 +1187,7 @@ Securiyt-51: HTTPSのコンテンツからHTTPのコンテンツへのフォー�
 
     - `Preferences` の `security.warn_submit_secure_to_insecure` の値が `false` である。
 
-Securiyt-52: HTTPS接続の強制
+Security-52: HTTPS接続の強制
 
     :1: 強制しない（既定）
 
@@ -1207,7 +1207,7 @@ Securiyt-52: HTTPS接続の強制
 
     - 「プライバシーとセキュリティ」→「HTTPS-Onlyモード」で「すべてのウィンドウでHTTPS-Onlyモードを有効にする」が選択されている。
 
-Securiyt-53: パスワードマネージャでの平文パスワードの表示の可否
+Security-53: パスワードマネージャでの平文パスワードの表示の可否
 
     :1: 許可する（既定）
 
