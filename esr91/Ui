@@ -117,7 +117,7 @@ Ui-7: FirefoxScreenshots機能の使用
 
     -
 
-    :3: [廃止] 使用しない
+    :3: 使用しない
 
     distribution\policies.json:
     "DisableFirefoxScreenshots": true,
