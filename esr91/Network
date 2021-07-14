@@ -467,3 +467,33 @@ Network-22: localhostの名前解決
       ...
     },
 
+Network-23: 外部アプリケーションの起動の許可
+
+    :1: 確認を求める（既定）
+
+    -
+
+    :2: 確認無しで起動を許可する
+
+    distribution\policies.json:
+    "AutoLaunchProtocolsFromOrigins": [
+        {
+          "protocol": "zoommtg",
+          "allowed_origins": [
+            "https://somesite.zoom.us"
+          ]
+        },
+        ...
+    ]
+
+Network-24: Windowsのシングルサインオンの許可
+
+    :1: 許可しない（既定）
+
+    distribution\policies.json:
+    "WindowsSSO": false
+
+    :2: 許可する
+
+    distribution\policies.json:
+    "WindowsSSO": true
