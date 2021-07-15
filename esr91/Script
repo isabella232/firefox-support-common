@@ -289,7 +289,7 @@ Script-12: VRデバイスへのアクセスの可否
 
     -
 
-    :1: 特定サイトのみ初期状態で確認なしで許可/禁止する
+    :2: 特定サイトのみ初期状態で確認なしで許可/禁止する
 
     distribution\policies.json:
     "Permissions": {
