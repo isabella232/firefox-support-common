@@ -726,108 +726,33 @@ Security-22: [廃止] Webアプリケーションのインストールの可否
 
     [廃止]
 
-Security-23: プラグインのサンドボックス内実行
+Security-23: [廃止] プラグインのサンドボックス内実行
 
-    :1: サンドボックス内で実行しない（既定）
+    :1: [廃止] サンドボックス内で実行しない（既定）
 
-    distribution\policies.json:
-    "Preferences": {
-      "dom.ipc.plugins.sandbox-level.default": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "dom.ipc.plugins.sandbox-level.flash": {
-        "Value": 0,
-        "Status": "default"
-      },
-      ...
-    },
+    [廃止]
 
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    :2: [廃止] Flashプラグインのみサンドボックス内で実行
 
-    :2: Flashプラグインのみサンドボックス内で実行
+    [廃止]
 
-    distribution\policies.json:
-    "Preferences": {
-      "dom.ipc.plugins.sandbox-level.default": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "dom.ipc.plugins.sandbox-level.flash": {
-        "Value": 1,
-        "Status": "default"
-      },
-      ...
-    },
+    :4: [廃止] Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
 
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    [廃止]
 
-    :4: Flashプラグインのみより厳格なサンドボックス内で実行（Firefox 60既定値）
+    :3: [廃止] すべてサンドボックス内で実行
 
-    distribution\policies.json:
-    "Preferences": {
-      "dom.ipc.plugins.sandbox-level.default": {
-        "Value": 0,
-        "Status": "default"
-      },
-      "dom.ipc.plugins.sandbox-level.flash": {
-        "Value": 2,
-        "Status": "default"
-      },
-      ...
-    },
+    [廃止]
 
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+Security-24: [廃止] Flashプラグインの保護モード
 
-    :3: すべてサンドボックス内で実行
+    :1: [廃止] 使用する（既定）
 
-    // 1: 管理者権限のないユーザのレベル
-    // 2: より厳格なレベル（機能的に問題が起こりうる）
-    // 3: 最も厳格なレベル
+    [廃止]
 
-    distribution\policies.json:
-    "Preferences": {
-      "dom.ipc.plugins.sandbox-level.default": {
-        "Value": 1,
-        "Status": "locked"
-      },
-      "dom.ipc.plugins.sandbox-level.flash": {
-        "Value": 1,
-        "Status": "locked"
-      },
-      ...
-    },
+    :2: [廃止] 使用しない
 
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
-
-Security-24: Flashプラグインの保護モード
-
-    :1: 使用する（既定）
-
-    -
-
-    :2: 使用しない
-
-    distribution\policies.json:
-    "Preferences": {
-      "dom.ipc.plugins.flash.disable-protected-mode": {
-        "Value": true,
-        "Status": "locked"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    [廃止]
 
 Security-25: プロトコルごとの外部Webアプリケーションへの連携
 
