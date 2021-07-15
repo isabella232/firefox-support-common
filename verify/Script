@@ -280,32 +280,12 @@ Script-14: window.nameのクロスオリジン間での共有
 
     :1: 共有を許可しない（既定）
 
-    {%if DisableDeveloperTools %}
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-      {% endif %}
-    - Firefoxを起動する。
-    - `https://example.com/` を開く。
-    - 「Ctrl-Shift-I」を押して開発ツールを開き、`window.name = "abc"`を実行する。
-    - 同じタブで`https://example.org/` に遷移する。
-    - 開発ツールで`window.name`を評価する。
-    - **確認**
-      - `window.name`の値が空文字である
-    {%if DisableDeveloperTools %}
-    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
-      {% endif %}
+    ABOUT_CONFIG
+
+    - `privacy.window.name.update.enabled` の値が `true` である。
 
     :2: 共有を許可する
 
-    {%if DisableDeveloperTools %}
-    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
-      {% endif %}
-    - Firefoxを起動する。
-    - `https://example.com/` を開く。
-    - 「Ctrl-Shift-I」を押して開発ツールを開き、`window.name = "abc"`を実行する。
-    - 同じタブで`https://example.org/` に遷移する。
-    - 開発ツールで`window.name`を評価する。
-    - **確認**
-      - `window.name`の値が"abc"である。
-    {%if DisableDeveloperTools %}
-    - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
-      {% endif %}
+    ABOUT_CONFIG
+
+    - `privacy.window.name.update.enabled` の値が `false` である。
