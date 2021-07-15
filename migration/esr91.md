@@ -4,7 +4,7 @@ CJKoptions:
   - BoldFont=Noto Sans CJK JP Bold
 title:     Firefox ESR78からESR91の変更点
 author:    株式会社クリアコード
-date:      2021年7月14日
+date:      2021年7月16日
 titlepage: true
 toc-title: 目次
 toc-own-page: true
@@ -77,7 +77,7 @@ Firefox ESR78のサポートは、2021年11月2日で終了します（以後は
   * JavaScriptが埋め込まれたフォームにも対応しています。 (Firefox 88)
 -->
 * PDFの署名の表示をサポートしました。 (Firefox 89)  
-  ![](esr91/pdf-signature.png)
+  ![](esr91/pdf-signature.png){ width=400 }
 * Windows 8以上の環境で、FirefoxをWindowsのPDFアプリとして設定できるようになりました。 (Firefox 80)  
   ![](esr91/default-app-pdf.png){ width=400 }
 <!-- 説明が煩雑になるため、説明をまとめる。
@@ -175,10 +175,10 @@ Firefox ESR78のサポートは、2021年11月2日で終了します（以後は
 
 * Windowsにおいて、Firefoxのバックグランド更新が段階的に有効化され始めました （Firefox 90)
   * 無効化するには、`BackgroundAppUpdate`のポリシーを設定します。Firefoxの自動更新を無効化している場合は、影響はありません。
+* ユーザーの許可を求めずに、外部プログラムの起動を許可するドメインを指定できるようになりました（Firefox 90)  
+  ![](esr91/protocol-link.png){ width=400 }
 * Microsoft IntuneでMSIをインストールできない不具合が修正されました。 (Firefox 81)
 * GPOやmacOSのプロファイル設定が有効な場合でも、`policies.json` の内容がポリシー設定として反映されるようになりました。競合する設定内容は、GPOやプロファイル設定の物が優先されます。 (Firefox 87)
-* ユーザーの許可を求めずに、外部プログラムの起動を許可するドメインを指定できるようになりました（Firefox 90)  
-  ![](esr91/protocol-link.png)
 * ポリシー設定で制御可能な範囲が拡大されました。 (Firefox 79～91)
 <!-- 詳細は設定シートでカバーされるため、ここでは省略する。
   * `PrimaryPassword`ポリシーで、マスターパスワードの使用を強制できるようになりました。 (Firefox 79)
