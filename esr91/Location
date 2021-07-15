@@ -29,7 +29,7 @@ Location-2: アドレスバーにおける国際化ドメインの表示
 
     -
 
-    :2: 必ずpunycode形式で表示する（ポリシーで設定）
+    :2: 必ずpunycode形式で表示する
 
     distribution\policies.json:
     "Preferences": {

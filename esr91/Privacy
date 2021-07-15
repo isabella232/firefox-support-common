@@ -344,7 +344,7 @@ Privacy-11: Cookie、IndexedDB、Web Storage、およびService Worker用Cache�
     → 「Accept cookies from websites」を無効化
     → 「Keep cookies until Firefox is closed」を有効化化
 
-    :7: 既定では永続的に許可し、特定サイトのみ禁止する（ポリシーで設定）
+    :7: 既定では永続的に許可し、特定サイトのみ禁止する
 
     distribution\policies.json:
     "Cookies": {

@@ -233,15 +233,19 @@ Appearance-13: 「ローカルワンオフ検索」ショートカットの表�
 
     :2: 表示しない
 
-    *.cfg / *.jsc:
-    lockPref("browser.urlbar.shortcuts.bookmarks", false)
-    lockPref("browser.urlbar.shortcuts.history", false)
-    lockPref("browser.urlbar.shortcuts.tab", false)
-
     distribution\policies.json:
     "Preferences": {
-      "browser.browser.urlbar.shortcuts.bookmarks": { "Value": false, "Status": "locked" },
-      "browser.browser.urlbar.shortcuts.history": { "Value": false, "Status": "locked" },
-      "browser.browser.urlbar.shortcuts.tab": { "Value": false, "Status": "locked" },
+      "browser.browser.urlbar.shortcuts.bookmarks": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.browser.urlbar.shortcuts.history": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.browser.urlbar.shortcuts.tab": {
+        "Value": false,
+        "Status": "locked"
+      },
       ...
     },

@@ -490,8 +490,7 @@ Network-24: Windowsのシングルサインオンの許可
 
     :1: 許可しない（既定）
 
-    distribution\policies.json:
-    "WindowsSSO": false
+    -
 
     :2: 許可する
 
