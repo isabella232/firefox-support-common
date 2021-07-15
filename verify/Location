@@ -36,7 +36,7 @@ Location-2: アドレスバーにおける国際化ドメインの表示
     - **確認**
         - アドレスバーのURLが日本語で表示されている。
 
-    :2: 必ずpunycode形式で表示する（ポリシーで設定）
+    :2: 必ずpunycode形式で表示する
 
     - Firefoxを起動する。
     - `https://日本語.jp/` を開く。
@@ -79,7 +79,7 @@ Location-4: Firefox Solution ボタンを含む、アドレスバー候補内へ
 
     - `UserMessaging` 配下に `UrlbarInterventions` が存在しない。
 
-    :2: 表示しない（ポリシーで設定）
+    :2: 表示しない
 
     ABOUT_POLICIES
 

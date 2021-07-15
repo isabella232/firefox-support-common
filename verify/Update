@@ -13,14 +13,14 @@ Update-0: 自動更新の設定の検証
 
 Update-1: Firefoxの自動更新の可否
 
-    :1: 許可する（既定）（ポリシーで設定）
+    :1: 許可する（既定）
 
     - Firefoxを起動する。
     - 「ヘルプ」→「Firefoxについて」を開く。
     - **確認**
         - 「ソフトウェアの更新を確認」が表示されるか、「Firefoxは最新バージョンです」と表示される。
 
-    :4: 禁止する（ポリシーで設定）
+    :4: 禁止する
 
     - Firefoxを起動する。
     - 「ヘルプ」→「Firefoxについて」を開く。
@@ -41,7 +41,7 @@ Update-2: アドオンの自動更新の可否
 
     - `extensions.update.enabled` の値が `false` である。
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     ABOUT_CONFIG
 
@@ -61,7 +61,7 @@ Update-3: 検索エンジンの自動更新の可否
 
     - `browser.search.update` の値が `false` である。
 
-    :3: 禁止する（ポリシーで設定）
+    :3: 禁止する
 
     ABOUT_POLICIES
 
@@ -105,7 +105,7 @@ Update-6: システムアドオンの自動更新の可否
 
     - `DisableSystemAddonUpdate` が存在しない。
 
-    :2: 禁止する（ポリシーで設定）
+    :2: 禁止する
 
     ABOUT_POLICIES
 
@@ -119,7 +119,7 @@ Update-7: アプリケーションの自動更新情報取得先
 
     - `AppUpdateURL` が存在しない。
 
-    :2: 任意のサーバー（ポリシーで設定）
+    :2: 任意のサーバー
 
     ABOUT_POLICIES
 
