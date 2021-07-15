@@ -40,7 +40,9 @@ list-untracked-policies:
 	cat assets/policies-schema.json | jq -r 'select(.. | .properties?).properties | keys[]' | sort | uniq | while read key; do grep -r "\"$${key}\"" esr* >/dev/null 2>&1 || echo "$${key}"; done
 
 list-unverified-configs:
-	bash -c 'grep -r -E -v  "^ " esr* | cut -d : -f 2- | sort | cut -d : -f 1 | uniq | grep -v -f <(grep -r -E -v  "^ " esr* | grep 廃止 | cut -d : -f 2 | sort | uniq) | while read key; do grep -E "$${key}[^0-9]" manual.md >/dev/null 2>&1 || echo "$${key}"; done'
+	grep -h "\(^[A-Z]\|:[0-9]:\)" verify/*  | grep -v 事前準備 | grep -v '\-0' > list-verify.txt
+	grep -h "\(^[A-Z]\|:[0-9]:\)" esr91/*  | grep -v 廃止 > list-esr91.txt
+	diff -U 6 list-esr91.txt list-verify.txt
 
 verify-targets-to-chapters.csv:
 	./cat-verify ${VERIFY_MANUAL_OPT} -i > "$(PWD)/$@"
