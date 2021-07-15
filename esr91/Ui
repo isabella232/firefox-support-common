@@ -203,14 +203,3 @@ Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
-
-Ui-11: 「新しいタブで画像を開く」の挙動
-
-    :1: バックグラウンドでタブを開く（既定）
-
-    -
-
-    :2: フォラグラウンドでタブを開く
-
-    *.cfg / *.jsc:
-    lockPref("browser.tabs.loadInBackground", false);
