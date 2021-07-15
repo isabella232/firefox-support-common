@@ -428,3 +428,31 @@ Network-22: localhostの名前解決
     ABOUT_CONFIG
 
     - `network.proxy.allow_hijacking_localhost` の値が `true` である。
+
+Network-23: 外部アプリケーションの起動の許可
+
+    :1: 確認を求める（既定）
+
+    ABOUT_POLICIES
+
+    - `AutoLaunchProtocolsFromOrigins` の値が存在しないか、空である。
+
+    :2:
+
+    ABOUT_POLICIES
+
+    - `AutoLaunchProtocolsFromOrigins` の値として、指定のサイトのドメイン名・プロトコルが指定されている。
+
+Network-24: Windowsのシングルサインオンの許可
+
+    :1: 許可しない（既定）
+
+    ABOUT_POLICIES
+
+    - `WindowsSSO` の値が存在しないか、空である。
+
+    :2: 許可する
+
+    ABOUT_POLICIES
+
+    - `WindowsSSO` の値が `true` である。
