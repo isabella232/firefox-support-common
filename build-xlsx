@@ -173,7 +173,7 @@ def write_header_columns(sheet, columns, format, column_offset):
 
 def generate_xlsx(workbook, config, chapters, excludes):
     formats = create_formats(workbook)
-    prev_config = config[ESR_PREVIOUS.upper()]
+    prev_configs = config[ESR_PREVIOUS.upper()]
 
     for title, files in WORKBOOKS:
         if title in excludes:
@@ -200,7 +200,7 @@ def generate_xlsx(workbook, config, chapters, excludes):
                     item_fmt  = formats['default']
                     option_id = option['option_id']
 
-                    applied_prev_config  = prev_config.get(option_id, {'config':''})['config']
+                    applied_prev_config  = prev_configs.get(option_id, {'config':''})['config']
                     template_curr_config = option['config'].strip()
                     template_prev_config = prev.get(option_id, {'config':''})['config']
 
@@ -212,7 +212,7 @@ def generate_xlsx(workbook, config, chapters, excludes):
                     sheet.write(row, 2, item['title'],      item_fmt) # C
 
                     col_count = 5
-                    base_config = prev_config
+                    base_configs = prev_configs
                     applied_base_config = applied_prev_config
                     for key, variation_config in config.items():
                         if key == key == ESR_PREVIOUS.upper():
@@ -226,13 +226,13 @@ def generate_xlsx(workbook, config, chapters, excludes):
                             variation_fmt = formats['deprecated']
                         elif option_id in variation_config:
                             chapter = chapters.get(option_id, '省略')
-                            if option_id not in base_config:
+                            if option_id not in base_configs:
                                 variation_fmt, variation_status = formats['selected_changed'], '新規'
                             elif sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
                                 variation_fmt, variation_status = formats['selected_changed'], '変更あり'
                             else:
                                 variation_fmt, variation_status = formats['selected'], ''
-                        elif base_config == prev_config:
+                        elif base_configs == prev_configs:
                             if sanitize_config(template_curr_config) != sanitize_config(template_prev_config):
                               chapter = chapters.get(option_id, '省略')
                               if template_prev_config == '':
@@ -243,13 +243,13 @@ def generate_xlsx(workbook, config, chapters, excludes):
                             if sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
                                 variation_status = '削除'
 
-                        if base_config == prev_config:
+                        if base_configs == prev_configs:
                           fmt = variation_fmt
 
                         sheet.write(row, col_count + 1, applied_variation_config, variation_fmt)
                         sheet.write(row, col_count + 2, variation_status,         variation_fmt)
                         col_count += 2
-                        base_config         = variation_config
+                        base_configs        = variation_config
                         applied_base_config = applied_variation_config
 
                     sheet.write(row, 3, int(option['option_index']), fmt) # D
