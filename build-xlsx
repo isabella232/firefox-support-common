@@ -139,28 +139,28 @@ def write_header(sheet, formats, config):
         width = col[1]
         sheet.set_column(index, index, width)
 
-    col_count = 5
+    col_index = len(COLUMNS)
     prev_key = ESR_PREVIOUS.upper()
     for key in config.keys():
         if key == ESR_PREVIOUS.upper():
             continue
-        sheet.write(0, col_count + 1, '反映した設定値\n(%s)' % key, fmt)
-        sheet.write(0, col_count + 2, '%s→%sでの変更' % (prev_key, key), fmt)
-        sheet.set_column(col_count + 1, col_count + 1, 40)
-        sheet.set_column(col_count + 2, col_count + 2, 10)
-        col_count += 2
+        sheet.write(0, col_index,     '反映した設定値\n(%s)' % key,       fmt)
+        sheet.write(0, col_index + 1, '%s→%sでの変更' % (prev_key, key), fmt)
+        sheet.set_column(col_index,     col_index,     40)
+        sheet.set_column(col_index + 1, col_index + 1, 10)
+        col_index += 2
         prev_key = key
 
-    sheet.write(0, col_count + 1, '検証手順書対応番号', fmt)
-    sheet.write(0, col_count + 3, '設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), fmt)
-    sheet.write(0, col_count + 4, '反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), fmt)
-    sheet.set_column(col_count + 1, col_count + 1, 10)
-    sheet.set_column(col_count + 2, col_count + 2, 12)
-    sheet.set_column(col_count + 3, col_count + 3, 40)
-    sheet.set_column(col_count + 4, col_count + 4, 40)
-    col_count += 4
+    sheet.write(0, col_index,     '検証手順書対応番号', fmt)
+    sheet.write(0, col_index + 2, '設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), fmt)
+    sheet.write(0, col_index + 3, '反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), fmt)
+    sheet.set_column(col_index,     col_index,     10)
+    sheet.set_column(col_index + 1, col_index + 1, 12)
+    sheet.set_column(col_index + 2, col_index + 2, 40)
+    sheet.set_column(col_index + 3, col_index + 3, 40)
+    col_index += 4
 
-    sheet.set_column(0, col_count, None, formats['default'])
+    sheet.set_column(0, col_index, None, formats['default'])
 
 def generate_xlsx(workbook, config, chapters, excludes):
     formats = create_formats(workbook)
