@@ -5,7 +5,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 #
-# Copyright (C) Clear Code, Inc. 2019
+# Copyright (C) Clear Code, Inc. 2019-2021
 #
 # HOW TO USE
 # ----------
@@ -13,16 +13,22 @@
 # >>> import adlib
 # >>> adlib.load('esr60/Install')
 #
-# DATA SCHEMA
+# OUTPUT DATA SCHEMA
 # -----------
 #
 #   {
-#     'item_id': 'Privacy-2',
-#     'item_title': 'フォームの入力履歴の保存の可否',
-#     'opts': [{'conf': '"DisableFormHistory": true',
-#               'opt_id': 'Privacy-2-3',
-#               'opt_no': '3',
-#               'opt_title': '保存しない（ポリシーで設定）'}]
+#     'id': 'Privacy-2',
+#     'category': 'Privacy',
+#     'index': '2',
+#     'title': 'フォームの入力履歴の保存の可否',
+#     'options': [
+#        {'option_id':    'Privacy-2-3',
+#         'option_index': '3',
+#         'option_title': '保存しない（ポリシーで設定）',
+#         'dependency':   '何々の場合',
+#         'config':       '"DisableFormHistory": true'},
+#        ...
+#     ]
 #   }
 
 import re
@@ -38,69 +44,84 @@ from collections import OrderedDict
 #
 #    !define PRODUCT_FULL_NAME  "（名前）"
 #
-# PAT_ITEM detects the main title line, and PAT_OPT detects the
-# option title.
+# ITEM_MATCHER detects the main title line, and OPTION_MATCHER detects the
+# option title and more.
 
-PAT_ITEM = re.compile('^(\S+): (.+)')
-PAT_OPT  = re.compile('^ +:(\d+): ([^:]+)(: (.+))?')
+ITEM_MATCHER = re.compile('^(\S+): (.+)')
+OPTION_MATCHER = re.compile('^ +:(\d+): ([^:]+)(: (.+))?')
+
+def is_comment(line):
+    return line.startswith("#")
 
 class Loader:
 
     def __init__(self):
         self.data = []
-        self.conf = ''
+        self.config = ''
 
     def feed(self, line):
         line = line.rstrip()
 
-        if line.startswith("#"):
+        if is_comment(line):
             return
 
-        m = re.match(PAT_ITEM, line)
-        if m:
-            return self.new_item(m.group(1), m.group(2))
+        matched = re.match(ITEM_MATCHER, line)
+        if matched:
+            return self.new_item(matched.group(1), matched.group(2))
 
-        m = re.match(PAT_OPT, line)
-        if m:
-            return self.new_opt(m.group(1), m.group(2), m.group(4))
+        matched = re.match(OPTION_MATCHER, line)
+        if matched:
+            return self.new_option(matched.group(1), matched.group(2), matched.group(4))
 
-        self.conf += line[4:] + '\n'
+        self.config += line[4:] + '\n'
 
-    def new_item(self, item_id, item_title):
+    def new_item(self, id, title):
         self.flush()
 
-        item = {'item_id': item_id,
-                'item_no': item_id.rsplit('-', 1)[1],
-                'item_title': item_title,
-                'opts': []}
+        category, index = id.rsplit('-', 1)
+        item = {
+            'id':       id,
+            'category': category,
+            'index':    index,
+            'title':    title,
+            'options':  [],
+        }
         self.data.append(item)
 
-    def new_opt(self, opt_no, opt_title, opt_title_sub):
+    def new_option(self, index, title, dependency):
         self.flush()
-        if not opt_title_sub:
-            opt_title_sub = ''
+        if not dependency:
+            dependency = ''
 
-        opt_id =  '%s-%s' % (self.data[-1]['item_id'], opt_no)
-        opt = {'opt_id': opt_id,
-               'opt_no': opt_no,
-               'opt_title': opt_title,
-               'opt_title_sub': opt_title_sub,
-               'conf': ''}
-        self.data[-1]['opts'].append(opt)
+        last_item = self.data[-1]
+        id = '%s-%s' % (last_item['id'], index)
+        option = {
+            'option_id':    id,
+            'option_index': index,
+            'option_title': title,
+            'dependency':   dependency,
+            'config':       '',
+        }
+        last_item['options'].append(option)
 
     def flush(self):
-        if not self.data or not self.data[-1]['opts']:
+        if not self.data:
             return
 
-        self.data[-1]['opts'][-1]['conf'] = self.conf.strip()
-        self.conf = ''
+        last_item = self.data[-1]
+        if not last_item['options']:
+            return
+
+        last_option = last_item['options'][-1]
+        last_option['config'] = self.config.strip()
+        self.config = ''
 
 
 class VariableLoader:
 
     def __init__(self):
         self.data = {}
-        self.key = None
+        self.key  = None
 
     def feed(self, line):
         line = line.rstrip()
@@ -141,17 +162,19 @@ def load(path):
 
 def load_as_dict(path):
     try:
-        data = load(path)
+        items = load(path)
     except IOError:
         return {}
 
-    res = OrderedDict()
-    for item in data:
-        for opt in item['opts']:
-            res[opt['opt_id']] = {'conf':          opt['conf'],
-                                  'opt_title':     opt['opt_title'],
-                                  'opt_title_sub': opt['opt_title_sub']}
-    return res
+    configs = OrderedDict()
+    for item in items:
+        for option in item['options']:
+            configs[option['option_id']] = {
+                'config':       option['config'],
+                'option_title': option['option_title'],
+                'dependency':   option['dependency'],
+            }
+    return configs
 
 def load_variables(path):
     loader = VariableLoader()

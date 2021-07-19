@@ -76,23 +76,26 @@ DEFAULT_VAR = {
     "navigator_appVersion":           "5.0 (Windows)",
     "imported_certs":                 "検証用証明書（example.com）, (発行者名1)/(証明署名1), (発行者名1)/(証明署名2), ...",
     "flash_download_url":             "https://get.adobe.com/jp/flashplayer/",
+    "ModifySystemTime":               "",
+    "DownloadExeFile":                "",
+    "UpdateFromFirefox60":            "",
 }
 
 TEMPLATE = """
-## {opt_id}
+## {option_id}
 
-『{item_title}：{opt_title}』
-{opt_title_sub_out}
+『{title}：{option_title}』
+{dependency_description}
 
 **検証手順**
 
-{conf}
+{config}
 """
 
 TEMPLATE_PRETEXT = """
-## {opt_title}
+## {option_title}
 
-{conf}
+{config}
 """
 
 TEMPLATE_OPTIONS = """
@@ -237,18 +240,18 @@ SPECIALS = [
 def anyof(vars, *args):
     return any(vars[k] for k in args)
 
-def check_skip(vars, opt_title_sub):
+def should_skip(vars, dependency):
     """Return True if the verification step should be skipped.
 
     >>> vars = {'ModifyTime': 1}
-    >>> check_skip(vars, 'ModifyTime')
+    >>> should_skip(vars, 'ModifyTime')
     False
-    >>> check_skip(vars, 'ModifySystem')
+    >>> should_skip(vars, 'ModifySystem')
     False
-    >>> check_skip(vars, 'not ModifyTime')
+    >>> should_skip(vars, 'not ModifyTime')
     True
     """
-    key = opt_title_sub
+    key  = dependency
     func = lambda x: x
 
     if key.startswith('not '):
@@ -268,12 +271,12 @@ def parse_special(text):
 
     return ('', text)
 
-PAT_DISABLED_ITEM_KEY = re.compile('(DISABLED_[A-Z_]+):\s+(.+)\Z')
+DISABLED_ITEM_KEY_MATCHER = re.compile('(DISABLED_[A-Z_]+):\s+(.+)\Z')
 
 def shift_disabled_item(text):
     ht = text.split('\n', maxsplit=1)
 
-    match = re.match(PAT_DISABLED_ITEM_KEY, ht[0])
+    match = re.match(DISABLED_ITEM_KEY_MATCHER, ht[0])
     if match:
         rest = ''
         if len(ht) > 1:
@@ -284,34 +287,34 @@ def shift_disabled_item(text):
 
 def apply_vars(items, vars):
     for item in items:
-        for opt in item['opts']:
-            if opt['opt_id'] not in vars:
+        for option in item['options']:
+            if option['option_id'] not in vars:
                 continue
 
-            sp, text = parse_special(vars[opt['opt_id']])
+            sp, text = parse_special(vars[option['option_id']])
             if sp == 'OVERWRITE':
-                opt['conf'] = text
+                option['config'] = text
             else:
-                opt['conf'] += text
+                option['config'] += text
     return items
 
-PAT_PRETEXT_OPTION = re.compile('^[^-]+-0-[0-9]+\Z')
-PAT_LIST_ITEM = re.compile('^(\s*)(- )?(.*[^\\\\])$', re.MULTILINE)
-PAT_LIST_LINE = re.compile('^(\s*)(- )?(.+)$', re.MULTILINE)
+PRETEXT_OPTION_MATCHER = re.compile('^[^-]+-0-[0-9]+\Z')
+LIST_ITEM_MATCHER = re.compile('^(\s*)(- )?(.*[^\\\\])$', re.MULTILINE)
+LIST_LINE_MATCHER = re.compile('^(\s*)(- )?(.+)$', re.MULTILINE)
 
-def create_template(manual, conf, vars):
-    items_options = []
-    items_about_config = []
-    items_about_policies = []
-    items_disabled_shortcuts = []
+def create_template(manual, config, vars):
+    items_options               = []
+    items_about_config          = []
+    items_about_policies        = []
+    items_disabled_shortcuts    = []
     items_disabled_devtool_menu = []
 
     template = vars.get('COVER', '') + '\n'
     template += "# 事前準備"
 
     for item in manual['PRETEXT']:
-        for opt in item['opts']:
-            template += TEMPLATE_PRETEXT.format(**opt) + '\n'
+        for option in item['options']:
+            template += TEMPLATE_PRETEXT.format(**option) + '\n'
 
 
     # prepare internal variables
@@ -320,9 +323,9 @@ def create_template(manual, conf, vars):
 
     for items in manual.values():
         for item in items[1:]:
-            for opt in item['opts']:
-                vars[opt['opt_id'].replace('-', '_')] = opt['opt_id'] in conf
-                vars['not ' + opt['opt_id'].replace('-', '_')] = opt['opt_id'] not in conf
+            for option in item['options']:
+                vars[option['option_id'].replace('-', '_')] = option['option_id'] in config
+                vars['not ' + option['option_id'].replace('-', '_')] = option['option_id'] not in config
 
     vars['DisableDeveloperTools'] = anyof(vars,
         'MenuShortcut_10_1', 'MenuShortcut_11_1', 'MenuShortcut_12_1',
@@ -355,51 +358,52 @@ def create_template(manual, conf, vars):
     vars['NotificationGloballyDisabled'] = vars['Script_2_3'] or vars['Script_2_6']
     vars['not NotificationGloballyDisabled'] = not vars['NotificationGloballyDisabled']
 
-    chapters = {}
-    chapter_options = []
-    chapter_about_config = []
-    chapter_about_policies = []
+    chapters                  = {}
+    chapter_options           = []
+    chapter_about_config      = []
+    chapter_about_policies    = []
     chapter_disabled_shortcut = []
-    chapter_disabled_devtool = []
+    chapter_disabled_devtool  = []
 
     first_level_chapter = 2
     for items in manual.values():
         tmp = ''
 
-        if len(items) > 0 and re.match(PAT_PRETEXT_OPTION, items[0]['opts'][0]['opt_id']):
+        if len(items) > 0 and re.match(PRETEXT_OPTION_MATCHER, items[0]['options'][0]['option_id']):
             second_level_chapter = 2
         else:
             second_level_chapter = 1
 
         for item in items[1:]:
-            for opt in item['opts']:
-                if opt['opt_id'] not in conf:
+            for option in item['options']:
+                if option['option_id'] not in config:
                     continue
 
-                if check_skip(vars, opt['opt_title_sub']):
+                if should_skip(vars, option['dependency']):
                     continue
 
-                conf_values = conf.get(opt['opt_id'], '')
-                opt['opt_title'] = conf_values['opt_title']
-                opt['opt_title_sub'] = conf_values['opt_title_sub']
+                config_values = config.get(option['option_id'], '')
 
-                if opt['opt_title_sub'] in vars:
-                    if not vars[opt['opt_title_sub']]:
+                option['option_title'] = config_values['option_title']
+                option['dependency_description'] = ''
+
+                if option['dependency'] in vars:
+                    if not vars[option['dependency']]:
                         continue
-                    opt['opt_title_sub'] = ''
+                    option['dependency'] = ''
 
-                sp, text = parse_special(opt['conf'])
+                sp, text = parse_special(option['config'])
                 if sp == 'OPTIONS':
-                    items_options.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    chapter_options.append(opt['opt_id'])
+                    items_options.append((option['option_id'], option['dependency'], text))
+                    chapter_options.append(option['option_id'])
                     continue
                 elif sp == 'ABOUT_CONFIG':
-                    items_about_config.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    chapter_about_config.append(opt['opt_id'])
+                    items_about_config.append((option['option_id'], option['dependency'], text))
+                    chapter_about_config.append(option['option_id'])
                     continue
                 elif sp == 'ABOUT_POLICIES':
-                    items_about_policies.append((opt['opt_id'], opt['opt_title_sub'], text))
-                    chapter_about_policies.append(opt['opt_id'])
+                    items_about_policies.append((option['option_id'], option['dependency'], text))
+                    chapter_about_policies.append(option['option_id'])
                     continue
 
                 while True:
@@ -407,29 +411,28 @@ def create_template(manual, conf, vars):
                     if key == '':
                         break
                     elif key == 'DISABLED_SHORTCUT':
-                        items_disabled_shortcuts.append((opt['opt_id'], desc))
-                        chapter_disabled_shortcut.append(opt['opt_id'])
+                        items_disabled_shortcuts.append((option['option_id'], desc))
+                        chapter_disabled_shortcut.append(option['option_id'])
                     elif key == 'DISABLED_DEVTOOL_MENU':
-                        items_disabled_devtool_menu.append((opt['opt_id'], desc))
-                        chapter_disabled_devtool.append(opt['opt_id'])
+                        items_disabled_devtool_menu.append((option['option_id'], desc))
+                        chapter_disabled_devtool.append(option['option_id'])
 
                 if text == '':
                     continue
 
-                opt['conf'] = text
+                option['config'] = text
 
-                opt['opt_title_sub_out'] = opt['opt_title_sub']
-                if opt['opt_title_sub_out'] != '':
-                    opt['opt_title_sub_out'] = '（' + opt['opt_title_sub_out'] + '）'
+                if option['dependency'] != '':
+                    option['dependency_description'] = '（' + option['dependency'] + '）'
 
-                tmp += TEMPLATE.format(**opt, **item) + '\n'
-                if not re.match(PAT_PRETEXT_OPTION, opt['opt_id']):
+                tmp += TEMPLATE.format(**option, **item) + '\n'
+                if not re.match(PRETEXT_OPTION_MATCHER, option['option_id']):
                     capter_id = '%s.%s' % (first_level_chapter, second_level_chapter)
                     if capter_id in chapters:
                         option_ids = chapters[capter_id]
                     else:
                         option_ids = []
-                    option_ids.append(opt['opt_id'])
+                    option_ids.append(option['option_id'])
                     chapters[capter_id] = option_ids
 
                 second_level_chapter += 1
@@ -437,21 +440,21 @@ def create_template(manual, conf, vars):
         if not tmp:
             continue  # Nothing to verify
 
-        template += '\n# %s' % items[0]['item_title']
-        for opt in items[0]['opts']:
-            template += TEMPLATE_PRETEXT.format(**opt) + '\n'
+        template += '\n# %s' % items[0]['title']
+        for option in items[0]['options']:
+            template += TEMPLATE_PRETEXT.format(**option) + '\n'
         template += tmp
 
         first_level_chapter += 1
 
     if items_options:
         template += TEMPLATE_OPTIONS
-        for opt_id, opt_title_sub, text in items_options:
-            if opt_title_sub:
-                suffix = ' (%s %s)' % (opt_id, opt_title_sub)
+        for option_id, dependency, text in items_options:
+            if dependency:
+                suffix = ' (%s %s)' % (option_id, dependency)
             else:
-                suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_LINE, '\\1    \\2\\3', re.sub(PAT_LIST_ITEM, '\\1\\2\\3 %s' % (suffix), text))
+                suffix = ' (%s)' % (option_id)
+            template += re.sub(LIST_LINE_MATCHER, '\\1    \\2\\3', re.sub(LIST_ITEM_MATCHER, '\\1\\2\\3 %s' % (suffix), text))
             template += '\n'
 
         chapters['%s' % (first_level_chapter)] = chapter_options
@@ -460,12 +463,12 @@ def create_template(manual, conf, vars):
     if items_about_config:
         template += TEMPLATE_ABOUT_CONFIG
         config_list = []
-        for opt_id, opt_title_sub, text in items_about_config:
-            if opt_title_sub:
-                suffix = ' (%s %s)' % (opt_id, opt_title_sub)
+        for option_id, dependency, text in items_about_config:
+            if dependency:
+                suffix = ' (%s %s)' % (option_id, dependency)
             else:
-                suffix = ' (%s)' % (opt_id)
-            config_list.append(re.sub(PAT_LIST_LINE, '\\1    \\2\\3', re.sub(PAT_LIST_ITEM, '\\1\\2\\3 %s' % (suffix), text)))
+                suffix = ' (%s)' % (option_id)
+            config_list.append(re.sub(LIST_LINE_MATCHER, '\\1    \\2\\3', re.sub(LIST_ITEM_MATCHER, '\\1\\2\\3 %s' % (suffix), text)))
         config_list.sort()
         template += '\n'.join(config_list)
         template += TEMPLATE_ABOUT_CONFIG_END
@@ -475,35 +478,35 @@ def create_template(manual, conf, vars):
 
     if items_about_policies:
         template += TEMPLATE_ABOUT_POLICIES
-        for opt_id, opt_title_sub, text in items_about_policies:
-            if opt_title_sub:
-                suffix = ' (%s %s)' % (opt_id, opt_title_sub)
+        for option_id, dependency, text in items_about_policies:
+            if dependency:
+                suffix = ' (%s %s)' % (option_id, dependency)
             else:
-                suffix = ' (%s)' % (opt_id)
-            template += re.sub(PAT_LIST_LINE, '\\1    \\2\\3', re.sub(PAT_LIST_ITEM, '\\1\\2\\3 %s' % (suffix), text))
+                suffix = ' (%s)' % (option_id)
+            template += re.sub(LIST_LINE_MATCHER, '\\1    \\2\\3', re.sub(LIST_ITEM_MATCHER, '\\1\\2\\3 %s' % (suffix), text))
             template += '\n'
         chapters['%s' % (first_level_chapter)] = chapter_about_policies
         first_level_chapter += 1
 
     if items_disabled_shortcuts:
         template += TEMPLATE_SHORTCUT
-        for opt_id, text in items_disabled_shortcuts:
-            template += '    - %s (%s)\n' % (text, opt_id)
+        for option_id, text in items_disabled_shortcuts:
+            template += '    - %s (%s)\n' % (text, option_id)
         chapters['%s' % (first_level_chapter)] = chapter_disabled_shortcut
         first_level_chapter += 1
 
     if items_disabled_devtool_menu:
         if vars['DisableDeveloperTools']:
             template += TEMPLATE_DEVTOOL_SKIPPED
-            for opt_id, text in items_disabled_devtool_menu:
-                template += '- %s (%s)\n' % (text, opt_id)
+            for option_id, text in items_disabled_devtool_menu:
+                template += '- %s (%s)\n' % (text, option_id)
         else:
             template += TEMPLATE_DEVTOOL_MENU
-            for opt_id, text in items_disabled_devtool_menu:
-                template += '    - %s (%s)\n' % (text, opt_id)
+            for option_id, text in items_disabled_devtool_menu:
+                template += '    - %s (%s)\n' % (text, option_id)
             template += TEMPLATE_DEVTOOL_PANEL
-            for opt_id, text in items_disabled_devtool_menu:
-                template += '    - %s (%s)\n' % (text, opt_id)
+            for option_id, text in items_disabled_devtool_menu:
+                template += '    - %s (%s)\n' % (text, option_id)
 
         chapters['%s' % (first_level_chapter)] = chapter_disabled_devtool
         first_level_chapter += 1
@@ -513,29 +516,29 @@ def create_template(manual, conf, vars):
     return (template, chapters)
 
 def chapters_to_csv(chapters):
-    chapters_by_opt_id = {}
-    for chapter_id, opt_ids in chapters.items():
-        for opt_id in opt_ids:
-            if opt_id in chapters_by_opt_id:
-                chapter_ids = chapters_by_opt_id[opt_id]
+    chapters_by_option_id = {}
+    for chapter_id, option_ids in chapters.items():
+        for option_id in option_ids:
+            if option_id in chapters_by_option_id:
+                chapter_ids = chapters_by_option_id[option_id]
             else:
                 chapter_ids = []
             if not chapter_id in chapter_ids:
                 chapter_ids.append(chapter_id)
-                chapters_by_opt_id[opt_id] = chapter_ids
+                chapters_by_option_id[option_id] = chapter_ids
 
     csv_source = []
-    for opt_id, chapter_ids in chapters_by_opt_id.items():
-        csv_source.append((opt_id, "\n".join(chapter_ids)))
+    for option_id, chapter_ids in chapters_by_option_id.items():
+        csv_source.append((option_id, "\n".join(chapter_ids)))
 
     return csv_source
 
 def chapters_to_checklist(chapters):
     rows = []
     rows.append(("見出し番号", "検証対象項目", "検証結果（ok/ng）"))
-    for chapter_id, opt_ids in chapters.items():
-        for opt_id in opt_ids:
-            rows.append(("%s" % chapter_id, opt_id, ""))
+    for chapter_id, option_ids in chapters.items():
+        for option_id in option_ids:
+            rows.append(("%s" % chapter_id, option_id, ""))
 
     return rows
 
@@ -548,21 +551,21 @@ def usage(err):
     sys.exit(1)
 
 def main(args):
-    conf = {}
-    vars = {}
+    config = {}
+    vars   = {}
 
     only_index_output = False
     only_checklist_output = False
 
     opts, args = getopt.getopt(args, 'c:a:il')
-    for k, v in opts:
-        if k == '-c':
-            conf = adlib.load_as_dict(v)
-        elif k == '-a':
-            vars = adlib.load_variables(v)
-        elif k == '-i':
+    for key, value in opts:
+        if key == '-c':
+            config = adlib.load_as_dict(value)
+        elif key == '-a':
+            vars = adlib.load_variables(value)
+        elif key == '-i':
             only_index_output = True
-        elif k == '-l':
+        elif key == '-l':
             only_checklist_output = True
 
     vars = {**DEFAULT_VAR, **vars}
@@ -571,10 +574,10 @@ def main(args):
         items = adlib.load('verify/%s' % fn)
         manual[fn] = apply_vars(items, vars)
 
-    template, chapters = create_template(manual, conf, vars)
+    template, chapters = create_template(manual, config, vars)
 
-    # This mode generates a mapping file of (opt_id -> chapter)
-    # for conf sheets (build-xlsx).
+    # This mode generates a mapping file of (option_id -> chapter)
+    # for config sheets (build-xlsx).
     if only_index_output:
         csv_writer = csv.writer(sys.stdout)
         csv_writer.writerows(chapters_to_csv(chapters))
