@@ -35,12 +35,6 @@ Update-2: アドオンの自動更新の可否
 
     - `extensions.update.enabled` の値が `true` である。
 
-    :2: 禁止する
-
-    ABOUT_CONFIG
-
-    - `extensions.update.enabled` の値が `false` である。
-
     :3: 禁止する
 
     ABOUT_CONFIG
@@ -54,12 +48,6 @@ Update-3: 検索エンジンの自動更新の可否
     ABOUT_CONFIG
 
     - `browser.search.update` の値が `true` である。
-
-    :2: 禁止する
-
-    ABOUT_CONFIG
-
-    - `browser.search.update` の値が `false` である。
 
     :3: 禁止する
 

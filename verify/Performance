@@ -61,12 +61,6 @@ Performance-4: パフォーマンスに悪影響を与えうるアクセシビ�
 
     - `accessibility.force_disabled` の値が `0` である。
 
-    :2: パフォーマンスを優先して無効化する
-
-    ABOUT_CONFIG
-
-    - `accessibility.force_disabled` の値が `1` である。
-
     :3: パフォーマンスを優先して無効化する
 
     ABOUT_POLICIES
