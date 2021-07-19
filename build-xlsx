@@ -80,14 +80,29 @@ DEFAULT_FORMAT = {
     'text_wrap': 1
 }
 
-COLUMNS = [
-    # label, width
+BASE_COLUMNS = [ # label, width
     ('カテゴリー',              10),
     ('項目設定番号',            10),
     ('カスタマイズ項目 (目的)', 30),
     ('選択肢番号',              5),
     ('選択肢',                  20),
     ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40),
+]
+
+def variation_columns(key, prev_key):
+    return [ # label, width
+        ('反映した設定値\n(%s)' % key,       40),
+        ('%s→%sでの変更' % (prev_key, key), 10),
+    ]
+
+VERIFICATION_COLUMNS = [ # label, width
+    ('検証手順書対応番号', 10),
+    ('',                   12),
+]
+
+PREV_VERSION_COLUNBS = [ # label, width
+    ('設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), 40),
+    ('反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), 40),
 ]
 
 #
@@ -125,42 +140,36 @@ def write_legend(sheet, formats, row):
     sheet.write(row + 2, 2, '廃止済みの項目',                       formats['noborder'])
 
 def write_header(sheet, formats, config):
-    fmt = formats['center']
+    format = formats['center']
 
     sheet.freeze_panes(1, 0)
-
-    for index, col in enumerate(COLUMNS):
-        label = col[0]
-        sheet.write(0, index, label, fmt)
-
     sheet.set_row(0, 25)
 
-    for index, col in enumerate(COLUMNS):
-        width = col[1]
-        sheet.set_column(index, index, width)
+    write_header_columns(sheet, BASE_COLUMNS, format, 0)
+    n_columns = len(BASE_COLUMNS)
 
-    col_index = len(COLUMNS)
     prev_key = ESR_PREVIOUS.upper()
     for key in config.keys():
         if key == ESR_PREVIOUS.upper():
             continue
-        sheet.write(0, col_index,     '反映した設定値\n(%s)' % key,       fmt)
-        sheet.write(0, col_index + 1, '%s→%sでの変更' % (prev_key, key), fmt)
-        sheet.set_column(col_index,     col_index,     40)
-        sheet.set_column(col_index + 1, col_index + 1, 10)
-        col_index += 2
+        columns = variation_columns(key, prev_key)
+        write_header_columns(sheet, columns, format, n_columns)
+        n_columns += len(columns)
         prev_key = key
 
-    sheet.write(0, col_index,     '検証手順書対応番号', fmt)
-    sheet.write(0, col_index + 2, '設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), fmt)
-    sheet.write(0, col_index + 3, '反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), fmt)
-    sheet.set_column(col_index,     col_index,     10)
-    sheet.set_column(col_index + 1, col_index + 1, 12)
-    sheet.set_column(col_index + 2, col_index + 2, 40)
-    sheet.set_column(col_index + 3, col_index + 3, 40)
-    col_index += 4
+    write_header_columns(sheet, VERIFICATION_COLUMNS, format, n_columns)
+    n_columns += len(VERIFICATION_COLUMNS)
 
-    sheet.set_column(0, col_index, None, formats['default'])
+    write_header_columns(sheet, PREV_VERSION_COLUNBS, format, n_columns)
+    n_columns += len(PREV_VERSION_COLUNBS)
+
+    sheet.set_column(0, n_columns, None, formats['default'])
+
+def write_header_columns(sheet, columns, format, column_offset):
+    for index, column in enumerate(columns):
+        label, width = column
+        sheet.write(0, column_offset + index, label, format)
+        sheet.set_column(column_offset + index, column_offset + index, width)
 
 def generate_xlsx(workbook, config, chapters, excludes):
     formats = create_formats(workbook)
