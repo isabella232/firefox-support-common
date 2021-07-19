@@ -80,6 +80,16 @@ DEFAULT_FORMAT = {
     'text_wrap': 1
 }
 
+COLUMNS_DEF = [
+    # label, width
+    ('カテゴリー', 10),
+    ('項目設定番号', 10),
+    ('カスタマイズ項目 (目的)', 30),
+    ('選択肢番号', 5),
+    ('選択肢', 20),
+    ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40),
+]
+
 #
 # XLSX writer
 
@@ -119,20 +129,15 @@ def write_header(sheet, formats, conf):
 
     sheet.freeze_panes(1, 0)
 
-    sheet.write(0, 0, 'カテゴリー', fmt)
-    sheet.write(0, 1, '項目設定番号', fmt)
-    sheet.write(0, 2, 'カスタマイズ項目 (目的)', fmt)
-    sheet.write(0, 3, '選択肢番号', fmt)
-    sheet.write(0, 4, '選択肢', fmt)
-    sheet.write(0, 5, '設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), fmt)
+    for index, col in enumerate(COLUMNS_DEF):
+        label = col[0]
+        sheet.write(0, index, label, fmt)
 
     sheet.set_row(0, 25)
-    sheet.set_column(0, 0, 10)
-    sheet.set_column(1, 1, 10)
-    sheet.set_column(2, 2, 30)
-    sheet.set_column(3, 3, 5)
-    sheet.set_column(4, 4, 20)
-    sheet.set_column(5, 5, 40)
+
+    for index, col in enumerate(COLUMNS_DEF):
+        width = col[1]
+        sheet.set_column(index, index, width)
 
     col_count = 5
     prev_key = ESR_PREVIOUS.upper()
