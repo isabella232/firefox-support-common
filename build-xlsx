@@ -23,6 +23,7 @@ import glob
 import getopt
 import csv
 import os
+from collections import namedtuple
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(BASEDIR)
@@ -108,6 +109,19 @@ PREV_VERSION_COLUNBS = [ # label, width
 #
 # XLSX writer
 
+SheetContext = namedtuple('SheetContext', [
+    'all_configs',
+    'formats',
+    'sheet',
+])
+
+RowContext = namedtuple('RowContext', [
+    'index',
+    'item',
+    'option',
+    'category',
+])
+
 def is_deprecated(value):
     return '廃止' in value
 
@@ -131,7 +145,9 @@ def create_formats(workbook):
         'selected_changed': new_format(bg_color = '#ffb571'),
     }
 
-def write_legend(sheet, formats, row):
+def write_legend(context, row):
+    sheet   = context.sheet
+    formats = context.formats
     sheet.write(row,     1, '',                                     formats['selected'])
     sheet.write(row,     2, '前バージョンから引き続き利用する項目', formats['noborder'])
     sheet.write(row + 1, 1, '',                                     formats['selected_changed'])
@@ -139,8 +155,9 @@ def write_legend(sheet, formats, row):
     sheet.write(row + 2, 1, '',                                     formats['deprecated'])
     sheet.write(row + 2, 2, '廃止済みの項目',                       formats['noborder'])
 
-def write_header(sheet, formats, all_configs):
-    format = formats['center']
+def write_header(context):
+    sheet  = context.sheet
+    format = context.formats['center']
 
     sheet.freeze_panes(1, 0)
     sheet.set_row(0, 25)
@@ -149,7 +166,7 @@ def write_header(sheet, formats, all_configs):
     n_columns = len(BASE_COLUMNS)
 
     prev_key = ESR_PREVIOUS.upper()
-    for key in all_configs.keys():
+    for key in context.all_configs.keys():
         if key == ESR_PREVIOUS.upper():
             continue
         columns = variation_columns(key, prev_key)
@@ -163,7 +180,7 @@ def write_header(sheet, formats, all_configs):
     write_header_columns(sheet, PREV_VERSION_COLUNBS, format, n_columns)
     n_columns += len(PREV_VERSION_COLUNBS)
 
-    sheet.set_column(0, n_columns, None, formats['default'])
+    sheet.set_column(0, n_columns, None, context.formats['default'])
 
 def write_header_columns(sheet, columns, format, column_offset):
     for index, column in enumerate(columns):
@@ -171,8 +188,13 @@ def write_header_columns(sheet, columns, format, column_offset):
         sheet.write(0, column_offset + index, label, format)
         sheet.set_column(column_offset + index, column_offset + index, width)
 
-def write_item_heading_columns(sheet, row, formats, item, category):
-    sheet.write(row, 0, category, formats['default']) # A
+def write_item_heading_columns(sheet_context, row_context):
+    sheet   = sheet_context.sheet
+    formats = sheet_context.formats
+    row     = row_context.index
+    item    = row_context.item
+
+    sheet.write(row, 0, row_context.category, formats['default']) # A
 
     format = formats['default']
     if is_deprecated(item['title']):
@@ -181,12 +203,18 @@ def write_item_heading_columns(sheet, row, formats, item, category):
     sheet.write(row, 1, int(item['index']), format) # B
     sheet.write(row, 2, item['title'],      format) # C
 
-def write_item_leading_columns(sheet, row, format, option):
+def write_item_leading_columns(sheet_context, row_context, format):
+    sheet  = sheet_context.sheet
+    row    = row_context.index
+    option = row_context.option
     sheet.write(row, 3, int(option['option_index']), format) # D
     sheet.write(row, 4, option['option_title'],      format) # E
     sheet.write(row, 5, option['config'].strip(),    format) # F
 
-def write_item_trailing_columns(sheet, row, formats, format, column_offset, verification_chapter, template_config, applied_config):
+def write_item_trailing_columns(sheet_context, row_context, format, column_offset, verification_chapter, template_config, applied_config):
+    sheet   = sheet_context.sheet
+    formats = sheet_context.formats
+    row     = row_context.index
     sheet.write(row, column_offset,     verification_chapter, formats['default'])
     sheet.write(row, column_offset + 1, '',                   formats['noborder'])
     sheet.write(row, column_offset + 2, template_config,      format)
@@ -200,8 +228,12 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
         if title in exclude_worksheets:
             continue
 
-        sheet = workbook.add_worksheet(title)
-        write_header(sheet, formats, all_configs)
+        sheet_context = SheetContext(
+            all_configs,
+            formats = create_formats(workbook),
+            sheet   = workbook.add_worksheet(title),
+        )
+        write_header(sheet_context)
 
         row = 1
         for source in sources:
@@ -210,21 +242,29 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
             # if they still need to be visible in the output sheet.
             base_items = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, source))
             prev_items = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, source))
-            sheet.merge_range(row, 0, row + count_options(base_items) - 1, 0, '')
+            sheet_context.sheet.merge_range(row, 0, row + count_options(base_items) - 1, 0, '')
 
             for item in base_items:
                 if len(item['options']) > 1:
-                    sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
-                    sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
+                    sheet_context.sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
+                    sheet_context.sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
+
 
                 for option in item['options']:
+                    row_context = RowContext(
+                      row,
+                      item,
+                      option,
+                      source,
+                    )
+
                     # This must be done for all rows, otherwise merged cells will have
                     # a partial border line just for the first row.
-                    write_item_heading_columns(sheet, row, formats, item, source)
+                    write_item_heading_columns(sheet_context, row_context)
 
                     status    = ''
                     verification_chapter   = ''
-                    format    = formats['default']
+                    format    = sheet_context.formats['default']
                     option_id = option['option_id']
 
                     applied_prev_config  = prev_configs.get(option_id, {'config':''})['config']
@@ -234,7 +274,7 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                     column_offset = len(BASE_COLUMNS)
                     base_configs = prev_configs
                     applied_base_config = applied_prev_config
-                    for key, variation_config in all_configs.items():
+                    for key, variation_config in sheet_context.all_configs.items():
                         if key == key == ESR_PREVIOUS.upper():
                             continue
 
@@ -243,22 +283,22 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                         applied_variation_config = variation_config.get(option_id, {'config':''})['config']
 
                         if is_deprecated(item['title']) or is_deprecated(option['option_title']):
-                            variation_format = formats['deprecated']
+                            variation_format = sheet_context.formats['deprecated']
                         elif option_id in variation_config:
                             verification_chapter = verification_chapters.get(option_id, '省略')
                             if option_id not in base_configs:
-                                variation_format, variation_status = formats['selected_changed'], '新規'
+                                variation_format, variation_status = sheet_context.formats['selected_changed'], '新規'
                             elif sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
-                                variation_format, variation_status = formats['selected_changed'], '変更あり'
+                                variation_format, variation_status = sheet_context.formats['selected_changed'], '変更あり'
                             else:
-                                variation_format, variation_status = formats['selected'], ''
+                                variation_format, variation_status = sheet_context.formats['selected'], ''
                         elif base_configs == prev_configs:
                             if sanitize_config(template_curr_config) != sanitize_config(template_prev_config):
                               verification_chapter = verification_chapters.get(option_id, '省略')
                               if template_prev_config == '':
-                                  variation_format, variation_status = formats['changed'], '新規（未設定）'
+                                  variation_format, variation_status = sheet_context.formats['changed'], '新規（未設定）'
                               else:
-                                  variation_format, variation_status = formats['changed'], '変更あり（未設定）'
+                                  variation_format, variation_status = sheet_context.formats['changed'], '変更あり（未設定）'
                         else:
                             if sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
                                 variation_status = '削除'
@@ -266,19 +306,19 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                         if base_configs == prev_configs:
                           format = variation_format
 
-                        sheet.write(row, column_offset,     applied_variation_config, variation_format)
-                        sheet.write(row, column_offset + 1, variation_status,         variation_format)
+                        sheet_context.sheet.write(row_context.index, column_offset,     applied_variation_config, variation_format)
+                        sheet_context.sheet.write(row_context.index, column_offset + 1, variation_status,         variation_format)
                         column_offset += 2
                         base_configs        = variation_config
                         applied_base_config = applied_variation_config
 
-                    write_item_leading_columns(sheet, row, format, option)
-                    write_item_trailing_columns(sheet, row, formats, format, column_offset,
+                    write_item_leading_columns(sheet_context, row_context, format)
+                    write_item_trailing_columns(sheet_context, row_context, format, column_offset,
                         verification_chapter, template_prev_config, applied_prev_config)
 
                     row += 1
 
-        write_legend(sheet, formats, row + 1)
+        write_legend(sheet_context, row + 1)
 
 #
 # main
