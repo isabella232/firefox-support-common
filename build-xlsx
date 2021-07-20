@@ -192,12 +192,12 @@ def write_item_trailing_columns(sheet, row, formats, format, column_offset, veri
     sheet.write(row, column_offset + 2, template_config,      format)
     sheet.write(row, column_offset + 3, applied_config,       format)
 
-def generate_xlsx(workbook, all_configs, verification_chapters, excludes):
+def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
     formats = create_formats(workbook)
     prev_configs = all_configs[ESR_PREVIOUS.upper()]
 
     for title, sources in WORKBOOKS:
-        if title in excludes:
+        if title in exclude_worksheets:
             continue
 
         sheet = workbook.add_worksheet(title)
@@ -290,16 +290,15 @@ def load_verification_chapters(path):
 
 def main(args):
     all_configs = {}
-    verification_chapters = {}
     outfile     = 'config.xlsx'
-    excludes    = []
+    exclude_worksheets = []
 
     opts, args = getopt.getopt(args, 'o:x:p:c:d:')
     for key, value in opts:
         if key == '-o':
             outfile = value
         elif key == '-x':
-            excludes = value.split(',')
+            exclude_worksheets = value.split(',')
         elif key == '-p':
             all_configs[ESR_PREVIOUS.upper()] = value
         elif key == '-c':
@@ -308,6 +307,7 @@ def main(args):
             parts = value.split(':', 1)
             all_configs[parts[0]] = parts[1]
 
+    verification_chapters = {}
     for arg in args:
         if ESR_PREVIOUS in arg and not ESR_PREVIOUS.upper() in all_configs:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
@@ -323,7 +323,7 @@ def main(args):
         all_configs[label] = adlib.load_as_dict(path)
 
     with xlsxwriter.Workbook(outfile) as workbook:
-        generate_xlsx(workbook, all_configs, verification_chapters, excludes)
+        generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets)
 
     print('Generated:', workbook.filename)
 
