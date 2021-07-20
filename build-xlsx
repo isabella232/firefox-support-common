@@ -127,6 +127,64 @@ RowContext = namedtuple('RowContext', [
     'template_prev_config',
 ])
 
+def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
+    formats = create_formats(workbook)
+    prev_configs = all_configs[ESR_PREVIOUS.upper()]
+
+    for title, sources in WORKBOOKS:
+        if title in exclude_worksheets:
+            continue
+
+        sheet_context = SheetContext(
+            all_configs,
+            verification_chapters,
+            formats = create_formats(workbook),
+            sheet   = workbook.add_worksheet(title),
+        )
+        write_header(sheet_context)
+
+        row = 1
+        for source in sources:
+            # We always output config items based on sources for the current version.
+            # In other words, the "current version" needs to define all deprecated/obsolete items
+            # if they still need to be visible in the output sheet.
+            base_items = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, source))
+            prev_items = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, source))
+
+            sheet_context.sheet.merge_range(row, 0, row + count_options(base_items) - 1, 0, '')
+
+            for item in base_items:
+                if len(item['options']) > 1:
+                    sheet_context.sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
+                    sheet_context.sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
+
+                for option in item['options']:
+                    option_id = option['option_id']
+                    row_context = RowContext(
+                      row,
+                      item,
+                      option,
+                      source,
+                      prev_configs,
+                      applied_prev_config  = prev_configs.get(option_id, {'config':''})['config'],
+                      template_curr_config = option['config'].strip(),
+                      template_prev_config = prev_items.get(option_id, {'config':''})['config'],
+                    )
+
+                    # This must be done for all rows, otherwise merged cells will have
+                    # a partial border line just for the first row.
+                    write_item_heading_columns(sheet_context, row_context)
+
+                    column_offset, format, verification_chapter = write_item_variations_columns(sheet_context, row_context)
+
+                    write_item_leading_columns(sheet_context, row_context, format)
+                    write_item_trailing_columns(sheet_context, row_context, format, column_offset,
+                        verification_chapter)
+
+                    row += 1
+
+        write_legend(sheet_context, row + 1)
+
 def is_deprecated(value):
     return '廃止' in value
 
@@ -150,16 +208,6 @@ def create_formats(workbook):
         'selected_changed': new_format(bg_color = '#ffb571'),
     }
 
-def write_legend(context, row):
-    sheet   = context.sheet
-    formats = context.formats
-    sheet.write(row,     1, '',                                     formats['selected'])
-    sheet.write(row,     2, '前バージョンから引き続き利用する項目', formats['noborder'])
-    sheet.write(row + 1, 1, '',                                     formats['selected_changed'])
-    sheet.write(row + 1, 2, '前バージョンから異同がある項目',       formats['noborder'])
-    sheet.write(row + 2, 1, '',                                     formats['deprecated'])
-    sheet.write(row + 2, 2, '廃止済みの項目',                       formats['noborder'])
-
 def write_header(context):
     sheet  = context.sheet
     format = context.formats['center']
@@ -168,24 +216,24 @@ def write_header(context):
     sheet.set_row(0, 25)
 
     write_header_columns(sheet, BASE_COLUMNS, format, 0)
-    n_columns = len(BASE_COLUMNS)
+    column_offset = len(BASE_COLUMNS)
 
-    prev_key = ESR_PREVIOUS.upper()
-    for key in context.all_configs.keys():
-        if key == ESR_PREVIOUS.upper():
+    last_variation = ESR_PREVIOUS.upper()
+    for variation in context.all_configs.keys():
+        if variation == ESR_PREVIOUS.upper():
             continue
-        columns = variation_columns(key, prev_key)
-        write_header_columns(sheet, columns, format, n_columns)
-        n_columns += len(columns)
-        prev_key = key
+        columns = variation_columns(variation, last_variation)
+        write_header_columns(sheet, columns, format, column_offset)
+        column_offset += len(columns)
+        last_variation = variation
 
-    write_header_columns(sheet, VERIFICATION_COLUMNS, format, n_columns)
-    n_columns += len(VERIFICATION_COLUMNS)
+    write_header_columns(sheet, VERIFICATION_COLUMNS, format, column_offset)
+    column_offset += len(VERIFICATION_COLUMNS)
 
-    write_header_columns(sheet, PREV_VERSION_COLUNBS, format, n_columns)
-    n_columns += len(PREV_VERSION_COLUNBS)
+    write_header_columns(sheet, PREV_VERSION_COLUNBS, format, column_offset)
+    column_offset += len(PREV_VERSION_COLUNBS)
 
-    sheet.set_column(0, n_columns, None, context.formats['default'])
+    sheet.set_column(0, column_offset, None, context.formats['default'])
 
 def write_header_columns(sheet, columns, format, column_offset):
     for index, column in enumerate(columns):
@@ -228,8 +276,8 @@ def write_item_variations_columns(sheet_context, row_context):
     format               = formats['default']
     verification_chapter = ''
 
-    base_configs        = row_context.prev_configs
-    applied_base_config = row_context.applied_prev_config
+    last_configs        = row_context.prev_configs
+    last_applied_config = row_context.applied_prev_config
     for key, variation_config in sheet_context.all_configs.items():
         if key == key == ESR_PREVIOUS.upper():
             continue
@@ -242,13 +290,13 @@ def write_item_variations_columns(sheet_context, row_context):
             variation_format = formats['deprecated']
         elif option_id in variation_config:
             verification_chapter = sheet_context.verification_chapters.get(option_id, '省略')
-            if option_id not in base_configs:
+            if option_id not in last_configs:
                 variation_format, status = formats['selected_changed'], '新規'
-            elif sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
+            elif sanitize_config(last_applied_config) != sanitize_config(applied_variation_config):
                 variation_format, status = formats['selected_changed'], '変更あり'
             else:
                 variation_format, status = formats['selected'], ''
-        elif base_configs == row_context.prev_configs:
+        elif last_configs == row_context.prev_configs:
             if sanitize_config(row_context.template_curr_config) != sanitize_config(row_context.template_prev_config):
               verification_chapter = sheet_context.verification_chapters.get(option_id, '省略')
               if row_context.template_prev_config == '':
@@ -256,17 +304,17 @@ def write_item_variations_columns(sheet_context, row_context):
               else:
                   variation_format, status = formats['changed'], '変更あり（未設定）'
         else:
-            if sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
+            if sanitize_config(last_applied_config) != sanitize_config(applied_variation_config):
                 status = '削除'
 
-        if base_configs == row_context.prev_configs:
+        if last_configs == row_context.prev_configs:
           format = variation_format
 
         sheet.write(row, column_offset,     applied_variation_config, variation_format)
         sheet.write(row, column_offset + 1, status,                   variation_format)
         column_offset += 2
-        base_configs        = variation_config
-        applied_base_config = applied_variation_config
+        last_configs        = variation_config
+        last_applied_config = applied_variation_config
 
     return [column_offset, format, verification_chapter]
 
@@ -279,62 +327,15 @@ def write_item_trailing_columns(sheet_context, row_context, format, column_offse
     sheet.write(row, column_offset + 2, row_context.template_prev_config, format)
     sheet.write(row, column_offset + 3, row_context.applied_prev_config,  format)
 
-def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
-    formats = create_formats(workbook)
-    prev_configs = all_configs[ESR_PREVIOUS.upper()]
-
-    for title, sources in WORKBOOKS:
-        if title in exclude_worksheets:
-            continue
-
-        sheet_context = SheetContext(
-            all_configs,
-            verification_chapters,
-            formats = create_formats(workbook),
-            sheet   = workbook.add_worksheet(title),
-        )
-        write_header(sheet_context)
-
-        row = 1
-        for source in sources:
-            # We always output config items based on sources for the current version.
-            # In other words, the "current version" needs to define all deprecated/obsolete items
-            # if they still need to be visible in the output sheet.
-            base_items = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, source))
-            prev_items = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, source))
-            sheet_context.sheet.merge_range(row, 0, row + count_options(base_items) - 1, 0, '')
-
-            for item in base_items:
-                if len(item['options']) > 1:
-                    sheet_context.sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
-                    sheet_context.sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
-
-                for option in item['options']:
-                    option_id = option['option_id']
-                    row_context = RowContext(
-                      row,
-                      item,
-                      option,
-                      source,
-                      prev_configs,
-                      applied_prev_config  = prev_configs.get(option_id, {'config':''})['config'],
-                      template_curr_config = option['config'].strip(),
-                      template_prev_config = prev_items.get(option_id, {'config':''})['config'],
-                    )
-
-                    # This must be done for all rows, otherwise merged cells will have
-                    # a partial border line just for the first row.
-                    write_item_heading_columns(sheet_context, row_context)
-
-                    column_offset, format, verification_chapter = write_item_variations_columns(sheet_context, row_context)
-
-                    write_item_leading_columns(sheet_context, row_context, format)
-                    write_item_trailing_columns(sheet_context, row_context, format, column_offset,
-                        verification_chapter)
-
-                    row += 1
-
-        write_legend(sheet_context, row + 1)
+def write_legend(context, row):
+    sheet   = context.sheet
+    formats = context.formats
+    sheet.write(row,     1, '',                                     formats['selected'])
+    sheet.write(row,     2, '前バージョンから引き続き利用する項目', formats['noborder'])
+    sheet.write(row + 1, 1, '',                                     formats['selected_changed'])
+    sheet.write(row + 1, 2, '前バージョンから異同がある項目',       formats['noborder'])
+    sheet.write(row + 2, 1, '',                                     formats['deprecated'])
+    sheet.write(row + 2, 2, '廃止済みの項目',                       formats['noborder'])
 
 #
 # main
