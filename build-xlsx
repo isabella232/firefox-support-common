@@ -111,6 +111,7 @@ PREV_VERSION_COLUNBS = [ # label, width
 
 SheetContext = namedtuple('SheetContext', [
     'all_configs',
+    'verification_chapters',
     'formats',
     'sheet',
 ])
@@ -120,6 +121,10 @@ RowContext = namedtuple('RowContext', [
     'item',
     'option',
     'category',
+    'prev_configs',
+    'applied_prev_config',
+    'template_curr_config',
+    'template_prev_config',
 ])
 
 def is_deprecated(value):
@@ -207,18 +212,72 @@ def write_item_leading_columns(sheet_context, row_context, format):
     sheet  = sheet_context.sheet
     row    = row_context.index
     option = row_context.option
-    sheet.write(row, 3, int(option['option_index']), format) # D
-    sheet.write(row, 4, option['option_title'],      format) # E
-    sheet.write(row, 5, option['config'].strip(),    format) # F
+    sheet.write(row, 3, int(option['option_index']),      format) # D
+    sheet.write(row, 4, option['option_title'],           format) # E
+    sheet.write(row, 5, row_context.template_curr_config, format) # F
 
-def write_item_trailing_columns(sheet_context, row_context, format, column_offset, verification_chapter, template_config, applied_config):
+def write_item_variations_columns(sheet_context, row_context):
+    sheet     = sheet_context.sheet
+    formats   = sheet_context.formats
+    row       = row_context.index
+    item      = row_context.item
+    option    = row_context.option
+    option_id = option['option_id']
+
+    column_offset        = len(BASE_COLUMNS)
+    format               = formats['default']
+    verification_chapter = ''
+
+    base_configs        = row_context.prev_configs
+    applied_base_config = row_context.applied_prev_config
+    for key, variation_config in sheet_context.all_configs.items():
+        if key == key == ESR_PREVIOUS.upper():
+            continue
+
+        status           = ''
+        variation_format = ''
+        applied_variation_config = variation_config.get(option_id, {'config':''})['config']
+
+        if is_deprecated(item['title']) or is_deprecated(option['option_title']):
+            variation_format = formats['deprecated']
+        elif option_id in variation_config:
+            verification_chapter = sheet_context.verification_chapters.get(option_id, '省略')
+            if option_id not in base_configs:
+                variation_format, status = formats['selected_changed'], '新規'
+            elif sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
+                variation_format, status = formats['selected_changed'], '変更あり'
+            else:
+                variation_format, status = formats['selected'], ''
+        elif base_configs == row_context.prev_configs:
+            if sanitize_config(row_context.template_curr_config) != sanitize_config(row_context.template_prev_config):
+              verification_chapter = sheet_context.verification_chapters.get(option_id, '省略')
+              if row_context.template_prev_config == '':
+                  variation_format, status = formats['changed'], '新規（未設定）'
+              else:
+                  variation_format, status = formats['changed'], '変更あり（未設定）'
+        else:
+            if sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
+                status = '削除'
+
+        if base_configs == row_context.prev_configs:
+          format = variation_format
+
+        sheet.write(row, column_offset,     applied_variation_config, variation_format)
+        sheet.write(row, column_offset + 1, status,                   variation_format)
+        column_offset += 2
+        base_configs        = variation_config
+        applied_base_config = applied_variation_config
+
+    return [column_offset, format, verification_chapter]
+
+def write_item_trailing_columns(sheet_context, row_context, format, column_offset, verification_chapter):
     sheet   = sheet_context.sheet
     formats = sheet_context.formats
     row     = row_context.index
-    sheet.write(row, column_offset,     verification_chapter, formats['default'])
-    sheet.write(row, column_offset + 1, '',                   formats['noborder'])
-    sheet.write(row, column_offset + 2, template_config,      format)
-    sheet.write(row, column_offset + 3, applied_config,       format)
+    sheet.write(row, column_offset,     verification_chapter,             formats['default'])
+    sheet.write(row, column_offset + 1, '',                               formats['noborder'])
+    sheet.write(row, column_offset + 2, row_context.template_prev_config, format)
+    sheet.write(row, column_offset + 3, row_context.applied_prev_config,  format)
 
 def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
     formats = create_formats(workbook)
@@ -230,6 +289,7 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
 
         sheet_context = SheetContext(
             all_configs,
+            verification_chapters,
             formats = create_formats(workbook),
             sheet   = workbook.add_worksheet(title),
         )
@@ -249,72 +309,28 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                     sheet_context.sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
                     sheet_context.sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
 
-
                 for option in item['options']:
+                    option_id = option['option_id']
                     row_context = RowContext(
                       row,
                       item,
                       option,
                       source,
+                      prev_configs,
+                      applied_prev_config  = prev_configs.get(option_id, {'config':''})['config'],
+                      template_curr_config = option['config'].strip(),
+                      template_prev_config = prev_items.get(option_id, {'config':''})['config'],
                     )
 
                     # This must be done for all rows, otherwise merged cells will have
                     # a partial border line just for the first row.
                     write_item_heading_columns(sheet_context, row_context)
 
-                    status    = ''
-                    verification_chapter   = ''
-                    format    = sheet_context.formats['default']
-                    option_id = option['option_id']
-
-                    applied_prev_config  = prev_configs.get(option_id, {'config':''})['config']
-                    template_curr_config = option['config'].strip()
-                    template_prev_config = prev_items.get(option_id, {'config':''})['config']
-
-                    column_offset = len(BASE_COLUMNS)
-                    base_configs = prev_configs
-                    applied_base_config = applied_prev_config
-                    for key, variation_config in sheet_context.all_configs.items():
-                        if key == key == ESR_PREVIOUS.upper():
-                            continue
-
-                        variation_status = ''
-                        variation_format = ''
-                        applied_variation_config = variation_config.get(option_id, {'config':''})['config']
-
-                        if is_deprecated(item['title']) or is_deprecated(option['option_title']):
-                            variation_format = sheet_context.formats['deprecated']
-                        elif option_id in variation_config:
-                            verification_chapter = verification_chapters.get(option_id, '省略')
-                            if option_id not in base_configs:
-                                variation_format, variation_status = sheet_context.formats['selected_changed'], '新規'
-                            elif sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
-                                variation_format, variation_status = sheet_context.formats['selected_changed'], '変更あり'
-                            else:
-                                variation_format, variation_status = sheet_context.formats['selected'], ''
-                        elif base_configs == prev_configs:
-                            if sanitize_config(template_curr_config) != sanitize_config(template_prev_config):
-                              verification_chapter = verification_chapters.get(option_id, '省略')
-                              if template_prev_config == '':
-                                  variation_format, variation_status = sheet_context.formats['changed'], '新規（未設定）'
-                              else:
-                                  variation_format, variation_status = sheet_context.formats['changed'], '変更あり（未設定）'
-                        else:
-                            if sanitize_config(applied_base_config) != sanitize_config(applied_variation_config):
-                                variation_status = '削除'
-
-                        if base_configs == prev_configs:
-                          format = variation_format
-
-                        sheet_context.sheet.write(row_context.index, column_offset,     applied_variation_config, variation_format)
-                        sheet_context.sheet.write(row_context.index, column_offset + 1, variation_status,         variation_format)
-                        column_offset += 2
-                        base_configs        = variation_config
-                        applied_base_config = applied_variation_config
+                    column_offset, format, verification_chapter = write_item_variations_columns(sheet_context, row_context)
 
                     write_item_leading_columns(sheet_context, row_context, format)
                     write_item_trailing_columns(sheet_context, row_context, format, column_offset,
-                        verification_chapter, template_prev_config, applied_prev_config)
+                        verification_chapter)
 
                     row += 1
 
