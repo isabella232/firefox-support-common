@@ -1700,12 +1700,15 @@ Privacy-57: 同一タブ・サイトにおけるマイクとカメラのアク�
 
     :2: 独自のタイムアウトを設定する
 
+    *.cfg / *.jsc:
+    // 単位：ミリ秒
     lockPref("privacy.webrtc.deviceGracePeriodTimeoutMs", 50000);
 
 Privacy-58: クレジットカード情報の保存
 
     :1: 保存する
 
+    *.cfg / *.jsc:
     lockPref("dom.payments.defaults.saveCreditCard", true);
     lockPref("extensions.formautofill.creditCards.available", true);
     lockPref("extensions.formautofill.creditCards.enabled", true);
@@ -1713,8 +1716,22 @@ Privacy-58: クレジットカード情報の保存
 
     :2: 保存しない (既定)
 
+    *.cfg / *.jsc:
     lockPref("dom.payments.defaults.saveCreditCard", false);
     lockPref("extensions.formautofill.creditCards.available", false);
     lockPref("extensions.formautofill.creditCards.enabled", false);
     lockPref("extensions.formautofill.creditCards.hideui", true);
 
+Privacy-59: 一時的な権限の許可を維持する時間
+
+    :1: 1時間 (既定)
+
+    *.cfg / *.jsc:
+    // 単位：ミリ秒
+    lockPref("privacy.temporary_permission_expire_time_ms", 3600 * 1000);
+
+    :2: 任意の時間
+
+    *.cfg / *.jsc:
+    // 単位：ミリ秒
+    lockPref("privacy.temporary_permission_expire_time_ms", ...);

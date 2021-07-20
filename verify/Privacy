@@ -1698,3 +1698,17 @@ Privacy-58: クレジットカード情報の保存
     - ダミーのカード情報を入力して送信する。
     - **確認**
         - カー同情報の保存を提案するポップアップが表示されない。
+
+Privacy-59: 一時的な権限の許可を維持する時間
+
+    :1: 1時間 (既定)
+
+    ABOUT_CONFIG
+
+    - "privacy.temporary_permission_expire_time_ms" の値が未定義か、または `3600000` である。
+
+    :2: 任意の時間
+
+    ABOUT_CONFIG
+
+    - "privacy.temporary_permission_expire_time_ms" の値が指定の通りである。
