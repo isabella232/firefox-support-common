@@ -218,6 +218,10 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                     sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
 
                 for option in item['options']:
+                    # This must be done for all rows, otherwise merged cells will have
+                    # a partial border line just for the first row.
+                    write_item_heading_columns(sheet, row, formats, item, source)
+
                     status    = ''
                     verification_chapter   = ''
                     format    = formats['default']
@@ -226,8 +230,6 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                     applied_prev_config  = prev_configs.get(option_id, {'config':''})['config']
                     template_curr_config = option['config'].strip()
                     template_prev_config = prev_items.get(option_id, {'config':''})['config']
-
-                    write_item_heading_columns(sheet, row, formats, item, source)
 
                     column_offset = len(BASE_COLUMNS)
                     base_configs = prev_configs
