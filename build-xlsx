@@ -108,8 +108,8 @@ PREV_VERSION_COLUNBS = [ # label, width
 #
 # XLSX writer
 
-def is_deprecated(x):
-    return '廃止' in x
+def is_deprecated(value):
+    return '廃止' in value
 
 def count_options(config):
     return sum(len(item['options']) for item in config)
@@ -139,7 +139,7 @@ def write_legend(sheet, formats, row):
     sheet.write(row + 2, 1, '',                                     formats['deprecated'])
     sheet.write(row + 2, 2, '廃止済みの項目',                       formats['noborder'])
 
-def write_header(sheet, formats, config):
+def write_header(sheet, formats, all_configs):
     format = formats['center']
 
     sheet.freeze_panes(1, 0)
@@ -149,7 +149,7 @@ def write_header(sheet, formats, config):
     n_columns = len(BASE_COLUMNS)
 
     prev_key = ESR_PREVIOUS.upper()
-    for key in config.keys():
+    for key in all_configs.keys():
         if key == ESR_PREVIOUS.upper():
             continue
         columns = variation_columns(key, prev_key)
@@ -171,21 +171,31 @@ def write_header_columns(sheet, columns, format, column_offset):
         sheet.write(0, column_offset + index, label, format)
         sheet.set_column(column_offset + index, column_offset + index, width)
 
-def generate_xlsx(workbook, config, chapters, excludes):
-    formats = create_formats(workbook)
-    prev_configs = config[ESR_PREVIOUS.upper()]
+def write_item_leading_columns(sheet, row, source, formats, item):
+    sheet.write(row, 0, source, formats['default']) # A
 
-    for title, files in WORKBOOKS:
+    format = formats['default']
+    if is_deprecated(item['title']):
+        format = formats['deprecated']
+
+    sheet.write(row, 1, int(item['index']), format) # B
+    sheet.write(row, 2, item['title'],      format) # C
+
+def generate_xlsx(workbook, all_configs, chapters, excludes):
+    formats = create_formats(workbook)
+    prev_configs = all_configs[ESR_PREVIOUS.upper()]
+
+    for title, sources in WORKBOOKS:
         if title in excludes:
             continue
 
         sheet = workbook.add_worksheet(title)
-        write_header(sheet, formats, config)
+        write_header(sheet, formats, all_configs)
 
         row = 1
-        for fn in files:
-            curr = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, fn))
-            prev = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, fn))
+        for source in sources:
+            curr = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, source))
+            prev = adlib.load_as_dict(os.path.join(BASEDIR, ESR_PREVIOUS, source))
             sheet.merge_range(row, 0, row + count_options(curr) - 1, 0, '')
 
             for item in curr:
@@ -197,24 +207,18 @@ def generate_xlsx(workbook, config, chapters, excludes):
                     status    = ''
                     chapter   = ''
                     fmt       = formats['default']
-                    item_fmt  = formats['default']
                     option_id = option['option_id']
 
                     applied_prev_config  = prev_configs.get(option_id, {'config':''})['config']
                     template_curr_config = option['config'].strip()
                     template_prev_config = prev.get(option_id, {'config':''})['config']
 
-                    if is_deprecated(item['title']):
-                        item_fmt = formats['deprecated']
-
-                    sheet.write(row, 0, fn,                 formats['default']) # A
-                    sheet.write(row, 1, int(item['index']), item_fmt) # B
-                    sheet.write(row, 2, item['title'],      item_fmt) # C
+                    write_item_leading_columns(sheet, row, source, formats, item)
 
                     col_count = 5
                     base_configs = prev_configs
                     applied_base_config = applied_prev_config
-                    for key, variation_config in config.items():
+                    for key, variation_config in all_configs.items():
                         if key == key == ESR_PREVIOUS.upper():
                             continue
 
@@ -274,10 +278,10 @@ def load_chapters(path):
         return {}
 
 def main(args):
-    config   = {}
-    chapters = {}
-    outfile  = 'config.xlsx'
-    excludes = []
+    all_configs = {}
+    chapters    = {}
+    outfile     = 'config.xlsx'
+    excludes    = []
 
     opts, args = getopt.getopt(args, 'o:x:p:c:d:')
     for key, value in opts:
@@ -286,29 +290,29 @@ def main(args):
         elif key == '-x':
             excludes = value.split(',')
         elif key == '-p':
-            config[ESR_PREVIOUS.upper()] = value
+            all_configs[ESR_PREVIOUS.upper()] = value
         elif key == '-c':
-            config[ESR_CURRENT.upper()] = value
+            all_configs[ESR_CURRENT.upper()] = value
         elif key == '-d':
             parts = value.split(':', 1)
-            config[parts[0]] = parts[1]
+            all_configs[parts[0]] = parts[1]
 
     for arg in args:
-        if ESR_PREVIOUS in arg and not ESR_PREVIOUS.upper() in config:
+        if ESR_PREVIOUS in arg and not ESR_PREVIOUS.upper() in all_configs:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
-            config[ESR_PREVIOUS.upper()] = arg
-        elif ESR_CURRENT in arg and not ESR_CURRENT.upper() in config:
+            all_configs[ESR_PREVIOUS.upper()] = arg
+        elif ESR_CURRENT in arg and not ESR_CURRENT.upper() in all_configs:
             print('%s -> %s' % (ESR_CURRENT, arg))
-            config[ESR_CURRENT.upper()] = arg
+            all_configs[ESR_CURRENT.upper()] = arg
         elif CHAPTERS_CSV in arg:
             print('Loading', os.path.basename(arg))
             chapters = load_chapters(arg)
 
-    for label, path in config.items():
-        config[label] = adlib.load_as_dict(path)
+    for label, path in all_configs.items():
+        all_configs[label] = adlib.load_as_dict(path)
 
     with xlsxwriter.Workbook(outfile) as workbook:
-        generate_xlsx(workbook, config, chapters, excludes)
+        generate_xlsx(workbook, all_configs, chapters, excludes)
 
     print('Generated:', workbook.filename)
 
