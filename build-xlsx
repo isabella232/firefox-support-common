@@ -81,12 +81,12 @@ DEFAULT_FORMAT = {
 }
 
 BASE_COLUMNS = [ # label, width
-    ('カテゴリー',              10),
-    ('項目設定番号',            10),
-    ('カスタマイズ項目 (目的)', 30),
-    ('選択肢番号',              5),
-    ('選択肢',                  20),
-    ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40),
+    ('カテゴリー',              10), # A
+    ('項目設定番号',            10), # B
+    ('カスタマイズ項目 (目的)', 30), # C
+    ('選択肢番号',              5),  # D
+    ('選択肢',                  20), # E
+    ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40), # F
 ]
 
 def variation_columns(key, prev_key):
