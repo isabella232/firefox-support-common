@@ -1,0 +1,17 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+Addon-Skysea-1: Skyseaのインストール
+
+    :1: インストールしない（既定）
+
+    ABOUT_POLICIES
+
+    - `Extensions` 配下の `Install`、`Locked`、`Uninstall` に `addon-firefox-WebExt2@skysea.skygroup.jp` の情報が登録されていない。
+
+    :2: インストールする
+
+    ABOUT_POLICIES
+
+    - `Extensions` 配下の `Install`、`Locked`、`Uninstall` に `addon-firefox-WebExt2@skysea.skygroup.jp` の情報が登録されている。

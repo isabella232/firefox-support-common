@@ -67,6 +67,7 @@ WORKBOOKS = [
         'Addon-IEView',
         'Addon-FireIE',
         'Addon-Acrobat',
+        'Addon-Skysea',
     ]),
     ('機能無効化', [
         'MenuShortcut',
