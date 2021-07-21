@@ -15,4 +15,4 @@ Addon-Skysea-1: Skyseaのインストール
       "Install": ["C:\\Program Files (x86)\\Sky Product\\SKYSEA Client View\\FxAddonSigned\\skysea-fxaddonWebExt2.xpi.16.1.1.216"],
       "Locked":  ["addon-firefox-WebExt2@skysea.skygroup.jp"],
       "Uninstall": ["addon-firefox-WebExt2@skysea.skygroup.jp.16.1.1.216"]
-    }
+    },
