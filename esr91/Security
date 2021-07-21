@@ -957,17 +957,15 @@ Security-32: アドオンのインストール時の警告
     *.cfg / *.jsc:
     lockPref("xpinstall.whitelist.required", false);
 
-Security-33: 危険ででしゃばりなFlashコンテンツをブロック
+Security-33: [廃止] 危険ででしゃばりなFlashコンテンツをブロック
 
     :1: ブロックする（既定）
 
-    *.cfg / *.jsc:
-    lockPref("plugins.flashBlock.enabled", true);
+    [廃止]
 
     :2: ブロックしない
 
-    *.cfg / *.jsc:
-    lockPref("plugins.flashBlock.enabled", false);
+    [廃止]
 
 Security-34: about:profilesの使用
 
