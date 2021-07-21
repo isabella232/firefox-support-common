@@ -234,7 +234,7 @@ def write_header(context):
     write_header_columns(sheet, PREV_VERSION_COLUNBS, format, column_offset)
     column_offset += len(PREV_VERSION_COLUNBS)
 
-    sheet.set_column(0, column_offset, None, context.formats['default'])
+    sheet.set_column(0, column_offset - 1, None, context.formats['default'])
 
 def write_header_columns(sheet, columns, format, column_offset):
     for index, column in enumerate(columns):
