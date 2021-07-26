@@ -339,13 +339,33 @@ Security-6: 偽装サイトに対する警告の可否
 
     :1: 警告する（既定）
 
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.phishing.enabled", true);
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.phishing.enabled": {
+        "Value": true,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :2: 警告しない
 
-    *.cfg / *.jsc:
-    lockPref("browser.safebrowsing.phishing.enabled", false);
+    distribution\policies.json:
+    "Preferences": {
+      "browser.safebrowsing.phishing.enabled": {
+        "Value": false,
+        "Status": "default"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Security-7: [廃止] プラグインのインストールの可否
 
