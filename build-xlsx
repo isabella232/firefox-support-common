@@ -21,15 +21,15 @@
 #
 #     For example, about "Security-9-3 about:configの利用の可否：禁止する" on Firefox ESR91:
 #
-#     * category: "Security"
-#     * item:     "Security-9"
-#     * option:   "Security-9-1", "Security-9-2", "Security-9-3", and others
-#     * config:
-#       * curr/prev: curr=ESR91, prev=ESR78 (versions)
-#       * config:    `"BlockAboutConfig": true,` or others, defined in the given "conf" file like "esr91.txt"
-#       * template:  `"BlockAboutConfig": true,` or others, defined in the file "esr91/Security"
+#     * category:   "Security", this is same to the name of the file under "esr91/"
+#     * item:       "Security-9"
+#       * items:    "Security-1", "Security-2", "Security-3", and others defined in the file "esr91/Security"
+#     * option:     "Security-9-1", "Security-9-2", "Security-9-3", and others
+#       * config:   `"BlockAboutConfig": true,` or others, defined in the given "conf" file like "esr91.txt"
+#       * template: `"BlockAboutConfig": true,` or others, defined in the file "esr91/Security"
 #
-#     * conf:     A file listing chosen options. Please note this is not an abbr of "config".
+#     * conf:       A file listing chosen options. Please note this is not an abbr of "config".
+#     * curr/prev:  curr=ESR91, prev=ESR78 (versions)
 
 import re
 import sys
