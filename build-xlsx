@@ -102,10 +102,10 @@ BASE_COLUMNS = [ # label, width
     ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40), # F
 ]
 
-def variation_columns(key, prev_key):
+def variation_columns(version, prev_version):
     return [ # label, width
-        ('反映した設定値\n(%s)' % key,       40),
-        ('%s→%sでの変更' % (prev_key, key), 10),
+        ('反映した設定値\n(%s)' % version,       40),
+        ('%s→%sでの変更' % (prev_version, version), 10),
     ]
 
 VERIFICATION_COLUMNS = [ # label, width
