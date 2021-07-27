@@ -258,21 +258,21 @@ class ConfigurationRow:
 
         last_configs = self._prev_configs
         last_config  = self._prev_config
-        for key, variation_configs in sheet.iterate_all_config_items():
-            if key == key == ESR_PREVIOUS.upper():
+        for version, configs in sheet.iterate_all_config_items():
+            if version == ESR_PREVIOUS.upper():
                 continue
 
             status = ''
             format = 'default'
-            variation_config = variation_configs.get(option_id, {'config':''})['config']
+            config = configs.get(option_id, {'config':''})['config']
 
             if self._is_deprecated(item['title']) or self._is_deprecated(option['option_title']):
                 format = 'deprecated'
-            elif option_id in variation_configs:
+            elif option_id in configs:
                 verification_chapter = sheet.get_verification_chapter(option_id, '省略')
                 if option_id not in last_configs:
                     format, status = 'selected_changed', '新規'
-                elif self._sanitize_config(last_config) != self._sanitize_config(variation_config):
+                elif self._sanitize_config(last_config) != self._sanitize_config(config):
                     format, status = 'selected_changed', '変更あり'
                 else:
                     format, status = 'selected', ''
@@ -284,17 +284,17 @@ class ConfigurationRow:
                   else:
                       format, status = 'changed', '変更あり（未設定）'
             else:
-                if self._sanitize_config(last_config) != self._sanitize_config(variation_config):
+                if self._sanitize_config(last_config) != self._sanitize_config(config):
                     status = '削除'
 
             if last_configs == self._prev_configs:
               row_format = format
 
-            self._write_column(column_offset,     variation_config, format)
-            self._write_column(column_offset + 1, status,           format)
+            self._write_column(column_offset,     config, format)
+            self._write_column(column_offset + 1, status, format)
             column_offset += 2
-            last_configs = variation_configs
-            last_config  = variation_config
+            last_configs = configs
+            last_config  = config
 
         return [column_offset, row_format, verification_chapter]
 
