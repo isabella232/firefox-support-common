@@ -175,8 +175,8 @@ class ConfigurationSheet:
     def merge_category_heading(self, row, items):
         self._sheet.merge_range(row, 0, row + self._count_options(items) - 1, 0, '')
 
-    def _count_options(self, config):
-        return sum(len(item['options']) for item in config)
+    def _count_options(self, items):
+        return sum(len(item['options']) for item in items)
 
     def try_merge_item_heading(self, row, item):
         if len(item['options']) > 1:
