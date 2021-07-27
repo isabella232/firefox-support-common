@@ -90,7 +90,7 @@ DEFAULT_FORMAT = {
     'border':    1,
     'font_size': 8,
     'font_name': 'MS Gothic',
-    'text_wrap': 1
+    'text_wrap': 1,
 }
 
 BASE_COLUMNS = [ # label, width
