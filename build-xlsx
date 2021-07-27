@@ -253,50 +253,50 @@ class ConfigurationRow:
         option_id = option['option_id']
 
         column_offset        = len(BASE_COLUMNS)
-        format               = 'default'
+        row_format           = 'default'
         verification_chapter = ''
 
-        last_configs        = self._prev_configs
-        last_applied_config = self._prev_config
-        for key, variation_config in sheet.iterate_all_config_items():
+        last_configs = self._prev_configs
+        last_config  = self._prev_config
+        for key, variation_configs in sheet.iterate_all_config_items():
             if key == key == ESR_PREVIOUS.upper():
                 continue
 
-            status           = ''
-            variation_format = 'default'
-            applied_variation_config = variation_config.get(option_id, {'config':''})['config']
+            status = ''
+            format = 'default'
+            variation_config = variation_configs.get(option_id, {'config':''})['config']
 
             if self._is_deprecated(item['title']) or self._is_deprecated(option['option_title']):
-                variation_format = 'deprecated'
-            elif option_id in variation_config:
+                format = 'deprecated'
+            elif option_id in variation_configs:
                 verification_chapter = sheet.get_verification_chapter(option_id, '省略')
                 if option_id not in last_configs:
-                    variation_format, status = 'selected_changed', '新規'
-                elif self._sanitize_config(last_applied_config) != self._sanitize_config(applied_variation_config):
-                    variation_format, status = 'selected_changed', '変更あり'
+                    format, status = 'selected_changed', '新規'
+                elif self._sanitize_config(last_config) != self._sanitize_config(variation_config):
+                    format, status = 'selected_changed', '変更あり'
                 else:
-                    variation_format, status = 'selected', ''
+                    format, status = 'selected', ''
             elif last_configs == self._prev_configs:
                 if self._sanitize_config(self._template_curr_config) != self._sanitize_config(self._template_prev_config):
                   verification_chapter = sheet.get_verification_chapter(option_id, '省略')
                   if self._template_prev_config == '':
-                      variation_format, status = 'changed', '新規（未設定）'
+                      format, status = 'changed', '新規（未設定）'
                   else:
-                      variation_format, status = 'changed', '変更あり（未設定）'
+                      format, status = 'changed', '変更あり（未設定）'
             else:
-                if self._sanitize_config(last_applied_config) != self._sanitize_config(applied_variation_config):
+                if self._sanitize_config(last_config) != self._sanitize_config(variation_config):
                     status = '削除'
 
             if last_configs == self._prev_configs:
-              format = variation_format
+              row_format = format
 
-            self._write_column(column_offset,     applied_variation_config, variation_format)
-            self._write_column(column_offset + 1, status,                   variation_format)
+            self._write_column(column_offset,     variation_config, format)
+            self._write_column(column_offset + 1, status,           format)
             column_offset += 2
-            last_configs        = variation_config
-            last_applied_config = applied_variation_config
+            last_configs = variation_configs
+            last_config  = variation_config
 
-        return [column_offset, format, verification_chapter]
+        return [column_offset, row_format, verification_chapter]
 
     def _is_deprecated(self, value):
         return '廃止' in value
