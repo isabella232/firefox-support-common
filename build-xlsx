@@ -13,9 +13,9 @@
 #
 # (2) Generate a filled sheet
 #
-#     $ build-xlsx esr68.txt esr78.txt ... verify-targets-to-chapters.csv
-#     $ build-xlsx -p esr68.txt -c esr78.txt
-#     $ build-xlsx -d ESR68:esr68.txt -d ESR78:esr78.txt -d "ESR78 variation:esr78-variation.txt"
+#     $ build-xlsx esr78.txt esr91.txt ... verify-targets-to-chapters.csv
+#     $ build-xlsx -p esr78.txt -c esr91.txt
+#     $ build-xlsx -d ESR78:esr78.txt -d ESR91:esr91.txt -d "ESR91 variation:esr91-variation.txt"
 #
 # DEFINITION OF TERMS IN THIS MODULE
 #
