@@ -26,8 +26,10 @@
 #     * option:   "Security-9-1", "Security-9-2", "Security-9-3", and others
 #     * config:
 #       * curr/prev: curr=ESR91, prev=ESR78 (versions)
-#       * config:    `"BlockAboutConfig": true,` or others, defined in the given esr91.txt
-#       * template:  `"BlockAboutConfig": true,` or others, defined in the file esr91/Security
+#       * config:    `"BlockAboutConfig": true,` or others, defined in the given "conf" file like "esr91.txt"
+#       * template:  `"BlockAboutConfig": true,` or others, defined in the file "esr91/Security"
+#
+#     * conf:     A file listing chosen options. Please note this is not an abbr of "config".
 
 import re
 import sys
@@ -123,8 +125,8 @@ PREV_VERSION_COLUNBS = [ # label, width
 
 class ConfigurationSheet:
 
-    def __init__(self, all_configs, verification_chapters, formats, sheet):
-        self._all_configs           = all_configs
+    def __init__(self, confs, verification_chapters, formats, sheet):
+        self._confs                 = confs
         self._verification_chapters = verification_chapters
         self._formats               = formats
         self._sheet                 = sheet
@@ -149,7 +151,7 @@ class ConfigurationSheet:
         column_offset = len(BASE_COLUMNS)
 
         last_variation = ESR_PREVIOUS.upper()
-        for variation in self._all_configs.keys():
+        for variation in self._confs.keys():
             if variation == ESR_PREVIOUS.upper():
                 continue
             columns = variation_columns(variation, last_variation)
@@ -192,8 +194,8 @@ class ConfigurationSheet:
         self.write(row + 2, 1, '',                                     'deprecated')
         self.write(row + 2, 2, '廃止済みの項目',                       'noborder')
 
-    def iterate_all_config_items(self):
-        return self._all_configs.items()
+    def iterate_all_confs(self):
+        return self._confs.items()
 
     def get_verification_chapter(self, option_id):
         self._verification_chapters.get(option_id, '省略')
@@ -201,17 +203,16 @@ class ConfigurationSheet:
 class ConfigurationRow:
 
     def __init__(self, sheet, index, item, option, category,
-                 prev_configs, template_prev_config):
+                 prev_conf, template_prev_config):
         self._sheet                = sheet
         self._index                = index
         self._item                 = item
         self._option               = option
         self._category             = category
-        self._prev_configs         = prev_configs
+        self._prev_conf            = prev_conf
         self._template_prev_config = template_prev_config
 
-        option_id = option['option_id']
-        self._prev_config          = self._prev_configs.get(option_id, {'config':''})['config']
+        self._prev_config          = get_option_config(self._prev_conf, option)
         self._template_curr_config = option['config'].strip()
 
     def write(self):
@@ -257,27 +258,27 @@ class ConfigurationRow:
         row_format           = 'default'
         verification_chapter = ''
 
-        last_configs = self._prev_configs
-        last_config  = self._prev_config
-        for version, configs in sheet.iterate_all_config_items():
+        last_conf   = self._prev_conf
+        last_config = self._prev_config
+        for version, conf in sheet.iterate_all_confs():
             if version == ESR_PREVIOUS.upper():
                 continue
 
             status = ''
             format = 'default'
-            config = configs.get(option_id, {'config':''})['config']
+            config = get_option_config(conf, option)
 
             if self._is_deprecated(item['title']) or self._is_deprecated(option['option_title']):
                 format = 'deprecated'
-            elif option_id in configs:
+            elif option_id in conf:
                 verification_chapter = sheet.get_verification_chapter(option_id)
-                if option_id not in last_configs:
+                if option_id not in last_conf:
                     format, status = 'selected_changed', '新規'
                 elif self._sanitize_config(last_config) != self._sanitize_config(config):
                     format, status = 'selected_changed', '変更あり'
                 else:
                     format, status = 'selected', ''
-            elif last_configs == self._prev_configs:
+            elif last_conf == self._prev_conf:
                 if self._sanitize_config(self._template_curr_config) != self._sanitize_config(self._template_prev_config):
                   verification_chapter = sheet.get_verification_chapter(option_id)
                   if self._template_prev_config == '':
@@ -288,14 +289,14 @@ class ConfigurationRow:
                 if self._sanitize_config(last_config) != self._sanitize_config(config):
                     status = '削除'
 
-            if last_configs == self._prev_configs:
+            if last_conf == self._prev_conf:
               row_format = format
 
             self._write_column(column_offset,     config, format)
             self._write_column(column_offset + 1, status, format)
             column_offset += 2
-            last_configs = configs
-            last_config  = config
+            last_conf   = conf
+            last_config = config
 
         return [column_offset, row_format, verification_chapter]
 
@@ -308,16 +309,16 @@ class ConfigurationRow:
         self._write_column(column_offset + 2, self._template_prev_config, format)
         self._write_column(column_offset + 3, self._prev_config,          format)
 
-def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
+def generate_xlsx(workbook, confs, verification_chapters, exclude_worksheets):
     formats = create_formats(workbook)
-    prev_configs = all_configs[ESR_PREVIOUS.upper()]
+    prev_conf = confs[ESR_PREVIOUS.upper()]
 
     for title, sources in WORKBOOKS:
         if title in exclude_worksheets:
             continue
 
         sheet = ConfigurationSheet(
-            all_configs,
+            confs,
             verification_chapters,
             formats,
             workbook.add_worksheet(title),
@@ -326,7 +327,7 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
 
         row_index = 1
         for source in sources:
-            # We always output config items based on sources for the current version.
+            # We always output items based on sources for the current version.
             # In other words, the "current version" needs to define all deprecated/obsolete items
             # if they still need to be visible in the output sheet.
             base_items = adlib.load(os.path.join(BASEDIR, ESR_CURRENT, source))
@@ -338,15 +339,14 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                 sheet.try_merge_item_heading(row_index, item)
 
                 for option in item['options']:
-                    option_id = option['option_id']
                     row = ConfigurationRow(
                         sheet,
                         row_index,
                         item,
                         option,
                         source,
-                        prev_configs,
-                        template_prev_config = prev_items.get(option_id, {'config':''})['config'],
+                        prev_conf,
+                        template_prev_config = get_option_config(prev_items, option),
                     )
                     row.write()
                     row_index += 1
@@ -367,6 +367,12 @@ def create_formats(workbook):
         'selected_changed': new_format(bg_color = '#ffb571'),
     }
 
+def get_option_config(conf_or_items, option):
+    found_option = conf_or_items.get(option['option_id'])
+    if not found_option:
+      return ''
+    return found_option['config']
+
 #
 # main
 
@@ -378,8 +384,8 @@ def load_verification_chapters(path):
         return {}
 
 def main(args):
-    all_configs = {}
-    outfile     = 'config.xlsx'
+    confs   = {}
+    outfile = 'config.xlsx'
     exclude_worksheets = []
 
     opts, args = getopt.getopt(args, 'o:x:p:c:d:')
@@ -389,30 +395,30 @@ def main(args):
         elif key == '-x':
             exclude_worksheets = value.split(',')
         elif key == '-p':
-            all_configs[ESR_PREVIOUS.upper()] = value
+            confs[ESR_PREVIOUS.upper()] = value
         elif key == '-c':
-            all_configs[ESR_CURRENT.upper()] = value
+            confs[ESR_CURRENT.upper()] = value
         elif key == '-d':
             parts = value.split(':', 1)
-            all_configs[parts[0]] = parts[1]
+            confs[parts[0]] = parts[1]
 
     verification_chapters = {}
     for arg in args:
-        if ESR_PREVIOUS in arg and not ESR_PREVIOUS.upper() in all_configs:
+        if ESR_PREVIOUS in arg and not ESR_PREVIOUS.upper() in confs:
             print('%s -> %s' % (ESR_PREVIOUS, arg))
-            all_configs[ESR_PREVIOUS.upper()] = arg
-        elif ESR_CURRENT in arg and not ESR_CURRENT.upper() in all_configs:
+            confs[ESR_PREVIOUS.upper()] = arg
+        elif ESR_CURRENT in arg and not ESR_CURRENT.upper() in confs:
             print('%s -> %s' % (ESR_CURRENT, arg))
-            all_configs[ESR_CURRENT.upper()] = arg
+            confs[ESR_CURRENT.upper()] = arg
         elif CHAPTERS_CSV in arg:
             print('Loading', os.path.basename(arg))
             verification_chapters = load_verification_chapters(arg)
 
-    for label, path in all_configs.items():
-        all_configs[label] = adlib.load_as_dict(path)
+    for version, path in confs.items():
+        confs[version] = adlib.load_as_dict(path)
 
     with xlsxwriter.Workbook(outfile) as workbook:
-        generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets)
+        generate_xlsx(workbook, confs, verification_chapters, exclude_worksheets)
 
     print('Generated:', workbook.filename)
 
