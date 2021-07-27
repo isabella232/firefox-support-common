@@ -201,17 +201,18 @@ class ConfigurationSheet:
 class ConfigurationRow:
 
     def __init__(self, sheet, index, item, option, category,
-                 prev_configs, prev_config,
-                 template_curr_config, template_prev_config):
+                 prev_configs, template_prev_config):
         self._sheet                = sheet
         self._index                = index
         self._item                 = item
         self._option               = option
         self._category             = category
         self._prev_configs         = prev_configs
-        self._prev_config          = prev_config
-        self._template_curr_config = template_curr_config
         self._template_prev_config = template_prev_config
+
+        option_id = option['option_id']
+        self._prev_config          = self._prev_configs.get(option_id, {'config':''})['config']
+        self._template_curr_config = option['config'].strip()
 
     def write(self):
         # This must be done for all rows, otherwise merged cells will have
@@ -345,8 +346,6 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                         option,
                         source,
                         prev_configs,
-                        prev_config = prev_configs.get(option_id, {'config':''})['config'],
-                        template_curr_config = option['config'].strip(),
                         template_prev_config = prev_items.get(option_id, {'config':''})['config'],
                     )
                     row.write()
