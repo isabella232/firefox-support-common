@@ -300,8 +300,8 @@ class ConfigurationRow:
 
         return [column_offset, row_format, verification_chapter]
 
-    def _is_deprecated(self, value):
-        return '廃止' in value
+    def _is_deprecated(self, string):
+        return '廃止' in string
 
     def _write_item_trailing_columns(self, format, column_offset, verification_chapter):
         self._write_column(column_offset,     verification_chapter,       'default')
