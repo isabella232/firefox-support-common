@@ -17,6 +17,18 @@
 #     $ build-xlsx -p esr68.txt -c esr78.txt
 #     $ build-xlsx -d ESR68:esr68.txt -d ESR78:esr78.txt -d "ESR78 variation:esr78-variation.txt"
 #
+# DEFINITION OF TERMS IN THIS MODULE
+#
+#     For example, about "Security-9-3 about:configの利用の可否：禁止する" on Firefox ESR91:
+#
+#     * category: "Security"
+#     * item:     "Security-9"
+#     * option:   "Security-9-1", "Security-9-2", "Security-9-3", and others
+#     * config:
+#       * curr/prev: curr=ESR91, prev=ESR78 (versions)
+#       * config:    `"BlockAboutConfig": true,` or others, defined in the given esr91.txt
+#       * template:  `"BlockAboutConfig": true,` or others, defined in the file esr91/Security
+
 import re
 import sys
 import glob
@@ -189,14 +201,15 @@ class ConfigurationSheet:
 class ConfigurationRow:
 
     def __init__(self, sheet, index, item, option, category,
-                 prev_configs, applied_prev_config, template_curr_config, template_prev_config):
+                 prev_configs, prev_config,
+                 template_curr_config, template_prev_config):
         self._sheet                = sheet
         self._index                = index
         self._item                 = item
         self._option               = option
         self._category             = category
         self._prev_configs         = prev_configs
-        self._applied_prev_config  = applied_prev_config
+        self._prev_config          = prev_config
         self._template_curr_config = template_curr_config
         self._template_prev_config = template_prev_config
 
@@ -244,7 +257,7 @@ class ConfigurationRow:
         verification_chapter = ''
 
         last_configs        = self._prev_configs
-        last_applied_config = self._applied_prev_config
+        last_applied_config = self._prev_config
         for key, variation_config in sheet.iterate_all_config_items():
             if key == key == ESR_PREVIOUS.upper():
                 continue
@@ -292,7 +305,7 @@ class ConfigurationRow:
         self._write_column(column_offset,     verification_chapter,       'default')
         self._write_column(column_offset + 1, '',                         'noborder')
         self._write_column(column_offset + 2, self._template_prev_config, format)
-        self._write_column(column_offset + 3, self._applied_prev_config,  format)
+        self._write_column(column_offset + 3, self._prev_config,          format)
 
 def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
     formats = create_formats(workbook)
@@ -332,7 +345,7 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                         option,
                         source,
                         prev_configs,
-                        applied_prev_config  = prev_configs.get(option_id, {'config':''})['config'],
+                        prev_config = prev_configs.get(option_id, {'config':''})['config'],
                         template_curr_config = option['config'].strip(),
                         template_prev_config = prev_items.get(option_id, {'config':''})['config'],
                     )
