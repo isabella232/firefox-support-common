@@ -165,8 +165,6 @@ class ConfigurationSheet:
         self._write_header_columns(PREV_VERSION_COLUNBS, format, column_offset)
         column_offset += len(PREV_VERSION_COLUNBS)
 
-        self._set_column(0, column_offset - 1, None, 'default')
-
     def _write_header_columns(self, columns, format, column_offset):
         sheet = self._sheet
         for index, column in enumerate(columns):
