@@ -23,7 +23,6 @@ import glob
 import getopt
 import csv
 import os
-from collections import namedtuple
 
 BASEDIR = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(BASEDIR)
@@ -110,40 +109,25 @@ PREV_VERSION_COLUNBS = [ # label, width
 #
 # XLSX writer
 
-ConfigurationSheetContext = namedtuple('ConfigurationSheetContext', [
-    'all_configs',
-    'verification_chapters',
-    'formats',
-    'sheet',
-])
-
-ConfigurationRowContext = namedtuple('ConfigurationRowContext', [
-    'index',
-    'item',
-    'option',
-    'category',
-    'prev_configs',
-    'applied_prev_config',
-    'template_curr_config',
-    'template_prev_config',
-])
-
 class ConfigurationSheet:
 
-    def __init__(self, context):
-        self.context = context
+    def __init__(self, all_configs, verification_chapters, formats, sheet):
+        self._all_configs           = all_configs
+        self._verification_chapters = verification_chapters
+        self._formats               = formats
+        self._sheet                 = sheet
 
     def write(self, row, column, contents, format):
-        self.context.sheet.write(row, column, contents, self.context.formats[format])
+        self._sheet.write(row, column, contents, self._formats[format])
 
     def _set_column(self, row, column, width, format = None):
         if format:
-            self.context.sheet.set_column(row, column, width, self.context.formats[format])
+            self._sheet.set_column(row, column, width, self._formats[format])
         else:
-            self.context.sheet.set_column(row, column, width)
+            self._sheet.set_column(row, column, width)
 
     def write_header(self):
-        sheet  = self.context.sheet
+        sheet  = self._sheet
         format = 'center'
 
         sheet.freeze_panes(1, 0)
@@ -153,7 +137,7 @@ class ConfigurationSheet:
         column_offset = len(BASE_COLUMNS)
 
         last_variation = ESR_PREVIOUS.upper()
-        for variation in self.context.all_configs.keys():
+        for variation in self._all_configs.keys():
             if variation == ESR_PREVIOUS.upper():
                 continue
             columns = variation_columns(variation, last_variation)
@@ -170,18 +154,21 @@ class ConfigurationSheet:
         self._set_column(0, column_offset - 1, None, 'default')
 
     def _write_header_columns(self, columns, format, column_offset):
-        sheet = self.context.sheet
+        sheet = self._sheet
         for index, column in enumerate(columns):
             label, width = column
             self.write(0, column_offset + index, label, format)
             self._set_column(column_offset + index, column_offset + index, width)
 
     def merge_category_heading(self, row, items):
-        self.context.sheet.merge_range(row, 0, row + count_options(items) - 1, 0, '')
+        self._sheet.merge_range(row, 0, row + self._count_options(items) - 1, 0, '')
+
+    def _count_options(self, config):
+        return sum(len(item['options']) for item in config)
 
     def try_merge_item_heading(self, row, item):
         if len(item['options']) > 1:
-            sheet = self.context.sheet
+            sheet = self._sheet
             sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
             sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
 
@@ -194,16 +181,24 @@ class ConfigurationSheet:
         self.write(row + 2, 2, '廃止済みの項目',                       'noborder')
 
     def iterate_all_config_items(self):
-        return self.context.all_configs.items()
+        return self._all_configs.items()
 
     def get_verification_chapter(self, option_id, key):
-        self.context.verification_chapters.get(option_id, '省略')
+        self._verification_chapters.get(option_id, '省略')
 
 class ConfigurationRow:
 
-    def __init__(self, sheet, context):
-        self.sheet   = sheet
-        self.context = context
+    def __init__(self, sheet, index, item, option, category,
+                 prev_configs, applied_prev_config, template_curr_config, template_prev_config):
+        self._sheet                = sheet
+        self._index                = index
+        self._item                 = item
+        self._option               = option
+        self._category             = category
+        self._prev_configs         = prev_configs
+        self._applied_prev_config  = applied_prev_config
+        self._template_curr_config = template_curr_config
+        self._template_prev_config = template_prev_config
 
     def write(self):
         # This must be done for all rows, otherwise merged cells will have
@@ -216,40 +211,40 @@ class ConfigurationRow:
         self._write_item_trailing_columns(format, column_offset, verification_chapter)
 
     def _write_column(self, column, contents, format):
-        self.sheet.write(self.context.index, column, contents, format)
+        self._sheet.write(self._index, column, contents, format)
 
     def _sanitize_config(self, config):
         return re.sub(' *[^:]+:\n', '', config).strip()
 
     def _write_item_heading_columns(self):
-        item = self.context.item
-        self._write_column(0, self.context.category, 'default') # A
+        item = self._item
+        self._write_column(0, self._category, 'default') # A
 
         format = 'default'
-        if is_deprecated(item['title']):
+        if self._is_deprecated(item['title']):
             format = 'deprecated'
 
         self._write_column(1, int(item['index']), format) # B
         self._write_column(2, item['title'],      format) # C
 
     def _write_item_leading_columns(self, format):
-        option = self.context.option
-        self._write_column(3, int(option['option_index']),       format) # D
-        self._write_column(4, option['option_title'],            format) # E
-        self._write_column(5, self.context.template_curr_config, format) # F
+        option = self._option
+        self._write_column(3, int(option['option_index']), format) # D
+        self._write_column(4, option['option_title'],      format) # E
+        self._write_column(5, self._template_curr_config,  format) # F
 
     def _write_item_variations_columns(self):
-        sheet     = self.sheet
-        item      = self.context.item
-        option    = self.context.option
+        sheet     = self._sheet
+        item      = self._item
+        option    = self._option
         option_id = option['option_id']
 
         column_offset        = len(BASE_COLUMNS)
         format               = 'default'
         verification_chapter = ''
 
-        last_configs        = self.context.prev_configs
-        last_applied_config = self.context.applied_prev_config
+        last_configs        = self._prev_configs
+        last_applied_config = self._applied_prev_config
         for key, variation_config in sheet.iterate_all_config_items():
             if key == key == ESR_PREVIOUS.upper():
                 continue
@@ -258,7 +253,7 @@ class ConfigurationRow:
             variation_format = 'default'
             applied_variation_config = variation_config.get(option_id, {'config':''})['config']
 
-            if is_deprecated(item['title']) or is_deprecated(option['option_title']):
+            if self._is_deprecated(item['title']) or self._is_deprecated(option['option_title']):
                 variation_format = 'deprecated'
             elif option_id in variation_config:
                 verification_chapter = sheet.get_verification_chapter(option_id, '省略')
@@ -268,10 +263,10 @@ class ConfigurationRow:
                     variation_format, status = 'selected_changed', '変更あり'
                 else:
                     variation_format, status = 'selected', ''
-            elif last_configs == self.context.prev_configs:
-                if self._sanitize_config(self.context.template_curr_config) != self._sanitize_config(self.context.template_prev_config):
+            elif last_configs == self._prev_configs:
+                if self._sanitize_config(self._template_curr_config) != self._sanitize_config(self._template_prev_config):
                   verification_chapter = sheet.get_verification_chapter(option_id, '省略')
-                  if self.context.template_prev_config == '':
+                  if self._template_prev_config == '':
                       variation_format, status = 'changed', '新規（未設定）'
                   else:
                       variation_format, status = 'changed', '変更あり（未設定）'
@@ -279,7 +274,7 @@ class ConfigurationRow:
                 if self._sanitize_config(last_applied_config) != self._sanitize_config(applied_variation_config):
                     status = '削除'
 
-            if last_configs == self.context.prev_configs:
+            if last_configs == self._prev_configs:
               format = variation_format
 
             self._write_column(column_offset,     applied_variation_config, variation_format)
@@ -290,12 +285,14 @@ class ConfigurationRow:
 
         return [column_offset, format, verification_chapter]
 
-    def _write_item_trailing_columns(self, format, column_offset, verification_chapter):
-        self._write_column(column_offset,     verification_chapter,              'default')
-        self._write_column(column_offset + 1, '',                                'noborder')
-        self._write_column(column_offset + 2, self.context.template_prev_config, format)
-        self._write_column(column_offset + 3, self.context.applied_prev_config,  format)
+    def _is_deprecated(self, value):
+        return '廃止' in value
 
+    def _write_item_trailing_columns(self, format, column_offset, verification_chapter):
+        self._write_column(column_offset,     verification_chapter,       'default')
+        self._write_column(column_offset + 1, '',                         'noborder')
+        self._write_column(column_offset + 2, self._template_prev_config, format)
+        self._write_column(column_offset + 3, self._applied_prev_config,  format)
 
 def generate_xlsx(workbook, all_configs, verification_chapters, exclude_worksheets):
     formats = create_formats(workbook)
@@ -306,12 +303,10 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
             continue
 
         sheet = ConfigurationSheet(
-            ConfigurationSheetContext(
-                all_configs,
-                verification_chapters,
-                formats,
-                sheet = workbook.add_worksheet(title),
-            ),
+            all_configs,
+            verification_chapters,
+            formats,
+            workbook.add_worksheet(title),
         )
         sheet.write_header()
 
@@ -332,27 +327,19 @@ def generate_xlsx(workbook, all_configs, verification_chapters, exclude_workshee
                     option_id = option['option_id']
                     row = ConfigurationRow(
                         sheet,
-                        ConfigurationRowContext(
-                            row_index,
-                            item,
-                            option,
-                            source,
-                            prev_configs,
-                            applied_prev_config  = prev_configs.get(option_id, {'config':''})['config'],
-                            template_curr_config = option['config'].strip(),
-                            template_prev_config = prev_items.get(option_id, {'config':''})['config'],
-                        ),
+                        row_index,
+                        item,
+                        option,
+                        source,
+                        prev_configs,
+                        applied_prev_config  = prev_configs.get(option_id, {'config':''})['config'],
+                        template_curr_config = option['config'].strip(),
+                        template_prev_config = prev_items.get(option_id, {'config':''})['config'],
                     )
                     row.write()
                     row_index += 1
 
         sheet.write_legend(row_index + 1)
-
-def is_deprecated(value):
-    return '廃止' in value
-
-def count_options(config):
-    return sum(len(item['options']) for item in config)
 
 def create_formats(workbook):
     def new_format(**kwargs):
