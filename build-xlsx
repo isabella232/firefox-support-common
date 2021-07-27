@@ -195,7 +195,7 @@ class ConfigurationSheet:
     def iterate_all_config_items(self):
         return self._all_configs.items()
 
-    def get_verification_chapter(self, option_id, key):
+    def get_verification_chapter(self, option_id):
         self._verification_chapters.get(option_id, '省略')
 
 class ConfigurationRow:
@@ -269,7 +269,7 @@ class ConfigurationRow:
             if self._is_deprecated(item['title']) or self._is_deprecated(option['option_title']):
                 format = 'deprecated'
             elif option_id in configs:
-                verification_chapter = sheet.get_verification_chapter(option_id, '省略')
+                verification_chapter = sheet.get_verification_chapter(option_id)
                 if option_id not in last_configs:
                     format, status = 'selected_changed', '新規'
                 elif self._sanitize_config(last_config) != self._sanitize_config(config):
@@ -278,7 +278,7 @@ class ConfigurationRow:
                     format, status = 'selected', ''
             elif last_configs == self._prev_configs:
                 if self._sanitize_config(self._template_curr_config) != self._sanitize_config(self._template_prev_config):
-                  verification_chapter = sheet.get_verification_chapter(option_id, '省略')
+                  verification_chapter = sheet.get_verification_chapter(option_id)
                   if self._template_prev_config == '':
                       format, status = 'changed', '新規（未設定）'
                   else:
