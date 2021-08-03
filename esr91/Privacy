@@ -884,7 +884,7 @@ Privacy-32: リンクのhoverによるリンク先の先読みの可否
     "Preferences": {
       "network.http.speculative-parallel-limit": {
         "Value": 6,
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },

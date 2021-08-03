@@ -235,7 +235,7 @@ Security-5: 攻撃サイトに対する警告の可否
     "Preferences": {
       "browser.safebrowsing.malware.enabled": {
         "Value": true,
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },
@@ -250,83 +250,83 @@ Security-5: 攻撃サイトに対する警告の可否
     "Preferences": {
       "browser.safebrowsing.malware.enabled": {
         "Value": false,
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.downloads.remote.url": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google.advisoryURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google.gethashURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google.reportMalwareMistakeURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google.reportPhishMistakeURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google.reportURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google.updateURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.advisoryURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.gethashURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.reportMalwareMistakeURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.reportPhishMistakeURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.dataSharingURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.reportURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.google4.updateURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.mozilla.gethashURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.provider.mozilla.updateURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.reportMalwareMistakeURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.reportPhishMistakeURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "browser.safebrowsing.reportPhishURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },
@@ -343,7 +343,7 @@ Security-6: 偽装サイトに対する警告の可否
     "Preferences": {
       "browser.safebrowsing.phishing.enabled": {
         "Value": true,
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },
@@ -358,7 +358,7 @@ Security-6: 偽装サイトに対する警告の可否
     "Preferences": {
       "browser.safebrowsing.phishing.enabled": {
         "Value": false,
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },
@@ -684,7 +684,7 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
     "Preferences": {
       "extensions.getAddons.discovery.api_url": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },
@@ -715,19 +715,19 @@ Security-21: 危険なアドオンとプラグインのブロックの可否
     "Preferences": {
       "extensions.blocklist.enabled": {
         "Value": false,
-        "Status": "default"
+        "Status": "locked"
       },
       "extensions.blocklist.detailsURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "extensions.blocklist.itemURL": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       "extensions.blocklist.url": {
         "Value": "",
-        "Status": "default"
+        "Status": "locked"
       },
       ...
     },
