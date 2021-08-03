@@ -287,16 +287,17 @@ class ConfigurationRow:
         option    = self._option
         option_id = option['option_id']
 
-        status = ''
-        format = 'default'
-        config = self._get_option_config(conf)
+        status   = ''
+        format   = 'default'
+        config   = self._get_option_config(conf)
+        modified = self._sanitize_config(last_config) != self._sanitize_config(config)
 
         if self._is_deprecated(self._item['title']) or self._is_deprecated(option['option_title']):
             format = 'deprecated'
         elif option_id in conf:
             if option_id not in last_conf:
                 format, status = 'selected_changed', '新規'
-            elif self._sanitize_config(last_config) != self._sanitize_config(config):
+            elif modified:
                 format, status = 'selected_changed', '変更あり'
             else:
                 format, status = 'selected', ''
@@ -307,7 +308,7 @@ class ConfigurationRow:
               else:
                   format, status = 'changed', '変更あり（未設定）'
         else:
-            if self._sanitize_config(last_config) != self._sanitize_config(config):
+            if modified:
                 status = '削除'
 
         return [format, status]
