@@ -125,11 +125,10 @@ PREV_VERSION_COLUNBS = [ # label, width
 
 class ConfigurationSheet:
 
-    def __init__(self, confs, verification_chapters, formats, sheet):
-        self._confs                 = confs
-        self._verification_chapters = verification_chapters
-        self._formats               = formats
-        self._sheet                 = sheet
+    def __init__(self, confs, formats, sheet):
+        self._confs   = confs
+        self._formats = formats
+        self._sheet   = sheet
 
     def iterate_all_confs(self):
         return self._confs.items()
@@ -187,9 +186,6 @@ class ConfigurationSheet:
             sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
             sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
 
-    def get_verification_chapter(self, option_id):
-        self._verification_chapters.get(option_id, '省略')
-
     def write_legend(self, row):
         self.write_cell(row,     1, '',                                     'selected')
         self.write_cell(row,     2, '前バージョンから引き続き利用する項目', 'noborder')
@@ -201,20 +197,21 @@ class ConfigurationSheet:
 class ConfigurationRow:
 
     def __init__(self, sheet, index, item, option, category,
-                 prev_conf, prev_items):
+                 prev_conf, prev_items, verification_chapters):
         self._sheet                = sheet
         self._index                = index
         self._item                 = item
         self._option               = option
         self._category             = category
         self._prev_conf            = prev_conf
+        self._verification_chapters = verification_chapters
 
-        self._prev_config          = self._get_option_config(self._prev_conf, option)
-        self._template_prev_config = self._get_option_config(prev_items, option)
+        self._prev_config          = self._get_option_config(self._prev_conf)
+        self._template_prev_config = self._get_option_config(prev_items)
         self._template_curr_config = option['config'].strip()
 
-    def _get_option_config(self, conf_or_items, option):
-        found_option = conf_or_items.get(option['option_id'])
+    def _get_option_config(self, conf_or_items):
+        found_option = conf_or_items.get(self._option['option_id'])
         if not found_option:
           return ''
         return found_option['config']
@@ -256,10 +253,7 @@ class ConfigurationRow:
         self._write_column(column_offset + 3, self._prev_config,          format)
 
     def _write_item_variations_columns(self):
-        sheet     = self._sheet
-        item      = self._item
-        option    = self._option
-        option_id = option['option_id']
+        option_id = self._option['option_id']
 
         column_offset        = len(BASE_COLUMNS)
         row_format           = 'default'
@@ -267,45 +261,62 @@ class ConfigurationRow:
 
         last_conf   = self._prev_conf
         last_config = self._prev_config
-        for version, conf in sheet.iterate_all_confs():
+        for version, conf in self._sheet.iterate_all_confs():
             if version == ESR_PREVIOUS.upper():
                 continue
 
-            status = ''
-            format = 'default'
-            config = self._get_option_config(conf, option)
-
-            if self._is_deprecated(item['title']) or self._is_deprecated(option['option_title']):
-                format = 'deprecated'
-            elif option_id in conf:
-                verification_chapter = sheet.get_verification_chapter(option_id)
-                if option_id not in last_conf:
-                    format, status = 'selected_changed', '新規'
-                elif self._sanitize_config(last_config) != self._sanitize_config(config):
-                    format, status = 'selected_changed', '変更あり'
-                else:
-                    format, status = 'selected', ''
-            elif last_conf == self._prev_conf:
-                if self._sanitize_config(self._template_curr_config) != self._sanitize_config(self._template_prev_config):
-                  verification_chapter = sheet.get_verification_chapter(option_id)
-                  if self._template_prev_config == '':
-                      format, status = 'changed', '新規（未設定）'
-                  else:
-                      format, status = 'changed', '変更あり（未設定）'
-            else:
-                if self._sanitize_config(last_config) != self._sanitize_config(config):
-                    status = '削除'
+            config         = self._get_option_config(conf)
+            format, status = self._determine_format_and_status(conf, last_conf, last_config)
 
             if last_conf == self._prev_conf:
               row_format = format
 
+            if option_id in conf:
+                verification_chapter = self._verification_chapters.get(option_id, '省略')
+
             self._write_column(column_offset,     config, format)
             self._write_column(column_offset + 1, status, format)
+
             column_offset += 2
             last_conf   = conf
             last_config = config
 
         return [column_offset, row_format, verification_chapter]
+
+    def _determine_format_and_status(self, conf, last_conf, last_config):
+        option    = self._option
+        option_id = option['option_id']
+
+        status = ''
+        format = 'default'
+        config = self._get_option_config(conf)
+
+        if self._is_deprecated(self._item['title']) or self._is_deprecated(option['option_title']):
+            format = 'deprecated'
+        elif option_id in conf:
+            if option_id not in last_conf:
+                format, status = 'selected_changed', '新規'
+            elif self._sanitize_config(last_config) != self._sanitize_config(config):
+                format, status = 'selected_changed', '変更あり'
+            else:
+                format, status = 'selected', ''
+        elif last_conf == self._prev_conf:
+            if self._modified_from_prev_version():
+              if self._added_at_this_version():
+                  format, status = 'changed', '新規（未設定）'
+              else:
+                  format, status = 'changed', '変更あり（未設定）'
+        else:
+            if self._sanitize_config(last_config) != self._sanitize_config(config):
+                status = '削除'
+
+        return [format, status]
+
+    def _modified_from_prev_version(self):
+        return self._sanitize_config(self._template_curr_config) != self._sanitize_config(self._template_prev_config)
+
+    def _added_at_this_version(self):
+        return self._template_prev_config == ''
 
     def _is_deprecated(self, string):
         return '廃止' in string
@@ -323,7 +334,6 @@ def generate_xlsx(workbook, confs, verification_chapters, exclude_worksheets):
 
         sheet = ConfigurationSheet(
             confs,
-            verification_chapters,
             formats,
             workbook.add_worksheet(title),
         )
@@ -351,6 +361,7 @@ def generate_xlsx(workbook, confs, verification_chapters, exclude_worksheets):
                         source,
                         prev_conf,
                         prev_items,
+                        verification_chapters,
                     )
                     row.write()
                     row_index += 1
