@@ -1639,19 +1639,26 @@ Privacy-54: supercookieによるユーザー識別の遮断
 
     - `privacy.partition.network_state` の値が `false` である。
 
-Privacy-55: サイトごとのCookieの分離
+Privacy-55: クロスサイト（サードパーティ）Cookieのブロック
 
-    :1: 分離する
+    :1: ブロックする
 
     ABOUT_CONFIG
 
     - `network.cookie.cookieBehavior` の値が `5` である。
+    - `network.cookie.cookieBehavior.pbmode` の値が `5` である。
 
-    :2: 分離しない（既定）
+    :3: プライベートウィンドウのみブロックする（既定）
+
+    - `network.cookie.cookieBehavior` の値が `5` より小さい数値である。
+    - `network.cookie.cookieBehavior.pbmode` の値が `5` である。
+
+    :2: ブロックしない
 
     ABOUT_CONFIG
 
     - `network.cookie.cookieBehavior` の値が `5` より小さい数値である。
+    - `network.cookie.cookieBehavior.pbmode` の値が `5` より小さい数値である。
 
 Privacy-56: マスターパスワードの使用の強制
 

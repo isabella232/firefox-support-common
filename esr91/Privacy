@@ -1645,12 +1645,16 @@ Privacy-54: supercookieによるユーザー識別の遮断
     *.cfg / *.jsc:
     lockPref("privacy.partition.network_state", false);
 
-Privacy-55: サイトごとのCookieの分離
+Privacy-55: クロスサイトCookieのブロック
 
-    :1: 分離する
+    :1: ブロックする
 
     distribution\policies.json:
     "Preferences": {
+      "network.cookie.cookieBehavior.pbmode": {
+        "Value": 5,
+        "Status": "locked"
+      },
       "network.cookie.cookieBehavior": {
         "Value": 5,
         "Status": "locked"
@@ -1662,12 +1666,16 @@ Privacy-55: サイトごとのCookieの分離
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-    :2: 分離しない（既定）
+    :3: プライベートウィンドウのみブロックする（既定）
 
     distribution\policies.json:
     "Preferences": {
-      "network.cookie.cookieBehavior": {
+      "network.cookie.cookieBehavior.pbmode": {
         "Value": 4,
+        "Status": "locked"
+      },
+      "network.cookie.cookieBehavior": {
+        "Value": 5,
         "Status": "locked"
       },
       ...
@@ -1676,6 +1684,21 @@ Privacy-55: サイトごとのCookieの分離
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: ブロックしない
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.cookie.cookieBehavior.pbmode": {
+        "Value": 4,
+        "Status": "locked"
+      },
+      "network.cookie.cookieBehavior": {
+        "Value": 4,
+        "Status": "locked"
+      },
+      ...
+    },
 
 Privacy-56: マスターパスワードの使用の強制
 
