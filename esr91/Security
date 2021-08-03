@@ -496,7 +496,6 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     * ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする (Security-26)
     * ファイルのダウンロード保護により、不要なソフトウェアのインストールの可能性がある場面で警告する (Security-27)
     * 認証が必要なWiFiアクセスポイントを検出した時に、認証用のタブを自動的に開く (Security-28)
-    * 危険なFlashコンテンツの読み込み (Security-31)
     * 危険ででしゃばりなFlashコンテンツをブロック (Security-33-2)
     * 過去にデータ流出事故を起こしたWebサービスでの警告の表示 (Security-42-2)
     * リンク先の先読みの可否 (Privacy-7)
@@ -944,26 +943,15 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
 
     -
 
-Security-31: 危険なFlashコンテンツの読み込み
+Security-31: [廃止] 危険なFlashコンテンツの読み込み
 
-    :1: 許可する
+    :1: [廃止] 許可する
 
-    distribution\policies.json:
-    "Preferences": {
-      "browser.safebrowsing.blockedURIs.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      ...
-    },
+    [廃止]
 
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    :2: [廃止] ブロックする（既定）
 
-    :2: ブロックする（既定）
-
-    -
+    [廃止]
 
 Security-32: アドオンのインストール時の警告
 
