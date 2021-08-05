@@ -203,17 +203,17 @@ class ConfigurationRow:
 
     def __init__(self, sheet, index, item, option, category,
                  prev_conf, prev_items, verification_chapters):
-        self._sheet                = sheet
-        self._index                = index
-        self._item                 = item
-        self._option               = option
-        self._category             = category
-        self._prev_conf            = prev_conf
+        self._sheet                 = sheet
+        self._index                 = index
+        self._item                  = item
+        self._option                = option
+        self._category              = category
+        self._prev_conf             = prev_conf
         self._verification_chapters = verification_chapters
 
-        self._prev_config          = self._get_option_config(self._prev_conf)
-        self._template_prev_config = self._get_option_config(prev_items)
-        self._template_curr_config = option['config'].strip()
+        self._prev_config           = self._get_option_config(self._prev_conf)
+        self._template_prev_config  = self._get_option_config(prev_items)
+        self._template_curr_config  = option['config'].strip()
 
     def _get_option_config(self, conf_or_items):
         found_option = conf_or_items.get(self._option['option_id'])
