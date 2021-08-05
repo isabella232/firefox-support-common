@@ -241,7 +241,7 @@ class ConfigurationRow:
     def _write_column(self, column, contents, format):
         self._sheet.write_cell(self._index, column, contents, format)
 
-    def _get_value(self, key):
+    def _get_column_value(self, key):
         if key == 'category':
             return self._category
         elif key == 'index':
@@ -266,7 +266,7 @@ class ConfigurationRow:
     def _write_item_columns(self, columns, format, column_offset = 0):
         for index, column in enumerate(columns):
             label, width, key, override_format = column
-            self._write_column(column_offset + index, self._get_value(key), override_format or format)
+            self._write_column(column_offset + index, self._get_column_value(key), override_format or format)
         return len(columns)
 
     def _write_item_variations_columns(self, column_offset):
