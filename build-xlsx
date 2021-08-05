@@ -152,33 +152,27 @@ class ConfigurationSheet:
         sheet.freeze_panes(1, 0)
         sheet.set_row(0, 25)
 
-        self._write_header_columns(HEADING_COLUMNS, 0)
-        column_offset = len(HEADING_COLUMNS)
-
-        self._write_header_columns(LEADING_COLUMNS, column_offset)
-        column_offset += len(LEADING_COLUMNS)
+        column_offset = 0
+        column_offset += self._write_header_columns(HEADING_COLUMNS, 0)
+        column_offset += self._write_header_columns(LEADING_COLUMNS, column_offset)
 
         last_variation = ESR_PREVIOUS.upper()
         for variation in self._confs.keys():
             if variation == ESR_PREVIOUS.upper():
                 continue
             columns = variation_columns(variation, last_variation)
-            self._write_header_columns(columns, column_offset)
-            column_offset += len(columns)
+            column_offset += self._write_header_columns(columns, column_offset)
             last_variation = variation
 
-        self._write_header_columns(VERIFICATION_COLUMNS, column_offset)
-        column_offset += len(VERIFICATION_COLUMNS)
-
-        self._write_header_columns(PREV_VERSION_COLUNBS, column_offset)
-        column_offset += len(PREV_VERSION_COLUNBS)
+        column_offset += self._write_header_columns(VERIFICATION_COLUMNS, column_offset)
+        column_offset += self._write_header_columns(PREV_VERSION_COLUNBS, column_offset)
 
     def _write_header_columns(self, columns, column_offset):
-        sheet = self._sheet
         for index, column in enumerate(columns):
             label, width, _key, _format = column
             self.write_cell(0, column_offset + index, label, 'center')
             self._set_cell_visual(column_offset + index, column_offset + index, width)
+        return len(columns)
 
     def merge_category_heading(self, row, items):
         self._sheet.merge_range(row, 0, row + self._count_options(items) - 1, 0, '')
