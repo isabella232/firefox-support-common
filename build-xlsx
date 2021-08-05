@@ -95,32 +95,33 @@ DEFAULT_FORMAT = {
     'text_wrap': 1,
 }
 
-HEADING_COLUMNS = [ # label, width
-    ('カテゴリー',              10), # A
-    ('項目設定番号',            10), # B
-    ('カスタマイズ項目 (目的)', 30), # C
+HEADING_COLUMNS = [ # label, width, key, format
+    ('カテゴリー',              10, 'category', 'default'),
+    ('項目設定番号',            10, 'index',    None),
+    ('カスタマイズ項目 (目的)', 30, 'title',    None),
 ]
 
-LEADING_COLUMNS = [ # label, width
-    ('選択肢番号',              5),  # D
-    ('選択肢',                  20), # E
-    ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40), # F
+LEADING_COLUMNS = [ # label, width, key, format
+    ('選択肢番号',              5,  'option_index',    None),
+    ('選択肢',                  20, 'option_title',    None),
+    ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(),
+                                40, 'template_config', None),
 ]
 
 def variation_columns(version, prev_version):
-    return [ # label, width
-        ('反映した設定値\n(%s)' % version,       40),
-        ('%s→%sでの変更' % (prev_version, version), 10),
+    return [ # label, width, key, format
+        ('反映した設定値\n(%s)' % version,           40, 'applied_config', None),
+        ('%s→%sでの変更' % (prev_version, version), 10, 'status',         None),
     ]
 
-VERIFICATION_COLUMNS = [ # label, width
-    ('検証手順書対応番号', 10),
-    ('',                   12),
+VERIFICATION_COLUMNS = [ # label, width, key, format
+    ('検証手順書対応番号', 10, 'verification_chapter', 'default'),
+    ('',                   12, None,                   'noborder'),
 ]
 
-PREV_VERSION_COLUNBS = [ # label, width
-    ('設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), 40),
-    ('反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), 40),
+PREV_VERSION_COLUNBS = [ # label, width, key, format
+    ('設定内容の雛形\n(%s)' % ESR_PREVIOUS.upper(), 40, 'template_prev_config', None),
+    ('反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), 40, 'applied_prev_config',  None),
 ]
 
 #
@@ -175,7 +176,7 @@ class ConfigurationSheet:
     def _write_header_columns(self, columns, column_offset):
         sheet = self._sheet
         for index, column in enumerate(columns):
-            label, width = column
+            label, width, _key, _format = column
             self.write_cell(0, column_offset + index, label, 'center')
             self._set_cell_visual(column_offset + index, column_offset + index, width)
 
@@ -210,6 +211,7 @@ class ConfigurationRow:
         self._category              = category
         self._prev_conf             = prev_conf
         self._verification_chapters = verification_chapters
+        self._verification_chapter  = ''
 
         self._prev_config           = self._get_option_config(self._prev_conf)
         self._template_prev_config  = self._get_option_config(prev_items)
@@ -226,41 +228,60 @@ class ConfigurationRow:
         # a partial border line just for the first row.
         self._write_item_heading_columns()
 
-        column_offset, format, verification_chapter = self._write_item_variations_columns()
+        column_offset, format = self._write_item_variations_columns()
 
         self._write_item_leading_columns(format)
-        self._write_item_trailing_columns(format, column_offset, verification_chapter)
+        self._write_item_trailing_columns(format, column_offset)
 
     def _write_column(self, column, contents, format):
         self._sheet.write_cell(self._index, column, contents, format)
 
-    def _write_item_heading_columns(self):
-        item = self._item
-        self._write_column(0, self._category, 'default') # A
+    def _get_value(self, key):
+        if key == 'category':
+            return self._category
+        elif key == 'index':
+            return len(self._item['index'])
+        elif key == 'title':
+            return self._item['title']
+        elif key == 'option_index':
+            return int(self._option['option_index'])
+        elif key == 'option_title':
+            return self._option['option_title']
+        elif key == 'template_config':
+            return self._template_curr_config
+        elif key == 'verification_chapter':
+            return self._verification_chapter;
+        elif key == 'template_prev_config':
+            return self._template_prev_config;
+        elif key == 'applied_prev_config':
+            return self._prev_config;
+        else:
+            return ''
 
+    def _write_item_heading_columns(self):
         format = 'default'
-        if self._is_deprecated(item['title']):
+        if self._is_deprecated(self._item['title']):
             format = 'deprecated'
 
-        self._write_column(1, int(item['index']), format) # B
-        self._write_column(2, item['title'],      format) # C
+        for index, column in enumerate(HEADING_COLUMNS):
+            label, width, key, override_format = column
+            self._write_column(index, self._get_value(key), override_format or format)
 
     def _write_item_leading_columns(self, format):
-        option = self._option
-        self._write_column(3, int(option['option_index']), format) # D
-        self._write_column(4, option['option_title'],      format) # E
-        self._write_column(5, self._template_curr_config,  format) # F
+        column_offset = len(HEADING_COLUMNS)
+        for index, column in enumerate(LEADING_COLUMNS):
+            label, width, key, override_format = column
+            self._write_column(column_offset + index, self._get_value(key), override_format or format)
 
-    def _write_item_trailing_columns(self, format, column_offset, verification_chapter):
-        self._write_column(column_offset,     verification_chapter,       'default')
-        self._write_column(column_offset + 1, '',                         'noborder')
-        self._write_column(column_offset + 2, self._template_prev_config, format)
-        self._write_column(column_offset + 3, self._prev_config,          format)
+    def _write_item_trailing_columns(self, format, column_offset):
+        for index, column in enumerate(VERIFICATION_COLUMNS + PREV_VERSION_COLUNBS):
+            label, width, key, override_format = column
+            self._write_column(column_offset + index, self._get_value(key), override_format or format)
 
     def _write_item_variations_columns(self):
         option_id = self._option['option_id']
 
-        column_offset        = len(HEADING_COLUMNS) + len(LEADING_COLUMNS)
+        column_offset        = len(HEADING_COLUMNS + LEADING_COLUMNS)
         row_format           = 'default'
         verification_chapter = ''
 
@@ -277,7 +298,7 @@ class ConfigurationRow:
               row_format = format
 
             if option_id in conf:
-                verification_chapter = self._verification_chapters.get(option_id, '省略')
+                self._verification_chapter = self._verification_chapters.get(option_id, '省略')
 
             self._write_column(column_offset,     config, format)
             self._write_column(column_offset + 1, status, format)
@@ -286,7 +307,7 @@ class ConfigurationRow:
             last_conf   = conf
             last_config = config
 
-        return [column_offset, row_format, verification_chapter]
+        return [column_offset, row_format]
 
     def _determine_format_and_status(self, conf, last_conf, last_config):
         option    = self._option
