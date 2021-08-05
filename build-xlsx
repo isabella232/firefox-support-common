@@ -252,7 +252,7 @@ class ConfigurationRow:
         if key == 'category':
             return self._category
         elif key == 'index':
-            return len(self._item['index'])
+            return int(self._item['index'])
         elif key == 'title':
             return self._item['title']
         elif key == 'option_index':
