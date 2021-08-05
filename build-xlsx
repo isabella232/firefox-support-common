@@ -95,8 +95,11 @@ DEFAULT_FORMAT = {
     'text_wrap': 1,
 }
 
-HEADING_COLUMNS = [ # label, width, key, format
+CATEGORY_COLUMNS = [ # label, width, key, format
     ('カテゴリー',              10, 'category', 'default'),
+]
+
+HEADING_COLUMNS = [ # label, width, key, format
     ('項目設定番号',            10, 'index',    None),
     ('カスタマイズ項目 (目的)', 30, 'title',    None),
 ]
@@ -153,7 +156,8 @@ class ConfigurationSheet:
         sheet.set_row(0, 25)
 
         column_offset = 0
-        column_offset += self._write_header_columns(HEADING_COLUMNS, 0)
+        column_offset += self._write_header_columns(CATEGORY_COLUMNS, 0)
+        column_offset += self._write_header_columns(HEADING_COLUMNS, column_offset)
         column_offset += self._write_header_columns(LEADING_COLUMNS, column_offset)
 
         last_variation = ESR_PREVIOUS.upper()
@@ -175,7 +179,8 @@ class ConfigurationSheet:
         return len(columns)
 
     def merge_category_heading(self, row, items):
-        self._sheet.merge_range(row, 0, row + self._count_options(items) - 1, 0, '')
+        for index, _column in enumerate(CATEGORY_COLUMNS):
+            self._sheet.merge_range(row, index, row + self._count_options(items) - 1, index, '')
 
     def _count_options(self, items):
         return sum(len(item['options']) for item in items)
@@ -183,8 +188,9 @@ class ConfigurationSheet:
     def try_merge_item_heading(self, row, item):
         if len(item['options']) > 1:
             sheet = self._sheet
-            sheet.merge_range(row, 1, row + len(item['options']) - 1, 1, '')
-            sheet.merge_range(row, 2, row + len(item['options']) - 1, 2, '')
+            column_offset = len(CATEGORY_COLUMNS)
+            for index, _column in enumerate(HEADING_COLUMNS):
+                sheet.merge_range(row, column_offset + index, row + len(item['options']) - 1, column_offset + index, '')
 
     def write_legend(self, row):
         self.write_cell(row,     1, '',                                     'selected')
@@ -219,13 +225,14 @@ class ConfigurationRow:
 
     def write(self):
         column_offset = 0
+        column_offset += self._write_item_columns(CATEGORY_COLUMNS)
 
         # Heading column must be written for all rows, otherwise merged cells will have
         # a partial border line just for the first row.
         heading_format = 'default'
         if self._is_deprecated(self._item['title']):
             heading_format = 'deprecated'
-        column_offset += self._write_item_columns(HEADING_COLUMNS, heading_format)
+        column_offset += self._write_item_columns(HEADING_COLUMNS, heading_format, column_offset)
 
         # Don't output leading columns here, because they depends on the format calculated for variation columns
         column_offset += len(LEADING_COLUMNS)
@@ -233,7 +240,7 @@ class ConfigurationRow:
         column_offset += column_count
 
         # Now we are ready to fill leading columns!
-        self._write_item_columns(LEADING_COLUMNS, format, len(HEADING_COLUMNS))
+        self._write_item_columns(LEADING_COLUMNS, format, len(CATEGORY_COLUMNS + HEADING_COLUMNS))
 
         column_offset += self._write_item_columns(VERIFICATION_COLUMNS, format, column_offset)
         column_offset += self._write_item_columns(PREV_VERSION_COLUNBS, format, column_offset)
@@ -263,7 +270,7 @@ class ConfigurationRow:
         else:
             return ''
 
-    def _write_item_columns(self, columns, format, column_offset = 0):
+    def _write_item_columns(self, columns, format = 'default', column_offset = 0):
         for index, column in enumerate(columns):
             label, width, key, override_format = column
             self._write_column(column_offset + index, self._get_column_value(key), override_format or format)
