@@ -224,14 +224,25 @@ class ConfigurationRow:
         return found_option['config']
 
     def write(self):
-        # This must be done for all rows, otherwise merged cells will have
+        column_offset = 0
+
+        # Heading column must be written for all rows, otherwise merged cells will have
         # a partial border line just for the first row.
-        self._write_item_heading_columns()
+        heading_format = 'default'
+        if self._is_deprecated(self._item['title']):
+            heading_format = 'deprecated'
+        column_offset += self._write_item_columns(HEADING_COLUMNS, heading_format)
 
-        column_offset, format = self._write_item_variations_columns()
+        # Don't output leading columns here, because they depends on the format calculated for variation columns
+        column_offset += len(LEADING_COLUMNS)
+        column_count, format = self._write_item_variations_columns(column_offset)
+        column_offset += column_count
 
-        self._write_item_leading_columns(format)
-        self._write_item_trailing_columns(format, column_offset)
+        # Now we are ready to fill leading columns!
+        self._write_item_columns(LEADING_COLUMNS, format, len(HEADING_COLUMNS))
+
+        column_offset += self._write_item_columns(VERIFICATION_COLUMNS, format, column_offset)
+        column_offset += self._write_item_columns(PREV_VERSION_COLUNBS, format, column_offset)
 
     def _write_column(self, column, contents, format):
         self._sheet.write_cell(self._index, column, contents, format)
@@ -258,30 +269,16 @@ class ConfigurationRow:
         else:
             return ''
 
-    def _write_item_heading_columns(self):
-        format = 'default'
-        if self._is_deprecated(self._item['title']):
-            format = 'deprecated'
-
-        for index, column in enumerate(HEADING_COLUMNS):
-            label, width, key, override_format = column
-            self._write_column(index, self._get_value(key), override_format or format)
-
-    def _write_item_leading_columns(self, format):
-        column_offset = len(HEADING_COLUMNS)
-        for index, column in enumerate(LEADING_COLUMNS):
+    def _write_item_columns(self, columns, format, column_offset = 0):
+        for index, column in enumerate(columns):
             label, width, key, override_format = column
             self._write_column(column_offset + index, self._get_value(key), override_format or format)
+        return len(columns)
 
-    def _write_item_trailing_columns(self, format, column_offset):
-        for index, column in enumerate(VERIFICATION_COLUMNS + PREV_VERSION_COLUNBS):
-            label, width, key, override_format = column
-            self._write_column(column_offset + index, self._get_value(key), override_format or format)
-
-    def _write_item_variations_columns(self):
+    def _write_item_variations_columns(self, column_offset):
         option_id = self._option['option_id']
 
-        column_offset        = len(HEADING_COLUMNS + LEADING_COLUMNS)
+        column_count         = 0
         row_format           = 'default'
         verification_chapter = ''
 
@@ -300,14 +297,14 @@ class ConfigurationRow:
             if option_id in conf:
                 self._verification_chapter = self._verification_chapters.get(option_id, '省略')
 
-            self._write_column(column_offset,     config, format)
-            self._write_column(column_offset + 1, status, format)
+            self._write_column(column_offset + column_count,     config, format)
+            self._write_column(column_offset + column_count + 1, status, format)
 
-            column_offset += 2
+            column_count += 2
             last_conf   = conf
             last_config = config
 
-        return [column_offset, row_format]
+        return [column_count, row_format]
 
     def _determine_format_and_status(self, conf, last_conf, last_config):
         option    = self._option
