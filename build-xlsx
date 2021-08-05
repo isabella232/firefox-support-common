@@ -146,38 +146,37 @@ class ConfigurationSheet:
             self._sheet.set_column(row, column, width)
 
     def write_header(self):
-        sheet  = self._sheet
-        format = 'center'
+        sheet = self._sheet
 
         sheet.freeze_panes(1, 0)
         sheet.set_row(0, 25)
 
-        self._write_header_columns(HEADING_COLUMNS, format, 0)
+        self._write_header_columns(HEADING_COLUMNS, 0)
         column_offset = len(HEADING_COLUMNS)
 
-        self._write_header_columns(LEADING_COLUMNS, format, 0)
-        column_offset = len(LEADING_COLUMNS)
+        self._write_header_columns(LEADING_COLUMNS, column_offset)
+        column_offset += len(LEADING_COLUMNS)
 
         last_variation = ESR_PREVIOUS.upper()
         for variation in self._confs.keys():
             if variation == ESR_PREVIOUS.upper():
                 continue
             columns = variation_columns(variation, last_variation)
-            self._write_header_columns(columns, format, column_offset)
+            self._write_header_columns(columns, column_offset)
             column_offset += len(columns)
             last_variation = variation
 
-        self._write_header_columns(VERIFICATION_COLUMNS, format, column_offset)
+        self._write_header_columns(VERIFICATION_COLUMNS, column_offset)
         column_offset += len(VERIFICATION_COLUMNS)
 
-        self._write_header_columns(PREV_VERSION_COLUNBS, format, column_offset)
+        self._write_header_columns(PREV_VERSION_COLUNBS, column_offset)
         column_offset += len(PREV_VERSION_COLUNBS)
 
-    def _write_header_columns(self, columns, format, column_offset):
+    def _write_header_columns(self, columns, column_offset):
         sheet = self._sheet
         for index, column in enumerate(columns):
             label, width = column
-            self.write_cell(0, column_offset + index, label, format)
+            self.write_cell(0, column_offset + index, label, 'center')
             self._set_cell_visual(column_offset + index, column_offset + index, width)
 
     def merge_category_heading(self, row, items):
