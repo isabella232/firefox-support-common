@@ -95,10 +95,13 @@ DEFAULT_FORMAT = {
     'text_wrap': 1,
 }
 
-BASE_COLUMNS = [ # label, width
+HEADING_COLUMNS = [ # label, width
     ('カテゴリー',              10), # A
     ('項目設定番号',            10), # B
     ('カスタマイズ項目 (目的)', 30), # C
+]
+
+LEADING_COLUMNS = [ # label, width
     ('選択肢番号',              5),  # D
     ('選択肢',                  20), # E
     ('設定内容の雛形\n(%s)' % ESR_CURRENT.upper(), 40), # F
@@ -149,8 +152,11 @@ class ConfigurationSheet:
         sheet.freeze_panes(1, 0)
         sheet.set_row(0, 25)
 
-        self._write_header_columns(BASE_COLUMNS, format, 0)
-        column_offset = len(BASE_COLUMNS)
+        self._write_header_columns(HEADING_COLUMNS, format, 0)
+        column_offset = len(HEADING_COLUMNS)
+
+        self._write_header_columns(LEADING_COLUMNS, format, 0)
+        column_offset = len(LEADING_COLUMNS)
 
         last_variation = ESR_PREVIOUS.upper()
         for variation in self._confs.keys():
@@ -255,7 +261,7 @@ class ConfigurationRow:
     def _write_item_variations_columns(self):
         option_id = self._option['option_id']
 
-        column_offset        = len(BASE_COLUMNS)
+        column_offset        = len(HEADING_COLUMNS) + len(LEADING_COLUMNS)
         row_format           = 'default'
         verification_chapter = ''
 
