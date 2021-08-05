@@ -110,8 +110,8 @@ LEADING_COLUMNS = [ # label, width, key, format
 
 def variation_columns(version, prev_version):
     return [ # label, width, key, format
-        ('反映した設定値\n(%s)' % version,           40, 'applied_config', None),
-        ('%s→%sでの変更' % (prev_version, version), 10, 'status',         None),
+        ('反映した設定値\n(%s)' % version,           40, None, None),
+        ('%s→%sでの変更' % (prev_version, version), 10, None, None),
     ]
 
 VERIFICATION_COLUMNS = [ # label, width, key, format
