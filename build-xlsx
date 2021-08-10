@@ -186,11 +186,12 @@ class ConfigurationSheet:
         return sum(len(item['options']) for item in items)
 
     def try_merge_item_heading(self, row, item):
-        if len(item['options']) > 1:
-            sheet = self._sheet
-            column_offset = len(CATEGORY_COLUMNS)
-            for index, _column in enumerate(HEADING_COLUMNS):
-                sheet.merge_range(row, column_offset + index, row + len(item['options']) - 1, column_offset + index, '')
+        if len(item['options']) <= 1:
+            return
+        sheet = self._sheet
+        column_offset = len(CATEGORY_COLUMNS)
+        for index, _column in enumerate(HEADING_COLUMNS):
+            sheet.merge_range(row, column_offset + index, row + len(item['options']) - 1, column_offset + index, '')
 
     def write_legend(self, row):
         self.write_cell(row,     1, '',                                     'selected')
