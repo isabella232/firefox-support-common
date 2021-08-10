@@ -576,24 +576,21 @@ def main(args):
 
     template, chapters = create_template(manual, config, vars)
 
-    # This mode generates a mapping file of (option_id -> chapter)
-    # for config sheets (build-xlsx).
     if only_index_output:
+        # Generate a mapping file of (option_id -> chapter) for
+        # configuration sheets (see build-xlsx).
         csv_writer = csv.writer(sys.stdout)
         csv_writer.writerows(chapters_to_csv(chapters))
-        return 0
-
-    # This mode generates a checklist for human usage.
-    if only_checklist_output:
+    elif only_checklist_output:
+        # Generate a checklist for humans.
         csv_writer = csv.writer(sys.stdout,  quotechar='"', quoting=csv.QUOTE_ALL)
         csv_writer.writerows(chapters_to_checklist(chapters))
-        return 0
-
-    logging.basicConfig(format="\033[31m%(message)s\033[0m")
-    log = logging.getLogger(__name__)
-
-    env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
-    print(env.from_string(template).render(vars))
+    else:
+        # Generate a verification manual (default)
+        logging.basicConfig(format="\033[31m%(message)s\033[0m")
+        log = logging.getLogger(__name__)
+        env = jinja2.Environment(undefined=jinja2.make_logging_undefined(log))
+        print(env.from_string(template).render(vars))
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
