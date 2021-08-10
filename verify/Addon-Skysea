@@ -2,6 +2,15 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+Addon-Skysea-0: Skyseaアドオンの検証
+
+   :1: 事前準備
+
+    - 前項に引き続いて検証するか、{%if use_meta_installer %}または以下の状態を整えておく。
+        - 作成済みの `{{meta_installer_file_name}}*.exe` を検証用ユーザーとして実行し、カスタマイズ済みFirefoxのインストールを完了している。
+        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
+    {% else %}再ログオン、インストーラの手動実行など、所定の手順でFirefoxのインストール及びカスタマイズを反映済みの状態とする。{% endif %}
+
 Addon-Skysea-1: Skyseaのインストール
 
     :1: インストールしない（既定）
