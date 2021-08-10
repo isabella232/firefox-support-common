@@ -694,20 +694,6 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
     - ポリシー設定から一時的に削除した `DisableDeveloperTools` を元に戻す。
       {% endif %}
 
-Security-31: 危険なFlashコンテンツの読み込み
-
-    :1: 許可する
-
-    ABOUT_CONFIG
-
-    - `browser.safebrowsing.blockedURIs.enabled` の値が `false` である。
-
-    :2: ブロックする（既定）
-
-    ABOUT_CONFIG
-
-    - `browser.safebrowsing.blockedURIs.enabled` の値が `true` である。
-
 Security-32: アドオンのインストール時の警告
 
     :1: 警告する（既定）
@@ -721,44 +707,6 @@ Security-32: アドオンのインストール時の警告
     ABOUT_CONFIG
 
     - `xpinstall.whitelist.required` の値が `false` である。
-
-Security-33: 危険ででしゃばりなFlashコンテンツをブロック
-
-    :1: ブロックする（既定）
-
-    - Adobe Flashプラグインが未導入の場合、\
-      `{{flash_download_url}} ` \
-      からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
-      {%if Security_3_3 %}
-    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
-      {% endif %}
-    - Firefoxを起動する。
-    - パネルメニューからアドオンマネージャを開く。
-    - 「プラグイン」を選択する。
-    - Flashプラグインの「オプション」を開く。
-    - **確認**
-        - 「危険ででしゃばりなFlashコンテンツをブロック」にチェックが入っている。
-      {%if Security_3_3 %}
-    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
-      {% endif %}
-
-    :2: ブロックしない
-
-    - Adobe Flashプラグインが未導入の場合、\
-      `{{flash_download_url}} ` \
-      からAdobe Flash プラグインのインストーラをダウンロードし、インストールしておく。
-      {%if Security_3_3 %}
-    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
-      {% endif %}
-    - Firefoxを起動する。
-    - パネルメニューからアドオンマネージャを開く。
-    - 「プラグイン」を選択する。
-    - Flashプラグインの「オプション」を開く。
-    - **確認**
-        - 「危険ででしゃばりなFlashコンテンツをブロック」にチェックが入っていない。
-      {%if Security_3_3 %}
-    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
-      {% endif %}
 
 Security-34: about:profilesの使用
 

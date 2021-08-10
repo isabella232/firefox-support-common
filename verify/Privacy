@@ -1639,7 +1639,7 @@ Privacy-54: supercookieによるユーザー識別の遮断
 
     - `privacy.partition.network_state` の値が `false` である。
 
-Privacy-55: クロスサイト（サードパーティ）Cookieのブロック
+Privacy-55: クロスサイトCookieのブロック
 
     :1: ブロックする
 
