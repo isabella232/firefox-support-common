@@ -228,7 +228,6 @@ FILES = [
 ]
 
 SPECIALS = [
-    'OVERWRITE',
     'OPTIONS',
     'ABOUT_CONFIG',
     'ABOUT_POLICIES',
@@ -284,19 +283,6 @@ def shift_disabled_item(text):
         return (match.group(1), match.group(2), rest)
 
     return ('', '', text)
-
-def apply_vars(items, vars):
-    for item in items:
-        for option in item['options']:
-            if option['option_id'] not in vars:
-                continue
-
-            sp, text = parse_special(vars[option['option_id']])
-            if sp == 'OVERWRITE':
-                option['config'] = text
-            else:
-                option['config'] += text
-    return items
 
 PRETEXT_OPTION_MATCHER = re.compile('^[^-]+-0-[0-9]+\Z')
 LIST_ITEM_MATCHER = re.compile('^(\s*)(- )?(.*[^\\\\])$', re.MULTILINE)
@@ -571,8 +557,7 @@ def main(args):
     vars = {**DEFAULT_VAR, **vars}
     manual = collections.OrderedDict()
     for fn in FILES:
-        items = adlib.load('verify/%s' % fn)
-        manual[fn] = apply_vars(items, vars)
+        manual[fn] = adlib.load('verify/%s' % fn)
 
     template, chapters = create_template(manual, config, vars)
 
