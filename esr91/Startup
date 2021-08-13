@@ -304,3 +304,15 @@ Startup-15: ブックマークツールバーに固定で表示する項目
       },
       ...
     ],
+
+Startup-16: 古いバージョンのFirefoxに戻した後のユーザープロファイルの流用
+
+    :1: 許可する
+
+    fainstall.ini:
+    [fainstall]
+    AllowDowngrade=true
+
+    :2: 禁止する（既定）
+
+    -

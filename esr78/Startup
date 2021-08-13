@@ -286,3 +286,15 @@ Startup-14: [廃止] RSSフィードの自動マイグレーション
     :2: [廃止] 実行しない
 
     -
+
+Startup-16: 古いバージョンのFirefoxに戻した後のユーザープロファイルの流用
+
+    :1: 許可する
+
+    fainstall.ini:
+    [fainstall]
+    AllowDowngrade=true
+
+    :2: 禁止する（既定）
+
+    -
