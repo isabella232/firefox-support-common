@@ -192,23 +192,15 @@ Appearance-10: ユーザースタイルシートの使用
 
     -
 
-Appearance-11: 「新着情報」の通知の表示
+Appearance-11: [廃止] 「新着情報」の通知の表示
 
-    :1: 表示する（既定）
+    :1: [廃止] 表示する（既定）
 
-    -
+    [廃止]
 
-    :2: 表示しない
+    :2: [廃止] 表示しない
 
-    distribution\policies.json:
-    "UserMessaging": {
-      "WhatsNew": false,
-      "Locked": true
-    },
-
-    GPO:
-    カテゴリ「Firefox」→「User Messaging」
-    → 「What's New」を無効化（設定値の固定は不可能）
+    [廃止]
 
 Appearance-12: 「ホーム」ボタンの表示
 
