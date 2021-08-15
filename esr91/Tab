@@ -542,11 +542,9 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     :1: 最近使ったタブの順で切り替える（ESR68既定）
 
-    ESR60からの移行時のみ必要。新規導入環境では不要。
-
     distribution\policies.json:
     "Preferences": {
-      "browser.ctrlTab.recentlyUsedOrder": {
+      "browser.ctrlTab.sortByRecentlyUsed": {
         "Value": true,
         "Status": "locked"
       },
@@ -559,11 +557,9 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     :2: タブバー上の並び順で切り替える（ESR60以前既定）
 
-    新規導入環境で必要。ESR60からの移行時は不要。
-
     distribution\policies.json:
     "Preferences": {
-      "browser.ctrlTab.recentlyUsedOrder": {
+      "browser.ctrlTab.sortByRecentlyUsed": {
         "Value": false,
         "Status": "locked"
       },
@@ -578,7 +574,7 @@ Tab-17: Ctrl-Tabでのタブ切り替え時の挙動
 
     distribution\policies.json:
     "Preferences": {
-      "browser.ctrlTab.recentlyUsedOrder": {
+      "browser.ctrlTab.sortByRecentlyUsed": {
         "Value": false,
         "Status": "default"
       },
