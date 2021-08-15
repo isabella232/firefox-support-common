@@ -486,13 +486,13 @@ Network-23: 外部アプリケーションの起動の許可
         ...
     ]
 
-Network-24: Windowsのシングルサインオンの許可
+Network-24: Windowsのシングルサインオン
 
-    :1: 許可しない（既定）
+    :1: 使用しない（既定）
 
     -
 
-    :2: 許可する
+    :2: 使用する
 
     distribution\policies.json:
     "WindowsSSO": true
