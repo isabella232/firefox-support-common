@@ -612,17 +612,13 @@ Privacy-19: セキュリティエラーレポートの送信の可否
 
     ABOUT_CONFIG
 
-    - `security.ssl.errorReporting.automatic` の値が `true` である。
     - `security.ssl.errorReporting.enabled` の値が `true` である。
-    - `security.ssl.errorReporting.url` の値が空文字でない。
 
     :2: 禁止する
 
     ABOUT_CONFIG
 
-    - `security.ssl.errorReporting.automatic` の値が `false` である。
     - `security.ssl.errorReporting.enabled` の値が `false` である。
-    - `security.ssl.errorReporting.url` の値が空文字である。
 
 Privacy-21: クラッシュレポートの送信の可否
 
