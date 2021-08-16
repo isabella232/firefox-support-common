@@ -975,10 +975,9 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - Firefoxを終了する。
     - 先ほど開いたディスクキャッシュの保存先フォルダを開き、その1つ上位のフォルダに移動して、中にある `thumbnails` フォルダを消去する。
       {% endif %}
-    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
-      `{{special_profile_path}}` {%if special_profile_actual_path %} \
-      （{{special_profile_actual_path}}）{% endif %} \
-      内のファイルを削除する。
+      {% if Application_6_2 %}
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %} （{{special_profile_actual_path}}）{% endif %} 内のファイルを削除する。
+      {% endif %}
     - Firefoxを起動する。
       {%if Tab_17_2 %}
     - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックが入っていなければチェックを入れる。
@@ -1007,8 +1006,9 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - Firefoxを終了する。
     - 先ほど開いたディスクキャッシュの保存先フォルダを開き、その1つ上位のフォルダに移動して、中にある `thumbnails` フォルダを消去する。
       {% endif %}
-    - `%AppData%\Mozilla`を削除する。
-        - Mozillaフォルダを削除できない場合は、Firefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %} （{{special_profile_actual_path}}）{% endif %} 内のファイルを削除する。
+      {% if Application_6_2 %}
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル `{{special_profile_path}}` {%if special_profile_actual_path %} （{{special_profile_actual_path}}）{% endif %} 内のファイルを削除する。
+      {% endif %}
     - Firefoxを起動する。
       {%if Tab_17_2 %}
     - パネルメニューからオプションを開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」にチェックが入っていなければチェックを入れる。
