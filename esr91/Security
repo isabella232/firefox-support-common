@@ -1146,29 +1146,15 @@ Security-41: 複数のポップアップを一度に開く操作
 
     -
 
-Security-42: 過去にデータ流出事故を起こしたWebサービスでの警告の表示
+Security-42: [廃止] 過去にデータ流出事故を起こしたWebサービスでの警告の表示
 
-    :1: 警告を表示する（既定）
+    :1: [廃止] 警告を表示する（既定）
 
-    -
-    // Security-15-2の
-    // lockPref("services.settings.server", "localhost");
-    // とは併用不可能
+    [廃止]
 
-    :2: 警告を表示しない
+    :2: [廃止] 警告を表示しない
 
-    distribution\policies.json:
-    "Preferences": {
-      "extensions.fxmonitor.enabled": {
-        "Value": false,
-        "Status": "locked"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    [廃止]
 
 Security-43: ローカルファイルからの同じディレクトリのファイルの参照の可否
 
