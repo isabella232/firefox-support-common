@@ -19,7 +19,9 @@
 
 <pre style='background:#eee;padding:1em;display:inline-block'>
 var text = document.body.textContent;
-var requested = text.match(/nsHttpConnectionMgr::OnMsgSpeculativeConnect/g) || [];
+var allRequested = text.match(/nsHttpConnectionMgr::SpeculativeConnect \[.+/g) || [];
+var nonSpeculativeRequestHostsMatcher = new RegExp((text.match(/AltSvcCache::UpdateAltServiceMapping .+ map .+ existing .+ validated/g) || []).map(line => line.match(/AltSvcCache::UpdateAltServiceMapping .+ existing \d+ ([^ ]+)/)[1]).join('|'));
+var requested = Array.from(allRequested).filter(line => !nonSpeculativeRequestHostsMatcher.test(line));
 var skipped = text.match(/Transport not created due to existing connection count/g) || [];
 console.log({ requested: requested.length, skipped: skipped.length });
 console.log('All skipped?', requested.length == skipped.length);
