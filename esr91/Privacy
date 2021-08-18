@@ -41,8 +41,23 @@ Privacy-1: 履歴の保存の可否
 
     :6: 終了時に消去する
 
+    一喝で設定する場合
     distribution\policies.json:
     "SanitizeOnShutdown": true,
+
+    個別に設定する場合
+    distribution\policies.json:
+    "SanitizeOnShutdown": {
+      "Cache": true,
+      "Cookies": true,
+      "Downloads": true,
+      "FormData": true,
+      "History": true,
+      "Sessions": true,
+      "SiteSettings": true,
+      "OfflineApps": true,
+      "Locked": true,
+    },
 
     GPO:
     カテゴリ「Firefox」
