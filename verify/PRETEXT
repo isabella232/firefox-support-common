@@ -16,11 +16,11 @@ PRETEXT-1: 前提条件
     - メタインストーラの名称は `{{meta_installer_name}}`、ファイル名は `{{meta_installer_file_name}}` とする。
     - メタインストーラの表示バージョンは {{meta_installer_version}} とする。
     - Firefoxは次のパスにインストールする。
-        - `{{install_path}}` {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}`）{% endif %}
+        - `{{install_path}}` {%if install_path_32bit %} （32bit環境では `{{install_path_32bit}}`）{% endif %}{%if not Application_1_2 %}
     - デスクトップのショートカットは次のパスに作成する。
-        - `{{desktop_shortcut_path}}` {%if desktop_shortcut_path_32bit %} （32bit環境では `{{desktop_shortcut_path_32bit}}`）{% endif %}
+        - `{{desktop_shortcut_path}}` {%if desktop_shortcut_path_32bit %} （32bit環境では `{{desktop_shortcut_path_32bit}}`）{% endif %}{% endif %}{%if not Application_2_2 %}
     - スタートメニューのショートカットは次のパスに作成する。
-        - `{{start_menu_shortcut_path}}` {%if start_menu_shortcut_path_32bit %} （32bit環境では `{{start_menu_shortcut_path_32bit}}`）{% endif %}
+        - `{{start_menu_shortcut_path}}` {%if start_menu_shortcut_path_32bit %} （32bit環境では `{{start_menu_shortcut_path_32bit}}`）{% endif %}{% endif %}
     {% endif %}
 
     :3: 検証の準備
