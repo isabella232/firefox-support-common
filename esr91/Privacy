@@ -56,7 +56,7 @@ Privacy-1: 履歴の保存の可否
       "Sessions": true,
       "SiteSettings": true,
       "OfflineApps": true,
-      "Locked": true,
+      "Locked": true
     },
 
     GPO:
