@@ -39,7 +39,7 @@ DEFAULT_VAR = {
     "firefox_version":                "78.0 ESR",
     "windows_version":                "Windows 10",
     "configuration_sheet_name":       "configs.xlsx",
-    "use_meta_installer":             True,
+    "use_meta_installer":             "true",
     "meta_installer_name":            "Fx Meta Installer",
     "meta_installer_file_name":       "FxMetaInstaller",
     "meta_installer_version":         "78.0",
@@ -48,9 +48,9 @@ DEFAULT_VAR = {
     "install_path":                   "C:\\Program Files (x86)\\Mozilla Firefox",
     "install_path_32bit":             "C:\\Program Files\\Mozilla Firefox",
     "exe_name":                       "firefox",
-    "desktop_shortcut":               True,
+    "desktop_shortcut":               "true",
     "desktop_shortcut_path":          "C:\\Users\\Public\\Desktop\\Mozilla Firefox.lnk",
-    "start_menu_shortcut":            True,
+    "start_menu_shortcut":            "true",
     "start_menu_shortcut_path":       "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Mozilla Firefox.lnk",
     "finish_title":                   "Mozilla Firefox",
     "finish_message":                 "インストールが完了しました",
@@ -309,6 +309,8 @@ def create_template(manual, config, vars):
     # prepare internal variables
 
     vars['use_meta_installer'] = vars['use_meta_installer'] == 'true'
+    vars['desktop_shortcut'] = vars['desktop_shortcut'] == 'true'
+    vars['desktop_shortcut'] = vars['start_menu_shortcut'] == 'true'
 
     for items in manual.values():
         for item in items[1:]:
@@ -346,9 +348,6 @@ def create_template(manual, config, vars):
 
     vars['NotificationGloballyDisabled'] = vars['Script_2_3'] or vars['Script_2_6']
     vars['not NotificationGloballyDisabled'] = not vars['NotificationGloballyDisabled']
-
-    vars['no_desktop_shortcut'] = not vars['desktop_shortcut']
-    vars['no_start_menu_shortcut'] = not vars['start_menu_shortcut']
 
     chapters                  = {}
     chapter_options           = []
