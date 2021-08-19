@@ -752,6 +752,7 @@ Security-36: DNS over HTTPSの使用
       {% endif %}
     - Firefoxを起動する。
     - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスを開き、ネットワークモニターを選択する。
+      途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
@@ -773,6 +774,7 @@ Security-36: DNS over HTTPSの使用
       {% endif %}
     - Firefoxを起動する。
     - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスを開き、ネットワークモニターを選択する。
+      途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
@@ -794,6 +796,7 @@ Security-36: DNS over HTTPSの使用
       {% endif %}
     - Firefoxを起動する。
     - 「Ctrl-Shift-Alt-I」を押して、ブラウザーツールボックスを開き、ネットワークモニターを選択する。
+      途中、リモートデバッグの接続許可を求められるので「OK」をクリックする。
     - 「URLでフィルタリング」欄に `dns-query` と入力する。
     - `www.clear-code.com` を開く。
     - **確認**
