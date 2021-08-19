@@ -61,7 +61,7 @@ MenuShortcut-9: [廃止] ツール＞アプリ (Firefox 45で廃止)
 
     [廃止]
 
-MenuShortcut-10: ツール＞ウェブ開発（開発ツールボタン）
+MenuShortcut-10: ツール＞その他のツール（開発ツールボタン）
 
     :1: 無効化する
 
@@ -72,7 +72,7 @@ MenuShortcut-10: ツール＞ウェブ開発（開発ツールボタン）
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-11: ツール＞ウェブ開発＞開発ツールを表示 (Ctrl-Shift-I,F12)
+MenuShortcut-11: ツール＞その他のツール＞開発ツールを表示 (Ctrl-Shift-I,F12)
 
     :1: 無効化する
 
@@ -83,7 +83,7 @@ MenuShortcut-11: ツール＞ウェブ開発＞開発ツールを表示 (Ctrl-Sh
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
+MenuShortcut-12: ツール＞その他のツール＞インスペクタ (Ctrl-Shift-C)
 
     :1: 無効化する
 
@@ -94,7 +94,7 @@ MenuShortcut-12: ツール＞ウェブ開発＞インスペクタ (Ctrl-Shift-C)
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
+MenuShortcut-13: ツール＞その他のツール＞Webコンソール (Ctrl-Shift-K)
 
     :1: 無効化する
 
@@ -105,7 +105,7 @@ MenuShortcut-13: ツール＞ウェブ開発＞Webコンソール (Ctrl-Shift-K)
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
+MenuShortcut-14: ツール＞その他のツール＞デバッガ (Ctrl-Shift-S)
 
     :1: 無効化する
 
@@ -116,7 +116,7 @@ MenuShortcut-14: ツール＞ウェブ開発＞デバッガ (Ctrl-Shift-S)
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F7)
+MenuShortcut-15: ツール＞その他のツール＞スタイルエディタ (Shift-F7)
 
     :1: 無効化する
 
@@ -127,7 +127,7 @@ MenuShortcut-15: ツール＞ウェブ開発＞スタイルエディタ (Shift-F
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バージョンでは「プロファイラ」） (Shift-F5)
+MenuShortcut-16: ツール＞その他のツール＞パフォーマンス（旧バージョンでは「プロファイラ」） (Shift-F5)
 
     :1: 無効化する
 
@@ -138,7 +138,7 @@ MenuShortcut-16: ツール＞ウェブ開発＞パフォーマンス（旧バー
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-E)
+MenuShortcut-17: ツール＞その他のツール＞ネットワーク (Ctrl-Shift-E)
 
     :1: 無効化する
 
@@ -149,7 +149,7 @@ MenuShortcut-17: ツール＞ウェブ開発＞ネットワーク (Ctrl-Shift-E)
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
+MenuShortcut-18: ツール＞その他のツール＞開発ツールバー (Shift-F2)
 
     :1: 無効化する
 
@@ -160,19 +160,19 @@ MenuShortcut-18: ツール＞ウェブ開発＞開発ツールバー (Shift-F2)
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-19: [廃止] ツール＞ウェブ開発＞アプリマネージャ (Firefox 38で廃止)
+MenuShortcut-19: [廃止] ツール＞その他のツール＞アプリマネージャ (Firefox 38で廃止)
 
     :1: [廃止] 無効化する
 
     [廃止]
 
-MenuShortcut-20: [廃止] ツール＞ウェブ開発＞WebIDE (Shift-F8)
+MenuShortcut-20: [廃止] ツール＞その他のツール＞WebIDE (Shift-F8)
 
     :1: [廃止] 無効化する
 
     [廃止] Firefox 71でWebIDEが削除されたため廃止
 
-MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
+MenuShortcut-21: ツール＞その他のツール＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
 
     :1: 無効化する
 
@@ -183,7 +183,7 @@ MenuShortcut-21: ツール＞ウェブ開発＞ブラウザツールボックス
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl-Shift-J)
+MenuShortcut-22: ツール＞その他のツール＞ブラウザコンソール (Ctrl-Shift-J)
 
     :1: 無効化する
 
@@ -194,7 +194,7 @@ MenuShortcut-22: ツール＞ウェブ開発＞ブラウザコンソール (Ctrl
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビュー (Ctrl-Shift-M)
+MenuShortcut-23: ツール＞その他のツール＞レスポンシブデザインビュー (Ctrl-Shift-M)
 
     :1: 無効化する
 
@@ -205,7 +205,7 @@ MenuShortcut-23: ツール＞ウェブ開発＞レスポンシブデザインビ
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-24: ツール＞ウェブ開発＞スポイト
+MenuShortcut-24: ツール＞その他のツール＞スポイト
 
     :1: 無効化する
 
@@ -216,7 +216,7 @@ MenuShortcut-24: ツール＞ウェブ開発＞スポイト
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F4)
+MenuShortcut-25: ツール＞その他のツール＞スクラッチパッド (Shift-F4)
 
     :1: 無効化する
 
@@ -227,7 +227,7 @@ MenuShortcut-25: ツール＞ウェブ開発＞スクラッチパッド (Shift-F
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
+MenuShortcut-26: ツール＞その他のツール＞ページのソース (Ctrl-U)
 
     :1: 無効化する
 
@@ -238,13 +238,13 @@ MenuShortcut-26: ツール＞ウェブ開発＞ページのソース (Ctrl-U)
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-27: [廃止] ツール＞ウェブ開発＞エラーコンソール (Firefox 48で廃止)
+MenuShortcut-27: [廃止] ツール＞その他のツール＞エラーコンソール (Firefox 48で廃止)
 
     :1: [廃止] 無効化する
 
     [廃止]
 
-MenuShortcut-28: ツール＞ウェブ開発＞接続...
+MenuShortcut-28: ツール＞その他のツール＞接続...
 
     :1: 無効化する
 
@@ -255,7 +255,7 @@ MenuShortcut-28: ツール＞ウェブ開発＞接続...
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-29: ツール＞ウェブ開発＞その他のツールを入手
+MenuShortcut-29: ツール＞その他のツール＞その他のツールを入手
 
     :1: 無効化する
 
@@ -508,7 +508,7 @@ MenuShortcut-63: [廃止] コンテンツ領域のコンテキストメニュー
 
     [廃止]
 
-MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
+MenuShortcut-64: ツール＞その他のツール＞Service Worker
 
     :1: 無効化する
 
@@ -519,7 +519,7 @@ MenuShortcut-64: ツール＞ウェブ開発＞Service Worker
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-65: ツール＞ウェブ開発＞ブラウザーコンテンツツールボックス
+MenuShortcut-65: ツール＞その他のツール＞ブラウザーコンテンツツールボックス
 
     :1: 無効化する
 
