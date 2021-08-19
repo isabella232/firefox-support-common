@@ -239,6 +239,9 @@ SPECIALS = [
 #
 # Utils
 
+def is_deprecated(string):
+    return '廃止' in string
+
 def anyof(vars, *args):
     return any(vars[k] for k in args)
 
@@ -377,6 +380,9 @@ def create_template(manual, config, vars):
 
                 option['option_title'] = config_values['option_title']
                 option['dependency_description'] = ''
+
+                if is_deprecated(option['option_title']):
+                    continue
 
                 if option['dependency'] in vars:
                     if not vars[option['dependency']]:
