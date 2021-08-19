@@ -36,18 +36,12 @@ Tab-1: 複数のタブを閉じる際の警告の可否
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
-    distribution\policies.json:
-    "Preferences": {
-      "browser.tabs.warnOnClose": {
-        "Value": false,
-        "Status": "user"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    // ポリシー設定でStatusをuserにした場合、毎回起動時に設定が上書きされてしまうため、MCDを使用する必要がある
+    *.cfg / *.jsc:
+    if (!getPref("browser.tabs.warnOnClose.initialized")) {
+      pref("browser.tabs.warnOnClose", false);
+      pref("browser.tabs.warnOnClose.initialized", true);
+    }
 
 Tab-2: 「他のタブをすべて閉じる」の警告の可否
 
@@ -83,18 +77,12 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
-    distribution\policies.json:
-    "Preferences": {
-      "browser.tabs.warnOnCloseOtherTabs": {
-        "Value": false,
-        "Status": "user"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    // ポリシー設定でStatusをuserにした場合、毎回起動時に設定が上書きされてしまうため、MCDを使用する必要がある
+    *.cfg / *.jsc:
+    if (!getPref("browser.tabs.warnOnCloseOtherTabs.initialized")) {
+      pref("browser.tabs.warnOnCloseOtherTabs", false);
+      pref("browser.tabs.warnOnCloseOtherTabs.initialized", true);
+    }
 
 Tab-3: 複数のタブを一度に開く際の警告の可否
 
@@ -130,18 +118,12 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
 
     :3: 警告しないが、任意で警告を表示する状態に戻せる
 
-    distribution\policies.json:
-    "Preferences": {
-      "browser.tabs.warnOnOpen": {
-        "Value": false,
-        "Status": "user"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    // ポリシー設定でStatusをuserにした場合、毎回起動時に設定が上書きされてしまうため、MCDを使用する必要がある
+    *.cfg / *.jsc:
+    if (!getPref("browser.tabs.warnOnOpen.initialized")) {
+      pref("browser.tabs.warnOnOpen", false);
+      pref("browser.tabs.warnOnOpen.initialized", true);
+    }
 
 Tab-4: [廃止] タブバーの表示の可否
 
