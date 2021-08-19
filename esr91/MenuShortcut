@@ -105,7 +105,7 @@ MenuShortcut-13: ツール＞その他のツール＞Webコンソール (Ctrl-Sh
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-14: ツール＞その他のツール＞デバッガ (Ctrl-Shift-S)
+MenuShortcut-14: ツール＞その他のツール＞デバッガー (Ctrl-Shift-S)
 
     :1: 無効化する
 
@@ -172,7 +172,7 @@ MenuShortcut-20: [廃止] ツール＞その他のツール＞WebIDE (Shift-F8)
 
     [廃止] Firefox 71でWebIDEが削除されたため廃止
 
-MenuShortcut-21: ツール＞その他のツール＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
+MenuShortcut-21: ツール＞その他のツール＞ブラウザーツールボックス (Ctrl-Shift-Alt-I)
 
     :1: 無効化する
 
@@ -183,7 +183,7 @@ MenuShortcut-21: ツール＞その他のツール＞ブラウザツールボッ
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-22: ツール＞その他のツール＞ブラウザコンソール (Ctrl-Shift-J)
+MenuShortcut-22: ツール＞その他のツール＞ブラウザーコンソール (Ctrl-Shift-J)
 
     :1: 無効化する
 

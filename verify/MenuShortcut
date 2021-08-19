@@ -62,12 +62,12 @@ MenuShortcut-13: ツール＞その他のツール＞Webコンソール (Ctrl-Sh
     DISABLED_SHORTCUT: 「Ctrl-Shift-K」でWebコンソールが開かれない。
     DISABLED_DEVTOOL_MENU: 「Webコンソール」が存在しない。
 
-MenuShortcut-14: ツール＞その他のツール＞デバッガ (Ctrl-Shift-S)
+MenuShortcut-14: ツール＞その他のツール＞デバッガー (Ctrl-Shift-S)
 
     :1: 無効化する
 
-    DISABLED_SHORTCUT: 「Ctrl-Shift-S」でデバッガが開かれない。
-    DISABLED_DEVTOOL_MENU: 「デバッガ」が存在しない。
+    DISABLED_SHORTCUT: 「Ctrl-Shift-S」でデバッガーが開かれない。
+    DISABLED_DEVTOOL_MENU: 「デバッガー」が存在しない。
 
 MenuShortcut-15: ツール＞その他のツール＞スタイルエディタ (Shift-F7)
 
@@ -97,14 +97,14 @@ MenuShortcut-18: ツール＞その他のツール＞開発ツールバー (Shif
     DISABLED_SHORTCUT: 「Shitf-F2」で開発ツールバーが開かれない。
     DISABLED_DEVTOOL_MENU: 「開発ツールバー」が存在しない。
 
-MenuShortcut-21: ツール＞その他のツール＞ブラウザツールボックス (Ctrl-Shift-Alt-I)
+MenuShortcut-21: ツール＞その他のツール＞ブラウザーツールボックス (Ctrl-Shift-Alt-I)
 
     :1: 無効化する
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-Alt-I」でブラウザーツールボックスが開かれない。
     DISABLED_DEVTOOL_MENU: 「ブラウザーツールボックス」が存在しない。
 
-MenuShortcut-22: ツール＞その他のツール＞ブラウザコンソール (Ctrl-Shift-J)
+MenuShortcut-22: ツール＞その他のツール＞ブラウザーコンソール (Ctrl-Shift-J)
 
     :1: 無効化する
 

@@ -84,7 +84,7 @@ Startup-2: 起動時のホームページの指定
     → 「Start Page」を有効化し、オプションで「Previous Session」を選択
     → 「URL for Home page」を有効化し、オプションの「Don't allow the homepage to be changed.」のチェックをON
 
-Startup-3: 既定のブラウザでなかった場合の、起動時における既定のブラウザにするかどうかの確認の可否
+Startup-3: 既定のブラウザーでなかった場合の、起動時における既定のブラウザーにするかどうかの確認の可否
 
     :1: 確認する（既定）
 
