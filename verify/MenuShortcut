@@ -40,13 +40,13 @@ MenuShortcut-10: ツール＞その他のツール（開発ツールボタン）
     - **確認**
         - 「開発ツール」が存在しない。
 
-MenuShortcut-11: ツール＞その他のツール＞開発ツールを表示 (Ctrl-Shift-I,F12)
+MenuShortcut-11: ツール＞その他のツール＞ウェブ開発ツール (Ctrl-Shift-I,F12)
 
     :1: 無効化する
 
     DISABLED_SHORTCUT: 「Ctrl-Shift-I」で開発ツールが開かれない。
     DISABLED_SHORTCUT: 「F12」で開発ツールが開かれない。
-    DISABLED_DEVTOOL_MENU: 「開発ツールを表示」が存在しない。
+    DISABLED_DEVTOOL_MENU: 「ウェブ開発ツール」が存在しない。
 
 MenuShortcut-12: ツール＞その他のツール＞インスペクタ (Ctrl-Shift-C)
 

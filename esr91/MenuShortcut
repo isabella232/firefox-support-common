@@ -72,7 +72,7 @@ MenuShortcut-10: ツール＞その他のツール（開発ツールボタン）
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-11: ツール＞その他のツール＞開発ツールを表示 (Ctrl-Shift-I,F12)
+MenuShortcut-11: ツール＞その他のツール＞ウェブ開発ツール (Ctrl-Shift-I,F12)
 
     :1: 無効化する
 
