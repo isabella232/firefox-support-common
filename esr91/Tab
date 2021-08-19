@@ -40,7 +40,7 @@ Tab-1: 複数のタブを閉じる際の警告の可否
     "Preferences": {
       "browser.tabs.warnOnClose": {
         "Value": false,
-        "Status": "default"
+        "Status": "user"
       },
       ...
     },
@@ -87,7 +87,7 @@ Tab-2: 「他のタブをすべて閉じる」の警告の可否
     "Preferences": {
       "browser.tabs.warnOnCloseOtherTabs": {
         "Value": false,
-        "Status": "default"
+        "Status": "user"
       },
       ...
     },
@@ -134,7 +134,7 @@ Tab-3: 複数のタブを一度に開く際の警告の可否
     "Preferences": {
       "browser.tabs.warnOnOpen": {
         "Value": false,
-        "Status": "default"
+        "Status": "user"
       },
       ...
     },
