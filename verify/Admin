@@ -64,6 +64,7 @@ Admin-2: 初回起動時のアドオン導入警告の可否
     - Firefoxを起動する。
     - **確認**
         - パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されている。
+    - `{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` を使用した場合、Firefoxを終了し、ファイルを `browser\extensions` から削除する。
 
     :2: 警告しない
 
@@ -75,6 +76,7 @@ Admin-2: 初回起動時のアドオン導入警告の可否
     - **確認**
         - パネルメニューにアドオンの有効化の可否を尋ねる項目が表示されていない。
         - アドオンが動作している。（`{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` を使用した場合、`https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#alternative_text` の画像のhover操作で「MDN Logo」のツールチップが表示される。）
+    - `{61FD08D8-A2CB-46c0-B36D-3F531AC53C12}.xpi` を使用した場合、Firefoxを終了し、ファイルを `browser\extensions` から削除する。
 
 Admin-4: Mozillaにより署名されていないアドオンのインストールパッケージの使用の可否
 
