@@ -318,7 +318,7 @@ MenuShortcut-36: ヘルプ＞フィードバックを送信
     カテゴリ「Firefox」
     → 「Disable Feedback Commands」を有効化
 
-MenuShortcut-37: ヘルプ＞アドオンを無効にして再起動
+MenuShortcut-37: ヘルプ＞トラブルシューティングモード
 
     :1: 無効化する
 
