@@ -963,7 +963,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     :1: 許可する（既定）
 
     {%if Tab_17_2 %}
-    - MCD用設定ファイルから Tab-17 用の記述を一時的に消去する。
+    - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
       {% endif %}
       {%if Privacy_30_3 %}
     - `%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
@@ -988,13 +988,13 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - **確認**
         - ディスクキャッシュの保存先フォルダの上位フォルダ内にある `thumbnails` フォルダに addons.mozilla.org のページのサムネイル画像が保存される。
       {%if Tab_17_2 %}
-    - MCD用設定ファイルから消去した Tab-17 用の記述を戻す。
+    - ポリシー設定の `Preferences` から削除した `browser.ctrlTab.sortByRecentlyUsed` の記述を戻す。
       {% endif %}
 
     :2: 禁止する
 
     {%if Tab_17_2 %}
-    - MCD用設定ファイルから Tab-17 用の記述を一時的に消去する。
+    - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
       {% endif %}
       {%if Privacy_30_3 %}
     - `%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
@@ -1019,7 +1019,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - **確認**
         - ディスクキャッシュの保存先フォルダの上位フォルダ内にある `thumbnails` フォルダに addons.mozilla.org のページのサムネイル画像が保存されない。
       {%if Tab_17_2 %}
-    - MCD用設定ファイルから消去した Tab-17 用の記述を戻す。
+    - ポリシー設定の `Preferences` から削除した `browser.ctrlTab.sortByRecentlyUsed` の記述を戻す。
       {% endif %}
 
 Privacy-37: ネットワーク経由での先読み機能の全般的な制御
