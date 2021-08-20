@@ -60,6 +60,8 @@ Firefox ESR78のサポートは、2021年11月2日で終了します（以後は
 -->
 * サードパーティモジュールの一覧を閲覧できるページ（`about:third-party`）が追加されました。 (Firefox 90)  
   ![](esr91/3rdparty.png){ width=400 }
+* パスワードを漏洩したサイトを訪問した際に警告を表示する機能（Firefox Monitor）が廃止されました。 (Firefox 90)
+* Firefoxの新着情報パネルが廃止されました。 (Firefox 82)
 
 ## アドレスバー検索
 
