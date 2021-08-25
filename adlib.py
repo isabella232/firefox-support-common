@@ -36,7 +36,7 @@ import textwrap
 from collections import OrderedDict
 
 # Our configuration database is just a collection of text files.
-# Each text file is written in own custom format, which looks like:
+# Each file contains a set of configuration items like this:
 #
 # Install-1: インストーラの表示名
 #
@@ -44,8 +44,8 @@ from collections import OrderedDict
 #
 #    !define PRODUCT_FULL_NAME  "（名前）"
 #
-# ITEM_MATCHER detects the main title line, and OPTION_MATCHER detects the
-# option title and more.
+# ITEM_MATCHER matches configuration titles.
+# OPTION_MATCHER matches option titles.
 
 ITEM_MATCHER = re.compile('^(\S+): (.+)')
 OPTION_MATCHER = re.compile('^ +:(\d+): ([^:]+)(: (.+))?')
@@ -117,6 +117,9 @@ class Loader:
         self.config = ''
 
 
+# This class is for verification manuals. It reads verify.txt
+# and returns a simple dictionary.
+
 class VariableLoader:
 
     def __init__(self):
@@ -126,7 +129,7 @@ class VariableLoader:
     def feed(self, line):
         line = line.rstrip()
 
-        if line.startswith("#"):
+        if is_comment(line):
             return
 
         if line.startswith("    "):
@@ -146,8 +149,12 @@ class VariableLoader:
         for key in self.data:
             self.data[key] = self.data[key].strip()
 
+
+# And finally, we define a set of public functions with easy interfaces.
+# For example, if you want to load verify.txt, do this:
 #
-# API
+#   import adlib
+#   vars = adlib.load_variables("verify.txt")
 
 def load(path):
     loader = Loader()
