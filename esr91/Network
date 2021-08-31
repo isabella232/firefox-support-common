@@ -496,3 +496,27 @@ Network-24: Windowsのシングルサインオン
 
     distribution\policies.json:
     "WindowsSSO": true
+
+Network-25: SOCKS v5使用時のDNSに対するプロキシーの仕様
+
+    :1: 使用しない（既定）
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.proxy.socks_remote_dns": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    :2: 使用する
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.proxy.socks_remote_dns": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
