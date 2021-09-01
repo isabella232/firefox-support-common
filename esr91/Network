@@ -502,6 +502,14 @@ Network-25: SOCKS v5使用時のDNSに対するプロキシーの仕様
     :1: 使用しない（既定）
 
     distribution\policies.json:
+    "Proxy": {
+      "UseProxyForDNS": false,
+      "Locked": true
+    },
+    
+    単独でロック状態を制御する場合は以下の通り
+    
+    distribution\policies.json:
     "Preferences": {
       "network.proxy.socks_remote_dns": {
         "Value": false,
@@ -513,9 +521,17 @@ Network-25: SOCKS v5使用時のDNSに対するプロキシーの仕様
     :2: 使用する
 
     distribution\policies.json:
+    "Proxy": {
+      "UseProxyForDNS": true,
+      "Locked": true
+    },
+    
+    単独でロック状態を制御する場合は以下の通り
+    
+    distribution\policies.json:
     "Preferences": {
       "network.proxy.socks_remote_dns": {
-        "Value": false,
+        "Value": true,
         "Status": "locked"
       },
       ...
