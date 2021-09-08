@@ -117,12 +117,13 @@ Appearance-2: ツールバー上の項目の初期設定
             - 戻る
             - 進む
             - 再読み込み
-            - ホーム
             - 空白
             - アドレスバー
             - 空白
-            - ブラウジングライブラリー
-            - サイドバー
+              {%if not Privacy_27_2 %}
+            - Pocket
+              {% endif %}
+            - ダウンロード
               {%if not DisableFirefoxAccount %}
             - Firefoxアカウント
               {% endif %}
@@ -146,12 +147,13 @@ Appearance-2: ツールバー上の項目の初期設定
             - 戻る
             - 進む
             - 再読み込み
-            - ホーム
             - 空白
             - アドレスバー
             - 空白
-            - ブラウジングライブラリー
-            - サイドバー
+              {%if not Privacy_27_2 %}
+            - Pocket
+              {% endif %}
+            - ダウンロード
               {%if not DisableFirefoxAccount %}
             - Firefoxアカウント
               {% endif %}
