@@ -278,7 +278,7 @@ Privacy-9: 日数ベースでの履歴の自動削除
                 6. Firefox上で何らかのWebページを開き、リンクを辿ってページを遷移する。
                 7. Firefoxを終了する。
                 8. 4～7の操作を、日付を1日ずつ進めながら繰り返す。
-        - パネルメニューを開き、「アドオン」をクリックする。
+        - パネルメニューを開き、「アドオンとテーマ」をクリックする。
         - アドオンマネージャ内の「拡張機能」をクリックする。
         - **確認**
             - 拡張機能の一覧に「Flexible Expire History by Days」が表示されており、有効になっている。
@@ -290,7 +290,7 @@ Privacy-9: 日数ベースでの履歴の自動削除
         - 「検索」欄に `idle.lastDailyNotification` と入力し、Enterを押す。
         - 項目が見つかった場合、項目の右端のごみ箱ボタンをクリックして値を消去する。
         - Firefoxを再起動する。
-        - メニューバーの「履歴」から「すべての履歴」を選択し、「ブラウジングライブラリー」ウィンドウを開く（すべての履歴項目を表示した状態にする）。
+        - メニューバーの「履歴」から「すべての履歴を表示」を選択し、「ブラウジングライブラリー」ウィンドウを開く（すべての履歴項目を表示した状態にする）。
         - 「履歴」配下の「7日以内」、「（前月）月」、または指定の履歴保存期間のしきい値となる日付が含まれる期間を選択する。
         - 履歴一覧のカラム列を右クリックし、「最近表示した日時」にチェックを入れる。
         - **確認**
@@ -311,7 +311,7 @@ Privacy-9: 日数ベースでの履歴の自動削除
         - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
           {% endif %}
         - Firefoxを起動する。
-        - パネルメニューを開き、「アドオン」をクリックする。
+        - パネルメニューを開き、「アドオンとテーマ」をクリックする。
         - アドオンマネージャ内の「拡張機能」をクリックする。
         - **確認**
             - 拡張機能の一覧に「Flexible Expire History by Days」が表示されており、有効になっている。
@@ -968,8 +968,8 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
       {% endif %}
       {%if Privacy_30_3 %}
-    - `%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
-    - `thumbnails` フォルダを消去する。
+    - ユーザープロファイルフォルダと、`%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
+    - `thumbnails` フォルダがあれば、それぞれのフォルダから消去する。
       {% else %}
     - Firefoxを起動する。
     - `about:cache` を開く。
@@ -990,6 +990,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - **確認**
         - ディスクキャッシュの保存先フォルダの上位フォルダ内にある `thumbnails` フォルダに addons.mozilla.org のページのサムネイル画像が保存される。
       {%if Tab_17_2 %}
+    - パネルメニューから「設定」を開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」のチェック状態を検証前の状態に戻す。
     - ポリシー設定の `Preferences` から削除した `browser.ctrlTab.sortByRecentlyUsed` の記述を戻す。
       {% endif %}
 
@@ -999,8 +1000,8 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
       {% endif %}
       {%if Privacy_30_3 %}
-    - `%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
-    - `thumbnails` フォルダを消去する。
+    - ユーザープロファイルフォルダと、`%LocalAppDir%\Mozilla\Firefox\Profiles\（プロファイルフォルダと同一の名前）` を開く。
+    - `thumbnails` フォルダがあれば、それぞれのフォルダから消去する。
       {% else %}
     - Firefoxを起動する。
     - `about:cache` を開く。
@@ -1021,6 +1022,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - **確認**
         - ディスクキャッシュの保存先フォルダの上位フォルダ内にある `thumbnails` フォルダに addons.mozilla.org のページのサムネイル画像が保存されない。
       {%if Tab_17_2 %}
+    - パネルメニューから「設定」を開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」のチェック状態を検証前の状態に戻す。
     - ポリシー設定の `Preferences` から削除した `browser.ctrlTab.sortByRecentlyUsed` の記述を戻す。
       {% endif %}
 
