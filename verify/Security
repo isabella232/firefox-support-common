@@ -675,7 +675,7 @@ Security-30: 誤ったMIME Typeが指定されたスクリプトファイルの�
 
     ABOUT_CONFIG
 
-    - `security.block_script_with_wrong_mime` の値が `true` である。
+    - `security.block_script_with_wrong_mime` の値が未定義か、 `true` である。
 
     :2: 禁止する（既定）: 外部Webサイト（www.clear-code.com/）にアクセスできるか、またはPythonの実行環境がある場合
 
