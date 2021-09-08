@@ -1600,26 +1600,15 @@ Privacy-50: プライベートブラウジングモードでの行動履歴の�
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-Privacy-51: プライベートウィンドウでのアドオンの動作可否
+Privacy-51: [廃止] プライベートウィンドウでのアドオンの動作可否
 
-    :1: 原則として禁止し、個別に許可する（既定）
+    :1: [廃止] 原則として禁止し、個別に許可する（既定）
 
-    -
+    [廃止]
 
-    :2: 原則として許可する
+    :2: [廃止] 原則として許可する
 
-    distribution\policies.json:
-    "Preferences": {
-      "extensions.allowPrivateBrowsingByDefault": {
-        "Value": true,
-        "Status": "locked"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    https://bugzilla.mozilla.org/show_bug.cgi?id=1661517 によりFirefox 91から機能が廃止された。
 
 Privacy-52: プライバシーに関する通知タブの表示の可否
 
