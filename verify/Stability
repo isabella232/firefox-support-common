@@ -64,7 +64,7 @@ Stability-4: WebRenderの有効化
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
-        -  「グラフィック」の「画像処理」に「WebRender」と表示されているか、もしくは、「WEBRENDER」に「unavailable (機能名) by runtime」と表示されている。
+        -  「グラフィック」の「WEBRENDER」に「disabled by user」と表示されていない。
       {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
@@ -77,7 +77,7 @@ Stability-4: WebRenderの有効化
     - Firefoxを起動する。
     - `about:support` を開く。
     - **確認**
-        -  「グラフィック」の「画像処理」に「WebRender」と表示されていない。
+        -  「グラフィック」の「WEBRENDER」に「disabled by user」と表示されている。
       {%if MenuShortcut_35_1 %}
     - ポリシー設定から一時的に削除した `BlockAboutSupport` を元に戻す。
       {% endif %}
