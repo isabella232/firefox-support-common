@@ -965,7 +965,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     :1: 許可する（既定）
 
     {%if Privacy_30_3 %}
-    - ディスクキャッシュ無効化済みのためPrivacy-22の検証と重複するため省略
+    - ディスクキャッシュ無効化済みのため省略
     {% else %}
     {%if Tab_17_2 %}
     - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
@@ -1001,7 +1001,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     :2: 禁止する
 
     {%if Privacy_30_3 %}
-    - ディスクキャッシュ無効化済みのためPrivacy-22の検証と重複するため省略
+    - ディスクキャッシュ無効化済みのため省略
     {% else %}
     {%if Tab_17_2 %}
     - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
