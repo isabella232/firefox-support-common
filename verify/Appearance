@@ -120,10 +120,10 @@ Appearance-2: ツールバー上の項目の初期設定
             - 空白
             - アドレスバー
             - 空白
-              {%if not Privacy_27_2 %}
+              {%if not Privacy_27_3 %}
             - Pocket
               {% endif %}
-            - ダウンロード
+            - ダウンロード（ダウンロード未実施時は非表示）
               {%if not DisableFirefoxAccount %}
             - Firefoxアカウント
               {% endif %}
@@ -150,10 +150,10 @@ Appearance-2: ツールバー上の項目の初期設定
             - 空白
             - アドレスバー
             - 空白
-              {%if not Privacy_27_2 %}
+              {%if not Privacy_27_3 %}
             - Pocket
               {% endif %}
-            - ダウンロード
+            - ダウンロード（ダウンロード未実施時は非表示）
               {%if not DisableFirefoxAccount %}
             - Firefoxアカウント
               {% endif %}
