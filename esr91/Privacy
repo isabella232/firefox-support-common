@@ -1611,7 +1611,7 @@ Privacy-51: プライベートウィンドウでのアドオンの動作可否
     distribution\policies.json:
     "Preferences": {
       "extensions.allowPrivateBrowsingByDefault": {
-        "Value": false,
+        "Value": true,
         "Status": "locked"
       },
       ...
