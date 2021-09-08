@@ -964,6 +964,9 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
 
     :1: 許可する（既定）
 
+    {%if Privacy_30_3 %}
+    - ディスクキャッシュ無効化済みのためPrivacy-22の検証と重複するため省略
+    {% else %}
     {%if Tab_17_2 %}
     - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
       {% endif %}
@@ -993,9 +996,13 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - パネルメニューから「設定」を開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」のチェック状態を検証前の状態に戻す。
     - ポリシー設定の `Preferences` から削除した `browser.ctrlTab.sortByRecentlyUsed` の記述を戻す。
       {% endif %}
+    {% endif %}
 
     :2: 禁止する
 
+    {%if Privacy_30_3 %}
+    - ディスクキャッシュ無効化済みのためPrivacy-22の検証と重複するため省略
+    {% else %}
     {%if Tab_17_2 %}
     - ポリシー設定の `Preferences` から `browser.ctrlTab.sortByRecentlyUsed` の記述を削除する。
       {% endif %}
@@ -1025,6 +1032,7 @@ Privacy-36: TLS/SSLで保護された通信のコンテンツのディスク上�
     - パネルメニューから「設定」を開き、「一般」→「タブグループ」→「Ctrl+Tabで最近使用した順にタブを切り替える」のチェック状態を検証前の状態に戻す。
     - ポリシー設定の `Preferences` から削除した `browser.ctrlTab.sortByRecentlyUsed` の記述を戻す。
       {% endif %}
+    {% endif %}
 
 Privacy-37: ネットワーク経由での先読み機能の全般的な制御
 
