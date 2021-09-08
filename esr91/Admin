@@ -128,7 +128,7 @@ Admin-6: ユーザーが導入済みのアドオンの取り扱い
       "*": {
         "installation_mode": "blocked"
       }
-    }
+    },
 
     GPO:
     カテゴリ「Firefox」→「Extensions」
@@ -148,7 +148,7 @@ Admin-7: アドオンのインストール
         "installation_mode": "force_installed",
         "install_url": "file:///..."
       }
-    }
+    },
 
     GPO:
     カテゴリ「Firefox」→「Extensions」
