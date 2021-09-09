@@ -162,19 +162,31 @@ Admin-6: ユーザーが導入済みのアドオンの取り扱い
 
     :1: そのまま使用を許可（既定）
 
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動して、終了し、ユーザープロファイルが存在する状態にする。
     - テストケースのprofile-with-user-install-addonの内容をFirefoxのユーザープロファイルにコピーし、アドオンをユーザー権限でインストール済みの状態にする。
     - Firefoxを起動する。
     - **確認**
         - アドオン「Simple Tab Groups」がインストールされており、ツールバー上に追加のツールバーボタンが表示されている。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
     :2: 使用を許可するアドオン以外すべて削除する
 
+    {%if Security_3_3 %}
+    - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
+      {% endif %}
     - Firefoxを起動して、終了し、ユーザープロファイルが存在する状態にする。
     - テストケースのprofile-with-user-install-addonの内容をFirefoxのユーザープロファイルにコピーし、アドオンをユーザー権限でインストール済みの状態にする。
     - Firefoxを起動する。
     - **確認**
         - アドオン「Simple Tab Groups」がインストールされておらず、ツールバー上に追加のツールバーボタンも表示されていない。
+      {%if Security_3_3 %}
+    - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
+      {% endif %}
 
 Admin-7: アドオンのインストール
 
