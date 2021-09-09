@@ -154,7 +154,7 @@ Install-8: Firefox/Thunderbirdのインストール先
     :1: 既定のインストール先（既定）
 
     {%if Install_7_2 %}
-    - Install-7-2 の検証仮定で確認済みのため、検証を省略する。
+    - Install-7-2 の検証過程で確認済みのため、検証を省略する。
     {% else %}
     - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
         - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
@@ -168,7 +168,7 @@ Install-8: Firefox/Thunderbirdのインストール先
     :2: 任意のインストール先
 
     {%if Install_7_2 %}
-    - Install-7-2 の検証仮定で確認済みのため、検証を省略する。
+    - Install-7-2 の検証過程で確認済みのため、検証を省略する。
     {% else %}
     - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
         - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
