@@ -218,40 +218,40 @@ Startup-10: 初回起動時などにダミーのウィンドウを使用して�
 
 Startup-12: 初回起動時のみの特別なスタートページ
 
-    :1: 表示する（既定）: not Startup_4_2
+    :1: 表示する（既定）: not Startup_4_3
 
     - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
     - Firefoxを起動する。
     - **検証**
         - 起動直後に既定の初回起動用ページが表示される。
 
-    :1: 表示する（既定）: Startup_4_2
+    :1: 表示する（既定）: Startup_4_3
 
     ABOUT_POLICIES
 
     - `OverrideFirstRunPage` が存在しない。
 
-    :2: 任意のページを表示する: not Startup_4_2
+    :2: 任意のページを表示する: not Startup_4_3
 
     - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
     - Firefoxを起動する。
     - **検証**
         - 起動直後にポリシー `OverrideFirstRunPage` で設定されたページが表示される。
 
-    :2: 任意のページを表示する: Startup_4_2
+    :2: 任意のページを表示する: Startup_4_3
 
     ABOUT_POLICIES
 
     - `OverrideFirstRunPage` の値に指定のURLが反映されている。
 
-    :3: 表示しない: not Startup_4_2
+    :3: 表示しない: not Startup_4_3
 
     - ユーザープロファイルの位置が `%AppData%\Mozilla` 配下にある場合、 `%AppData%\Mozilla` を削除する。そうでない場合、ユーザープロファイルフォルダ自体を削除する。
     - Firefoxを起動する。
     - **検証**
         - 起動直後にホームページ（または空白）以外のタブが開かれていない。
 
-    :3: 表示しない: Startup_4_2
+    :3: 表示しない: Startup_4_3
 
     ABOUT_POLICIES
 
