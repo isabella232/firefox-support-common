@@ -227,16 +227,12 @@ MenuShortcut-25: ツール＞その他のツール＞スクラッチパッド (S
     カテゴリ「Firefox」
     → 「Disable Developer Tools」を有効化
 
-MenuShortcut-26: ツール＞その他のツール＞ページのソース (Ctrl-U)
+MenuShortcut-26: [廃止] ツール＞その他のツール＞ページのソース (Ctrl-U)
 
-    :1: 無効化する
+    :1: [廃止] 無効化する
 
-    distribution\policies.json:
-    "DisableDeveloperTools": true,
-
-    GPO:
-    カテゴリ「Firefox」
-    → 「Disable Developer Tools」を有効化
+    [廃止]
+    Firefox 91移行では開発ツールの一部として無効化はされないようになった。
 
 MenuShortcut-27: [廃止] ツール＞その他のツール＞エラーコンソール (Firefox 48で廃止)
 
