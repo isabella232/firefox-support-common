@@ -97,14 +97,21 @@ Admin-4: Mozillaにより署名されていないアドオンのインストー�
     {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
-    - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、
-      `{{install_path}}\browser\extensions` {%if install_path_32bit %} \
-      （32bit環境では `{{install_path_32bit}}\browser\extensions`）{% endif %} \
-      の位置に置く。
+    - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、全ユーザーがアクセス可能な位置に配置する。 \
+      （`C:\Users\Public\testcases` など）
+    - アドオンを強制導入するようにポリシー設定を変更する。
+      policies.json を使用してテストケースの  `unsigned-sample-addon@clear-code.com.xpi` を導入する場合であれば、`"ExtensionSettings"` に以下を追記する。
+      
+              "unsigned-sample-addon@clear-code.com": {
+                "installation_mode": "force_installed",
+                "install_url": "file:///c:/Users/Public/testcases/unsigned-sample-addon@clear-code.com.xpi"
+              }
+      
     - Firefoxを起動する。
     - アドオンマネージャを開く。
     - **確認**
         - アドオン「Unsigned Sample Addon」が有効になっているか、または、無効の状態から有効化できる。
+    - ポリシー設定からアドオン導入のための記述を削除する。
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
@@ -114,14 +121,21 @@ Admin-4: Mozillaにより署名されていないアドオンのインストー�
     {%if Security_3_3 %}
     - ポリシー設定から `BlockAboutAddons` を削除し、アドオンマネージャを一時的に有効化しておく。
       {% endif %}
-    - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、
-      `{{install_path}}\browser\extensions` {%if install_path_32bit %} \
-      （32bit環境では `{{install_path_32bit}}\browser\extensions`）{% endif %} \
-      の位置に置く。
+    - アドオンの未署名のインストールパッケージとして、テストケースの `unsigned-sample-addon@clear-code.com.xpi` を用意し、全ユーザーがアクセス可能な位置に配置する。 \
+      （`C:\Users\Public\testcases` など）
+    - アドオンを強制導入するようにポリシー設定を変更する。
+      policies.json を使用してテストケースの  `unsigned-sample-addon@clear-code.com.xpi` を導入する場合であれば、`"ExtensionSettings"` に以下を追記する。
+      
+              "unsigned-sample-addon@clear-code.com": {
+                "installation_mode": "force_installed",
+                "install_url": "file:///c:/Users/Public/testcases/unsigned-sample-addon@clear-code.com.xpi"
+              }
+      
     - Firefoxを起動する。
     - アドオンマネージャを開く。
     - **確認**
         - アドオン「Unsigned Sample Addon」が無効になっており、有効化できない。
+    - ポリシー設定からアドオン導入のための記述を削除する。
       {%if Security_3_3 %}
     - ポリシー設定から一時的に削除した `BlockAboutAddons` を元に戻す。
       {% endif %}
