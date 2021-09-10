@@ -416,6 +416,7 @@ Security-15: その他、バックグラウンドで行われる外部への通�
                  - `https://firefox.settings.services.mozilla.com/v1/～`
                  - `https://firefox-settings-attachments.cdn.mozilla.net/~`
                  - `https://content-signature.cdn.mozilla.net/～`
+                 - `https://content-signature-2.cdn.mozilla.net/～`
                  - `https://safebrowsing.googleapis.com/v4/～`
                  - `https://shaver.services.mozila.com/～`
                  - `ocsp.pki.goog`
