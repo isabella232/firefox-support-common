@@ -130,7 +130,7 @@ Performance-6: 同時に開けるタブの個数を制限する
     fainstall.ini:
     [lean_tab_limiter_advanced-x.x-fx.xpi]
     AddonId=lean-tab-limiter-advanced@clear-code.com
-    TargetLocation=%AppDir%/browser/extensions
+    TargetLocation=%AppDir%/distribution
     Unpack=false
     
     distribution\policies.json:
@@ -139,6 +139,12 @@ Performance-6: 同時に開けるタブの個数を制限する
         "lean-tab-limiter-advanced@clear-code.com": {
           "tab-limit": 10
         }
+      }
+    },
+    "ExtensionSettings": {
+      "lean-tab-limiter-advanced@clear-code.com": {
+        "installation_mode": "force_installed",
+        "install_url": "file:///C:/Program%20Files/Mozilla%20Firefox/distribution/lean-tab-limiter-advanced@clear-code.com.xpi"
       }
     },
 
