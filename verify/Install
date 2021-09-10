@@ -285,6 +285,10 @@ Install-11: タスクバー上へのピン留め用ショートカットの作�
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - **確認**
         - `Firefox` のショートカットが存在する。
+          ファイルが存在しない場合、次のステップに進む。
+    - regedit.exe を起動し、`HKEY_CURRENT_USER\Software\Mozilla\Firefox\Installer\(ランダム文字列)` の値 `WasPinnedToTaskba` のデータを確認する。
+    - **確認**
+        - データが `DWORD` 型の `1` である。
 
     :2: 作成しない
 
@@ -294,6 +298,9 @@ Install-11: タスクバー上へのピン留め用ショートカットの作�
     - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
     - **確認**
         - `Firefox` のショートカットが存在しない。
+    - regedit.exe を起動し、`HKEY_CURRENT_USER\Software\Mozilla\Firefox\Installer\(ランダム文字列)` の値 `WasPinnedToTaskba` のデータを確認する。
+    - **確認**
+        - データが `DWORD` 型の `1` でない。
 
 Install-12: メタインストーラ自身による管理者権限の確認
 
