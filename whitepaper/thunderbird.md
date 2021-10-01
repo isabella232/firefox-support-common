@@ -20,6 +20,8 @@ toc-own-page: true
 ThunderbirdはMozilla Foundationが開発したオープンソースソフトウェアです。
 2004年のリリースから10年以上に渡って、世界中の企業や法人で利用されています。
 
+![](menu.png)
+
 # Thunderbirdの3つの特徴
 
 ## 特長1: 基本的な機能が揃っている
@@ -47,6 +49,8 @@ Flex Confirm Mailはそんなトラブルを解決するために開発された
 
 メール送信時にメールアドレス・件名・添付ファイルを念入りに確認する機能を備えており、
 様々な企業様でのメール誤送信防止の声が詰め込まれた、企業導入に最適なアドオンです。
+
+![](flexconfirm.png){width=400}
 
 ## Redmineとの連携を強化する「RedThunderMineBird Plus」
 
