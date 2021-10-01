@@ -22,7 +22,7 @@ ThunderbirdはMozilla Foundationが開発したオープンソースソフトウ
 
 ![](menu.png)
 
-# Thunderbirdの3つの特徴
+# Thunderbirdの5つの特徴
 
 ## 特長1: 基本的な機能が揃っています
 
