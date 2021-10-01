@@ -66,6 +66,8 @@ RedThunderMineBird Plusは、Thunderbirdで受信したメールとRedmine上の
 
 受信したメールからRedmineのチケットを起票したり、その後の返信をチケットへのコメントとして転記したりする機能を備えており、メールのやり取りが多く発生するプロジェクトでの情報共有コストを削減することができます。
 
+![](redmine.png){width=500}
+
 # クリアコードについて
 
 ![](clear-code.png)
