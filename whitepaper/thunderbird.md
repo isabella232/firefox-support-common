@@ -5,9 +5,10 @@ CJKoptions:
 title:     企業でのメール運用を簡単に - Thunderbirdのご紹介
 author:    株式会社クリアコード
 date:      2021年10月1日
-logo: logo.png
+logo: thunderbird/clear-code.png
 logo-width: 220
 titlepage: true
+colorlinks: true
 toc-title: 目次
 toc-own-page: true
 ---
@@ -18,15 +19,15 @@ toc-own-page: true
 そんなメールソフトがThunderbirdです。
 
 ThunderbirdはMozilla Foundation傘下のMZLA Technologies Corporationが開発するオープンソースソフトウェアです。
-2004年のリリースから10年以上に渡って、世界中の企業や法人で利用されています。
+2004年のリリースから15年以上に渡って、世界中の企業や公官庁で利用されています。
 
-![](menu.png)
+![](thunderbird/menu.png)
 
-# Thunderbirdの3つの特徴
+# Thunderbirdの3つの特長
 
 ## 特長1: 充実の基本機能
 
-IMAP/POP3サポートや、Kerberos認証・OAuth認証などの各種認証方式への対応といった基本的な機能に加えて、
+IMAP/POP3サポートや、Kerberos認証・OAuth認証などの各種認証方式への対応といった基本的な機能はもちろん、
 高速なメッセージ検索機能や柔軟なメールの振り分けなどの高度な機能も完備しています。
 
 また、統合されたカレンダー機能でのスムーズなスケジュール管理や、共有リモートアドレス帳による連絡先の集中管理など、
@@ -47,7 +48,6 @@ Active Directoryのグループポリシーや設定ファイルを利用した�
 
 また、標準では備わっていない機能を補う300近くのアドオンにより、運用上の細かいニーズにも柔軟に対応できます。
 
-
 # 企業向けにこんなカスタマイズができます！
 
 ## 誤送信を防止する「Flex Confirm Mail」
@@ -57,9 +57,9 @@ Flex Confirm Mailはそんなトラブルを解決するために開発された
 
 メール送信時にメールアドレス・件名・添付ファイルをチェックするする機能を備えています。
 柔軟なルールに基づいて挙動を細かく調整することができ、
-様々な企業様でのメール誤送信防止のノウハウが詰め込まれた、誤送信対策の決定版です。
+様々な企業でのメール誤送信防止のノウハウが詰め込まれています。
 
-![](flexconfirm.png){width=450}
+![](thunderbird/flexconfirm.png){width=450}
 
 ## Redmineとの連携を強化する「RedThunderMineBird Plus」
 
@@ -68,16 +68,22 @@ RedThunderMineBird Plusは、Thunderbirdで受信したメールとRedmine上の
 
 受信したメールからRedmineのチケットを起票したり、その後の返信をチケットへのコメントとして転記したりする機能を備えており、メールのやり取りが多く発生するプロジェクトでの情報共有コストを削減できます。
 
-![](redmine.png){width=500}
+![](thunderbird/redmine.png){width=500}
 
 # クリアコードについて
-
-![](clear-code.png)
 
 クリアコードは、2006年7月にフリーソフトウェア開発者を中心に設立したソフトウェア開発会社です。
 
 私たちはこれまで15年以上にわたってThunderbirdの導入支援を行ってきました。
-初期導入時の基本的なサポートや、障害発生時のトラブル対応、
-またお客様の事情に合わせたThunderbirdのカスタマイズなども承っています。
+Thunderbirdの初期導入時の総合的なサポートや、障害発生時のトラブル対応、
+またお客様の事情に合わせたThunderbirdのカスタマイズなどの各種のご要望に対応しています。
 
 サービスに関するお問い合わせは [https://www.clear-code.com/contact](https://www.clear-code.com/contact) からご連絡ください。
+
+# 参考リンク
+
+* [Thunderbird公式ホームページ](https://www.thunderbird.net/)
+* [Mozilla Japan - 法人向け情報](https://www.mozilla.jp/business/faq/)
+* [株式会社クリアコード - Firefox/Thunderbirdサポートサービス](https://www.clear-code.com/services/mozilla/menu.html)
+
+Thunderbirdは、Mozilla Foundationの米国およびその他の国における商標または登録商標です。
