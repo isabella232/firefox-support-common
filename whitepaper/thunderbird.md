@@ -57,7 +57,7 @@ MCD
 
 ## 誤送信を防止する「Flex Confirm Mail」
 
-企業でのメール関連のトラブルのナンバーワンが「メールの誤送信」です。
+企業でのメール関連で最も多いトラブルが「メールの誤送信」です。
 Flex Confirm Mailはそんなトラブルを解決するために開発されたThunderbird用のアドオンです。
 
 メール送信時にメールアドレス・件名・添付ファイルをチェックするする機能を備えています。
@@ -83,6 +83,6 @@ RedThunderMineBird Plusは、Thunderbirdで受信したメールとRedmine上の
 
 私たちはこれまで15年以上にわたってThunderbirdの導入支援を行ってきました。
 初期導入時の基本的なサポートや、障害発生時のトラブル対応、
-またお客様の事情に合わせたThunderbirdのカスタマイズなども受け付けています。
+またお客様の事情に合わせたThunderbirdのカスタマイズなども承っています。
 
 サービスに関するお問い合わせは [https://www.clear-code.com/contact](https://www.clear-code.com/contact) からご連絡ください。
