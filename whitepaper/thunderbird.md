@@ -17,7 +17,7 @@ toc-own-page: true
 メーラーとしての基本的な機能に加えて、企業での運用に合わせたカスタマイズもできる、
 そんなメールソフトがThunderbirdです。
 
-ThunderbirdはMozilla Foundationが開発したオープンソースソフトウェアです。
+ThunderbirdはMZLA Technologies Corporationが開発するオープンソースソフトウェアです。
 2004年のリリースから10年以上に渡って、世界中の企業や法人で利用されています。
 
 ![](menu.png)
