@@ -24,12 +24,15 @@ PANDOC_OPT_DOCX= --toc-depth=2 --table-of-contents \
                  --reference-doc="$(BASE)/assets/template.docx"
 
 
-all: thunderbird.pdf
+all: thunderbird firefox
 
-thunderbird.pdf: build-always
-	cat thunderbird.md | pandoc ${PANDOC_OPT_PDF} -o "thunderbird-$(TODAY).pdf"
+firefox:
+	cat firefox.md | pandoc ${PANDOC_OPT_PDF} -o "firefox-${TODAY}.pdf"
+
+thunderbird:
+	cat thunderbird.md | pandoc ${PANDOC_OPT_PDF} -o "thunderbird-${TODAY}.pdf"
 
 clean:
 	rm -f *.pdf
 
-.PHONY: build-always
+.PHONY: firefox thunderbird clean
