@@ -279,28 +279,17 @@ Install-11: タスクバー上へのピン留め用ショートカットの作�
 
     :1: 作成する（既定）
 
-    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - 検証用ユーザーではなく`管理者`ユーザーとしてログオンする。
+    - `{{meta_installer_file_name}}*.exe` を実行する。
     - **確認**
-        - `Firefox` のショートカットが存在する。
-          ファイルが存在しない場合、次のステップに進む。
-    - regedit.exe を起動し、`HKEY_CURRENT_USER\Software\Mozilla\Firefox\Installer\(ランダム文字列)` の値 `WasPinnedToTaskbar` のデータを確認する。
-    - **確認**
-        - データが `DWORD` 型の `1` である。
+      - `Firefox` がタスクバーにピン留めされる。
 
     :2: 作成しない
 
-    - 前項に引き続いて検証するか、次の手順でFirefoxをセットアップしておく。
-        - 検証用ユーザーとして `{{meta_installer_file_name}}*.exe` を実行する。
-        - 管理者権限を要求された場合は、`管理者`ユーザーで認証する。
-    - エクスプローラで `%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar` を開く。
+    - 検証用ユーザーではなく`管理者`ユーザーとしてログオンする。
+    - `{{meta_installer_file_name}}*.exe` を実行する。
     - **確認**
-        - `Firefox` のショートカットが存在しない。
-    - regedit.exe を起動し、`HKEY_CURRENT_USER\Software\Mozilla\Firefox\Installer\(ランダム文字列)` の値 `WasPinnedToTaskbar` のデータを確認する。
-    - **確認**
-        - データが `DWORD` 型の `1` でない。
+      - `Firefox` がタスクバーにピン留めされない。
 
 Install-12: メタインストーラ自身による管理者権限の確認
 
