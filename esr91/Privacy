@@ -10,18 +10,10 @@ Privacy-1: 履歴の保存の可否
 
     :5: 履歴を基本的には保存し、ただし（一部項目は）終了時の消去を許可する / 起動時からのプライベートブラウジングの開始を無効
 
-    distribution\policies.json:
-    "Preferences": {
-      "browser.privatebrowsing.autostart": {
-        "Value": false,
-        "Status": "locked"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    *.cfg / *.jsc:
+    // ポリシーのPreferencesで設定可能な項目だが、policies.jsonの読み込みタイミングが遅いため、ユーザープロファイル内にbrowser.privatebrowsing.autostart=trueが保持されていると、そちらが反映された状態で起動してしまう。
+    // これを防ぐため、この項目はMCDで反映する必要がある。
+    lockPref("browser.privatebrowsing.autostart", false);
 
     :7: 保存を強制する
 
