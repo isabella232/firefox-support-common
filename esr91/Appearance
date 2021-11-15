@@ -241,3 +241,24 @@ Appearance-13: 「ローカルワンオフ検索」ショートカットの表�
       },
       ...
     },
+
+Appearance-14: UIの表示言語の変更・カスタマイズの可否
+
+    :1: 許可する
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "Preferences": {
+      "extensions.getAddons.langpacks.url": {
+        "Value": "",
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

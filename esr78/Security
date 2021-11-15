@@ -111,7 +111,6 @@ Security-3: アドオンのインストールの可否
     lockPref("extensions.getAddons.discovery.api_url", "");
     lockPref("extensions.getAddons.get.url", "");
     lockPref("extensions.getAddons.getWithPerformance.url", "");
-    lockPref("extensions.getAddons.langpacks.url", "");
     lockPref("extensions.getAddons.link.url", "");
     lockPref("extensions.getAddons.recommended.url", "");
     lockPref("extensions.getAddons.search.browseURL", "");
@@ -470,7 +469,6 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     lockPref("extensions.blocklist.addonItemURL", "");
     // アドオンのインストールやおすすめの列挙
     lockPref("extensions.getAddons.discovery.api_url", "");
-    lockPref("extensions.getAddons.langpacks.url", "");
     lockPref("extensions.getAddons.link.url", "");
     lockPref("extensions.getAddons.search.browseURL", "");
     lockPref("extensions.recommendations.privacyPolicyUrl", "");
