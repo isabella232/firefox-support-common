@@ -144,6 +144,17 @@ resource "azurerm_virtual_machine" "firefoxverify_vm" {
 #  }
 }
 
+resource "azurerm_dev_test_global_vm_shutdown_schedule" "firefoxverify" {
+  virtual_machine_id    = azurerm_virtual_machine.firefoxverify_vm.id
+  location              = azurerm_resource_group.firefoxverify.location
+  enabled               = true
+  daily_recurrence_time = "2200"
+  timezone              = "Tokyo Standard Time"
+  notification_settings {
+    enabled = false
+  }
+}
+
 resource "azurerm_network_security_group" "firefoxverify" {
   name                = "FirefoxVerifySecurityGroup-${var.namespace}"
   location            = "Japan East"
