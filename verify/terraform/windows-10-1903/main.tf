@@ -1,10 +1,24 @@
+terraform {
+  required_version = ">= 1.1.3"
+
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>2.10"
+    }
+
+    local = {
+      source  = "hashicorp/local"
+      version = "~>1.4"
+    }
+  }
+}
+
 provider "azurerm" {
-  version = "~>2.10"
   features {}
 }
 
 provider "local" {
-  version = "~>1.4"
 }
 
 resource "azurerm_resource_group" "firefoxverify" {
