@@ -1,4 +1,4 @@
-namespace = "example-win10-pro-1903"
+namespace = "example-win10-enterprise-21h2"
 windows-username = "clearcode"
 windows-password = "%PASSWORD%"
 windows-language-pack-url = ""
