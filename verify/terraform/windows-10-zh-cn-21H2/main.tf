@@ -245,45 +245,12 @@ resource "local_file" "playbook" {
         domain_admin_password: "${var.windows-password}"
         state: workgroup
         workgroup_name: ワークグループ
-    - name: Prepare directory to download language pack
-      win_file:
-        path: C:\temp
-        state: directory
-    - name: Download language pack file
-      when: not "${var.windows-language-pack-url}" == ""
-      win_get_url:
-        url: "${var.windows-language-pack-url}"
-        dest: 'c:\temp\lp.cab'
-    - name: Install language pack
-      when: not "${var.windows-language-pack-url}" == ""
-      win_shell: |
-        $LpTemp = "c:\temp\lp.cab"
-        Add-WindowsPackage -PackagePath $LpTemp -Online
-        Set-WinUserLanguageList -LanguageList ja-JP,en-US -Force
-        Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
-        Set-WinLanguageBarOption -UseLegacySwitchMode -UseLegacyLanguageBar
-        Remove-Item $LpTemp -Force
-    - win_reboot:
-      when: not "${var.windows-language-pack-url}" == ""
     - win_timezone:
         timezone: Tokyo Standard Time
-    - name: Set location
-      win_shell: Set-WinHomeLocation -GeoId 0x7A
-    - name: Set UI language
-      win_shell: Set-WinUILanguageOverride -Language ja-JP
-    - name: Set system language
-      win_shell: Set-WinSystemLocale -SystemLocale ja-JP
     - name: Set date/time format
       win_shell: Set-WinCultureFromLanguageListOptOut -OptOut $False
     - name: Set keyboard layout
       win_shell: Set-ItemProperty 'registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters' -Name 'LayerDriver JPN' -Value 'kbd106.dll'
-    - win_reboot:
-    - name: Set region globally
-      win_region:
-        copy_settings: yes
-        location: "122"
-        format: ja-JP
-        unicode_language: ja-JP
     - win_reboot:
     - name: Create administrator user
       win_user:
@@ -295,12 +262,6 @@ resource "local_file" "playbook" {
           - Administrators
           - Users
           - Remote Desktop Users
-    - name: Set display language for the administrator user
-      become: yes
-      become_user: "管理者"
-      win_shell: |
-        Set-WinUILanguageOverride -Language ja-JP
-        Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
     - name: Show hidden files for the administrator user
       become: yes
       become_user: "管理者"
@@ -318,12 +279,6 @@ resource "local_file" "playbook" {
         groups:
           - Users
           - Remote Desktop Users
-    - name: Set display language for the regular user
-      become: yes
-      become_user: "ユーザー"
-      win_shell: |
-        Set-WinUILanguageOverride -Language ja-JP
-        Set-WinDefaultInputMethodOverride -InputTip "0411:00000411"
     - name: Show hidden files for the regular user
       become: yes
       become_user: "ユーザー"
