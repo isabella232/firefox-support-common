@@ -331,3 +331,63 @@ Script-14: window.nameのクロスオリジン間での共有
 
     *.cfg / *.jsc
     lockPref("privacy.window.name.update.enabled", false);
+
+Script-15: レガシーな`KeyboardEvent.initKeyEvent()`の使用可否
+
+    :1: 有効化する
+
+    *.cfg / *.jsc
+    lockPref("dom.keyboardevent.init_key_event.enabled", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.keyboardevent.init_key_event.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    :2: 無効化する（既定）
+
+    -
+
+Script-16: レガシーなWebVR APIの使用可否
+
+    :1: 有効化する
+
+    *.cfg / *.jsc
+    lockPref("dom.vr.enabled", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.vr.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    :2: 無効化する（既定）
+
+    -
+
+Script-17: レガシーなNetwork Information APIの使用可否
+
+    :1: 有効化する
+
+    *.cfg / *.jsc
+    lockPref("dom.netinfo.enabled", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.netinfo.enabled": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    :2: 無効化する（既定）
+
+    -

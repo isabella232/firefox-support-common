@@ -282,3 +282,46 @@ Script-14: window.nameのクロスオリジン間での共有
     ABOUT_CONFIG
 
     - `privacy.window.name.update.enabled` の値が `false` である。
+
+Script-15: レガシーな`KeyboardEvent.initKeyEvent()`の使用可否
+
+    :1: 有効化する
+
+    ABOUT_CONFIG
+
+    - `dom.keyboardevent.init_key_event.enabled` の値が `true` である。
+
+    :2: 無効化する（既定）
+
+    ABOUT_CONFIG
+
+    - `dom.keyboardevent.init_key_event.enabled` の値が `false` である。
+
+Script-16: レガシーなWebVR APIの使用可否
+
+    :1: 有効化する
+
+    ABOUT_CONFIG
+
+    - `dom.vr.enabled` の値が `true` である。
+
+    :2: 無効化する（既定）
+
+    ABOUT_CONFIG
+
+    - `dom.vr.enabled` の値が `false` である。
+
+Script-17: レガシーなNetwork Information APIの使用可否
+
+    :1: 有効化する
+
+    ABOUT_CONFIG
+
+    - `dom.netinfo.enabled` の値が `true` である。
+
+    :2: 無効化する（既定）
+
+    ABOUT_CONFIG
+
+    - `dom.netinfo.enabled` の値が `false` である。
+

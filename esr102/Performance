@@ -27,12 +27,12 @@ Performance-2: コンテンツの再描画間隔
 
 Performance-3: 空きメモリが逼迫した時にバックグラウンドのタブを自動的にアンロードするかどうか
 
-    :1: タブをアンロードして空きメモリを増やす
+    :1: タブをアンロードして空きメモリを増やす（既定）
 
     *.cfg / *.jsc:
     lockPref("browser.tabs.unloadOnLowMemory", true);
 
-    :2: タブをアンロードしない（既定）
+    :2: タブをアンロードしない
 
     *.cfg / *.jsc:
     lockPref("browser.tabs.unloadOnLowMemory", false);
