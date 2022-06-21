@@ -657,3 +657,62 @@ Tab-20: 新規タブに「Firefoxにようこそ」メッセージを表示す�
     カテゴリ「Firefox」→「User Messaging」
     → 「Skip Onboarding」を有効化（設定値の固定は不可能）
 
+Tab-21: Mozillaの契約パートナーが提供するトップサイトの表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 常に表示する
+
+    distribution\policies.json:
+    "FirefoxHome": {
+      "SponsoredTopSites": true,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Sponsored Top Sites」のチェックをONにする
+
+    :3: 常に非表示にする
+
+    distribution\policies.json:
+    "FirefoxHome": {
+      "SponsoredTopSites": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Sponsored Top Sites」のチェックをOFFにする
+
+Tab-22: Mozillaの契約パートナーが提供するPocketの項目の表示
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 常に表示する
+
+    distribution\policies.json:
+    "FirefoxHome": {
+      "SponsoredPocket": true,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Sponsored Top Sites」のチェックをONにする
+
+    :3: 常に非表示にする
+
+    distribution\policies.json:
+    "FirefoxHome": {
+      "SponsoredPocket": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    → 「Customize Firefox Home」を有効化し、「Sponsored Top Sites」のチェックをOFFにする
