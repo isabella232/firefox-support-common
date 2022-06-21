@@ -1731,7 +1731,7 @@ Privacy-56: マスターパスワードの使用の強制
 
 Privacy-57: 同一タブ・サイトにおけるマイクとカメラのアクセス
 
-    :1: 60分以内であれば自動的に承認する (既定)
+    :1: 60分以内であれば自動的に承認する (既定）
 
     -
 
@@ -1751,7 +1751,7 @@ Privacy-58: クレジットカード情報の保存
     lockPref("extensions.formautofill.creditCards.enabled", true);
     lockPref("extensions.formautofill.creditCards.hideui", false);
 
-    :2: 保存しない (既定)
+    :2: 保存しない (既定）
 
     *.cfg / *.jsc:
     lockPref("dom.payments.defaults.saveCreditCard", false);
@@ -1761,7 +1761,7 @@ Privacy-58: クレジットカード情報の保存
 
 Privacy-59: 一時的な権限の許可を維持する時間
 
-    :1: 1時間 (既定)
+    :1: 1時間 (既定）
 
     *.cfg / *.jsc:
     // 単位：ミリ秒
