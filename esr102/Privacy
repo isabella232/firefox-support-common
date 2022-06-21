@@ -1772,3 +1772,155 @@ Privacy-59: 一時的な権限の許可を維持する時間
     *.cfg / *.jsc:
     // 単位：ミリ秒
     lockPref("privacy.temporary_permission_expire_time_ms", ...);
+
+Privacy-60: サブリソースに対するリファラ通知ポリシーの緩和の禁止
+
+    :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Privacy-61: トップレベルのコンテンツに対するリファラ通知ポリシーの緩和の禁止
+
+    :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する (既定）
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault.top_navigation": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Privacy-62: 厳格モードおよびプライベートブラウジング時の、サブリソースに対するリファラ通知ポリシーの緩和の禁止
+
+    :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Privacy-63: 厳格モードおよびプライベートブラウジング時の、トップレベルのコンテンツに対するリファラ通知ポリシーの緩和の禁止
+
+    :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する
+
+    *.cfg / *.jsc:
+    lockPref("network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

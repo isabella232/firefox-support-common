@@ -536,3 +536,48 @@ Network-25: SOCKS v5使用時のDNSに対するプロキシーの仕様
       },
       ...
     },
+
+Network-26: HTTPS RRによる、DNSでの名前解決時点でのHTTPSへの自動アップグレード
+
+    :1: 行う（既定）
+
+    -
+
+    :2: 行わない
+
+    *.cfg / *.jsc:
+    lockPref("network.dns.upgrade_with_https_rr", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "network.dns.upgrade_with_https_rr": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Network-27: 古いバージョンのTLS以外での3DESの使用
+
+    :1: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("security.ssl3.deprecated.rsa_des_ede3_sha", false);
+
+    distribution\policies.json:
+    "DisabledCiphers": {
+      "TLS_RSA_WITH_3DES_EDE_CBC_SHA": false,
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Disabled Ciphers」
+    →「TLS_RSA_WITH_3DES_EDE_CBC_SHA」を無効化
+
+    :2: 禁止する（既定）
+
+    -

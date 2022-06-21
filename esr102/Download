@@ -164,3 +164,106 @@ Download-3: ファイルのダウンロード先ディレクトリの制御
     カテゴリ「Firefox」
     → 「Prompt for download location」を有効化
 
+
+Download-4: 安全なWebサイトからの安全でないダウンロード、制限コンテンツからのダウンロードの自動ブロック
+
+    :1: ブロックする（既定）
+
+    *.cfg / *.jsc:
+    lockPref("dom.block_download_insecure", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.block_download_insecure": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: ブロックしない
+
+    *.cfg / *.jsc:
+    lockPref("dom.block_download_insecure", false);
+
+    distribution\policies.json:
+    "PromptForDownloadLocation": false,
+    "Preferences": {
+      "dom.block_download_insecure": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+
+Download-5: Firefox 98以前からの移行時における、ファイルの種類ごとの取り扱い
+
+    :1: 「毎回選択する」を既定の挙動に戻す（既定）
+
+    -
+
+    :2: 何もしない
+
+    *.cfg / *.jsc:
+    lockPref("browser.download.improvements_to_download_panel", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.download.improvements_to_download_panel": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+
+Download-6: 未知の種類のファイルのダウンロード時の既定の挙動
+
+    :1: ファイルを保存する（既定）
+
+    *.cfg / *.jsc:
+    lockPref("browser.download.always_ask_before_handling_new_types", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.download.always_ask_before_handling_new_types": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+    :2: ファイルを開くか保存するかを確認する
+
+    *.cfg / *.jsc:
+    lockPref("browser.download.always_ask_before_handling_new_types", true);
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.download.always_ask_before_handling_new_types": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定

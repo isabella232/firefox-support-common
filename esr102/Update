@@ -148,3 +148,18 @@ Update-7: アプリケーションの自動更新情報取得先
     カテゴリ「Firefox」
     → 「Custom Update URL」を有効化し、任意のURLを入力
 
+Update-8: Firefoxのバックグラウンドでの自動更新の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    distribution\policies.json:
+    "BackgroundAppUpdate": false,
+
+    GPO:
+    カテゴリ「Firefox」→「Extensions」
+    → 「Background updater」を無効化
+

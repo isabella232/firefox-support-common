@@ -1470,3 +1470,25 @@ Security-53: パスワードマネージャでの平文パスワードの表示�
     GPO:
     カテゴリ「Firefox」
     →「Do not allow passwords to be revealed in saved logins」を有効化
+
+Security-54: サイト分離モードの使用
+
+    :1: 有効化する（既定）
+
+    -
+
+    :2: 無効化する
+
+    *.cfg / *.jsc:
+    lockPref("fission.autostart", false);
+
+Security-55: コンテンツプロセスからのWin32 APIの呼び出し可否
+
+    :1: 禁止する（既定）
+
+    -
+
+    :2: 許可する
+
+    *.cfg / *.jsc:
+    lockPref("security.sandbox.content.win32k-disable", false);

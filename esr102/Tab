@@ -19,7 +19,7 @@ Tab-1: 複数のタブを閉じる際の警告の可否
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-    :2: 警告しない
+    :2: 警告しない（既定）
 
     distribution\policies.json:
     "Preferences": {

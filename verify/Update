@@ -112,3 +112,15 @@ Update-7: アプリケーションの自動更新情報取得先
     ABOUT_POLICIES
 
     - `AppUpdateURL` が空文字に設定されている。
+
+Update-8: Firefoxのバックグラウンドでの自動更新の可否
+
+    :1: 許可する（既定）
+
+    ABOUT_POLICIES
+
+    - `BackgroundAppUpdate` が存在しない。
+
+    :2: 禁止する
+
+    - `BackgroundAppUpdate` が `false` に設定されている。
