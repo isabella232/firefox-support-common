@@ -13,23 +13,23 @@
 #
 # (2) Generate a filled sheet
 #
-#     $ build-xlsx esr78.txt esr91.txt ... verify-targets-to-chapters.csv
-#     $ build-xlsx -p esr78.txt -c esr91.txt
-#     $ build-xlsx -d ESR78:esr78.txt -d ESR91:esr91.txt -d "ESR91 variation:esr91-variation.txt"
+#     $ build-xlsx esr91.txt esr102.txt ... verify-targets-to-chapters.csv
+#     $ build-xlsx -p esr91.txt -c esr102.txt
+#     $ build-xlsx -d ESR91:esr91.txt -d ESR102:esr102.txt -d "ESR102 variation:esr102-variation.txt"
 #
 # DEFINITION OF TERMS IN THIS MODULE
 #
-#     For example, about "Security-9-3 about:configの利用の可否：禁止する" on Firefox ESR91:
+#     For example, about "Security-9-3 about:configの利用の可否：禁止する" on Firefox ESR102:
 #
-#     * category:   "Security", this is same to the name of the file under "esr91/"
+#     * category:   "Security", this is same to the name of the file under "esr102/"
 #     * item:       "Security-9"
-#       * items:    "Security-1", "Security-2", "Security-3", and others defined in the file "esr91/Security"
+#       * items:    "Security-1", "Security-2", "Security-3", and others defined in the file "esr102/Security"
 #     * option:     "Security-9-1", "Security-9-2", "Security-9-3", and others
-#       * config:   `"BlockAboutConfig": true,` or others, defined in the given "conf" file like "esr91.txt"
-#       * template: `"BlockAboutConfig": true,` or others, defined in the file "esr91/Security"
+#       * config:   `"BlockAboutConfig": true,` or others, defined in the given "conf" file like "esr102.txt"
+#       * template: `"BlockAboutConfig": true,` or others, defined in the file "esr102/Security"
 #
 #     * conf:       A file listing chosen options. Please note this is not an abbr of "config".
-#     * curr/prev:  curr=ESR91, prev=ESR78 (versions)
+#     * curr/prev:  curr=ESR102, prev=ESR91 (versions)
 
 import re
 import sys
@@ -52,8 +52,8 @@ except ImportError:
 #
 # Global settings
 
-ESR_PREVIOUS = 'esr78'
-ESR_CURRENT  = 'esr91'
+ESR_PREVIOUS = 'esr91'
+ESR_CURRENT  = 'esr102'
 CHAPTERS_CSV = 'verify-targets-to-chapters.csv'
 
 WORKBOOKS = [
