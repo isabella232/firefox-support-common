@@ -268,7 +268,7 @@ Download-6: 未知の種類のファイルのダウンロード時の既定の�
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
-Download-7: ダウンロード中の一時ファイルの保存先
+Download-7: 外部アプリケーションで開くためにダウンロードされた一時ファイルの保存先
 
     :1: システムの一時ファイル置き場（既定）
 
