@@ -1953,7 +1953,19 @@ Privacy-64: SameSite指定が無いCookieの取り扱い
     カテゴリ「Firefox」
     →「Revert to legacy SameSite behavior」を有効化
 
-    :2: クロスサイトでの送信をサブリソースに対しては禁止し、特定サイトでのみクロスサイトでの送信を常に許可
+    :2: クロスサイトでの送信をサブリソースに対しては禁止する
+
+    *.cfg / *.jsc:
+    lockPref("network.cookie.sameSite.laxByDefault", true);
+
+    distribution\policies.json:
+    "LegacySameSiteCookieBehaviorEnabled": false,
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Revert to legacy SameSite behavior」を無効化
+
+    :3: クロスサイトでの送信をサブリソースに対しては禁止し、特定サイトでのみクロスサイトでの送信を常に許可
 
     *.cfg / *.jsc:
     lockPref("network.cookie.sameSite.laxByDefault", true);
