@@ -189,14 +189,14 @@ Privacy-5: パスワードの保存の可否
 
     distribution\policies.json:
     "PasswordManagerExceptions": [
-      "example.com",
-      "example.org",
+      "https://example.com",
+      "https://example.org",
       ...
     ],
 
     GPO:
     カテゴリ「Firefox」
-    → 「Password Manager Exceptions」有効化し、パスワードの保存を禁止するホストを列挙
+    → 「Password Manager Exceptions」有効化し、パスワードの保存を禁止するWebサイトのオリジンを列挙
 
 Privacy-6: [廃止] Webアプリのオフラインキャッシュの利用の可否
 
