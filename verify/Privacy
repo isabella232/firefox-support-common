@@ -1730,8 +1730,62 @@ Privacy-64: SameSite指定が無いCookieの取り扱い
 
     :1: クロスサイトでの送信を常に許可 (既定）
 
-    TBD
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
+      を削除する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから \
+      `https://codepen.io/isystk/pen/VwLEzBJ` \
+      を開く。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをクリックする。
+    - ページを再読み込みする。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをもう1度クリックする。
+    - **確認**
+        - 遷移後のページの `noCokkie` と `nonoeCokkie` の両方に `◯` が表示されている。
+
+    :2: クロスサイトでの送信をサブリソースに対しては禁止する
+
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
+      を削除する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから \
+      `https://codepen.io/isystk/pen/VwLEzBJ` \
+      を開く。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをクリックする。
+    - ページを再読み込みする。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをもう1度クリックする。
+    - **確認**
+        - 遷移後のページの `noCokkie` に `◯` が表示されていない。
 
     :2: クロスサイトでの送信をサブリソースに対しては禁止し、特定サイトでのみクロスサイトでの送信を常に許可
 
-    TBD
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
+      を削除する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから \
+      `https://codepen.io/isystk/pen/VwLEzBJ` \
+      を開く。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをクリックする。
+    - ページを再読み込みする。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをもう1度クリックする。
+    - **確認**
+        - 遷移後のページの `noCokkie` に `◯` が表示されていない。
+    - ポリシー設定を変更し `demo.isystk.com` をクロスサイトでのCookie送信許可サイトに加える。
+    - 今バージョンのメタインストーラで導入したFirefoxのユーザープロファイル \
+      `{{special_profile_path}}` {%if special_profile_actual_path %} \
+      （{{special_profile_actual_path}}）{% endif %} \
+      を削除する。
+    - Firefoxを起動する。
+    - テストケースリストのリンクから \
+      `https://codepen.io/isystk/pen/VwLEzBJ` \
+      を開く。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをクリックする。
+    - ページを再読み込みする。
+    - ページ下部のフレーム内の「タグによるアクセス」というラベル配下のリンクをもう1度クリックする。
+    - **確認**
+        - 遷移後のページの `noCokkie` と `nonoeCokkie` の両方に `◯` が表示されている。
