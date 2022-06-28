@@ -1700,11 +1700,19 @@ Privacy-61: トップレベルのコンテンツに対するリファラ通知�
 
     :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する
 
-    TBD
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://labs.w0s.jp/http/referrer-policy/unsafe-url/` を開く。
+    - `(none)` のリンクをクリックする。
+    - **確認**
+        1. `HTTP Referer : https://labs.w0s.jp/` と表示される。
 
     :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する (既定）
 
-    TBD
+    - Firefoxを起動する。
+    - テストケースリストのリンクから `https://labs.w0s.jp/http/referrer-policy/unsafe-url/` を開く。
+    - `(none)` のリンクをクリックする。
+    - **確認**
+        1. `HTTP Referer : https://labs.w0s.jp/http/referrer-policy/unsafe-url/` と表示される。
 
 Privacy-62: 厳格モードおよびプライベートブラウジング時の、サブリソースに対するリファラ通知ポリシーの緩和の禁止
 
@@ -1720,11 +1728,21 @@ Privacy-63: 厳格モードおよびプライベートブラウジング時の�
 
     :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
 
-    TBD
+    - Firefoxを起動する。
+    - プライベートウィンドウを開く。
+    - プライベートウィンドウで、テストケースリストのリンクから `https://labs.w0s.jp/http/referrer-policy/unsafe-url/` を開く。
+    - `(none)` のリンクをクリックする。
+    - **確認**
+        1. `HTTP Referer : https://labs.w0s.jp/` と表示される。
 
     :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する
 
-    TBD
+    - Firefoxを起動する。
+    - プライベートウィンドウを開く。
+    - プライベートウィンドウで、テストケースリストのリンクから `https://labs.w0s.jp/http/referrer-policy/unsafe-url/` を開く。
+    - `(none)` のリンクをクリックする。
+    - **確認**
+        1. `HTTP Referer : https://labs.w0s.jp/http/referrer-policy/unsafe-url/` と表示される。
 
 Privacy-64: SameSite指定が無いCookieの取り扱い
 
