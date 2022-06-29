@@ -474,26 +474,34 @@ Tab-21: Mozillaの契約パートナーが提供するトップサイトの表�
 
     :1: 表示する（既定）
 
-    TBD
+    OPTIONS
+
+    - 「ホーム」→「Firefox Homeコンテンツ」で「広告ショートカット」のチェックが入っている。
 
     :2: 常に表示する
 
-    TBD
+    OPTIONS
+
+    - 「ホーム」→「Firefox Homeコンテンツ」で「広告ショートカット」のチェックが入っていて、変更不可能になっている。
 
     :3: 常に非表示にする
 
-    TBD
+    OPTIONS
+
+    - 「ホーム」→「Firefox Homeコンテンツ」で「広告ショートカット」のチェックが外れていて、変更不可能になっている。
 
 Tab-22: Mozillaの契約パートナーが提供するPocketの項目の表示
 
     :1: 表示する（既定）
 
-    TBD
+    ABOUT_POLICIES
+
+    - `FirefoxHome` 配下の `SponsoredPocket` の値が存在しないか、空である。
 
     :2: 常に表示する
 
-    TBD
+    - `FirefoxHome` 配下の `SponsoredPocket` と `Locked` の値が `true` である。
 
     :3: 常に非表示にする
 
-    TBD
+    - `FirefoxHome` 配下の `SponsoredPocket` と `Locked` の値が `false` である。

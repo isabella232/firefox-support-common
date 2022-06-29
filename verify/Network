@@ -421,18 +421,26 @@ Network-26: HTTPS RRによる、DNSでの名前解決時点でのHTTPSへの自�
 
     :1: 行う（既定）
 
-    TBD
+    ABOUT_CONFIG
+
+    - `network.dns.upgrade_with_https_rr` の値が `true` である。
 
     :2: 行わない
 
-    TBD
+    ABOUT_CONFIG
+
+    - `network.dns.upgrade_with_https_rr` の値が `false` である。
 
 Network-27: 古いバージョンのTLS以外での3DESの使用
 
     :1: 許可する
 
-    TBD
+    ABOUT_CONFIG
+
+    - `security.ssl3.deprecated.rsa_des_ede3_sha` の値が `false` である。
 
     :2: 禁止する（既定）
 
-    TBD
+    ABOUT_CONFIG
+
+    - `security.ssl3.deprecated.rsa_des_ede3_sha` の値が `true` である。

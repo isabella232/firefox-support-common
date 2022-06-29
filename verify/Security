@@ -1113,18 +1113,26 @@ Security-54: サイト分離モードの使用
 
     :1: 有効化する（既定）
 
-    TBD
+    ABOUT_CONFIG
+
+    - `fission.autostart` の値が `true` である。
 
     :2: 無効化する
 
-    TBD
+    ABOUT_CONFIG
+
+    - `fission.autostart` の値が `false` である。
 
 Security-55: コンテンツプロセスからのWin32 APIの呼び出し可否
 
     :1: 禁止する（既定）
 
-    TBD
+    ABOUT_CONFIG
+
+    - `security.sandbox.content.win32k-disable` の値が `true` である。
 
     :2: 許可する
 
-    TBD
+    ABOUT_CONFIG
+
+    - `security.sandbox.content.win32k-disable` の値が `false` である。
