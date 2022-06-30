@@ -1,0 +1,8 @@
+namespace = "example-win10-2016-ltsb"
+windows-username = "clearcode"
+windows-password = "%PASSWORD%"
+windows-language-pack-url = ""
+flash-installer-url = ""
+hookdate-download-url = ""
+debugview-download-url = ""
+old-ie-download-url = ""
