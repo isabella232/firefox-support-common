@@ -191,6 +191,14 @@ Tab-5: 新しいタブの内容
         "Value": "about:blank",
         "Status": "locked"
       },
+      "browser.topsites.contile.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.topsites.contile.endpoint": {
+        "Value": "about:blank",
+        "Status": "locked"
+      },
       ...
     },
 
@@ -368,10 +376,23 @@ Tab-11: トップサイトの表示
       "TopSites": false,
       "Locked": true
     },
+    "Preferences": {
+      "browser.topsites.contile.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.topsites.contile.endpoint": {
+        "Value": "about:blank",
+        "Status": "locked"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Top Sites」のチェックをOFF、「Don't allow settings to be changed」のチェックをONにする
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
     :7: 初期状態で特定の行数で表示するが、表示・非表示や行数の変更を許容する
 
@@ -682,10 +703,23 @@ Tab-21: Mozillaの契約パートナーが提供するトップサイトの表�
       "SponsoredTopSites": false,
       "Locked": true
     },
+    "Preferences": {
+      "browser.topsites.contile.enabled": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "browser.topsites.contile.endpoint": {
+        "Value": "about:blank",
+        "Status": "locked"
+      },
+      ...
+    },
 
     GPO:
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Sponsored Top Sites」のチェックをOFFにする
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Tab-22: Mozillaの契約パートナーが提供するPocketの項目の表示
 

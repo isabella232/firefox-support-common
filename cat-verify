@@ -352,6 +352,9 @@ def create_template(manual, config, vars):
     vars['NotificationGloballyDisabled'] = vars['Script_2_3'] or vars['Script_2_6']
     vars['not NotificationGloballyDisabled'] = not vars['NotificationGloballyDisabled']
 
+    vars['DisabledSponsoredTopSites'] = vars['Tab_5_5'] or vars['Tab_11_6'] or vars['Tab_21_2']
+    vars['not DisabledSponsoredTopSites'] = not vars['DisabledSponsoredTopSites']
+
     chapters                  = {}
     chapter_options           = []
     chapter_about_config      = []
