@@ -616,23 +616,19 @@ Privacy-18: 利用状況の統計の保存および送信の可否
     :3: 禁止する
 
     // Privacy-52 よりも優先される
+    // このカスタマイズはMCDとポリシーを併用する
+
+    *.cfg / *.jsc:
+    lockPref("app.normandy.api_url", "");
+
     distribution\policies.json:
     "DisableDefaultBrowserAgent": true,
     "DisableTelemetry": true,
-    "Preferences": {
-      "app.normandy.api_url": {
-        "Value": "",
-        "Status": "locked"
-      },
-      ...
-    },
 
     GPO:
     カテゴリ「Firefox」
     → 「Disable the default browser agent.」を有効化
     → 「Disable Telemetry」を有効化
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
 Privacy-19: セキュリティエラーレポートの送信の可否
 
