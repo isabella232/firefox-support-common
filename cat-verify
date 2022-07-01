@@ -355,6 +355,9 @@ def create_template(manual, config, vars):
     vars['DisabledSponsoredTopSites'] = vars['Tab_5_5'] or vars['Tab_11_6'] or vars['Tab_21_2']
     vars['not DisabledSponsoredTopSites'] = not vars['DisabledSponsoredTopSites']
 
+    vars['DisabledStatistics'] = vars['Privacy_18_3']
+    vars['not DisabledStatistics'] = not vars['DisabledStatistics']
+
     chapters                  = {}
     chapter_options           = []
     chapter_about_config      = []
