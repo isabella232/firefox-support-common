@@ -787,54 +787,7 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
     :2: 使用しない
 
     *.cfg / *.jsc:
-    // Webフィード用のサービス
-    lockPref("browser.contentHandlers.types.0.name", "");
-    lockPref("browser.contentHandlers.types.0.uri", "");
-    lockPref("browser.contentHandlers.types.1.name", "");
-    lockPref("browser.contentHandlers.types.1.uri", "");
-    pref("browser.contentHandlers.types.2.name", "");
-    pref("browser.contentHandlers.types.2.uri", "");
-    pref("browser.contentHandlers.types.3.name", "");
-    pref("browser.contentHandlers.types.3.uri", "");
-    pref("browser.contentHandlers.types.4.name", "");
-    pref("browser.contentHandlers.types.4.uri", "");
-    pref("browser.contentHandlers.types.5.name", "");
-    pref("browser.contentHandlers.types.5.uri", "");
-    // IRC
-    lockPref("gecko.handlerService.schemes.irc.0.name", "");
-    lockPref("gecko.handlerService.schemes.irc.0.uriTemplate", "");
-    pref("gecko.handlerService.schemes.irc.1.name", "");
-    pref("gecko.handlerService.schemes.irc.1.uriTemplate", "");
-    pref("gecko.handlerService.schemes.irc.2.name", "");
-    pref("gecko.handlerService.schemes.irc.2.uriTemplate", "");
-    pref("gecko.handlerService.schemes.irc.3.name", "");
-    pref("gecko.handlerService.schemes.irc.3.uriTemplate", "");
-    lockPref("gecko.handlerService.schemes.ircs.0.name", "");
-    lockPref("gecko.handlerService.schemes.ircs.0.uriTemplate", "");
-    pref("gecko.handlerService.schemes.ircs.1.name", "");
-    pref("gecko.handlerService.schemes.ircs.1.uriTemplate", "");
-    pref("gecko.handlerService.schemes.ircs.2.name", "");
-    pref("gecko.handlerService.schemes.ircs.2.uriTemplate", "");
-    pref("gecko.handlerService.schemes.ircs.3.name", "");
-    pref("gecko.handlerService.schemes.ircs.3.uriTemplate", "");
-    // メール
-    lockPref("gecko.handlerService.schemes.mailto.0.name", "");
-    lockPref("gecko.handlerService.schemes.mailto.0.uriTemplate", "");
-    lockPref("gecko.handlerService.schemes.mailto.1.name", "");
-    lockPref("gecko.handlerService.schemes.mailto.1.uriTemplate", "");
-    pref("gecko.handlerService.schemes.mailto.2.name", "");
-    pref("gecko.handlerService.schemes.mailto.2.uriTemplate", "");
-    pref("gecko.handlerService.schemes.mailto.3.name", "");
-    pref("gecko.handlerService.schemes.mailto.3.uriTemplate", "");
-    // カレンダー
-    lockPref("gecko.handlerService.schemes.webcal.0.name", "");
-    lockPref("gecko.handlerService.schemes.webcal.0.uriTemplate", "");
-    pref("gecko.handlerService.schemes.webcal.1.name", "");
-    pref("gecko.handlerService.schemes.webcal.1.uriTemplate", "");
-    pref("gecko.handlerService.schemes.webcal.2.name", "");
-    pref("gecko.handlerService.schemes.webcal.2.uriTemplate", "");
-    pref("gecko.handlerService.schemes.webcal.3.name", "");
-    pref("gecko.handlerService.schemes.webcal.3.uriTemplate", "");
+    lockPref("gecko.handlerService.defaultHandlersVersion", 99999);
 
 Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
 
