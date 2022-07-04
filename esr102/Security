@@ -669,10 +669,6 @@ Security-18: ツールバーカスタマイズにおける、「他のテーマ�
         "Value": "",
         "Status": "locked"
       },
-      "extensions.recommendations.themeRecommendationUrl": {
-        "Value": "",
-        "Status": "locked"
-      },
       ...
     },
 
@@ -687,6 +683,10 @@ Security-19: ツールバーカスタマイズにおける、テーマの「お�
     distribution\policies.json:
     "Preferences": {
       "extensions.getAddons.discovery.api_url": {
+        "Value": "",
+        "Status": "locked"
+      },
+      "extensions.recommendations.themeRecommendationUrl": {
         "Value": "",
         "Status": "locked"
       },
