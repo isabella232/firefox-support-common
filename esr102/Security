@@ -669,6 +669,10 @@ Security-18: ツールバーカスタマイズにおける、「他のテーマ�
         "Value": "",
         "Status": "locked"
       },
+      "extensions.recommendations.themeRecommendationUrl": {
+        "Value": "",
+        "Status": "locked"
+      },
       ...
     },
 
