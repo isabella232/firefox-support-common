@@ -517,8 +517,8 @@ def create_template(manual, config, vars):
     template += '\n' + vars.get('POSTSCRIPT', '')
 
     urls = sorted(list(set(re.search('(?P<url>https?://[^\s`]+)', template).group('url'))))
-    vars['URLs'] = list(map(lambda url: '          - `'  + url + '`\n', urls))
-    vars['HasURLs'] = len(vars['URLs']) > 0
+    vars['urls'] = list(map(lambda url: '          - `'  + url + '`\n', urls))
+    vars['has_urls'] = len(urls) > 0
 
 
     return (template, chapters)
