@@ -514,14 +514,20 @@ def create_template(manual, config, vars):
         chapters['%s' % (first_level_chapter)] = chapter_disabled_devtool
         first_level_chapter += 1
 
-    template += '\n' + vars.get('POSTSCRIPT', '')
+    template += "\n" + vars.get('POSTSCRIPT', '')
 
-    urls = sorted(list(set(re.search('(?P<url>https?://[^\s`]+)', template).group('url'))))
-    vars['urls'] = list(map(lambda url: '      - `'  + url + '`\n', urls))
+    urls = extract_urls(template)
+    vars['urls'] = "\n".join(list(map(lambda url: ('      - `'  + url + '`'), urls)))
     vars['has_urls'] = len(urls) > 0
 
-
     return (template, chapters)
+
+def extract_urls(input):
+    all_extracted_urls = re.findall('(?P<url>https?://[^/(\s」`]+(?:[^(^\s`」][^\s`」]*)?)', input)
+    wildcard_replaced_urls = list(map(lambda url: re.sub('[~～]$', '*', url), all_extracted_urls))
+    sorted_urls = sorted(list(set(wildcard_replaced_urls)))
+    shortened_urls = re.sub("(https?://[^\n]+)(\n\\1[^\n]+)+", "\\1*", "\n".join(sorted_urls)).split("\n")
+    return shortened_urls
 
 def chapters_to_csv(chapters):
     chapters_by_option_id = {}
