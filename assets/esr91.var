@@ -2,13 +2,13 @@
 # 検証手順書用設定ファイル
 #
 
-firefox_version:                78.0 ESR
+firefox_version:                91.0 ESR
 windows_version:                Windows 7 および Windows 10
 configuration_sheet_name:       configs.xlsx
 use_meta_installer:             true
 meta_installer_name:            DemoFxMetaInstaller
 meta_installer_file_name:       DemoFxMetaInstaller
-meta_installer_version:         78.0
+meta_installer_version:         91.0
 special_profile_path:           %AppData%\Mozilla\Firefox\Profiles
 special_profile_name:           Special
 home_page:                      about:blank
@@ -33,4 +33,4 @@ COVER:
 
     % Firefoxカスタマイズ内容の検証手順
     % 株式会社クリアコード
-    % 2020年5月
+    % 2021年5月

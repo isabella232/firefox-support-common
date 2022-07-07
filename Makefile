@@ -8,7 +8,7 @@ DATE=$(shell date +%Y%m%d)
 UPDATES_PDF = "Firefox_$(DATE).pdf"
 BASE=$(shell pwd)
 
-VERIFY_MANUAL_OPT= -c assets/esr78.conf -a assets/esr78.var
+VERIFY_MANUAL_OPT= -c assets/esr91.conf -a assets/esr91.var
 
 # How to generate a PDF document:
 #
@@ -41,14 +41,14 @@ list-untracked-policies:
 
 list-unverified-configs:
 	grep -h "\(^[A-Z]\|:[0-9]:\)" verify/*  | grep -v 事前準備 | grep -v '\-0' > list-verify.txt
-	grep -h "\(^[A-Z]\|:[0-9]:\)" esr91/*  | grep -v 廃止 > list-esr91.txt
-	diff -U 6 list-esr91.txt list-verify.txt
+	grep -h "\(^[A-Z]\|:[0-9]:\)" esr102/*  | grep -v 廃止 > list-esr102.txt
+	diff -U 6 list-esr102.txt list-verify.txt
 
 verify-targets-to-chapters.csv:
 	./cat-verify ${VERIFY_MANUAL_OPT} -i > "$(PWD)/$@"
 
 configurations-sheet: verify-targets-to-chapters.csv
-	./build-xlsx -o config-$(DATE).xlsx -d ESR78:assets/esr78.conf -d ESR91:assets/esr91.conf -d "ESR91 派生:assets/esr91-variation.conf" verify-targets-to-chapters.csv
+	./build-xlsx -o config-$(DATE).xlsx -d ESR91:assets/esr91.conf -d ESR102:assets/esr102.conf -d "ESR102 派生:assets/esr102-variation.conf" verify-targets-to-chapters.csv
 
 verification-manual:
 	./cat-verify ${VERIFY_MANUAL_OPT} | pandoc ${PANDOC_OPT_DOCX} -o verify-$(DATE).docx
@@ -57,10 +57,10 @@ verification-manual:
 migration-report: migration-report-docx migration-report-pdf
 
 migration-report-docx:
-	cd migration && cat esr91.md | pandoc ${PANDOC_OPT_DOCX} -o "../migration-report-esr91-$(DATE).docx"
+	cd migration && cat esr102.md | pandoc ${PANDOC_OPT_DOCX} -o "../migration-report-esr102-$(DATE).docx"
 
 migration-report-pdf:
-	cd migration && cat esr91.md | pandoc ${PANDOC_OPT_PDF} -o "../migration-report-esr91-$(DATE).pdf"
+	cd migration && cat esr102.md | pandoc ${PANDOC_OPT_PDF} -o "../migration-report-esr102-$(DATE).pdf"
 
 clean:
 	rm -f config-*.xlsx
