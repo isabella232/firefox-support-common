@@ -52,10 +52,10 @@ Script-2: プッシュ通知の可否
 
     :3: 禁止する（ESR版・既定）: 外部Webサイト（`googlechrome.github.io`）を訪問できない場合
 
-    ABOUT_CONFIG
-
-    - `dom.push.enabled` の値が `false` である。
-    - `dom.serviceWorkers.enabled` の値が `false` である。
+    - Firefoxを起動する。
+    - テストケースの browser.html を開く。
+    - **確認**
+        - 「ServiceWorker」欄にdisabledと表示される。
 
     :6: すべてのサイトについて初期状態で確認無しで禁止する（「通知の許可の要求をブロック」にチェック）
 
