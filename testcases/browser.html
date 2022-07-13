@@ -45,6 +45,11 @@ a:visited {color:#00a;}
   <td class='status'></td>
   <td class='exec'><a href='javascript:;'></a></td>
 </tr>
+<tr id='ServiceWorker'>
+  <th>AudioWorklet</th>
+  <td class='status'></td>
+  <td class='exec'><a href='javascript:;'></a></td>
+</tr>
 </table>
 </body>
 <script>
@@ -97,6 +102,10 @@ function checkAudioWorklet() {
   return 'audioWorklet' in audioCtx ? 'enabled' : 'disabled';
 }
 
+function checkServiceWorker() {
+  return 'serviceWorker' in navigator ? 'enabled' : 'disabled';
+}
+
 var _query = (q) => document.querySelector(q);
 
 _query('#beacon .status').textContent = beacon();
@@ -105,5 +114,6 @@ _query('#geolocation .status').textContent = geolocation();
 _query('#indexedDB .status').textContent = indexedDB();
 _query('#geolocation .exec a').onclick = doGeolocation;
 _query('#AudioWorklet .status').textContent = checkAudioWorklet();
+_query('#ServiceWorker .status').textContent = checkServiceWorker();
 </script>
 </html>
