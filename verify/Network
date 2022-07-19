@@ -102,6 +102,12 @@ Network-4: NTLM認証によるシングルサインオンの許可
       `{{ntlm_single_signon_hosts}}` \
       である。
 
+    :3: 許可しない
+
+    ABOUT_CONFIG
+
+    - `network.automatic-ntlm-auth.trusted-uris` の値が空である。
+
 Network-5: HTTPの同時接続数
 
     :1: パフォーマンスを優先（既定）
