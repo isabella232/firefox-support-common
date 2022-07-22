@@ -133,6 +133,11 @@ Network-4: NTLM認証によるシングルサインオンの許可
     → 「Delegated」を有効化し、オプションでWebサイトを指定
     → 「NTLM」を有効化し、オプションでWebサイトを指定
 
+    :3: 許可しない
+
+    *.cfg / *.jsc:
+    defaultPref("network.automatic-ntlm-auth.trusted-uris", "");
+
 Network-5: HTTPの同時接続数
 
     :1: パフォーマンスを優先（既定）
