@@ -330,10 +330,14 @@ class ConfigurationRow:
                 format, status = 'selected_changed', '新規'
             elif modified:
                 if check_template:
-                    print('WARNING: %s (%s) column should be updated:' % (option_id, ESR_CURRENT.upper()))
-                    format, status = 'check_template', '雛形要確認'
+                    print('WARNING: %s %s column should be updated:' % (option_id, ESR_CURRENT.upper()))
+                    format, status = 'check_template', '雛形要確認(変更あり)'
                 else:
                     format, status = 'selected_changed', '変更あり'
+            elif check_template:
+                print('WARNING: %s %s is same as %s, but a bit different from current %s template:' %
+                      (option_id, ESR_CURRENT.upper(), ESR_PREVIOUS.upper(), ESR_CURRENT.upper()))
+                format, status = 'check_template', '雛形要確認(変更なし)'
             else:
                 format, status = 'selected', ''
         elif last_conf == self._prev_conf:
