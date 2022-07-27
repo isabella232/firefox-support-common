@@ -127,6 +127,8 @@ PREV_VERSION_COLUNBS = [ # label, width, key, format
     ('反映した設定値\n(%s)' % ESR_PREVIOUS.upper(), 40, 'applied_prev_config',  None),
 ]
 
+check_template_mode = False
+
 #
 # XLSX writer
 
@@ -200,6 +202,8 @@ class ConfigurationSheet:
         self.write_cell(row + 1, 2, '前バージョンから異同がある項目',       'noborder')
         self.write_cell(row + 2, 1, '',                                     'deprecated')
         self.write_cell(row + 2, 2, '廃止済みの項目',                       'noborder')
+        self.write_cell(row + 3, 1, '',                                   'check_template')
+        self.write_cell(row + 3, 2, '新しい設定値に追従できていない項目',    'noborder')
 
 class ConfigurationRow:
 
@@ -316,6 +320,7 @@ class ConfigurationRow:
         format   = 'default'
         config   = self._get_option_config(conf)
         modified = self._sanitize_config(last_config) != self._sanitize_config(config)
+        check_template = self._is_follow_new_template(option_id, config)
 
         if self._is_deprecated(self._item['title']) or self._is_deprecated(option['option_title']):
             format = 'deprecated'
@@ -323,7 +328,10 @@ class ConfigurationRow:
             if option_id not in last_conf:
                 format, status = 'selected_changed', '新規'
             elif modified:
-                format, status = 'selected_changed', '変更あり'
+                if check_template:
+                    format, status = 'check_template', '雛形要確認'
+                else:
+                    format, status = 'selected_changed', '変更あり'
             else:
                 format, status = 'selected', ''
         elif last_conf == self._prev_conf:
@@ -349,6 +357,18 @@ class ConfigurationRow:
 
     def _sanitize_config(self, config):
         return re.sub(' *[^:]+:\n', '', config).strip()
+
+    def _omit_gpo_config(self, config):
+        # eliminate GPO: and the following configuration lines
+        return re.sub('GPO:.*', '', config, flags=(re.DOTALL)).strip()
+
+    def _is_follow_new_template(self, option_id, config):
+        if not check_template_mode:
+            return False
+        if option_id in ('Install-1-2', 'Install-2-2', 'Install-7-2'):
+            # Ignore always customized value
+            return False
+        return self._sanitize_config(self._omit_gpo_config(self._template_curr_config)) != self._sanitize_config(config)
 
 def generate_xlsx(workbook, confs, verification_chapters, exclude_worksheets):
     formats = create_formats(workbook)
@@ -406,6 +426,7 @@ def create_formats(workbook):
         'question':         new_format(bg_color = '#90ee90'),
         'selected':         new_format(bg_color = '#fffa95'),
         'selected_changed': new_format(bg_color = '#ffb571'),
+        'check_template':   new_format(bg_color = '#ff00ff'),
     }
 
 #
@@ -419,11 +440,12 @@ def load_verification_chapters(path):
         return {}
 
 def main(args):
+    global check_template_mode
     confs   = {}
     outfile = 'config.xlsx'
     exclude_worksheets = []
 
-    opts, args = getopt.getopt(args, 'o:x:p:c:d:')
+    opts, args = getopt.getopt(args, 'o:x:p:c:d:t')
     for key, value in opts:
         if key == '-o':
             outfile = value
@@ -436,6 +458,10 @@ def main(args):
         elif key == '-d':
             parts = value.split(':', 1)
             confs[parts[0]] = parts[1]
+        elif key == '-t':
+            # Compare template configuration and finally applied configuration.
+            # Do not use this option for sheet in production. This option is intended to be used with checking.
+            check_template_mode = True
 
     verification_chapters = {}
     for arg in args:
