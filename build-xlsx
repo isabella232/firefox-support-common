@@ -370,6 +370,8 @@ class ConfigurationRow:
         if option_id in ('Install-1-2', 'Install-2-2', 'Install-7-2'):
             # Ignore always customized value
             return False
+        if len(config) == 0:
+            return False
         return self._sanitize_config(self._omit_gpo_config(self._template_curr_config)) != self._sanitize_config(config)
 
 def generate_xlsx(workbook, confs, verification_chapters, exclude_worksheets):
