@@ -329,6 +329,7 @@ class ConfigurationRow:
                 format, status = 'selected_changed', '新規'
             elif modified:
                 if check_template:
+                    print('WARNING: %s (%s) column should be updated:' % (option_id, ESR_CURRENT.upper()))
                     format, status = 'check_template', '雛形要確認'
                 else:
                     format, status = 'selected_changed', '変更あり'
