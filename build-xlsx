@@ -202,8 +202,9 @@ class ConfigurationSheet:
         self.write_cell(row + 1, 2, '前バージョンから異同がある項目',       'noborder')
         self.write_cell(row + 2, 1, '',                                     'deprecated')
         self.write_cell(row + 2, 2, '廃止済みの項目',                       'noborder')
-        self.write_cell(row + 3, 1, '',                                   'check_template')
-        self.write_cell(row + 3, 2, '新しい設定値に追従できていない項目',    'noborder')
+        if check_template_mode:
+            self.write_cell(row + 3, 1, '',                                   'check_template')
+            self.write_cell(row + 3, 2, '新しい設定値に追従できていない項目',    'noborder')
 
 class ConfigurationRow:
 
