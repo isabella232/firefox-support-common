@@ -582,6 +582,7 @@ Security-15: その他、バックグラウンドで行われる外部への通�
     lockPref("extensions.blocklist.addonItemURL", "");
     // アドオンのインストールやおすすめの列挙
     lockPref("extensions.getAddons.discovery.api_url", "");
+    lockPref("extensions.getAddons.langpacks.url", "");
     lockPref("extensions.getAddons.link.url", "");
     lockPref("extensions.getAddons.search.browseURL", "");
     lockPref("extensions.recommendations.privacyPolicyUrl", "");
