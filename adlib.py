@@ -48,7 +48,7 @@ from collections import OrderedDict
 # OPTION_MATCHER matches option titles.
 
 ITEM_MATCHER = re.compile('^(\S+): (.+)')
-OPTION_MATCHER = re.compile('^ +:(\d+): ([^:]+)(: (.+))?')
+OPTION_MATCHER = re.compile('^ +:(\d+): (.*about:[^:]+|[^:]+)(: (.+))?')
 
 def is_comment(line):
     return line.startswith("#")
