@@ -1989,3 +1989,21 @@ Privacy-64: SameSite指定が無いCookieの取り扱い
     →「Revert to legacy SameSite behavior」を無効化
     カテゴリ「Firefox」
     →「Revert to legacy SameSite behavior on specific domains」を有効化し、従来の挙動を適用するホストを列挙
+
+Privacy-65: 履歴の参照の可否
+
+    :1: 許可する（既定）
+
+    -
+
+    :2: 禁止する
+
+    // 履歴メニューに履歴を記録させない
+    // Privacy-1は履歴の保存時の挙動の制御が趣旨であり、
+    // 履歴メニューから履歴を参照できるかには影響しない
+    *.cfg / *.jsc:
+    lockPref("places.history.enabled", false);
+
+    GPO:
+    カテゴリ「Firefox」
+    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
