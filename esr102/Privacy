@@ -2,7 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-Privacy-1: 履歴の保存の可否
+Privacy-1: 履歴の保存（永続化）の可否
 
     :2: 保存する（既定）
 
@@ -1990,16 +1990,16 @@ Privacy-64: SameSite指定が無いCookieの取り扱い
     カテゴリ「Firefox」
     →「Revert to legacy SameSite behavior on specific domains」を有効化し、従来の挙動を適用するホストを列挙
 
-Privacy-65: 履歴の参照の可否
+Privacy-65: 履歴データベースの有効化
 
-    :1: 許可する（既定）
+    :1: 有効（既定）
 
     -
 
-    :2: 禁止する
+    :2: 無効
 
     // 履歴メニューに履歴を記録させない
-    // Privacy-1は履歴の保存時の挙動の制御が趣旨であり、
+    // Privacy-1はFirefox終了後の履歴の永続化の挙動の制御が趣旨であり、
     // 履歴メニューから履歴を参照できるかには影響しない
     *.cfg / *.jsc:
     lockPref("places.history.enabled", false);
