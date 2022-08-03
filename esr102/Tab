@@ -750,3 +750,39 @@ Tab-22: Mozillaの契約パートナーが提供するPocketの項目の表示
     GPO:
     カテゴリ「Firefox」
     → 「Customize Firefox Home」を有効化し、「Sponsored Top Sites」のチェックをOFFにする
+
+Tab-23: ウェブ閲覧中におすすめの拡張を表示する
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    distribution\policies.json:
+    "UserMessaging": {
+      "ExtensionRecommendations": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→ 「UserMessaging」
+    → 「Extension Recommendations」を有効化（設定値の固定は不可能）
+
+Tab-24: ウェブ閲覧中におすすめの機能を表示する
+
+    :1: 表示する（既定）
+
+    -
+
+    :2: 表示しない
+
+    distribution\policies.json:
+    "UserMessaging": {
+      "FeatureRecommendations": false,
+      "Locked": true
+    },
+
+    GPO:
+    カテゴリ「Firefox」→ 「UserMessaging」
+    → 「Feature Recommendations」を有効化（設定値の固定は不可能）
