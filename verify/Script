@@ -325,3 +325,22 @@ Script-17: レガシーなNetwork Information APIの使用可否
 
     - `dom.netinfo.enabled` の値が `false` である。
 
+Script-18: スクリプトから開いていないウィンドウをスクリプトで閉じる挙動の可否
+
+    :1: 許可しない(既定)
+
+    - Firefoxを起動する。
+    - テストケースの`index.html` を開く。
+    - Ctrl+Shift+Kでコンソールを開く。
+    - window.close()をコンソールで実行する。
+    - **確認**
+      - ウィンドウが閉じられない。
+
+    :2: 許可する
+
+    - Firefoxを起動する。
+    - テストケースの`index.html` を開く。
+    - Ctrl+Shift+Kでコンソールを開く。
+    - window.close()をコンソールで実行する。
+    - **確認**
+      - ウィンドウが閉じられる。
