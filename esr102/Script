@@ -391,3 +391,23 @@ Script-17: レガシーなNetwork Information APIの使用可否
     :2: 無効化する（既定）
 
     -
+
+Script-18: スクリプトから開いていないウィンドウをスクリプトで閉じる挙動の可否
+
+    :1: 許可しない(既定)
+
+    -
+
+    :2: 許可する
+
+    *.cfg / *.jsc
+    lockPref("dom.allow_scripts_to_close_window", false);
+
+    distribution\policies.json:
+    "Preferences": {
+      "dom.allow_scripts_to_close_window": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
