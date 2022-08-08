@@ -401,11 +401,11 @@ Script-18: スクリプトから開いていないウィンドウをスクリプ
     :2: 許可する
 
     *.cfg / *.jsc
-    lockPref("dom.allow_scripts_to_close_window", false);
+    lockPref("dom.allow_scripts_to_close_windows", false);
 
     distribution\policies.json:
     "Preferences": {
-      "dom.allow_scripts_to_close_window": {
+      "dom.allow_scripts_to_close_windows": {
         "Value": true,
         "Status": "locked"
       },
