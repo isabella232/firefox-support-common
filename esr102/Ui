@@ -203,3 +203,28 @@ Ui-10: BackSpace/Shift-BackSpaceに割り当てる動作
     GPO:
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+
+Ui-11: サイトごとの表示拡大率の制御
+
+    :1: サイトごとに記憶する（既定）
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.zoom.siteSpecific": {
+        "Value": true,
+        "Status": "locked"
+      },
+      ...
+    },
+
+    :2: サイトごとに記憶しない(リセットされる)
+
+    distribution\policies.json:
+    "Preferences": {
+      "browser.zoom.siteSpecific": {
+        "Value": false,
+        "Status": "locked"
+      },
+      ...
+    },
+
