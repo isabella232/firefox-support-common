@@ -156,6 +156,7 @@ Update-8: Firefoxのバックグラウンドでの自動更新の可否
 
     :2: 禁止する
 
+    // Update-1-4を選択した場合常にこの挙動になる
     distribution\policies.json:
     "BackgroundAppUpdate": false,
 
