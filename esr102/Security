@@ -919,11 +919,13 @@ Security-32: アドオンのインストール時の警告
 
     :1: 警告する（既定）
 
+    // Security-3-3でアドオンのインストールを禁止している場合はそちらが優先
     *.cfg / *.jsc:
     lockPref("xpinstall.whitelist.required", true);
 
     :2: 警告しない
 
+    // Security-3-3のアドオンのインストール禁止と併用不可
     *.cfg / *.jsc:
     lockPref("xpinstall.whitelist.required", false);
 
