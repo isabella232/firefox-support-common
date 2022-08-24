@@ -790,6 +790,7 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
 
     :2: 使用しない
 
+    // 日本の場合、プロファイル新規作成時にmailto:のハンドラにYahoo!メールやGmailが選択肢として登録されなくなる
     *.cfg / *.jsc:
     lockPref("gecko.handlerService.defaultHandlersVersion", 99999);
 
