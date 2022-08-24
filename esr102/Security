@@ -794,6 +794,41 @@ Security-25: プロトコルごとの外部Webアプリケーションへの連�
     *.cfg / *.jsc:
     lockPref("gecko.handlerService.defaultHandlersVersion", 99999);
 
+    :3: 使用する(既定のアプリを経由)
+
+    // 既定のアプリ(PDF)が設定されている場合、そのアプリケーションで自動的に起動する
+    // Firefox起動中は一時的にユーザーが設定を変更できるが、起動しなおすと指定値にリセットされる
+    distribution\policies.json:
+    "Handlers": {
+      "mimeTypes": {
+        "application/pdf": {
+          "action": "useSystemDefault",
+          "ask": false
+        }
+      },
+      ...
+    },
+
+    :4: 使用する(ヘルパーアプリを経由)
+
+    // 任意のヘルパーアプリを利用して表示する
+    // Firefox起動中は一時的にユーザーが設定を変更できるが、起動しなおすと指定値にリセットされる
+    // 例: PDFをAdobe Acrobat Readerで表示する(pathはフルパスでないと認識されない)
+    distribution\policies.json:
+    "Handlers": {
+      "extensions": {
+        "pdf": {
+          "action": "useHelperApp",
+          "ask": false,
+          "handlers" : [{
+            "name": "Adobe Acrobat",
+            "path": "C:\\Program Files\\Adobe\\Acrobat DC\\Acrobat\\Acrobat.exe"
+          }]
+        }
+      },
+      ...
+    },
+
 Security-26: ファイルのダウンロード保護により、危険なソフトウェアのインストールをブロックする
 
     :1: ブロックする（既定）
