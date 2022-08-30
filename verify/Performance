@@ -73,7 +73,7 @@ Performance-5: GCの実行頻度
 
     ABOUT_CONFIG
 
-    - `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。
+    {%if use_browser_cache_check_doc_frequency %}- `browser.cache.check_doc_frequency` の値が指定値の通りである。{% else %}- `javascript.options.mem.gc_allocation_threshold_mb` の値が指定値の通りである。{% endif %}
 
 Performance-6: 同時に開けるタブの個数を制限する
 
