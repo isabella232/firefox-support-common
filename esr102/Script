@@ -6,18 +6,9 @@ Script-1: スクリプトによる頻繁なalertの可否
 
     :1: 許可する
 
-    distribution\policies.json:
-    "Preferences": {
-      "dom.successive_dialog_time_limit": {
-        "Value": 0,
-        "Status": "locked"
-      },
-      ...
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
+    *.cfg / *.jsc:
+    // Preferencesで制御可能な範囲だが、https://bugzilla.mozilla.org/show_bug.cgi?id=1668374 の影響によって、ポリシーで設定すると真偽値と判定されてしまうため、必ず*.cfg/*.jscで設定する必要がある。
+    lockPref("dom.successive_dialog_time_limit", 0);
 
     :2: 禁止する（3秒以内にalertが繰り返されたら警告を表示する）（既定）
 
