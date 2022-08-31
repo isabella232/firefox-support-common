@@ -164,7 +164,7 @@ Startup-7: 60日以上Firefoxを使用しなかった場合の、次の起動時
 
     :2: リセットを提案しない: not ModifySystemTime
 
-    ABOUT_POLICIES
+    ABOUT_CONFIG
 
     - `browser.disableResetPrompt` の値が `true` である。
 
