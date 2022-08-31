@@ -504,7 +504,7 @@ Tab-22: Mozillaの契約パートナーが提供するPocketの項目の表示
 
     :3: 常に非表示にする
 
-    - `FirefoxHome` 配下の `SponsoredPocket` と `Locked` の値が `false` である。
+    - `FirefoxHome` 配下の `SponsoredPocket` の値が `false`で `Locked` の値が `true` である。
 
 Tab-23: ウェブ閲覧中におすすめの拡張を表示する
 
