@@ -342,19 +342,19 @@ Security-14: ローカルファイルからの他ディレクトリの参照の�
 
     :1: 許可する
 
-    - テストケースの `cross-directory.html` から見て `../configuration-sheets/constumize-item-list.csv` の位置にファイルを設置する。
+    - テストケースの `cross-directory.html` から見て `../migration/esr68.txt` の位置にファイルを設置する。
     - Firefoxを起動する。
     - テストケースの `cross-directory.html` を開く。
     - **確認**
-        1. `./cross-directory.html` および `../configuration-sheets/constumize-item-list.csv` の結果が `200` と表示される。
+        1. `./cross-directory.html` および `../migration/esr68.txt` の結果が `200` と表示される。
 
     :2: 禁止する（既定）
 
-    - テストケースの `cross-directory.html` から見て `../configuration-sheets/constumize-item-list.csv` の位置にファイルを設置する。
+    - テストケースの `cross-directory.html` から見て `../migration/esr68.txt` の位置にファイルを設置する。
     - Firefoxを起動する。
     - テストケースの `cross-directory.html` を開く。
     - **確認**
-        1. `./cross-directory.html` の結果は `200` 、`../configuration-sheets/constumize-item-list.csv` の結果はエラーが表示される。
+        1. `./cross-directory.html` の結果は `200` 、`../migration/esr68.txt` の結果はエラーが表示される。
 
 Security-15: その他、バックグラウンドで行われる外部への通信の可否
 
