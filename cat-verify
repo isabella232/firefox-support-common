@@ -587,6 +587,20 @@ def main(args):
     for fn in FILES:
         manual[fn] = adlib.load('verify/%s' % fn)
 
+    # Check whether option id is belonged to pre-defined category
+    invalid_option_id_count = 0
+    for option_id in config.keys():
+        found = False
+        for category in FILES:
+            if category in option_id:
+                found = True
+        if not found:
+            invalid_option_id_count += 1
+            print("%s must be invalid option id, check category of %s: %s" %
+                  (option_id, option_id, config[option_id]['option_title']), file=sys.stderr)
+    if invalid_option_id_count > 0:
+        exit(1)
+
     template, chapters = create_template(manual, config, vars)
 
     if only_index_output:
