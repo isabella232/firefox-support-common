@@ -118,10 +118,16 @@ Update-8: Firefoxのバックグラウンドでの自動更新の可否
 
     :1: 許可する（既定）
 
-    ABOUT_POLICIES
-
+    {% if Update_1_4 %}
+    - Update-1-4の自動更新禁止を適用すると、自動的にバックグラウンドの自動更新も機能しないため検証を省略する。
+    {% else %}
     - `BackgroundAppUpdate` が存在しない。
+    {% endif %}
 
     :2: 禁止する
 
+    {% if Update_1_4 %}
+    - Update-1-4の自動更新禁止を適用すると、自動的にバックグラウンドの自動更新も機能しないため検証を省略する。
+    {% else %}
     - `BackgroundAppUpdate` が `false` に設定されている。
+    {% endif %}
