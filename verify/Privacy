@@ -1736,6 +1736,7 @@ Privacy-62: 厳格モードおよびプライベートブラウジング時の�
 
     :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
 
+    {% if not MenuShortcut_3_1 %}
     - Firefoxを起動する。
     - プライベートウィンドウを開く。
     - プライベートウィンドウで、テストケースリストのリンクから \
@@ -1744,9 +1745,13 @@ Privacy-62: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://piro.sakura.ne.jp/` \
            とオリジンのみが表示される。
+    {% else %}
+    - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
+    {% endif %}
 
     :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する
 
+    {% if not MenuShortcut_3_1 %}
     - Firefoxを起動する。
     - プライベートウィンドウを開く。
     - プライベートウィンドウで、テストケースリストのリンクから \
@@ -1755,11 +1760,15 @@ Privacy-62: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://piro.sakura.ne.jp/test/iframe-referrer-policy-unsafe-url.html` \
            と完全なURLが表示される。
+    {% else %}
+    - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
+    {% endif %}
 
 Privacy-63: 厳格モードおよびプライベートブラウジング時の、トップレベルのコンテンツに対するリファラ通知ポリシーの緩和の禁止
 
     :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
 
+    {% if not MenuShortcut_3_1 %}
     - Firefoxを起動する。
     - プライベートウィンドウを開く。
     - プライベートウィンドウで、テストケースリストのリンクから \
@@ -1769,9 +1778,13 @@ Privacy-63: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://labs.w0s.jp/` \
            と表示される。
+    {% else %}
+    - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
+    {% endif %}
 
     :2: クロスオリジンで情報が通知されるような形でのポリシーの緩和を許可する
 
+    {% if not MenuShortcut_3_1 %}
     - Firefoxを起動する。
     - プライベートウィンドウを開く。
     - プライベートウィンドウで、テストケースリストのリンクから \
@@ -1781,6 +1794,9 @@ Privacy-63: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://labs.w0s.jp/http/referrer-policy/unsafe-url/` \
            と表示される。
+    {% else %}
+    - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
+    {% endif %}
 
 Privacy-64: SameSite指定が無いCookieの取り扱い
 
