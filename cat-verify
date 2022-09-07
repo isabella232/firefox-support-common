@@ -342,7 +342,12 @@ def create_template(manual, config, vars):
 
     vars['UsePACFile'] = vars['Network_2_8']
 
-    vars['UseBlockList'] = not (vars['Security_5_2'] or vars['Security_6_2'] or vars['Privacy_33_5'])
+    missing_any_of_privacy_33 = not any([vars['Privacy_33_1'],
+                                         vars['Privacy_33_2'],
+                                         vars['Privacy_33_4'],
+                                         vars['Privacy_33_5']])
+    vars['UseBlockList'] = (not (vars['Security_5_2'] or vars['Security_6_2'] or vars['Privacy_33_5'])) or \
+                           missing_any_of_privacy_33
 
     vars['InstallAddonsPermission'] = vars['Security_3_3'] or vars['Security_3_6'] or vars['Security_3_7']
 
