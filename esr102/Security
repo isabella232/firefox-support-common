@@ -1372,24 +1372,15 @@ Security-49: [廃止]「ようこそ」画面からのFirefox Monitorへの遷�
 
     [廃止] ESR91で廃止
 
-Security-50: 「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
+Security-50: [廃止]「ようこそ」画面からのFirefox Mobileダウンロードページへの遷移
 
     :1: 許可する（既定）
 
-    -
+    [廃止] ESR91で廃止
 
     :2: 禁止する
 
-    distribution\policies.json:
-    "WebsiteFilter": {
-      "Block": [
-        "https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*"
-      ]
-    },
-
-    GPO:
-    カテゴリ「Firefox」
-    →「Blocked websites」を有効化し、「オプション」欄に「https://www.mozilla.org/firefox/mobile/?utm_source=activity-stream*」を追加
+    [廃止] ESR91で廃止
 
 Security-51: HTTPSのコンテンツからHTTPのコンテンツへのフォーム送信時の警告
 
