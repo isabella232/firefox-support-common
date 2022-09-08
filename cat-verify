@@ -363,6 +363,8 @@ def create_template(manual, config, vars):
     vars['DisabledStatistics'] = vars['Privacy_18_3']
     vars['not DisabledStatistics'] = not vars['DisabledStatistics']
 
+    vars['PromptForDownloadLocation'] = vars['Download_3_4']
+
     chapters                  = {}
     chapter_options           = []
     chapter_about_config      = []
