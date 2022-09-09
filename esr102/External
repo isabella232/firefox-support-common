@@ -6,6 +6,7 @@ External-1: ファイルをダウンロードして直接外部アプリケー�
 
     :1: ファイルを読み込み専用で開き、アプリケーション終了後に一時ファイルを削除する（既定）
 
+    // ESR102以降ファイルを読み込み専用で開くためにはDownload-5-2の併用が必要
     distribution\policies.json:
     "Preferences": {
       "browser.helperApps.deleteTempFileOnExit": {
