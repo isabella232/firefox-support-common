@@ -1713,6 +1713,8 @@ Privacy-60: サブリソースに対するリファラ通知ポリシーの緩�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://piro.sakura.ne.jp/test/iframe-referrer-policy-unsafe-url.html` \
            と完全なURLが表示される。
+    - **確認(`https://whatsmyreferer.com`にアクセスできない場合)**
+        - "network.http.referer.disallowCrossSiteRelaxingDefault" の値が `false` で固定されている。
 
 Privacy-61: トップレベルのコンテンツに対するリファラ通知ポリシーの緩和の禁止
 
@@ -1737,6 +1739,8 @@ Privacy-61: トップレベルのコンテンツに対するリファラ通知�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://labs.w0s.jp/http/referrer-policy/unsafe-url/` \
            と表示される。
+    - **確認(`https://whatsmyreferer.com`にアクセスできない場合)**
+        - "network.http.referer.disallowCrossSiteRelaxingDefault.top_naviagtion" の値が `false` で固定されている。
 
 Privacy-62: 厳格モードおよびプライベートブラウジング時の、サブリソースに対するリファラ通知ポリシーの緩和の禁止
 
