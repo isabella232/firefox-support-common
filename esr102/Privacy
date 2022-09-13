@@ -1799,6 +1799,8 @@ Privacy-60: サブリソースに対するリファラ通知ポリシーの緩�
     :1: クロスオリジンで情報が通知されるような形でのポリシーの緩和を禁止する (既定）
 
     *.cfg / *.jsc:
+    // Privacy-44-4を選択した場合、リファラ通知ポリシーがもっとも緩いため
+    // Privacy-60-1の緩和の禁止は意味をなさない。
     lockPref("network.http.referer.disallowCrossSiteRelaxingDefault", true);
 
     distribution\policies.json:
