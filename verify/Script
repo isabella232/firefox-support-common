@@ -329,6 +329,9 @@ Script-18: スクリプトから開いていないウィンドウをスクリプ
 
     :1: 許可しない(既定)
 
+    {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {% endif %}
     - Firefoxを起動する。
     - テストケースの`index.html` を開く。
     - Ctrl+Shift+Kでコンソールを開く。
@@ -338,6 +341,9 @@ Script-18: スクリプトから開いていないウィンドウをスクリプ
 
     :2: 許可する
 
+    {%if DisableDeveloperTools %}
+    - ポリシー設定から `DisableDeveloperTools` を削除し、開発ツールを一時的に有効化しておく。
+    {% endif %}
     - Firefoxを起動する。
     - テストケースの`index.html` を開く。
     - Ctrl+Shift+Kでコンソールを開く。
