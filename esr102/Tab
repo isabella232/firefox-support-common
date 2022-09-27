@@ -777,6 +777,8 @@ Tab-24: ウェブ閲覧中におすすめの機能を表示する
 
     :2: 表示しない
 
+    // Privacy-42-2(FirefoxStudies無効)もしくは
+    // Security-3-3(アドオンインストール禁止)を選択した場合常にこの挙動になる
     distribution\policies.json:
     "UserMessaging": {
       "FeatureRecommendations": false,
