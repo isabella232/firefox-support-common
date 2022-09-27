@@ -1755,6 +1755,8 @@ Privacy-62: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://piro.sakura.ne.jp/` \
            とオリジンのみが表示される。
+    - **確認(`https://whatsmyreferer.com`にアクセスできない場合)**
+        - "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode" の値が `true` で固定されている。
     {% else %}
     - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
     {% endif %}
@@ -1770,6 +1772,8 @@ Privacy-62: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://piro.sakura.ne.jp/test/iframe-referrer-policy-unsafe-url.html` \
            と完全なURLが表示される。
+    - **確認(`https://whatsmyreferer.com`にアクセスできない場合)**
+        - "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode" の値が `false` で固定されている。
     {% else %}
     - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
     {% endif %}
@@ -1788,6 +1792,8 @@ Privacy-63: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://labs.w0s.jp/` \
            と表示される。
+    - **確認(`https://whatsmyreferer.com`にアクセスできない場合)**
+        - "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation" の値が `true` で固定されている。
     {% else %}
     - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
     {% endif %}
@@ -1804,6 +1810,8 @@ Privacy-63: 厳格モードおよびプライベートブラウジング時の�
     - **確認**
         1. `https://whatsmyreferer.com/` を経由して `HTTP Referer : https://labs.w0s.jp/http/referrer-policy/unsafe-url/` \
            と表示される。
+    - **確認(`https://whatsmyreferer.com`にアクセスできない場合)**
+        - "network.http.referer.disallowCrossSiteRelaxingDefault.pbmode.top_navigation" の値が `false` で固定されている。
     {% else %}
     - プライベートウィンドウの機能をMenuShortcut-3-1にて無効化しているため検証を省略する。
     {% endif %}
