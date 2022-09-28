@@ -527,6 +527,19 @@ Privacy-14: 位置情報の利用の可否
     カテゴリ「Firefox」
     →「Preferences」を有効化し、policies.jsonのPreferencesに設定する内容と同等のJSON文字列を設定
 
+    :8: すべてのサイトについて初期状態で確認無しで禁止する（「位置情報へのアクセスの要求をブロック」にチェック）が、特定のサイトのみ許可する
+
+    // MCDとポリシーの併用が必須
+    *.cfg / *.jsc:
+    lockPref("permissions.default.geo", 2);
+
+    distribution\policies.json:
+    "Permissions": {
+      "Location": {
+        "Allow": ["https://www.example.com", ... ]
+      }
+    },
+
 Privacy-15: 検索結果のローカライズ用地域コードの位置情報に基づく推定の可否
 
     :1: 許可する（既定）
